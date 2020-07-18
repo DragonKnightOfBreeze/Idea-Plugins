@@ -19,6 +19,7 @@ class StellarisLocalizationCompletionContributor : CompletionContributor() {
 		val inPropertyHeader get() = psiElement()
 			.inFile(psiFile(StellarisLocalizationFile::class.java))
 			.afterLeaf("l_")
+			.withParent(StellarisLocalizationFile::class.java)
 	}
 
 	class PropertyHeaderCompletionProvider : CompletionProvider<CompletionParameters>() {

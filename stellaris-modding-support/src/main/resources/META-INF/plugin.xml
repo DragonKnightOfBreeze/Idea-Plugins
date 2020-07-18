@@ -194,9 +194,6 @@
     <lang.braceMatcher
       language="Stellaris Localization"
       implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationCodeMarkerMatcher"/>
-    <lang.braceMatcher
-      language="Stellaris Localization"
-      implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationPropertyReferenceMarkerMatcher"/>
     <lang.foldingBuilder
       language="Stellaris Localization"
       implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationFoldingBuilder"/>

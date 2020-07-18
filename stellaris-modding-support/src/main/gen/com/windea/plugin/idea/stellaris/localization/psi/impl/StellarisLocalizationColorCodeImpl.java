@@ -8,10 +8,9 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
 import static com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationTypes.*;
-import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.windea.plugin.idea.stellaris.localization.psi.*;
 
-public class StellarisLocalizationColorCodeImpl extends ASTWrapperPsiElement implements StellarisLocalizationColorCode {
+public class StellarisLocalizationColorCodeImpl extends StellarisLocalizationNamedElementImpl implements StellarisLocalizationColorCode {
 
   public StellarisLocalizationColorCodeImpl(@NotNull ASTNode node) {
     super(node);
@@ -30,6 +29,24 @@ public class StellarisLocalizationColorCodeImpl extends ASTWrapperPsiElement imp
   @NotNull
   public PsiElement getColorfulTextCode() {
     return findNotNullChildByType(COLORFUL_TEXT_CODE);
+  }
+
+  @Override
+  @Nullable
+  public String getName() {
+    return StellarisLocalizationPsiImplUtil.getName(this);
+  }
+
+  @Override
+  @NotNull
+  public PsiElement setName(@NotNull String name) {
+    return StellarisLocalizationPsiImplUtil.setName(this, name);
+  }
+
+  @Override
+  @Nullable
+  public PsiElement getNameIdentifier() {
+    return StellarisLocalizationPsiImplUtil.getNameIdentifier(this);
   }
 
 }

@@ -12,6 +12,8 @@ import com.windea.plugin.idea.stellaris.localization.psi.*
 
 //com.intellij.lang.properties.PropertiesDocumentationProvider
 
+//必须是PsiNamedElement
+
 class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider() {
 	override fun getQuickNavigateInfo(element: PsiElement?, originalElement: PsiElement?): String? {
 		return when {
@@ -23,25 +25,29 @@ class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider
 	}
 
 	override fun generateDoc(element: PsiElement?, originalElement: PsiElement?): String? {
+		println(element)
+		println(element?.text)
+		println(originalElement)
+		println(originalElement?.text)
 		return when {
-			originalElement is StellarisLocalizationPropertyHeader -> {
+			element is StellarisLocalizationPropertyHeader -> {
 				buildString{
 					append(DocumentationMarkup.DEFINITION_START)
-					append(stellarisLocaleMap[originalElement.name])
+					append(stellarisLocaleMap[element.name])
 					append(DocumentationMarkup.DEFINITION_END)
 				}
 			}
-			originalElement is StellarisLocalizationColorCode -> {
+			element is StellarisLocalizationColorCode -> {
 				buildString{
 					append(DocumentationMarkup.DEFINITION_START)
-					append(stellarisColorMap[originalElement.text])
+					append(stellarisColorMap[element.text])
 					append(DocumentationMarkup.DEFINITION_END)
 				}
 			}
-			originalElement is StellarisLocalizationSerialNumber -> {
+			element is StellarisLocalizationSerialNumber -> {
 				buildString{
 					append(DocumentationMarkup.DEFINITION_START)
-					append(stellarisSerialNumberMap[originalElement.text])
+					append(stellarisSerialNumberMap[element.text])
 					append(DocumentationMarkup.DEFINITION_END)
 				}
 			}

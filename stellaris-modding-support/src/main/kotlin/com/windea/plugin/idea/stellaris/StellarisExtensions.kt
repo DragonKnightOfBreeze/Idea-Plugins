@@ -139,20 +139,20 @@ fun findFurthestSiblingOfSameType(element: PsiElement, after: Boolean): PsiEleme
 
 /**创建查找元素。用于代码补全。*/
 fun createLookupElement(element: PsiElement,icon:Icon? = null, tailText: String? = null, typeText: String? = null): LookupElementBuilder {
-	return LookupElementBuilder.create(element).apply {
-		if(icon!= null) withIcon(icon)
-		if(tailText != null) withTailText(tailText)
-		if(typeText != null) withTypeText(typeText)
-	}
+	var result =  LookupElementBuilder.create(element)
+	if(icon!= null) result = result.withIcon(icon)
+	if(tailText != null) result = result.withTailText(tailText)
+	if(typeText != null) result = result.withTypeText(typeText)
+	return result
 }
 
 /**创建查找元素。用于代码补全。*/
 fun createLookupElement(keyword: String,icon:Icon? = null, tailText: String? = null, typeText: String? = null): LookupElementBuilder {
-	return LookupElementBuilder.create(keyword).apply {
-		if(icon!= null) withIcon(icon)
-		if(tailText != null) withTailText(tailText)
-		if(typeText != null) withTypeText(typeText)
-	}
+	var result =  LookupElementBuilder.create(keyword)
+	if(icon!= null) result = result.withIcon(icon)
+	if(tailText != null) result = result.withTailText(tailText)
+	if(typeText != null) result = result.withTypeText(typeText)
+	return result
 }
 
 /**创建关键字查找元素。用于代码补全。*/

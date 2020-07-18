@@ -8,10 +8,9 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
 import static com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationTypes.*;
-import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.windea.plugin.idea.stellaris.localization.psi.*;
 
-public class StellarisLocalizationSerialNumberImpl extends ASTWrapperPsiElement implements StellarisLocalizationSerialNumber {
+public class StellarisLocalizationSerialNumberImpl extends StellarisLocalizationNamedElementImpl implements StellarisLocalizationSerialNumber {
 
   public StellarisLocalizationSerialNumberImpl(@NotNull ASTNode node) {
     super(node);
@@ -30,6 +29,24 @@ public class StellarisLocalizationSerialNumberImpl extends ASTWrapperPsiElement 
   @NotNull
   public PsiElement getSerialNumberCode() {
     return findNotNullChildByType(SERIAL_NUMBER_CODE);
+  }
+
+  @Override
+  @Nullable
+  public String getName() {
+    return StellarisLocalizationPsiImplUtil.getName(this);
+  }
+
+  @Override
+  @NotNull
+  public PsiElement setName(@NotNull String name) {
+    return StellarisLocalizationPsiImplUtil.setName(this, name);
+  }
+
+  @Override
+  @Nullable
+  public PsiElement getNameIdentifier() {
+    return StellarisLocalizationPsiImplUtil.getNameIdentifier(this);
   }
 
 }

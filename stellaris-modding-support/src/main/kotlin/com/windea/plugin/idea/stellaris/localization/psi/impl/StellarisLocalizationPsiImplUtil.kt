@@ -108,7 +108,7 @@ object StellarisLocalizationPsiImplUtil {
 	}
 	//endregion
 
-	//region StellarisLocalizationPropertyReference
+	//region StellarisLocalizationIcon
 	@JvmStatic
 	fun getName(element: StellarisLocalizationIcon): String? {
 		return element.text.trim('£')
@@ -122,6 +122,42 @@ object StellarisLocalizationPsiImplUtil {
 
 	@JvmStatic
 	fun getNameIdentifier(element: StellarisLocalizationIcon): PsiElement? {
+		return element
+	}
+	//endregion
+
+	//region StellarisLocalizationSerialNumber
+	@JvmStatic
+	fun getName(element: StellarisLocalizationSerialNumber): String? {
+		return element.text
+	}
+
+	@JvmStatic
+	fun setName(element: StellarisLocalizationSerialNumber, name: String): PsiElement {
+		//不支持
+		return element
+	}
+
+	@JvmStatic
+	fun getNameIdentifier(element: StellarisLocalizationSerialNumber): PsiElement? {
+		return element
+	}
+	//endregion
+
+	//region StellarisLocalizationColorCode
+	@JvmStatic
+	fun getName(element: StellarisLocalizationColorCode): String? {
+		return element.text
+	}
+
+	@JvmStatic
+	fun setName(element: StellarisLocalizationColorCode, name: String): PsiElement {
+		//不支持
+		return element
+	}
+
+	@JvmStatic
+	fun getNameIdentifier(element: StellarisLocalizationColorCode): PsiElement? {
 		return element
 	}
 	//endregion

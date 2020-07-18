@@ -13,7 +13,7 @@ public class StellarisLocalizationVisitor extends PsiElementVisitor {
   }
 
   public void visitColorCode(@NotNull StellarisLocalizationColorCode o) {
-    visitPsiElement(o);
+    visitNamedElement(o);
   }
 
   public void visitColorfulText(@NotNull StellarisLocalizationColorfulText o) {
@@ -53,7 +53,7 @@ public class StellarisLocalizationVisitor extends PsiElementVisitor {
   }
 
   public void visitSerialNumber(@NotNull StellarisLocalizationSerialNumber o) {
-    visitPsiElement(o);
+    visitNamedElement(o);
   }
 
   public void visitPsiLiteralValue(@NotNull PsiLiteralValue o) {

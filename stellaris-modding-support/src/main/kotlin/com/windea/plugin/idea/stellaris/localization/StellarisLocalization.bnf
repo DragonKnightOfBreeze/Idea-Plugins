@@ -75,6 +75,14 @@ icon ::= ICON_START ICON_TEXT ICON_END {
   	implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
   	methods=[getName setName getNameIdentifier]
 }
-serial_number ::= SERIAL_NUMBER_START SERIAL_NUMBER_CODE SERIAL_NUMBER_END
+serial_number ::= SERIAL_NUMBER_START SERIAL_NUMBER_CODE SERIAL_NUMBER_END {
+  	mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"
+  	implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
+  	methods=[getName setName getNameIdentifier]
+}
 colorful_text ::= COLORFUL_TEXT_START color_code rich_text* COLORFUL_TEXT_END
-color_code ::= COLORFUL_TEXT_CODE
+color_code ::= COLORFUL_TEXT_CODE {
+  	mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"
+  	implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
+  	methods=[getName setName getNameIdentifier]
+}
