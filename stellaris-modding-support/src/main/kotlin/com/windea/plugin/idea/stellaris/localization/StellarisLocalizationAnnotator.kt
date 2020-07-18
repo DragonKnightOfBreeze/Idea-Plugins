@@ -6,8 +6,6 @@ import com.intellij.openapi.project.*
 import com.intellij.psi.*
 import com.windea.plugin.idea.stellaris.annotations.*
 import com.windea.plugin.idea.stellaris.localization.highlighter.*
-import com.windea.plugin.idea.stellaris.localization.highlighter.StellarisLocalizationSyntaxHighlighter.Companion.PROPERTY_HEADER_KEY
-import com.windea.plugin.idea.stellaris.localization.highlighter.StellarisLocalizationSyntaxHighlighter.Companion.PROPERTY_KEY_KEY
 import com.windea.plugin.idea.stellaris.localization.psi.*
 import com.windea.plugin.idea.stellaris.script.highlighter.*
 

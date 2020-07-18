@@ -5,9 +5,9 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
-public interface StellarisLocalizationPlainText extends PsiElement {
+public interface StellarisLocalizationColorCode extends PsiElement {
 
   @NotNull
-  PsiElement getValueToken();
+  PsiElement getColorfulTextCode();
 
 }

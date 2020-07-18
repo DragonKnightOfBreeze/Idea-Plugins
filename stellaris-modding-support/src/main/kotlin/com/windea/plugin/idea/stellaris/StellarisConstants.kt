@@ -4,6 +4,7 @@ import com.intellij.openapi.project.*
 import com.intellij.openapi.util.*
 import com.windea.plugin.idea.stellaris.domain.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
+import com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationSerialNumber
 import java.util.concurrent.*
 
 //Strings
@@ -50,8 +51,11 @@ val stellarisLocalizationIcon = IconLoader.getIcon("/icons/stellaris_localizatio
 val stellarisScriptIcon = IconLoader.getIcon("/icons/stellaris_script.png")
 
 //Caches
+val stellarisLocaleMap = enumValues<StellarisLocale>().associateBy({it.text},{it.description})
+val stellarisColorMap = enumValues<StellarisColor>().associateBy({it.text},{it.description})
+val stellarisSerialNumberMap = enumValues<StellarisSerialNumber>().associateBy({it.text},{it.description})
 
-val stellarisLocalizationLocales = enumValues<StellarisLocalizationLocale>().mapArray { it.text }
+val stellarisLocalizationLocales = enumValues<StellarisLocale>().mapArray { it.text }
 
 //用于缓存用于popup的所有支持的属性头部
 val stellarisLocalizationPropertyHeaderCache: MutableMap<Project, Array<out StellarisLocalizationPropertyHeader>> = ConcurrentHashMap()

@@ -6,24 +6,17 @@
 
 settings = {
     number_value =  123
-    #123
-	number_value = @variable
+	variable_value = @variable
 	boolean_value = yes # yes or no
 	string_value =  Foo # simple text
     string_value = "Foo\n bar " # require quotes when contains blank
 	list_value = {
-		"A" "B "
-		"C"
+		"A" "B " "C"
 	}
-	
 	# predicate expression is compatible (treat as property)
 	list_value = {
-		value1 < 1
-		val = {
-		    "123"
-	        Text_value_must_start_with_upper_case_char_or_be_quoted
-		}
+		number < 1
+		value = "str"
 	}
-	error = "Error\"
 	a = 1
 }

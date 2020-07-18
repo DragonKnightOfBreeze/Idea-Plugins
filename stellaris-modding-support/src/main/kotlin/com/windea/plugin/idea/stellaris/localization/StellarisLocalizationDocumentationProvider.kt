@@ -24,9 +24,22 @@ class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider
 		return when(element) {
 			is StellarisLocalizationPropertyHeader -> {
 				buildString{
-					val description = enumValues<StellarisLocalizationLocale>().first { it.text == element.name }.description
 					append(DocumentationMarkup.DEFINITION_START)
-					append(description)
+					append(stellarisLocaleMap[element.name])
+					append(DocumentationMarkup.DEFINITION_END)
+				}
+			}
+			is StellarisLocalizationColorCode -> {
+				buildString{
+					append(DocumentationMarkup.DEFINITION_START)
+					append(stellarisColorMap[element.text])
+					append(DocumentationMarkup.DEFINITION_END)
+				}
+			}
+			is StellarisLocalizationSerialNumber -> {
+				buildString{
+					append(DocumentationMarkup.DEFINITION_START)
+					append(stellarisSerialNumberMap[element.text])
 					append(DocumentationMarkup.DEFINITION_END)
 				}
 			}
@@ -36,7 +49,7 @@ class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider
 					append("<b>${element.name}</b>: ${getPropertyValueText(element).quote()} ${getLocationText(element)}")
 					append(DocumentationMarkup.DEFINITION_END)
 
-					val textAttributesKey = StellarisLocalizationSyntaxHighlighter.COMMENT_KEY
+					val textAttributesKey = StellarisLocalizationAttributesKeys.COMMENT_KEY
 					val docCommentText = getDocCommentHtmlFromPreviousComment(element, textAttributesKey)
 					if(docCommentText.isNotEmpty()) {
 						append(DocumentationMarkup.CONTENT_START)

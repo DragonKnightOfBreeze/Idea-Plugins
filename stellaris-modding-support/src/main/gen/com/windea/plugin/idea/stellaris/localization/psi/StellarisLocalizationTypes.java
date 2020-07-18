@@ -10,6 +10,7 @@ public interface StellarisLocalizationTypes {
 
   IElementType CODE = new StellarisLocalizationElementType("CODE");
   IElementType COLORFUL_TEXT = new StellarisLocalizationElementType("COLORFUL_TEXT");
+  IElementType COLOR_CODE = new StellarisLocalizationElementType("COLOR_CODE");
   IElementType ICON = new StellarisLocalizationElementType("ICON");
   IElementType PLAIN_TEXT = new StellarisLocalizationElementType("PLAIN_TEXT");
   IElementType PROPERTY = new StellarisLocalizationElementType("PROPERTY");
@@ -52,6 +53,9 @@ public interface StellarisLocalizationTypes {
       }
       else if (type == COLORFUL_TEXT) {
         return new StellarisLocalizationColorfulTextImpl(node);
+      }
+      else if (type == COLOR_CODE) {
+        return new StellarisLocalizationColorCodeImpl(node);
       }
       else if (type == ICON) {
         return new StellarisLocalizationIconImpl(node);

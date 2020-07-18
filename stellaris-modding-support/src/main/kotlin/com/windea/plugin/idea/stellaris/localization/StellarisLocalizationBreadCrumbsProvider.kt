@@ -19,13 +19,12 @@ class StellarisLocalizationBreadCrumbsProvider :BreadcrumbsProvider{
 
 	override fun getElementInfo(element: PsiElement): String {
 		return when(element){
-			is StellarisLocalizationPropertyHeader -> element.name
 			is StellarisLocalizationProperty -> element.name
-			else -> breadCrumbsElement
+			else -> null
 		} ?: anonymousElement
 	}
 
 	override fun acceptElement(element: PsiElement): Boolean {
-		return element is StellarisLocalizationPropertyHeader || element is StellarisLocalizationProperty
+		return element is StellarisLocalizationProperty
 	}
 }

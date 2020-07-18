@@ -53,23 +53,23 @@ ROOT_COMMENT=#[^\r\n]*
 NUMBER=\d
 HEADER_TOKEN=[a-z_]+
 KEY_TOKEN=[a-zA-Z][a-zA-Z0-9_.]*
-VALUE_TOKEN=\"([^\"\r\n\\]|\\.)*?\"
+VALUE_TOKEN=([^\"(\[$£§%\r\n\\]|\\.)+
 LEFT_QUOTE=\"
 RIGHT_QUOTE=\"
 PROPERTY_REFERENCE_START="$"
 PROPERTY_REFERENCE_END="$"
 CODE_START="["
 CODE_TEXT=[^\[\]]+
-CODE_END="]"
-ICON_START="£"
+CODE_END=]
+ICON_START=£
 ICON_TEXT=[a-z_]+
-ICON_END="£"
-SERIAL_NUMBER_START="%"
-SERIAL_NUMBER_CODE=[^%]+
-SERIAL_NUMBER_END="%"
-COLORFUL_TEXT_START="§"
+ICON_END=£
+SERIAL_NUMBER_START=%
+SERIAL_NUMBER_CODE=[A-Z]
+SERIAL_NUMBER_END=%
+COLORFUL_TEXT_START=§
 COLORFUL_TEXT_CODE=[A-Z]
-COLORFUL_TEXT_END="§"
+COLORFUL_TEXT_END=§
 
 %%
 
@@ -115,36 +115,36 @@ COLORFUL_TEXT_END="§"
   {RIGHT_QUOTE} { yybegin(WAITING_PROPERTY_KEY); return RIGHT_QUOTE;}
   {PROPERTY_REFERENCE_START} { yybegin(WAITING_PROPERTY_REFERENCE); return PROPERTY_REFERENCE_START;}
   {CODE_START} { yybegin(WAITING_CODE); return CODE_START;}
-  {ICON_START} { yybegin(WAITING_CODE); return ICON_START;}
-  {SERIAL_NUMBER_START} { yybegin(WAITING_CODE); return SERIAL_NUMBER_START;}
+  {ICON_START} { yybegin(WAITING_ICON); return ICON_START;}
+  {SERIAL_NUMBER_START} { yybegin(WAITING_SERIAL_NUMBER); return SERIAL_NUMBER_START;}
   {COLORFUL_TEXT_START} { textDepth++; yybegin(WAITING_COLORFUL_TEXT_CODE); return COLORFUL_TEXT_START;}
   {VALUE_TOKEN} {  return VALUE_TOKEN;}
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
 }
 <WAITING_PROPERTY_REFERENCE>{
-  {PROPERTY_REFERENCE_END} {yybegin(textState()); return PROPERTY_REFERENCE_END;}
-  {VALUE_TOKEN} {return VALUE_TOKEN;}
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
+  {PROPERTY_REFERENCE_END} {yybegin(textState()); return PROPERTY_REFERENCE_END;}
+  {KEY_TOKEN} {return KEY_TOKEN;}
 }
 <WAITING_CODE>{
+  {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
   {CODE_END} {yybegin(textState()); return CODE_END;}
   {CODE_TEXT} {return CODE_TEXT;}
-  {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
 }
 <WAITING_ICON>{
+  {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
   {ICON_END} {yybegin(textState()); return ICON_END;}
   {ICON_TEXT} {return ICON_TEXT;}
-  {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
 }
 <WAITING_SERIAL_NUMBER>{
+  {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
   {SERIAL_NUMBER_END} {yybegin(textState()); return SERIAL_NUMBER_END;}
   {SERIAL_NUMBER_CODE} {return SERIAL_NUMBER_CODE;}
-  {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
 }
 <WAITING_COLORFUL_TEXT_CODE>{
+  {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
   {COLORFUL_TEXT_END} {textDepth--; yybegin(textState()); return COLORFUL_TEXT_END;} //跳过非法字符
   {COLORFUL_TEXT_CODE} {yybegin(WAITING_COLORFUL_TEXT); return COLORFUL_TEXT_CODE;}
-  {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
 }
 <WAITING_COLORFUL_TEXT>{
   {COLORFUL_TEXT_END} {textDepth--;  ;yybegin(textState()); return COLORFUL_TEXT_END;} //跳过非法字符

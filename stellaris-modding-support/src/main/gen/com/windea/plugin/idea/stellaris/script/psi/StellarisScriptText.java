@@ -8,7 +8,7 @@ import com.intellij.psi.PsiLiteralValue;
 import com.intellij.openapi.util.Iconable.IconFlags;
 import javax.swing.Icon;
 
-public interface StellarisScriptPlainText extends PsiLiteralValue {
+public interface StellarisScriptText extends PsiLiteralValue {
 
   @NotNull
   StellarisScriptStringLiteral getStringLiteral();

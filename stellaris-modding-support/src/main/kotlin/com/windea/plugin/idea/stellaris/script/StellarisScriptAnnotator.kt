@@ -24,7 +24,7 @@ class StellarisScriptAnnotator : Annotator ,DumbAware{
 					holder.newSilentAnnotation(INFORMATION).textAttributes(StellarisScriptSyntaxHighlighter.PROPERTY_KEY_KEY).create()
 				}
 				if(resolve is StellarisLocalizationProperty){
-					holder.newSilentAnnotation(INFORMATION).textAttributes(StellarisLocalizationSyntaxHighlighter.PROPERTY_KEY_KEY).create()
+					holder.newSilentAnnotation(INFORMATION).textAttributes(StellarisLocalizationAttributesKeys.PROPERTY_KEY_KEY).create()
 				}
 			}
 			//is StellarisScriptVariableName -> {

@@ -12,7 +12,7 @@ public interface StellarisScriptList extends PsiListLikeElement {
   List<StellarisScriptProperty> getPropertyList();
 
   @NotNull
-  List<StellarisScriptPlainText> getTextList();
+  List<StellarisScriptText> getTextList();
 
   @NotNull
   List<PsiElement> getComponents();

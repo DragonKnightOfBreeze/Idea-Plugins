@@ -48,13 +48,26 @@ public class StellarisLocalizationParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // COLORFUL_TEXT_START COLORFUL_TEXT_CODE rich_text* COLORFUL_TEXT_END
+  // COLORFUL_TEXT_CODE
+  public static boolean color_code(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "color_code")) return false;
+    if (!nextTokenIs(b, COLORFUL_TEXT_CODE)) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeToken(b, COLORFUL_TEXT_CODE);
+    exit_section_(b, m, COLOR_CODE, r);
+    return r;
+  }
+
+  /* ********************************************************** */
+  // COLORFUL_TEXT_START color_code rich_text* COLORFUL_TEXT_END
   public static boolean colorful_text(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "colorful_text")) return false;
     if (!nextTokenIs(b, COLORFUL_TEXT_START)) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = consumeTokens(b, 0, COLORFUL_TEXT_START, COLORFUL_TEXT_CODE);
+    r = consumeToken(b, COLORFUL_TEXT_START);
+    r = r && color_code(b, l + 1);
     r = r && colorful_text_2(b, l + 1);
     r = r && consumeToken(b, COLORFUL_TEXT_END);
     exit_section_(b, m, COLORFUL_TEXT, r);

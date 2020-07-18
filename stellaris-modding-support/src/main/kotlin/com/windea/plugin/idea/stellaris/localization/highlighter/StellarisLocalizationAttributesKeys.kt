@@ -22,11 +22,11 @@ object StellarisLocalizationAttributesKeys {
 	val MARKER_KEY = createTextAttributesKey(message("stellaris.localization.syntax.marker"), KEYWORD)
 	val CODE_KEY = createTextAttributesKey(message("stellaris.localization.syntax.code"), IDENTIFIER)
 	val ICON_KEY = createTextAttributesKey(message("stellaris.localization.syntax.icon"),
-		IDENTIFIER.defaultAttributes.apply { foregroundColor = Color(0x5C8AE6) } )
+		IDENTIFIER.defaultAttributes.clone().apply { foregroundColor = Color(0x5C8AE6) } )
 	val SERIAL_NUMBER_CODE_KEY = createTextAttributesKey(message("stellaris.localization.syntax.serialNumberCode"),
-		IDENTIFIER.defaultAttributes.apply { this.fontType = Font.BOLD } )
+		IDENTIFIER.defaultAttributes.clone().apply { this.fontType = Font.BOLD } )
 	val COLOR_CODE_KEY = createTextAttributesKey(message("stellaris.localization.syntax.colorCode"),
-		IDENTIFIER.defaultAttributes.apply { this.fontType = Font.BOLD } )
+		IDENTIFIER.defaultAttributes.clone().apply { this.fontType = Font.BOLD } )
 	val VALID_ESCAPE_KEY = createTextAttributesKey(message("stellaris.localization.syntax.validEscape"), VALID_STRING_ESCAPE)
 	val INVALID_ESCAPE_KEY = createTextAttributesKey(message("stellaris.localization.syntax.invalidEscape"), INVALID_STRING_ESCAPE)
 	val BAD_CHARACTER_KEY = createTextAttributesKey(message("stellaris.localization.syntax.badCharacter"), BAD_CHARACTER)

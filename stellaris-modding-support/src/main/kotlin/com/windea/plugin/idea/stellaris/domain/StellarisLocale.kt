@@ -5,7 +5,7 @@ package com.windea.plugin.idea.stellaris.domain
 /**
  * 本地化文件的语言区域枚举
  */
-enum class StellarisLocalizationLocale(
+enum class StellarisLocale(
 	val text: String,
 	val description:String
 ) {

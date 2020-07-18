@@ -7,6 +7,7 @@ import com.intellij.lang.ASTNode;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
+import static com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.windea.plugin.idea.stellaris.script.psi.*;
 
@@ -33,8 +34,8 @@ public class StellarisScriptListImpl extends ASTWrapperPsiElement implements Ste
 
   @Override
   @NotNull
-  public List<StellarisScriptPlainText> getTextList() {
-    return PsiTreeUtil.getChildrenOfTypeAsList(this, StellarisScriptPlainText.class);
+  public List<StellarisScriptText> getTextList() {
+    return PsiTreeUtil.getChildrenOfTypeAsList(this, StellarisScriptText.class);
   }
 
   @Override

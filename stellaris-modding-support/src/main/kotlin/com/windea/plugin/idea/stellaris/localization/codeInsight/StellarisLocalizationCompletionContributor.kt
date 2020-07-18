@@ -23,7 +23,7 @@ class StellarisLocalizationCompletionContributor : CompletionContributor() {
 
 	class PropertyHeaderCompletionProvider : CompletionProvider<CompletionParameters>() {
 		override fun addCompletions(parameters: CompletionParameters, context: ProcessingContext, result: CompletionResultSet) {
-			for(locale in enumValues<StellarisLocalizationLocale>()) {
+			for(locale in enumValues<StellarisLocale>()) {
 				result.addElement(createLookupElement(locale.text,typeText = locale.description))
 			}
 		}

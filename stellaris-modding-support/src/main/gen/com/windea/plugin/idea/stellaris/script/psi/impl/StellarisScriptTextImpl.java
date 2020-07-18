@@ -1,17 +1,21 @@
 // This is a generated file. Not intended for manual editing.
 package com.windea.plugin.idea.stellaris.script.psi.impl;
 
+import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.lang.ASTNode;
+import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
+import com.intellij.psi.util.PsiTreeUtil;
+import static com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.windea.plugin.idea.stellaris.script.psi.*;
-
+import com.intellij.openapi.util.Iconable.IconFlags;
 import javax.swing.Icon;
 
-public class StellarisScriptPlainTextImpl extends ASTWrapperPsiElement implements StellarisScriptPlainText {
+public class StellarisScriptTextImpl extends ASTWrapperPsiElement implements StellarisScriptText {
 
-  public StellarisScriptPlainTextImpl(@NotNull ASTNode node) {
+  public StellarisScriptTextImpl(@NotNull ASTNode node) {
     super(node);
   }
 

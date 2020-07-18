@@ -8,9 +8,9 @@ import com.intellij.psi.PsiElement;
 public interface StellarisLocalizationColorfulText extends PsiElement {
 
   @NotNull
-  List<StellarisLocalizationRichText> getRichTextList();
+  StellarisLocalizationColorCode getColorCode();
 
   @NotNull
-  PsiElement getColorfulTextCode();
+  List<StellarisLocalizationRichText> getRichTextList();
 
 }

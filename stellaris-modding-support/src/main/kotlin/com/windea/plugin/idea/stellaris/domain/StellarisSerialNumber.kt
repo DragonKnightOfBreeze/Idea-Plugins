@@ -3,7 +3,7 @@ package com.windea.plugin.idea.stellaris.domain
 /**
  * 本地化文件的编号枚举
  */
-enum class StellarisLocalizationSerialNumber(
+enum class StellarisSerialNumber(
 	val text: String,
 	val description:String
 ) {
