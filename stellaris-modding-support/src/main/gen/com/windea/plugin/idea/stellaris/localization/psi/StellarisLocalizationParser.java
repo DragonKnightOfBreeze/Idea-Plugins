@@ -36,6 +36,67 @@ public class StellarisLocalizationParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
+  // CODE_START CODE_TEXT CODE_END
+  public static boolean code(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "code")) return false;
+    if (!nextTokenIs(b, CODE_START)) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeTokens(b, 0, CODE_START, CODE_TEXT, CODE_END);
+    exit_section_(b, m, CODE, r);
+    return r;
+  }
+
+  /* ********************************************************** */
+  // COLORFUL_TEXT_START COLORFUL_TEXT_CODE rich_text* COLORFUL_TEXT_END
+  public static boolean colorful_text(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "colorful_text")) return false;
+    if (!nextTokenIs(b, COLORFUL_TEXT_START)) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeTokens(b, 0, COLORFUL_TEXT_START, COLORFUL_TEXT_CODE);
+    r = r && colorful_text_2(b, l + 1);
+    r = r && consumeToken(b, COLORFUL_TEXT_END);
+    exit_section_(b, m, COLORFUL_TEXT, r);
+    return r;
+  }
+
+  // rich_text*
+  private static boolean colorful_text_2(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "colorful_text_2")) return false;
+    while (true) {
+      int c = current_position_(b);
+      if (!rich_text(b, l + 1)) break;
+      if (!empty_element_parsed_guard_(b, "colorful_text_2", c)) break;
+    }
+    return true;
+  }
+
+  /* ********************************************************** */
+  // ICON_START ICON_TEXT ICON_END
+  public static boolean icon(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "icon")) return false;
+    if (!nextTokenIs(b, ICON_START)) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeTokens(b, 0, ICON_START, ICON_TEXT, ICON_END);
+    exit_section_(b, m, ICON, r);
+    return r;
+  }
+
+  /* ********************************************************** */
+  // VALUE_TOKEN
+  public static boolean plain_text(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "plain_text")) return false;
+    if (!nextTokenIs(b, VALUE_TOKEN)) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeToken(b, VALUE_TOKEN);
+    exit_section_(b, m, PLAIN_TEXT, r);
+    return r;
+  }
+
+  /* ********************************************************** */
   // property_key ":" NUMBER property_value
   public static boolean property(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "property")) return false;
@@ -99,14 +160,55 @@ public class StellarisLocalizationParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // VALUE_TOKEN
-  public static boolean property_value(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "property_value")) return false;
-    if (!nextTokenIs(b, VALUE_TOKEN)) return false;
+  // PROPERTY_REFERENCE_START KEY_TOKEN PROPERTY_REFERENCE_END
+  public static boolean property_reference(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "property_reference")) return false;
+    if (!nextTokenIs(b, PROPERTY_REFERENCE_START)) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = consumeToken(b, VALUE_TOKEN);
+    r = consumeTokens(b, 0, PROPERTY_REFERENCE_START, KEY_TOKEN, PROPERTY_REFERENCE_END);
+    exit_section_(b, m, PROPERTY_REFERENCE, r);
+    return r;
+  }
+
+  /* ********************************************************** */
+  // LEFT_QUOTE rich_text* RIGHT_QUOTE
+  public static boolean property_value(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "property_value")) return false;
+    if (!nextTokenIs(b, LEFT_QUOTE)) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeToken(b, LEFT_QUOTE);
+    r = r && property_value_1(b, l + 1);
+    r = r && consumeToken(b, RIGHT_QUOTE);
     exit_section_(b, m, PROPERTY_VALUE, r);
+    return r;
+  }
+
+  // rich_text*
+  private static boolean property_value_1(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "property_value_1")) return false;
+    while (true) {
+      int c = current_position_(b);
+      if (!rich_text(b, l + 1)) break;
+      if (!empty_element_parsed_guard_(b, "property_value_1", c)) break;
+    }
+    return true;
+  }
+
+  /* ********************************************************** */
+  // plain_text | property_reference | code | icon | serial_number | colorful_text
+  public static boolean rich_text(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "rich_text")) return false;
+    boolean r;
+    Marker m = enter_section_(b, l, _NONE_, RICH_TEXT, "<rich text>");
+    r = plain_text(b, l + 1);
+    if (!r) r = property_reference(b, l + 1);
+    if (!r) r = code(b, l + 1);
+    if (!r) r = icon(b, l + 1);
+    if (!r) r = serial_number(b, l + 1);
+    if (!r) r = colorful_text(b, l + 1);
+    exit_section_(b, l, m, r, false, null);
     return r;
   }
 
@@ -162,6 +264,18 @@ public class StellarisLocalizationParser implements PsiParser, LightPsiParser {
       if (!empty_element_parsed_guard_(b, "root_item_1", c)) break;
     }
     return true;
+  }
+
+  /* ********************************************************** */
+  // SERIAL_NUMBER_START SERIAL_NUMBER_CODE SERIAL_NUMBER_END
+  public static boolean serial_number(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "serial_number")) return false;
+    if (!nextTokenIs(b, SERIAL_NUMBER_START)) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeTokens(b, 0, SERIAL_NUMBER_START, SERIAL_NUMBER_CODE, SERIAL_NUMBER_END);
+    exit_section_(b, m, SERIAL_NUMBER, r);
+    return r;
   }
 
 }

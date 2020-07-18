@@ -23,11 +23,11 @@ class StellarisScriptVariablePsiReference(
 		return mapArray
 	}
 
-	//用于代码补全
-	override fun getVariants(): Array<Any> {
-		val mapArray: Array<Any> = findAllScriptVariableDefinitions(element.project).filterNot { it.name.isNullOrEmpty() }.mapArray {
-			createLookupElement(it,icon = it.getIcon(0),typeText = it.containningFile.name)
-		}
-		return mapArray
-	}
+	//用于代码补全，不要随便实现，以免Editor发生卡顿！！！
+	//override fun getVariants(): Array<Any> {
+	//	val mapArray: Array<Any> = findAllScriptVariableDefinitions(element.project).filterNot { it.name.isNullOrEmpty() }.mapArray {
+	//		createLookupElement(it,icon = it.getIcon(0),typeText = it.containingFile.name)
+	//	}
+	//	return mapArray
+	//}
 }

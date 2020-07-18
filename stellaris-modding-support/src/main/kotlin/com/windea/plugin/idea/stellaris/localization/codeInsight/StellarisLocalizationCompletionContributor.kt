@@ -8,6 +8,8 @@ import com.windea.plugin.idea.stellaris.annotations.*
 import com.windea.plugin.idea.stellaris.domain.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
 
+//注意这里一旦有问题可能会导致Editor卡顿！！！
+
 //代码补全：
 //"l_" -> "l_xxx"
 

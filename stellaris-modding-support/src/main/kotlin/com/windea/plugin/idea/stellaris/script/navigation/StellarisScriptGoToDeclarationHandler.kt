@@ -25,6 +25,15 @@ class StellarisScriptGoToDeclarationHandler:  GotoDeclarationHandlerBase() {
 				findScriptVariableDefinitionInFile(sourceElement.name, sourceElement.containingFile)?.let{return it}
 				findScriptVariableDefinitionInProject(sourceElement.name,sourceElement.project)
 			}
+			is StellarisScriptStringLiteral ->{
+				val name = sourceElement.text.unquote()
+				val project = sourceElement.project
+				if(!name.isValidPropertyKey()) return null
+
+				//查找当前项目的脚本文件属性，然后再查找当前项目的本地化文件属性
+				findScriptPropertyInProject(name,project)?.let { return it }
+				findLocalizationPropertyInProject(name,project)?.let { return it }
+			}
 			else -> null
 		}
 	}
@@ -34,10 +43,8 @@ class StellarisScriptGoToDeclarationHandler:  GotoDeclarationHandlerBase() {
 			null -> null
 			is StellarisScriptVariableDefinition -> {
 				//查找当前文件，然后查找当前项目
-				val result = mutableListOf<PsiElement>()
-				findScriptVariableDefinitionInFile(sourceElement.name,sourceElement.containingFile)?.let { result += it }
-				findScriptVariableDefinitionsInProject(sourceElement.name,sourceElement.project)?.let { result+=it }
-				result.toTypedArray()
+				findScriptVariableDefinitionInFile(sourceElement.name,sourceElement.containingFile)?.let { return arrayOf(it) }
+				findScriptVariableDefinitionsInProject(sourceElement.name,sourceElement.project)?.let { return it.toTypedArray() }
 			}
 			//字符串可以是脚本文件属性，也可以是本地化文件属性
 			is StellarisScriptStringLiteral -> {

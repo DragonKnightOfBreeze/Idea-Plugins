@@ -68,7 +68,7 @@ public interface StellarisScriptTypes {
         return new StellarisScriptStringLiteralImpl(node);
       }
       else if (type == TEXT) {
-        return new StellarisScriptTextImpl(node);
+        return new StellarisScriptPlainTextImpl(node);
       }
       else if (type == VARIABLE_DEFINITION) {
         return new StellarisScriptVariableDefinitionImpl(node);

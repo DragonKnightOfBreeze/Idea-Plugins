@@ -23,7 +23,12 @@ class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider
 	override fun generateDoc(element: PsiElement?, originalElement: PsiElement?): String? {
 		return when(element) {
 			is StellarisLocalizationPropertyHeader -> {
-				enumValues<StellarisLocalizationLocale>().first { it.name == element.name }.description
+				buildString{
+					val description = enumValues<StellarisLocalizationLocale>().first { it.text == element.name }.description
+					append(DocumentationMarkup.DEFINITION_START)
+					append(description)
+					append(DocumentationMarkup.DEFINITION_END)
+				}
 			}
 			is StellarisLocalizationProperty -> {
 				buildString {

@@ -9,17 +9,15 @@ import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
 import static com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationTypes.*;
 import com.windea.plugin.idea.stellaris.localization.psi.*;
-import com.intellij.openapi.util.Iconable.IconFlags;
-import javax.swing.Icon;
 
-public class StellarisLocalizationPropertyHeaderImpl extends StellarisLocalizationNamedElementImpl implements StellarisLocalizationPropertyHeader {
+public class StellarisLocalizationIconImpl extends StellarisLocalizationNamedElementImpl implements StellarisLocalizationIcon {
 
-  public StellarisLocalizationPropertyHeaderImpl(@NotNull ASTNode node) {
+  public StellarisLocalizationIconImpl(@NotNull ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull StellarisLocalizationVisitor visitor) {
-    visitor.visitPropertyHeader(this);
+    visitor.visitIcon(this);
   }
 
   public void accept(@NotNull PsiElementVisitor visitor) {
@@ -29,8 +27,8 @@ public class StellarisLocalizationPropertyHeaderImpl extends StellarisLocalizati
 
   @Override
   @NotNull
-  public PsiElement getHeaderToken() {
-    return findNotNullChildByType(HEADER_TOKEN);
+  public PsiElement getIconText() {
+    return findNotNullChildByType(ICON_TEXT);
   }
 
   @Override
@@ -49,17 +47,6 @@ public class StellarisLocalizationPropertyHeaderImpl extends StellarisLocalizati
   @Nullable
   public PsiElement getNameIdentifier() {
     return StellarisLocalizationPsiImplUtil.getNameIdentifier(this);
-  }
-
-  @Override
-  @Nullable
-  public Icon getIcon(@IconFlags int flags) {
-    return StellarisLocalizationPsiImplUtil.getIcon(this, flags);
-  }
-
-  @Override
-  public boolean isValid() {
-    return StellarisLocalizationPsiImplUtil.isValid(this);
   }
 
 }

@@ -20,11 +20,10 @@ class StellarisLocalizationFileTreeElement(
 	}
 
 	override fun getPresentableText(): String? {
-		////显示语言区域作为后缀
-		//val locale = PsiTreeUtil.getChildOfType(psiElement,StellarisLocalizationPropertyHeader::class.java)?.name
-		//val localeSnippet = if(locale != null) " <$locale>" else ""
-		//return "${psiElement?.name}$localeSnippet"
-		return psiElement?.name
+		//显示语言区域作为后缀
+		val locale = psiElement?.propertyHeader?.name?.let{ " <$it>" }.orEmpty()
+		return "${psiElement?.name}$locale"
+		//return psiElement?.name
 	}
 }
 

@@ -34,10 +34,8 @@ class StellarisLocalizationGoToDeclarationHandler : GotoDeclarationHandlerBase()
 			null -> null
 			is StellarisLocalizationProperty -> {
 				//查找当前文件，然后查找当前项目
-				val result = mutableListOf<PsiElement>()
-				findLocalizationPropertyInFile(sourceElement.name, sourceElement.containingFile)?.let { result+=it }
-				findLocalizationPropertiesInProject(sourceElement.name, sourceElement.project)?.let { result+=it }
-				result.toTypedArray()
+				findLocalizationPropertyInFile(sourceElement.name, sourceElement.containingFile)?.let { return arrayOf(it) }
+				findLocalizationPropertiesInProject(sourceElement.name, sourceElement.project)?.let { return it.toTypedArray() }
 			}
 			else -> null
 		}

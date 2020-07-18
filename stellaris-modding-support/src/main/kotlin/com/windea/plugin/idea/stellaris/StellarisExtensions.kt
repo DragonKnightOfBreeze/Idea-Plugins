@@ -6,13 +6,16 @@ import com.intellij.codeInsight.completion.*
 import com.intellij.codeInsight.lookup.*
 import com.intellij.lang.*
 import com.intellij.openapi.editor.*
+import com.intellij.openapi.editor.DefaultLanguageHighlighterColors.*
 import com.intellij.openapi.editor.colors.*
+import com.intellij.openapi.editor.colors.TextAttributesKey.*
 import com.intellij.openapi.fileTypes.*
 import com.intellij.openapi.project.*
 import com.intellij.psi.*
 import com.intellij.psi.search.*
 import com.intellij.psi.util.*
 import com.intellij.ui.*
+import com.windea.plugin.idea.stellaris.StellarisBundle.message
 import com.windea.plugin.idea.stellaris.localization.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
 import com.windea.plugin.idea.stellaris.localization.psi.impl.*
@@ -135,7 +138,7 @@ fun findFurthestSiblingOfSameType(element: PsiElement, after: Boolean): PsiEleme
 }
 
 /**创建查找元素。用于代码补全。*/
-fun createLookupElement(element: PsiElement,icon:Icon?, tailText: String? = null, typeText: String? = null): LookupElementBuilder {
+fun createLookupElement(element: PsiElement,icon:Icon? = null, tailText: String? = null, typeText: String? = null): LookupElementBuilder {
 	return LookupElementBuilder.create(element).apply {
 		if(icon!= null) withIcon(icon)
 		if(tailText != null) withTailText(tailText)
@@ -144,7 +147,7 @@ fun createLookupElement(element: PsiElement,icon:Icon?, tailText: String? = null
 }
 
 /**创建查找元素。用于代码补全。*/
-fun createLookupElement(keyword: String,icon:Icon?, tailText: String? = null, typeText: String? = null): LookupElementBuilder {
+fun createLookupElement(keyword: String,icon:Icon? = null, tailText: String? = null, typeText: String? = null): LookupElementBuilder {
 	return LookupElementBuilder.create(keyword).apply {
 		if(icon!= null) withIcon(icon)
 		if(tailText != null) withTailText(tailText)
@@ -179,13 +182,13 @@ fun findScriptVariableDefinitionInFile(name: String?, psiFile: PsiFile?): Stella
 
 fun findScriptVariableDefinitionInProject(name: String?, project: Project): StellarisScriptVariableDefinition? {
 	if(name == null) return null
-	val files = project.findPsiFiles(StellarisLocalizationFileType) as List<StellarisScriptFile>
+	val files = project.findPsiFiles(StellarisScriptFileType) as List<StellarisScriptFile>
 	return files.flatMap { it.variableDefinitions.toList() }.first { it.name == name }
 }
 
 fun findScriptVariableDefinitionsInProject(name: String?, project: Project): List<StellarisScriptVariableDefinition>? {
 	if(name == null) return null
-	val files = project.findPsiFiles(StellarisLocalizationFileType) as List<StellarisScriptFile>
+	val files = project.findPsiFiles(StellarisScriptFileType) as List<StellarisScriptFile>
 	return files.flatMap { it.variableDefinitions.toList() }.filter { it.name == name }
 }
 
@@ -217,13 +220,13 @@ fun findAllScriptVariableDefinitions(project: Project): List<StellarisScriptVari
 
 fun findScriptPropertyInProject(name: String?, project: Project): StellarisScriptProperty? {
 	if(name == null) return null
-	val files = project.findPsiFiles(StellarisLocalizationFileType) as List<StellarisScriptFile>
+	val files = project.findPsiFiles(StellarisScriptFileType) as List<StellarisScriptFile>
 	return files.flatMap { it.properties.toList() }.first { it.name == name }
 }
 
 fun findScriptPropertiesInProject(name: String?, project: Project): List<StellarisScriptProperty>? {
 	if(name == null) return null
-	val files = project.findPsiFiles(StellarisLocalizationFileType) as List<StellarisScriptFile>
+	val files = project.findPsiFiles(StellarisScriptFileType) as List<StellarisScriptFile>
 	return files.flatMap { it.properties.toList() }.filter { it.name == name }
 }
 

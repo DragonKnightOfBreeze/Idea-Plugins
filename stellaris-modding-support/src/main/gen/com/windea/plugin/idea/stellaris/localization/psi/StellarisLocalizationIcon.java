@@ -4,14 +4,19 @@ package com.windea.plugin.idea.stellaris.localization.psi;
 import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiLiteralValue;
 
-public interface StellarisLocalizationPropertyValue extends PsiLiteralValue {
+public interface StellarisLocalizationIcon extends StellarisLocalizationNamedElement {
 
   @NotNull
-  List<StellarisLocalizationRichText> getRichTextList();
+  PsiElement getIconText();
 
   @Nullable
-  String getValue();
+  String getName();
+
+  @NotNull
+  PsiElement setName(@NotNull String name);
+
+  @Nullable
+  PsiElement getNameIdentifier();
 
 }

@@ -39,7 +39,21 @@ object StellarisLocalizationElementFactory {
 	@JvmStatic
 	fun createPropertyValue(project: Project, value: String): PsiElement {
 		return createProperty(project, "a", value).propertyValue!!
-			.also { logger.info { "create property value: '$it'" } }
+			.also { logger.info { "create property value: '\"$it\"'" } }
+	}
+
+	/**创建属性的引用*/
+	@JvmStatic
+	fun createPropertyReference(project: Project, value: String): PsiElement {
+		return (createPropertyValue(project, "$$value$") as StellarisLocalizationPropertyValue).richTextList.first().propertyReference!!
+			.also { logger.info { "create property reference: '$it'" } }
+	}
+
+	/**创建图标*/
+	@JvmStatic
+	fun createIcon(project: Project, value: String): PsiElement {
+		return (createPropertyValue(project, "£$value£") as StellarisLocalizationPropertyValue).richTextList.first().icon!!
+			.also { logger.info { "create property reference: '$it'" } }
 	}
 }
 

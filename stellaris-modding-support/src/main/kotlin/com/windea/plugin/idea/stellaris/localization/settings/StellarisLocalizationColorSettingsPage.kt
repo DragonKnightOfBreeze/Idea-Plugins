@@ -8,30 +8,27 @@ import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.StellarisBundle.message
 import com.windea.plugin.idea.stellaris.annotations.*
 import com.windea.plugin.idea.stellaris.localization.*
-import com.windea.plugin.idea.stellaris.localization.highlighter.StellarisLocalizationSyntaxHighlighter.Companion.BAD_CHARACTER_KEY
-import com.windea.plugin.idea.stellaris.localization.highlighter.StellarisLocalizationSyntaxHighlighter.Companion.COLON_KEY
-import com.windea.plugin.idea.stellaris.localization.highlighter.StellarisLocalizationSyntaxHighlighter.Companion.COMMENT_KEY
-import com.windea.plugin.idea.stellaris.localization.highlighter.StellarisLocalizationSyntaxHighlighter.Companion.INVALID_ESCAPE_KEY
-import com.windea.plugin.idea.stellaris.localization.highlighter.StellarisLocalizationSyntaxHighlighter.Companion.NUMBER_KEY
-import com.windea.plugin.idea.stellaris.localization.highlighter.StellarisLocalizationSyntaxHighlighter.Companion.PROPERTY_HEADER_KEY
-import com.windea.plugin.idea.stellaris.localization.highlighter.StellarisLocalizationSyntaxHighlighter.Companion.PROPERTY_KEY_KEY
-import com.windea.plugin.idea.stellaris.localization.highlighter.StellarisLocalizationSyntaxHighlighter.Companion.PROPERTY_VALUE_KEY
-import com.windea.plugin.idea.stellaris.localization.highlighter.StellarisLocalizationSyntaxHighlighter.Companion.VALID_ESCAPE_KEY
+import com.windea.plugin.idea.stellaris.localization.highlighter.*
 
 @ExtensionPoint
 class StellarisLocalizationColorSettingsPage : ColorSettingsPage {
 	companion object {
 		//Capitalized words
 		private val attributesDescriptors = arrayOf(
-			AttributesDescriptor(message("stellaris.localization.color.colon"), COLON_KEY),
-			AttributesDescriptor(message("stellaris.localization.color.number"), NUMBER_KEY),
-			AttributesDescriptor(message("stellaris.localization.color.propertyHeader"), PROPERTY_HEADER_KEY),
-			AttributesDescriptor(message("stellaris.localization.color.propertyKey"), PROPERTY_KEY_KEY),
-			AttributesDescriptor(message("stellaris.localization.color.propertyValue"), PROPERTY_VALUE_KEY),
-			AttributesDescriptor(message("stellaris.localization.color.comment"), COMMENT_KEY),
-			AttributesDescriptor(message("stellaris.localization.color.validEscape"), VALID_ESCAPE_KEY),
-			AttributesDescriptor(message("stellaris.localization.color.invalidEscape"), INVALID_ESCAPE_KEY),
-			AttributesDescriptor(message("stellaris.localization.color.badCharacter"), BAD_CHARACTER_KEY)
+			AttributesDescriptor(message("stellaris.localization.color.colon"), StellarisLocalizationAttributesKeys.COLON_KEY),
+			AttributesDescriptor(message("stellaris.localization.color.number"), StellarisLocalizationAttributesKeys.NUMBER_KEY),
+			AttributesDescriptor(message("stellaris.localization.color.propertyHeader"), StellarisLocalizationAttributesKeys.PROPERTY_HEADER_KEY),
+			AttributesDescriptor(message("stellaris.localization.color.propertyKey"), StellarisLocalizationAttributesKeys.PROPERTY_KEY_KEY),
+			AttributesDescriptor(message("stellaris.localization.color.propertyValue"),StellarisLocalizationAttributesKeys. PROPERTY_VALUE_KEY),
+			AttributesDescriptor(message("stellaris.localization.color.comment"), StellarisLocalizationAttributesKeys.COMMENT_KEY),
+			AttributesDescriptor(message("stellaris.localization.color.marker"), StellarisLocalizationAttributesKeys.MARKER_KEY),
+			AttributesDescriptor(message("stellaris.localization.color.code"), StellarisLocalizationAttributesKeys.CODE_KEY),
+			AttributesDescriptor(message("stellaris.localization.color.icon"), StellarisLocalizationAttributesKeys.ICON_KEY),
+			AttributesDescriptor(message("stellaris.localization.color.serialNumberCode"), StellarisLocalizationAttributesKeys.SERIAL_NUMBER_CODE_KEY),
+			AttributesDescriptor(message("stellaris.localization.color.colorCode"), StellarisLocalizationAttributesKeys.COLOR_CODE_KEY),
+			AttributesDescriptor(message("stellaris.localization.color.validEscape"), StellarisLocalizationAttributesKeys.VALID_ESCAPE_KEY),
+			AttributesDescriptor(message("stellaris.localization.color.invalidEscape"), StellarisLocalizationAttributesKeys.INVALID_ESCAPE_KEY),
+			AttributesDescriptor(message("stellaris.localization.color.badCharacter"), StellarisLocalizationAttributesKeys.BAD_CHARACTER_KEY)
 		)
 	}
 

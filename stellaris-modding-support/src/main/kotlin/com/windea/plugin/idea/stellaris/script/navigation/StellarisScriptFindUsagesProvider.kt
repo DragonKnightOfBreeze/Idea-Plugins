@@ -35,7 +35,7 @@ class StellarisScriptFindUsagesProvider : FindUsagesProvider {
 	}
 
 	override fun getWordsScanner(): WordsScanner? {
-		//return StellarisScriptWordScanner()
-		return null
+		return StellarisScriptWordScanner()
+		//return null
 	}
 }

@@ -12,8 +12,8 @@ class StellarisScriptPropertyTreeElement(
 		//认为只要存在元素为text，则所有元素都是text
 		return when{
 			list == null -> mutableListOf()
-			list.stringLiteralList.isEmpty() -> list.propertyList.mapTo(mutableListOf()) { StellarisScriptPropertyTreeElement(it) }
-			else -> list.stringLiteralList.mapTo(mutableListOf()) { StellarisScriptTextTreeElement(it) }
+			list.textList.isEmpty() -> list.propertyList.mapTo(mutableListOf()) { StellarisScriptPropertyTreeElement(it) }
+			else -> list.textList.mapTo(mutableListOf()) { StellarisScriptTextTreeElement(it) }
 		}
 	}
 

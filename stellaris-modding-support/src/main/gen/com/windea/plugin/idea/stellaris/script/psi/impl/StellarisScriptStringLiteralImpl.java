@@ -10,9 +10,7 @@ import com.intellij.psi.util.PsiTreeUtil;
 import static com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.windea.plugin.idea.stellaris.script.psi.*;
-import com.intellij.openapi.util.Iconable.IconFlags;
 import com.intellij.psi.PsiReference;
-import javax.swing.Icon;
 
 public class StellarisScriptStringLiteralImpl extends ASTWrapperPsiElement implements StellarisScriptStringLiteral {
 
@@ -45,18 +43,6 @@ public class StellarisScriptStringLiteralImpl extends ASTWrapperPsiElement imple
   @NotNull
   public PsiReference getReference() {
     return StellarisScriptPsiImplUtil.getReference(this);
-  }
-
-  @Override
-  @Nullable
-  public Icon getIcon(@IconFlags int flags) {
-    return StellarisScriptPsiImplUtil.getIcon(this, flags);
-  }
-
-  @Override
-  @Nullable
-  public String getValue() {
-    return StellarisScriptPsiImplUtil.getValue(this);
   }
 
 }

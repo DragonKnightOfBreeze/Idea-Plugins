@@ -40,7 +40,7 @@
 //TODO 分隔符可以是比较运算符
 
 root ::= root_item *
-private root_item ::= COMMENT | END_OF_LINE_COMMENT | variable_definition | property
+private root_item ::= END_OF_LINE_COMMENT | COMMENT | variable_definition | property
 variable_definition ::= variable_name variable_definition_separator variable_value {
   pin=1
   mixin="com.windea.plugin.idea.stellaris.script.psi.impl.StellarisScriptNamedElementImpl"
@@ -77,15 +77,17 @@ list ::= "{" element_items "}" {
   methods=[getComponents]
 }
 private element_items ::= element_item*
-private element_item ::= COMMENT | END_OF_LINE_COMMENT | property | text {
+private element_item ::= END_OF_LINE_COMMENT | COMMENT | property | text {
   //recoverWhile=element_item_recover
 }
-text ::= string_literal
+text ::= string_literal{
+  implements="com.intellij.psi.PsiLiteralValue"
+  methods=[getIcon getValue]
+}
 //private element_item_recover ::= !("}" | EOL)
 
 boolean_literal ::= BOOLEAN
 number_literal ::= NUMBER
-string_literal ::= STRING | UNQUOTED_STRING {
-  implements="com.intellij.psi.PsiLiteralValue"
-  methods=[getReference getIcon getValue]
+string_literal ::= STRING | UNQUOTED_STRING{
+  methods=[getReference]
 }

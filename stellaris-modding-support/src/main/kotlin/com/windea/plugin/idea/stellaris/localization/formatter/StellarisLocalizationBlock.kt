@@ -31,7 +31,8 @@ class StellarisLocalizationBlock(
 			//	node.elementType == COLON && customSettings.ALIGN_PROPERTY_VALUES -> Alignment.createAlignment(true, Anchor.LEFT)
 			//	else -> Alignment.createAlignment()
 			//}
-			return null
+			return Alignment.createAlignment(true)
+			//return null
 		}
 
 		private fun createSpacingBuilder(settings: CodeStyleSettings): SpacingBuilder {

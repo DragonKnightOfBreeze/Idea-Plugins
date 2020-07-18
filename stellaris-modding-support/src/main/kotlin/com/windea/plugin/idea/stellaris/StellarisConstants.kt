@@ -49,7 +49,7 @@ const val stellarisBundleName = "messages.StellarisBundle"
 val stellarisLocalizationIcon = IconLoader.getIcon("/icons/stellaris_localization.png")
 val stellarisScriptIcon = IconLoader.getIcon("/icons/stellaris_script.png")
 
-//Collections
+//Caches
 
 val stellarisLocalizationLocales = enumValues<StellarisLocalizationLocale>().mapArray { it.text }
 

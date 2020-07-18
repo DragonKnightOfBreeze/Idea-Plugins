@@ -6,6 +6,9 @@ import com.intellij.openapi.project.*
 import com.intellij.psi.*
 import com.windea.plugin.idea.stellaris.StellarisBundle.message
 import com.windea.plugin.idea.stellaris.annotations.*
+import com.windea.plugin.idea.stellaris.localization.highlighter.*
+import com.windea.plugin.idea.stellaris.localization.psi.*
+import com.windea.plugin.idea.stellaris.script.highlighter.*
 import com.windea.plugin.idea.stellaris.script.highlighter.StellarisScriptSyntaxHighlighter.Companion.PROPERTY_KEY_KEY
 import com.windea.plugin.idea.stellaris.script.highlighter.StellarisScriptSyntaxHighlighter.Companion.VARIABLE_KEY
 import com.windea.plugin.idea.stellaris.script.psi.*
@@ -14,6 +17,16 @@ import com.windea.plugin.idea.stellaris.script.psi.*
 class StellarisScriptAnnotator : Annotator ,DumbAware{
 	override fun annotate(element: PsiElement, holder: AnnotationHolder) {
 		when(element){
+			//字符串可能是script property、localization property
+			is StellarisScriptStringLiteral -> {
+				val resolve = element.reference.resolve()
+				if(resolve is StellarisScriptProperty){
+					holder.newSilentAnnotation(INFORMATION).textAttributes(StellarisScriptSyntaxHighlighter.PROPERTY_KEY_KEY).create()
+				}
+				if(resolve is StellarisLocalizationProperty){
+					holder.newSilentAnnotation(INFORMATION).textAttributes(StellarisLocalizationSyntaxHighlighter.PROPERTY_KEY_KEY).create()
+				}
+			}
 			//is StellarisScriptVariableName -> {
 			//	holder.newSilentAnnotation(INFORMATION).textAttributes(VARIABLE_KEY).create()
 			//}

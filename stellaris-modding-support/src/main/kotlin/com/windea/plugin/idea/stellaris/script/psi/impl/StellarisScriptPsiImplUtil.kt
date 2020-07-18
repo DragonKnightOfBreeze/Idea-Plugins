@@ -6,10 +6,7 @@ import com.intellij.icons.*
 import com.intellij.openapi.util.*
 import com.intellij.psi.*
 import com.intellij.util.*
-import com.intellij.util.text.*
 import com.windea.plugin.idea.stellaris.*
-import com.windea.plugin.idea.stellaris.localization.psi.*
-import com.windea.plugin.idea.stellaris.localization.reference.*
 import com.windea.plugin.idea.stellaris.script.psi.*
 import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptElementFactory.createPropertyKey
 import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptElementFactory.createVariableName
@@ -114,24 +111,26 @@ object StellarisScriptPsiImplUtil {
 	@JvmStatic
 	fun getComponents(element: StellarisScriptList): List<PsiElement> {
 		//如果存在元素为text，则认为所有合法的元素都是text
-		return if(element.stringLiteralList.isEmpty()) element.propertyList else element.stringLiteralList
+		return if(element.textList.isEmpty()) element.propertyList else element.textList
+	}
+	//endregion
+
+	//region StellarisScriptPlainText
+	@JvmStatic
+	fun getIcon(element: StellarisScriptPlainText, @Iconable.IconFlags flags: Int): Icon? {
+		return AllIcons.Nodes.Constant
+	}
+
+	@JvmStatic
+	fun getValue(element: StellarisScriptPlainText): String? {
+		return element.text?.unquote()
 	}
 	//endregion
 
 	//region StellarisScriptStringLiteral
 	@JvmStatic
-	fun getIcon(element: StellarisScriptStringLiteral, @Iconable.IconFlags flags: Int): Icon? {
-		return AllIcons.Nodes.Constant
-	}
-
-	@JvmStatic
-	fun getValue(element: StellarisScriptStringLiteral): String? {
-		return element.text?.unquote()
-	}
-
-	@JvmStatic
 	fun getReference(element:StellarisScriptStringLiteral):PsiReference{
-		return StellarisScriptPropertyPsiReference(element, TextRange(0,element.textLength))
+		return StellarisScriptStringLiteralPsiReference(element, TextRange(0,element.textLength))
 	}
 	//endregion
 }

@@ -3,13 +3,16 @@
 package com.windea.plugin.idea.stellaris.localization.psi.impl
 
 import com.intellij.icons.*
+import com.intellij.openapi.util.*
 import com.intellij.openapi.util.Iconable.*
 import com.intellij.psi.*
 import com.intellij.util.*
 import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
+import com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationElementFactory.createIcon
 import com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationElementFactory.createPropertyHeader
 import com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationElementFactory.createPropertyKey
+import com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationElementFactory.createPropertyReference
 import com.windea.plugin.idea.stellaris.localization.reference.*
 import javax.swing.*
 
@@ -34,6 +37,11 @@ object StellarisLocalizationPsiImplUtil {
 	@JvmStatic
 	fun getIcon(element: StellarisLocalizationPropertyHeader, @IconFlags flags: Int): Icon? {
 		return AllIcons.FileTypes.Properties
+	}
+
+	@JvmStatic
+	fun isValid(element:StellarisLocalizationPropertyHeader):Boolean{
+		return element.name in stellarisLocalizationLocales
 	}
 	//endregion
 
@@ -74,6 +82,47 @@ object StellarisLocalizationPsiImplUtil {
 	@JvmStatic
 	fun getValue(element: StellarisLocalizationPropertyValue): String? {
 		return element.text?.unquote()
+	}
+	//endregion
+
+	//region StellarisLocalizationPropertyReference
+	@JvmStatic
+	fun getName(element: StellarisLocalizationPropertyReference): String? {
+		return element.text.trim('$')
+	}
+
+	@JvmStatic
+	fun setName(element: StellarisLocalizationPropertyReference, name: String): PsiElement {
+		element.replace(createPropertyReference(element.project, name))
+		return element
+	}
+
+	@JvmStatic
+	fun getNameIdentifier(element: StellarisLocalizationPropertyReference): PsiElement? {
+		return element
+	}
+
+	@JvmStatic
+	fun getReference(element:StellarisLocalizationPropertyReference):PsiReference{
+		return StellarisLocalizationPropertyPsiReference(element, TextRange(1,element.textLength-1))
+	}
+	//endregion
+
+	//region StellarisLocalizationPropertyReference
+	@JvmStatic
+	fun getName(element: StellarisLocalizationIcon): String? {
+		return element.text.trim('£')
+	}
+
+	@JvmStatic
+	fun setName(element: StellarisLocalizationIcon, name: String): PsiElement {
+		element.replace(createIcon(element.project, name))
+		return element
+	}
+
+	@JvmStatic
+	fun getNameIdentifier(element: StellarisLocalizationIcon): PsiElement? {
+		return element
 	}
 	//endregion
 }

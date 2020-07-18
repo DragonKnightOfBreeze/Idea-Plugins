@@ -16,6 +16,34 @@ import static com.windea.plugin.idea.stellaris.localization.psi.StellarisLocaliz
 %type IElementType
 %unicode
 
+%state WAITING_PROPERTY_HEADER_COLON
+%state WAITING_PROPERTY_HEADER_EOL
+%state WAITING_PROPERTY_KEY
+%state WAITING_PROPERTY_COLON
+%state WAITING_PROPERTY_NUMBER
+%state WAITING_PROPERTY_SPACE
+%state WAITING_PROPERTY_VALUE
+%state WAITING_PROPERTY_EOL
+
+%state WAITING_RICH_TEXT
+%state WAITING_PROPERTY_REFERENCE
+%state WAITING_CODE
+%state WAITING_ICON
+%state WAITING_SERIAL_NUMBER
+%state WAITING_COLORFUL_TEXT_CODE
+%state WAITING_COLORFUL_TEXT
+
+%{
+  int textDepth = 0;
+
+  public int textState(){
+  	if(textDepth <= 0)
+  		return WAITING_RICH_TEXT;
+  	else
+  		return WAITING_COLORFUL_TEXT;
+  }
+%}
+
 EOL=\s*\R
 WHITE_SPACE=\s+
 SPACE=[ \t]+
@@ -26,15 +54,22 @@ NUMBER=\d
 HEADER_TOKEN=[a-z_]+
 KEY_TOKEN=[a-zA-Z][a-zA-Z0-9_.]*
 VALUE_TOKEN=\"([^\"\r\n\\]|\\.)*?\"
-
-%state WAITING_PROPERTY_HEADER_COLON
-%state WAITING_PROPERTY_HEADER_EOL
-%state WAITING_PROPERTY_KEY
-%state WAITING_PROPERTY_COLON
-%state WAITING_PROPERTY_NUMBER
-%state WAITING_PROPERTY_SPACE
-%state WAITING_PROPERTY_VALUE
-%state WAITING_PROPERTY_EOL
+LEFT_QUOTE=\"
+RIGHT_QUOTE=\"
+PROPERTY_REFERENCE_START="$"
+PROPERTY_REFERENCE_END="$"
+CODE_START="["
+CODE_TEXT=[^\[\]]+
+CODE_END="]"
+ICON_START="£"
+ICON_TEXT=[a-z_]+
+ICON_END="£"
+SERIAL_NUMBER_START="%"
+SERIAL_NUMBER_CODE=[^%]+
+SERIAL_NUMBER_END="%"
+COLORFUL_TEXT_START="§"
+COLORFUL_TEXT_CODE=[A-Z]
+COLORFUL_TEXT_END="§"
 
 %%
 
@@ -73,12 +108,57 @@ VALUE_TOKEN=\"([^\"\r\n\\]|\\.)*?\"
   {SPACE} {yybegin(WAITING_PROPERTY_VALUE); return WHITE_SPACE;}
 }
 <WAITING_PROPERTY_VALUE> {
-  {VALUE_TOKEN} { yybegin(WAITING_PROPERTY_EOL); return VALUE_TOKEN; }
+  {LEFT_QUOTE} { yybegin(WAITING_RICH_TEXT); return LEFT_QUOTE; }
+  {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
+}
+<WAITING_RICH_TEXT>{
+  {RIGHT_QUOTE} { yybegin(WAITING_PROPERTY_KEY); return RIGHT_QUOTE;}
+  {PROPERTY_REFERENCE_START} { yybegin(WAITING_PROPERTY_REFERENCE); return PROPERTY_REFERENCE_START;}
+  {CODE_START} { yybegin(WAITING_CODE); return CODE_START;}
+  {ICON_START} { yybegin(WAITING_CODE); return ICON_START;}
+  {SERIAL_NUMBER_START} { yybegin(WAITING_CODE); return SERIAL_NUMBER_START;}
+  {COLORFUL_TEXT_START} { textDepth++; yybegin(WAITING_COLORFUL_TEXT_CODE); return COLORFUL_TEXT_START;}
+  {VALUE_TOKEN} {  return VALUE_TOKEN;}
+  {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
+}
+<WAITING_PROPERTY_REFERENCE>{
+  {PROPERTY_REFERENCE_END} {yybegin(textState()); return PROPERTY_REFERENCE_END;}
+  {VALUE_TOKEN} {return VALUE_TOKEN;}
+  {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
+}
+<WAITING_CODE>{
+  {CODE_END} {yybegin(textState()); return CODE_END;}
+  {CODE_TEXT} {return CODE_TEXT;}
+  {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
+}
+<WAITING_ICON>{
+  {ICON_END} {yybegin(textState()); return ICON_END;}
+  {ICON_TEXT} {return ICON_TEXT;}
+  {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
+}
+<WAITING_SERIAL_NUMBER>{
+  {SERIAL_NUMBER_END} {yybegin(textState()); return SERIAL_NUMBER_END;}
+  {SERIAL_NUMBER_CODE} {return SERIAL_NUMBER_CODE;}
+  {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
+}
+<WAITING_COLORFUL_TEXT_CODE>{
+  {COLORFUL_TEXT_END} {textDepth--; yybegin(textState()); return COLORFUL_TEXT_END;} //跳过非法字符
+  {COLORFUL_TEXT_CODE} {yybegin(WAITING_COLORFUL_TEXT); return COLORFUL_TEXT_CODE;}
+  {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
+}
+<WAITING_COLORFUL_TEXT>{
+  {COLORFUL_TEXT_END} {textDepth--;  ;yybegin(textState()); return COLORFUL_TEXT_END;} //跳过非法字符
+  {RIGHT_QUOTE} { yybegin(WAITING_PROPERTY_KEY); return RIGHT_QUOTE;}
+  {PROPERTY_REFERENCE_START} { yybegin(WAITING_PROPERTY_REFERENCE); return PROPERTY_REFERENCE_START;}
+  {CODE_START} { yybegin(WAITING_CODE); return CODE_START;}
+  {ICON_START} { yybegin(WAITING_CODE); return ICON_START;}
+  {SERIAL_NUMBER_START} { yybegin(WAITING_CODE); return SERIAL_NUMBER_START;}
+  {VALUE_TOKEN} {  return VALUE_TOKEN;}
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
 }
 <WAITING_PROPERTY_EOL>{
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }
-  {SPACE} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //继续解析
+  {SPACE} { return WHITE_SPACE; } //继续解析
   //{COMMENT} { yybegin(WAITING_PROPERTY_EOL); return COMMENT; }
 }
 

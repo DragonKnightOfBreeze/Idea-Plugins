@@ -12,8 +12,8 @@ class StellarisLocalizationInvalidFileNameInspection: LocalInspectionTool(){
 		val propertyHeader = PsiTreeUtil.getChildOfType(file, StellarisLocalizationPropertyHeader::class.java) ?: return null
 		val propertyHeaderText = propertyHeader.text
 		val fileName = file.name
-		val isValid = fileName.contains(propertyHeader.text)
-		if(!isValid){
+		val isNotMatched = propertyHeader.isValid && !fileName.contains(propertyHeader.text)
+		if(isNotMatched){
 			val holder = ProblemsHolder(manager,file,isOnTheFly)
 			val description = message("stellaris.localization.inspection.invalidFileName.description", fileName,propertyHeaderText)
 			holder.registerProblem(file, description)
