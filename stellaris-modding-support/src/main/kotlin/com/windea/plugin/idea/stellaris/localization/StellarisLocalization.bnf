@@ -1,0 +1,48 @@
+{
+	parserClass="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationParser"
+	extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+	psiClassPrefix="StellarisLocalization"
+	psiImplClassSuffix="Impl"
+	psiPackage="com.windea.plugin.idea.stellaris.localization.psi"
+	psiImplPackage="com.windea.plugin.idea.stellaris.localization.psi.impl"
+	elementTypeHolderClass="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationTypes"
+	tokenTypeClass="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationTokenType"
+	elementTypeClass="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationElementType"
+	psiImplUtilClass="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationPsiImplUtil"
+
+	tokens=[
+		COLON=":"
+	  NUMBER="regexp:\d"
+	  BLANK="regexp:\s+"
+	  COMMENT="regexp:#[^\r\n]*"
+	  ROOT_COMMENT="regexp:#[^\r\n]*"
+	  HEADER_TOKEN="regexp:[a-z_]+"
+	  KEY_TOKEN='regexp:[a-zA-Z][a-zA-Z0-9_.]*'
+	  VALUE_TOKEN='regexp:"([^"(\r\n\\]|\\.)*?"'
+	]
+}
+
+//规则定义可以忽略空白
+//直接导向token的rule，在flex文件中需要使用对应的token
+//即使idea提示不需要转义，一些字符在regexp中仍然需要转义
+
+root ::= ROOT_COMMENT * [root_item]
+private root_item ::= property_header_item property_list *
+private property_header_item ::= property_header ":"
+property_header ::= HEADER_TOKEN {
+  mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"
+  implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
+  methods=[getName setName getNameIdentifier getIcon]
+}
+private property_list ::= COMMENT | property
+property ::= property_key ":" NUMBER property_value {
+  pin=1
+	mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"
+	implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
+	methods=[getName setName getNameIdentifier getIcon getKey getValue]
+}
+property_key ::= KEY_TOKEN
+property_value ::= VALUE_TOKEN {
+  implements="com.intellij.psi.PsiLiteralValue"
+  methods=[getValue]
+}

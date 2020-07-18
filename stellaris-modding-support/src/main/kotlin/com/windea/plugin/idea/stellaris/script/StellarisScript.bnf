@@ -1,0 +1,91 @@
+{
+	parserClass="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptParser"
+	extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+	psiClassPrefix="StellarisScript"
+	psiImplClassSuffix="Impl"
+	psiPackage="com.windea.plugin.idea.stellaris.script.psi"
+	psiImplPackage="com.windea.plugin.idea.stellaris.script.psi.impl"
+	elementTypeHolderClass="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes"
+	tokenTypeClass="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTokenType"
+	elementTypeClass="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptElementType"
+	psiImplUtilClass="com.windea.plugin.idea.stellaris.script.psi.impl.StellarisScriptPsiImplUtil"
+
+	tokens=[
+	  EQUAL_SIGN="="
+	  LT_SIGN="<"
+	  GT_SIGN=">"
+	  LE_SIGN="<="
+	  GE_SIGN=">="
+	  LEFT_BRACE="{"
+	  RIGHT_BRACE="}"
+	  EOL="regexp:\R"
+	  BLANK="regexp:\s+"
+	  COMMENT="regexp:#[^\r\n]*"
+	  END_OF_LINE_COMMENT="regexp:#[^\r\n]*"
+	  BOOLEAN='regexp:(yes)|(no)'
+	  NUMBER='regexp:[0-9]+(\.[0-9]+)?'
+	  VARIABLE_NAME_TOKEN="regexp:@[a-zA-Z0-9_]+"
+	  VARIABLE_REFERENCE_TOKEN="regexp:@[a-zA-Z0-9_]+"
+	  STRING='regexp:"([^"(\r\n\\]|\\.)*?"'
+	  UNQUOTED_STRING='regexp:[a-zA-Z0-9_.]+'
+	  KEY_TOKEN='regexp:[a-z0-9_]+'
+	]
+}
+
+//忽略空白，在ParserDefinition里面定义PsiElement之间的空白类型
+//regex必须定向到token，而非rule
+//即使idea提示不需要转义，一些字符在regexp中仍然需要转义
+
+//DONE 列表的元素可以是字符串
+//TODO 分隔符可以是比较运算符
+
+root ::= root_item *
+private root_item ::= COMMENT | END_OF_LINE_COMMENT | variable_definition | property
+variable_definition ::= variable_name variable_definition_separator variable_value {
+  pin=1
+  mixin="com.windea.plugin.idea.stellaris.script.psi.impl.StellarisScriptNamedElementImpl"
+  implements="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptNamedElement"
+  methods=[getName setName getNameIdentifier getIcon getValue]
+}
+variable_name ::= VARIABLE_NAME_TOKEN
+variable_definition_separator ::= "="
+variable_value ::= number_literal {
+  implements="com.intellij.psi.PsiLiteralValue"
+  methods=[getValue]
+}
+variable_reference ::= VARIABLE_REFERENCE_TOKEN{
+  mixin="com.windea.plugin.idea.stellaris.script.psi.impl.StellarisScriptNamedElementImpl"
+  implements="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptNamedElement"
+  methods=[getName setName getNameIdentifier getIcon getReference]
+}
+
+property ::= property_key property_separator property_value {
+  mixin="com.windea.plugin.idea.stellaris.script.psi.impl.StellarisScriptNamedElementImpl"
+  implements="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptNamedElement"
+  methods=[getName setName getNameIdentifier getIcon]
+}
+property_key ::= KEY_TOKEN
+property_separator ::= "=" | "<" | ">" | "<=" | ">="
+property_value ::= boolean_literal | number_literal | variable_reference | string_literal | list {
+  implements="com.intellij.psi.PsiLiteralValue"
+  methods=[getValue]
+}
+
+list ::= "{" element_items "}" {
+  pin=1
+  implements="com.intellij.psi.PsiListLikeElement"
+  methods=[getComponents]
+}
+private element_items ::= element_item*
+private element_item ::= COMMENT | END_OF_LINE_COMMENT | property | text {
+  //recoverWhile=element_item_recover
+}
+text ::= string_literal
+//private element_item_recover ::= !("}" | EOL)
+
+boolean_literal ::= BOOLEAN
+number_literal ::= NUMBER
+string_literal ::= STRING | UNQUOTED_STRING {
+  implements="com.intellij.psi.PsiLiteralValue"
+  methods=[getReference getIcon getValue]
+}

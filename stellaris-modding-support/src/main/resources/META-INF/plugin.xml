@@ -1,0 +1,285 @@
+<idea-plugin>
+  <id>com.windea.stellaris</id>
+  <name>Stellaris Modding Support</name>
+
+  <vendor email="dk_breeze@qq.com" url="https://github.com/DragonKnightOfBreeze">DragonKnightOfBreeze</vendor>
+  <category>Languages</category>
+
+  <description><![CDATA[
+    <p>
+      Support for Stellaris modding.
+      <br/>
+      为开发Stellaris的mod提供支持。
+    </p>
+    <ul>
+      <li>
+        Support Stellaris Script Language. (*.txt)
+        <br/>
+        支持Stellaris的脚本语言。(*.txt)
+      </li>
+      <li>
+        Support Stellaris Localization Language. (*.yml)
+        <br/>
+        支持Stellaris的本地化语言。(*.yml)
+      </li>
+      <li>
+        Basic language features has been implemented. (e.g., Syntax highlight, file structure, code format)
+        <br/>
+        已实现基本的语言特性。（如，代码高亮，文件结构，代码格式化）
+      </li>
+      <li>
+        Extended language features is implementing. (e.g., find usages, go to declaration)
+        <br/>
+        正在实现扩展的语言特性。（如，查找使用，定位到定义）
+      </li>
+      <li>
+        Very complex language features could be implemented long long after...(e.g., Find usages in game directory)
+        <br/>
+        非常复杂的语言特性可能需要很长时间才能实现……（如，在游戏目录中查找使用）
+      </li>
+      <li>
+        All planned language feature are listed in the
+        <a href='https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/README.md'>README</a>
+        document of this project.
+        <br/>
+        所有计划中的语言特性都已在项目的
+        <a href='https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/README.md'>README</a>
+        文档中列出。
+      </li>
+    </ul>
+    <p>
+      Please note that <b>Paradox Interactive</b>'s modding language is actually very complex and even more chaos,
+      so that this plugin maybe have some <i>syntax compatibility problems</i> and <i>reference problems</i>.
+      But at this moment, this plugin shall be very useful and friendly.
+      <br/>
+      请注意，<b>瑞典蠢驴</b>的模组语言实际上是非常非常复杂而混乱的，
+      因此这个插件可能存在一些<i>语法解析兼容性问题</i>以及<i>引用问题</i>。
+      但是现在，好时代，已然，来临了！
+    </p>
+    <p>
+      Please note most document of this project is written by Simple Chinese.
+      请注意本项目的大部分文档都是使用简体中文编写的。
+    </p>
+    <hr/>
+    <img src="https://sh-download-ipv6.ftn.qq.com/ftn_handler/ecc428f5ed3c6fc7ef76305f39ff010e03fabc2e21b7448b0e8f1292610de9a6b1e63285d84d3c1d345b908d0edffe7a7b2a551963d878bda6cabc89f07b8b78/?fname=*.png&pictype=scaled&size=1024*768" alt=""/>
+    <img src="https://sh-download-ipv6.ftn.qq.com/ftn_handler/4ea4b2f067e2d2bafcb49f3299ce38ac9a6430feaeaacbb80aa7605eb306d923a62daab8570d37045ac77cb7a01747db31e1d08c90214c86bbd7d0f8a7be9eff/?fname=*.png&pictype=scaled&size=1024*768" alt=""/>
+    <hr/>
+    <p>
+      Welcome to have a look at
+      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/tree/master/stellaris-modding-support">this project</a>,
+      <a href="https://github.com/DragonKnightOfBreeze?tab=repositories">my other projects</a> and
+      <a href="https://steamcommunity.com/id/DragonKnightOfBreeze/myworkshopfiles/?appid=281990&browsefilter=myfiles&browsesort=myfiles&p=1">my stellaris mods</a>.
+      <br/>
+      欢迎查看
+      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/tree/master/stellaris-modding-support">本项目</a>，
+      <a href="https://github.com/DragonKnightOfBreeze?tab=repositories">我的其他项目</a>以及
+      <a href="https://steamcommunity.com/id/DragonKnightOfBreeze/myworkshopfiles/?appid=281990&browsefilter=myfiles&browsesort=myfiles&p=1">我的群星模组</a>。
+    </p>
+    ]]></description>
+
+  <change-notes><![CDATA[
+    <p>
+      See the whole changelog at the
+      <a href='https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/README.md'>README</a> and
+      <a href='https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/CHANGELOG.md'>CHANGELOG</a>
+      document of this project.
+    </p>
+    <p>
+      通过项目的
+      <a href='https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/README.md'>README</a> 文档和
+      <a href='https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/CHANGELOG.md'>CHANGELOG</a> 文档
+      查看完整的更新日志。
+    </p>
+    ]]></change-notes>
+
+  <extensions defaultExtensionNs="com.intellij">
+    Stellaris Script
+    <fileType name="Stellaris Script File"
+              implementationClass="com.windea.plugin.idea.stellaris.script.StellarisScriptFileType"
+              fieldName="INSTANCE" language="Stellaris Script" extensions="txt;stxt;mod"/>
+    <lang.parserDefinition
+      language="Stellaris Script"
+      implementationClass="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptParserDefinition"/>
+    <lang.syntaxHighlighterFactory
+      language="Stellaris Script"
+      implementationClass="com.windea.plugin.idea.stellaris.script.highlighter.StellarisScriptSyntaxHighlighterFactory"/>
+    <lang.braceMatcher
+      language="Stellaris Script"
+      implementationClass="com.windea.plugin.idea.stellaris.script.StellarisScriptBraceMatcher"/>
+    <lang.foldingBuilder
+      language="Stellaris Script"
+      implementationClass="com.windea.plugin.idea.stellaris.script.StellarisScriptFoldingBuilder"/>
+    <colorSettingsPage
+      implementation="com.windea.plugin.idea.stellaris.script.settings.StellarisScriptColorSettingsPage"/>
+    <lang.commenter
+      language="Stellaris Script"
+      implementationClass="com.windea.plugin.idea.stellaris.script.StellarisScriptCommenter"/>
+    <spellchecker.support
+      language="Stellaris Script"
+      implementationClass="com.windea.plugin.idea.stellaris.script.StellarisScriptSpellchecker"/>
+    <!--<psi.referenceContributor-->
+    <!--  language="Stellaris Script"-->
+    <!--  implementation="com.windea.plugin.idea.stellaris.script.reference.StellarisScriptReferenceContributor"/>-->
+    <lang.refactoringSupport
+      language="Stellaris Script"
+      implementationClass="com.windea.plugin.idea.stellaris.script.refactoring.StellarisScriptRefactoringSupportProvider"/>
+    <renameInputValidator
+      implementation="com.windea.plugin.idea.stellaris.script.refactoring.StellarisScriptVariableRenameInputValidator"/>
+    <renameInputValidator
+      implementation="com.windea.plugin.idea.stellaris.script.refactoring.StellarisScriptPropertyRenameInputValidator"/>
+    <refactoring.safeDeleteProcessor
+      implementation="com.windea.plugin.idea.stellaris.script.refactoring.StellarisScriptVariableSafeDeleteProcessor"/>
+    <!--    <refactoring.inlineHandler
+          language="Stellaris Script"
+          implementationClass="com.windea.plugin.idea.stellaris.script.refactoring.StellarisScriptInlineHandler"/>-->
+    <completion.contributor
+      language="Stellaris Script"
+      implementationClass="com.windea.plugin.idea.stellaris.script.codeInsight.StellarisScriptCompletionContributor"/>
+    <breadcrumbsInfoProvider
+      implementation="com.windea.plugin.idea.stellaris.script.StellarisScriptBreadCrumbsProvider"/>
+    <lang.psiStructureViewFactory
+      language="Stellaris Script"
+      implementationClass="com.windea.plugin.idea.stellaris.script.structureView.StellarisScriptStructureViewFactory"/>
+    <lang.formatter
+      language="Stellaris Script"
+      implementationClass="com.windea.plugin.idea.stellaris.script.formatter.StellarisScriptFormattingModelBuilder"/>
+    <codeStyleSettingsProvider
+      implementation="com.windea.plugin.idea.stellaris.script.settings.StellarisScriptCodeStyleSettingsProvider"/>
+    <langCodeStyleSettingsProvider
+      implementation="com.windea.plugin.idea.stellaris.script.settings.StellarisScriptLanguageCodeStyleSettingsProvider"/>
+    <lang.quoteHandler
+      language="Stellaris Script"
+      implementationClass="com.windea.plugin.idea.stellaris.script.StellarisScriptQuoteHandler"/>
+    <lang.documentationProvider
+      language="Stellaris Script"
+      implementationClass="com.windea.plugin.idea.stellaris.script.StellarisScriptDocumentationProvider"/>
+    <elementDescriptionProvider
+      implementation="com.windea.plugin.idea.stellaris.script.StellarisScriptDescriptionProvider"/>
+
+    <lang.findUsagesProvider
+      language="Stellaris Script"
+      implementationClass="com.windea.plugin.idea.stellaris.script.navigation.StellarisScriptFindUsagesProvider"/>
+    <gotoDeclarationHandler
+      implementation="com.windea.plugin.idea.stellaris.script.navigation.StellarisScriptGoToDeclarationHandler"/>
+    <annotator
+      language="Stellaris Script"
+      implementationClass="com.windea.plugin.idea.stellaris.script.StellarisScriptAnnotator"/>
+
+    <localInspection
+      language="Stellaris Script"
+      shortName="StellarisScriptDuplicateVariableDefinitions" bundle="messages.StellarisBundle"
+      groupKey="stellaris.script.inspection"
+      key="stellaris.script.inspection.duplicateVariableDefinitions"
+      enabledByDefault="true" level="ERROR"
+      implementationClass="com.windea.plugin.idea.stellaris.script.inspections.StellarisScriptDuplicateVariableDefinitionsInspection"/>
+    <localInspection
+      language="Stellaris Script"
+      shortName="StellarisScriptInvalidFileEncoding" bundle="messages.StellarisBundle"
+      groupKey="stellaris.script.inspection"
+      key="stellaris.script.inspection.invalidFileEncoding"
+      enabledByDefault="true" level="WARNING"
+      implementationClass="com.windea.plugin.idea.stellaris.script.inspections.StellarisScriptInvalidFileEncodingInspection"/>
+
+    <!--Stellaris Localization-->
+    <fileType
+      name="Stellaris Localization File"
+      implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationFileType"
+      fieldName="INSTANCE" language="Stellaris Localization" extensions="yml;syml;syaml"/>
+    <lang.parserDefinition
+      language="Stellaris Localization"
+      implementationClass="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationParserDefinition"/>
+    <lang.syntaxHighlighterFactory
+      language="Stellaris Localization"
+      implementationClass="com.windea.plugin.idea.stellaris.localization.highlighter.StellarisLocalizationSyntaxHighlighterFactory"/>
+    <lang.foldingBuilder
+      language="Stellaris Localization"
+      implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationFoldingBuilder"/>
+    <colorSettingsPage
+      implementation="com.windea.plugin.idea.stellaris.localization.settings.StellarisLocalizationColorSettingsPage"/>
+    <lang.commenter
+      language="Stellaris Localization"
+      implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationCommenter"/>
+    <spellchecker.support
+      language="Stellaris Localization"
+      implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationSpellchecker"/>
+    <!--<psi.referenceContributor-->
+    <!--  language="Stellaris Localization"-->
+    <!--  implementation="com.windea.plugin.idea.stellaris.localization.reference.StellarisLocalizationReferenceContributor"/>-->
+    <lang.refactoringSupport
+      language="Stellaris Localization"
+      implementationClass="com.windea.plugin.idea.stellaris.localization.refactoring.StellarisLocalizationRefactoringSupportProvider"/>
+    <renameInputValidator
+      implementation="com.windea.plugin.idea.stellaris.localization.refactoring.StellarisLocalizationPropertyHeaderRenameInputValidator"/>
+    <renameInputValidator
+      implementation="com.windea.plugin.idea.stellaris.localization.refactoring.StellarisLocalizationPropertyRenameInputValidator"/>
+    <refactoring.safeDeleteProcessor
+      implementation="com.windea.plugin.idea.stellaris.localization.refactoring.StellarisLocalizationPropertySafeDeleteProcessor"/>
+    <completion.contributor
+      language="Stellaris Localization"
+      implementationClass="com.windea.plugin.idea.stellaris.localization.codeInsight.StellarisLocalizationCompletionContributor"/>
+    <defaultLiveTemplates file="/liveTemplates/Stellaris Localization.xml"/>
+    <breadcrumbsInfoProvider
+      implementation="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationBreadCrumbsProvider"/>
+    <lang.psiStructureViewFactory
+      language="Stellaris Localization"
+      implementationClass="com.windea.plugin.idea.stellaris.localization.structureView.StellarisLocalizationStructureViewFactory"/>
+    <!--NOTE 不需要-->
+    <!--<stripTrailingSpacesFilterFactory-->
+    <!--  implementation="com.windea.plugin.idea.stellaris.formatter.StellarisLocalizationStripTrailingSpacesFilterFactory"/>-->
+    <lang.formatter
+      language="Stellaris Localization"
+      implementationClass="com.windea.plugin.idea.stellaris.localization.formatter.StellarisLocalizationFormattingModelBuilder"/>
+    <codeStyleSettingsProvider
+      implementation="com.windea.plugin.idea.stellaris.localization.settings.StellarisLocalizationCodeStyleSettingsProvider"/>
+    <langCodeStyleSettingsProvider
+      implementation="com.windea.plugin.idea.stellaris.localization.settings.StellarisLocalizationLanguageCodeStyleSettingsProvider"/>
+    <lang.quoteHandler
+      language="Stellaris Localization"
+      implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationQuoteHandler"/>
+    <lang.documentationProvider
+      language="Stellaris Localization"
+      implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationDocumentationProvider"/>
+    <elementDescriptionProvider
+      implementation="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationDescriptionProvider"/>
+
+    <lang.findUsagesProvider
+      language="Stellaris Localization"
+      implementationClass="com.windea.plugin.idea.stellaris.localization.navigation.StellarisLocalizationFindUsagesProvider"/>
+    <gotoDeclarationHandler
+      implementation="com.windea.plugin.idea.stellaris.localization.navigation.StellarisLocalizationGoToDeclarationHandler"/>
+    <annotator
+      language="Stellaris Localization"
+      implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationAnnotator"/>
+
+    <localInspection
+      language="Stellaris Localization"
+      shortName="StellarisLocalizationDuplicatePropertyKeys" bundle="messages.StellarisBundle"
+      groupKey="stellaris.localization.inspection"
+      key="stellaris.localization.inspection.duplicatePropertyKeys"
+      enabledByDefault="true" level="ERROR"
+      implementationClass="com.windea.plugin.idea.stellaris.localization.inspections.StellarisLocalizationDuplicatePropertyKeysInspection"/>
+    <localInspection
+      language="Stellaris Localization"
+      shortName="StellarisLocalizationUnsupportedLocale" bundle="messages.StellarisBundle"
+      groupKey="stellaris.localization.inspection"
+      key="stellaris.localization.inspection.unsupportedLocale"
+      enabledByDefault="true" level="ERROR"
+      implementationClass="com.windea.plugin.idea.stellaris.localization.inspections.StellarisLocalizationUnsupportedLocaleInspection"/>
+    <localInspection
+      language="Stellaris Localization"
+      shortName="StellarisLocalizationInvalidFileName" bundle="messages.StellarisBundle"
+      groupKey="stellaris.localization.inspection"
+      key="stellaris.localization.inspection.invalidFileName"
+      enabledByDefault="true" level="WARNING"
+      implementationClass="com.windea.plugin.idea.stellaris.localization.inspections.StellarisLocalizationInvalidFileNameInspection"/>
+    <localInspection
+      language="Stellaris Localization"
+      shortName="StellarisLocalizationInvalidFileEncoding" bundle="messages.StellarisBundle"
+      groupKey="stellaris.localization.inspection"
+      key="stellaris.localization.inspection.invalidFileEncoding"
+      enabledByDefault="true" level="WARNING"
+      implementationClass="com.windea.plugin.idea.stellaris.localization.inspections.StellarisLocalizationInvalidFileEncodingInspection"/>
+  </extensions>
+
+  <depends>com.intellij.modules.lang</depends>
+</idea-plugin>

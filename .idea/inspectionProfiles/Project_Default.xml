@@ -1,0 +1,125 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="AssertEqualsCalledOnArray" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="AssertEqualsMayBeAssertSame" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="AssertsWithoutMessages" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="BashEvaluateExpression" enabled="true" level="INFORMATION" enabled_by_default="true" />
+    <inspection_tool class="BashReplaceWithDoubleBrackets" enabled="true" level="INFORMATION" enabled_by_default="true" />
+    <inspection_tool class="CanBeParameter" enabled="true" level="UNUSED ENTRY" enabled_by_default="true" />
+    <inspection_tool class="CanBePrimaryConstructorProperty" enabled="true" level="UNUSED ENTRY" enabled_by_default="true" />
+    <inspection_tool class="CheckTagEmptyBody" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="ClassName" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="ClassWithoutConstructor" enabled="true" level="INFORMATION" enabled_by_default="true" />
+    <inspection_tool class="ClassWithoutNoArgConstructor" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="m_ignoreClassesWithNoConstructors" value="true" />
+    </inspection_tool>
+    <inspection_tool class="ComplexRedundantLet" enabled="true" level="UNUSED ENTRY" enabled_by_default="true" />
+    <inspection_tool class="ConstantConditionIf" enabled="true" level="UNUSED ENTRY" enabled_by_default="true" />
+    <inspection_tool class="ConstantJUnitAssertArgument" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="Convert2MethodRef" enabled="true" level="INFORMATION" enabled_by_default="true" />
+    <inspection_tool class="DuplicateAnchorId" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="DuplicateHeadingId" enabled="true" level="INFORMATION" enabled_by_default="true" />
+    <inspection_tool class="DuplicateReferences" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="DuplicatedCode" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <Languages>
+        <language minSize="46" name="Kotlin" />
+      </Languages>
+    </inspection_tool>
+    <inspection_tool class="EnumEntryName" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="EnumerationCanBeIteration" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="Eslint" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="ExpectedExceptionNeverThrown" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="ExplicitThis" enabled="true" level="UNUSED ENTRY" enabled_by_default="true" />
+    <inspection_tool class="FieldHasSetterButNoGetter" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="FoldExpressionIntoStream" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="GjsLint" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="HtmlRequiredAltAttribute" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="IgnoredJUnitTest" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="ImplicitNullableNothingType" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="JSEqualityComparisonWithCoercion.TS" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="JSHint" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="JSLint" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="JSUnusedGlobalSymbols" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="JUnit3StyleTestMethodInJUnit4Class" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="JUnit5AssertionsConverter" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="JUnit5Converter" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="JUnitDatapoint" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="JUnitRule" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="Jscs" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="KotlinDoubleNegation" enabled="true" level="UNUSED ENTRY" enabled_by_default="true" />
+    <inspection_tool class="KotlinRedundantOverride" enabled="true" level="UNUSED ENTRY" enabled_by_default="true" />
+    <inspection_tool class="KotlinUnusedImport" enabled="true" level="UNUSED ENTRY" enabled_by_default="true" />
+    <inspection_tool class="LinkTextDoesNotMatchHeading" enabled="true" level="INFORMATION" enabled_by_default="true" />
+    <inspection_tool class="LossyEncoding" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="MalformedSetUpTearDown" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="MdUnresolvedReference" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="MigrateAssertToMatcherAssert" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="MisorderedAssertEqualsParameters" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="MultipleExceptionsDeclaredOnTestMethod" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="NonAsciiCharacters" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="NullChecksToSafeCall" enabled="true" level="UNUSED ENTRY" enabled_by_default="true" />
+    <inspection_tool class="ParameterizedParametersStaticCollection" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="PropertyValueSetToItself" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="RedundantCompanionReference" enabled="true" level="UNUSED ENTRY" enabled_by_default="true" />
+    <inspection_tool class="RedundantEmptyInitializerBlock" enabled="true" level="UNUSED ENTRY" enabled_by_default="true" />
+    <inspection_tool class="RedundantEnumConstructorInvocation" enabled="true" level="UNUSED ENTRY" enabled_by_default="true" />
+    <inspection_tool class="RedundantExplicitType" enabled="true" level="UNUSED ENTRY" enabled_by_default="true" />
+    <inspection_tool class="RedundantGetter" enabled="true" level="UNUSED ENTRY" enabled_by_default="true" />
+    <inspection_tool class="RedundantIf" enabled="true" level="UNUSED ENTRY" enabled_by_default="true" />
+    <inspection_tool class="RedundantLambdaArrow" enabled="true" level="UNUSED ENTRY" enabled_by_default="true" />
+    <inspection_tool class="RedundantModalityModifier" enabled="true" level="UNUSED ENTRY" enabled_by_default="true" />
+    <inspection_tool class="RedundantRequireNotNullCall" enabled="true" level="UNUSED ENTRY" enabled_by_default="true" />
+    <inspection_tool class="RedundantReturnLabel" enabled="true" level="UNUSED ENTRY" enabled_by_default="true" />
+    <inspection_tool class="RedundantSamConstructor" enabled="true" level="UNUSED ENTRY" enabled_by_default="true" />
+    <inspection_tool class="RedundantSemicolon" enabled="true" level="UNUSED ENTRY" enabled_by_default="true" />
+    <inspection_tool class="RedundantSetter" enabled="true" level="UNUSED ENTRY" enabled_by_default="true" />
+    <inspection_tool class="RedundantSuspendModifier" enabled="true" level="UNUSED ENTRY" enabled_by_default="true" />
+    <inspection_tool class="RedundantUnitExpression" enabled="true" level="UNUSED ENTRY" enabled_by_default="true" />
+    <inspection_tool class="RedundantUnitReturnType" enabled="true" level="UNUSED ENTRY" enabled_by_default="true" />
+    <inspection_tool class="RedundantVisibilityModifier" enabled="true" level="UNUSED ENTRY" enabled_by_default="true" />
+    <inspection_tool class="RedundantWith" enabled="true" level="UNUSED ENTRY" enabled_by_default="true" />
+    <inspection_tool class="ReferenceLink" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="RemoveCurlyBracesFromTemplate" enabled="true" level="UNUSED ENTRY" enabled_by_default="true" />
+    <inspection_tool class="RemoveEmptyClassBody" enabled="true" level="UNUSED ENTRY" enabled_by_default="true" />
+    <inspection_tool class="RemoveEmptyParenthesesFromLambdaCall" enabled="true" level="UNUSED ENTRY" enabled_by_default="true" />
+    <inspection_tool class="RemoveEmptyPrimaryConstructor" enabled="true" level="UNUSED ENTRY" enabled_by_default="true" />
+    <inspection_tool class="RemoveEmptySecondaryConstructorBody" enabled="true" level="UNUSED ENTRY" enabled_by_default="true" />
+    <inspection_tool class="RemoveExplicitSuperQualifier" enabled="true" level="UNUSED ENTRY" enabled_by_default="true" />
+    <inspection_tool class="RemoveExplicitTypeArguments" enabled="true" level="UNUSED ENTRY" enabled_by_default="true" />
+    <inspection_tool class="RemoveForLoopIndices" enabled="true" level="UNUSED ENTRY" enabled_by_default="true" />
+    <inspection_tool class="RemoveRedundantBackticks" enabled="true" level="UNUSED ENTRY" enabled_by_default="true" />
+    <inspection_tool class="RemoveRedundantCallsOfConversionMethods" enabled="true" level="UNUSED ENTRY" enabled_by_default="true" />
+    <inspection_tool class="RemoveRedundantQualifierName" enabled="true" level="UNUSED ENTRY" enabled_by_default="true" />
+    <inspection_tool class="RemoveRedundantSpreadOperator" enabled="true" level="UNUSED ENTRY" enabled_by_default="true" />
+    <inspection_tool class="RemoveSetterParameterType" enabled="true" level="UNUSED ENTRY" enabled_by_default="true" />
+    <inspection_tool class="RemoveSingleExpressionStringTemplate" enabled="true" level="UNUSED ENTRY" enabled_by_default="true" />
+    <inspection_tool class="RemoveToStringInStringTemplate" enabled="true" level="UNUSED ENTRY" enabled_by_default="true" />
+    <inspection_tool class="SimpleRedundantLet" enabled="true" level="UNUSED ENTRY" enabled_by_default="true" />
+    <inspection_tool class="SimplifyForEach" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="SimplifyWhenWithBooleanConstantCondition" enabled="true" level="UNUSED ENTRY" enabled_by_default="true" />
+    <inspection_tool class="StandardJS" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="SuperTearDownInFinally" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="SuspiciousGetterSetter" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="TestCaseInProductCode" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="TestCaseWithConstructor" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="TestCaseWithNoTestMethods" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoreSupers" value="true" />
+    </inspection_tool>
+    <inspection_tool class="TestMethodInProductCode" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="TestMethodWithoutAssertion" enabled="true" level="INFORMATION" enabled_by_default="true" />
+    <inspection_tool class="TsLint" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="TypeScriptCheckImport" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="TypeScriptMissingAugmentationImport" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="TypescriptExplicitMemberType" enabled="true" level="INFORMATION" enabled_by_default="true">
+      <option name="myPreferExplicitLocalVariableTypes" value="true" />
+      <option name="myPreferExplicitReturnTypesForFunctionExpressions" value="true" />
+    </inspection_tool>
+    <inspection_tool class="UnnecessaryVariable" enabled="true" level="UNUSED ENTRY" enabled_by_default="true" />
+    <inspection_tool class="UnusedEquals" enabled="true" level="UNUSED ENTRY" enabled_by_default="true" />
+    <inspection_tool class="UnusedReceiverParameter" enabled="true" level="UNUSED ENTRY" enabled_by_default="true" />
+    <inspection_tool class="UnusedSymbol" enabled="false" level="UNUSED ENTRY" enabled_by_default="false" />
+    <inspection_tool class="UseOfObsoleteAssert" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="WhenWithOnlyElse" enabled="false" level="UNUSED ENTRY" enabled_by_default="false" />
+  </profile>
+</component>
