@@ -14,7 +14,7 @@ import com.windea.plugin.idea.stellaris.localization.psi.*
 class StellarisLocalizationTemplateContext : TemplateContextType(stellarisLocalizationNameSsc, stellarisLocalizationName) {
 	override fun isInContext(file: PsiFile, offset: Int): Boolean {
 		val element = file.findElementAt(offset)
-		return element.elementType == StellarisLocalizationTypes.VALUE_TOKEN
+		return element.elementType == StellarisLocalizationTypes.RICH_TEXT
 	}
 }
 

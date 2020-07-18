@@ -24,7 +24,7 @@
 	  PROPERTY_REFERENCE_START="$"
 	  PROPERTY_REFERENCE_END="$"
 	  CODE_START="["
-	  CODE_TEXT="regexp:[^\[\]]*"
+	  CODE_TEXT="regexp:[^\[\]\r\n]+"
 	  CODE_END="]"
 	  ICON_START="£"
 	  ICON_TEXT="regexp:[a-z_]+"

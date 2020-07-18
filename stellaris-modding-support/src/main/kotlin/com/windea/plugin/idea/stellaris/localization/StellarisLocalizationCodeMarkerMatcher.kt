@@ -1,15 +1,13 @@
-package com.windea.plugin.idea.stellaris.script
+package com.windea.plugin.idea.stellaris.localization
 
 import com.intellij.lang.*
 import com.intellij.psi.*
 import com.intellij.psi.tree.*
-import com.windea.plugin.idea.stellaris.localization.psi.*
 import com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationTypes.*
-import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
 
-class StellarisScriptBraceMatcher : PairedBraceMatcher{
+class StellarisLocalizationCodeMarkerMatcher : PairedBraceMatcher {
 	companion object{
-		private val bracePairs = arrayOf(BracePair(LEFT_BRACE, RIGHT_BRACE,true))
+		private val bracePairs = arrayOf(BracePair(CODE_START, CODE_END,true))
 	}
 
 	override fun getPairs(): Array<BracePair> = bracePairs
@@ -18,3 +16,4 @@ class StellarisScriptBraceMatcher : PairedBraceMatcher{
 
 	override fun isPairedBracesAllowedBeforeType(lbraceType: IElementType, contextType: IElementType?): Boolean = true
 }
+

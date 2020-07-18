@@ -10,7 +10,11 @@ import com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationTy
  */
 class StellarisLocalizationHighlighterLexer : LayeredLexer(StellarisLocalizationLexerAdapter()) {
 	init {
-		registerSelfStoppingLayer(StringLiteralLexer('\"', VALUE_TOKEN, true, null), arrayOf(VALUE_TOKEN), IElementType.EMPTY_ARRAY)
+		registerSelfStoppingLayer(
+			StringLiteralLexer('\uffff', VALUE_TOKEN, true, "[£§$%"),
+			arrayOf(VALUE_TOKEN),
+			IElementType.EMPTY_ARRAY
+		)
 	}
 }
 

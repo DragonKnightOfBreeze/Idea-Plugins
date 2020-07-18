@@ -6,4 +6,4 @@ import com.intellij.psi.TokenType.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
 import com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationTypes.*
 
-class StellarisLocalizationQuoteHandler :SimpleTokenSetQuoteHandler(VALUE_TOKEN, BAD_CHARACTER)
+class StellarisLocalizationQuoteHandler :SimpleTokenSetQuoteHandler(RICH_TEXT, BAD_CHARACTER)

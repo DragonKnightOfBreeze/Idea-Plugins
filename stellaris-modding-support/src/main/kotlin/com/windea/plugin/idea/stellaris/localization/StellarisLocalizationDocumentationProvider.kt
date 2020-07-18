@@ -1,3 +1,5 @@
+@file:Suppress("IntroduceWhenSubject")
+
 package com.windea.plugin.idea.stellaris.localization
 
 import com.intellij.lang.documentation.*
@@ -12,8 +14,8 @@ import com.windea.plugin.idea.stellaris.localization.psi.*
 
 class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider() {
 	override fun getQuickNavigateInfo(element: PsiElement?, originalElement: PsiElement?): String? {
-		return when(element) {
-			is StellarisLocalizationProperty -> {
+		return when {
+			element is StellarisLocalizationProperty -> {
 				"${element.name} ${getLocationText(element)}"
 			}
 			else -> null
@@ -21,29 +23,29 @@ class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider
 	}
 
 	override fun generateDoc(element: PsiElement?, originalElement: PsiElement?): String? {
-		return when(element) {
-			is StellarisLocalizationPropertyHeader -> {
+		return when {
+			originalElement is StellarisLocalizationPropertyHeader -> {
 				buildString{
 					append(DocumentationMarkup.DEFINITION_START)
-					append(stellarisLocaleMap[element.name])
+					append(stellarisLocaleMap[originalElement.name])
 					append(DocumentationMarkup.DEFINITION_END)
 				}
 			}
-			is StellarisLocalizationColorCode -> {
+			originalElement is StellarisLocalizationColorCode -> {
 				buildString{
 					append(DocumentationMarkup.DEFINITION_START)
-					append(stellarisColorMap[element.text])
+					append(stellarisColorMap[originalElement.text])
 					append(DocumentationMarkup.DEFINITION_END)
 				}
 			}
-			is StellarisLocalizationSerialNumber -> {
+			originalElement is StellarisLocalizationSerialNumber -> {
 				buildString{
 					append(DocumentationMarkup.DEFINITION_START)
-					append(stellarisSerialNumberMap[element.text])
+					append(stellarisSerialNumberMap[originalElement.text])
 					append(DocumentationMarkup.DEFINITION_END)
 				}
 			}
-			is StellarisLocalizationProperty -> {
+			element is StellarisLocalizationProperty -> {
 				buildString {
 					append(DocumentationMarkup.DEFINITION_START)
 					append("<b>${element.name}</b>: ${getPropertyValueText(element).quote()} ${getLocationText(element)}")

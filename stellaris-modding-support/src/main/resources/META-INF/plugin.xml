@@ -191,6 +191,12 @@
     <lang.syntaxHighlighterFactory
       language="Stellaris Localization"
       implementationClass="com.windea.plugin.idea.stellaris.localization.highlighter.StellarisLocalizationSyntaxHighlighterFactory"/>
+    <lang.braceMatcher
+      language="Stellaris Localization"
+      implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationCodeMarkerMatcher"/>
+    <lang.braceMatcher
+      language="Stellaris Localization"
+      implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationPropertyReferenceMarkerMatcher"/>
     <lang.foldingBuilder
       language="Stellaris Localization"
       implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationFoldingBuilder"/>
@@ -217,6 +223,8 @@
     <completion.contributor
       language="Stellaris Localization"
       implementationClass="com.windea.plugin.idea.stellaris.localization.codeInsight.StellarisLocalizationCompletionContributor"/>
+    <liveTemplateContext
+      implementation="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationTemplateContext"/>
     <defaultLiveTemplates file="/liveTemplates/Stellaris Localization.xml"/>
     <breadcrumbsInfoProvider
       implementation="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationBreadCrumbsProvider"/>

@@ -1,15 +1,13 @@
-package com.windea.plugin.idea.stellaris.script
+package com.windea.plugin.idea.stellaris.localization
 
 import com.intellij.lang.*
 import com.intellij.psi.*
 import com.intellij.psi.tree.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
-import com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationTypes.*
-import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
 
-class StellarisScriptBraceMatcher : PairedBraceMatcher{
+class StellarisLocalizationPropertyReferenceMarkerMatcher : PairedBraceMatcher {
 	companion object{
-		private val bracePairs = arrayOf(BracePair(LEFT_BRACE, RIGHT_BRACE,true))
+		private val bracePairs = arrayOf(BracePair(StellarisLocalizationTypes.PROPERTY_REFERENCE_START, StellarisLocalizationTypes.PROPERTY_REFERENCE_END, true))
 	}
 
 	override fun getPairs(): Array<BracePair> = bracePairs

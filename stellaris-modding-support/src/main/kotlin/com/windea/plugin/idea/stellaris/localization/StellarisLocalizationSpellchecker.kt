@@ -17,6 +17,7 @@ class StellarisLocalizationSpellchecker : SpellcheckingStrategy() {
 			VALUE_TOKEN -> TEXT_TOKENIZER
 			COMMENT -> TEXT_TOKENIZER
 			ROOT_COMMENT -> TEXT_TOKENIZER
+			CODE_TEXT -> TEXT_TOKENIZER
 			else -> EMPTY_TOKENIZER
 		}
 	}
