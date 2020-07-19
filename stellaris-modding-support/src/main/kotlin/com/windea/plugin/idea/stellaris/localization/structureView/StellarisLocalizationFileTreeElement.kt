@@ -4,25 +4,19 @@ package com.windea.plugin.idea.stellaris.localization.structureView
 
 import com.intellij.ide.structureView.*
 import com.intellij.ide.structureView.impl.common.*
-import com.intellij.psi.util.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
 
 class StellarisLocalizationFileTreeElement(
-	private val psiElement: StellarisLocalizationFile?
-) : PsiTreeElementBase<StellarisLocalizationFile>(psiElement) {
+	private val element: StellarisLocalizationFile?
+) : PsiTreeElementBase<StellarisLocalizationFile>(element) {
 	override fun getChildrenBase(): MutableCollection<StructureViewTreeElement> {
-		val propertyHeader = PsiTreeUtil.getChildOfType(psiElement,StellarisLocalizationPropertyHeader::class.java)
-			?.let { StellarisLocalizationPropertyHeaderTreeElement(it) }
-		val result =  PsiTreeUtil.getChildrenOfTypeAsList(psiElement, StellarisLocalizationProperty::class.java)
-			.mapTo(mutableListOf<StructureViewTreeElement>()) { StellarisLocalizationPropertyTreeElement(it) }
-		if(propertyHeader != null) result.add(0, propertyHeader)
-		return result
+		return element?.properties.orEmpty().mapTo(mutableListOf()) { StellarisLocalizationPropertyTreeElement(it) }
 	}
 
 	override fun getPresentableText(): String? {
 		//显示语言区域作为后缀
-		val locale = psiElement?.propertyHeader?.name?.let{ " <$it>" }.orEmpty()
-		return "${psiElement?.name}$locale"
+		val localeSuffix = element?.propertyHeader?.name?.let{ " <$it>" }.orEmpty()
+		return "${element?.name}$localeSuffix"
 		//return psiElement?.name
 	}
 }

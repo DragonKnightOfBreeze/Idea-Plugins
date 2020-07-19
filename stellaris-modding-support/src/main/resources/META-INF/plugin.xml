@@ -191,13 +191,6 @@
       implementationClass="com.windea.plugin.idea.stellaris.localization.inspections.StellarisLocalizationDuplicatePropertyKeysInspection"/>
     <localInspection
       language="Stellaris Localization"
-      shortName="StellarisLocalizationUnsupportedLocale" bundle="messages.StellarisBundle"
-      groupKey="stellaris.localization.inspection"
-      key="stellaris.localization.inspection.unsupportedLocale"
-      enabledByDefault="true" level="ERROR"
-      implementationClass="com.windea.plugin.idea.stellaris.localization.inspections.StellarisLocalizationUnsupportedLocaleInspection"/>
-    <localInspection
-      language="Stellaris Localization"
       shortName="StellarisLocalizationInvalidFileName" bundle="messages.StellarisBundle"
       groupKey="stellaris.localization.inspection"
       key="stellaris.localization.inspection.invalidFileName"

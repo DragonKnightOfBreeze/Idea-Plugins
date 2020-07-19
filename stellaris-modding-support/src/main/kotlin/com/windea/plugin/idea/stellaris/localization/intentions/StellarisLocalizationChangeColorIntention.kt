@@ -17,7 +17,7 @@ import com.windea.plugin.idea.stellaris.localization.psi.*
 import javax.swing.*
 
 @ExtensionPoint
-class StellarisLocalizationChangeColorIntention : IntentionAction {
+object StellarisLocalizationChangeColorIntention : IntentionAction {
 	override fun startInWriteAction() = false
 
 	override fun getText() = StellarisBundle.message("stellaris.localization.intention.changeColor")

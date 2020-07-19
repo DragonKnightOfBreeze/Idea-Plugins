@@ -16,7 +16,7 @@ import com.windea.plugin.idea.stellaris.localization.psi.*
 import javax.swing.*
 
 @ExtensionPoint
-class StellarisLocalizationChangeLocaleIntention : IntentionAction {
+object StellarisLocalizationChangeLocaleIntention : IntentionAction {
 	override fun startInWriteAction() = false
 
 	override fun getText() = message("stellaris.localization.intention.changeLocale")
@@ -40,8 +40,6 @@ class StellarisLocalizationChangeLocaleIntention : IntentionAction {
 		private val value: StellarisLocalizationPropertyHeader,
 		values: Array<StellarisLocalizationPropertyHeader>
 	) : BaseListPopupStep<StellarisLocalizationPropertyHeader>(message("stellaris.localization.intention.changeLocale.title"), *values){
-		override fun getIconFor(value: StellarisLocalizationPropertyHeader) = AllIcons.FileTypes.Properties
-
 		override fun getTextFor(value: StellarisLocalizationPropertyHeader) = value.locale!!.popupText
 
 		override fun getDefaultOptionIndex() = 0
