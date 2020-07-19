@@ -19,4 +19,6 @@ public interface StellarisLocalizationSerialNumber extends StellarisLocalization
   @Nullable
   PsiElement getNameIdentifier();
 
+  int getTextOffset();
+
 }

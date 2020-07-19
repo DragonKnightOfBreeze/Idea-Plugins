@@ -20,6 +20,8 @@ public interface StellarisLocalizationPropertyReference extends StellarisLocaliz
   @Nullable
   PsiElement getNameIdentifier();
 
+  int getTextOffset();
+
   @NotNull
   PsiReference getReference();
 

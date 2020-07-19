@@ -12,12 +12,8 @@ public class StellarisLocalizationVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
-  public void visitColorCode(@NotNull StellarisLocalizationColorCode o) {
-    visitNamedElement(o);
-  }
-
   public void visitColorfulText(@NotNull StellarisLocalizationColorfulText o) {
-    visitPsiElement(o);
+    visitNamedElement(o);
   }
 
   public void visitIcon(@NotNull StellarisLocalizationIcon o) {

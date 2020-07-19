@@ -49,4 +49,9 @@ public class StellarisLocalizationSerialNumberImpl extends StellarisLocalization
     return StellarisLocalizationPsiImplUtil.getNameIdentifier(this);
   }
 
+  @Override
+  public int getTextOffset() {
+    return StellarisLocalizationPsiImplUtil.getTextOffset(this);
+  }
+
 }

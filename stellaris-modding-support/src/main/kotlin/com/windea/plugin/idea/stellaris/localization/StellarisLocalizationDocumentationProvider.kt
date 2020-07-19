@@ -37,6 +37,13 @@ class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider
 					append(DocumentationMarkup.DEFINITION_END)
 				}
 			}
+			element is StellarisLocalizationIcon -> {
+				buildString{
+					append(DocumentationMarkup.DEFINITION_START)
+					append("(icon) ${element.name}")
+					append(DocumentationMarkup.DEFINITION_END)
+				}
+			}
 			element is StellarisLocalizationColorCode -> {
 				buildString{
 					append(DocumentationMarkup.DEFINITION_START)

@@ -19,4 +19,6 @@ public interface StellarisLocalizationIcon extends StellarisLocalizationNamedEle
   @Nullable
   PsiElement getNameIdentifier();
 
+  int getTextOffset();
+
 }

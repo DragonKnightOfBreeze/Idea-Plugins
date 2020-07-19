@@ -18,6 +18,18 @@ class StellarisLocalizationDescriptionProvider : ElementDescriptionProvider {
 				if(location == UsageViewTypeLocation.INSTANCE)  message("stellaris.localization.description.property")
 				else element.name
 			}
+			is StellarisLocalizationIcon -> {
+				if(location == UsageViewTypeLocation.INSTANCE)  message("stellaris.localization.description.icon")
+				else element.name
+			}
+			is StellarisLocalizationColorfulText -> {
+				if(location == UsageViewTypeLocation.INSTANCE)  message("stellaris.localization.description.color")
+				else element.name
+			}
+			is StellarisLocalizationSerialNumber -> {
+				if(location == UsageViewTypeLocation.INSTANCE)  message("stellaris.localization.description.serialNumber")
+				else element.name
+			}
 			else -> null
 		}
 	}

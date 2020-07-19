@@ -51,6 +51,11 @@ public class StellarisLocalizationPropertyReferenceImpl extends StellarisLocaliz
   }
 
   @Override
+  public int getTextOffset() {
+    return StellarisLocalizationPsiImplUtil.getTextOffset(this);
+  }
+
+  @Override
   @NotNull
   public PsiReference getReference() {
     return StellarisLocalizationPsiImplUtil.getReference(this);

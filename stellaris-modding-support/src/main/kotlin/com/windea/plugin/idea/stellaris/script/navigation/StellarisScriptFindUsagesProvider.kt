@@ -31,7 +31,7 @@ class StellarisScriptFindUsagesProvider : FindUsagesProvider {
 	}
 
 	override fun canFindUsagesFor(psiElement: PsiElement): Boolean {
-		return psiElement is StellarisScriptNamedElement
+		return psiElement is StellarisScriptVariableDefinition || psiElement is StellarisScriptProperty
 	}
 
 	override fun getWordsScanner(): WordsScanner? {

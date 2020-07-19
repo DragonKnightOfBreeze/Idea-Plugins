@@ -5,12 +5,23 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
-public interface StellarisLocalizationColorfulText extends PsiElement {
-
-  @NotNull
-  StellarisLocalizationColorCode getColorCode();
+public interface StellarisLocalizationColorfulText extends StellarisLocalizationNamedElement {
 
   @NotNull
   List<StellarisLocalizationRichText> getRichTextList();
+
+  @NotNull
+  PsiElement getColorfulTextCode();
+
+  @Nullable
+  String getName();
+
+  @NotNull
+  PsiElement setName(@NotNull String name);
+
+  @Nullable
+  PsiElement getNameIdentifier();
+
+  int getTextOffset();
 
 }

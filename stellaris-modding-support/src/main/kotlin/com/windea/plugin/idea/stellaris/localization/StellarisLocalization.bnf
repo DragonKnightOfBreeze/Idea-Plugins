@@ -43,9 +43,8 @@
 //即使idea提示不需要转义，一些字符在regexp中仍然需要转义
 
 root ::= ROOT_COMMENT * [root_item]
-private root_item ::= property_header_item property_list *
-private property_header_item ::= property_header ":"
-property_header ::= HEADER_TOKEN {
+private root_item ::= property_header property_list *
+property_header ::= HEADER_TOKEN ":" {
   mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"
   implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
   methods=[getName setName getNameIdentifier getIcon isValid]
@@ -67,22 +66,21 @@ plain_text ::= VALUE_TOKEN
 property_reference ::= PROPERTY_REFERENCE_START KEY_TOKEN PROPERTY_REFERENCE_END {
   	mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"
   	implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
-  	methods=[getName setName getNameIdentifier getReference]
+  	methods=[getName setName getNameIdentifier getTextOffset getReference]
 }
 code ::= CODE_START CODE_TEXT CODE_END
 icon ::= ICON_START ICON_TEXT ICON_END {
   	mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"
   	implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
-  	methods=[getName setName getNameIdentifier]
+  	methods=[getName setName getNameIdentifier getTextOffset]
 }
 serial_number ::= SERIAL_NUMBER_START SERIAL_NUMBER_CODE SERIAL_NUMBER_END {
   	mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"
   	implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
-  	methods=[getName setName getNameIdentifier]
+  	methods=[getName setName getNameIdentifier getTextOffset]
 }
-colorful_text ::= COLORFUL_TEXT_START color_code rich_text* COLORFUL_TEXT_END
-color_code ::= COLORFUL_TEXT_CODE {
+colorful_text ::= COLORFUL_TEXT_START COLORFUL_TEXT_CODE rich_text* COLORFUL_TEXT_END{
   	mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"
   	implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
-  	methods=[getName setName getNameIdentifier]
+  	methods=[getName setName getNameIdentifier getTextOffset]
 }
