@@ -13,7 +13,7 @@ class StellarisLocalizationSyntaxHighlighter : SyntaxHighlighterBase() {
 	companion object {
 		private val COLON_KEYS = arrayOf(StellarisLocalizationAttributesKeys.COLON_KEY)
 		private val NUMBER_KEYS = arrayOf(StellarisLocalizationAttributesKeys.NUMBER_KEY)
-		private val PROPERTY_HEADER_KEYS = arrayOf(StellarisLocalizationAttributesKeys.PROPERTY_HEADER_KEY)
+		private val LOCALE_KEYS = arrayOf(StellarisLocalizationAttributesKeys.LOCALE_KEY)
 		private val PROPERTY_KEY_KEYS = arrayOf(StellarisLocalizationAttributesKeys.PROPERTY_KEY_KEY)
 		private val PROPERTY_VALUE_KEYS = arrayOf(StellarisLocalizationAttributesKeys.PROPERTY_VALUE_KEY)
 		private val COMMENT_KEYS = arrayOf(StellarisLocalizationAttributesKeys.COMMENT_KEY)
@@ -29,7 +29,7 @@ class StellarisLocalizationSyntaxHighlighter : SyntaxHighlighterBase() {
 	}
 
 	override fun getTokenHighlights(tokenType: IElementType?) = when(tokenType) {
-		HEADER_TOKEN -> PROPERTY_HEADER_KEYS
+		LOCALE_ID -> LOCALE_KEYS
 		KEY_TOKEN -> PROPERTY_KEY_KEYS
 		VALUE_TOKEN, LEFT_QUOTE, RIGHT_QUOTE -> PROPERTY_VALUE_KEYS
 		PROPERTY_REFERENCE_START, PROPERTY_REFERENCE_END, CODE_START, CODE_END, ICON_START, ICON_END,

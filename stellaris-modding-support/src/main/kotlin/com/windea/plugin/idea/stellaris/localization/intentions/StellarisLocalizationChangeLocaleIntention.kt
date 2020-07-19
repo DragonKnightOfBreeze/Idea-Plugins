@@ -1,4 +1,4 @@
-package com.windea.plugin.idea.stellaris.localization.intentions;
+package com.windea.plugin.idea.stellaris.localization.intentions
 
 import com.intellij.codeInsight.intention.*
 import com.intellij.icons.*
@@ -25,30 +25,30 @@ object StellarisLocalizationChangeLocaleIntention : IntentionAction {
 
 	override fun isAvailable(project: Project, editor: Editor?, file: PsiFile?): Boolean {
 		if(editor == null || file == null) return false
-		val element = file.findElementAt(editor.caretModel.offset)?.parent as? StellarisLocalizationPropertyHeader
+		val element = file.findElementAt(editor.caretModel.offset)?.parent as? StellarisLocalizationLocale
 		return element != null
 	}
 
 	override fun invoke(project: Project, editor: Editor?, file: PsiFile?) {
 		if(editor == null || file == null) return
-		val element = file.findElementAt(editor.caretModel.offset)?.parent as? StellarisLocalizationPropertyHeader ?: return
-		val values = localizationPropertyHeaderCache.register(project)
+		val element = file.findElementAt(editor.caretModel.offset)?.parent as? StellarisLocalizationLocale ?: return
+		val values = localizationLocaleCache.register(project)
 		JBPopupFactory.getInstance().createListPopup(Popup(element, values)).showInBestPositionFor(editor)
 	}
 
 	private class Popup(
-		private val value: StellarisLocalizationPropertyHeader,
-		values: Array<StellarisLocalizationPropertyHeader>
-	) : BaseListPopupStep<StellarisLocalizationPropertyHeader>(message("stellaris.localization.intention.changeLocale.title"), *values){
-		override fun getTextFor(value: StellarisLocalizationPropertyHeader) = value.locale!!.popupText
+		private val value: StellarisLocalizationLocale,
+		values: Array<StellarisLocalizationLocale>
+	) : BaseListPopupStep<StellarisLocalizationLocale>(message("stellaris.localization.intention.changeLocale.title"), *values) {
+		override fun getTextFor(value: StellarisLocalizationLocale) = value.locale!!.popupText
 
 		override fun getDefaultOptionIndex() = 0
 
 		override fun isSpeedSearchEnabled(): Boolean = true
 
-		override fun onChosen(selectedValue: StellarisLocalizationPropertyHeader?, finalChoice: Boolean): PopupStep<*>? {
-			if(selectedValue!= null) {
-			//需要在WriteCommandAction里面执行
+		override fun onChosen(selectedValue: StellarisLocalizationLocale?, finalChoice: Boolean): PopupStep<*>? {
+			if(selectedValue != null) {
+				//需要在WriteCommandAction里面执行
 				runWriteCommandAction(selectedValue.project) { value.name = selectedValue.name }
 			}
 			return PopupStep.FINAL_CHOICE

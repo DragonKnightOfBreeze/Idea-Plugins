@@ -8,11 +8,12 @@ import com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationTy
 class StellarisLocalizationBraceMatcher : PairedBraceMatcher {
 	companion object{
 		private val bracePairs = arrayOf(
-			BracePair(CODE_START, CODE_END,true),
-			BracePair(COLORFUL_TEXT_START, COLORFUL_TEXT_END,true),
-			BracePair(ICON_START, ICON_END,true),
-			BracePair(PROPERTY_REFERENCE_START, PROPERTY_REFERENCE_END,true),
-			BracePair(SERIAL_NUMBER_START, SERIAL_NUMBER_END,true)
+			BracePair(LEFT_QUOTE, RIGHT_QUOTE, true),
+			BracePair(CODE_START, CODE_END, true),
+			BracePair(COLORFUL_TEXT_START, COLORFUL_TEXT_END, true),
+			BracePair(ICON_START, ICON_END, true),
+			BracePair(PROPERTY_REFERENCE_START, PROPERTY_REFERENCE_END, true),
+			BracePair(SERIAL_NUMBER_START, SERIAL_NUMBER_END, true)
 		)
 	}
 

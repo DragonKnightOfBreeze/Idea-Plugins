@@ -8,10 +8,10 @@ import com.intellij.openapi.util.Iconable.IconFlags;
 import com.windea.plugin.idea.stellaris.domain.StellarisLocale;
 import javax.swing.Icon;
 
-public interface StellarisLocalizationPropertyHeader extends StellarisLocalizationNamedElement {
+public interface StellarisLocalizationLocale extends StellarisLocalizationNamedElement {
 
   @NotNull
-  PsiElement getHeaderToken();
+  PsiElement getLocaleId();
 
   @NotNull
   String getName();

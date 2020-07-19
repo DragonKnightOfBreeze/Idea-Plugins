@@ -16,8 +16,8 @@ import static com.windea.plugin.idea.stellaris.localization.psi.StellarisLocaliz
 %type IElementType
 %unicode
 
-%state WAITING_PROPERTY_HEADER_COLON
-%state WAITING_PROPERTY_HEADER_EOL
+%state WAITING_LOCALE_COLON
+%state WAITING_LOCALE_EOL
 %state WAITING_PROPERTY_KEY
 %state WAITING_PROPERTY_COLON
 %state WAITING_PROPERTY_NUMBER
@@ -51,7 +51,7 @@ SPACE=[ \t]+
 COMMENT=#[^\r\n]*
 ROOT_COMMENT=#[^\r\n]*
 NUMBER=\d
-HEADER_TOKEN=[a-z_]+
+LOCALE_ID=[a-z_]+
 KEY_TOKEN=[a-zA-Z][a-zA-Z0-9_.]*
 VALUE_TOKEN=([^\"(\[$£§%\r\n\\]|\\.)+
 LEFT_QUOTE=\"
@@ -59,7 +59,7 @@ RIGHT_QUOTE=\"
 PROPERTY_REFERENCE_START="$"
 PROPERTY_REFERENCE_END="$"
 CODE_START="["
-CODE_TEXT=[^\[\]\R]*
+CODE_TEXT=[^\[\]\R]+
 CODE_END=]
 ICON_START=£
 ICON_TEXT=[a-z_]+
@@ -75,17 +75,17 @@ COLORFUL_TEXT_END="§!"
 
 <YYINITIAL> {
   {ROOT_COMMENT} {  return ROOT_COMMENT; }
-  {HEADER_TOKEN} { yybegin(WAITING_PROPERTY_HEADER_COLON); return HEADER_TOKEN; }
+  {LOCALE_ID} { yybegin(WAITING_LOCALE_COLON); return LOCALE_ID; }
   {WHITE_SPACE} {  return WHITE_SPACE; } //继续解析
 }
 
-<WAITING_PROPERTY_HEADER_COLON>{
-  ":" { yybegin(WAITING_PROPERTY_HEADER_EOL); return COLON; }
+<WAITING_LOCALE_COLON>{
+  ":" { yybegin(WAITING_LOCALE_EOL); return COLON; }
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
 }
-<WAITING_PROPERTY_HEADER_EOL>{
+<WAITING_LOCALE_EOL>{
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }
-  //{COMMENT} { yybegin(WAITING_PROPERTY_HEADER_EOL); return COMMENT; }
+  //{COMMENT} { yybegin(WAITING_LOCALE_EOL); return COMMENT; }
   {SPACE} { return WHITE_SPACE; } //继续解析
 }
 

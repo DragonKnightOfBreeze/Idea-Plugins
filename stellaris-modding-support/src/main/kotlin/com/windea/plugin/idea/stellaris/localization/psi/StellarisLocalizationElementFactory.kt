@@ -16,9 +16,9 @@ object StellarisLocalizationElementFactory {
 	}
 
 	@JvmStatic
-	fun createPropertyHeader(project: Project, locale: String): StellarisLocalizationPropertyHeader {
-		return createDummyFile(project, "$locale:").propertyHeader!!
-			.also { logger.info { "create property header: '$it'" } }
+	fun createLocale(project: Project, locale: String): StellarisLocalizationLocale {
+		return createDummyFile(project, "$locale:").Locale!!
+			.also { logger.info { "create locale: '$it'" } }
 	}
 
 	/**创建属性*/

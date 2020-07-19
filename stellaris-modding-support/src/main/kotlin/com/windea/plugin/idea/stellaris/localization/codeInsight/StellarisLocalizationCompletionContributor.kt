@@ -13,13 +13,13 @@ import com.windea.plugin.idea.stellaris.localization.psi.*
 @ExtensionPoint
 class StellarisLocalizationCompletionContributor : CompletionContributor() {
 	//companion object{
-	//	val inPropertyHeader get() = psiElement()
+	//	val inLocale get() = psiElement()
 	//		.inFile(psiFile(StellarisLocalizationFile::class.java))
 	//		.afterLeaf("l_")
 	//		.withParent(StellarisLocalizationFile::class.java)
 	//}
 	//
-	//class PropertyHeaderCompletionProvider : CompletionProvider<CompletionParameters>() {
+	//class LocaleCompletionProvider : CompletionProvider<CompletionParameters>() {
 	//	override fun addCompletions(parameters: CompletionParameters, context: ProcessingContext, result: CompletionResultSet) {
 	//		for(locale in enumValues<StellarisLocale>()) {
 	//			result.addElement(createLookupElement(locale.key,typeText = locale.description))
@@ -28,7 +28,7 @@ class StellarisLocalizationCompletionContributor : CompletionContributor() {
 	//}
 	//
 	//init {
-	//	extend(CompletionType.BASIC, inPropertyHeader, PropertyHeaderCompletionProvider())
+	//	extend(CompletionType.BASIC, inLocale, LocaleCompletionProvider())
 	//}
 }
 

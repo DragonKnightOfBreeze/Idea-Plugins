@@ -21,7 +21,7 @@ class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider
 	override fun getQuickNavigateInfo(element: PsiElement?, originalElement: PsiElement?): String? {
 		return when {
 			element is StellarisLocalizationProperty -> "${getLocationText(element)}<br>${element.name}"
-			element is StellarisLocalizationPropertyHeader -> "locale \"${element.name}\""
+			element is StellarisLocalizationLocale -> "locale \"${element.name}\""
 			element is StellarisLocalizationIcon -> "icon \"${element.name}\""
 			element is StellarisLocalizationColorfulText -> "color \"${element.name}\""
 			element is StellarisLocalizationSerialNumber -> "serial number \"${element.name}\""
@@ -51,9 +51,9 @@ class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider
 					}
 				}
 			}
-			element is StellarisLocalizationPropertyHeader -> element.documentation
+			element is StellarisLocalizationLocale -> element.documentation
 			element is StellarisLocalizationIcon -> element.documentation
-			element is StellarisLocalizationColorfulText ->element.documentation
+			element is StellarisLocalizationColorfulText -> element.documentation
 			element is StellarisLocalizationSerialNumber -> element.documentation
 			else -> null
 		}

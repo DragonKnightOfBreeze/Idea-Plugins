@@ -17,9 +17,9 @@ class StellarisLocalizationColorSettingsPage : ColorSettingsPage {
 		private val attributesDescriptors = arrayOf(
 			AttributesDescriptor(message("stellaris.localization.color.colon"), StellarisLocalizationAttributesKeys.COLON_KEY),
 			AttributesDescriptor(message("stellaris.localization.color.number"), StellarisLocalizationAttributesKeys.NUMBER_KEY),
-			AttributesDescriptor(message("stellaris.localization.color.propertyHeader"), StellarisLocalizationAttributesKeys.PROPERTY_HEADER_KEY),
+			AttributesDescriptor(message("stellaris.localization.color.Locale"), StellarisLocalizationAttributesKeys.LOCALE_KEY),
 			AttributesDescriptor(message("stellaris.localization.color.propertyKey"), StellarisLocalizationAttributesKeys.PROPERTY_KEY_KEY),
-			AttributesDescriptor(message("stellaris.localization.color.propertyValue"),StellarisLocalizationAttributesKeys. PROPERTY_VALUE_KEY),
+			AttributesDescriptor(message("stellaris.localization.color.propertyValue"), StellarisLocalizationAttributesKeys.PROPERTY_VALUE_KEY),
 			AttributesDescriptor(message("stellaris.localization.color.comment"), StellarisLocalizationAttributesKeys.COMMENT_KEY),
 			AttributesDescriptor(message("stellaris.localization.color.marker"), StellarisLocalizationAttributesKeys.MARKER_KEY),
 			AttributesDescriptor(message("stellaris.localization.color.code"), StellarisLocalizationAttributesKeys.CODE_KEY),

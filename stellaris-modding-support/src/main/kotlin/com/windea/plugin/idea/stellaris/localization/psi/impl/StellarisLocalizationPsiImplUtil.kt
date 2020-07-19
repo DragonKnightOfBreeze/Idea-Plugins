@@ -12,7 +12,7 @@ import com.windea.plugin.idea.stellaris.domain.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
 import com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationElementFactory.createColorfulText
 import com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationElementFactory.createIcon
-import com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationElementFactory.createPropertyHeader
+import com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationElementFactory.createLocale
 import com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationElementFactory.createPropertyKey
 import com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationElementFactory.createPropertyReference
 import com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationElementFactory.createSerialNumber
@@ -20,35 +20,35 @@ import com.windea.plugin.idea.stellaris.localization.reference.*
 import javax.swing.*
 
 object StellarisLocalizationPsiImplUtil {
-	//region StellarisLocalizationPropertyHeader
+	//region StellarisLocalizationLocale
 	@JvmStatic
-	fun getName(element: StellarisLocalizationPropertyHeader): String {
-		return element.headerToken.text.orEmpty()
+	fun getName(element: StellarisLocalizationLocale): String {
+		return element.localeId.text.orEmpty()
 	}
 
 	@JvmStatic
-	fun setName(element: StellarisLocalizationPropertyHeader, name: String): PsiElement {
-		element.headerToken.replace(createPropertyHeader(element.project, name).headerToken)
+	fun setName(element: StellarisLocalizationLocale, name: String): PsiElement {
+		element.localeId.replace(createLocale(element.project, name).localeId)
 		return element
 	}
 
 	@JvmStatic
-	fun getNameIdentifier(element: StellarisLocalizationPropertyHeader): PsiElement? {
-		return element.headerToken
+	fun getNameIdentifier(element: StellarisLocalizationLocale): PsiElement? {
+		return element.localeId
 	}
 
 	@JvmStatic
-	fun getIcon(element: StellarisLocalizationPropertyHeader, @IconFlags flags: Int): Icon? {
+	fun getIcon(element: StellarisLocalizationLocale, @IconFlags flags: Int): Icon? {
 		return AllIcons.FileTypes.Properties
 	}
 
 	@JvmStatic
-	fun getLocale(element:StellarisLocalizationPropertyHeader):StellarisLocale?{
+	fun getLocale(element: StellarisLocalizationLocale): StellarisLocale? {
 		return StellarisLocale.map[element.name]
 	}
 
 	@JvmStatic
-	fun getDocumentation(element:StellarisLocalizationPropertyHeader):String?{
+	fun getDocumentation(element: StellarisLocalizationLocale): String? {
 		return element.locale?.description?.toDefinitionText()
 	}
 	//endregion

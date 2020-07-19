@@ -125,8 +125,6 @@
       language="Stellaris Localization"
       implementationClass="com.windea.plugin.idea.stellaris.localization.refactoring.StellarisLocalizationRefactoringSupportProvider"/>
     <renameInputValidator
-      implementation="com.windea.plugin.idea.stellaris.localization.refactoring.StellarisLocalizationPropertyHeaderRenameInputValidator"/>
-    <renameInputValidator
       implementation="com.windea.plugin.idea.stellaris.localization.refactoring.StellarisLocalizationPropertyRenameInputValidator"/>
     <refactoring.safeDeleteProcessor
       implementation="com.windea.plugin.idea.stellaris.localization.refactoring.StellarisLocalizationPropertySafeDeleteProcessor"/>

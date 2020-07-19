@@ -25,7 +25,7 @@ class StellarisLocalizationFindUsagesProvider : FindUsagesProvider {
 	override fun getType(element: PsiElement): String {
 		return when(element) {
 			is StellarisLocalizationProperty -> message("stellaris.localization.findUsages.property")
-			//is StellarisLocalizationPropertyHeader -> message("stellaris.localization.findUsages.propertyHeader")
+			//is StellarisLocalizationLocale -> message("stellaris.localization.findUsages.Locale")
 			//is StellarisLocalizationIcon -> message("stellaris.localization.findUsages.icon")
 			//is StellarisLocalizationColorfulText -> message("stellaris.localization.findUsages.color")
 			//is StellarisLocalizationSerialNumber -> message("stellaris.localization.findUsages.serialNumber")

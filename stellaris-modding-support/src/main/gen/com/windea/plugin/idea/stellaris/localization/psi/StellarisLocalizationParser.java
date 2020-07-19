@@ -36,15 +36,36 @@ public class StellarisLocalizationParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // CODE_START CODE_TEXT CODE_END
+  // LOCALE_ID ":"
+  public static boolean LOCALE(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "LOCALE")) return false;
+    if (!nextTokenIs(b, LOCALE_ID)) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeTokens(b, 0, LOCALE_ID, COLON);
+    exit_section_(b, m, LOCALE, r);
+    return r;
+  }
+
+  /* ********************************************************** */
+  // CODE_START CODE_TEXT? CODE_END
   public static boolean code(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "code")) return false;
     if (!nextTokenIs(b, CODE_START)) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = consumeTokens(b, 0, CODE_START, CODE_TEXT, CODE_END);
+    r = consumeToken(b, CODE_START);
+    r = r && code_1(b, l + 1);
+    r = r && consumeToken(b, CODE_END);
     exit_section_(b, m, CODE, r);
     return r;
+  }
+
+  // CODE_TEXT?
+  private static boolean code_1(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "code_1")) return false;
+    consumeToken(b, CODE_TEXT);
+    return true;
   }
 
   /* ********************************************************** */
@@ -109,18 +130,6 @@ public class StellarisLocalizationParser implements PsiParser, LightPsiParser {
     r = p && property_value(b, l + 1) && r;
     exit_section_(b, l, m, r, p, null);
     return r || p;
-  }
-
-  /* ********************************************************** */
-  // HEADER_TOKEN ":"
-  public static boolean property_header(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "property_header")) return false;
-    if (!nextTokenIs(b, HEADER_TOKEN)) return false;
-    boolean r;
-    Marker m = enter_section_(b);
-    r = consumeTokens(b, 0, HEADER_TOKEN, COLON);
-    exit_section_(b, m, PROPERTY_HEADER, r);
-    return r;
   }
 
   /* ********************************************************** */
@@ -230,13 +239,13 @@ public class StellarisLocalizationParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // property_header property_list *
+  // LOCALE property_list *
   static boolean root_item(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "root_item")) return false;
-    if (!nextTokenIs(b, HEADER_TOKEN)) return false;
+    if (!nextTokenIs(b, LOCALE_ID)) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = property_header(b, l + 1);
+    r = LOCALE(b, l + 1);
     r = r && root_item_1(b, l + 1);
     exit_section_(b, m, null, r);
     return r;

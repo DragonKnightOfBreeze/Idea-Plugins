@@ -7,7 +7,7 @@ import com.intellij.psi.PsiElement;
 
 public interface StellarisLocalizationCode extends PsiElement {
 
-  @NotNull
+  @Nullable
   PsiElement getCodeText();
 
 }

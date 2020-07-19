@@ -21,7 +21,7 @@ const val stellarisLocalizationFileTypeName = "$stellarisLocalizationName File"
 const val stellarisLocalizationFileTypeDescription = "$stellarisLocalizationName Language"
 const val stellarisLocalizationExtension = "yml"
 val stellarisLocalizationDummyText = "/example.syml".toClassPathResource<StellarisBundle>().readText()
-val stellarisLocalizationPropertyHeaderRegex = "[a-z_]+".toRegex()
+val stellarisLocalizationLocaleRegex = "[a-z_]+".toRegex()
 val stellarisLocalizationPropertyKeyRegex = "[a-zA-Z][a-zA-Z0-9_.]*".toRegex()
 
 const val stellarisScriptName = "Stellaris Script"
@@ -50,17 +50,17 @@ val stellarisLocalizationIcon = IconLoader.getIcon("/icons/stellaris_localizatio
 val stellarisScriptIcon = IconLoader.getIcon("/icons/stellaris_script.png")
 
 //Caches
-val localizationPropertyHeaderCache = ConcurrentHashMap<Project, Array<StellarisLocalizationPropertyHeader>>()
-fun MutableMap<Project,Array<StellarisLocalizationPropertyHeader>>.register(project:Project) = this.getOrPut(project){
-	StellarisLocale.keys.mapArray {e-> StellarisLocalizationElementFactory.createPropertyHeader(project,e) }
+val localizationLocaleCache = ConcurrentHashMap<Project, Array<StellarisLocalizationLocale>>()
+fun MutableMap<Project, Array<StellarisLocalizationLocale>>.register(project: Project) = this.getOrPut(project) {
+	StellarisLocale.keys.mapArray { e -> StellarisLocalizationElementFactory.createLocale(project, e) }
 }
 
 val localizationSerialNumberCache = ConcurrentHashMap<Project, Array<StellarisLocalizationSerialNumber>>()
-fun MutableMap<Project,Array<StellarisLocalizationSerialNumber>>.register(project:Project) = this.getOrPut(project){
-	StellarisSerialNumber.keys.mapArray {e-> StellarisLocalizationElementFactory.createSerialNumber(project,e) }
+fun MutableMap<Project, Array<StellarisLocalizationSerialNumber>>.register(project: Project) = this.getOrPut(project) {
+	StellarisSerialNumber.keys.mapArray { e -> StellarisLocalizationElementFactory.createSerialNumber(project, e) }
 }
 
 val localizationColorfulTextCache = ConcurrentHashMap<Project, Array<StellarisLocalizationColorfulText>>()
-fun MutableMap<Project,Array<StellarisLocalizationColorfulText>>.register(project:Project) = this.getOrPut(project){
-	StellarisColor.keys.mapArray {e-> StellarisLocalizationElementFactory.createColorfulText(project,e) }
+fun MutableMap<Project, Array<StellarisLocalizationColorfulText>>.register(project: Project) = this.getOrPut(project) {
+	StellarisColor.keys.mapArray { e -> StellarisLocalizationElementFactory.createColorfulText(project, e) }
 }

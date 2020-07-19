@@ -11,9 +11,9 @@ public interface StellarisLocalizationTypes {
   IElementType CODE = new StellarisLocalizationElementType("CODE");
   IElementType COLORFUL_TEXT = new StellarisLocalizationElementType("COLORFUL_TEXT");
   IElementType ICON = new StellarisLocalizationElementType("ICON");
+  IElementType LOCALE = new StellarisLocalizationElementType("LOCALE");
   IElementType PLAIN_TEXT = new StellarisLocalizationElementType("PLAIN_TEXT");
   IElementType PROPERTY = new StellarisLocalizationElementType("PROPERTY");
-  IElementType PROPERTY_HEADER = new StellarisLocalizationElementType("PROPERTY_HEADER");
   IElementType PROPERTY_KEY = new StellarisLocalizationElementType("PROPERTY_KEY");
   IElementType PROPERTY_REFERENCE = new StellarisLocalizationElementType("PROPERTY_REFERENCE");
   IElementType PROPERTY_VALUE = new StellarisLocalizationElementType("PROPERTY_VALUE");
@@ -28,12 +28,12 @@ public interface StellarisLocalizationTypes {
   IElementType COLORFUL_TEXT_END = new StellarisLocalizationTokenType("§!");
   IElementType COLORFUL_TEXT_START = new StellarisLocalizationTokenType("§");
   IElementType COMMENT = new StellarisLocalizationTokenType("COMMENT");
-  IElementType HEADER_TOKEN = new StellarisLocalizationTokenType("HEADER_TOKEN");
   IElementType ICON_END = new StellarisLocalizationTokenType("£");
   IElementType ICON_START = new StellarisLocalizationTokenType("ICON_START");
   IElementType ICON_TEXT = new StellarisLocalizationTokenType("ICON_TEXT");
   IElementType KEY_TOKEN = new StellarisLocalizationTokenType("KEY_TOKEN");
   IElementType LEFT_QUOTE = new StellarisLocalizationTokenType("LEFT_QUOTE");
+  IElementType LOCALE_ID = new StellarisLocalizationTokenType("LOCALE_ID");
   IElementType NUMBER = new StellarisLocalizationTokenType("NUMBER");
   IElementType PROPERTY_REFERENCE_END = new StellarisLocalizationTokenType("$");
   IElementType PROPERTY_REFERENCE_START = new StellarisLocalizationTokenType("PROPERTY_REFERENCE_START");
@@ -56,14 +56,14 @@ public interface StellarisLocalizationTypes {
       else if (type == ICON) {
         return new StellarisLocalizationIconImpl(node);
       }
+      else if (type == LOCALE) {
+        return new StellarisLocalizationLocaleImpl(node);
+      }
       else if (type == PLAIN_TEXT) {
         return new StellarisLocalizationPlainTextImpl(node);
       }
       else if (type == PROPERTY) {
         return new StellarisLocalizationPropertyImpl(node);
-      }
-      else if (type == PROPERTY_HEADER) {
-        return new StellarisLocalizationPropertyHeaderImpl(node);
       }
       else if (type == PROPERTY_KEY) {
         return new StellarisLocalizationPropertyKeyImpl(node);

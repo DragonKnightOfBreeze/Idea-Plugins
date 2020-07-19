@@ -13,14 +13,14 @@ import com.intellij.openapi.util.Iconable.IconFlags;
 import com.windea.plugin.idea.stellaris.domain.StellarisLocale;
 import javax.swing.Icon;
 
-public class StellarisLocalizationPropertyHeaderImpl extends StellarisLocalizationNamedElementImpl implements StellarisLocalizationPropertyHeader {
+public class StellarisLocalizationLocaleImpl extends StellarisLocalizationNamedElementImpl implements StellarisLocalizationLocale {
 
-  public StellarisLocalizationPropertyHeaderImpl(@NotNull ASTNode node) {
+  public StellarisLocalizationLocaleImpl(@NotNull ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull StellarisLocalizationVisitor visitor) {
-    visitor.visitPropertyHeader(this);
+    visitor.visitLocale(this);
   }
 
   public void accept(@NotNull PsiElementVisitor visitor) {
@@ -30,8 +30,8 @@ public class StellarisLocalizationPropertyHeaderImpl extends StellarisLocalizati
 
   @Override
   @NotNull
-  public PsiElement getHeaderToken() {
-    return findNotNullChildByType(HEADER_TOKEN);
+  public PsiElement getLocaleId() {
+    return findNotNullChildByType(LOCALE_ID);
   }
 
   @Override

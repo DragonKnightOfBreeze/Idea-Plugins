@@ -8,6 +8,10 @@ import com.intellij.psi.PsiLiteralValue;
 
 public class StellarisLocalizationVisitor extends PsiElementVisitor {
 
+  public void visitLocale(@NotNull StellarisLocalizationLocale o) {
+    visitNamedElement(o);
+  }
+
   public void visitCode(@NotNull StellarisLocalizationCode o) {
     visitPsiElement(o);
   }
@@ -25,10 +29,6 @@ public class StellarisLocalizationVisitor extends PsiElementVisitor {
   }
 
   public void visitProperty(@NotNull StellarisLocalizationProperty o) {
-    visitNamedElement(o);
-  }
-
-  public void visitPropertyHeader(@NotNull StellarisLocalizationPropertyHeader o) {
     visitNamedElement(o);
   }
 

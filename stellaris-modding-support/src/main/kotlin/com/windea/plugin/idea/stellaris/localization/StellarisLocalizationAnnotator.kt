@@ -15,7 +15,7 @@ class StellarisLocalizationAnnotator : Annotator, DumbAware {
 	override fun annotate(element: PsiElement, holder: AnnotationHolder) {
 		when(element) {
 			//如果有无法解析的枚举项，则报错
-			is StellarisLocalizationPropertyHeader -> {
+			is StellarisLocalizationLocale -> {
 				if(element.locale == null) {
 					holder.newAnnotation(ERROR, message("stellaris.localization.annotator.unsupportedLocale"))
 						.withFix(StellarisLocalizationChangeLocaleIntention).create()

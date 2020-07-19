@@ -13,7 +13,7 @@ import java.awt.*
 object StellarisLocalizationAttributesKeys {
 	val COLON_KEY = createTextAttributesKey(message("stellaris.localization.syntax.colon"), OPERATION_SIGN)
 	val NUMBER_KEY = createTextAttributesKey(message("stellaris.localization.syntax.number"), NUMBER)
-	val PROPERTY_HEADER_KEY = createTextAttributesKey(message("stellaris.localization.syntax.propertyHeader"), KEYWORD)
+	val LOCALE_KEY = createTextAttributesKey(message("stellaris.localization.syntax.Locale"), KEYWORD)
 	val PROPERTY_KEY_KEY = createTextAttributesKey(message("stellaris.localization.syntax.propertyKey"), KEYWORD)
 	val PROPERTY_VALUE_KEY = createTextAttributesKey(message("stellaris.localization.syntax.propertyValue"), STRING)
 	val COMMENT_KEY = createTextAttributesKey(message("stellaris.localization.syntax.comment"), LINE_COMMENT)

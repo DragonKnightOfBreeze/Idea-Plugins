@@ -16,7 +16,7 @@
 	  BLANK="regexp:\s+"
 	  COMMENT="regexp:#[^\r\n]*"
 	  ROOT_COMMENT="regexp:#[^\r\n]*"
-	  HEADER_TOKEN="regexp:[a-z_]+"
+	  LOCALE_ID="regexp:[a-z_]+"
 	  KEY_TOKEN='regexp:[a-zA-Z][a-zA-Z0-9_.]*'
 	  VALUE_TOKEN='regexp:([^"(\[$£§%\r\n\\]|\\.)+'
 	  LEFT_QUOTE="\""
@@ -24,7 +24,7 @@
 	  PROPERTY_REFERENCE_START="$"
 	  PROPERTY_REFERENCE_END="$"
 	  CODE_START="["
-	  CODE_TEXT="regexp:[^\[\]\r\n]*"
+	  CODE_TEXT="regexp:[^\[\]\r\n]+"
 	  CODE_END="]"
 	  ICON_START="£"
 	  ICON_TEXT="regexp:[a-z_]+"
@@ -43,8 +43,8 @@
 //即使idea提示不需要转义，一些字符在regexp中仍然需要转义
 
 root ::= ROOT_COMMENT * [root_item]
-private root_item ::= property_header property_list *
-property_header ::= HEADER_TOKEN ":" {
+private root_item ::= LOCALE property_list *
+LOCALE ::= LOCALE_ID ":" {
   mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"
   implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
   methods=[getName setName getNameIdentifier getIcon getLocale getDocumentation]
@@ -68,7 +68,7 @@ property_reference ::= PROPERTY_REFERENCE_START KEY_TOKEN PROPERTY_REFERENCE_END
   	implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
   	methods=[getName setName getNameIdentifier getTextOffset getReference]
 }
-code ::= CODE_START CODE_TEXT CODE_END
+code ::= CODE_START CODE_TEXT? CODE_END
 icon ::= ICON_START ICON_TEXT ICON_END {
   	mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"
   	implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
