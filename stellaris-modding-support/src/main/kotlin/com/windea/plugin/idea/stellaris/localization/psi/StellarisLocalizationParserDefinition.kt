@@ -37,7 +37,7 @@ class StellarisLocalizationParserDefinition : ParserDefinition {
 		return when {
 			//数字和属性值之间必须有空格
 			left?.elementType == NUMBER && right?.elementType == PROPERTY_VALUE -> MUST
-			//属性头部之前必须换行
+			//语言区域之前必须换行
 			right?.elementType == LOCALE -> MUST_LINE_BREAK
 			//属性之前必须换行
 			right?.elementType == PROPERTY -> MUST_LINE_BREAK
