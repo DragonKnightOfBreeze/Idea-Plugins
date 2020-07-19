@@ -7,6 +7,7 @@ import com.intellij.psi.*
 import com.windea.plugin.idea.stellaris.StellarisBundle.message
 import com.windea.plugin.idea.stellaris.annotations.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
+import com.windea.plugin.idea.stellaris.script.psi.*
 
 //查找使用：
 //key: value - 键，注释，字符串
@@ -21,9 +22,10 @@ class StellarisLocalizationFindUsagesProvider : FindUsagesProvider {
 	override fun getType(element: PsiElement): String {
 		return when(element) {
 			is StellarisLocalizationProperty -> message("stellaris.localization.findUsages.property")
-			is StellarisLocalizationIcon -> message("stellaris.localization.findUsages.icon")
-			is StellarisLocalizationColorfulText -> message("stellaris.localization.findUsages.color")
-			is StellarisLocalizationSerialNumber -> message("stellaris.localization.findUsages.serialNumber")
+			//is StellarisLocalizationPropertyHeader -> message("stellaris.localization.findUsages.propertyHeader")
+			//is StellarisLocalizationIcon -> message("stellaris.localization.findUsages.icon")
+			//is StellarisLocalizationColorfulText -> message("stellaris.localization.findUsages.color")
+			//is StellarisLocalizationSerialNumber -> message("stellaris.localization.findUsages.serialNumber")
 			else -> ""
 		}
 	}
@@ -37,15 +39,12 @@ class StellarisLocalizationFindUsagesProvider : FindUsagesProvider {
 	}
 
 	override fun canFindUsagesFor(psiElement: PsiElement): Boolean {
-		return psiElement is StellarisLocalizationProperty
-		       //|| psiElement is StellarisLocalizationIcon
-		       //|| psiElement is StellarisLocalizationColorfulText
-		       //|| psiElement is StellarisLocalizationSerialNumber
+		return psiElement is StellarisScriptNamedElement
 	}
 
 	override fun getWordsScanner(): WordsScanner? {
-		return StellarisLocalizationWordScanner()
-		//return null
+		//return StellarisLocalizationWordScanner()
+		return null
 	}
 }
 

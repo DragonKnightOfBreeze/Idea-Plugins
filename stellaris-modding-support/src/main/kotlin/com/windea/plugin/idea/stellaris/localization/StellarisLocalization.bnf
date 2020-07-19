@@ -47,7 +47,7 @@ private root_item ::= property_header property_list *
 property_header ::= HEADER_TOKEN ":" {
   mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"
   implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
-  methods=[getName setName getNameIdentifier getIcon isValid]
+  methods=[getName setName getNameIdentifier getIcon]
 }
 private property_list ::= COMMENT | property
 property ::= property_key ":" NUMBER property_value {

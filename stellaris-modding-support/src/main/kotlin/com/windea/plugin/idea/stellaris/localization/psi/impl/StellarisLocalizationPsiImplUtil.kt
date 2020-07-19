@@ -20,7 +20,7 @@ object StellarisLocalizationPsiImplUtil {
 	//region StellarisLocalizationPropertyHeader
 	@JvmStatic
 	fun getName(element: StellarisLocalizationPropertyHeader): String? {
-		return element.text?.removePrefix("l_")
+		return element.headerToken.text?.removePrefix("l_")
 	}
 
 	@JvmStatic
@@ -104,7 +104,7 @@ object StellarisLocalizationPsiImplUtil {
 
 	@JvmStatic
 	fun getTextOffset(element:StellarisLocalizationPropertyReference):Int{
-		return 1
+		return element.keyToken.textOffset
 	}
 
 	@JvmStatic
@@ -132,7 +132,7 @@ object StellarisLocalizationPsiImplUtil {
 
 	@JvmStatic
 	fun getTextOffset(element:StellarisLocalizationIcon):Int{
-		return 1
+		return element.iconText.textOffset
 	}
 	//endregion
 
@@ -155,7 +155,7 @@ object StellarisLocalizationPsiImplUtil {
 
 	@JvmStatic
 	fun getTextOffset(element:StellarisLocalizationSerialNumber):Int{
-		return 1
+		return element.serialNumberCode.textOffset
 	}
 	//endregion
 
@@ -178,7 +178,7 @@ object StellarisLocalizationPsiImplUtil {
 
 	@JvmStatic
 	fun getTextOffset(element:StellarisLocalizationColorfulText):Int{
-		return 1
+		return element.colorfulTextCode.textOffset
 	}
 	//endregion
 }

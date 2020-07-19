@@ -37,6 +37,7 @@ class StellarisLocalizationInvalidFileEncodingInspection : LocalInspectionTool()
 			file.virtualFile.charset = Charsets.UTF_8
 			file.virtualFile.bom = utf8Bom
 			file.virtualFile.refresh(true,false)
+			file.subtreeChanged()
 		}
 	}
 }

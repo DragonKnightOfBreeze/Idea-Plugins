@@ -57,9 +57,4 @@ public class StellarisLocalizationPropertyHeaderImpl extends StellarisLocalizati
     return StellarisLocalizationPsiImplUtil.getIcon(this, flags);
   }
 
-  @Override
-  public boolean isValid() {
-    return StellarisLocalizationPsiImplUtil.isValid(this);
-  }
-
 }

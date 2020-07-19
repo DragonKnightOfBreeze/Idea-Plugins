@@ -39,6 +39,7 @@ class StellarisScriptInvalidFileEncodingInspection: LocalInspectionTool(){
 			file.virtualFile.charset = Charsets.UTF_8
 			if(isNameList) file.virtualFile.bom = utf8Bom else file.virtualFile.bom = null
 			file.virtualFile.refresh(true,false)
+			file.subtreeChanged()
 		}
 	}
 }

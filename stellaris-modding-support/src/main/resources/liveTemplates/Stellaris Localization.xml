@@ -9,13 +9,10 @@
     </context>
   </template>
   <template name="scolor"
-            value="§$CODE$$SELECTION$§$END_CODE$"
+            value="§$CODE$$SELECTION$§!"
             description="Surround with colorful text markers"
             toReformat="false" toShortenFQNames="true">
     <variable name="CODE"
-              expression="enum(&quot;!&quot;,&quot;B&quot;,&quot;E&quot;,&quot;G&quot;,&quot;H&quot;,&quot;L&quot;,&quot;M&quot;,&quot;P&quot;,&quot;R&quot;,&quot;S&quot;,&quot;T&quot;,&quot;W&quot;,&quot;Y&quot;)"
-              alwaysStopAt="true"/>
-    <variable name="END_CODE"
               expression="enum(&quot;!&quot;,&quot;B&quot;,&quot;E&quot;,&quot;G&quot;,&quot;H&quot;,&quot;L&quot;,&quot;M&quot;,&quot;P&quot;,&quot;R&quot;,&quot;S&quot;,&quot;T&quot;,&quot;W&quot;,&quot;Y&quot;)"
               alwaysStopAt="true"/>
     <context>
@@ -50,16 +47,13 @@
     </context>
   </template>
   <template name="color"
-            value="§$CODE$$TEXT$§$END_CODE$$END$"
+            value="§$CODE$$TEXT$§!$END$"
             description="Insert a colorful text fragment"
             toReformat="false" toShortenFQNames="true">
     <variable name="CODE"
               expression="enum(&quot;!&quot;,&quot;B&quot;,&quot;E&quot;,&quot;G&quot;,&quot;H&quot;,&quot;L&quot;,&quot;M&quot;,&quot;P&quot;,&quot;R&quot;,&quot;S&quot;,&quot;T&quot;,&quot;W&quot;,&quot;Y&quot;)"
               alwaysStopAt="true"/>
     <variable name="TEXT" expression="" defaultValue="" alwaysStopAt="true"/>
-    <variable name="END_CODE"
-              expression="enum(&quot;!&quot;,&quot;B&quot;,&quot;E&quot;,&quot;G&quot;,&quot;H&quot;,&quot;L&quot;,&quot;M&quot;,&quot;P&quot;,&quot;R&quot;,&quot;S&quot;,&quot;T&quot;,&quot;W&quot;,&quot;Y&quot;)"
-              alwaysStopAt="true"/>
     <context>
       <option name="STELLARIS_LOCALIZATION" value="true"/>
     </context>

@@ -17,19 +17,32 @@ import com.windea.plugin.idea.stellaris.localization.psi.*
 class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider() {
 	override fun getQuickNavigateInfo(element: PsiElement?, originalElement: PsiElement?): String? {
 		return when {
-			element is StellarisLocalizationProperty -> {
-				"${element.name} ${getLocationText(element)}"
-			}
+			element is StellarisLocalizationProperty -> "${getLocationText(element)}<br>${element.name}"
+			element is StellarisLocalizationPropertyHeader -> "locale \"${element.name}\""
+			element is StellarisLocalizationIcon -> "icon \"${element.name}\""
+			element is StellarisLocalizationColorfulText -> "color \"${element.name}\""
+			element is StellarisLocalizationSerialNumber -> "serial number \"${element.name}\""
 			else -> null
 		}
 	}
 
 	override fun generateDoc(element: PsiElement?, originalElement: PsiElement?): String? {
-		println(element)
-		println(element?.text)
-		println(originalElement)
-		println(originalElement?.text)
 		return when {
+			element is StellarisLocalizationProperty -> {
+				buildString {
+					append(DocumentationMarkup.DEFINITION_START)
+					append("${getLocationText(element)}<br><b>${element.name}</b>: ${getPropertyValueText(element).quote()}")
+					append(DocumentationMarkup.DEFINITION_END)
+
+					val textAttributesKey = StellarisLocalizationAttributesKeys.COMMENT_KEY
+					val docCommentText = getDocCommentHtmlFromPreviousComment(element, textAttributesKey)
+					if(docCommentText.isNotEmpty()) {
+						append(DocumentationMarkup.CONTENT_START)
+						append(docCommentText)
+						append(DocumentationMarkup.CONTENT_END)
+					}
+				}
+			}
 			element is StellarisLocalizationPropertyHeader -> {
 				buildString{
 					append(DocumentationMarkup.DEFINITION_START)
@@ -44,33 +57,18 @@ class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider
 					append(DocumentationMarkup.DEFINITION_END)
 				}
 			}
-			element is StellarisLocalizationColorCode -> {
+			element is StellarisLocalizationColorfulText -> {
 				buildString{
 					append(DocumentationMarkup.DEFINITION_START)
-					append(stellarisColorMap[element.text])
+					append(stellarisColorMap[element.name])
 					append(DocumentationMarkup.DEFINITION_END)
 				}
 			}
 			element is StellarisLocalizationSerialNumber -> {
 				buildString{
 					append(DocumentationMarkup.DEFINITION_START)
-					append(stellarisSerialNumberMap[element.text])
+					append(stellarisSerialNumberMap[element.name])
 					append(DocumentationMarkup.DEFINITION_END)
-				}
-			}
-			element is StellarisLocalizationProperty -> {
-				buildString {
-					append(DocumentationMarkup.DEFINITION_START)
-					append("<b>${element.name}</b>: ${getPropertyValueText(element).quote()} ${getLocationText(element)}")
-					append(DocumentationMarkup.DEFINITION_END)
-
-					val textAttributesKey = StellarisLocalizationAttributesKeys.COMMENT_KEY
-					val docCommentText = getDocCommentHtmlFromPreviousComment(element, textAttributesKey)
-					if(docCommentText.isNotEmpty()) {
-						append(DocumentationMarkup.CONTENT_START)
-						append(docCommentText)
-						append(DocumentationMarkup.CONTENT_END)
-					}
 				}
 			}
 			else -> null

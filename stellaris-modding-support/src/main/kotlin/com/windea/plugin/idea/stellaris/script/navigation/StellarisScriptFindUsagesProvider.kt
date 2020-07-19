@@ -31,11 +31,11 @@ class StellarisScriptFindUsagesProvider : FindUsagesProvider {
 	}
 
 	override fun canFindUsagesFor(psiElement: PsiElement): Boolean {
-		return psiElement is StellarisScriptVariableDefinition || psiElement is StellarisScriptProperty
+		return psiElement is StellarisScriptNamedElement
 	}
 
 	override fun getWordsScanner(): WordsScanner? {
-		return StellarisScriptWordScanner()
-		//return null
+		//return StellarisScriptWordScanner()
+		return null
 	}
 }

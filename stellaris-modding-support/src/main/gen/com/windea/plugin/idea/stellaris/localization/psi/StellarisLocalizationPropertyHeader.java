@@ -24,6 +24,4 @@ public interface StellarisLocalizationPropertyHeader extends StellarisLocalizati
   @Nullable
   Icon getIcon(@IconFlags int flags);
 
-  boolean isValid();
-
 }
