@@ -32,7 +32,7 @@ public class StellarisLocalizationIconImpl extends StellarisLocalizationNamedEle
   }
 
   @Override
-  @Nullable
+  @NotNull
   public String getName() {
     return StellarisLocalizationPsiImplUtil.getName(this);
   }
@@ -52,6 +52,12 @@ public class StellarisLocalizationIconImpl extends StellarisLocalizationNamedEle
   @Override
   public int getTextOffset() {
     return StellarisLocalizationPsiImplUtil.getTextOffset(this);
+  }
+
+  @Override
+  @Nullable
+  public String getDocumentation() {
+    return StellarisLocalizationPsiImplUtil.getDocumentation(this);
   }
 
 }

@@ -11,6 +11,7 @@ import com.intellij.psi.*
 import com.intellij.psi.util.*
 import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.StellarisBundle.message
+import com.windea.plugin.idea.stellaris.domain.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
 import javax.swing.*
 
@@ -27,7 +28,7 @@ class StellarisLocalizationUnsupportedLocaleInspection : LocalInspectionTool() {
 		override fun visitFile(file: PsiFile) {
 			val propertyHeader = PsiTreeUtil.findChildOfType(file, StellarisLocalizationPropertyHeader::class.java)?:return
 			val locale = propertyHeader.name?:return
-			val isValid = locale in stellarisLocalizationLocales
+			val isValid = locale in enumValues<StellarisLocale>().mapArray { it.key }
 			if(!isValid) {
 				val description = message("stellaris.localization.inspection.unsupportedLocale.description", locale)
 				val quickFix = ChooseLocale(propertyHeader)
@@ -52,7 +53,7 @@ class StellarisLocalizationUnsupportedLocaleInspection : LocalInspectionTool() {
 			//选中该元素，要求重命名
 			//selectElement(editor,startElement)
 			//直接弹出popup，要求用户选择其中一个，然后替换propertyHeader
-			val values = stellarisLocalizationPropertyHeaderCache.register(project)
+			val values = localizationPropertyHeaderCache.register(project)
 			val popup = Popup(startElement as StellarisLocalizationPropertyHeader, values)
 			JBPopupFactory.getInstance().createListPopup(popup).showInBestPositionFor(editor)
 		}
@@ -73,7 +74,7 @@ class StellarisLocalizationUnsupportedLocaleInspection : LocalInspectionTool() {
 				return 0
 			}
 
-			override fun onChosen(selectedValue: StellarisLocalizationPropertyHeader, finalChoice: Boolean): PopupStep<*> {
+			override fun onChosen(selectedValue: StellarisLocalizationPropertyHeader, finalChoice: Boolean): PopupStep<*>? {
 				//使用选择的元素替换原始元素
 				//不能直接替换，不允许这样做
 				//可以在WriteCommandAction里面执行

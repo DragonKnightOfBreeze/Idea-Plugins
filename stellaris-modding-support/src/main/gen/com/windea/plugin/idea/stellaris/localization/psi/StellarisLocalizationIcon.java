@@ -10,7 +10,7 @@ public interface StellarisLocalizationIcon extends StellarisLocalizationNamedEle
   @NotNull
   PsiElement getIconText();
 
-  @Nullable
+  @NotNull
   String getName();
 
   @NotNull
@@ -20,5 +20,8 @@ public interface StellarisLocalizationIcon extends StellarisLocalizationNamedEle
   PsiElement getNameIdentifier();
 
   int getTextOffset();
+
+  @Nullable
+  String getDocumentation();
 
 }

@@ -4,6 +4,7 @@ package com.windea.plugin.idea.stellaris.localization.psi;
 import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
+import com.windea.plugin.idea.stellaris.domain.StellarisColor;
 
 public interface StellarisLocalizationColorfulText extends StellarisLocalizationNamedElement {
 
@@ -13,7 +14,7 @@ public interface StellarisLocalizationColorfulText extends StellarisLocalization
   @NotNull
   PsiElement getColorfulTextCode();
 
-  @Nullable
+  @NotNull
   String getName();
 
   @NotNull
@@ -23,5 +24,11 @@ public interface StellarisLocalizationColorfulText extends StellarisLocalization
   PsiElement getNameIdentifier();
 
   int getTextOffset();
+
+  @Nullable
+  StellarisColor getColor();
+
+  @Nullable
+  String getDocumentation();
 
 }

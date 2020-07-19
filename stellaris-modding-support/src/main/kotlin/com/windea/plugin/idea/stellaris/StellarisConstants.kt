@@ -4,7 +4,6 @@ import com.intellij.openapi.project.*
 import com.intellij.openapi.util.*
 import com.windea.plugin.idea.stellaris.domain.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
-import com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationSerialNumber
 import java.util.concurrent.*
 
 //Strings
@@ -51,14 +50,17 @@ val stellarisLocalizationIcon = IconLoader.getIcon("/icons/stellaris_localizatio
 val stellarisScriptIcon = IconLoader.getIcon("/icons/stellaris_script.png")
 
 //Caches
-val stellarisLocaleMap = enumValues<StellarisLocale>().associateBy({it.text},{it.description})
-val stellarisColorMap = enumValues<StellarisColor>().associateBy({it.text},{it.description})
-val stellarisSerialNumberMap = enumValues<StellarisSerialNumber>().associateBy({it.text},{it.description})
+val localizationPropertyHeaderCache = ConcurrentHashMap<Project, Array<StellarisLocalizationPropertyHeader>>()
+fun MutableMap<Project,Array<StellarisLocalizationPropertyHeader>>.register(project:Project) = this.getOrPut(project){
+	StellarisLocale.keys.mapArray {e-> StellarisLocalizationElementFactory.createPropertyHeader(project,e) }
+}
 
-val stellarisLocalizationLocales = enumValues<StellarisLocale>().mapArray { it.text }
+val localizationSerialNumberCache = ConcurrentHashMap<Project, Array<StellarisLocalizationSerialNumber>>()
+fun MutableMap<Project,Array<StellarisLocalizationSerialNumber>>.register(project:Project) = this.getOrPut(project){
+	StellarisSerialNumber.keys.mapArray {e-> StellarisLocalizationElementFactory.createSerialNumber(project,e) }
+}
 
-//用于缓存用于popup的所有支持的属性头部
-val stellarisLocalizationPropertyHeaderCache: MutableMap<Project, Array<out StellarisLocalizationPropertyHeader>> = ConcurrentHashMap()
-
-fun MutableMap<Project,Array<out StellarisLocalizationPropertyHeader>>.register(project:Project) = this.getOrPut(project){
-	stellarisLocalizationLocales.mapArray {e-> StellarisLocalizationElementFactory.createPropertyHeader(project,e) }}
+val localizationColorfulTextCache = ConcurrentHashMap<Project, Array<StellarisLocalizationColorfulText>>()
+fun MutableMap<Project,Array<StellarisLocalizationColorfulText>>.register(project:Project) = this.getOrPut(project){
+	StellarisColor.keys.mapArray {e-> StellarisLocalizationElementFactory.createColorfulText(project,e) }
+}

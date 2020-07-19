@@ -16,7 +16,10 @@ import com.windea.plugin.idea.stellaris.script.psi.*
 @ExtensionPoint
 class StellarisLocalizationFindUsagesProvider : FindUsagesProvider {
 	override fun getDescriptiveName(element: PsiElement): String {
-		return if(element is StellarisLocalizationNamedElement) "${element.name}" else ""
+		return when(element) {
+			is StellarisLocalizationProperty -> "${element.name}"
+			else -> ""
+		}
 	}
 
 	override fun getType(element: PsiElement): String {
@@ -39,7 +42,7 @@ class StellarisLocalizationFindUsagesProvider : FindUsagesProvider {
 	}
 
 	override fun canFindUsagesFor(psiElement: PsiElement): Boolean {
-		return psiElement is StellarisScriptNamedElement
+		return psiElement is StellarisLocalizationProperty
 	}
 
 	override fun getWordsScanner(): WordsScanner? {

@@ -93,7 +93,126 @@
     ]]></change-notes>
 
   <extensions defaultExtensionNs="com.intellij">
-    Stellaris Script
+    <!--region Stellaris Localization-->
+    <fileType
+      name="Stellaris Localization File"
+      implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationFileType"
+      fieldName="INSTANCE" language="Stellaris Localization" extensions="yml;syml;syaml"/>
+    <lang.parserDefinition
+      language="Stellaris Localization"
+      implementationClass="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationParserDefinition"/>
+    <lang.syntaxHighlighterFactory
+      language="Stellaris Localization"
+      implementationClass="com.windea.plugin.idea.stellaris.localization.highlighter.StellarisLocalizationSyntaxHighlighterFactory"/>
+    <lang.braceMatcher
+      language="Stellaris Localization"
+      implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationBraceMatcher"/>
+    <lang.foldingBuilder
+      language="Stellaris Localization"
+      implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationFoldingBuilder"/>
+    <colorSettingsPage
+      implementation="com.windea.plugin.idea.stellaris.localization.settings.StellarisLocalizationColorSettingsPage"/>
+    <lang.commenter
+      language="Stellaris Localization"
+      implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationCommenter"/>
+    <spellchecker.support
+      language="Stellaris Localization"
+      implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationSpellchecker"/>
+    <!--<psi.referenceContributor-->
+    <!--  language="Stellaris Localization"-->
+    <!--  implementation="com.windea.plugin.idea.stellaris.localization.reference.StellarisLocalizationReferenceContributor"/>-->
+    <lang.refactoringSupport
+      language="Stellaris Localization"
+      implementationClass="com.windea.plugin.idea.stellaris.localization.refactoring.StellarisLocalizationRefactoringSupportProvider"/>
+    <renameInputValidator
+      implementation="com.windea.plugin.idea.stellaris.localization.refactoring.StellarisLocalizationPropertyHeaderRenameInputValidator"/>
+    <renameInputValidator
+      implementation="com.windea.plugin.idea.stellaris.localization.refactoring.StellarisLocalizationPropertyRenameInputValidator"/>
+    <refactoring.safeDeleteProcessor
+      implementation="com.windea.plugin.idea.stellaris.localization.refactoring.StellarisLocalizationPropertySafeDeleteProcessor"/>
+    <completion.contributor
+      language="Stellaris Localization"
+      implementationClass="com.windea.plugin.idea.stellaris.localization.codeInsight.StellarisLocalizationCompletionContributor"/>
+    <liveTemplateContext
+      implementation="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationTemplateContext"/>
+    <defaultLiveTemplates file="/liveTemplates/Stellaris Localization.xml"/>
+    <breadcrumbsInfoProvider
+      implementation="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationBreadCrumbsProvider"/>
+    <lang.psiStructureViewFactory
+      language="Stellaris Localization"
+      implementationClass="com.windea.plugin.idea.stellaris.localization.structureView.StellarisLocalizationStructureViewFactory"/>
+    <!--NOTE 不需要-->
+    <!--<stripTrailingSpacesFilterFactory-->
+    <!--  implementation="com.windea.plugin.idea.stellaris.formatter.StellarisLocalizationStripTrailingSpacesFilterFactory"/>-->
+    <lang.formatter
+      language="Stellaris Localization"
+      implementationClass="com.windea.plugin.idea.stellaris.localization.formatter.StellarisLocalizationFormattingModelBuilder"/>
+    <codeStyleSettingsProvider
+      implementation="com.windea.plugin.idea.stellaris.localization.settings.StellarisLocalizationCodeStyleSettingsProvider"/>
+    <langCodeStyleSettingsProvider
+      implementation="com.windea.plugin.idea.stellaris.localization.settings.StellarisLocalizationLanguageCodeStyleSettingsProvider"/>
+    <lang.quoteHandler
+      language="Stellaris Localization"
+      implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationQuoteHandler"/>
+    <lang.documentationProvider
+      language="Stellaris Localization"
+      implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationDocumentationProvider"/>
+    <elementDescriptionProvider
+      implementation="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationDescriptionProvider"/>
+
+    <lang.findUsagesProvider
+      language="Stellaris Localization"
+      implementationClass="com.windea.plugin.idea.stellaris.localization.navigation.StellarisLocalizationFindUsagesProvider"/>
+    <gotoDeclarationHandler
+      implementation="com.windea.plugin.idea.stellaris.localization.navigation.StellarisLocalizationGoToDeclarationHandler"/>
+    <annotator
+      language="Stellaris Localization"
+      implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationAnnotator"/>
+
+    <intentionAction>
+      <className>com.windea.plugin.idea.stellaris.localization.intentions.StellarisLocalizationChangeLocaleIntention</className>
+      <category>Stellaris localization</category>
+    </intentionAction>
+    <intentionAction>
+      <className>com.windea.plugin.idea.stellaris.localization.intentions.StellarisLocalizationChangeColorIntention</className>
+      <category>Stellaris localization</category>
+    </intentionAction>
+    <intentionAction>
+      <className>com.windea.plugin.idea.stellaris.localization.intentions.StellarisLocalizationChangeSerialNumberIntention</className>
+      <category>Stellaris localization</category>
+    </intentionAction>
+
+    <localInspection
+      language="Stellaris Localization"
+      shortName="StellarisLocalizationDuplicatePropertyKeys" bundle="messages.StellarisBundle"
+      groupKey="stellaris.localization.inspection"
+      key="stellaris.localization.inspection.duplicatePropertyKeys"
+      enabledByDefault="true" level="ERROR"
+      implementationClass="com.windea.plugin.idea.stellaris.localization.inspections.StellarisLocalizationDuplicatePropertyKeysInspection"/>
+    <localInspection
+      language="Stellaris Localization"
+      shortName="StellarisLocalizationUnsupportedLocale" bundle="messages.StellarisBundle"
+      groupKey="stellaris.localization.inspection"
+      key="stellaris.localization.inspection.unsupportedLocale"
+      enabledByDefault="true" level="ERROR"
+      implementationClass="com.windea.plugin.idea.stellaris.localization.inspections.StellarisLocalizationUnsupportedLocaleInspection"/>
+    <localInspection
+      language="Stellaris Localization"
+      shortName="StellarisLocalizationInvalidFileName" bundle="messages.StellarisBundle"
+      groupKey="stellaris.localization.inspection"
+      key="stellaris.localization.inspection.invalidFileName"
+      enabledByDefault="true" level="WARNING"
+      implementationClass="com.windea.plugin.idea.stellaris.localization.inspections.StellarisLocalizationInvalidFileNameInspection"/>
+    <localInspection
+      language="Stellaris Localization"
+      shortName="StellarisLocalizationInvalidFileEncoding" bundle="messages.StellarisBundle"
+      groupKey="stellaris.localization.inspection"
+      key="stellaris.localization.inspection.invalidFileEncoding"
+      enabledByDefault="true" level="WARNING"
+      implementationClass="com.windea.plugin.idea.stellaris.localization.inspections.StellarisLocalizationInvalidFileEncodingInspection"/>
+    <!--endregion-->
+
+    <!--region Stellaris Script-->
     <fileType name="Stellaris Script File"
               implementationClass="com.windea.plugin.idea.stellaris.script.StellarisScriptFileType"
               fieldName="INSTANCE" language="Stellaris Script" extensions="txt;stxt;mod"/>
@@ -179,111 +298,7 @@
       key="stellaris.script.inspection.invalidFileEncoding"
       enabledByDefault="true" level="WARNING"
       implementationClass="com.windea.plugin.idea.stellaris.script.inspections.StellarisScriptInvalidFileEncodingInspection"/>
-
-    <!--Stellaris Localization-->
-    <fileType
-      name="Stellaris Localization File"
-      implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationFileType"
-      fieldName="INSTANCE" language="Stellaris Localization" extensions="yml;syml;syaml"/>
-    <lang.parserDefinition
-      language="Stellaris Localization"
-      implementationClass="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationParserDefinition"/>
-    <lang.syntaxHighlighterFactory
-      language="Stellaris Localization"
-      implementationClass="com.windea.plugin.idea.stellaris.localization.highlighter.StellarisLocalizationSyntaxHighlighterFactory"/>
-    <lang.braceMatcher
-      language="Stellaris Localization"
-      implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationCodeMarkerMatcher"/>
-    <lang.foldingBuilder
-      language="Stellaris Localization"
-      implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationFoldingBuilder"/>
-    <colorSettingsPage
-      implementation="com.windea.plugin.idea.stellaris.localization.settings.StellarisLocalizationColorSettingsPage"/>
-    <lang.commenter
-      language="Stellaris Localization"
-      implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationCommenter"/>
-    <spellchecker.support
-      language="Stellaris Localization"
-      implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationSpellchecker"/>
-    <!--<psi.referenceContributor-->
-    <!--  language="Stellaris Localization"-->
-    <!--  implementation="com.windea.plugin.idea.stellaris.localization.reference.StellarisLocalizationReferenceContributor"/>-->
-    <lang.refactoringSupport
-      language="Stellaris Localization"
-      implementationClass="com.windea.plugin.idea.stellaris.localization.refactoring.StellarisLocalizationRefactoringSupportProvider"/>
-    <renameInputValidator
-      implementation="com.windea.plugin.idea.stellaris.localization.refactoring.StellarisLocalizationPropertyHeaderRenameInputValidator"/>
-    <renameInputValidator
-      implementation="com.windea.plugin.idea.stellaris.localization.refactoring.StellarisLocalizationPropertyRenameInputValidator"/>
-    <refactoring.safeDeleteProcessor
-      implementation="com.windea.plugin.idea.stellaris.localization.refactoring.StellarisLocalizationPropertySafeDeleteProcessor"/>
-    <completion.contributor
-      language="Stellaris Localization"
-      implementationClass="com.windea.plugin.idea.stellaris.localization.codeInsight.StellarisLocalizationCompletionContributor"/>
-    <liveTemplateContext
-      implementation="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationTemplateContext"/>
-    <defaultLiveTemplates file="/liveTemplates/Stellaris Localization.xml"/>
-    <breadcrumbsInfoProvider
-      implementation="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationBreadCrumbsProvider"/>
-    <lang.psiStructureViewFactory
-      language="Stellaris Localization"
-      implementationClass="com.windea.plugin.idea.stellaris.localization.structureView.StellarisLocalizationStructureViewFactory"/>
-    <!--NOTE 不需要-->
-    <!--<stripTrailingSpacesFilterFactory-->
-    <!--  implementation="com.windea.plugin.idea.stellaris.formatter.StellarisLocalizationStripTrailingSpacesFilterFactory"/>-->
-    <lang.formatter
-      language="Stellaris Localization"
-      implementationClass="com.windea.plugin.idea.stellaris.localization.formatter.StellarisLocalizationFormattingModelBuilder"/>
-    <codeStyleSettingsProvider
-      implementation="com.windea.plugin.idea.stellaris.localization.settings.StellarisLocalizationCodeStyleSettingsProvider"/>
-    <langCodeStyleSettingsProvider
-      implementation="com.windea.plugin.idea.stellaris.localization.settings.StellarisLocalizationLanguageCodeStyleSettingsProvider"/>
-    <lang.quoteHandler
-      language="Stellaris Localization"
-      implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationQuoteHandler"/>
-    <lang.documentationProvider
-      language="Stellaris Localization"
-      implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationDocumentationProvider"/>
-    <elementDescriptionProvider
-      implementation="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationDescriptionProvider"/>
-
-    <lang.findUsagesProvider
-      language="Stellaris Localization"
-      implementationClass="com.windea.plugin.idea.stellaris.localization.navigation.StellarisLocalizationFindUsagesProvider"/>
-    <gotoDeclarationHandler
-      implementation="com.windea.plugin.idea.stellaris.localization.navigation.StellarisLocalizationGoToDeclarationHandler"/>
-    <annotator
-      language="Stellaris Localization"
-      implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationAnnotator"/>
-
-    <localInspection
-      language="Stellaris Localization"
-      shortName="StellarisLocalizationDuplicatePropertyKeys" bundle="messages.StellarisBundle"
-      groupKey="stellaris.localization.inspection"
-      key="stellaris.localization.inspection.duplicatePropertyKeys"
-      enabledByDefault="true" level="ERROR"
-      implementationClass="com.windea.plugin.idea.stellaris.localization.inspections.StellarisLocalizationDuplicatePropertyKeysInspection"/>
-    <localInspection
-      language="Stellaris Localization"
-      shortName="StellarisLocalizationUnsupportedLocale" bundle="messages.StellarisBundle"
-      groupKey="stellaris.localization.inspection"
-      key="stellaris.localization.inspection.unsupportedLocale"
-      enabledByDefault="true" level="ERROR"
-      implementationClass="com.windea.plugin.idea.stellaris.localization.inspections.StellarisLocalizationUnsupportedLocaleInspection"/>
-    <localInspection
-      language="Stellaris Localization"
-      shortName="StellarisLocalizationInvalidFileName" bundle="messages.StellarisBundle"
-      groupKey="stellaris.localization.inspection"
-      key="stellaris.localization.inspection.invalidFileName"
-      enabledByDefault="true" level="WARNING"
-      implementationClass="com.windea.plugin.idea.stellaris.localization.inspections.StellarisLocalizationInvalidFileNameInspection"/>
-    <localInspection
-      language="Stellaris Localization"
-      shortName="StellarisLocalizationInvalidFileEncoding" bundle="messages.StellarisBundle"
-      groupKey="stellaris.localization.inspection"
-      key="stellaris.localization.inspection.invalidFileEncoding"
-      enabledByDefault="true" level="WARNING"
-      implementationClass="com.windea.plugin.idea.stellaris.localization.inspections.StellarisLocalizationInvalidFileEncodingInspection"/>
+    <!--endregion-->
   </extensions>
 
   <depends>com.intellij.modules.lang</depends>

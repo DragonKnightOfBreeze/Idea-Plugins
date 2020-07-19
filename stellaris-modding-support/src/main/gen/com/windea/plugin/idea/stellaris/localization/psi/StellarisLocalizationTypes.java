@@ -25,8 +25,8 @@ public interface StellarisLocalizationTypes {
   IElementType CODE_TEXT = new StellarisLocalizationTokenType("CODE_TEXT");
   IElementType COLON = new StellarisLocalizationTokenType(":");
   IElementType COLORFUL_TEXT_CODE = new StellarisLocalizationTokenType("COLORFUL_TEXT_CODE");
-  IElementType COLORFUL_TEXT_END = new StellarisLocalizationTokenType("§");
-  IElementType COLORFUL_TEXT_START = new StellarisLocalizationTokenType("COLORFUL_TEXT_START");
+  IElementType COLORFUL_TEXT_END = new StellarisLocalizationTokenType("§!");
+  IElementType COLORFUL_TEXT_START = new StellarisLocalizationTokenType("§");
   IElementType COMMENT = new StellarisLocalizationTokenType("COMMENT");
   IElementType HEADER_TOKEN = new StellarisLocalizationTokenType("HEADER_TOKEN");
   IElementType ICON_END = new StellarisLocalizationTokenType("£");

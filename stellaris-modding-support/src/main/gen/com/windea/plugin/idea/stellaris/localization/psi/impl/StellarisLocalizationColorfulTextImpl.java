@@ -9,6 +9,7 @@ import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
 import static com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationTypes.*;
 import com.windea.plugin.idea.stellaris.localization.psi.*;
+import com.windea.plugin.idea.stellaris.domain.StellarisColor;
 
 public class StellarisLocalizationColorfulTextImpl extends StellarisLocalizationNamedElementImpl implements StellarisLocalizationColorfulText {
 
@@ -38,7 +39,7 @@ public class StellarisLocalizationColorfulTextImpl extends StellarisLocalization
   }
 
   @Override
-  @Nullable
+  @NotNull
   public String getName() {
     return StellarisLocalizationPsiImplUtil.getName(this);
   }
@@ -58,6 +59,18 @@ public class StellarisLocalizationColorfulTextImpl extends StellarisLocalization
   @Override
   public int getTextOffset() {
     return StellarisLocalizationPsiImplUtil.getTextOffset(this);
+  }
+
+  @Override
+  @Nullable
+  public StellarisColor getColor() {
+    return StellarisLocalizationPsiImplUtil.getColor(this);
+  }
+
+  @Override
+  @Nullable
+  public String getDocumentation() {
+    return StellarisLocalizationPsiImplUtil.getDocumentation(this);
   }
 
 }

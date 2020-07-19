@@ -8,24 +8,27 @@ import com.intellij.openapi.util.Iconable.*
 import com.intellij.psi.*
 import com.intellij.util.*
 import com.windea.plugin.idea.stellaris.*
+import com.windea.plugin.idea.stellaris.domain.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
+import com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationElementFactory.createColorfulText
 import com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationElementFactory.createIcon
 import com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationElementFactory.createPropertyHeader
 import com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationElementFactory.createPropertyKey
 import com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationElementFactory.createPropertyReference
+import com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationElementFactory.createSerialNumber
 import com.windea.plugin.idea.stellaris.localization.reference.*
 import javax.swing.*
 
 object StellarisLocalizationPsiImplUtil {
 	//region StellarisLocalizationPropertyHeader
 	@JvmStatic
-	fun getName(element: StellarisLocalizationPropertyHeader): String? {
-		return element.headerToken.text?.removePrefix("l_")
+	fun getName(element: StellarisLocalizationPropertyHeader): String {
+		return element.headerToken.text.orEmpty()
 	}
 
 	@JvmStatic
 	fun setName(element: StellarisLocalizationPropertyHeader, name: String): PsiElement {
-		element.replace(createPropertyHeader(element.project, name))
+		element.headerToken.replace(createPropertyHeader(element.project, name).headerToken)
 		return element
 	}
 
@@ -40,15 +43,20 @@ object StellarisLocalizationPsiImplUtil {
 	}
 
 	@JvmStatic
-	fun isValid(element:StellarisLocalizationPropertyHeader):Boolean{
-		return element.name in stellarisLocalizationLocales
+	fun getLocale(element:StellarisLocalizationPropertyHeader):StellarisLocale?{
+		return StellarisLocale.map[element.name]
+	}
+
+	@JvmStatic
+	fun getDocumentation(element:StellarisLocalizationPropertyHeader):String?{
+		return element.locale?.description?.toDefinitionText()
 	}
 	//endregion
 
 	//region StellarisLocalizationProperty
 	@JvmStatic
-	fun getName(element: StellarisLocalizationProperty): String? {
-		return element.propertyKey.text
+	fun getName(element: StellarisLocalizationProperty): String {
+		return element.propertyKey.text.orEmpty()
 	}
 
 	@JvmStatic
@@ -87,8 +95,8 @@ object StellarisLocalizationPsiImplUtil {
 
 	//region StellarisLocalizationPropertyReference
 	@JvmStatic
-	fun getName(element: StellarisLocalizationPropertyReference): String? {
-		return element.keyToken.text
+	fun getName(element: StellarisLocalizationPropertyReference): String {
+		return element.keyToken.text.orEmpty()
 	}
 
 	@JvmStatic
@@ -115,13 +123,13 @@ object StellarisLocalizationPsiImplUtil {
 
 	//region StellarisLocalizationIcon
 	@JvmStatic
-	fun getName(element: StellarisLocalizationIcon): String? {
-		return element.iconText.text
+	fun getName(element: StellarisLocalizationIcon): String {
+		return element.iconText.text.orEmpty()
 	}
 
 	@JvmStatic
 	fun setName(element: StellarisLocalizationIcon, name: String): PsiElement {
-		element.replace(createIcon(element.project, name))
+		element.iconText.replace(createIcon(element.project, name).iconText)
 		return element
 	}
 
@@ -134,17 +142,22 @@ object StellarisLocalizationPsiImplUtil {
 	fun getTextOffset(element:StellarisLocalizationIcon):Int{
 		return element.iconText.textOffset
 	}
+
+	@JvmStatic
+	fun getDocumentation(element:StellarisLocalizationIcon):String?{
+		return "(icon) ${element.name}".toDefinitionText()
+	}
 	//endregion
 
 	//region StellarisLocalizationSerialNumber
 	@JvmStatic
-	fun getName(element: StellarisLocalizationSerialNumber): String? {
-		return element.serialNumberCode.text
+	fun getName(element: StellarisLocalizationSerialNumber): String {
+		return element.serialNumberCode.text.orEmpty()
 	}
 
 	@JvmStatic
 	fun setName(element: StellarisLocalizationSerialNumber, name: String): PsiElement {
-		//不支持
+		element.serialNumberCode.replace(createSerialNumber(element.project, name).serialNumberCode)
 		return element
 	}
 
@@ -157,17 +170,27 @@ object StellarisLocalizationPsiImplUtil {
 	fun getTextOffset(element:StellarisLocalizationSerialNumber):Int{
 		return element.serialNumberCode.textOffset
 	}
+
+	@JvmStatic
+	fun getSerialNumber(element:StellarisLocalizationSerialNumber):StellarisSerialNumber?{
+		return StellarisSerialNumber.map[element.name]
+	}
+
+	@JvmStatic
+	fun getDocumentation(element:StellarisLocalizationSerialNumber):String?{
+		return element.serialNumber?.description?.toDefinitionText()
+	}
 	//endregion
 
 	//region StellarisLocalizationColorfulText
 	@JvmStatic
-	fun getName(element: StellarisLocalizationColorfulText): String? {
-		return element.colorfulTextCode.text
+	fun getName(element: StellarisLocalizationColorfulText): String {
+		return element.colorfulTextCode.text.orEmpty()
 	}
 
 	@JvmStatic
 	fun setName(element: StellarisLocalizationColorfulText, name: String): PsiElement {
-		//不支持
+		element.colorfulTextCode.replace(createColorfulText(element.project, name).colorfulTextCode)
 		return element
 	}
 
@@ -179,6 +202,16 @@ object StellarisLocalizationPsiImplUtil {
 	@JvmStatic
 	fun getTextOffset(element:StellarisLocalizationColorfulText):Int{
 		return element.colorfulTextCode.textOffset
+	}
+
+	@JvmStatic
+	fun getColor(element:StellarisLocalizationColorfulText):StellarisColor?{
+		return StellarisColor.map[element.name]
+	}
+
+	@JvmStatic
+	fun getDocumentation(element:StellarisLocalizationColorfulText):String?{
+		return element.color?.description?.toDefinitionText()
 	}
 	//endregion
 }

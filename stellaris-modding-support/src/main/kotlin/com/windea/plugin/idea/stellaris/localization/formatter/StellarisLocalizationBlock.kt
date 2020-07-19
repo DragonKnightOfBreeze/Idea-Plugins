@@ -31,7 +31,7 @@ class StellarisLocalizationBlock(
 			//	node.elementType == COLON && customSettings.ALIGN_PROPERTY_VALUES -> Alignment.createAlignment(true, Anchor.LEFT)
 			//	else -> Alignment.createAlignment()
 			//}
-			return Alignment.createAlignment(true)
+			return Alignment.createAlignment(false)
 			//return null
 		}
 

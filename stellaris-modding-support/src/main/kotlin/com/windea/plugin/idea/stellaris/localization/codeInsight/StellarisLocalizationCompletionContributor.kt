@@ -10,28 +10,25 @@ import com.windea.plugin.idea.stellaris.localization.psi.*
 
 //注意这里一旦有问题可能会导致Editor卡顿！！！
 
-//代码补全：
-//"l_" -> "l_xxx"
-
 @ExtensionPoint
 class StellarisLocalizationCompletionContributor : CompletionContributor() {
-	companion object{
-		val inPropertyHeader get() = psiElement()
-			.inFile(psiFile(StellarisLocalizationFile::class.java))
-			.afterLeaf("l_")
-			.withParent(StellarisLocalizationFile::class.java)
-	}
-
-	class PropertyHeaderCompletionProvider : CompletionProvider<CompletionParameters>() {
-		override fun addCompletions(parameters: CompletionParameters, context: ProcessingContext, result: CompletionResultSet) {
-			for(locale in enumValues<StellarisLocale>()) {
-				result.addElement(createLookupElement(locale.text,typeText = locale.description))
-			}
-		}
-	}
-
-	init {
-		extend(CompletionType.BASIC, inPropertyHeader, PropertyHeaderCompletionProvider())
-	}
+	//companion object{
+	//	val inPropertyHeader get() = psiElement()
+	//		.inFile(psiFile(StellarisLocalizationFile::class.java))
+	//		.afterLeaf("l_")
+	//		.withParent(StellarisLocalizationFile::class.java)
+	//}
+	//
+	//class PropertyHeaderCompletionProvider : CompletionProvider<CompletionParameters>() {
+	//	override fun addCompletions(parameters: CompletionParameters, context: ProcessingContext, result: CompletionResultSet) {
+	//		for(locale in enumValues<StellarisLocale>()) {
+	//			result.addElement(createLookupElement(locale.key,typeText = locale.description))
+	//		}
+	//	}
+	//}
+	//
+	//init {
+	//	extend(CompletionType.BASIC, inPropertyHeader, PropertyHeaderCompletionProvider())
+	//}
 }
 

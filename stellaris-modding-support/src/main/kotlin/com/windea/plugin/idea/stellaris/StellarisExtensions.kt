@@ -5,6 +5,7 @@ package com.windea.plugin.idea.stellaris
 import com.intellij.codeInsight.completion.*
 import com.intellij.codeInsight.lookup.*
 import com.intellij.lang.*
+import com.intellij.lang.documentation.*
 import com.intellij.openapi.editor.*
 import com.intellij.openapi.editor.DefaultLanguageHighlighterColors.*
 import com.intellij.openapi.editor.colors.*
@@ -84,6 +85,14 @@ fun Project.findPsiFiles(type: LanguageFileType): List<PsiFile> {
 //endregion
 
 //region Generic
+fun String.toDefinitionText(): String {
+	return buildString {
+		append(DocumentationMarkup.DEFINITION_START)
+		append(this@toDefinitionText) //我草！！！
+		append(DocumentationMarkup.DEFINITION_END)
+	}
+}
+
 /**得到指定元素之前的所有直接的注释的文本，作为文档注释，跳过空白。*/
 fun getDocCommentTextFromPreviousComment(element: PsiElement): String {
 	return buildString {

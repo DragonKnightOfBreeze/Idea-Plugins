@@ -9,6 +9,7 @@ import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
 import static com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationTypes.*;
 import com.windea.plugin.idea.stellaris.localization.psi.*;
+import com.windea.plugin.idea.stellaris.domain.StellarisSerialNumber;
 
 public class StellarisLocalizationSerialNumberImpl extends StellarisLocalizationNamedElementImpl implements StellarisLocalizationSerialNumber {
 
@@ -32,7 +33,7 @@ public class StellarisLocalizationSerialNumberImpl extends StellarisLocalization
   }
 
   @Override
-  @Nullable
+  @NotNull
   public String getName() {
     return StellarisLocalizationPsiImplUtil.getName(this);
   }
@@ -52,6 +53,18 @@ public class StellarisLocalizationSerialNumberImpl extends StellarisLocalization
   @Override
   public int getTextOffset() {
     return StellarisLocalizationPsiImplUtil.getTextOffset(this);
+  }
+
+  @Override
+  @Nullable
+  public StellarisSerialNumber getSerialNumber() {
+    return StellarisLocalizationPsiImplUtil.getSerialNumber(this);
+  }
+
+  @Override
+  @Nullable
+  public String getDocumentation() {
+    return StellarisLocalizationPsiImplUtil.getDocumentation(this);
   }
 
 }

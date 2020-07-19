@@ -1,28 +1,40 @@
 package com.windea.plugin.idea.stellaris.domain
 
+import com.intellij.util.ui.*
+import com.windea.plugin.idea.stellaris.*
+import java.awt.*
+
 /**
  * 本地化文件的颜色枚举
  */
 enum class StellarisColor(
-	val text: String,
-	val color:String?,
-	val description: String
+	val key: String,
+	val description: String,
+	val colorName: String,
+	val color: Color
 ) {
-	Default("!",null,"(color) Default"),
-	Blue("B","blue","(color) Blue"),
-	Teal("E","teal","(color) Teal"),
-	Green("G","green","(color) Green"),
-	Orange("H","orange","(color) Orange"),
-	Brown("L","brown","(color) Brown"),
-	Purple("M","purple","(color) Purple"),
-	LightRed("P","lightred","(color) Light Red"),
-	Red("R","red","(color) Red"),
-	DarkOrange("S","darkorange","(color) Dark Orange"),
-	LightGrey("T","lightgrey","(color) Light Grey"),
-	White("W","white","(color) White"),
-	Yellow("Y","yellow","(color) Yellow");
+	Blue("B", "(color) Blue", "blue", Color.BLUE),
+	Teal("E", "(color) Teal", "teal", Color(0x8080)),
+	Green("G", "(color) Green", "green", Color.GREEN),
+	Orange("H", "(color) Orange", "orange", Color.ORANGE),
+	Brown("L", "(color) Brown", "brown", Color(0xa52a2a)),
+	Purple("M", "(color) Purple", "purple", Color(0x800080)),
+	LightRed("P", "(color) Light Red", "lightred", Color(0xcd5c5c)),
+	Red("R", "(color) Red", "red", Color.RED),
+	DarkOrange("S", "(color) Dark Orange", "darkorange", Color(0xff8c00)),
+	LightGrey("T", "(color) Light Grey", "lightgrey", Color.LIGHT_GRAY),
+	White("W", "(color) White", "white", Color.WHITE),
+	Yellow("Y", "(color) Yellow", "yellow", Color.YELLOW);
 
-	fun format(text: String) = "£${this.text}$text£!"
+	val popupText = "'$key' - $description"
+	val icon = ColorIcon(16,color)
 
-	fun formatRemain(text: String) = "£${this.text}$text"
+	fun format(text: String) = "£${this.key}$text£!"
+
+	fun formatRemain(text: String) = "£${this.key}$text"
+
+	companion object{
+		val map = values().associateBy { it.key }
+		val keys = values().mapArray { it.key }
+	}
 }

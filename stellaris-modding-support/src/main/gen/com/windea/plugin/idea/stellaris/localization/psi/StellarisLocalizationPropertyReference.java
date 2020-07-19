@@ -11,7 +11,7 @@ public interface StellarisLocalizationPropertyReference extends StellarisLocaliz
   @NotNull
   PsiElement getKeyToken();
 
-  @Nullable
+  @NotNull
   String getName();
 
   @NotNull

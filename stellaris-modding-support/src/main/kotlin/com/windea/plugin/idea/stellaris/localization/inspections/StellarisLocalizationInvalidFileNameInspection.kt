@@ -10,12 +10,12 @@ class StellarisLocalizationInvalidFileNameInspection: LocalInspectionTool(){
 	override fun checkFile(file: PsiFile, manager: InspectionManager, isOnTheFly: Boolean): Array<out ProblemDescriptor?>? {
 		//如果文件名和其中的属性头部的时间区域不匹配
 		val propertyHeader = PsiTreeUtil.getChildOfType(file, StellarisLocalizationPropertyHeader::class.java) ?: return null
-		val propertyHeaderText = propertyHeader.text
+		val locale = propertyHeader.name
 		val fileName = file.name
 		val isNotMatched = propertyHeader.isValid && !fileName.contains(propertyHeader.text)
 		if(isNotMatched){
 			val holder = ProblemsHolder(manager,file,isOnTheFly)
-			val description = message("stellaris.localization.inspection.invalidFileName.description", fileName,propertyHeaderText)
+			val description = message("stellaris.localization.inspection.invalidFileName.description", fileName,locale)
 			holder.registerProblem(file, description)
 			//holder.registerProblem(file, description,RenameFile(file))
 			return holder.resultsArray

@@ -5,6 +5,7 @@ package com.windea.plugin.idea.stellaris.localization
 import com.intellij.lang.documentation.*
 import com.intellij.openapi.util.text.*
 import com.intellij.psi.*
+import com.jetbrains.rd.util.*
 import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.domain.*
 import com.windea.plugin.idea.stellaris.localization.highlighter.*
@@ -15,6 +16,8 @@ import com.windea.plugin.idea.stellaris.localization.psi.*
 //必须是PsiNamedElement
 
 class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider() {
+	private val logger = getLogger<StellarisLocalizationDocumentationProvider>()
+
 	override fun getQuickNavigateInfo(element: PsiElement?, originalElement: PsiElement?): String? {
 		return when {
 			element is StellarisLocalizationProperty -> "${getLocationText(element)}<br>${element.name}"
@@ -27,6 +30,11 @@ class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider
 	}
 
 	override fun generateDoc(element: PsiElement?, originalElement: PsiElement?): String? {
+		logger.info{"element: $element"}
+		logger.info{"element text: ${element?.text}"}
+		logger.info{"original element: $originalElement"}
+		logger.info{"original element text: ${originalElement?.text}"}
+
 		return when {
 			element is StellarisLocalizationProperty -> {
 				buildString {
@@ -43,34 +51,10 @@ class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider
 					}
 				}
 			}
-			element is StellarisLocalizationPropertyHeader -> {
-				buildString{
-					append(DocumentationMarkup.DEFINITION_START)
-					append(stellarisLocaleMap[element.name])
-					append(DocumentationMarkup.DEFINITION_END)
-				}
-			}
-			element is StellarisLocalizationIcon -> {
-				buildString{
-					append(DocumentationMarkup.DEFINITION_START)
-					append("(icon) ${element.name}")
-					append(DocumentationMarkup.DEFINITION_END)
-				}
-			}
-			element is StellarisLocalizationColorfulText -> {
-				buildString{
-					append(DocumentationMarkup.DEFINITION_START)
-					append(stellarisColorMap[element.name])
-					append(DocumentationMarkup.DEFINITION_END)
-				}
-			}
-			element is StellarisLocalizationSerialNumber -> {
-				buildString{
-					append(DocumentationMarkup.DEFINITION_START)
-					append(stellarisSerialNumberMap[element.name])
-					append(DocumentationMarkup.DEFINITION_END)
-				}
-			}
+			element is StellarisLocalizationPropertyHeader -> element.documentation
+			element is StellarisLocalizationIcon -> element.documentation
+			element is StellarisLocalizationColorfulText ->element.documentation
+			element is StellarisLocalizationSerialNumber -> element.documentation
 			else -> null
 		}
 	}

@@ -10,50 +10,68 @@ object StellarisLocalizationElementFactory {
 
 	/**创建文件*/
 	@JvmStatic
-	fun createDummyFile(project: Project, text: String): PsiFile {
-		return PsiFileFactory.getInstance(project).createFileFromText(StellarisLocalizationLanguage, text)
-			.also { logger.info { "create dummy file: '$it'" } }
+	fun createDummyFile(project: Project, text: String): StellarisLocalizationFile {
+		return (PsiFileFactory.getInstance(project).createFileFromText(StellarisLocalizationLanguage, text) as StellarisLocalizationFile)
+			.also { logger.info { "create dummy file:" } }
 	}
 
 	@JvmStatic
 	fun createPropertyHeader(project: Project, locale: String): StellarisLocalizationPropertyHeader {
-		return (createDummyFile(project, "l_$locale:").firstChild as StellarisLocalizationPropertyHeader)
+		return createDummyFile(project, "$locale:").propertyHeader!!
 			.also { logger.info { "create property header: '$it'" } }
 	}
 
 	/**创建属性*/
 	@JvmStatic
 	fun createProperty(project: Project, key: String, value: String): StellarisLocalizationProperty {
-		return (createDummyFile(project, "l_english:\n$key:0 $value").lastChild as StellarisLocalizationProperty)
+		return createDummyFile(project, "l_english:\n$key:0 \"$value\"").properties.firstOrNull()!!
 			.also { logger.info { "create property: '$it'" } }
 	}
 
 	/**创建属性的键*/
 	@JvmStatic
-	fun createPropertyKey(project: Project, key: String): PsiElement {
-		return createProperty(project, key, "\"\"").propertyKey
+	fun createPropertyKey(project: Project, key: String): StellarisLocalizationPropertyKey {
+		return createProperty(project, key, "").propertyKey
 			.also { logger.info { "create property key: '$it'" } }
 	}
 
 	/**创建属性的值*/
 	@JvmStatic
-	fun createPropertyValue(project: Project, value: String): PsiElement {
+	fun createPropertyValue(project: Project, value: String): StellarisLocalizationPropertyValue {
 		return createProperty(project, "a", value).propertyValue!!
 			.also { logger.info { "create property value: '\"$it\"'" } }
 	}
 
 	/**创建属性的引用*/
 	@JvmStatic
-	fun createPropertyReference(project: Project, value: String): PsiElement {
-		return (createPropertyValue(project, "$$value$") as StellarisLocalizationPropertyValue).richTextList.first().propertyReference!!
+	fun createPropertyReference(project: Project, value: String): StellarisLocalizationPropertyReference {
+		return createPropertyValue(project, "$$value$").richTextList.first().propertyReference!!
 			.also { logger.info { "create property reference: '$it'" } }
 	}
 
 	/**创建图标*/
 	@JvmStatic
-	fun createIcon(project: Project, value: String): PsiElement {
-		return (createPropertyValue(project, "£$value£") as StellarisLocalizationPropertyValue).richTextList.first().icon!!
-			.also { logger.info { "create property reference: '$it'" } }
+	fun createIcon(project: Project, value: String): StellarisLocalizationIcon {
+		return createPropertyValue(project, "£$value£").richTextList.first().icon!!
+			.also { logger.info { "create icon: '$it'" } }
+	}
+
+	/**创建编号*/
+	@JvmStatic
+	fun createSerialNumber(project: Project, value: String): StellarisLocalizationSerialNumber {
+		return createPropertyValue(project, "%$value%").richTextList.first().serialNumber!!
+			.also { logger.info { "create serial number: '$it'" } }
+	}
+
+	/**创建彩色文本*/
+	@JvmStatic
+	fun createColorfulText(project: Project, value: String): StellarisLocalizationColorfulText {
+		println(createPropertyValue(project, "§$value §!"))
+		println(createPropertyValue(project, "§$value §!").richTextList)
+		println(createPropertyValue(project, "§$value §!").richTextList.first())
+		println(createPropertyValue(project, "§$value §!").richTextList.first().colorfulText)
+		return createPropertyValue(project, "§$value §!").richTextList.first().colorfulText!!
+			.also { logger.info { "create colorful text: '$it'" } }
 	}
 }
 

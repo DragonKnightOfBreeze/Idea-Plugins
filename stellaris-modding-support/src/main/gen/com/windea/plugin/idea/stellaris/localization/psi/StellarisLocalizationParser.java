@@ -159,7 +159,7 @@ public class StellarisLocalizationParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // LEFT_QUOTE rich_text* RIGHT_QUOTE
+  // LEFT_QUOTE rich_text * RIGHT_QUOTE
   public static boolean property_value(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "property_value")) return false;
     if (!nextTokenIs(b, LEFT_QUOTE)) return false;
@@ -172,7 +172,7 @@ public class StellarisLocalizationParser implements PsiParser, LightPsiParser {
     return r;
   }
 
-  // rich_text*
+  // rich_text *
   private static boolean property_value_1(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "property_value_1")) return false;
     while (true) {

@@ -34,7 +34,7 @@
 	  SERIAL_NUMBER_END="%"
 	  COLORFUL_TEXT_START="§"
 	  COLORFUL_TEXT_CODE="regexp:[A-Z]"
-	  COLORFUL_TEXT_END="§"
+	  COLORFUL_TEXT_END="§!"
 	]
 }
 
@@ -47,7 +47,7 @@ private root_item ::= property_header property_list *
 property_header ::= HEADER_TOKEN ":" {
   mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"
   implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
-  methods=[getName setName getNameIdentifier getIcon]
+  methods=[getName setName getNameIdentifier getIcon getLocale getDocumentation]
 }
 private property_list ::= COMMENT | property
 property ::= property_key ":" NUMBER property_value {
@@ -57,7 +57,7 @@ property ::= property_key ":" NUMBER property_value {
 	methods=[getName setName getNameIdentifier getIcon getKey getValue]
 }
 property_key ::= KEY_TOKEN
-property_value ::= LEFT_QUOTE rich_text* RIGHT_QUOTE{
+property_value ::= LEFT_QUOTE rich_text * RIGHT_QUOTE{
   implements="com.intellij.psi.PsiLiteralValue"
   methods=[getValue]
 }
@@ -72,15 +72,15 @@ code ::= CODE_START CODE_TEXT CODE_END
 icon ::= ICON_START ICON_TEXT ICON_END {
   	mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"
   	implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
-  	methods=[getName setName getNameIdentifier getTextOffset]
+  	methods=[getName setName getNameIdentifier getTextOffset getDocumentation]
 }
 serial_number ::= SERIAL_NUMBER_START SERIAL_NUMBER_CODE SERIAL_NUMBER_END {
   	mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"
   	implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
-  	methods=[getName setName getNameIdentifier getTextOffset]
+  	methods=[getName setName getNameIdentifier getTextOffset getSerialNumber getDocumentation]
 }
 colorful_text ::= COLORFUL_TEXT_START COLORFUL_TEXT_CODE rich_text* COLORFUL_TEXT_END{
   	mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"
   	implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
-  	methods=[getName setName getNameIdentifier getTextOffset]
+  	methods=[getName setName getNameIdentifier getTextOffset getColor getDocumentation]
 }

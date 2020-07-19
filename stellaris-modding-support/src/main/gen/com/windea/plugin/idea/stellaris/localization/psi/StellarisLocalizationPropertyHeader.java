@@ -5,6 +5,7 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 import com.intellij.openapi.util.Iconable.IconFlags;
+import com.windea.plugin.idea.stellaris.domain.StellarisLocale;
 import javax.swing.Icon;
 
 public interface StellarisLocalizationPropertyHeader extends StellarisLocalizationNamedElement {
@@ -12,7 +13,7 @@ public interface StellarisLocalizationPropertyHeader extends StellarisLocalizati
   @NotNull
   PsiElement getHeaderToken();
 
-  @Nullable
+  @NotNull
   String getName();
 
   @NotNull
@@ -23,5 +24,11 @@ public interface StellarisLocalizationPropertyHeader extends StellarisLocalizati
 
   @Nullable
   Icon getIcon(@IconFlags int flags);
+
+  @Nullable
+  StellarisLocale getLocale();
+
+  @Nullable
+  String getDocumentation();
 
 }
