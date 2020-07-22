@@ -15,13 +15,11 @@ import com.intellij.psi.search.*
 import com.intellij.psi.util.*
 import com.windea.plugin.idea.stellaris.localization.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
-import com.windea.plugin.idea.stellaris.localization.psi.impl.*
 import com.windea.plugin.idea.stellaris.script.*
 import com.windea.plugin.idea.stellaris.script.psi.*
 import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptParserDefinition.Companion.COMMENTS
 import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
 import com.windea.plugin.idea.stellaris.script.psi.impl.*
-import org.jetbrains.annotations.*
 import java.net.*
 import javax.swing.*
 
@@ -287,8 +285,35 @@ fun findLocalizationPropertiesInProject(name: String, project: Project): List<St
 	return files.flatMap { it.properties.toList() }.filter { it.name == name }
 }
 
-fun findLocalizationPropertiesInProject(project: Project): List<StellarisLocalizationProperty> {
+fun findLocalizationPropertyResolvesInFile(name: String, file: PsiFile): MutableList<PsiElement> {
+	val result = mutableListOf<PsiElement>()
+	file.acceptChildren(object : PsiRecursiveElementWalkingVisitor() {
+		override fun visitElement(element: PsiElement) {
+			when(element) {
+				is StellarisLocalizationProperty -> {
+					if(element.name == name) result += element
+					super.visitElement(element)
+				}
+				is StellarisLocalizationPropertyValue -> super.visitElement(element)
+				is StellarisLocalizationRichText -> super.visitElement(element)
+				is StellarisLocalizationColorfulText -> super.visitElement(element)
+				is StellarisLocalizationPropertyReference -> {
+					if(element.name == name) result += element
+				}
+			}
+		}
+	})
+	return result
+}
+
+fun findLocalizationPropertyResolvesInProject(name: String, project: Project): List<PsiElement> {
 	val files = project.findPsiFiles(StellarisLocalizationFileType) as List<StellarisLocalizationFile>
-	return files.flatMap { it.properties.toList()}
+	val result = files.flatMap { findLocalizationPropertyResolvesInFile(name, it) }
+	return result
+}
+
+fun findLocalizationPropertyVariantsInProject(project: Project): List<StellarisLocalizationProperty> {
+	val files = project.findPsiFiles(StellarisLocalizationFileType) as List<StellarisLocalizationFile>
+	return files.flatMap { it.properties.toList()}.filterNot { it.name.isNullOrEmpty() }
 }
 //endregion

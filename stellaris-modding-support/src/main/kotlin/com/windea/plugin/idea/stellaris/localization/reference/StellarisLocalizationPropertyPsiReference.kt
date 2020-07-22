@@ -1,9 +1,10 @@
+@file:Suppress("UNCHECKED_CAST")
+
 package com.windea.plugin.idea.stellaris.localization.reference
 
 import com.intellij.openapi.util.*
 import com.intellij.psi.*
 import com.windea.plugin.idea.stellaris.*
-import com.windea.plugin.idea.stellaris.domain.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
 
 class StellarisLocalizationPropertyPsiReference(
@@ -21,14 +22,14 @@ class StellarisLocalizationPropertyPsiReference(
 
 	override fun multiResolve(incompleteCode: Boolean): Array<out ResolveResult> {
 		if(name == null) return ResolveResult.EMPTY_ARRAY
-		return findLocalizationPropertiesInProject(name, element.project).mapArray {
+		return findLocalizationPropertyResolvesInProject(name, element.project).mapArray {
 			PsiElementResolveResult(it)
 		}.andPrint("multiResolve")
 	}
 
 	//注意要传入elementName而非element
 	override fun getVariants(): Array<out Any> {
-		return findLocalizationPropertiesInProject(element.project).filterNot { it.name.isNullOrEmpty() }.mapArray {
+		return findLocalizationPropertyVariantsInProject(element.project).mapArray {
 			createLookupElement(it.name!!, icon = it.getIcon(0), typeText = it.containingFile.name)
 		}.andPrint("getVariants")
 	}

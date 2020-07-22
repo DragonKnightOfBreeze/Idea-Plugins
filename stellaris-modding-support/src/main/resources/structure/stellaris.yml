@@ -6,14 +6,21 @@ types:
     weight: number
     modifier[]: modifier
   modifier:
+    # region oneOf
     factor: number
+    add: number
+    trigger[]: ""
+    #endregion
+  trigger:
+    # region anyOf
     exists: any
-    from.owner: condition
+    from.owner: trigger
     from:
-      $condition[]: ""
-    $modifier_prop[]: ""
-  condition:
-    condition_expression: ""
+      $trigger[]: ""
+    # ...
+    # endregion
+  trigger:
+    trigger_expression: ""
     always: boolean
     has_xxx: xxx
     NOT: {}
@@ -34,7 +41,7 @@ common:
       resource: resource
       type: any
       category: any
-      poential: condition
+      poential: trigger
       fraction: weight_modifier
       static_min:
         base: int
@@ -56,34 +63,77 @@ common:
     $anomaly[]:
       # Allows AI empires to generate the category. Default: no
       should_ai_use: boolean = no
+      # If yes, both AI and human empires can use this anomaly (overrides should_ai_use)
       should_ai_and_humans_use?: boolean = no
       # region oneOf
+      # Optional, if no desc is given "<category key>_desc" is assumed
       desc: string | localization_property = $cagetory_key$_desc
       desc:
+        # Scope: planet, from = ship
         trigger[]: trigger
+        # Localization key for description
         text: string | localization_property = $cagetory_key$_desc
       # endregion
+      # Picture displayed in category window
       picture: gfx_reference
-      level: int
+      # Anomaly level, 1 to 10
+      level: int(1,10)
+      # Default 0. 0.0 - 1.0 (0 to 100%) chance category will NOT spawn
+      # even if it is picked by the anomaly die roll. Used to make
       null_spawn_chance: number(0.0,1.0) = 0
+      # categories for unusual objects (e.g. black holes) actually rare.
+      # default NO, if true will spawn category only once per empire
+      max_once?: boolean = no
+      # default NO, if true will spawn category only once per game
+      max_once_global?: boolean = no
+      # Chance for this anomaly category to spawn,
       spawn_chance:
+        # relative to other valid categories. Default: base = 0
+        base: number = 0
+        # Spawn chance modifier
         modifier[]: modifier
-      on_spawn?: typeof on_success
+      # Executes immediately when anomaly category is spawned.
+      # Scopes are this/root: planet, from: ship
+      # NOTE: on_spawn effects will not run if category is spawned through console
+      on_spawn?: typeof on_success # effect[] ???
       # region anyOf
       on_success: event_id
       on_success:
         # region anyOf
         $number[]: event_id
         $number[]:
+          max_once?: boolean = yes
+          max_once_global: no
           modifier[]: modfifier
           anomaly_event: event_id
-          max_once?: boolean
         # endregion
       # endregion
-      max_once?: boolean
-      max_once_global?: boolean
+  # 考古站点
+  archaeological_site_types:
+    $site_type[]:
+      # Max instances of this type a galaxy can have, only checked when using `create_archaeological_site = random`
+      max_instance: int
+      # Weight used for random weight, only used when using `create_archaeological_site = random`. scriptable value type is defined either by '<int>' or `<mean time to happen>`.
+      weight: scriptable_value
+      # # Should match number of defined stages below.
+      stages: int
+      # Trigger checking if a scope with this=fleet ,prev=archaeological site is potential to excavate (this will add/remove this option without giving the player a reason).
+      potential: trigger
+      # Trigger checking if a scope with this=fleet ,prev=archaeological site is allowed to excavate (this will toggle enable/disabled mode on buttons etc).
+      allow: trigger
+      # Stage definition, order dependent.
+      stage:
+        # min max interval type. interval is defined either by '<int>' or '{ min = <int> max=<int> }' where the later will randomize a value between min and max.
+        difficulty: int
+        # rune icon gfx type.
+        icon: string
+        # # event to fire when finished the state.
+        event: event_id
+      # Second stage
+      stage: {}
+      # effect to fire when a roll fails
+      on_roll_failed：effect
 
-  archaeological_site_types: {}
   armies: {}
   artifact_actions: {}
   ascension_perks: {}

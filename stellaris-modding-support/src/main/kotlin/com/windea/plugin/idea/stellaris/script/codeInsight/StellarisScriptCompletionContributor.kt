@@ -7,8 +7,6 @@ import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.annotations.*
 import com.windea.plugin.idea.stellaris.script.psi.*
 
-//注意这里一旦有问题可能会导致Editor卡顿！！！
-
 @ExtensionPoint
 class StellarisScriptCompletionContributor : CompletionContributor() {
 	companion object {
@@ -58,7 +56,7 @@ class StellarisScriptCompletionContributor : CompletionContributor() {
 
 	init {
 		extend(CompletionType.BASIC, afterEqualSignInProperty, BooleanCompletionProvider())
-		//extend(CompletionType.BASIC, inList, ExpressionCompletionProvider())
-		//extend(CompletionType.BASIC, inLimitList, ConditionCompletionProvider())
+		extend(CompletionType.BASIC, inList, ExpressionCompletionProvider())
+		extend(CompletionType.BASIC, inLimitList, ConditionCompletionProvider())
 	}
 }
