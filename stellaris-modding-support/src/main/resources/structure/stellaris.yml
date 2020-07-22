@@ -1,7 +1,28 @@
+# 类型定义
+types:
+  modifier:
+    factor: number
+    from: checker[]
+    leader_class: leader_class
+
+  checker:
+    # anyOf
+    has_xxx: xxx
+
 # 文件结构
 common:
-  achievements: {}
-  agendas: {}
+  # 议程
+  # Agendas are given to leader-candidates in Oligarchic government-forms
+  agendas:
+    # list
+    $agenda_name:
+      weight_modifier:
+        weight: number
+        # list
+        modifier: modifier
+      # list
+      modifier: modifier
+
   ai_budget: {}
   ambient_objects: {}
   archaeological_site_types: {}
@@ -59,6 +80,47 @@ common:
   opinion_modifiers: {}
   persionalities: {}
   planet_classes: {}
+  planet_modifiers: {}
+  policies: {}
+  pop_categories: {}
+  pop_faction_types: {}
+  pop_jobs: {}
+  percursor_civilizations: {}
+  random_names: {}
+  relics: {}
+  resolution_categoriries: {}
+  resolutions: {}
+  scripted_effects: {}
+  scripted_loc: {}
+  scripted_triggers: {}
+  scripted_variables: {}
+  section_templates: {}
+  sector_focuses: {}
+  sector_types: {}
+  ship_behaviors: {}
+  ship_sizes: {}
+  solar_system_initializers: {}
+  special_projects: {}
+  species_classes: {}
+  species_names: {}
+  species_rights: {}
+  star_classes: {}
+  starbase_buildings: {}
+  starbase_levels: {}
+  starbase_modules: {}
+  starbase_types: {}
+  start_screen_messages: {}
+  static_modifiers: {}
+  strategic_resources: {}
+  subjects: {}
+  system_types: {}
+  technology: {}
+  terraform: {}
+  trade_conversions: {}
+  tradition_categories: {}
+  traditions: {}
+  traits: {}
+  war_goals: {}
 
 
 

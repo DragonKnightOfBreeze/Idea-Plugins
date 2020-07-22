@@ -1,5 +1,6 @@
 package com.windea.plugin.idea.stellaris.script.highlighter
 
+import com.intellij.lexer.*
 import com.intellij.openapi.editor.colors.*
 import com.intellij.openapi.fileTypes.*
 import com.intellij.psi.*
@@ -45,5 +46,8 @@ class StellarisScriptSyntaxHighlighter : SyntaxHighlighterBase() {
 		else -> EMPTY_KEYS
 	}
 
-	override fun getHighlightingLexer() = StellarisScriptHighlighterLexer()
+	//NOTE 不要使用封装后的Lexer，因为会报错，而且没必要
+	//override fun getHighlightingLexer() = StellarisScriptHighlighterLexer()
+
+	override fun getHighlightingLexer() = StellarisScriptLexerAdapter()
 }

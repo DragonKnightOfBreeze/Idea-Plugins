@@ -1,11 +1,13 @@
 package com.windea.plugin.idea.stellaris.localization.highlighter
 
+import com.intellij.lexer.*
 import com.intellij.openapi.editor.colors.*
 import com.intellij.openapi.fileTypes.*
 import com.intellij.psi.StringEscapesTokenTypes.*
 import com.intellij.psi.TokenType.*
 import com.intellij.psi.tree.*
 import com.windea.plugin.idea.stellaris.annotations.*
+import com.windea.plugin.idea.stellaris.localization.psi.*
 import com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationTypes.*
 
 @ExtensionPoint
@@ -49,7 +51,10 @@ class StellarisLocalizationSyntaxHighlighter : SyntaxHighlighterBase() {
 		else -> EMPTY_KEYS
 	}
 
-	override fun getHighlightingLexer() = StellarisLocalizationHighlighterLexer()
+	//NOTE 不要使用封装后的Lexer，因为会报错，而且没必要
+	//override fun getHighlightingLexer() = StellarisLocalizationHighlighterLexer()
+
+	override fun getHighlightingLexer() = StellarisLocalizationLexerAdapter()
 }
 
 

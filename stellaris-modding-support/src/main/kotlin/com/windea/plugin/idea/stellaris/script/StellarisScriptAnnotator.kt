@@ -16,7 +16,7 @@ class StellarisScriptAnnotator : Annotator ,DumbAware{
 		when(element){
 			//字符串可能是script property、localization property
 			is StellarisScriptStringLiteral -> {
-				val resolve = element.reference.resolve() ?: return
+				val resolve = element.reference?.resolve() ?: return
 				if(resolve is StellarisScriptProperty){
 					holder.newSilentAnnotation(INFORMATION)
 						.textAttributes(StellarisScriptAttributesKeys.PROPERTY_KEY_KEY).create()

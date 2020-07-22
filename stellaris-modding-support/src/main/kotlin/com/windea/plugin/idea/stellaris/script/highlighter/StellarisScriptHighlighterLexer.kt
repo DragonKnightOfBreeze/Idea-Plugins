@@ -15,7 +15,7 @@ class StellarisScriptHighlighterLexer : LayeredLexer(StellarisScriptLexerAdapter
 		registerSelfStoppingLayer(
 			StringLiteralLexer('"', STRING, true, null),
 			arrayOf(STRING),
-			IElementType.EMPTY_ARRAY
+			arrayOf(RIGHT_QUOTE)
 		)
 	}
 }

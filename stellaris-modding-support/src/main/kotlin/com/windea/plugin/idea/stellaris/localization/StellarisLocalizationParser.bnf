@@ -16,12 +16,15 @@
 	  BLANK="regexp:\s+"
 	  COMMENT="regexp:#[^\r\n]*"
 	  ROOT_COMMENT="regexp:#[^\r\n]*"
+	  END_OF_LINE_COMMENT="regexp:#[^\r\n]*"
 	  LOCALE_ID="regexp:[a-z_]+"
 	  KEY_TOKEN='regexp:[a-zA-Z][a-zA-Z0-9_.]*'
 	  VALUE_TOKEN='regexp:([^"(\[$£§%\r\n\\]|\\.)+'
 	  LEFT_QUOTE="\""
 	  RIGHT_QUOTE="\""
 	  PROPERTY_REFERENCE_START="$"
+	  PROPERTY_REFERENCE_SEPARATOR="|"
+    PROPERTY_REFERENCE_PARAMETER="regexp:[^$\r\n]+"
 	  PROPERTY_REFERENCE_END="$"
 	  CODE_START="["
 	  CODE_TEXT="regexp:[^\[\]\r\n]+"
@@ -49,7 +52,7 @@ LOCALE ::= LOCALE_ID ":" {
   implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
   methods=[getName setName getNameIdentifier getIcon getLocale getDocumentation]
 }
-private property_list ::= COMMENT | property
+private property_list ::= END_OF_LINE_COMMENT | COMMENT | property
 property ::= property_key ":" NUMBER property_value {
   pin=1
 	mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"
@@ -58,29 +61,38 @@ property ::= property_key ":" NUMBER property_value {
 }
 property_key ::= KEY_TOKEN
 property_value ::= LEFT_QUOTE rich_text * RIGHT_QUOTE{
+  pin=1
+  recoverWhile = "#auto"
   implements="com.intellij.psi.PsiLiteralValue"
   methods=[getValue]
 }
+
 rich_text ::= (plain_text | property_reference | code | icon | serial_number | colorful_text)
 plain_text ::= VALUE_TOKEN
-property_reference ::= PROPERTY_REFERENCE_START KEY_TOKEN PROPERTY_REFERENCE_SEPARATOR PROPERTY_REFERENCE_PARAMETER PROPERTY_REFERENCE_END {
-  	mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"
-  	implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
-  	methods=[getName setName getNameIdentifier getTextOffset getReference]
+property_reference ::= PROPERTY_REFERENCE_START KEY_TOKEN [PROPERTY_REFERENCE_SEPARATOR PROPERTY_REFERENCE_PARAMETER] PROPERTY_REFERENCE_END {
+  pin=1
+  mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"
+  implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
+  methods=[getName setName getNameIdentifier getTextOffset getReference]
 }
-code ::= CODE_START CODE_TEXT? CODE_END
+code ::= CODE_START CODE_TEXT? CODE_END{
+  pin=1
+}
 icon ::= ICON_START ICON_TEXT ICON_END {
-  	mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"
-  	implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
-  	methods=[getName setName getNameIdentifier getTextOffset getDocumentation]
+  pin=1
+  mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"
+  implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
+  methods=[getName setName getNameIdentifier getTextOffset getDocumentation]
 }
 serial_number ::= SERIAL_NUMBER_START SERIAL_NUMBER_CODE SERIAL_NUMBER_END {
-  	mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"
-  	implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
-  	methods=[getName setName getNameIdentifier getTextOffset getSerialNumber getDocumentation]
+  pin=1
+  mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"
+  implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
+  methods=[getName setName getNameIdentifier getTextOffset getSerialNumber getDocumentation]
 }
 colorful_text ::= COLORFUL_TEXT_START COLORFUL_TEXT_CODE rich_text* COLORFUL_TEXT_END{
-  	mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"
-  	implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
-  	methods=[getName setName getNameIdentifier getTextOffset getColor getDocumentation]
+  pin=1
+  mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"
+  implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
+  methods=[getName setName getNameIdentifier getTextOffset getColor getDocumentation]
 }

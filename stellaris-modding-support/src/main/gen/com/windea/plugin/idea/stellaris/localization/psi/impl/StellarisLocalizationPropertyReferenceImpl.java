@@ -33,9 +33,9 @@ public class StellarisLocalizationPropertyReferenceImpl extends StellarisLocaliz
   }
 
   @Override
-  @NotNull
+  @Nullable
   public PsiElement getPropertyReferenceParameter() {
-    return findNotNullChildByType(PROPERTY_REFERENCE_PARAMETER);
+    return findChildByType(PROPERTY_REFERENCE_PARAMETER);
   }
 
   @Override
