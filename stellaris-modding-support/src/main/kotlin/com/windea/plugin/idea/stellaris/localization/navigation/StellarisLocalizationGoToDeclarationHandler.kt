@@ -22,8 +22,9 @@ class StellarisLocalizationGoToDeclarationHandler : GotoDeclarationHandlerBase()
 			null -> null
 			is StellarisLocalizationProperty -> {
 				//查找当前文件，如果没有查找当前项目
-				findLocalizationPropertyInFile(sourceElement.name, sourceElement.containingFile)?.let{return it}
-				findLocalizationPropertyInProject(sourceElement.name, sourceElement.project)
+				val name = sourceElement.name?:return null
+				findLocalizationPropertyInFile(name, sourceElement.containingFile)?.let{return it}
+				findLocalizationPropertyInProject(name, sourceElement.project)
 			}
 			else -> null
 		}
@@ -34,8 +35,9 @@ class StellarisLocalizationGoToDeclarationHandler : GotoDeclarationHandlerBase()
 			null -> null
 			is StellarisLocalizationProperty -> {
 				//查找当前文件，然后查找当前项目
-				findLocalizationPropertyInFile(sourceElement.name, sourceElement.containingFile)?.let { return arrayOf(it) }
-				findLocalizationPropertiesInProject(sourceElement.name, sourceElement.project)?.let { return it.toTypedArray() }
+				val name = sourceElement.name?:return null
+				findLocalizationPropertyInFile(name, sourceElement.containingFile)?.let { return arrayOf(it) }
+				findLocalizationPropertiesInProject(name, sourceElement.project)?.let { return it.toTypedArray() }
 			}
 			else -> null
 		}

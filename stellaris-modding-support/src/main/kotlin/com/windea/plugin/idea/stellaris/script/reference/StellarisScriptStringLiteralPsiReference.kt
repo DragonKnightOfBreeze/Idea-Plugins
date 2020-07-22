@@ -9,7 +9,7 @@ class StellarisScriptStringLiteralPsiReference(
 	rangeInElement: TextRange
 ) : PsiReferenceBase<PsiElement>(element, rangeInElement), PsiPolyVariantReference {
 	//去除包围的引号
-	private val key = rangeInElement.substring(element.text).unquote()
+	private val name = rangeInElement.substring(element.text).unquote()
 
 	override fun resolve(): PsiElement? {
 		return multiResolve(false).firstOrNull()?.element
@@ -17,8 +17,8 @@ class StellarisScriptStringLiteralPsiReference(
 
 	override fun multiResolve(incompleteCode: Boolean): Array<ResolveResult> {
 		//假定是script property，然后再假定是localization property
-		return findScriptProperties(element.project, key).ifEmpty {
-			findLocalizationProperties(element.project, key)
+		return findScriptProperties(element.project, name).ifEmpty {
+			findLocalizationPropertiesInProject(name, element.project)
 		}.mapArray { PsiElementResolveResult(it) }
 	}
 }

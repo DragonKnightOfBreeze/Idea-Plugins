@@ -4,17 +4,15 @@
 types:
   weight_modifier:
     weight: number
-    # list
-    modifier: modifier
+    modifier[]: modifier
   modifier:
     factor: number
-    exists: ?
+    exists: any
+    from.owner: condition
     from:
-      #list
-      $condition: ""
-    # list
-    $modifier_prop: ""
-  limit:
+      $condition[]: ""
+    $modifier_prop[]: ""
+  condition:
     condition_expression: ""
     always: boolean
     has_xxx: xxx
@@ -27,19 +25,16 @@ types:
 common:
   # 议程
   agendas:
-    # list
-    $agenda:
+    $agenda[]:
       weight_modifier: weight_modifier
-      # list
-      modifier: modifier
+      modifier[]: modifier
   # 支出
   ai_budget:
-    # list
-    $ai_budget:
+    $ai_budget[]:
       resource: resource
       type: any
       category: any
-      poential: limit
+      poential: condition
       fraction: weight_modifier
       static_min:
         base: int
@@ -49,13 +44,44 @@ common:
         modifier: modifier
   # 背景对象
   ambient_objects:
-    $ambient_object:
+    $ambient_object[]:
       name: string | localization_property
       entity: string | localization_property
       selectable: boolean
       show_name: boolean
       description?: string | localization_property
       tooltip?: string | localization_property
+  # 异常
+  anomalies:
+    $anomaly[]:
+      # Allows AI empires to generate the category. Default: no
+      should_ai_use: boolean = no
+      should_ai_and_humans_use?: boolean = no
+      # region oneOf
+      desc: string | localization_property = $cagetory_key$_desc
+      desc:
+        trigger[]: trigger
+        text: string | localization_property = $cagetory_key$_desc
+      # endregion
+      picture: gfx_reference
+      level: int
+      null_spawn_chance: number(0.0,1.0) = 0
+      spawn_chance:
+        modifier[]: modifier
+      on_spawn?: typeof on_success
+      # region anyOf
+      on_success: event_id
+      on_success:
+        # region anyOf
+        $number[]: event_id
+        $number[]:
+          modifier[]: modfifier
+          anomaly_event: event_id
+          max_once?: boolean
+        # endregion
+      # endregion
+      max_once?: boolean
+      max_once_global?: boolean
 
   archaeological_site_types: {}
   armies: {}

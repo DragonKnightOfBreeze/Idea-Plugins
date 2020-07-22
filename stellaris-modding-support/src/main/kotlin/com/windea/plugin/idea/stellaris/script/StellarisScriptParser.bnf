@@ -74,7 +74,7 @@ list ::= "{" element_items "}" {
   methods=[getComponents]
 }
 private element_items ::= element_item*
-private element_item ::= END_OF_LINE_COMMENT | COMMENT | property | text {
+private element_item ::= END_OF_LINE_COMMENT | COMMENT | text | property {
   //recoverWhile=element_item_recover
 }
 

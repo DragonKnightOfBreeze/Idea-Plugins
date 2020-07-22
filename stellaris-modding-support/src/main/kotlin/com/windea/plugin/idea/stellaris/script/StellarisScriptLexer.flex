@@ -67,10 +67,8 @@ KEY_TOKEN=[a-z0-9_]+
   {WHITE_SPACE} { return WHITE_SPACE; } //继续解析
   {COMMENT} {  return COMMENT; }
   {KEY_TOKEN} {yybegin(WATIING_PROPERTY_SEPARATOR); return KEY_TOKEN;}
-  {VARIABLE_REFERENCE_TOKEN} {yybegin(WAITING_PROPERTY_EOL); return VARIABLE_REFERENCE_TOKEN;}
   {STRING} {yybegin(WAITING_PROPERTY_EOL); return STRING;}
   {UNQUOTED_STRING} {yybegin(WAITING_PROPERTY_EOL); return UNQUOTED_STRING;}
-  . {yypushback(yylength());} //回退
 }
 <WATIING_PROPERTY_SEPARATOR> {
   "=" {yybegin(WAITING_PROPERTY_VALUE); return EQUAL_SIGN;}
@@ -80,7 +78,6 @@ KEY_TOKEN=[a-z0-9_]+
   ">=" {yybegin(WAITING_PROPERTY_VALUE); return GE_SIGN;}
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
   {WHITE_SPACE} { return WHITE_SPACE; } //继续解析
-  . {yypushback(yylength());} //回退
 }
 <WAITING_PROPERTY_VALUE>{
   {WHITE_SPACE} { return WHITE_SPACE; } //继续解析
@@ -91,7 +88,6 @@ KEY_TOKEN=[a-z0-9_]+
   {VARIABLE_REFERENCE_TOKEN} {yybegin(WAITING_PROPERTY_EOL); return VARIABLE_REFERENCE_TOKEN;}
   {STRING} { yybegin(WAITING_PROPERTY_EOL); return STRING; }
   {UNQUOTED_STRING} { yybegin(WAITING_PROPERTY_EOL); return UNQUOTED_STRING; }
-  . {yypushback(yylength());} //回退
 }
 <WAITING_PROPERTY_EOL> {
   "}" {yybegin(WAITING_PROPERTY_KEY); return RIGHT_BRACE;}

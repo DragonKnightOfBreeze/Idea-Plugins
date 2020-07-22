@@ -1,14 +1,10 @@
 package com.windea.plugin.idea.stellaris.localization.reference
 
-import com.intellij.codeInsight.lookup.*
 import com.intellij.openapi.util.*
 import com.intellij.psi.*
-import com.intellij.psi.util.*
-import com.intellij.util.*
-import com.intellij.util.CommonProcessors.*
 import com.windea.plugin.idea.stellaris.*
+import com.windea.plugin.idea.stellaris.domain.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
-import org.intellij.jflex.psi.*
 
 class StellarisLocalizationPropertyPsiReference(
 	element: StellarisLocalizationPropertyReference,
@@ -20,7 +16,7 @@ class StellarisLocalizationPropertyPsiReference(
 
 	override fun resolve(): PsiElement? {
 		if(name == null) return null
-		return findLocalizationPropertyInProject(name,element.project).andPrint("resolve")
+		return findLocalizationPropertyInProject(name, element.project).andPrint("resolve")
 	}
 
 	override fun multiResolve(incompleteCode: Boolean): Array<out ResolveResult> {

@@ -15,7 +15,7 @@ class StellarisLocalizationInvalidFileNameInspection: LocalInspectionTool(){
 		val isMatched = fileName.contains(locale.key)
 		if(!isMatched) {
 			val holder = ProblemsHolder(manager, file, isOnTheFly)
-			val description = message("stellaris.localization.inspection.invalidFileName.description", fileName, locale)
+			val description = message("stellaris.localization.inspection.invalidFileName.description", fileName, locale.key)
 			holder.registerProblem(file, description)
 			//holder.registerProblem(file, description,RenameFile(file))
 			return holder.resultsArray

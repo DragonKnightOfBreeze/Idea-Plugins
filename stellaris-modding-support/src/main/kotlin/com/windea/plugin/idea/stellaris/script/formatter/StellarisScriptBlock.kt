@@ -5,8 +5,10 @@ import com.intellij.formatting.Indent
 import com.intellij.lang.*
 import com.intellij.psi.codeStyle.*
 import com.intellij.psi.formatter.common.*
+import com.intellij.psi.tree.*
 import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.localization.*
+import com.windea.plugin.idea.stellaris.script.psi.*
 import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
 import com.windea.plugin.idea.stellaris.script.settings.*
 
@@ -14,15 +16,19 @@ class StellarisScriptBlock (
 	node: ASTNode,
 	private val settings:CodeStyleSettings,
 	private val shouldIndent:Boolean = false
-):AbstractBlock(node, createWrap(), createAlignment()){
+):AbstractBlock(node, createWrap(), createAlignment(node)){
 	companion object {
 		private fun createWrap(): Wrap? {
 			return null
 		}
 
-		private fun createAlignment(): Alignment? {
+		//让变量定义总是对齐行首，
+		private fun createAlignment(node:ASTNode): Alignment? {
 			//DELAY 对齐属性名
-			return null
+			return when{
+				node.elementType == VARIABLE_DEFINITION -> Alignment.createAlignment()
+				else -> null
+			}
 		}
 
 		private fun createSpacingBuilder(settings: CodeStyleSettings): SpacingBuilder {

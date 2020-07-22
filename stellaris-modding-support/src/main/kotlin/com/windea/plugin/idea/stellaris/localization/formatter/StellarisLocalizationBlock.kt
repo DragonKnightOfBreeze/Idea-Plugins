@@ -14,7 +14,7 @@ import com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationTy
 class StellarisLocalizationBlock(
 	node: ASTNode,
 	private val settings: CodeStyleSettings
-) : AbstractBlock(node, createWrap(), createAlignment()) {
+) : AbstractBlock(node, createWrap(), createAlignment(node)) {
 	companion object {
 		//wrap和alignment可为null，没事随便不要赋值！！！
 		//其中alignment默认是和父节点的左边的那个元素向左对齐
@@ -23,7 +23,8 @@ class StellarisLocalizationBlock(
 			return null
 		}
 
-		private fun createAlignment(): Alignment? {
+		//让语言区域之后每一行都基于缩进对齐
+		private fun createAlignment(node: ASTNode): Alignment? {
 			//DELAY 不清楚是否允许这种语法
 			//val customSettings = settings.getCustomSettings(StellarisLocalizationCodeStyleSettings::class.java)
 			//return when{
@@ -31,19 +32,22 @@ class StellarisLocalizationBlock(
 			//	node.elementType == COLON && customSettings.ALIGN_PROPERTY_VALUES -> Alignment.createAlignment(true, Anchor.LEFT)
 			//	else -> Alignment.createAlignment()
 			//}
-			return Alignment.createAlignment(false)
 			//return null
+			return when {
+				node.elementType == LOCALE -> Alignment.createAlignment()
+				//node.elementType == PROPERTY -> Alignment.createAlignment()
+				else -> null
+			}
 		}
 
 		private fun createSpacingBuilder(settings: CodeStyleSettings): SpacingBuilder {
 			//数字和属性值之间有一个空格
 			return SpacingBuilder(settings, StellarisLocalizationLanguage)
-				.between(NUMBER,PROPERTY_VALUE).spaces(1)
+				.between(NUMBER, PROPERTY_VALUE).spaces(1)
 		}
 	}
 
 	private val spacingBuilder = createSpacingBuilder(settings)
-
 
 
 	//收集所有节点
