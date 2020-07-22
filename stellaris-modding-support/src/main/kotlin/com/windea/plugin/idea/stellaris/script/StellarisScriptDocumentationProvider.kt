@@ -35,7 +35,7 @@ class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
 					append("<b>${element.name}</b> = ${getVariableValueText(element)} ${getLocationText(element)}")
 					append(DocumentationMarkup.DEFINITION_END)
 
-					val textAttributesKey = StellarisScriptSyntaxHighlighter.COMMENT_KEY
+					val textAttributesKey = StellarisScriptAttributesKeys.COMMENT_KEY
 					val docCommentText = getDocCommentHtmlFromPreviousComment(element,textAttributesKey)
 					if(docCommentText.isNotEmpty()) {
 						append(DocumentationMarkup.CONTENT_START)
@@ -50,7 +50,7 @@ class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
 					append("<b>${element.name}</b> = ${getPropertyValueText(element)} ${getLocationText(element)}")
 					append(DocumentationMarkup.DEFINITION_END)
 
-					val textAttributesKey = StellarisScriptSyntaxHighlighter.COMMENT_KEY
+					val textAttributesKey = StellarisScriptAttributesKeys.COMMENT_KEY
 					val docCommentText = getDocCommentHtmlFromPreviousComment(element,textAttributesKey)
 					if(docCommentText.isNotEmpty()) {
 						append(DocumentationMarkup.CONTENT_START)

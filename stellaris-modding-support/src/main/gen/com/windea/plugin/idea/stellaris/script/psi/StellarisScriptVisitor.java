@@ -34,11 +34,11 @@ public class StellarisScriptVisitor extends PsiElementVisitor {
   }
 
   public void visitPropertyValue(@NotNull StellarisScriptPropertyValue o) {
-    visitPsiLiteralValue(o);
+    visitPsiElement(o);
   }
 
   public void visitStringLiteral(@NotNull StellarisScriptStringLiteral o) {
-    visitPsiElement(o);
+    visitPsiLiteralValue(o);
   }
 
   public void visitText(@NotNull StellarisScriptText o) {

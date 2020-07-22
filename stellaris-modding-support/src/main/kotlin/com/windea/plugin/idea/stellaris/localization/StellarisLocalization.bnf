@@ -63,7 +63,7 @@ property_value ::= LEFT_QUOTE rich_text * RIGHT_QUOTE{
 }
 rich_text ::= (plain_text | property_reference | code | icon | serial_number | colorful_text)
 plain_text ::= VALUE_TOKEN
-property_reference ::= PROPERTY_REFERENCE_START KEY_TOKEN PROPERTY_REFERENCE_END {
+property_reference ::= PROPERTY_REFERENCE_START KEY_TOKEN PROPERTY_REFERENCE_SEPARATOR PROPERTY_REFERENCE_PARAMETER PROPERTY_REFERENCE_END {
   	mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"
   	implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
   	methods=[getName setName getNameIdentifier getTextOffset getReference]

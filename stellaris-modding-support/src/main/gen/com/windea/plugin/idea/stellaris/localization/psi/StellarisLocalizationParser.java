@@ -145,24 +145,24 @@ public class StellarisLocalizationParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // COMMENT | property
+  // END_OF_LINE_COMMENT | COMMENT | property
   static boolean property_list(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "property_list")) return false;
-    if (!nextTokenIs(b, "", COMMENT, KEY_TOKEN)) return false;
     boolean r;
-    r = consumeToken(b, COMMENT);
+    r = consumeToken(b, END_OF_LINE_COMMENT);
+    if (!r) r = consumeToken(b, COMMENT);
     if (!r) r = property(b, l + 1);
     return r;
   }
 
   /* ********************************************************** */
-  // PROPERTY_REFERENCE_START KEY_TOKEN PROPERTY_REFERENCE_END
+  // PROPERTY_REFERENCE_START KEY_TOKEN PROPERTY_REFERENCE_SEPARATOR PROPERTY_REFERENCE_PARAMETER PROPERTY_REFERENCE_END
   public static boolean property_reference(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "property_reference")) return false;
     if (!nextTokenIs(b, PROPERTY_REFERENCE_START)) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = consumeTokens(b, 0, PROPERTY_REFERENCE_START, KEY_TOKEN, PROPERTY_REFERENCE_END);
+    r = consumeTokens(b, 0, PROPERTY_REFERENCE_START, KEY_TOKEN, PROPERTY_REFERENCE_SEPARATOR, PROPERTY_REFERENCE_PARAMETER, PROPERTY_REFERENCE_END);
     exit_section_(b, m, PROPERTY_REFERENCE, r);
     return r;
   }

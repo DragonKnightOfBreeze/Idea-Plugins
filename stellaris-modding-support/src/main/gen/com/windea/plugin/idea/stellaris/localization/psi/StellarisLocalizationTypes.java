@@ -28,6 +28,7 @@ public interface StellarisLocalizationTypes {
   IElementType COLORFUL_TEXT_END = new StellarisLocalizationTokenType("§!");
   IElementType COLORFUL_TEXT_START = new StellarisLocalizationTokenType("§");
   IElementType COMMENT = new StellarisLocalizationTokenType("COMMENT");
+  IElementType END_OF_LINE_COMMENT = new StellarisLocalizationTokenType("END_OF_LINE_COMMENT");
   IElementType ICON_END = new StellarisLocalizationTokenType("£");
   IElementType ICON_START = new StellarisLocalizationTokenType("ICON_START");
   IElementType ICON_TEXT = new StellarisLocalizationTokenType("ICON_TEXT");
@@ -36,6 +37,8 @@ public interface StellarisLocalizationTypes {
   IElementType LOCALE_ID = new StellarisLocalizationTokenType("LOCALE_ID");
   IElementType NUMBER = new StellarisLocalizationTokenType("NUMBER");
   IElementType PROPERTY_REFERENCE_END = new StellarisLocalizationTokenType("$");
+  IElementType PROPERTY_REFERENCE_PARAMETER = new StellarisLocalizationTokenType("PROPERTY_REFERENCE_PARAMETER");
+  IElementType PROPERTY_REFERENCE_SEPARATOR = new StellarisLocalizationTokenType("|");
   IElementType PROPERTY_REFERENCE_START = new StellarisLocalizationTokenType("PROPERTY_REFERENCE_START");
   IElementType RIGHT_QUOTE = new StellarisLocalizationTokenType("\"");
   IElementType ROOT_COMMENT = new StellarisLocalizationTokenType("ROOT_COMMENT");

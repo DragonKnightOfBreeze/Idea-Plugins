@@ -27,7 +27,7 @@ class StellarisLocalizationAnnotator : Annotator, DumbAware {
 						.withFix(StellarisLocalizationChangeSerialNumberIntention).create()
 				}
 			}
-			//如果是颜色文本，则加上对应颜色的下划线
+			//如果是颜色文本，则为颜色代码文本加粗，并加上对应的颜色
 			is StellarisLocalizationColorfulText -> {
 				if(element.color == null) {
 					holder.newAnnotation(ERROR, message("stellaris.localization.annotator.unsupportedColor"))
@@ -35,8 +35,7 @@ class StellarisLocalizationAnnotator : Annotator, DumbAware {
 				} else {
 					val attributesKey = StellarisLocalizationAttributesKeys.COLOR_CODE_KEYS[element.name] ?: return
 					holder.newSilentAnnotation(INFORMATION)
-						.range(element.colorfulTextCode)
-						.textAttributes(attributesKey).create()
+						.range(element.colorfulTextCode).textAttributes(attributesKey).create()
 				}
 			}
 		}

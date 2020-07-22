@@ -16,7 +16,7 @@ public interface StellarisScriptText extends PsiLiteralValue {
   @Nullable
   Icon getIcon(@IconFlags int flags);
 
-  @Nullable
+  @NotNull
   String getValue();
 
 }

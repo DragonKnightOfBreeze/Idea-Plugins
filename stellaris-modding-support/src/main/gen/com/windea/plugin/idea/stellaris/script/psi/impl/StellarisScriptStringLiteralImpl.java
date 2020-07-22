@@ -41,8 +41,19 @@ public class StellarisScriptStringLiteralImpl extends ASTWrapperPsiElement imple
 
   @Override
   @NotNull
+  public String getValue() {
+    return StellarisScriptPsiImplUtil.getValue(this);
+  }
+
+  @Override
+  @Nullable
   public PsiReference getReference() {
     return StellarisScriptPsiImplUtil.getReference(this);
+  }
+
+  @Override
+  public boolean isValidPropertyKey() {
+    return StellarisScriptPsiImplUtil.isValidPropertyKey(this);
   }
 
 }

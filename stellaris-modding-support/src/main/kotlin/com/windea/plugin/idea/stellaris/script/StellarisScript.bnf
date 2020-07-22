@@ -66,10 +66,7 @@ property ::= property_key property_separator property_value {
 }
 property_key ::= KEY_TOKEN
 property_separator ::= "=" | "<" | ">" | "<=" | ">="
-property_value ::= boolean_literal | number_literal | variable_reference | string_literal | list {
-  implements="com.intellij.psi.PsiLiteralValue"
-  methods=[getValue]
-}
+property_value ::= boolean_literal | number_literal | variable_reference | string_literal | list
 
 list ::= "{" element_items "}" {
   pin=1
@@ -80,6 +77,7 @@ private element_items ::= element_item*
 private element_item ::= END_OF_LINE_COMMENT | COMMENT | property | text {
   //recoverWhile=element_item_recover
 }
+
 text ::= string_literal{
   implements="com.intellij.psi.PsiLiteralValue"
   methods=[getIcon getValue]
@@ -89,5 +87,6 @@ text ::= string_literal{
 boolean_literal ::= BOOLEAN
 number_literal ::= NUMBER
 string_literal ::= STRING | UNQUOTED_STRING{
-  methods=[getReference]
+  implements="com.intellij.psi.PsiLiteralValue"
+  methods=[getValue getReference isValidPropertyKey]
 }

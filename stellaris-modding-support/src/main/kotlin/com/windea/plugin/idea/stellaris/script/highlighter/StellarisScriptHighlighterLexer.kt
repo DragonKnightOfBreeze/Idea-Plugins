@@ -13,7 +13,7 @@ class StellarisScriptHighlighterLexer : LayeredLexer(StellarisScriptLexerAdapter
 	init {
 		//认为必须在有引号括起的字符串里，才能使用转义字符
 		registerSelfStoppingLayer(
-			StringLiteralLexer('\"', STRING, true, null),
+			StringLiteralLexer('"', STRING, true, null),
 			arrayOf(STRING),
 			IElementType.EMPTY_ARRAY
 		)

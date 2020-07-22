@@ -1,0 +1,67 @@
+# 文件结构
+common:
+  achievements: {}
+  agendas: {}
+  ai_budget: {}
+  ambient_objects: {}
+  archaeological_site_types: {}
+  armies: {}
+  artifact_actions: {}
+  ascension_perks: {}
+  asteroid_belts: {}
+  attributes: {}
+  bombardment_stances: {}
+  buildings: {}
+  button_effects: {}
+  bypass: {}
+  casus_belli: {}
+  colony_automation: {}
+  colony_automation_exceptions: {}
+  colony_types: {}
+  colors: {}
+  component_sets: {}
+  component_solt_templates: {}
+  component_tags: {}
+  component_templates: {}
+  country_customization: {}
+  country_types: {}
+  decisions: {}
+  defines: {}
+  deposit_categories: {}
+  deposits: {}
+  diplo_phrases: {}
+  diplomacy_economy: {}
+  districts: {}
+  dynamic_text: {}
+  economic_categories: {}
+  economic_plants: {}
+  edicts: {}
+  event_chains: {}
+  fall_empires: {}
+  federation_law_categories: {}
+  federation_laws: {}
+  federation_perks: {}
+  federation_types: {}
+  galactic_focuses: {}
+  game_rules: {}
+  global_ship_designs: {}
+  governments: {}
+  graphical_culture: {}
+  lawsuits: {}
+  leader_classes: {}
+  mandates: {}
+  map_modes: {}
+  megastructures: {}
+  name_lists: {}
+  notification_modifiers: {}
+  observation_station_missions: {}
+  on_actions: {}
+  opinion_modifiers: {}
+  persionalities: {}
+  planet_classes: {}
+
+
+
+
+
+

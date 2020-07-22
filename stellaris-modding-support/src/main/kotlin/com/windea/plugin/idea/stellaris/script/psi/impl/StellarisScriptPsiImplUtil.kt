@@ -100,13 +100,6 @@ object StellarisScriptPsiImplUtil {
 	}
 	//endregion
 
-	//region StellarisScriptPropertyValue
-	@JvmStatic
-	fun getValue(element: StellarisScriptPropertyValue): String? {
-		return element.text?.unquote()
-	}
-	//endregion
-
 	//region StellarisScriptPropertyList
 	@JvmStatic
 	fun getComponents(element: StellarisScriptList): List<PsiElement> {
@@ -122,15 +115,28 @@ object StellarisScriptPsiImplUtil {
 	}
 
 	@JvmStatic
-	fun getValue(element: StellarisScriptText): String? {
-		return element.text?.unquote()
+	fun getValue(element: StellarisScriptText): String {
+		return element.text.unquote()
 	}
 	//endregion
 
 	//region StellarisScriptStringLiteral
 	@JvmStatic
-	fun getReference(element:StellarisScriptStringLiteral):PsiReference{
+	fun getValue(element: StellarisScriptStringLiteral): String {
+		return element.text.unquote()
+	}
+
+	//只有可能是属性的键的情况下才有可能是引用
+	@JvmStatic
+	fun getReference(element:StellarisScriptStringLiteral):PsiReference?{
+		if(!element.isValidPropertyKey) return null
 		return StellarisScriptStringLiteralPsiReference(element, TextRange(0,element.textLength))
+	}
+
+	//不包含空格的情况下才有可能是属性的键
+	@JvmStatic
+	fun isValidPropertyKey(element:StellarisScriptStringLiteral):Boolean{
+		return !element.value.any { it.isWhitespace() }
 	}
 	//endregion
 }

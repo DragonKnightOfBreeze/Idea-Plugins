@@ -26,10 +26,10 @@ class StellarisScriptGoToDeclarationHandler:  GotoDeclarationHandlerBase() {
 				findScriptVariableDefinitionInProject(sourceElement.name,sourceElement.project)
 			}
 			is StellarisScriptStringLiteral ->{
-				val name = sourceElement.text.unquote()
-				val project = sourceElement.project
-				if(!name.isValidPropertyKey()) return null
+				if(!sourceElement.isValidPropertyKey) return null
 
+				val name = sourceElement.value
+				val project = sourceElement.project
 				//查找当前项目的脚本文件属性，然后再查找当前项目的本地化文件属性
 				findScriptPropertyInProject(name,project)?.let { return it }
 				findLocalizationPropertyInProject(name,project)?.let { return it }
@@ -48,20 +48,15 @@ class StellarisScriptGoToDeclarationHandler:  GotoDeclarationHandlerBase() {
 			}
 			//字符串可以是脚本文件属性，也可以是本地化文件属性
 			is StellarisScriptStringLiteral -> {
-				val name = sourceElement.text.unquote()
-				val project = sourceElement.project
-				if(!name.isValidPropertyKey()) return null
+				if(!sourceElement.isValidPropertyKey) return null
 
+				val name = sourceElement.value
+				val project = sourceElement.project
 				//查找当前项目的脚本文件属性，然后再查找当前项目的本地化文件属性
 				findScriptPropertiesInProject(name,project)?.let { return it.toTypedArray() }
 				findLocalizationPropertiesInProject(name,project)?.let { return it.toTypedArray() }
 			}
 			else -> null
 		}
-	}
-
-	//不包含空格的情况下才有可能是属性的键
-	private fun String.isValidPropertyKey():Boolean{
-		return !this.any { it.isWhitespace() }
 	}
 }

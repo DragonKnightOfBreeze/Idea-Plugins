@@ -34,6 +34,12 @@ public class StellarisLocalizationPropertyReferenceImpl extends StellarisLocaliz
 
   @Override
   @NotNull
+  public PsiElement getPropertyReferenceParameter() {
+    return findNotNullChildByType(PROPERTY_REFERENCE_PARAMETER);
+  }
+
+  @Override
+  @NotNull
   public String getName() {
     return StellarisLocalizationPsiImplUtil.getName(this);
   }

@@ -4,9 +4,10 @@ package com.windea.plugin.idea.stellaris.script.psi;
 import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
+import com.intellij.psi.PsiLiteralValue;
 import com.intellij.psi.PsiReference;
 
-public interface StellarisScriptStringLiteral extends PsiElement {
+public interface StellarisScriptStringLiteral extends PsiLiteralValue {
 
   @Nullable
   PsiElement getString();
@@ -15,6 +16,11 @@ public interface StellarisScriptStringLiteral extends PsiElement {
   PsiElement getUnquotedString();
 
   @NotNull
+  String getValue();
+
+  @Nullable
   PsiReference getReference();
+
+  boolean isValidPropertyKey();
 
 }
