@@ -27,7 +27,7 @@ class StellarisLocalizationDuplicatePropertyKeysInspection : LocalInspectionTool
 			val file = element as? StellarisLocalizationFile ?: return
 			val propertyGroup = file.properties.groupBy { it.name }
 			for((key, values) in propertyGroup) {
-				if(values.size <= 1) continue
+				if(key == null || values.size <= 1) continue
 				for(value in values) {
 					val quickFix = NavigateToDuplicates(key, value, values)
 					//第一个元素指定为file，则是在文档头部弹出，否则从psiElement上通过contextActions显示

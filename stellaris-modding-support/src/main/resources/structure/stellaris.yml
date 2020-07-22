@@ -1,29 +1,39 @@
+# $xxx 表示一个占位符，名字理论上可以是任意的
+
 # 类型定义
 types:
   modifier:
     factor: number
-    from: checker[]
-    leader_class: leader_class
-
-  checker:
-    # anyOf
-    has_xxx: xxx
+    exists: ?
+    from:
+      #list
+      $condition: ""
+    # list
+    $modifier_prop: ""
 
 # 文件结构
 common:
   # 议程
-  # Agendas are given to leader-candidates in Oligarchic government-forms
   agendas:
     # list
-    $agenda_name:
+    $agenda:
       weight_modifier:
         weight: number
         # list
         modifier: modifier
       # list
       modifier: modifier
-
-  ai_budget: {}
+  # 支出
+  ai_budget:
+    # list
+    $budget:
+      resource: resource
+      type: ...
+      category: ...
+      poential:
+        always: boolean
+      fraction:
+        weight: number
   ambient_objects: {}
   archaeological_site_types: {}
   armies: {}

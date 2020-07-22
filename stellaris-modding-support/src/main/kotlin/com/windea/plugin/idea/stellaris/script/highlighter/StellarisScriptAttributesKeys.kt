@@ -8,7 +8,6 @@ import com.intellij.openapi.editor.colors.TextAttributesKey.*
 import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.StellarisBundle.message
 
-
 object StellarisScriptAttributesKeys {
 	@JvmField val SEPARATOR_KEY = createTextAttributesKey(message("stellaris.script.syntax.separator"), OPERATION_SIGN)
 	@JvmField val BRACES_KEY = createTextAttributesKey(message("stellaris.script.syntax.braces"), BRACES)

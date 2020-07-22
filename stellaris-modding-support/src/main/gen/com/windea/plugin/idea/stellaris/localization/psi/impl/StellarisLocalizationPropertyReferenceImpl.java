@@ -27,9 +27,9 @@ public class StellarisLocalizationPropertyReferenceImpl extends StellarisLocaliz
   }
 
   @Override
-  @NotNull
+  @Nullable
   public PsiElement getKeyToken() {
-    return findNotNullChildByType(KEY_TOKEN);
+    return findChildByType(KEY_TOKEN);
   }
 
   @Override
@@ -39,7 +39,7 @@ public class StellarisLocalizationPropertyReferenceImpl extends StellarisLocaliz
   }
 
   @Override
-  @NotNull
+  @Nullable
   public String getName() {
     return StellarisLocalizationPsiImplUtil.getName(this);
   }

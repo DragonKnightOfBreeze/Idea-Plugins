@@ -1,7 +1,6 @@
 package com.windea.plugin.idea.stellaris.localization.intentions
 
 import com.intellij.codeInsight.intention.*
-import com.intellij.icons.*
 import com.intellij.openapi.command.WriteCommandAction.*
 import com.intellij.openapi.editor.*
 import com.intellij.openapi.project.*
@@ -9,12 +8,9 @@ import com.intellij.openapi.ui.popup.*
 import com.intellij.openapi.ui.popup.util.*
 import com.intellij.psi.*
 import com.intellij.psi.util.*
-import com.intellij.util.*
-import com.intellij.util.ui.*
 import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.annotations.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
-import javax.swing.*
 
 @ExtensionPoint
 object StellarisLocalizationChangeColorIntention : IntentionAction {
@@ -50,9 +46,9 @@ object StellarisLocalizationChangeColorIntention : IntentionAction {
 		override fun isSpeedSearchEnabled(): Boolean = true
 
 		override fun onChosen(selectedValue: StellarisLocalizationColorfulText?, finalChoice: Boolean): PopupStep<*>? {
-			if(selectedValue!= null) {
+			if(selectedValue != null) {
 				//需要在WriteCommandAction里面执行
-				runWriteCommandAction(selectedValue.project) { value.name = selectedValue.name }
+				runWriteCommandAction(selectedValue.project) { value.setName(selectedValue.name!!) }
 			}
 			return PopupStep.FINAL_CHOICE
 		}

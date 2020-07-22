@@ -27,13 +27,13 @@ public class StellarisLocalizationSerialNumberImpl extends StellarisLocalization
   }
 
   @Override
-  @NotNull
+  @Nullable
   public PsiElement getSerialNumberCode() {
-    return findNotNullChildByType(SERIAL_NUMBER_CODE);
+    return findChildByType(SERIAL_NUMBER_CODE);
   }
 
   @Override
-  @NotNull
+  @Nullable
   public String getName() {
     return StellarisLocalizationPsiImplUtil.getName(this);
   }

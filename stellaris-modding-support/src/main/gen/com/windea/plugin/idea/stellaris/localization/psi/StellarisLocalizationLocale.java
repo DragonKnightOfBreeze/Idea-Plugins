@@ -13,7 +13,7 @@ public interface StellarisLocalizationLocale extends StellarisLocalizationNamedE
   @NotNull
   PsiElement getLocaleId();
 
-  @NotNull
+  @Nullable
   String getName();
 
   @NotNull

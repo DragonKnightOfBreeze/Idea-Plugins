@@ -1,4 +1,4 @@
-@file:Suppress("UNCHECKED_CAST")
+@file:Suppress("UNCHECKED_CAST", "UNUSED_PARAMETER")
 
 package com.windea.plugin.idea.stellaris
 
@@ -7,16 +7,12 @@ import com.intellij.codeInsight.lookup.*
 import com.intellij.lang.*
 import com.intellij.lang.documentation.*
 import com.intellij.openapi.editor.*
-import com.intellij.openapi.editor.DefaultLanguageHighlighterColors.*
 import com.intellij.openapi.editor.colors.*
-import com.intellij.openapi.editor.colors.TextAttributesKey.*
 import com.intellij.openapi.fileTypes.*
 import com.intellij.openapi.project.*
 import com.intellij.psi.*
 import com.intellij.psi.search.*
 import com.intellij.psi.util.*
-import com.intellij.ui.*
-import com.windea.plugin.idea.stellaris.StellarisBundle.message
 import com.windea.plugin.idea.stellaris.localization.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
 import com.windea.plugin.idea.stellaris.localization.psi.impl.*
@@ -28,7 +24,18 @@ import com.windea.plugin.idea.stellaris.script.psi.impl.*
 import java.net.*
 import javax.swing.*
 
+const val doPrint = true
+
+fun <T> T.andPrint(name: String? = null): T {
+	if(doPrint){
+		println(name?.let { "$it: " }.orEmpty() + toStringSmartly())
+	}
+	return this
+}
+
 //region Stdlib
+fun Any?.toStringSmartly() = if(this is Array<*>) this.contentDeepToString() else this.toString()
+
 fun Boolean.toInt() = if(this) 1 else 0
 
 inline fun <reified T : Any> String.toClassPathResource(): URL = T::class.java.getResource(this)
@@ -99,7 +106,7 @@ fun getDocCommentTextFromPreviousComment(element: PsiElement): String {
 		var prevElement = element.prevSibling
 		while(prevElement != null) {
 			if(prevElement !is PsiWhiteSpace) {
-				if(!isPreviousComment(prevElement) ) break
+				if(!isPreviousComment(prevElement)) break
 				if(length != 0) insert(0, "\n")
 				insert(0, prevElement.text)
 			}
@@ -108,7 +115,7 @@ fun getDocCommentTextFromPreviousComment(element: PsiElement): String {
 	}
 }
 
-fun isPreviousComment(element:PsiElement): Boolean {
+fun isPreviousComment(element: PsiElement): Boolean {
 	return element.elementType == StellarisLocalizationTypes.COMMENT || element.elementType == StellarisScriptTypes.COMMENT
 }
 
@@ -147,18 +154,18 @@ fun findFurthestSiblingOfSameType(element: PsiElement, after: Boolean): PsiEleme
 }
 
 /**创建查找元素。用于代码补全。*/
-fun createLookupElement(element: PsiElement,icon:Icon? = null, tailText: String? = null, typeText: String? = null): LookupElementBuilder {
-	var result =  LookupElementBuilder.create(element)
-	if(icon!= null) result = result.withIcon(icon)
+fun createLookupElement(element: PsiElement, icon: Icon? = null, tailText: String? = null, typeText: String? = null): LookupElementBuilder {
+	var result = LookupElementBuilder.create(element)
+	if(icon != null) result = result.withIcon(icon)
 	if(tailText != null) result = result.withTailText(tailText)
 	if(typeText != null) result = result.withTypeText(typeText)
 	return result
 }
 
 /**创建查找元素。用于代码补全。*/
-fun createLookupElement(keyword: String,icon:Icon? = null, tailText: String? = null, typeText: String? = null): LookupElementBuilder {
-	var result =  LookupElementBuilder.create(keyword)
-	if(icon!= null) result = result.withIcon(icon)
+fun createLookupElement(keyword: String, icon: Icon? = null, tailText: String? = null, typeText: String? = null): LookupElementBuilder {
+	var result = LookupElementBuilder.create(keyword)
+	if(icon != null) result = result.withIcon(icon)
 	if(tailText != null) result = result.withTailText(tailText)
 	if(typeText != null) result = result.withTypeText(typeText)
 	return result

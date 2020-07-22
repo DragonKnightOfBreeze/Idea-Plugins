@@ -35,7 +35,7 @@ public class StellarisLocalizationLocaleImpl extends StellarisLocalizationNamedE
   }
 
   @Override
-  @NotNull
+  @Nullable
   public String getName() {
     return StellarisLocalizationPsiImplUtil.getName(this);
   }

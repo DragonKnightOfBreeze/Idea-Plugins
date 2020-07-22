@@ -8,10 +8,10 @@ import com.windea.plugin.idea.stellaris.domain.StellarisSerialNumber;
 
 public interface StellarisLocalizationSerialNumber extends StellarisLocalizationNamedElement {
 
-  @NotNull
+  @Nullable
   PsiElement getSerialNumberCode();
 
-  @NotNull
+  @Nullable
   String getName();
 
   @NotNull

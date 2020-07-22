@@ -8,13 +8,13 @@ import com.intellij.psi.PsiReference;
 
 public interface StellarisLocalizationPropertyReference extends StellarisLocalizationNamedElement {
 
-  @NotNull
+  @Nullable
   PsiElement getKeyToken();
 
   @Nullable
   PsiElement getPropertyReferenceParameter();
 
-  @NotNull
+  @Nullable
   String getName();
 
   @NotNull

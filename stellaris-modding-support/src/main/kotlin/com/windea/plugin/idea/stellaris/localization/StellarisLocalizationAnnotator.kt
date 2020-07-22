@@ -35,7 +35,7 @@ class StellarisLocalizationAnnotator : Annotator, DumbAware {
 				} else {
 					val attributesKey = StellarisLocalizationAttributesKeys.COLOR_CODE_KEYS[element.name] ?: return
 					holder.newSilentAnnotation(INFORMATION)
-						.range(element.colorfulTextCode).textAttributes(attributesKey).create()
+						.range(element.colorfulTextCode!!).textAttributes(attributesKey).create()
 				}
 			}
 		}

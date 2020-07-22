@@ -67,7 +67,8 @@ property_value ::= LEFT_QUOTE rich_text * RIGHT_QUOTE{
   methods=[getValue]
 }
 
-rich_text ::= (plain_text | property_reference | code | icon | serial_number | colorful_text)
+rich_text ::= plain_text | property_reference | code | icon | serial_number | colorful_text
+
 plain_text ::= VALUE_TOKEN
 property_reference ::= PROPERTY_REFERENCE_START KEY_TOKEN [PROPERTY_REFERENCE_SEPARATOR PROPERTY_REFERENCE_PARAMETER] PROPERTY_REFERENCE_END {
   pin=1

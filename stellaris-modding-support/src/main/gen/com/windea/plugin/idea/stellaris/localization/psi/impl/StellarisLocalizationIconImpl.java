@@ -26,13 +26,13 @@ public class StellarisLocalizationIconImpl extends StellarisLocalizationNamedEle
   }
 
   @Override
-  @NotNull
+  @Nullable
   public PsiElement getIconText() {
-    return findNotNullChildByType(ICON_TEXT);
+    return findChildByType(ICON_TEXT);
   }
 
   @Override
-  @NotNull
+  @Nullable
   public String getName() {
     return StellarisLocalizationPsiImplUtil.getName(this);
   }

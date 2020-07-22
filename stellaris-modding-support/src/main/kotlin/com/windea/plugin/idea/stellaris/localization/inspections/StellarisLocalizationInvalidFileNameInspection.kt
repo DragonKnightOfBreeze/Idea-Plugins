@@ -9,11 +9,10 @@ import com.windea.plugin.idea.stellaris.localization.psi.*
 class StellarisLocalizationInvalidFileNameInspection: LocalInspectionTool(){
 	override fun checkFile(file: PsiFile, manager: InspectionManager, isOnTheFly: Boolean): Array<out ProblemDescriptor?>? {
 		//如果文件名和其中的语言区域的时间区域不匹配
-		val Locale = PsiTreeUtil.getChildOfType(file, StellarisLocalizationLocale::class.java) ?: return null
-		val locale = Locale.name
+		val element = PsiTreeUtil.getChildOfType(file, StellarisLocalizationLocale::class.java) ?: return null
+		val locale = element.locale?:return null
 		val fileName = file.name
-		if(!Locale.isValid) return null
-		val isMatched = fileName.contains(locale)
+		val isMatched = fileName.contains(locale.key)
 		if(!isMatched) {
 			val holder = ProblemsHolder(manager, file, isOnTheFly)
 			val description = message("stellaris.localization.inspection.invalidFileName.description", fileName, locale)

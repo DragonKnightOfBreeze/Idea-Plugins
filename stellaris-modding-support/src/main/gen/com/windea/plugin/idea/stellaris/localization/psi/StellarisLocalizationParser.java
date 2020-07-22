@@ -52,13 +52,14 @@ public class StellarisLocalizationParser implements PsiParser, LightPsiParser {
   public static boolean code(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "code")) return false;
     if (!nextTokenIs(b, CODE_START)) return false;
-    boolean r;
-    Marker m = enter_section_(b);
+    boolean r, p;
+    Marker m = enter_section_(b, l, _NONE_, CODE, null);
     r = consumeToken(b, CODE_START);
-    r = r && code_1(b, l + 1);
-    r = r && consumeToken(b, CODE_END);
-    exit_section_(b, m, CODE, r);
-    return r;
+    p = r; // pin = 1
+    r = r && report_error_(b, code_1(b, l + 1));
+    r = p && consumeToken(b, CODE_END) && r;
+    exit_section_(b, l, m, r, p, null);
+    return r || p;
   }
 
   // CODE_TEXT?
@@ -73,13 +74,14 @@ public class StellarisLocalizationParser implements PsiParser, LightPsiParser {
   public static boolean colorful_text(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "colorful_text")) return false;
     if (!nextTokenIs(b, COLORFUL_TEXT_START)) return false;
-    boolean r;
-    Marker m = enter_section_(b);
-    r = consumeTokens(b, 0, COLORFUL_TEXT_START, COLORFUL_TEXT_CODE);
-    r = r && colorful_text_2(b, l + 1);
-    r = r && consumeToken(b, COLORFUL_TEXT_END);
-    exit_section_(b, m, COLORFUL_TEXT, r);
-    return r;
+    boolean r, p;
+    Marker m = enter_section_(b, l, _NONE_, COLORFUL_TEXT, null);
+    r = consumeTokens(b, 1, COLORFUL_TEXT_START, COLORFUL_TEXT_CODE);
+    p = r; // pin = 1
+    r = r && report_error_(b, colorful_text_2(b, l + 1));
+    r = p && consumeToken(b, COLORFUL_TEXT_END) && r;
+    exit_section_(b, l, m, r, p, null);
+    return r || p;
   }
 
   // rich_text*
@@ -98,11 +100,12 @@ public class StellarisLocalizationParser implements PsiParser, LightPsiParser {
   public static boolean icon(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "icon")) return false;
     if (!nextTokenIs(b, ICON_START)) return false;
-    boolean r;
-    Marker m = enter_section_(b);
-    r = consumeTokens(b, 0, ICON_START, ICON_TEXT, ICON_END);
-    exit_section_(b, m, ICON, r);
-    return r;
+    boolean r, p;
+    Marker m = enter_section_(b, l, _NONE_, ICON, null);
+    r = consumeTokens(b, 1, ICON_START, ICON_TEXT, ICON_END);
+    p = r; // pin = 1
+    exit_section_(b, l, m, r, p, null);
+    return r || p;
   }
 
   /* ********************************************************** */
@@ -160,13 +163,14 @@ public class StellarisLocalizationParser implements PsiParser, LightPsiParser {
   public static boolean property_reference(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "property_reference")) return false;
     if (!nextTokenIs(b, PROPERTY_REFERENCE_START)) return false;
-    boolean r;
-    Marker m = enter_section_(b);
-    r = consumeTokens(b, 0, PROPERTY_REFERENCE_START, KEY_TOKEN);
-    r = r && property_reference_2(b, l + 1);
-    r = r && consumeToken(b, PROPERTY_REFERENCE_END);
-    exit_section_(b, m, PROPERTY_REFERENCE, r);
-    return r;
+    boolean r, p;
+    Marker m = enter_section_(b, l, _NONE_, PROPERTY_REFERENCE, null);
+    r = consumeTokens(b, 1, PROPERTY_REFERENCE_START, KEY_TOKEN);
+    p = r; // pin = 1
+    r = r && report_error_(b, property_reference_2(b, l + 1));
+    r = p && consumeToken(b, PROPERTY_REFERENCE_END) && r;
+    exit_section_(b, l, m, r, p, null);
+    return r || p;
   }
 
   // [PROPERTY_REFERENCE_SEPARATOR PROPERTY_REFERENCE_PARAMETER]
@@ -180,14 +184,14 @@ public class StellarisLocalizationParser implements PsiParser, LightPsiParser {
   // LEFT_QUOTE rich_text * RIGHT_QUOTE
   public static boolean property_value(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "property_value")) return false;
-    if (!nextTokenIs(b, LEFT_QUOTE)) return false;
-    boolean r;
-    Marker m = enter_section_(b);
+    boolean r, p;
+    Marker m = enter_section_(b, l, _NONE_, PROPERTY_VALUE, "<property value>");
     r = consumeToken(b, LEFT_QUOTE);
-    r = r && property_value_1(b, l + 1);
-    r = r && consumeToken(b, RIGHT_QUOTE);
-    exit_section_(b, m, PROPERTY_VALUE, r);
-    return r;
+    p = r; // pin = 1
+    r = r && report_error_(b, property_value_1(b, l + 1));
+    r = p && consumeToken(b, RIGHT_QUOTE) && r;
+    exit_section_(b, l, m, r, p, property_value_auto_recover_);
+    return r || p;
   }
 
   // rich_text *
@@ -276,11 +280,17 @@ public class StellarisLocalizationParser implements PsiParser, LightPsiParser {
   public static boolean serial_number(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "serial_number")) return false;
     if (!nextTokenIs(b, SERIAL_NUMBER_START)) return false;
-    boolean r;
-    Marker m = enter_section_(b);
-    r = consumeTokens(b, 0, SERIAL_NUMBER_START, SERIAL_NUMBER_CODE, SERIAL_NUMBER_END);
-    exit_section_(b, m, SERIAL_NUMBER, r);
-    return r;
+    boolean r, p;
+    Marker m = enter_section_(b, l, _NONE_, SERIAL_NUMBER, null);
+    r = consumeTokens(b, 1, SERIAL_NUMBER_START, SERIAL_NUMBER_CODE, SERIAL_NUMBER_END);
+    p = r; // pin = 1
+    exit_section_(b, l, m, r, p, null);
+    return r || p;
   }
 
+  static final Parser property_value_auto_recover_ = new Parser() {
+    public boolean parse(PsiBuilder b, int l) {
+      return !nextTokenIsFast(b, COMMENT, END_OF_LINE_COMMENT, KEY_TOKEN);
+    }
+  };
 }

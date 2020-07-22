@@ -49,7 +49,7 @@ object StellarisLocalizationChangeSerialNumberIntention : IntentionAction {
 		override fun onChosen(selectedValue: StellarisLocalizationSerialNumber?, finalChoice: Boolean): PopupStep<*>? {
 			if(selectedValue!= null) {
 				//需要在WriteCommandAction里面执行
-				runWriteCommandAction(selectedValue.project) { value.name = selectedValue.name }
+				runWriteCommandAction(selectedValue.project) { value.setName(selectedValue.name!!) }
 			}
 			return PopupStep.FINAL_CHOICE
 		}

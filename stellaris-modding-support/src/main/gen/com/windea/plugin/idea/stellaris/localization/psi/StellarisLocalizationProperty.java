@@ -18,7 +18,7 @@ public interface StellarisLocalizationProperty extends StellarisLocalizationName
   @Nullable
   PsiElement getNumber();
 
-  @NotNull
+  @Nullable
   String getName();
 
   @NotNull
