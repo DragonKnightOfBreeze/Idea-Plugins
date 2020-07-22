@@ -2,6 +2,10 @@
 
 # 类型定义
 types:
+  weight_modifier:
+    weight: number
+    # list
+    modifier: modifier
   modifier:
     factor: number
     exists: ?
@@ -10,6 +14,14 @@ types:
       $condition: ""
     # list
     $modifier_prop: ""
+  limit:
+    condition_expression: ""
+    always: boolean
+    has_xxx: xxx
+    NOT: {}
+    OR: {}
+    NOR: {}
+    AND: {}
 
 # 文件结构
 common:
@@ -17,24 +29,34 @@ common:
   agendas:
     # list
     $agenda:
-      weight_modifier:
-        weight: number
-        # list
-        modifier: modifier
+      weight_modifier: weight_modifier
       # list
       modifier: modifier
   # 支出
   ai_budget:
     # list
-    $budget:
+    $ai_budget:
       resource: resource
-      type: ...
-      category: ...
-      poential:
-        always: boolean
-      fraction:
-        weight: number
-  ambient_objects: {}
+      type: any
+      category: any
+      poential: limit
+      fraction: weight_modifier
+      static_min:
+        base: int
+        modifier: modifier
+      static_max:
+        base: int
+        modifier: modifier
+  # 背景对象
+  ambient_objects:
+    $ambient_object:
+      name: string | localization_property
+      entity: string | localization_property
+      selectable: boolean
+      show_name: boolean
+      description?: string | localization_property
+      tooltip?: string | localization_property
+
   archaeological_site_types: {}
   armies: {}
   artifact_actions: {}

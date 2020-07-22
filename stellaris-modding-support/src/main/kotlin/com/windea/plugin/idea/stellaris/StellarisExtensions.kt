@@ -21,9 +21,11 @@ import com.windea.plugin.idea.stellaris.script.psi.*
 import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptParserDefinition.Companion.COMMENTS
 import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
 import com.windea.plugin.idea.stellaris.script.psi.impl.*
+import org.jetbrains.annotations.*
 import java.net.*
 import javax.swing.*
 
+//region Logging
 const val doPrint = true
 
 fun <T> T.andPrint(name: String? = null): T {
@@ -32,6 +34,7 @@ fun <T> T.andPrint(name: String? = null): T {
 	}
 	return this
 }
+//endregion
 
 //region Stdlib
 fun Any?.toStringSmartly() = if(this is Array<*>) this.contentDeepToString() else this.toString()
@@ -84,8 +87,8 @@ fun ASTNode.nodes(): List<ASTNode> {
 	return result
 }
 
-fun Project.findPsiFiles(type: LanguageFileType): List<PsiFile> {
-	return FileTypeIndex.getFiles(type, GlobalSearchScope.projectScope(this)).mapNotNull {
+fun Project.findPsiFiles(type: LanguageFileType,globalSearchScope: GlobalSearchScope = GlobalSearchScope.projectScope(this)): List<PsiFile> {
+	return FileTypeIndex.getFiles(type, globalSearchScope).mapNotNull {
 		PsiManager.getInstance(this).findFile(it)
 	}
 }
@@ -153,14 +156,6 @@ fun findFurthestSiblingOfSameType(element: PsiElement, after: Boolean): PsiEleme
 	return lastSeen.psi
 }
 
-/**创建查找元素。用于代码补全。*/
-fun createLookupElement(element: PsiElement, icon: Icon? = null, tailText: String? = null, typeText: String? = null): LookupElementBuilder {
-	var result = LookupElementBuilder.create(element)
-	if(icon != null) result = result.withIcon(icon)
-	if(tailText != null) result = result.withTailText(tailText)
-	if(typeText != null) result = result.withTypeText(typeText)
-	return result
-}
 
 /**创建查找元素。用于代码补全。*/
 fun createLookupElement(keyword: String, icon: Icon? = null, tailText: String? = null, typeText: String? = null): LookupElementBuilder {
@@ -272,46 +267,28 @@ fun findAllScriptProperties(project: Project): List<StellarisScriptProperty> {
 //endregion
 
 //region Stellaris Localization
-fun findLocalizationPropertyInFile(name: String?, psiFile: PsiFile): StellarisLocalizationProperty? {
-	if(name == null || psiFile !is StellarisLocalizationFile) return null
-	return psiFile.properties.first { name == name }
+fun findLocalizationPropertyInFile(name: String, psiFile: PsiFile): StellarisLocalizationProperty? {
+	if(psiFile !is StellarisLocalizationFile) return null
+	return psiFile.properties.find { it.name == name }
 }
 
-fun findLocalizationPropertyInProject(name: String?, project: Project): StellarisLocalizationProperty? {
-	if(name == null) return null
+fun findLocalizationPropertiesInFile(name: String, psiFile: PsiFile): List<StellarisLocalizationProperty> {
+	if(psiFile !is StellarisLocalizationFile) return listOf()
+	return psiFile.properties.filter { it.name == name }
+}
+
+fun findLocalizationPropertyInProject(name: String, project: Project): StellarisLocalizationProperty? {
 	val files = project.findPsiFiles(StellarisLocalizationFileType) as List<StellarisLocalizationFile>
 	return files.flatMap { it.properties.toList() }.firstOrNull { it.name == name }
 }
 
-fun findLocalizationPropertiesInProject(name: String?, project: Project): List<StellarisLocalizationProperty>? {
-	if(name == null) return null
+fun findLocalizationPropertiesInProject(name: String, project: Project): List<StellarisLocalizationProperty> {
 	val files = project.findPsiFiles(StellarisLocalizationFileType) as List<StellarisLocalizationFile>
 	return files.flatMap { it.properties.toList() }.filter { it.name == name }
 }
 
-/**根据键值查找属性（全局范围）*/
-fun findLocalizationProperties(project: Project, key: String): List<StellarisLocalizationProperty> {
-	val result = mutableListOf<StellarisLocalizationProperty>()
-	val virtualFiles = FileTypeIndex.getFiles(StellarisLocalizationFileType, GlobalSearchScope.projectScope(project))
-	for(virtualFile in virtualFiles) {
-		val file = PsiManager.getInstance(project).findFile(virtualFile) ?: continue
-		val properties = PsiTreeUtil.getChildrenOfType(file, StellarisLocalizationProperty::class.java)?.cast() ?: continue
-		for(property in properties) {
-			if(key == StellarisLocalizationPsiImplUtil.getName(property)) result += property
-		}
-	}
-	return result
-}
-
-/**查找所有属性（全局范围）*/
-fun findAllLocalizationProperties(project: Project): List<StellarisLocalizationProperty> {
-	val result = mutableListOf<StellarisLocalizationProperty>()
-	val virtualFiles = FileTypeIndex.getFiles(StellarisLocalizationFileType, GlobalSearchScope.projectScope(project))
-	for(virtualFile in virtualFiles) {
-		val file = PsiManager.getInstance(project).findFile(virtualFile) ?: continue
-		val properties = PsiTreeUtil.getChildrenOfType(file, StellarisLocalizationProperty::class.java)?.cast() ?: continue
-		result += properties
-	}
-	return result
+fun findLocalizationPropertiesInProject(project: Project): List<StellarisLocalizationProperty> {
+	val files = project.findPsiFiles(StellarisLocalizationFileType) as List<StellarisLocalizationFile>
+	return files.flatMap { it.properties.toList()}
 }
 //endregion
