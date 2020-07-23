@@ -9,26 +9,30 @@ types:
     # region oneOf
     factor: number
     add: number
-    trigger[]: ""
+    condition[]: ""
     #endregion
-  trigger:
+  condition:
     # region anyOf
     exists: any
-    from.owner: trigger
-    from:
-      $trigger[]: ""
+    from: trigger[]
+    owner[]: trigger[]
     # ...
     # endregion
-  trigger:
+  trigger#:
     # region anyOf
     trigger_expression: ""
     always: boolean
+    any_xxx: xxx
     has_xxx: xxx
     NOT: {}
     OR: {}
     NOR: {}
     AND: {}
     # endregion
+  resources:
+    category: armies
+    cost: cost
+    upkeep: upkeep
   cost/upkeep:
     # region anyOf
     minerals: int
@@ -48,7 +52,7 @@ common:
       resource: resource
       type: any
       category: any
-      poential: trigger
+      poential: condition
       fraction: weight_modifier
       static_min:
         base: int
@@ -75,7 +79,7 @@ common:
       # region oneOf
       # Optional, if no desc is given "<category key>_desc" is assumed
       desc: string | localization_property = $cagetory_key$_desc
-      desc:
+      desc#:
         # Scope: planet, from = ship
         trigger[]: trigger
         # Localization key for description
@@ -105,10 +109,10 @@ common:
       on_spawn?: typeof on_success # effect[] ???
       # region anyOf
       on_success: event_id
-      on_success:
+      on_success#:
         # region anyOf
         $number[]: event_id
-        $number[]:
+        $number[]#:
           max_once?: boolean = yes
           max_once_global: no
           modifier[]: modfifier
@@ -125,7 +129,7 @@ common:
       # # Should match number of defined stages below.
       stages: int
       # Trigger checking if a scope with this=fleet ,prev=archaeological site is potential to excavate (this will add/remove this option without giving the player a reason).
-      potential: trigger
+      potential: condition
       # Trigger checking if a scope with this=fleet ,prev=archaeological site is allowed to excavate (this will toggle enable/disabled mode on buttons etc).
       allow: trigger
       # Stage definition, order dependent.
@@ -137,7 +141,7 @@ common:
         # # event to fire when finished the state.
         event: event_id
       # Second stage
-      stage: {}
+      stage#: {}
       # effect to fire when a roll fails
       on_roll_failed: effect
   # 军队
@@ -149,14 +153,42 @@ common:
       morale_damage: number
       collateral_damage: number
       war_exhaustion: number # 战争之殇
+      has_morale: boolean = yes
+      has_species: boolean = yes
       time: int
       icon_frame: int
+      pop_limited?: boolean = yes
       prerequisites: tech[]
-      resources:
-        category: armies
-        cost: cost
-        upkeep: upkeep
-  artifact_actions: {}
+      resources: resources
+      show_tech_unlock_if: trigger
+      allow: trigger
+  #遗物动作
+  artifact_actions:
+    resources: resources
+    ai_weight: weight_modifier
+    potential: trigger
+    allow:
+      custom_tooltip:
+        fail_text: string | localization_property
+        trigger[]: ""
+        always: boolean
+    effect:
+      custom_tooltip: string | localization_property
+      generate_lcluster_clue: boolean
+      hidden_effect:
+        if:
+          limit: trigget
+        add_modifier:
+          modifier: modifier_name
+          owner:
+            country_event: event_id
+          days: int
+      add_monthly_resource_mult:
+        resource: resource
+        value: int
+        min: int
+        max: int
+
   ascension_perks: {}
   asteroid_belts: {}
   attributes: {}

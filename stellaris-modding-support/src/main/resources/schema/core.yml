@@ -1,0 +1,43 @@
+definitions:
+  factor:
+    description: Multiplication factor.
+    type: number
+    minimum: 0.0
+    default: 1.00
+  uint:
+    description: Unsign integer.
+    type: integer
+    minimum: 0
+    default: 0
+  boolean:
+    description: Boolean value.
+    enum: [yes, no]
+  resources:
+    type: object
+    propertyNames:
+      $type: resource
+    additionalProperties:
+      $ref: "#/definitions/unit"
+  trigger:
+    description: Conditions and predicates.
+    type: object
+    anyOf:
+    - properties:
+        NOT:
+          $ref: "#/definitions/trigger"
+        OR:
+          $ref: "#/definitions/trigger"
+        NOR:
+          $ref: "#/definitions/trigger"
+        AND:
+          $ref: "#/definitions/trigger"
+        always:
+          $ref: "#/definitions/boolean"
+    - propertyNames:
+        $type: scripted_trigger
+  tech:
+    $type: tech
+  techs:
+    type: array
+    items:
+      $ref: "#/definitions/tech"

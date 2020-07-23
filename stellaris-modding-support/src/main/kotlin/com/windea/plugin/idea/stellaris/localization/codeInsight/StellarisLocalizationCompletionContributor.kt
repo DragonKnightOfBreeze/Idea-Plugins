@@ -36,6 +36,5 @@ class StellarisLocalizationCompletionContributor : CompletionContributor() {
 		context.replacementOffset--
 	}
 
-
 }
 
