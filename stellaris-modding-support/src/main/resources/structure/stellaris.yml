@@ -20,6 +20,7 @@ types:
     # ...
     # endregion
   trigger:
+    # region anyOf
     trigger_expression: ""
     always: boolean
     has_xxx: xxx
@@ -27,6 +28,12 @@ types:
     OR: {}
     NOR: {}
     AND: {}
+    # endregion
+  cost/upkeep:
+    # region anyOf
+    minerals: int
+    # endregion
+    energy: int
 
 # 文件结构
 common:
@@ -132,9 +139,23 @@ common:
       # Second stage
       stage: {}
       # effect to fire when a roll fails
-      on_roll_failed：effect
-
-  armies: {}
+      on_roll_failed: effect
+  # 军队
+  armies:
+    $army[]:
+      damage: number
+      health: number
+      morale: number
+      morale_damage: number
+      collateral_damage: number
+      war_exhaustion: number # 战争之殇
+      time: int
+      icon_frame: int
+      prerequisites: tech[]
+      resources:
+        category: armies
+        cost: cost
+        upkeep: upkeep
   artifact_actions: {}
   ascension_perks: {}
   asteroid_belts: {}

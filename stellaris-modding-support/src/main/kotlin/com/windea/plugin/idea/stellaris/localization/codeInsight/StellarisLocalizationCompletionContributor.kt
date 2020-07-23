@@ -9,7 +9,6 @@ import com.intellij.util.*
 import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.annotations.*
 import com.windea.plugin.idea.stellaris.domain.*
-import com.windea.plugin.idea.stellaris.localization.psi.*
 import com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationTypes.*
 
 //pattern是通过调试确定的
@@ -32,8 +31,11 @@ class StellarisLocalizationCompletionContributor : CompletionContributor() {
 		)
 	}
 
-	override fun fillCompletionVariants(parameters: CompletionParameters, result: CompletionResultSet) {
-		super.fillCompletionVariants(parameters, result)
+	//向左偏移1字符
+	override fun beforeCompletion(context: CompletionInitializationContext) {
+		context.replacementOffset--
 	}
+
+
 }
 
