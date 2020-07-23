@@ -64,6 +64,11 @@ public class StellarisScriptVariableDefinitionImpl extends StellarisScriptNamedE
   }
 
   @Override
+  public int getTextOffset() {
+    return StellarisScriptPsiImplUtil.getTextOffset(this);
+  }
+
+  @Override
   @Nullable
   public Icon getIcon(@IconFlags int flags) {
     return StellarisScriptPsiImplUtil.getIcon(this, flags);

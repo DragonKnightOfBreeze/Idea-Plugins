@@ -14,10 +14,6 @@ class StellarisScriptDescriptionProvider: ElementDescriptionProvider {
 				if(location == UsageViewTypeLocation.INSTANCE) StellarisBundle.message("stellaris.script.description.variable")
 				else element.name
 			}
-			is StellarisScriptVariableReference -> {
-				if(location == UsageViewTypeLocation.INSTANCE) StellarisBundle.message("stellaris.script.description.variable")
-				else element.name
-			}
 			is StellarisScriptProperty ->{
 				if(location == UsageViewTypeLocation.INSTANCE) StellarisBundle.message("stellaris.script.description.property")
 				else element.name

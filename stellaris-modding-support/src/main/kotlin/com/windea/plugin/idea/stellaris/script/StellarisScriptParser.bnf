@@ -45,7 +45,7 @@ variable_definition ::= variable_name variable_definition_separator variable_val
   pin=1
   mixin="com.windea.plugin.idea.stellaris.script.psi.impl.StellarisScriptNamedElementImpl"
   implements="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptNamedElement"
-  methods=[getName setName getNameIdentifier getIcon getValue]
+  methods=[getName setName getNameIdentifier getTextOffset getIcon getValue]
 }
 variable_name ::= VARIABLE_NAME_TOKEN
 variable_definition_separator ::= "="
@@ -54,9 +54,7 @@ variable_value ::= number_literal {
   methods=[getValue]
 }
 variable_reference ::= VARIABLE_REFERENCE_TOKEN{
-  mixin="com.windea.plugin.idea.stellaris.script.psi.impl.StellarisScriptNamedElementImpl"
-  implements="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptNamedElement"
-  methods=[getName setName getNameIdentifier getIcon getReference]
+  methods=[getReference]
 }
 
 property ::= property_key property_separator property_value {

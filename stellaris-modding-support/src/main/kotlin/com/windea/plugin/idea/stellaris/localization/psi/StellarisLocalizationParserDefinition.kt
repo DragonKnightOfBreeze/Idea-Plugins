@@ -14,8 +14,8 @@ import com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationTy
 class StellarisLocalizationParserDefinition : ParserDefinition {
 	companion object {
 		val WHITE_SPACES = TokenSet.create(WHITE_SPACE)
-		val COMMENTS = TokenSet.create(COMMENT, ROOT_COMMENT)
-		val STRINGS = TokenSet.create(PROPERTY_VALUE)
+		val COMMENTS = TokenSet.create(COMMENT, ROOT_COMMENT,END_OF_LINE_COMMENT)
+		val STRINGS = TokenSet.create(VALUE_TOKEN)
 		val FILE = IFileElementType(StellarisLocalizationLanguage)
 	}
 

@@ -14,10 +14,10 @@ class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
 	override fun getQuickNavigateInfo(element: PsiElement?, originalElement: PsiElement?): String? {
 		return when(element) {
 			is StellarisScriptVariableDefinition -> {
-				"${element.name} ${getLocationText(element)}"
+				"${getLocationText(element)}<br>${element.name}"
 			}
 			is StellarisScriptProperty -> {
-				"${element.name} ${getLocationText(element)}"
+				"${getLocationText(element)}<br>${element.name}"
 			}
 			else -> null
 		}

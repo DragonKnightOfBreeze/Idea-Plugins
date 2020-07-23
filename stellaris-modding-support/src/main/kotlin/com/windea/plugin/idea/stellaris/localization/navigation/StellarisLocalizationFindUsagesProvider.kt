@@ -42,12 +42,12 @@ class StellarisLocalizationFindUsagesProvider : FindUsagesProvider {
 	}
 
 	override fun canFindUsagesFor(psiElement: PsiElement): Boolean {
-		return psiElement is StellarisLocalizationProperty
+		return psiElement is PsiNamedElement
 	}
 
 	override fun getWordsScanner(): WordsScanner? {
-		//return StellarisLocalizationWordScanner()
-		return null
+		//return  null
+		return StellarisLocalizationWordScanner()
 	}
 }
 

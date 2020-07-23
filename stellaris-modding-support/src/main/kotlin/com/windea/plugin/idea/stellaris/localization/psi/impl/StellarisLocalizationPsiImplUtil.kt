@@ -48,10 +48,6 @@ object StellarisLocalizationPsiImplUtil {
 		return element.startOffset
 	}
 
-	@JvmStatic
-	fun getReference(element:StellarisLocalizationLocale):PsiReference{
-		return StellarisLocalizationLocalePsiReference(element,element.localeId.textRangeInParent)
-	}
 
 	@JvmStatic
 	fun getIcon(element: StellarisLocalizationLocale, @IconFlags flags: Int): Icon? {

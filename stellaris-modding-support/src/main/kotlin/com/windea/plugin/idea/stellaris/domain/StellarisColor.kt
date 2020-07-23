@@ -26,8 +26,8 @@ enum class StellarisColor(
 	White("W", "(color) White", "white", Color.WHITE),
 	Yellow("Y", "(color) Yellow", "yellow", Color.YELLOW);
 
-	val popupText = "'$key' - $description"
 	val icon = ColorIcon(16,color)
+	val popupText = "'$key' - $description"
 
 	fun format(text: String) = "£${this.key}$text£!"
 

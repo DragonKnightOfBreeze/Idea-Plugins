@@ -2,16 +2,29 @@ package com.windea.plugin.idea.stellaris.localization
 
 import com.intellij.lang.annotation.*
 import com.intellij.lang.annotation.HighlightSeverity.*
+import com.intellij.openapi.editor.markup.*
 import com.intellij.openapi.project.*
 import com.intellij.psi.*
 import com.windea.plugin.idea.stellaris.StellarisBundle.message
 import com.windea.plugin.idea.stellaris.annotations.*
+import com.windea.plugin.idea.stellaris.domain.*
 import com.windea.plugin.idea.stellaris.localization.highlighter.*
 import com.windea.plugin.idea.stellaris.localization.intentions.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
+import javax.swing.*
 
 @ExtensionPoint
 class StellarisLocalizationAnnotator : Annotator, DumbAware {
+	class ColorGutterIconRenderer(
+		private val color:StellarisColor
+	):GutterIconRenderer(),DumbAware{
+		override fun getIcon() = color.icon
+
+		override fun equals(other: Any?) = other is ColorGutterIconRenderer && color == other.color
+
+		override fun hashCode() = color.hashCode()
+	}
+
 	override fun annotate(element: PsiElement, holder: AnnotationHolder) {
 		when(element) {
 			//如果有无法解析的枚举项，则报错
@@ -35,6 +48,7 @@ class StellarisLocalizationAnnotator : Annotator, DumbAware {
 				} else {
 					val attributesKey = StellarisLocalizationAttributesKeys.COLOR_CODE_KEYS[element.name] ?: return
 					holder.newSilentAnnotation(INFORMATION)
+						.gutterIconRenderer(ColorGutterIconRenderer(element.color!!))
 						.range(element.colorfulTextCode!!).textAttributes(attributesKey).create()
 				}
 			}

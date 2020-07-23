@@ -7,9 +7,9 @@ import com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationTy
 
 class StellarisLocalizationWordScanner: DefaultWordsScanner(
 	StellarisLocalizationLexerAdapter(),
-	TokenSet.create(PROPERTY_KEY),
-	TokenSet.create(COMMENT, ROOT_COMMENT),
-	TokenSet.create(PROPERTY_VALUE)
+	TokenSet.create(KEY_TOKEN),
+	TokenSet.create(COMMENT, ROOT_COMMENT,END_OF_LINE_COMMENT),
+	TokenSet.create(VALUE_TOKEN)
 ){
 	init {
 		setMayHaveFileRefsInLiterals(true)

@@ -8,12 +8,11 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
 import static com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*;
+import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.windea.plugin.idea.stellaris.script.psi.*;
-import com.intellij.openapi.util.Iconable.IconFlags;
 import com.intellij.psi.PsiReference;
-import javax.swing.Icon;
 
-public class StellarisScriptVariableReferenceImpl extends StellarisScriptNamedElementImpl implements StellarisScriptVariableReference {
+public class StellarisScriptVariableReferenceImpl extends ASTWrapperPsiElement implements StellarisScriptVariableReference {
 
   public StellarisScriptVariableReferenceImpl(@NotNull ASTNode node) {
     super(node);
@@ -32,30 +31,6 @@ public class StellarisScriptVariableReferenceImpl extends StellarisScriptNamedEl
   @NotNull
   public PsiElement getVariableReferenceToken() {
     return findNotNullChildByType(VARIABLE_REFERENCE_TOKEN);
-  }
-
-  @Override
-  @Nullable
-  public String getName() {
-    return StellarisScriptPsiImplUtil.getName(this);
-  }
-
-  @Override
-  @NotNull
-  public PsiElement setName(@NotNull String name) {
-    return StellarisScriptPsiImplUtil.setName(this, name);
-  }
-
-  @Override
-  @Nullable
-  public PsiElement getNameIdentifier() {
-    return StellarisScriptPsiImplUtil.getNameIdentifier(this);
-  }
-
-  @Override
-  @Nullable
-  public Icon getIcon(@IconFlags int flags) {
-    return StellarisScriptPsiImplUtil.getIcon(this, flags);
   }
 
   @Override

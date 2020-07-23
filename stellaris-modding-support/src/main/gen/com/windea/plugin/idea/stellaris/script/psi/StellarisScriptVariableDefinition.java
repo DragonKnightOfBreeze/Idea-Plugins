@@ -27,6 +27,8 @@ public interface StellarisScriptVariableDefinition extends StellarisScriptNamedE
   @Nullable
   PsiElement getNameIdentifier();
 
+  int getTextOffset();
+
   @Nullable
   Icon getIcon(@IconFlags int flags);
 

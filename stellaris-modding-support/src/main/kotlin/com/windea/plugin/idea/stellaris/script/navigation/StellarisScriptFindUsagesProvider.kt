@@ -30,12 +30,12 @@ class StellarisScriptFindUsagesProvider : FindUsagesProvider {
 		return HelpID.FIND_OTHER_USAGES
 	}
 
-	override fun canFindUsagesFor(psiElement: PsiElement): Boolean {
-		return psiElement is StellarisScriptNamedElement
+	override fun canFindUsagesFor(element: PsiElement): Boolean {
+		return element is StellarisScriptNamedElement
 	}
 
 	override fun getWordsScanner(): WordsScanner? {
-		//return StellarisScriptWordScanner()
 		return null
+		//return StellarisScriptWordScanner()
 	}
 }

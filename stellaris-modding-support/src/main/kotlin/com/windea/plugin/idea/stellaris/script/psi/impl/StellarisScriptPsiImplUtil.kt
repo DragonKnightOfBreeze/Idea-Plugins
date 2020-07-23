@@ -5,8 +5,10 @@ package com.windea.plugin.idea.stellaris.script.psi.impl
 import com.intellij.icons.*
 import com.intellij.openapi.util.*
 import com.intellij.psi.*
+import com.intellij.refactoring.suggested.*
 import com.intellij.util.*
 import com.windea.plugin.idea.stellaris.*
+import com.windea.plugin.idea.stellaris.localization.psi.*
 import com.windea.plugin.idea.stellaris.script.psi.*
 import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptElementFactory.createPropertyKey
 import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptElementFactory.createVariableName
@@ -32,6 +34,11 @@ object StellarisScriptPsiImplUtil {
 	}
 
 	@JvmStatic
+	fun getTextOffset(element: StellarisScriptVariableDefinition):Int{
+		return element.startOffset
+	}
+
+	@JvmStatic
 	fun getIcon(element: StellarisScriptVariableDefinition, @Iconable.IconFlags flags: Int): Icon? {
 		return PlatformIcons.VARIABLE_ICON
 	}
@@ -43,30 +50,30 @@ object StellarisScriptPsiImplUtil {
 	//endregion
 
 	//region StellarisScriptVariableReference
-	@JvmStatic
-	fun getName(element: StellarisScriptVariableReference): String? {
-		return element.text
-	}
-
-	@JvmStatic
-	fun setName(element: StellarisScriptVariableReference, name: String): PsiElement {
-		element.replace(createVariableName(element.project, name))
-		return element
-	}
-
-	@JvmStatic
-	fun getNameIdentifier(element: StellarisScriptVariableReference): PsiElement? {
-		return element
-	}
-
-	@JvmStatic
-	fun getIcon(element: StellarisScriptVariableReference, @Iconable.IconFlags flags: Int): Icon? {
-		return PlatformIcons.VARIABLE_READ_ACCESS
-	}
+	//@JvmStatic
+	//fun getName(element: StellarisScriptVariableReference): String? {
+	//	return element.text
+	//}
+	//
+	//@JvmStatic
+	//fun setName(element: StellarisScriptVariableReference, name: String): PsiElement {
+	//	element.replace(createVariableName(element.project, name))
+	//	return element
+	//}
+	//
+	//@JvmStatic
+	//fun getNameIdentifier(element: StellarisScriptVariableReference): PsiElement? {
+	//	return element
+	//}
+	//
+	//@JvmStatic
+	//fun getIcon(element: StellarisScriptVariableReference, @Iconable.IconFlags flags: Int): Icon? {
+	//	return PlatformIcons.VARIABLE_READ_ACCESS
+	//}
 
 	@JvmStatic
 	fun getReference(element: StellarisScriptVariableReference):PsiReference{
-		return StellarisScriptVariablePsiReference(element, TextRange(0,element.textLength))
+		return StellarisScriptVariablePsiReference(element, TextRange(0,element.textRange.length))
 	}
 	//endregion
 

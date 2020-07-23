@@ -50,7 +50,7 @@ private root_item ::= LOCALE property_list *
 LOCALE ::= LOCALE_ID ":" {
   mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"
   implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
-  methods=[getName setName getNameIdentifier getIcon getReference getLocale getDocumentation]
+  methods=[getName setName getNameIdentifier getIcon getLocale getDocumentation]
 }
 private property_list ::= END_OF_LINE_COMMENT | COMMENT | property
 property ::= property_key ":" NUMBER property_value {
