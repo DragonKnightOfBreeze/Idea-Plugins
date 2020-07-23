@@ -53,8 +53,8 @@ class StellarisScriptGoToDeclarationHandler:  GotoDeclarationHandlerBase() {
 				val name = sourceElement.value
 				val project = sourceElement.project
 				//查找当前项目的脚本文件属性，然后再查找当前项目的本地化文件属性
-				findScriptPropertiesInProject(name,project)?.let { return it.toTypedArray() }
-				findLocalizationPropertiesInProject(name,project)?.let { return it.toTypedArray() }
+				findScriptPropertiesInProject(name, project)?.let { return it.toTypedArray() }
+				findLocalizationPropertiesInProject(name, project).let { return it.toTypedArray() }
 			}
 			else -> null
 		}
