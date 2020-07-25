@@ -36,10 +36,4 @@ public interface StellarisLocalizationProperty extends StellarisLocalizationName
   @NotNull
   String getValue();
 
-  @Nullable
-  String getQuickNavigateInfo();
-
-  @Nullable
-  String getDocumentation();
-
 }

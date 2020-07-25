@@ -183,13 +183,6 @@ fun selectElement(editor: Editor, element: PsiElement?) {
 }
 //endregion
 
-//region Stellaris
-fun getLocationText(element: PsiElement): String {
-	val file = element.containingFile ?: return ""
-	return "[${file.name}]"
-}
-//endregion
-
 //region Stellaris Script
 fun findScriptVariableDefinitionInFile(name: String?, psiFile: PsiFile?): StellarisScriptVariableDefinition? {
 	if(name == null || psiFile !is StellarisScriptFile) return null

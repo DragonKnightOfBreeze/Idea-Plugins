@@ -52,16 +52,6 @@ object StellarisLocalizationPsiImplUtil {
 	fun getLocale(element: StellarisLocalizationLocale): StellarisLocale? {
 		return StellarisLocale.map[element.name]
 	}
-
-	@JvmStatic
-	fun getQuickNavigateInfo(element: StellarisLocalizationLocale): String? {
-		return "locale \"${element.name}\""
-	}
-
-	@JvmStatic
-	fun getDocumentation(element: StellarisLocalizationLocale): String? {
-		return element.locale?.description?.toDefinitionText()
-	}
 	//endregion
 
 	//region StellarisLocalizationProperty
@@ -94,28 +84,6 @@ object StellarisLocalizationPsiImplUtil {
 	@JvmStatic
 	fun getValue(element: StellarisLocalizationProperty): String {
 		return element.propertyValue?.text.orEmpty()
-	}
-
-	@JvmStatic
-	fun getQuickNavigateInfo(element: StellarisLocalizationProperty): String? {
-		return "${element.name} ${getLocationText(element)}"
-	}
-
-	@JvmStatic
-	fun getDocumentation(element: StellarisLocalizationProperty): String? {
-		return buildString {
-			append(DocumentationMarkup.DEFINITION_START)
-			append("<b>${element.name}</b>: ${element.value} ${getLocationText(element)}")
-			append(DocumentationMarkup.DEFINITION_END)
-
-			val textAttributesKey = StellarisLocalizationAttributesKeys.COMMENT_KEY
-			val docCommentText = getDocCommentHtmlFromPreviousComment(element, textAttributesKey)
-			if(docCommentText.isNotEmpty()) {
-				append(DocumentationMarkup.CONTENT_START)
-				append(docCommentText)
-				append(DocumentationMarkup.CONTENT_END)
-			}
-		}
 	}
 	//endregion
 
@@ -175,16 +143,6 @@ object StellarisLocalizationPsiImplUtil {
 	fun getTextOffset(element: StellarisLocalizationIcon): Int {
 		return element.startOffset + 1
 	}
-
-	@JvmStatic
-	fun getQuickNavigateInfo(element: StellarisLocalizationIcon): String? {
-		return "icon \"${element.name}\""
-	}
-
-	@JvmStatic
-	fun getDocumentation(element: StellarisLocalizationIcon): String? {
-		return element.name?.let { name -> "(icon) $name".toDefinitionText() }
-	}
 	//endregion
 
 	//region StellarisLocalizationSerialNumber
@@ -213,16 +171,6 @@ object StellarisLocalizationPsiImplUtil {
 	fun getSerialNumber(element: StellarisLocalizationSerialNumber): StellarisSerialNumber? {
 		return element.name?.let { name -> StellarisSerialNumber.map[name] }
 	}
-
-	@JvmStatic
-	fun getQuickNavigateInfo(element: StellarisLocalizationSerialNumber): String? {
-		return "serial number \"${element.name}\""
-	}
-
-	@JvmStatic
-	fun getDocumentation(element: StellarisLocalizationSerialNumber): String? {
-		return element.serialNumber?.description?.toDefinitionText()
-	}
 	//endregion
 
 	//region StellarisLocalizationColorfulText
@@ -250,16 +198,6 @@ object StellarisLocalizationPsiImplUtil {
 	@JvmStatic
 	fun getColor(element: StellarisLocalizationColorfulText): StellarisColor? {
 		return element.name?.let { name -> StellarisColor.map[name] }
-	}
-
-	@JvmStatic
-	fun getQuickNavigateInfo(element: StellarisLocalizationColorfulText): String? {
-		return "color \"${element.name}\""
-	}
-
-	@JvmStatic
-	fun getDocumentation(element: StellarisLocalizationColorfulText): String? {
-		return element.color?.description?.toDefinitionText()
 	}
 	//endregion
 }

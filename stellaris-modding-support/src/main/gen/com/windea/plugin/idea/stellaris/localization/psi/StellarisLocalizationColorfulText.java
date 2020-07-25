@@ -28,10 +28,4 @@ public interface StellarisLocalizationColorfulText extends StellarisLocalization
   @Nullable
   StellarisColor getColor();
 
-  @Nullable
-  String getQuickNavigateInfo();
-
-  @Nullable
-  String getDocumentation();
-
 }

@@ -21,10 +21,4 @@ public interface StellarisLocalizationIcon extends StellarisLocalizationNamedEle
 
   int getTextOffset();
 
-  @Nullable
-  String getQuickNavigateInfo();
-
-  @Nullable
-  String getDocumentation();
-
 }

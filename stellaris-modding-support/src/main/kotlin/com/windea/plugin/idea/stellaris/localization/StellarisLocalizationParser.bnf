@@ -51,16 +51,14 @@ LOCALE ::= LOCALE_ID ":" {
   pin=1
   mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"
   implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
-  implements="com.windea.plugin.idea.stellaris.domain.PsiDocumentedElement"
-  methods=[getName setName getNameIdentifier getIcon getLocale getQuickNavigateInfo getDocumentation]
+  methods=[getName setName getNameIdentifier getIcon getLocale]
 }
 private property_list ::= END_OF_LINE_COMMENT | COMMENT | property
 property ::= property_key ":" [NUMBER] property_value {
   pin=1
 	mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"
 	implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
-  implements="com.windea.plugin.idea.stellaris.domain.PsiDocumentedElement"
-	methods=[getName setName getNameIdentifier getIcon getKey getValue getQuickNavigateInfo getDocumentation]
+	methods=[getName setName getNameIdentifier getIcon getKey getValue  ]
 }
 property_key ::= KEY_TOKEN
 property_value ::= LEFT_QUOTE rich_text * RIGHT_QUOTE{
@@ -86,20 +84,17 @@ icon ::= ICON_START ICON_TEXT ICON_END {
   pin=1
   mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"
   implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
-  implements="com.windea.plugin.idea.stellaris.domain.PsiDocumentedElement"
-  methods=[getName setName getNameIdentifier getTextOffset getQuickNavigateInfo getDocumentation]
+  methods=[getName setName getNameIdentifier getTextOffset  ]
 }
 serial_number ::= SERIAL_NUMBER_START SERIAL_NUMBER_CODE SERIAL_NUMBER_END {
   pin=1
   mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"
   implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
-  implements="com.windea.plugin.idea.stellaris.domain.PsiDocumentedElement"
-  methods=[getName setName getNameIdentifier getTextOffset getSerialNumber getQuickNavigateInfo getDocumentation]
+  methods=[getName setName getNameIdentifier getTextOffset getSerialNumber  ]
 }
 colorful_text ::= COLORFUL_TEXT_START COLORFUL_TEXT_CODE rich_text* COLORFUL_TEXT_END{
   pin=1
   mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"
   implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
-  implements="com.windea.plugin.idea.stellaris.domain.PsiDocumentedElement"
-  methods=[getName setName getNameIdentifier getTextOffset getColor getQuickNavigateInfo getDocumentation]
+  methods=[getName setName getNameIdentifier getTextOffset getColor  ]
 }

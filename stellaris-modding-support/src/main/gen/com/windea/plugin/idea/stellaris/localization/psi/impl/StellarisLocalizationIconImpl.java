@@ -54,16 +54,4 @@ public class StellarisLocalizationIconImpl extends StellarisLocalizationNamedEle
     return StellarisLocalizationPsiImplUtil.getTextOffset(this);
   }
 
-  @Override
-  @Nullable
-  public String getQuickNavigateInfo() {
-    return StellarisLocalizationPsiImplUtil.getQuickNavigateInfo(this);
-  }
-
-  @Override
-  @Nullable
-  public String getDocumentation() {
-    return StellarisLocalizationPsiImplUtil.getDocumentation(this);
-  }
-
 }

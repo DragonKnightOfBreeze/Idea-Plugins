@@ -28,10 +28,4 @@ public interface StellarisLocalizationLocale extends StellarisLocalizationNamedE
   @Nullable
   StellarisLocale getLocale();
 
-  @Nullable
-  String getQuickNavigateInfo();
-
-  @Nullable
-  String getDocumentation();
-
 }
