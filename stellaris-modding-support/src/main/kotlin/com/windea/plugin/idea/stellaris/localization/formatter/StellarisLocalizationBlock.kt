@@ -33,9 +33,10 @@ class StellarisLocalizationBlock(
 			//	else -> Alignment.createAlignment()
 			//}
 			//return null
-			return when {
-				node.elementType == LOCALE -> Alignment.createAlignment()
-				//node.elementType == PROPERTY -> Alignment.createAlignment()
+			return when(val type = node.elementType) {
+				ROOT_COMMENT -> Alignment.createAlignment()
+				COMMENT -> Alignment.createAlignment()
+				LOCALE -> Alignment.createAlignment()
 				else -> null
 			}
 		}

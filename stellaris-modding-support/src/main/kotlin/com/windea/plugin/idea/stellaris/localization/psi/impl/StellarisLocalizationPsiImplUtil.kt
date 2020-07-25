@@ -50,6 +50,11 @@ object StellarisLocalizationPsiImplUtil {
 	fun getLocale(element: StellarisLocalizationLocale): StellarisLocale? {
 		return StellarisLocale.map[element.name]
 	}
+
+	@JvmStatic
+	fun getReference(element: StellarisLocalizationLocale): PsiReference {
+		return StellarisLocalizationLocalePsiReference(element, element.localeId.textRangeInParent)
+	}
 	//endregion
 
 	//region StellarisLocalizationProperty
@@ -141,6 +146,11 @@ object StellarisLocalizationPsiImplUtil {
 	fun getTextOffset(element: StellarisLocalizationIcon): Int {
 		return element.startOffset + 1
 	}
+
+	@JvmStatic
+	fun getReference(element: StellarisLocalizationIcon): PsiReference {
+		return StellarisLocalizationIconPsiReference(element, element.iconId?.textRangeInParent)
+	}
 	//endregion
 
 	//region StellarisLocalizationSerialNumber
@@ -168,6 +178,11 @@ object StellarisLocalizationPsiImplUtil {
 	@JvmStatic
 	fun getSerialNumber(element: StellarisLocalizationSerialNumber): StellarisSerialNumber? {
 		return element.name?.let { name -> StellarisSerialNumber.map[name] }
+	}
+
+	@JvmStatic
+	fun getReference(element: StellarisLocalizationSerialNumber): PsiReference {
+		return StellarisLocalizationSerialNumberPsiReference(element, element.serialNumberId?.textRangeInParent)
 	}
 	//endregion
 

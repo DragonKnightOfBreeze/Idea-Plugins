@@ -106,9 +106,6 @@
     <spellchecker.support
       language="Stellaris Localization"
       implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationSpellchecker"/>
-    <!--<psi.referenceContributor-->
-    <!--  language="Stellaris Localization"-->
-    <!--  implementation="com.windea.plugin.idea.stellaris.localization.reference.StellarisLocalizationReferenceContributor"/>-->
     <lang.refactoringSupport
       language="Stellaris Localization"
       implementationClass="com.windea.plugin.idea.stellaris.localization.refactoring.StellarisLocalizationRefactoringSupportProvider"/>
@@ -127,9 +124,6 @@
     <lang.psiStructureViewFactory
       language="Stellaris Localization"
       implementationClass="com.windea.plugin.idea.stellaris.localization.structureView.StellarisLocalizationStructureViewFactory"/>
-    <!--NOTE 不需要-->
-    <!--<stripTrailingSpacesFilterFactory-->
-    <!--  implementation="com.windea.plugin.idea.stellaris.formatter.StellarisLocalizationStripTrailingSpacesFilterFactory"/>-->
     <lang.formatter
       language="Stellaris Localization"
       implementationClass="com.windea.plugin.idea.stellaris.localization.formatter.StellarisLocalizationFormattingModelBuilder"/>
@@ -215,9 +209,6 @@
     <spellchecker.support
       language="Stellaris Script"
       implementationClass="com.windea.plugin.idea.stellaris.script.StellarisScriptSpellchecker"/>
-    <!--<psi.referenceContributor-->
-    <!--  language="Stellaris Script"-->
-    <!--  implementation="com.windea.plugin.idea.stellaris.script.reference.StellarisScriptReferenceContributor"/>-->
     <lang.refactoringSupport
       language="Stellaris Script"
       implementationClass="com.windea.plugin.idea.stellaris.script.refactoring.StellarisScriptRefactoringSupportProvider"/>
@@ -227,9 +218,9 @@
       implementation="com.windea.plugin.idea.stellaris.script.refactoring.StellarisScriptPropertyRenameInputValidator"/>
     <refactoring.safeDeleteProcessor
       implementation="com.windea.plugin.idea.stellaris.script.refactoring.StellarisScriptVariableSafeDeleteProcessor"/>
-    <!--    <refactoring.inlineHandler
+    <refactoring.inlineHandler
           language="Stellaris Script"
-          implementationClass="com.windea.plugin.idea.stellaris.script.refactoring.StellarisScriptInlineHandler"/>-->
+          implementationClass="com.windea.plugin.idea.stellaris.script.refactoring.StellarisScriptInlineHandler"/>
     <completion.contributor
       language="Stellaris Script"
       implementationClass="com.windea.plugin.idea.stellaris.script.codeInsight.StellarisScriptCompletionContributor"/>

@@ -1,5 +1,6 @@
 package com.windea.plugin.idea.stellaris.localization.psi;
 
+import com.intellij.lexer.FlexLexer;
 import com.intellij.psi.TokenType;
 import com.intellij.psi.tree.IElementType;
 
@@ -56,7 +57,7 @@ ROOT_COMMENT=#[^\r\n]*
 NUMBER=\d
 LOCALE_ID=[a-z_]+
 PROPERTY_KEY_ID=[a-zA-Z][a-zA-Z0-9_.\-]*
-STRING_TOKEN=([^\"\[$£§%\r\n\\]|\\.)+
+STRING_TOKEN=[^\"\[$£§%\r\n\\]+
 VALID_ESCAPE_TOKEN=\\[\"rn$£§%\[]
 INVALID_ESCAPE_TOKEN=\\.
 LEFT_QUOTE="\""

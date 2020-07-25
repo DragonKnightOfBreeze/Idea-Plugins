@@ -7,15 +7,15 @@ import com.windea.plugin.idea.stellaris.annotations.*
 
 @ExtensionPoint
 class StellarisScriptInlineHandler: InlineHandler {
+	override fun createInliner(element: PsiElement, settings: InlineHandler.Settings): InlineHandler.Inliner? {
+		return null
+	}
+
 	override fun removeDefinition(element: PsiElement, settings: InlineHandler.Settings) {
-		TODO()
+
 	}
 
 	override fun prepareInlineElement(element: PsiElement, editor: Editor?, invokedOnReference: Boolean): InlineHandler.Settings? {
-		TODO()
-	}
-
-	override fun createInliner(element: PsiElement, settings: InlineHandler.Settings): InlineHandler.Inliner? {
-		TODO()
+		return null
 	}
 }

@@ -25,8 +25,9 @@ class StellarisScriptBlock (
 		//让变量定义总是对齐行首，
 		private fun createAlignment(node:ASTNode): Alignment? {
 			//DELAY 对齐属性名
-			return when{
-				node.elementType == VARIABLE_DEFINITION -> Alignment.createAlignment()
+			return when(val type = node.elementType){
+				COMMENT -> Alignment.createAlignment()
+				VARIABLE_DEFINITION -> Alignment.createAlignment()
 				else -> null
 			}
 		}

@@ -19,7 +19,7 @@
 	  END_OF_LINE_COMMENT="regexp:#[^\r\n]*"
 	  LOCALE_ID="regexp:[a-z_]+"
 	  PROPERTY_KEY_ID='regexp:[a-zA-Z][a-zA-Z0-9_.\-]*'
-	  STRING_TOKEN='regexp:([^"\[$£§%\r\n\\]|\\.)+'
+	  STRING_TOKEN='regexp:[^"\[$£§%\r\n\\]+'
 	  INVALID_ESCAPE_TOKEN='regexp:\\["rn$£§%\[]'
 	  VALID_ESCAPE_TOKEN='regexp:\\.'
 	  LEFT_QUOTE="\""
@@ -53,7 +53,7 @@ locale ::= LOCALE_ID ":" {
   pin=1
   mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"
   implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
-  methods=[getName setName getNameIdentifier getIcon getLocale]
+  methods=[getName setName getNameIdentifier getIcon getLocale getReference]
 }
 private property_list ::= END_OF_LINE_COMMENT | COMMENT | property
 property ::= property_key ":" [NUMBER] property_value {
@@ -65,7 +65,6 @@ property ::= property_key ":" [NUMBER] property_value {
 property_key ::= PROPERTY_KEY_ID
 property_value ::= LEFT_QUOTE rich_text * RIGHT_QUOTE{
   pin=1
-  recoverWhile = "#auto"
   implements="com.intellij.psi.PsiLiteralValue"
   methods=[getValue]
 }
@@ -87,13 +86,13 @@ icon ::= ICON_START ICON_ID ICON_END {
   pin=1
   mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"
   implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
-  methods=[getName setName getNameIdentifier getTextOffset  ]
+  methods=[getName setName getNameIdentifier getTextOffset  getReference]
 }
 serial_number ::= SERIAL_NUMBER_START SERIAL_NUMBER_ID SERIAL_NUMBER_END {
   pin=1
   mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"
   implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
-  methods=[getName setName getNameIdentifier getTextOffset getSerialNumber  ]
+  methods=[getName setName getNameIdentifier getTextOffset getSerialNumber getReference]
 }
 colorful_text ::= COLORFUL_TEXT_START COLORFUL_TEXT_ID rich_text* COLORFUL_TEXT_END{
   pin=1

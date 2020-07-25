@@ -5,6 +5,7 @@ import com.intellij.patterns.PlatformPatterns.*
 import com.intellij.util.*
 import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.annotations.*
+import com.windea.plugin.idea.stellaris.localization.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
 import com.windea.plugin.idea.stellaris.script.psi.*
 import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
@@ -24,8 +25,8 @@ class StellarisScriptCompletionContributor : CompletionContributor() {
 	init {
 		extend(
 			CompletionType.BASIC,
-			psiElement().afterSiblingSkipping(psiElement().whitespace(),psiElement(PROPERTY_SEPARATOR)),
-			//psiElement(PROPERTY_VALUE),
+			//psiElement().afterSiblingSkipping(psiElement().whitespace(),psiElement(PROPERTY_SEPARATOR)),
+			psiElement(UNQUOTED_STRING_TOKEN),
 			BooleanCompletionProvider()
 		)
 	}
