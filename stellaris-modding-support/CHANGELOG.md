@@ -71,6 +71,7 @@
 * [ ] 仅对顶层的ScriptProperty添加文档注释并视为可能的引用
 * [ ] DocComment：仅允许第一个空行之前的LineComment作为DocComment
 * [ ] 对于变量的代码提示（来自变量的引用）
+* [X] 更新项目描述。
 
 ### 1.7
 
