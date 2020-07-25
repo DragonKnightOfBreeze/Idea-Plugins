@@ -16,9 +16,9 @@ class StellarisScriptStringLiteralPsiReference(
 	}
 
 	override fun multiResolve(incompleteCode: Boolean): Array<ResolveResult> {
-		//假定是script property，然后再假定是localization property
-		return findScriptProperties(element.project, name).ifEmpty {
-			findLocalizationPropertiesInProject(name, element.project)
+		//假定是localization property，然后再假定是script property
+		return findLocalizationPropertiesInProject(name, element.project).ifEmpty {
+			findScriptPropertiesInProject(name, element.project)
 		}.mapArray { PsiElementResolveResult(it) }
 	}
 }

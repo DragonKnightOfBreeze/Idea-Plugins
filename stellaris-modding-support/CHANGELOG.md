@@ -57,5 +57,22 @@
 
 ### 1.6
  
+修复一些BUG和问题。
+ 
+* [X] LocalizationPropertyKey/ScriptPropertyKey可以包含`-`
+* [ ] ScriptPropertyKey/ScriptText实际上都可以仅包含大写/小写字母
+* [ ] ScriptPropertyKey可以是`NOT` `NOR` `AND` `OR`
+* [X] LocalizationProperty可以不包含number（在`localization_synced`目录中）
+* [X] 将GutterIcon的尺寸调小一点。
+* [ ] 高亮转义字符，目前只需支持`\n` `\"`
+* [ ] External Script/Localization Property Key仅仅只是"可能的"
+* [ ] 支持gfx引用文件（`.gfx`）
+* [X] ScriptUnquotedString只要不包含空格即可
+* [ ] 仅对顶层的ScriptProperty添加文档注释并视为可能的引用
+* [ ] DocComment：仅允许第一个空行之前的LineComment作为DocComment
+* [ ] 对于变量的代码提示（来自变量的引用）
+
+### 1.7
+
 * [ ] 编写Stellaris的文件结构文档和Json Schema文档，
 

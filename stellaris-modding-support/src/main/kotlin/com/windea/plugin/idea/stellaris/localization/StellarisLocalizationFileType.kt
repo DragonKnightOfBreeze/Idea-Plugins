@@ -12,6 +12,6 @@ object StellarisLocalizationFileType : LanguageFileType(StellarisLocalizationLan
 
 	override fun getDefaultExtension() = stellarisLocalizationExtension
 
-	override fun getIcon() = stellarisLocalizationIcon
+	override fun getIcon() = localizationFileIcon
 }
 

@@ -32,7 +32,7 @@ class StellarisScriptColorSettingsPage : ColorSettingsPage {
 
 	override fun getAdditionalHighlightingTagToDescriptorMap() = null
 
-	override fun getIcon() = stellarisScriptIcon
+	override fun getIcon() = scriptFileIcon
 
 	override fun getAttributeDescriptors() = attributesDescriptors
 

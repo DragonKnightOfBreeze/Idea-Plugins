@@ -183,6 +183,13 @@ fun selectElement(editor: Editor, element: PsiElement?) {
 }
 //endregion
 
+//region Stellaris
+fun getLocationText(element: PsiElement): String {
+	val file = element.containingFile ?: return ""
+	return "[${file.name}]"
+}
+//endregion
+
 //region Stellaris Script
 fun findScriptVariableDefinitionInFile(name: String?, psiFile: PsiFile?): StellarisScriptVariableDefinition? {
 	if(name == null || psiFile !is StellarisScriptFile) return null
@@ -233,8 +240,7 @@ fun findScriptPropertyInProject(name: String?, project: Project): StellarisScrip
 	return files.flatMap { it.properties.toList() }.first { it.name == name }
 }
 
-fun findScriptPropertiesInProject(name: String?, project: Project): List<StellarisScriptProperty>? {
-	if(name == null) return null
+fun findScriptPropertiesInProject(name: String, project: Project): List<StellarisScriptProperty> {
 	val files = project.findPsiFiles(StellarisScriptFileType) as List<StellarisScriptFile>
 	return files.flatMap { it.properties.toList() }.filter { it.name == name }
 }

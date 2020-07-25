@@ -11,14 +11,13 @@ import com.windea.plugin.idea.stellaris.domain.*
 import com.windea.plugin.idea.stellaris.localization.highlighter.*
 import com.windea.plugin.idea.stellaris.localization.intentions.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
-import javax.swing.*
 
 @ExtensionPoint
 class StellarisLocalizationAnnotator : Annotator, DumbAware {
 	class ColorGutterIconRenderer(
 		private val color:StellarisColor
 	):GutterIconRenderer(),DumbAware{
-		override fun getIcon() = color.icon
+		override fun getIcon() = color.gutterIcon
 
 		override fun equals(other: Any?) = other is ColorGutterIconRenderer && color == other.color
 

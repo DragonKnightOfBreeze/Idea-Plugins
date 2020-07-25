@@ -2,13 +2,13 @@
 
 package com.windea.plugin.idea.stellaris.localization.psi.impl
 
-import com.intellij.icons.*
+import com.intellij.lang.documentation.*
 import com.intellij.openapi.util.Iconable.*
 import com.intellij.psi.*
 import com.intellij.refactoring.suggested.*
-import com.intellij.util.*
 import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.domain.*
+import com.windea.plugin.idea.stellaris.localization.highlighter.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
 import com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationElementFactory.createColorfulText
 import com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationElementFactory.createIcon
@@ -44,19 +44,18 @@ object StellarisLocalizationPsiImplUtil {
 	}
 
 	@JvmStatic
-	fun getTextOffset(element:StellarisLocalizationLocale):Int{
-		return element.startOffset
-	}
-
-
-	@JvmStatic
 	fun getIcon(element: StellarisLocalizationLocale, @IconFlags flags: Int): Icon? {
-		return AllIcons.FileTypes.Properties
+		return localizationLocaleIcon
 	}
 
 	@JvmStatic
 	fun getLocale(element: StellarisLocalizationLocale): StellarisLocale? {
 		return StellarisLocale.map[element.name]
+	}
+
+	@JvmStatic
+	fun getQuickNavigateInfo(element: StellarisLocalizationLocale): String? {
+		return "locale \"${element.name}\""
 	}
 
 	@JvmStatic
@@ -84,17 +83,39 @@ object StellarisLocalizationPsiImplUtil {
 
 	@JvmStatic
 	fun getIcon(element: StellarisLocalizationProperty, @IconFlags flags: Int): Icon? {
-		return PlatformIcons.PROPERTY_ICON
+		return localizationPropertyIcon
 	}
 
 	@JvmStatic
-	fun getKey(element:StellarisLocalizationProperty):String{
+	fun getKey(element: StellarisLocalizationProperty): String {
 		return element.propertyKey.text
 	}
 
 	@JvmStatic
-	fun getValue(element:StellarisLocalizationProperty):String{
+	fun getValue(element: StellarisLocalizationProperty): String {
 		return element.propertyValue?.text.orEmpty()
+	}
+
+	@JvmStatic
+	fun getQuickNavigateInfo(element: StellarisLocalizationProperty): String? {
+		return "${element.name} ${getLocationText(element)}"
+	}
+
+	@JvmStatic
+	fun getDocumentation(element: StellarisLocalizationProperty): String? {
+		return buildString {
+			append(DocumentationMarkup.DEFINITION_START)
+			append("<b>${element.name}</b>: ${element.value} ${getLocationText(element)}")
+			append(DocumentationMarkup.DEFINITION_END)
+
+			val textAttributesKey = StellarisLocalizationAttributesKeys.COMMENT_KEY
+			val docCommentText = getDocCommentHtmlFromPreviousComment(element, textAttributesKey)
+			if(docCommentText.isNotEmpty()) {
+				append(DocumentationMarkup.CONTENT_START)
+				append(docCommentText)
+				append(DocumentationMarkup.CONTENT_END)
+			}
+		}
 	}
 	//endregion
 
@@ -123,13 +144,13 @@ object StellarisLocalizationPsiImplUtil {
 	}
 
 	@JvmStatic
-	fun getTextOffset(element:StellarisLocalizationPropertyReference):Int{
-		return element.startOffset +1
+	fun getTextOffset(element: StellarisLocalizationPropertyReference): Int {
+		return element.startOffset + 1
 	}
 
 	@JvmStatic
-	fun getReference(element:StellarisLocalizationPropertyReference):PsiReference{
-		return StellarisLocalizationPropertyPsiReference(element,element.keyToken?.textRangeInParent)
+	fun getReference(element: StellarisLocalizationPropertyReference): PsiReference {
+		return StellarisLocalizationPropertyPsiReference(element, element.keyToken?.textRangeInParent)
 	}
 	//endregion
 
@@ -151,13 +172,18 @@ object StellarisLocalizationPsiImplUtil {
 	}
 
 	@JvmStatic
-	fun getTextOffset(element:StellarisLocalizationIcon):Int{
+	fun getTextOffset(element: StellarisLocalizationIcon): Int {
 		return element.startOffset + 1
 	}
 
 	@JvmStatic
-	fun getDocumentation(element:StellarisLocalizationIcon):String?{
-		return element.name?.let{ name -> "(icon) $name".toDefinitionText()}
+	fun getQuickNavigateInfo(element: StellarisLocalizationIcon): String? {
+		return "icon \"${element.name}\""
+	}
+
+	@JvmStatic
+	fun getDocumentation(element: StellarisLocalizationIcon): String? {
+		return element.name?.let { name -> "(icon) $name".toDefinitionText() }
 	}
 	//endregion
 
@@ -179,17 +205,22 @@ object StellarisLocalizationPsiImplUtil {
 	}
 
 	@JvmStatic
-	fun getTextOffset(element:StellarisLocalizationSerialNumber):Int{
+	fun getTextOffset(element: StellarisLocalizationSerialNumber): Int {
 		return element.startOffset + 1
 	}
 
 	@JvmStatic
-	fun getSerialNumber(element:StellarisLocalizationSerialNumber):StellarisSerialNumber?{
-		return element.name?.let{ name -> StellarisSerialNumber.map[name]}
+	fun getSerialNumber(element: StellarisLocalizationSerialNumber): StellarisSerialNumber? {
+		return element.name?.let { name -> StellarisSerialNumber.map[name] }
 	}
 
 	@JvmStatic
-	fun getDocumentation(element:StellarisLocalizationSerialNumber):String?{
+	fun getQuickNavigateInfo(element: StellarisLocalizationSerialNumber): String? {
+		return "serial number \"${element.name}\""
+	}
+
+	@JvmStatic
+	fun getDocumentation(element: StellarisLocalizationSerialNumber): String? {
 		return element.serialNumber?.description?.toDefinitionText()
 	}
 	//endregion
@@ -212,17 +243,22 @@ object StellarisLocalizationPsiImplUtil {
 	}
 
 	@JvmStatic
-	fun getTextOffset(element:StellarisLocalizationColorfulText):Int{
-		return element.startOffset +1
+	fun getTextOffset(element: StellarisLocalizationColorfulText): Int {
+		return element.startOffset + 1
 	}
 
 	@JvmStatic
-	fun getColor(element:StellarisLocalizationColorfulText):StellarisColor?{
-		return element.name?.let{ name-> StellarisColor.map[name]}
+	fun getColor(element: StellarisLocalizationColorfulText): StellarisColor? {
+		return element.name?.let { name -> StellarisColor.map[name] }
 	}
 
 	@JvmStatic
-	fun getDocumentation(element:StellarisLocalizationColorfulText):String?{
+	fun getQuickNavigateInfo(element: StellarisLocalizationColorfulText): String? {
+		return "color \"${element.name}\""
+	}
+
+	@JvmStatic
+	fun getDocumentation(element: StellarisLocalizationColorfulText): String? {
 		return element.color?.description?.toDefinitionText()
 	}
 	//endregion

@@ -26,6 +26,9 @@ public interface StellarisLocalizationSerialNumber extends StellarisLocalization
   StellarisSerialNumber getSerialNumber();
 
   @Nullable
+  String getQuickNavigateInfo();
+
+  @Nullable
   String getDocumentation();
 
 }

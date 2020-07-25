@@ -2,13 +2,10 @@
 
 package com.windea.plugin.idea.stellaris.script.psi.impl
 
-import com.intellij.icons.*
 import com.intellij.openapi.util.*
 import com.intellij.psi.*
 import com.intellij.refactoring.suggested.*
-import com.intellij.util.*
 import com.windea.plugin.idea.stellaris.*
-import com.windea.plugin.idea.stellaris.localization.psi.*
 import com.windea.plugin.idea.stellaris.script.psi.*
 import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptElementFactory.createPropertyKey
 import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptElementFactory.createVariableName
@@ -40,7 +37,7 @@ object StellarisScriptPsiImplUtil {
 
 	@JvmStatic
 	fun getIcon(element: StellarisScriptVariableDefinition, @Iconable.IconFlags flags: Int): Icon? {
-		return PlatformIcons.VARIABLE_ICON
+		return scriptVariableIcon
 	}
 
 	@JvmStatic
@@ -103,7 +100,7 @@ object StellarisScriptPsiImplUtil {
 
 	@JvmStatic
 	fun getIcon(element: StellarisScriptProperty, @Iconable.IconFlags flags: Int): Icon? {
-		return PlatformIcons.PROPERTY_ICON
+		return scriptPropertyIcon
 	}
 	//endregion
 
@@ -118,7 +115,7 @@ object StellarisScriptPsiImplUtil {
 	//region StellarisScriptText
 	@JvmStatic
 	fun getIcon(element: StellarisScriptText, @Iconable.IconFlags flags: Int): Icon? {
-		return AllIcons.Nodes.Constant
+		return scriptTextIcon
 	}
 
 	@JvmStatic

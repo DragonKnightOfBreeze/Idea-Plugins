@@ -37,7 +37,7 @@ class StellarisLocalizationColorSettingsPage : ColorSettingsPage {
 
 	override fun getAdditionalHighlightingTagToDescriptorMap() = null
 
-	override fun getIcon() = stellarisLocalizationIcon
+	override fun getIcon() = localizationFileIcon
 
 	override fun getAttributeDescriptors() = attributesDescriptors
 

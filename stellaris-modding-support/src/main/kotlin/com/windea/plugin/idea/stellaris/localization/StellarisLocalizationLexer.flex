@@ -56,7 +56,7 @@ END_OF_LINE_COMMENT=#[^\r\n]*
 ROOT_COMMENT=#[^\r\n]*
 NUMBER=\d
 LOCALE_ID=[a-z_]+
-KEY_TOKEN=[a-zA-Z][a-zA-Z0-9_.]*
+KEY_TOKEN=[a-zA-Z][a-zA-Z0-9_.\-]*
 VALUE_TOKEN=([^\"(\[$£§%\r\n\\]|\\.)+
 LEFT_QUOTE="\""
 RIGHT_QUOTE="\""
@@ -108,6 +108,7 @@ COLORFUL_TEXT_END="§!"
 <WAITING_PROPERTY_NUMBER>{
   {NUMBER} {yybegin(WAITING_PROPERTY_SPACE); return NUMBER;}
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
+  {SPACE} {yybegin(WAITING_PROPERTY_VALUE); return WHITE_SPACE;}
 }
 <WAITING_PROPERTY_SPACE>{
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符

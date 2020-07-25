@@ -81,4 +81,16 @@ public class StellarisLocalizationPropertyImpl extends StellarisLocalizationName
     return StellarisLocalizationPsiImplUtil.getValue(this);
   }
 
+  @Override
+  @Nullable
+  public String getQuickNavigateInfo() {
+    return StellarisLocalizationPsiImplUtil.getQuickNavigateInfo(this);
+  }
+
+  @Override
+  @Nullable
+  public String getDocumentation() {
+    return StellarisLocalizationPsiImplUtil.getDocumentation(this);
+  }
+
 }

@@ -1,7 +1,9 @@
 package com.windea.plugin.idea.stellaris
 
+import com.intellij.icons.*
 import com.intellij.openapi.project.*
 import com.intellij.openapi.util.*
+import com.intellij.util.*
 import com.windea.plugin.idea.stellaris.domain.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
 import java.util.concurrent.*
@@ -32,8 +34,8 @@ const val stellarisScriptFileTypeName = "$stellarisScriptName File"
 const val stellarisScriptFileTypeDescription = "$stellarisScriptName Language"
 const val stellarisScriptExtension = "txt"
 val stellarisScriptDummyText = "/example.txt".toClassPathResource<StellarisBundle>().readText()
-val stellarisScriptVariableRegex = "@[a-zA-Z0-9_]+".toRegex()
-val stellarisScriptPropertyRegex = "[a-z0-9_]+".toRegex()
+val stellarisScriptVariableRegex = "@[a-zA-Z0-9_-]+".toRegex()
+val stellarisScriptPropertyRegex = "[a-z0-9_-]+".toRegex()
 
 //IO
 
@@ -46,8 +48,17 @@ const val stellarisBundleName = "messages.StellarisBundle"
 
 //Resources
 
-val stellarisLocalizationIcon = IconLoader.getIcon("/icons/stellaris_localization.png")
-val stellarisScriptIcon = IconLoader.getIcon("/icons/stellaris_script.png")
+val localizationFileIcon = IconLoader.getIcon("/icons/stellaris_localization.png")
+val localizationLocaleIcon = AllIcons.FileTypes.Properties
+val localizationPropertyIcon = AllIcons.Nodes.Property
+
+val scriptFileIcon = IconLoader.getIcon("/icons/stellaris_script.png")
+val scriptVariableIcon = AllIcons.Nodes.Variable
+val scriptPropertyIcon = AllIcons.Nodes.Property
+val scriptTextIcon = AllIcons.Nodes.Constant
+val externalLocalizationPropertyIcon = IconUtil.toSize(AllIcons.Nodes.PropertyRead, 12, 12)
+val externalScriptPropertyIcon = IconUtil.toSize(AllIcons.Nodes.Property, 12, 12)
+
 
 //Caches
 val localizationLocaleCache = ConcurrentHashMap<Project, Array<StellarisLocalizationLocale>>()

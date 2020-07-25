@@ -12,5 +12,5 @@ object StellarisScriptFileType : LanguageFileType(StellarisScriptLanguage) {
 
 	override fun getDefaultExtension() = stellarisScriptExtension
 
-	override fun getIcon() = stellarisScriptIcon
+	override fun getIcon() = scriptFileIcon
 }

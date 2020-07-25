@@ -40,11 +40,12 @@ public class StellarisLocalizationParser implements PsiParser, LightPsiParser {
   public static boolean LOCALE(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "LOCALE")) return false;
     if (!nextTokenIs(b, LOCALE_ID)) return false;
-    boolean r;
-    Marker m = enter_section_(b);
-    r = consumeTokens(b, 0, LOCALE_ID, COLON);
-    exit_section_(b, m, LOCALE, r);
-    return r;
+    boolean r, p;
+    Marker m = enter_section_(b, l, _NONE_, LOCALE, null);
+    r = consumeTokens(b, 1, LOCALE_ID, COLON);
+    p = r; // pin = 1
+    exit_section_(b, l, m, r, p, null);
+    return r || p;
   }
 
   /* ********************************************************** */
@@ -121,7 +122,7 @@ public class StellarisLocalizationParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // property_key ":" NUMBER property_value
+  // property_key ":" [NUMBER] property_value
   public static boolean property(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "property")) return false;
     if (!nextTokenIs(b, KEY_TOKEN)) return false;
@@ -129,10 +130,18 @@ public class StellarisLocalizationParser implements PsiParser, LightPsiParser {
     Marker m = enter_section_(b, l, _NONE_, PROPERTY, null);
     r = property_key(b, l + 1);
     p = r; // pin = 1
-    r = r && report_error_(b, consumeTokens(b, -1, COLON, NUMBER));
+    r = r && report_error_(b, consumeToken(b, COLON));
+    r = p && report_error_(b, property_2(b, l + 1)) && r;
     r = p && property_value(b, l + 1) && r;
     exit_section_(b, l, m, r, p, null);
     return r || p;
+  }
+
+  // [NUMBER]
+  private static boolean property_2(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "property_2")) return false;
+    consumeToken(b, NUMBER);
+    return true;
   }
 
   /* ********************************************************** */

@@ -69,6 +69,12 @@ public class StellarisLocalizationColorfulTextImpl extends StellarisLocalization
 
   @Override
   @Nullable
+  public String getQuickNavigateInfo() {
+    return StellarisLocalizationPsiImplUtil.getQuickNavigateInfo(this);
+  }
+
+  @Override
+  @Nullable
   public String getDocumentation() {
     return StellarisLocalizationPsiImplUtil.getDocumentation(this);
   }
