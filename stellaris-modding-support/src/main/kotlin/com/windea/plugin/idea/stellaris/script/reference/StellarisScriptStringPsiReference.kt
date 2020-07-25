@@ -4,7 +4,7 @@ import com.intellij.openapi.util.*
 import com.intellij.psi.*
 import com.windea.plugin.idea.stellaris.*
 
-class StellarisScriptStringLiteralPsiReference(
+class StellarisScriptStringPsiReference(
 	element: PsiElement,
 	rangeInElement: TextRange
 ) : PsiReferenceBase<PsiElement>(element, rangeInElement), PsiPolyVariantReference {
@@ -12,13 +12,15 @@ class StellarisScriptStringLiteralPsiReference(
 	private val name = rangeInElement.substring(element.text).unquote()
 
 	override fun resolve(): PsiElement? {
-		return multiResolve(false).firstOrNull()?.element
+		return findLocalizationPropertyInProject(name,element.project)?.let{
+			findScriptPropertyInProject(name,element.project)
+		}
 	}
 
-	override fun multiResolve(incompleteCode: Boolean): Array<ResolveResult> {
+	override fun multiResolve(incompleteCode: Boolean): Array<out ResolveResult> {
 		//假定是localization property，然后再假定是script property
-		return findLocalizationPropertiesInProject(name, element.project).ifEmpty {
+		return findLocalizationPropertiesInProject(name, element.project)?.ifEmpty {
 			findScriptPropertiesInProject(name, element.project)
-		}.mapArray { PsiElementResolveResult(it) }
+		}?.mapArray { PsiElementResolveResult(it) }.orEmpty()
 	}
 }

@@ -61,7 +61,7 @@ class StellarisScriptBlock (
 		//list下面的所有属性和非行尾注释都要缩进
 		return when{
 			!shouldIndent -> Indent.getNoneIndent()
-			 myNode.elementType == TEXT -> Indent.getNormalIndent()
+			 myNode.elementType == STRING -> Indent.getNormalIndent()
 			 myNode.elementType == PROPERTY -> Indent.getNormalIndent()
 			myNode.elementType == COMMENT -> Indent.getNormalIndent()
 			else -> Indent.getNoneIndent()

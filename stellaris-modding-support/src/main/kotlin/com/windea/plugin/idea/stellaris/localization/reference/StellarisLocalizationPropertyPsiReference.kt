@@ -17,15 +17,13 @@ class StellarisLocalizationPropertyPsiReference(
 	//不便于使用缓存：可能存在于当前文件中、当前项目中，甚至是外部目录
 
 	override fun resolve(): PsiElement? {
-		if(name == null) return null
 		return findLocalizationPropertyInProject(name, element.project)
 	}
 
 	override fun multiResolve(incompleteCode: Boolean): Array<out ResolveResult> {
-		if(name == null) return ResolveResult.EMPTY_ARRAY
-		return findLocalizationPropertiesInProject(name, element.project).mapArray {
+		return findLocalizationPropertiesInProject(name, element.project)?.mapArray {
 			PsiElementResolveResult(it)
-		}
+		}.orEmpty()
 	}
 
 	//注意要传入elementName而非element

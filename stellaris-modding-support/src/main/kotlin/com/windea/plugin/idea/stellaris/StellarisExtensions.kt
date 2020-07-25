@@ -227,22 +227,10 @@ fun findScriptPropertyInProject(name: String?, project: Project): StellarisScrip
 	return files.flatMap { it.properties.toList() }.first { it.name == name }
 }
 
-fun findScriptPropertiesInProject(name: String, project: Project): List<StellarisScriptProperty> {
+fun findScriptPropertiesInProject(name: String?, project: Project): List<StellarisScriptProperty>? {
+	if(name == null) return null
 	val files = project.findPsiFiles(StellarisScriptFileType) as List<StellarisScriptFile>
 	return files.flatMap { it.properties.toList() }.filter { it.name == name }
-}
-
-fun findScriptProperties(project: Project, key: String): List<StellarisScriptProperty> {
-	val result = mutableListOf<StellarisScriptProperty>()
-	val virtualFiles = FileTypeIndex.getFiles(StellarisScriptFileType, GlobalSearchScope.projectScope(project))
-	for(virtualFile in virtualFiles) {
-		val file = PsiManager.getInstance(project).findFile(virtualFile) ?: continue
-		val properties = PsiTreeUtil.getChildrenOfType(file, StellarisScriptProperty::class.java)?.cast() ?: continue
-		for(property in properties) {
-			if(key == StellarisScriptPsiImplUtil.getName(property)) result += property
-		}
-	}
-	return result
 }
 
 fun findAllScriptProperties(project: Project): List<StellarisScriptProperty> {
@@ -252,22 +240,24 @@ fun findAllScriptProperties(project: Project): List<StellarisScriptProperty> {
 //endregion
 
 //region Stellaris Localization
-fun findLocalizationPropertyInFile(name: String, psiFile: PsiFile): StellarisLocalizationProperty? {
-	if(psiFile !is StellarisLocalizationFile) return null
+fun findLocalizationPropertyInFile(name: String?, psiFile: PsiFile): StellarisLocalizationProperty? {
+	if(name == null || psiFile !is StellarisLocalizationFile) return null
 	return psiFile.properties.find { it.name == name }
 }
 
-fun findLocalizationPropertiesInFile(name: String, psiFile: PsiFile): List<StellarisLocalizationProperty> {
-	if(psiFile !is StellarisLocalizationFile) return listOf()
+fun findLocalizationPropertiesInFile(name: String?, psiFile: PsiFile): List<StellarisLocalizationProperty>? {
+	if(name == null || psiFile !is StellarisLocalizationFile) return null
 	return psiFile.properties.filter { it.name == name }
 }
 
-fun findLocalizationPropertyInProject(name: String, project: Project): StellarisLocalizationProperty? {
+fun findLocalizationPropertyInProject(name: String?, project: Project): StellarisLocalizationProperty? {
+	if(name == null) return null
 	val files = project.findPsiFiles(StellarisLocalizationFileType) as List<StellarisLocalizationFile>
 	return files.flatMap { it.properties.toList() }.firstOrNull { it.name == name }
 }
 
-fun findLocalizationPropertiesInProject(name: String, project: Project): List<StellarisLocalizationProperty> {
+fun findLocalizationPropertiesInProject(name: String?, project: Project): List<StellarisLocalizationProperty>? {
+	if(name == null) return null
 	val files = project.findPsiFiles(StellarisLocalizationFileType) as List<StellarisLocalizationFile>
 	return files.flatMap { it.properties.toList() }.filter { it.name == name }
 }

@@ -133,7 +133,7 @@ object StellarisScriptPsiImplUtil {
 	@JvmStatic
 	fun getReference(element: StellarisScriptString):PsiReference?{
 		if(!element.isValidPropertyKey) return null
-		return StellarisScriptStringLiteralPsiReference(element, TextRange(0,element.textLength))
+		return StellarisScriptStringPsiReference(element, TextRange(0,element.textLength))
 	}
 
 	//不包含空格的情况下才有可能是属性的键

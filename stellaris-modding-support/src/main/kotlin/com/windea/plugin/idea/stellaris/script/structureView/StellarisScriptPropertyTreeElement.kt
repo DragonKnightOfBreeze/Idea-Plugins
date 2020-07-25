@@ -11,7 +11,7 @@ class StellarisScriptPropertyTreeElement(
 		val array = element?.propertyValue?.array
 		val `object` = element?.propertyValue?.`object`
 		return when{
-			array != null -> array.textList.mapTo(mutableListOf()) { StellarisScriptTextTreeElement(it) }
+			array != null -> array.stringList.mapTo(mutableListOf()) { StellarisScriptStringTreeElement(it) }
 			`object` != null ->  `object`.propertyList.mapTo(mutableListOf()) { StellarisScriptPropertyTreeElement(it) }
 			else -> mutableListOf()
 		}
