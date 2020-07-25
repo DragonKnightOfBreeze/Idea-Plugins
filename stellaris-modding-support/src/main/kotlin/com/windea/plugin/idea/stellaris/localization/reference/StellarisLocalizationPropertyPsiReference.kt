@@ -17,13 +17,11 @@ class StellarisLocalizationPropertyPsiReference(
 	//不便于使用缓存：可能存在于当前文件中、当前项目中，甚至是外部目录
 
 	override fun resolve(): PsiElement? {
-		print(name)
 		if(name == null) return null
 		return findLocalizationPropertyInProject(name, element.project)
 	}
 
 	override fun multiResolve(incompleteCode: Boolean): Array<out ResolveResult> {
-		print(name)
 		if(name == null) return ResolveResult.EMPTY_ARRAY
 		return findLocalizationPropertiesInProject(name, element.project).mapArray {
 			PsiElementResolveResult(it)
@@ -32,7 +30,7 @@ class StellarisLocalizationPropertyPsiReference(
 
 	//注意要传入elementName而非element
 	override fun getVariants(): Array<out Any> {
-		return findLocalizationPropertyVariantsInProject(element.project).mapArray {
+		return findAllLocalizationPropertiesInProject(element.project).mapArray {
 			createLookupElement(it.name!!, icon = it.getIcon(0), typeText = it.containingFile.name)
 		}
 	}

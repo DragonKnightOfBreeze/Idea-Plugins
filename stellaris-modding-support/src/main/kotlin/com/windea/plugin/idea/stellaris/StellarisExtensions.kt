@@ -216,14 +216,8 @@ fun findScriptVariableDefinitions(project: Project, key: String): List<Stellaris
 }
 
 fun findAllScriptVariableDefinitions(project: Project): List<StellarisScriptVariableDefinition> {
-	val result = mutableListOf<StellarisScriptVariableDefinition>()
-	val virtualFiles = FileTypeIndex.getFiles(StellarisScriptFileType, GlobalSearchScope.projectScope(project))
-	for(virtualFile in virtualFiles) {
-		val file = PsiManager.getInstance(project).findFile(virtualFile) ?: continue
-		val properties = PsiTreeUtil.getChildrenOfType(file, StellarisScriptVariableDefinition::class.java)?.cast() ?: continue
-		result += properties
-	}
-	return result
+	val files = project.findPsiFiles(StellarisScriptFileType) as List<StellarisScriptFile>
+	return files.flatMap { it.variableDefinitions.toList() }.filterNot { it.name.isNullOrEmpty() }
 }
 
 
@@ -252,14 +246,8 @@ fun findScriptProperties(project: Project, key: String): List<StellarisScriptPro
 }
 
 fun findAllScriptProperties(project: Project): List<StellarisScriptProperty> {
-	val result = mutableListOf<StellarisScriptProperty>()
-	val virtualFiles = FileTypeIndex.getFiles(StellarisScriptFileType, GlobalSearchScope.projectScope(project))
-	for(virtualFile in virtualFiles) {
-		val file = PsiManager.getInstance(project).findFile(virtualFile) ?: continue
-		val properties = PsiTreeUtil.getChildrenOfType(file, StellarisScriptProperty::class.java)?.cast() ?: continue
-		result += properties
-	}
-	return result
+	val files = project.findPsiFiles(StellarisScriptFileType) as List<StellarisScriptFile>
+	return files.flatMap { it.properties.toList() }.filterNot { it.name.isNullOrEmpty() }
 }
 //endregion
 
@@ -284,34 +272,7 @@ fun findLocalizationPropertiesInProject(name: String, project: Project): List<St
 	return files.flatMap { it.properties.toList() }.filter { it.name == name }
 }
 
-//fun findLocalizationPropertyResolvesInFile(name: String, file: PsiFile): MutableList<PsiElement> {
-//	val result = mutableListOf<PsiElement>()
-//	file.acceptChildren(object : PsiRecursiveElementWalkingVisitor() {
-//		override fun visitElement(element: PsiElement) {
-//			when(element) {
-//				is StellarisLocalizationProperty -> {
-//					if(element.name == name) result += element
-//					super.visitElement(element)
-//				}
-//				is StellarisLocalizationPropertyValue -> super.visitElement(element)
-//				is StellarisLocalizationRichText -> super.visitElement(element)
-//				is StellarisLocalizationColorfulText -> super.visitElement(element)
-//				is StellarisLocalizationPropertyReference -> {
-//					if(element.name == name) result += element
-//				}
-//			}
-//		}
-//	})
-//	return result
-//}
-//
-//fun findLocalizationPropertyResolvesInProject(name: String, project: Project): List<PsiElement> {
-//	val files = project.findPsiFiles(StellarisLocalizationFileType) as List<StellarisLocalizationFile>
-//	val result = files.flatMap { findLocalizationPropertyResolvesInFile(name, it) }
-//	return result
-//}
-
-fun findLocalizationPropertyVariantsInProject(project: Project): List<StellarisLocalizationProperty> {
+fun findAllLocalizationPropertiesInProject(project: Project): List<StellarisLocalizationProperty> {
 	val files = project.findPsiFiles(StellarisLocalizationFileType) as List<StellarisLocalizationFile>
 	return files.flatMap { it.properties.toList() }.filterNot { it.name.isNullOrEmpty() }
 }

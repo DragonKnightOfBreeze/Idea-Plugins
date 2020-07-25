@@ -70,7 +70,7 @@ object StellarisScriptPsiImplUtil {
 
 	@JvmStatic
 	fun getReference(element: StellarisScriptVariableReference):PsiReference{
-		return StellarisScriptVariablePsiReference(element, TextRange(0,element.textRange.length))
+		return StellarisScriptVariablePsiReference(element,element.variableReferenceToken.textRangeInParent )
 	}
 	//endregion
 

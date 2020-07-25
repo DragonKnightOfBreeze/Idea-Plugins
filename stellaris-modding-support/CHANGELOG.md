@@ -66,9 +66,9 @@
 * [X] 将GutterIcon的尺寸调小一点。
 * [ ] 高亮转义字符，目前只需支持`\n` `\"`
 * [ ] External Script/Localization Property Key仅仅只是"可能的"
-* [ ] 支持gfx引用文件（`.gfx`）
+* [X] 支持gfx引用文件（`.gfx`）
 * [X] ScriptUnquotedString只要不包含空格即可
-* [ ] 仅对顶层的ScriptProperty添加文档注释并视为可能的引用
+* [X] 仅对顶层的ScriptProperty添加文档注释并视为可能的引用
 * [ ] DocComment：仅允许第一个空行之前的LineComment作为DocComment
 * [ ] 对于变量的代码提示（来自变量的引用）
 * [X] 更新项目描述。
