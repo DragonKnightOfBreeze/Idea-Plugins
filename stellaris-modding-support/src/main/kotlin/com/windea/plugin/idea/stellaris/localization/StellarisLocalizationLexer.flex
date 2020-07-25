@@ -1,6 +1,5 @@
 package com.windea.plugin.idea.stellaris.localization.psi;
 
-import com.intellij.lexer.FlexLexer;
 import com.intellij.psi.TokenType;
 import com.intellij.psi.tree.IElementType;
 
@@ -31,7 +30,7 @@ import static com.windea.plugin.idea.stellaris.localization.psi.StellarisLocaliz
 %state WAITING_CODE
 %state WAITING_ICON
 %state WAITING_SERIAL_NUMBER
-%state WAITING_COLORFUL_TEXT_CODE
+%state WAITING_COLORFUL_TEXT_ID
 %state WAITING_COLORFUL_TEXT
 
 %{
@@ -56,8 +55,10 @@ END_OF_LINE_COMMENT=#[^\r\n]*
 ROOT_COMMENT=#[^\r\n]*
 NUMBER=\d
 LOCALE_ID=[a-z_]+
-KEY_TOKEN=[a-zA-Z][a-zA-Z0-9_.\-]*
-VALUE_TOKEN=([^\"(\[$£§%\r\n\\]|\\.)+
+PROPERTY_KEY_ID=[a-zA-Z][a-zA-Z0-9_.\-]*
+STRING_TOKEN=([^\"\r\n]|\\.)+
+INVALID_ESCAPE_TOKEN=\\[\"rn%$\[]
+VALID_ESCAPE_TOKEN=\\.
 LEFT_QUOTE="\""
 RIGHT_QUOTE="\""
 PROPERTY_REFERENCE_START="$"
@@ -68,13 +69,13 @@ CODE_START="["
 CODE_TEXT=[^\[\]\r\n]+
 CODE_END="]"
 ICON_START="£"
-ICON_TEXT=[a-z_]+
+ICON_ID=[a-z_]+
 ICON_END="£"
 SERIAL_NUMBER_START="%"
-SERIAL_NUMBER_CODE=[A-Z]
+SERIAL_NUMBER_ID=[A-Z]
 SERIAL_NUMBER_END="%"
 COLORFUL_TEXT_START="§"
-COLORFUL_TEXT_CODE=[A-Z]
+COLORFUL_TEXT_ID=[A-Z]
 COLORFUL_TEXT_END="§!"
 
 %%
@@ -98,7 +99,7 @@ COLORFUL_TEXT_END="§!"
 <WAITING_PROPERTY_KEY> {
   {COMMENT} { return COMMENT; }
   {WHITE_SPACE} { return WHITE_SPACE; } //继续解析
-  {KEY_TOKEN} { yybegin(WAITING_PROPERTY_COLON); return KEY_TOKEN; }
+  {PROPERTY_KEY_ID} { yybegin(WAITING_PROPERTY_COLON); return PROPERTY_KEY_ID; }
 }
 <WAITING_PROPERTY_COLON>{
   ":" {yybegin(WAITING_PROPERTY_NUMBER); return COLON; }
@@ -120,19 +121,21 @@ COLORFUL_TEXT_END="§!"
 }
 <WAITING_RICH_TEXT>{
   {RIGHT_QUOTE} { yybegin(WAITING_PROPERTY_KEY); return RIGHT_QUOTE;}
+  {INVALID_ESCAPE_TOKEN} {return INVALID_ESCAPE_TOKEN;}
+  {VALID_ESCAPE_TOKEN} {return VALID_ESCAPE_TOKEN;}
   {PROPERTY_REFERENCE_START} { yybegin(WAITING_PROPERTY_REFERENCE); return PROPERTY_REFERENCE_START;}
   {CODE_START} { yybegin(WAITING_CODE); return CODE_START;}
   {ICON_START} { yybegin(WAITING_ICON); return ICON_START;}
   {SERIAL_NUMBER_START} { yybegin(WAITING_SERIAL_NUMBER); return SERIAL_NUMBER_START;}
-  {COLORFUL_TEXT_START} { textDepth++; yybegin(WAITING_COLORFUL_TEXT_CODE); return COLORFUL_TEXT_START;}
-  {VALUE_TOKEN} {  return VALUE_TOKEN;}
+  {COLORFUL_TEXT_START} { textDepth++; yybegin(WAITING_COLORFUL_TEXT_ID); return COLORFUL_TEXT_START;}
+  {STRING_TOKEN} {  return STRING_TOKEN;}
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
 }
 <WAITING_PROPERTY_REFERENCE>{
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
   {RIGHT_QUOTE} { yybegin(WAITING_PROPERTY_KEY); return RIGHT_QUOTE;} //跳过非法字符
   {PROPERTY_REFERENCE_END} {yybegin(textState()); return PROPERTY_REFERENCE_END;}
-  {KEY_TOKEN} {return KEY_TOKEN;}
+  {PROPERTY_KEY_ID} {return PROPERTY_KEY_ID;}
   {PROPERTY_REFERENCE_SEPARATOR} { yybegin(WAITING_PROPERTY_REFERENCE_PARAMETER); return PROPERTY_REFERENCE_SEPARATOR;}
 }
 <WAITING_PROPERTY_REFERENCE_PARAMETER>{
@@ -151,19 +154,19 @@ COLORFUL_TEXT_END="§!"
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
   {RIGHT_QUOTE} { yybegin(WAITING_PROPERTY_KEY); return RIGHT_QUOTE;} //跳过非法字符
   {ICON_END} {yybegin(textState()); return ICON_END;}
-  {ICON_TEXT} {return ICON_TEXT;}
+  {ICON_ID} {return ICON_ID;}
 }
 <WAITING_SERIAL_NUMBER>{
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
   {RIGHT_QUOTE} { yybegin(WAITING_PROPERTY_KEY); return RIGHT_QUOTE;} //跳过非法字符
   {SERIAL_NUMBER_END} {yybegin(textState()); return SERIAL_NUMBER_END;}
-  {SERIAL_NUMBER_CODE} {return SERIAL_NUMBER_CODE;}
+  {SERIAL_NUMBER_ID} {return SERIAL_NUMBER_ID;}
 }
-<WAITING_COLORFUL_TEXT_CODE>{
+<WAITING_COLORFUL_TEXT_ID>{
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
   {RIGHT_QUOTE} { yybegin(WAITING_PROPERTY_KEY); return RIGHT_QUOTE;} //跳过非法字符
   {COLORFUL_TEXT_END} {textDepth--; yybegin(textState()); return COLORFUL_TEXT_END;} //跳过非法字符
-  {COLORFUL_TEXT_CODE} {yybegin(WAITING_COLORFUL_TEXT); return COLORFUL_TEXT_CODE;}
+  {COLORFUL_TEXT_ID} {yybegin(WAITING_COLORFUL_TEXT); return COLORFUL_TEXT_ID;}
 }
 <WAITING_COLORFUL_TEXT>{
   {COLORFUL_TEXT_END} {textDepth--;  ;yybegin(textState()); return COLORFUL_TEXT_END;} //跳过非法字符
@@ -172,7 +175,7 @@ COLORFUL_TEXT_END="§!"
   {CODE_START} { yybegin(WAITING_CODE); return CODE_START;}
   {ICON_START} { yybegin(WAITING_ICON); return ICON_START;}
   {SERIAL_NUMBER_START} { yybegin(WAITING_SERIAL_NUMBER); return SERIAL_NUMBER_START;}
-  {VALUE_TOKEN} {  return VALUE_TOKEN;}
+  {STRING_TOKEN} {  return STRING_TOKEN;}
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
 }
 <WAITING_PROPERTY_EOL>{

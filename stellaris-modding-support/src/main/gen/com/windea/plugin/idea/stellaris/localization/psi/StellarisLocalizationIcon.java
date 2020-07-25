@@ -8,7 +8,7 @@ import com.intellij.psi.PsiElement;
 public interface StellarisLocalizationIcon extends StellarisLocalizationNamedElement {
 
   @Nullable
-  PsiElement getIconText();
+  PsiElement getIconId();
 
   @Nullable
   String getName();

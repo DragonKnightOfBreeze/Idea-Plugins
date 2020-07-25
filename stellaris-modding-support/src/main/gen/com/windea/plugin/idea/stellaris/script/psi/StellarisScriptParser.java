@@ -127,13 +127,14 @@ public class StellarisScriptParser implements PsiParser, LightPsiParser {
   public static boolean property(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "property")) return false;
     if (!nextTokenIs(b, KEY_TOKEN)) return false;
-    boolean r;
-    Marker m = enter_section_(b);
+    boolean r, p;
+    Marker m = enter_section_(b, l, _NONE_, PROPERTY, null);
     r = property_key(b, l + 1);
-    r = r && property_separator(b, l + 1);
-    r = r && property_value(b, l + 1);
-    exit_section_(b, m, PROPERTY, r);
-    return r;
+    p = r; // pin = 1
+    r = r && report_error_(b, property_separator(b, l + 1));
+    r = p && property_value(b, l + 1) && r;
+    exit_section_(b, l, m, r, p, null);
+    return r || p;
   }
 
   /* ********************************************************** */

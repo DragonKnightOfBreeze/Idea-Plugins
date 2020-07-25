@@ -2,13 +2,11 @@
 
 package com.windea.plugin.idea.stellaris.localization.psi.impl
 
-import com.intellij.lang.documentation.*
 import com.intellij.openapi.util.Iconable.*
 import com.intellij.psi.*
 import com.intellij.refactoring.suggested.*
 import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.domain.*
-import com.windea.plugin.idea.stellaris.localization.highlighter.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
 import com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationElementFactory.createColorfulText
 import com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationElementFactory.createIcon
@@ -68,7 +66,7 @@ object StellarisLocalizationPsiImplUtil {
 
 	@JvmStatic
 	fun getNameIdentifier(element: StellarisLocalizationProperty): PsiElement? {
-		return element.propertyKey.keyToken
+		return element.propertyKey.propertyKeyId
 	}
 
 	@JvmStatic

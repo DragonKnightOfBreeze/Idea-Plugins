@@ -28,8 +28,8 @@ public class StellarisLocalizationPropertyReferenceImpl extends StellarisLocaliz
 
   @Override
   @Nullable
-  public PsiElement getKeyToken() {
-    return findChildByType(KEY_TOKEN);
+  public PsiElement getPropertyKeyId() {
+    return findChildByType(PROPERTY_KEY_ID);
   }
 
   @Override

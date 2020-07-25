@@ -16,6 +16,21 @@ import static com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
 %type IElementType
 %unicode
 
+%state WAITING_VARIABLE_EQUAL_SIGN
+%state WAITING_VARIABLE_VALUE
+%state WAITING_VARIABLE_EOL
+
+%state WAITING_PROPERTY_KEY
+%state WATIING_PROPERTY_SEPARATOR
+%state WAITING_PROPERTY_VALUE
+%state WAITING_PROPERTY_EOL
+
+%{
+  int depth=0;
+%}
+
+//不要使用\R：可能不合法
+
 EOL=\s*\R
 WHITE_SPACE=\s+
 SPACE=[ \t]+
@@ -28,16 +43,8 @@ VARIABLE_NAME_TOKEN=@[a-zA-Z0-9_]+
 VARIABLE_REFERENCE_TOKEN=@[a-zA-Z0-9_]+
 STRING=\"([^\"(\r\n\\]|\\.)*?\"
 UNQUOTED_STRING=[^\s]+
+UPPER_STRING=[A-Z0-9_\-]+
 KEY_TOKEN=[a-z0-9_\-]+
-
-%state WAITING_VARIABLE_EQUAL_SIGN
-%state WAITING_VARIABLE_VALUE
-%state WAITING_VARIABLE_EOL
-
-%state WAITING_PROPERTY_KEY
-%state WATIING_PROPERTY_SEPARATOR
-%state WAITING_PROPERTY_VALUE
-%state WAITING_PROPERTY_EOL
 
 %%
 <YYINITIAL> {
@@ -63,9 +70,14 @@ KEY_TOKEN=[a-z0-9_\-]+
 }
 
 <WAITING_PROPERTY_KEY> {
-  "}" {return RIGHT_BRACE;}
+  "}" {depth--; return RIGHT_BRACE;}
   {WHITE_SPACE} { return WHITE_SPACE; } //继续解析
   {COMMENT} {  return COMMENT; }
+  "OR"|"AND"|"NOR"|"NOT" {yybegin(WATIING_PROPERTY_SEPARATOR); return KEY_TOKEN;}
+  {UPPER_STRING} {
+    if(depth<=0){ yybegin(WATIING_PROPERTY_SEPARATOR); return KEY_TOKEN;}
+    else{ yybegin(WAITING_PROPERTY_EOL); return UNQUOTED_STRING;}
+  }
   {KEY_TOKEN} {yybegin(WATIING_PROPERTY_SEPARATOR); return KEY_TOKEN;}
   {STRING} {yybegin(WAITING_PROPERTY_EOL); return STRING;}
   {UNQUOTED_STRING} {yybegin(WAITING_PROPERTY_EOL); return UNQUOTED_STRING;}
@@ -82,7 +94,7 @@ KEY_TOKEN=[a-z0-9_\-]+
 <WAITING_PROPERTY_VALUE>{
   {WHITE_SPACE} { return WHITE_SPACE; } //继续解析
   {COMMENT} {  return COMMENT; }
-  "{" {yybegin(WAITING_PROPERTY_KEY); return LEFT_BRACE;}
+  "{" {depth++; yybegin(WAITING_PROPERTY_KEY); return LEFT_BRACE;}
   {BOOLEAN} { yybegin(WAITING_PROPERTY_EOL); return BOOLEAN; }
   {NUMBER} { yybegin(WAITING_PROPERTY_EOL); return NUMBER; }
   {VARIABLE_REFERENCE_TOKEN} {yybegin(WAITING_PROPERTY_EOL); return VARIABLE_REFERENCE_TOKEN;}
@@ -90,7 +102,7 @@ KEY_TOKEN=[a-z0-9_\-]+
   {UNQUOTED_STRING} { yybegin(WAITING_PROPERTY_EOL); return UNQUOTED_STRING; }
 }
 <WAITING_PROPERTY_EOL> {
-  "}" {yybegin(WAITING_PROPERTY_KEY); return RIGHT_BRACE;}
+  "}" {depth--; yybegin(WAITING_PROPERTY_KEY); return RIGHT_BRACE;}
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }
   {SPACE} { return WHITE_SPACE; }
   {END_OF_LINE_COMMENT} {  return END_OF_LINE_COMMENT; }

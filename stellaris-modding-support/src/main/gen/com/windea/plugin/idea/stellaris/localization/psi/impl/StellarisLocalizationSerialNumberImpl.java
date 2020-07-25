@@ -28,8 +28,8 @@ public class StellarisLocalizationSerialNumberImpl extends StellarisLocalization
 
   @Override
   @Nullable
-  public PsiElement getSerialNumberCode() {
-    return findChildByType(SERIAL_NUMBER_CODE);
+  public PsiElement getSerialNumberId() {
+    return findChildByType(SERIAL_NUMBER_ID);
   }
 
   @Override

@@ -13,8 +13,8 @@ import com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationTy
 class StellarisLocalizationSpellchecker : SpellcheckingStrategy() {
 	override fun getTokenizer(element: PsiElement): Tokenizer<*> {
 		return when(element.elementType) {
-			KEY_TOKEN -> TEXT_TOKENIZER
-			VALUE_TOKEN -> TEXT_TOKENIZER
+			PROPERTY_KEY_ID -> TEXT_TOKENIZER
+			STRING_TOKEN -> TEXT_TOKENIZER
 			COMMENT,ROOT_COMMENT,END_OF_LINE_COMMENT -> TEXT_TOKENIZER
 			CODE_TEXT -> TEXT_TOKENIZER
 			else -> EMPTY_TOKENIZER

@@ -14,15 +14,18 @@ public interface StellarisLocalizationRichText extends PsiElement {
   StellarisLocalizationColorfulText getColorfulText();
 
   @Nullable
-  StellarisLocalizationIcon getIcon();
+  StellarisLocalizationEscape getEscape();
 
   @Nullable
-  StellarisLocalizationPlainText getPlainText();
+  StellarisLocalizationIcon getIcon();
 
   @Nullable
   StellarisLocalizationPropertyReference getPropertyReference();
 
   @Nullable
   StellarisLocalizationSerialNumber getSerialNumber();
+
+  @Nullable
+  StellarisLocalizationString getString();
 
 }

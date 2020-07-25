@@ -36,19 +36,6 @@ public class StellarisLocalizationParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // LOCALE_ID ":"
-  public static boolean LOCALE(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "LOCALE")) return false;
-    if (!nextTokenIs(b, LOCALE_ID)) return false;
-    boolean r, p;
-    Marker m = enter_section_(b, l, _NONE_, LOCALE, null);
-    r = consumeTokens(b, 1, LOCALE_ID, COLON);
-    p = r; // pin = 1
-    exit_section_(b, l, m, r, p, null);
-    return r || p;
-  }
-
-  /* ********************************************************** */
   // CODE_START CODE_TEXT? CODE_END
   public static boolean code(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "code")) return false;
@@ -71,13 +58,13 @@ public class StellarisLocalizationParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // COLORFUL_TEXT_START COLORFUL_TEXT_CODE rich_text* COLORFUL_TEXT_END
+  // COLORFUL_TEXT_START COLORFUL_TEXT_ID rich_text* COLORFUL_TEXT_END
   public static boolean colorful_text(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "colorful_text")) return false;
     if (!nextTokenIs(b, COLORFUL_TEXT_START)) return false;
     boolean r, p;
     Marker m = enter_section_(b, l, _NONE_, COLORFUL_TEXT, null);
-    r = consumeTokens(b, 1, COLORFUL_TEXT_START, COLORFUL_TEXT_CODE);
+    r = consumeTokens(b, 1, COLORFUL_TEXT_START, COLORFUL_TEXT_ID);
     p = r; // pin = 1
     r = r && report_error_(b, colorful_text_2(b, l + 1));
     r = p && consumeToken(b, COLORFUL_TEXT_END) && r;
@@ -97,35 +84,49 @@ public class StellarisLocalizationParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // ICON_START ICON_TEXT ICON_END
+  // VALID_ESCAPE_TOKEN | INVALID_ESCAPE_TOKEN
+  public static boolean escape(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "escape")) return false;
+    if (!nextTokenIs(b, "<escape>", INVALID_ESCAPE_TOKEN, VALID_ESCAPE_TOKEN)) return false;
+    boolean r;
+    Marker m = enter_section_(b, l, _NONE_, ESCAPE, "<escape>");
+    r = consumeToken(b, VALID_ESCAPE_TOKEN);
+    if (!r) r = consumeToken(b, INVALID_ESCAPE_TOKEN);
+    exit_section_(b, l, m, r, false, null);
+    return r;
+  }
+
+  /* ********************************************************** */
+  // ICON_START ICON_ID ICON_END
   public static boolean icon(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "icon")) return false;
     if (!nextTokenIs(b, ICON_START)) return false;
     boolean r, p;
     Marker m = enter_section_(b, l, _NONE_, ICON, null);
-    r = consumeTokens(b, 1, ICON_START, ICON_TEXT, ICON_END);
+    r = consumeTokens(b, 1, ICON_START, ICON_ID, ICON_END);
     p = r; // pin = 1
     exit_section_(b, l, m, r, p, null);
     return r || p;
   }
 
   /* ********************************************************** */
-  // VALUE_TOKEN
-  public static boolean plain_text(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "plain_text")) return false;
-    if (!nextTokenIs(b, VALUE_TOKEN)) return false;
-    boolean r;
-    Marker m = enter_section_(b);
-    r = consumeToken(b, VALUE_TOKEN);
-    exit_section_(b, m, PLAIN_TEXT, r);
-    return r;
+  // LOCALE_ID ":"
+  public static boolean locale(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "locale")) return false;
+    if (!nextTokenIs(b, LOCALE_ID)) return false;
+    boolean r, p;
+    Marker m = enter_section_(b, l, _NONE_, LOCALE, null);
+    r = consumeTokens(b, 1, LOCALE_ID, COLON);
+    p = r; // pin = 1
+    exit_section_(b, l, m, r, p, null);
+    return r || p;
   }
 
   /* ********************************************************** */
   // property_key ":" [NUMBER] property_value
   public static boolean property(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "property")) return false;
-    if (!nextTokenIs(b, KEY_TOKEN)) return false;
+    if (!nextTokenIs(b, PROPERTY_KEY_ID)) return false;
     boolean r, p;
     Marker m = enter_section_(b, l, _NONE_, PROPERTY, null);
     r = property_key(b, l + 1);
@@ -145,13 +146,13 @@ public class StellarisLocalizationParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // KEY_TOKEN
+  // PROPERTY_KEY_ID
   public static boolean property_key(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "property_key")) return false;
-    if (!nextTokenIs(b, KEY_TOKEN)) return false;
+    if (!nextTokenIs(b, PROPERTY_KEY_ID)) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = consumeToken(b, KEY_TOKEN);
+    r = consumeToken(b, PROPERTY_KEY_ID);
     exit_section_(b, m, PROPERTY_KEY, r);
     return r;
   }
@@ -168,13 +169,13 @@ public class StellarisLocalizationParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // PROPERTY_REFERENCE_START KEY_TOKEN [PROPERTY_REFERENCE_SEPARATOR PROPERTY_REFERENCE_PARAMETER] PROPERTY_REFERENCE_END
+  // PROPERTY_REFERENCE_START PROPERTY_KEY_ID [PROPERTY_REFERENCE_SEPARATOR PROPERTY_REFERENCE_PARAMETER] PROPERTY_REFERENCE_END
   public static boolean property_reference(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "property_reference")) return false;
     if (!nextTokenIs(b, PROPERTY_REFERENCE_START)) return false;
     boolean r, p;
     Marker m = enter_section_(b, l, _NONE_, PROPERTY_REFERENCE, null);
-    r = consumeTokens(b, 1, PROPERTY_REFERENCE_START, KEY_TOKEN);
+    r = consumeTokens(b, 1, PROPERTY_REFERENCE_START, PROPERTY_KEY_ID);
     p = r; // pin = 1
     r = r && report_error_(b, property_reference_2(b, l + 1));
     r = p && consumeToken(b, PROPERTY_REFERENCE_END) && r;
@@ -215,12 +216,13 @@ public class StellarisLocalizationParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // plain_text | property_reference | code | icon | serial_number | colorful_text
+  // string | escape | property_reference | code | icon | serial_number | colorful_text
   public static boolean rich_text(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "rich_text")) return false;
     boolean r;
     Marker m = enter_section_(b, l, _NONE_, RICH_TEXT, "<rich text>");
-    r = plain_text(b, l + 1);
+    r = string(b, l + 1);
+    if (!r) r = escape(b, l + 1);
     if (!r) r = property_reference(b, l + 1);
     if (!r) r = code(b, l + 1);
     if (!r) r = icon(b, l + 1);
@@ -261,13 +263,13 @@ public class StellarisLocalizationParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // LOCALE property_list *
+  // locale property_list *
   static boolean root_item(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "root_item")) return false;
     if (!nextTokenIs(b, LOCALE_ID)) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = LOCALE(b, l + 1);
+    r = locale(b, l + 1);
     r = r && root_item_1(b, l + 1);
     exit_section_(b, m, null, r);
     return r;
@@ -285,21 +287,33 @@ public class StellarisLocalizationParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // SERIAL_NUMBER_START SERIAL_NUMBER_CODE SERIAL_NUMBER_END
+  // SERIAL_NUMBER_START SERIAL_NUMBER_ID SERIAL_NUMBER_END
   public static boolean serial_number(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "serial_number")) return false;
     if (!nextTokenIs(b, SERIAL_NUMBER_START)) return false;
     boolean r, p;
     Marker m = enter_section_(b, l, _NONE_, SERIAL_NUMBER, null);
-    r = consumeTokens(b, 1, SERIAL_NUMBER_START, SERIAL_NUMBER_CODE, SERIAL_NUMBER_END);
+    r = consumeTokens(b, 1, SERIAL_NUMBER_START, SERIAL_NUMBER_ID, SERIAL_NUMBER_END);
     p = r; // pin = 1
     exit_section_(b, l, m, r, p, null);
     return r || p;
   }
 
+  /* ********************************************************** */
+  // STRING_TOKEN
+  public static boolean string(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "string")) return false;
+    if (!nextTokenIs(b, STRING_TOKEN)) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeToken(b, STRING_TOKEN);
+    exit_section_(b, m, STRING, r);
+    return r;
+  }
+
   static final Parser property_value_auto_recover_ = new Parser() {
     public boolean parse(PsiBuilder b, int l) {
-      return !nextTokenIsFast(b, COMMENT, END_OF_LINE_COMMENT, KEY_TOKEN);
+      return !nextTokenIsFast(b, COMMENT, END_OF_LINE_COMMENT, PROPERTY_KEY_ID);
     }
   };
 }

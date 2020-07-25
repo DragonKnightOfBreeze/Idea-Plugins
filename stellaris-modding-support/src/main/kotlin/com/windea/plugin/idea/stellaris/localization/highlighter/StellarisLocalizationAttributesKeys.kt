@@ -12,7 +12,7 @@ import java.awt.*
 
 object StellarisLocalizationAttributesKeys {
 	private val ICON = IDENTIFIER.defaultAttributes.clone().apply { foregroundColor = Color(0x5C8AE6) }
-	private val SERIAL_NUMBER_CODE = IDENTIFIER.defaultAttributes.clone().apply { fontType = Font.BOLD }
+	private val SERIAL_NUMBER_ID = IDENTIFIER.defaultAttributes.clone().apply { fontType = Font.BOLD }
 	private val COLOR_CODE = IDENTIFIER.defaultAttributes.clone().apply { fontType = Font.BOLD }
 
 	@JvmField val COLON_KEY = createTextAttributesKey(message("stellaris.localization.syntax.colon"), OPERATION_SIGN)
@@ -25,7 +25,7 @@ object StellarisLocalizationAttributesKeys {
 	@JvmField val PROPERTY_REFERENCE_PARAMETER_KEY = createTextAttributesKey(message("stellaris.localization.syntax.proeprtyReferenceParameter"), IDENTIFIER)
 	@JvmField val CODE_KEY = createTextAttributesKey(message("stellaris.localization.syntax.code"), IDENTIFIER)
 	@JvmField val ICON_KEY = createTextAttributesKey(message("stellaris.localization.syntax.icon"), ICON)
-	@JvmField val SERIAL_NUMBER_CODE_KEY = createTextAttributesKey(message("stellaris.localization.syntax.serialNumberCode"), SERIAL_NUMBER_CODE)
+	@JvmField val SERIAL_NUMBER_ID_KEY = createTextAttributesKey(message("stellaris.localization.syntax.serialNumberCode"), SERIAL_NUMBER_ID)
 	@JvmField val COLOR_CODE_KEY = createTextAttributesKey(message("stellaris.localization.syntax.colorCode"), COLOR_CODE)
 	@JvmField val VALID_ESCAPE_KEY = createTextAttributesKey(message("stellaris.localization.syntax.validEscape"), VALID_STRING_ESCAPE)
 	@JvmField val INVALID_ESCAPE_KEY = createTextAttributesKey(message("stellaris.localization.syntax.invalidEscape"), INVALID_STRING_ESCAPE)

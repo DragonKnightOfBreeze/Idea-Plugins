@@ -1,7 +1,6 @@
 package com.windea.plugin.idea.stellaris.localization.highlighter
 
 import com.intellij.lexer.*
-import com.intellij.psi.tree.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
 import com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationTypes.*
 
@@ -11,8 +10,8 @@ import com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationTy
 class StellarisLocalizationHighlighterLexer : LayeredLexer(StellarisLocalizationLexerAdapter()) {
 	init {
 		registerSelfStoppingLayer(
-			StringLiteralLexer('"', VALUE_TOKEN, false, "[£§$%"),
-			arrayOf(VALUE_TOKEN),
+			StringLiteralLexer('"', STRING_TOKEN, false, "[£§$%"),
+			arrayOf(STRING_TOKEN),
 			arrayOf(RIGHT_QUOTE, ICON_START, CODE_START, COLORFUL_TEXT_START, PROPERTY_REFERENCE_START, SERIAL_NUMBER_START)
 		)
 	}

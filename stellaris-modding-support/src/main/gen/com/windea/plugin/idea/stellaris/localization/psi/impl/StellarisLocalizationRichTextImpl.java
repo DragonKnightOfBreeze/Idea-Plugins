@@ -40,14 +40,14 @@ public class StellarisLocalizationRichTextImpl extends ASTWrapperPsiElement impl
 
   @Override
   @Nullable
-  public StellarisLocalizationIcon getIcon() {
-    return findChildByClass(StellarisLocalizationIcon.class);
+  public StellarisLocalizationEscape getEscape() {
+    return findChildByClass(StellarisLocalizationEscape.class);
   }
 
   @Override
   @Nullable
-  public StellarisLocalizationPlainText getPlainText() {
-    return findChildByClass(StellarisLocalizationPlainText.class);
+  public StellarisLocalizationIcon getIcon() {
+    return findChildByClass(StellarisLocalizationIcon.class);
   }
 
   @Override
@@ -60,6 +60,12 @@ public class StellarisLocalizationRichTextImpl extends ASTWrapperPsiElement impl
   @Nullable
   public StellarisLocalizationSerialNumber getSerialNumber() {
     return findChildByClass(StellarisLocalizationSerialNumber.class);
+  }
+
+  @Override
+  @Nullable
+  public StellarisLocalizationString getString() {
+    return findChildByClass(StellarisLocalizationString.class);
   }
 
 }

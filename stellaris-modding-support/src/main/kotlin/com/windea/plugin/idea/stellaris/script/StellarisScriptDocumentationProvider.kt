@@ -45,12 +45,13 @@ class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
 				}
 			}
 			is StellarisScriptProperty -> {
-				//只有顶级才生成文档注释
-				if(element.parent !is PsiFile) return null
 				buildString {
 					append(DocumentationMarkup.DEFINITION_START)
 					append("<b>${element.name}</b> = ${getPropertyValueText(element)} ${getLocationText(element)}")
 					append(DocumentationMarkup.DEFINITION_END)
+
+					//只有顶级才生成文档注释中的描述
+					if(element.parent !is PsiFile) return@buildString
 
 					val textAttributesKey = StellarisScriptAttributesKeys.COMMENT_KEY
 					val docCommentText = getDocCommentHtmlFromPreviousComment(element,textAttributesKey)

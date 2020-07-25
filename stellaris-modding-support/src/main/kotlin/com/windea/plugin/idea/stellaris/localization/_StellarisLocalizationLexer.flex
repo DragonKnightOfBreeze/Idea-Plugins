@@ -1,6 +1,5 @@
 package com.windea.plugin.idea.stellaris.localization;
 
-import com.intellij.lexer.FlexLexer;
 import com.intellij.psi.tree.IElementType;
 
 import static com.intellij.psi.TokenType.BAD_CHARACTER;
@@ -35,9 +34,9 @@ KEY_TOKEN=[a-zA-Z][a-zA-Z0-9_.]*
 VALUE_TOKEN=([^\"(\[$£§%\r\n\\]|\\.)+
 PROPERTY_REFERENCE_PARAMETER=[^$\r\n]+
 CODE_TEXT=[^\[\]\r\n]+
-ICON_TEXT=[a-z_]+
-SERIAL_NUMBER_CODE=[A-Z]
-COLORFUL_TEXT_CODE=[A-Z]
+ICON_ID=[a-z_]+
+SERIAL_NUMBER_ID=[A-Z]
+COLORFUL_TEXT_ID=[A-Z]
 
 %%
 <YYINITIAL> {
@@ -64,13 +63,13 @@ COLORFUL_TEXT_CODE=[A-Z]
   {ROOT_COMMENT}                      { return ROOT_COMMENT; }
   {END_OF_LINE_COMMENT}               { return END_OF_LINE_COMMENT; }
   {LOCALE_ID}                         { return LOCALE_ID; }
-  {KEY_TOKEN}                         { return KEY_TOKEN; }
-  {VALUE_TOKEN}                       { return VALUE_TOKEN; }
+  {KEY_TOKEN}                         { return PROPERTY_KEY_ID; }
+  {VALUE_TOKEN}                       { return STRING_TOKEN; }
   {PROPERTY_REFERENCE_PARAMETER}      { return PROPERTY_REFERENCE_PARAMETER; }
   {CODE_TEXT}                         { return CODE_TEXT; }
-  {ICON_TEXT}                         { return ICON_TEXT; }
-  {SERIAL_NUMBER_CODE}                { return SERIAL_NUMBER_CODE; }
-  {COLORFUL_TEXT_CODE}                { return COLORFUL_TEXT_CODE; }
+  {ICON_ID}                         { return ICON_ID; }
+  {SERIAL_NUMBER_ID}                { return SERIAL_NUMBER_ID; }
+  {COLORFUL_TEXT_ID}                { return COLORFUL_TEXT_ID; }
 
 }
 

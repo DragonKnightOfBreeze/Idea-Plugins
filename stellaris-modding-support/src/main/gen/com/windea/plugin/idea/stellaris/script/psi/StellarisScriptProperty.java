@@ -12,10 +12,10 @@ public interface StellarisScriptProperty extends StellarisScriptNamedElement {
   @NotNull
   StellarisScriptPropertyKey getPropertyKey();
 
-  @NotNull
+  @Nullable
   StellarisScriptPropertySeparator getPropertySeparator();
 
-  @NotNull
+  @Nullable
   StellarisScriptPropertyValue getPropertyValue();
 
   @Nullable

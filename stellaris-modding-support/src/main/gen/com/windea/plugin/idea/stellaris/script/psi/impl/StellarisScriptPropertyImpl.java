@@ -34,15 +34,15 @@ public class StellarisScriptPropertyImpl extends StellarisScriptNamedElementImpl
   }
 
   @Override
-  @NotNull
+  @Nullable
   public StellarisScriptPropertySeparator getPropertySeparator() {
-    return findNotNullChildByClass(StellarisScriptPropertySeparator.class);
+    return findChildByClass(StellarisScriptPropertySeparator.class);
   }
 
   @Override
-  @NotNull
+  @Nullable
   public StellarisScriptPropertyValue getPropertyValue() {
-    return findNotNullChildByClass(StellarisScriptPropertyValue.class);
+    return findChildByClass(StellarisScriptPropertyValue.class);
   }
 
   @Override

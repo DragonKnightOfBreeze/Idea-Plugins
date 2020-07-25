@@ -2,7 +2,6 @@
 
 package com.windea.plugin.idea.stellaris.localization.psi;
 
-import com.intellij.lexer.FlexLexer;
 import com.intellij.psi.TokenType;
 import com.intellij.psi.tree.IElementType;
 
@@ -39,7 +38,7 @@ public class StellarisLocalizationLexer implements FlexLexer {
   public static final int WAITING_CODE = 24;
   public static final int WAITING_ICON = 26;
   public static final int WAITING_SERIAL_NUMBER = 28;
-  public static final int WAITING_COLORFUL_TEXT_CODE = 30;
+  public static final int WAITING_COLORFUL_TEXT_ID = 30;
   public static final int WAITING_COLORFUL_TEXT = 32;
 
   /**
@@ -79,11 +78,11 @@ public class StellarisLocalizationLexer implements FlexLexer {
 
   /* The ZZ_CMAP_A table has 1088 entries */
   static final char ZZ_CMAP_A[] = zzUnpackCMap(
-    "\11\0\1\4\1\3\2\2\1\3\22\0\1\4\1\26\1\16\1\5\1\17\1\24\2\0\1\14\4\0\2\12\1"+
-    "\0\12\13\1\27\5\0\1\12\32\10\1\21\1\15\1\22\1\0\1\7\1\0\32\11\1\0\1\20\10"+
-    "\0\1\2\32\0\1\1\2\0\1\23\3\0\1\25\170\0\12\6\106\0\12\6\6\0\12\6\134\0\12"+
-    "\6\40\0\12\6\46\0\1\1\105\0\12\6\60\0\12\6\6\0\12\6\46\0\13\1\35\0\2\2\5\0"+
-    "\1\1\57\0\1\1\60\0\12\6\26\0\12\6\74\0\12\6\16\0\62\6");
+    "\11\0\1\4\1\3\2\2\1\3\22\0\1\4\1\26\1\14\1\5\1\20\1\16\7\0\2\12\1\0\12\13"+
+    "\1\27\6\0\32\10\1\22\1\15\1\23\1\0\1\7\1\0\15\11\1\17\3\11\1\17\10\11\1\0"+
+    "\1\21\10\0\1\2\32\0\1\1\2\0\1\24\3\0\1\25\170\0\12\6\106\0\12\6\6\0\12\6\134"+
+    "\0\12\6\40\0\12\6\46\0\1\1\105\0\12\6\60\0\12\6\6\0\12\6\46\0\13\1\35\0\2"+
+    "\2\5\0\1\1\57\0\1\1\60\0\12\6\26\0\12\6\74\0\12\6\16\0\62\6");
 
   /** 
    * Translates DFA states to action switch labels.
@@ -93,13 +92,13 @@ public class StellarisLocalizationLexer implements FlexLexer {
   private static final String ZZ_ACTION_PACKED_0 =
     "\21\0\1\1\1\2\1\3\1\4\1\1\1\5\1\6"+
     "\1\2\1\7\1\10\1\11\1\12\1\13\1\14\1\15"+
-    "\2\16\1\1\1\17\1\20\1\21\1\22\1\23\1\24"+
+    "\2\16\1\17\1\16\1\20\1\21\1\22\1\23\1\24"+
     "\1\25\1\26\1\27\2\30\1\5\1\17\2\31\1\5"+
-    "\1\17\1\32\1\33\1\34\1\35\1\36\1\37\2\1"+
-    "\2\0\1\40\1\41";
+    "\1\17\1\32\1\33\1\34\1\35\1\36\1\37\1\1"+
+    "\2\16\1\0\1\40\1\41\1\40\1\42\1\43";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[64];
+    int [] result = new int[67];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -127,14 +126,15 @@ public class StellarisLocalizationLexer implements FlexLexer {
     "\0\0\0\30\0\60\0\110\0\140\0\170\0\220\0\250"+
     "\0\300\0\330\0\360\0\u0108\0\u0120\0\u0138\0\u0150\0\u0168"+
     "\0\u0180\0\u0198\0\u01b0\0\u01c8\0\u01e0\0\u01f8\0\u01f8\0\u0198"+
-    "\0\u0210\0\u0228\0\u0240\0\u0198\0\u0198\0\u0258\0\u0198\0\u0270"+
-    "\0\u0288\0\u02a0\0\u02b8\0\u0198\0\u0198\0\u0198\0\u0198\0\u0198"+
-    "\0\u0198\0\u02d0\0\u0198\0\u0198\0\u02e8\0\u0300\0\u0300\0\u02e8"+
+    "\0\u0210\0\u0228\0\u0240\0\u0198\0\u0258\0\u0198\0\u0198\0\u0270"+
+    "\0\u0288\0\u02a0\0\u0198\0\u02b8\0\u0288\0\u0288\0\u0288\0\u0288"+
+    "\0\u0288\0\u02d0\0\u0198\0\u0198\0\u02e8\0\u0300\0\u0300\0\u02e8"+
     "\0\u0318\0\u0330\0\u0330\0\u0318\0\u0198\0\u0348\0\u0198\0\u0198"+
-    "\0\u0198\0\u0198\0\u0360\0\u0378\0\u01f8\0\u02b8\0\u0198\0\u0198";
+    "\0\u0198\0\u0198\0\u0360\0\u0378\0\u0390\0\u01f8\0\u0288\0\u0288"+
+    "\0\u0378\0\u0198\0\u0288";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[64];
+    int [] result = new int[67];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -157,40 +157,43 @@ public class StellarisLocalizationLexer implements FlexLexer {
   private static final int [] ZZ_TRANS = zzUnpackTrans();
 
   private static final String ZZ_TRANS_PACKED_0 =
-    "\1\22\4\23\1\24\1\22\1\25\1\22\1\25\17\22"+
-    "\1\26\2\27\1\26\22\22\1\30\1\22\1\26\2\27"+
-    "\1\31\24\22\4\23\1\32\2\22\2\33\17\22\1\26"+
-    "\2\27\1\31\22\22\1\34\1\22\1\26\2\27\1\26"+
-    "\1\22\1\35\4\22\1\35\15\22\1\26\2\27\1\36"+
-    "\24\22\1\26\2\27\1\26\11\22\1\37\12\22\1\26"+
-    "\2\27\1\31\1\40\22\22\1\41\2\42\1\27\1\42"+
-    "\7\41\1\22\1\43\1\44\1\45\1\41\1\46\1\41"+
-    "\1\47\1\50\1\51\2\41\1\22\1\26\2\27\1\26"+
-    "\3\22\2\52\4\22\1\44\1\53\1\54\7\22\1\55"+
-    "\1\56\1\57\1\27\1\56\11\55\1\60\1\53\10\55"+
-    "\1\61\1\62\1\63\1\27\1\62\11\61\1\64\2\61"+
-    "\1\22\1\65\5\61\1\22\1\26\2\27\1\26\2\22"+
-    "\1\66\1\22\1\66\4\22\1\44\4\22\1\67\5\22"+
-    "\1\26\2\27\1\26\3\22\1\70\5\22\1\44\5\22"+
-    "\1\71\4\22\1\26\2\27\1\26\3\22\1\72\5\22"+
-    "\1\44\6\22\1\73\2\22\1\41\2\42\1\27\1\42"+
-    "\7\41\1\22\1\43\1\44\1\45\1\41\1\46\1\41"+
-    "\1\47\1\50\1\74\2\41\31\0\4\23\23\0\3\24"+
-    "\1\0\24\24\7\0\1\25\1\0\1\25\17\0\1\75"+
-    "\2\27\1\75\24\0\1\75\2\27\1\31\23\0\3\32"+
-    "\1\0\24\32\7\0\5\33\13\0\1\33\1\0\1\75"+
-    "\2\27\1\36\23\0\3\40\1\0\24\40\3\41\1\0"+
-    "\10\41\1\0\1\76\2\0\1\41\1\0\1\41\3\0"+
-    "\3\41\2\42\1\27\1\42\7\41\1\0\1\76\2\0"+
-    "\1\41\1\0\1\41\3\0\4\41\2\0\24\41\7\0"+
-    "\5\52\13\0\1\52\3\55\1\0\13\55\1\0\11\55"+
-    "\1\56\1\57\1\27\1\56\12\55\1\0\10\55\3\61"+
-    "\1\0\15\61\2\0\6\61\1\62\1\63\1\27\1\62"+
-    "\14\61\2\0\5\61\7\0\1\66\1\0\1\66\44\0"+
-    "\1\77\27\0\1\100\1\0";
+    "\1\22\4\23\1\24\1\22\1\25\1\22\1\25\5\22"+
+    "\1\25\11\22\1\26\2\27\1\26\22\22\1\30\1\22"+
+    "\1\26\2\27\1\31\24\22\4\23\1\32\2\22\2\33"+
+    "\5\22\1\33\11\22\1\26\2\27\1\31\22\22\1\34"+
+    "\1\22\1\26\2\27\1\35\1\22\1\36\4\22\1\36"+
+    "\15\22\1\26\2\27\1\35\24\22\1\26\2\27\1\26"+
+    "\7\22\1\37\14\22\1\26\2\27\1\31\1\40\22\22"+
+    "\1\41\2\42\1\27\1\42\7\41\1\43\1\44\1\45"+
+    "\1\41\1\46\1\41\1\47\1\41\1\50\1\51\2\41"+
+    "\1\22\1\26\2\27\1\26\3\22\2\52\2\22\1\43"+
+    "\2\22\1\52\1\53\1\54\6\22\1\55\1\56\1\57"+
+    "\1\27\1\56\7\55\1\60\3\55\1\53\7\55\1\61"+
+    "\1\62\1\63\1\27\1\62\7\61\1\64\5\61\1\22"+
+    "\1\65\4\61\1\22\1\26\2\27\1\26\2\22\1\66"+
+    "\1\22\1\66\2\22\1\43\2\22\1\66\4\22\1\67"+
+    "\4\22\1\26\2\27\1\26\3\22\1\70\3\22\1\43"+
+    "\1\22\1\71\12\22\1\26\2\27\1\26\3\22\1\72"+
+    "\3\22\1\43\10\22\1\73\2\22\1\41\2\42\1\27"+
+    "\1\42\7\41\1\43\1\74\1\45\1\41\1\46\1\41"+
+    "\1\47\1\41\1\50\1\75\2\41\31\0\4\23\23\0"+
+    "\3\24\1\0\24\24\7\0\1\25\1\0\1\25\5\0"+
+    "\1\25\11\0\1\76\2\27\1\76\24\0\1\76\2\27"+
+    "\1\31\23\0\3\32\1\0\24\32\7\0\5\33\3\0"+
+    "\1\33\11\0\1\76\2\27\1\35\23\0\3\40\1\0"+
+    "\24\40\3\41\1\0\10\41\1\0\1\74\13\41\2\42"+
+    "\1\27\1\42\7\41\1\0\1\74\12\41\2\77\1\41"+
+    "\1\0\10\77\1\100\1\101\3\100\1\77\1\100\5\77"+
+    "\7\0\5\52\3\0\1\52\10\0\3\55\1\0\14\55"+
+    "\1\0\10\55\1\56\1\57\1\27\1\56\13\55\1\0"+
+    "\7\55\3\61\1\0\16\61\2\0\5\61\1\62\1\63"+
+    "\1\27\1\62\15\61\2\0\4\61\7\0\1\66\1\0"+
+    "\1\66\5\0\1\66\36\0\1\102\1\0\3\41\1\0"+
+    "\11\41\1\74\15\41\1\0\10\41\1\0\1\74\10\41"+
+    "\1\103\1\41";
 
   private static int [] zzUnpackTrans() {
-    int [] result = new int[912];
+    int [] result = new int[936];
     int offset = 0;
     offset = zzUnpackTrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -228,12 +231,12 @@ public class StellarisLocalizationLexer implements FlexLexer {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\21\0\1\11\5\1\1\11\3\1\2\11\1\1\1\11"+
-    "\4\1\6\11\1\1\2\11\10\1\1\11\1\1\4\11"+
-    "\2\1\2\0\2\11";
+    "\21\0\1\11\5\1\1\11\3\1\1\11\1\1\2\11"+
+    "\3\1\1\11\7\1\2\11\10\1\1\11\1\1\4\11"+
+    "\3\1\1\0\3\1\1\11\1\1";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[64];
+    int [] result = new int[67];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -547,167 +550,177 @@ public class StellarisLocalizationLexer implements FlexLexer {
             { return TokenType.BAD_CHARACTER;
             } 
             // fall through
-          case 34: break;
+          case 36: break;
           case 2: 
             { return WHITE_SPACE;
             } 
             // fall through
-          case 35: break;
+          case 37: break;
           case 3: 
             { return ROOT_COMMENT;
             } 
             // fall through
-          case 36: break;
+          case 38: break;
           case 4: 
             { yybegin(WAITING_LOCALE_COLON); return LOCALE_ID;
             } 
             // fall through
-          case 37: break;
+          case 39: break;
           case 5: 
             { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE;
             } 
             // fall through
-          case 38: break;
+          case 40: break;
           case 6: 
             { yybegin(WAITING_LOCALE_EOL); return COLON;
             } 
             // fall through
-          case 39: break;
+          case 41: break;
           case 7: 
             { return COMMENT;
             } 
             // fall through
-          case 40: break;
+          case 42: break;
           case 8: 
-            { yybegin(WAITING_PROPERTY_COLON); return KEY_TOKEN;
+            { yybegin(WAITING_PROPERTY_COLON); return PROPERTY_KEY_ID;
             } 
             // fall through
-          case 41: break;
+          case 43: break;
           case 9: 
             { yybegin(WAITING_PROPERTY_NUMBER); return COLON;
             } 
             // fall through
-          case 42: break;
+          case 44: break;
           case 10: 
-            { yybegin(WAITING_PROPERTY_SPACE); return NUMBER;
-            } 
-            // fall through
-          case 43: break;
-          case 11: 
             { yybegin(WAITING_PROPERTY_VALUE); return WHITE_SPACE;
             } 
             // fall through
-          case 44: break;
+          case 45: break;
+          case 11: 
+            { yybegin(WAITING_PROPERTY_SPACE); return NUMBER;
+            } 
+            // fall through
+          case 46: break;
           case 12: 
             { yybegin(WAITING_RICH_TEXT); return LEFT_QUOTE;
             } 
             // fall through
-          case 45: break;
+          case 47: break;
           case 13: 
             { return END_OF_LINE_COMMENT;
             } 
             // fall through
-          case 46: break;
+          case 48: break;
           case 14: 
-            { return VALUE_TOKEN;
+            { return STRING_TOKEN;
             } 
             // fall through
-          case 47: break;
+          case 49: break;
           case 15: 
             { yybegin(WAITING_PROPERTY_KEY); return RIGHT_QUOTE;
             } 
             // fall through
-          case 48: break;
-          case 16: 
-            { yybegin(WAITING_PROPERTY_REFERENCE); return PROPERTY_REFERENCE_START;
-            } 
-            // fall through
-          case 49: break;
-          case 17: 
-            { yybegin(WAITING_CODE); return CODE_START;
-            } 
-            // fall through
           case 50: break;
-          case 18: 
-            { yybegin(WAITING_ICON); return ICON_START;
-            } 
-            // fall through
-          case 51: break;
-          case 19: 
+          case 16: 
             { yybegin(WAITING_SERIAL_NUMBER); return SERIAL_NUMBER_START;
             } 
             // fall through
+          case 51: break;
+          case 17: 
+            { yybegin(WAITING_PROPERTY_REFERENCE); return PROPERTY_REFERENCE_START;
+            } 
+            // fall through
           case 52: break;
-          case 20: 
-            { textDepth++; yybegin(WAITING_COLORFUL_TEXT_CODE); return COLORFUL_TEXT_START;
+          case 18: 
+            { yybegin(WAITING_CODE); return CODE_START;
             } 
             // fall through
           case 53: break;
-          case 21: 
-            { return KEY_TOKEN;
+          case 19: 
+            { yybegin(WAITING_ICON); return ICON_START;
             } 
             // fall through
           case 54: break;
+          case 20: 
+            { textDepth++; yybegin(WAITING_COLORFUL_TEXT_ID); return COLORFUL_TEXT_START;
+            } 
+            // fall through
+          case 55: break;
+          case 21: 
+            { return PROPERTY_KEY_ID;
+            } 
+            // fall through
+          case 56: break;
           case 22: 
             { yybegin(textState()); return PROPERTY_REFERENCE_END;
             } 
             // fall through
-          case 55: break;
+          case 57: break;
           case 23: 
             { yybegin(WAITING_PROPERTY_REFERENCE_PARAMETER); return PROPERTY_REFERENCE_SEPARATOR;
             } 
             // fall through
-          case 56: break;
+          case 58: break;
           case 24: 
             { return PROPERTY_REFERENCE_PARAMETER;
             } 
             // fall through
-          case 57: break;
+          case 59: break;
           case 25: 
             { return CODE_TEXT;
             } 
             // fall through
-          case 58: break;
+          case 60: break;
           case 26: 
             { yybegin(textState()); return CODE_END;
             } 
             // fall through
-          case 59: break;
+          case 61: break;
           case 27: 
-            { return ICON_TEXT;
+            { return ICON_ID;
             } 
             // fall through
-          case 60: break;
+          case 62: break;
           case 28: 
             { yybegin(textState()); return ICON_END;
             } 
             // fall through
-          case 61: break;
+          case 63: break;
           case 29: 
-            { return SERIAL_NUMBER_CODE;
+            { return SERIAL_NUMBER_ID;
             } 
             // fall through
-          case 62: break;
+          case 64: break;
           case 30: 
             { yybegin(textState()); return SERIAL_NUMBER_END;
             } 
             // fall through
-          case 63: break;
-          case 31: 
-            { yybegin(WAITING_COLORFUL_TEXT); return COLORFUL_TEXT_CODE;
-            } 
-            // fall through
-          case 64: break;
-          case 32: 
-            { textDepth--; yybegin(textState()); return COLORFUL_TEXT_END;
-            } 
-            // fall through
           case 65: break;
-          case 33: 
-            { textDepth--;  ;yybegin(textState()); return COLORFUL_TEXT_END;
+          case 31: 
+            { yybegin(WAITING_COLORFUL_TEXT); return COLORFUL_TEXT_ID;
             } 
             // fall through
           case 66: break;
+          case 32: 
+            { return VALID_ESCAPE_TOKEN;
+            } 
+            // fall through
+          case 67: break;
+          case 33: 
+            { return INVALID_ESCAPE_TOKEN;
+            } 
+            // fall through
+          case 68: break;
+          case 34: 
+            { textDepth--; yybegin(textState()); return COLORFUL_TEXT_END;
+            } 
+            // fall through
+          case 69: break;
+          case 35: 
+            { textDepth--;  ;yybegin(textState()); return COLORFUL_TEXT_END;
+            } 
+            // fall through
+          case 70: break;
           default:
             zzScanError(ZZ_NO_MATCH);
           }

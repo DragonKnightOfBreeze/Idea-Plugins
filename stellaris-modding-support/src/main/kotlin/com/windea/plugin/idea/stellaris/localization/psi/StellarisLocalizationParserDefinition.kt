@@ -15,7 +15,7 @@ class StellarisLocalizationParserDefinition : ParserDefinition {
 	companion object {
 		val WHITE_SPACES = TokenSet.create(WHITE_SPACE)
 		val COMMENTS = TokenSet.create(COMMENT, ROOT_COMMENT,END_OF_LINE_COMMENT)
-		val STRINGS = TokenSet.create(VALUE_TOKEN)
+		val STRINGS = TokenSet.create(STRING_TOKEN)
 		val FILE = IFileElementType(StellarisLocalizationLanguage)
 	}
 

@@ -11,14 +11,14 @@ import static com.windea.plugin.idea.stellaris.localization.psi.StellarisLocaliz
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.windea.plugin.idea.stellaris.localization.psi.*;
 
-public class StellarisLocalizationPropertyKeyImpl extends ASTWrapperPsiElement implements StellarisLocalizationPropertyKey {
+public class StellarisLocalizationStringImpl extends ASTWrapperPsiElement implements StellarisLocalizationString {
 
-  public StellarisLocalizationPropertyKeyImpl(@NotNull ASTNode node) {
+  public StellarisLocalizationStringImpl(@NotNull ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull StellarisLocalizationVisitor visitor) {
-    visitor.visitPropertyKey(this);
+    visitor.visitString(this);
   }
 
   public void accept(@NotNull PsiElementVisitor visitor) {
@@ -28,8 +28,8 @@ public class StellarisLocalizationPropertyKeyImpl extends ASTWrapperPsiElement i
 
   @Override
   @NotNull
-  public PsiElement getPropertyKeyId() {
-    return findNotNullChildByType(PROPERTY_KEY_ID);
+  public PsiElement getStringToken() {
+    return findNotNullChildByType(STRING_TOKEN);
   }
 
 }

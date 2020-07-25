@@ -5,9 +5,12 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
-public interface StellarisLocalizationPropertyKey extends PsiElement {
+public interface StellarisLocalizationEscape extends PsiElement {
 
-  @NotNull
-  PsiElement getPropertyKeyId();
+  @Nullable
+  PsiElement getInvalidEscapeToken();
+
+  @Nullable
+  PsiElement getValidEscapeToken();
 
 }
