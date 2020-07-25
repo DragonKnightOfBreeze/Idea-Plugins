@@ -65,21 +65,29 @@ property ::= property_key property_separator property_value {
 }
 property_key ::= PROPERTY_KEY_ID
 property_separator ::= "=" | "<" | ">" | "<=" | ">="
-property_value ::= boolean | number | variable_reference | string | array | object
+property_value ::= boolean | number | variable_reference | string | block
+//property_value ::= boolean | number | variable_reference | string | array | object
 
-array ::= "{" array_item * "}" {
+block ::= "{" block_item * "}" {
   pin=1
   implements="com.intellij.psi.PsiListLikeElement"
-  methods=[getComponents]
+  methods=[isArray isObject getComponents]
 }
-private array_item ::= END_OF_LINE_COMMENT | COMMENT | string
+private block_item ::= END_OF_LINE_COMMENT | COMMENT | string | property
 
-object ::= "{" object_item * "}" {
- pin=1
- implements="com.intellij.psi.PsiListLikeElement"
- methods=[getComponents]
-}
-private object_item ::= END_OF_LINE_COMMENT | COMMENT | property
+//array ::= "{" array_item * "}" {
+//  pin=1
+//  implements="com.intellij.psi.PsiListLikeElement"
+//  methods=[getComponents]
+//}
+//private array_item ::= END_OF_LINE_COMMENT | COMMENT | string
+//
+//object ::= "{" object_item * "}" {
+// pin=1
+// implements="com.intellij.psi.PsiListLikeElement"
+// methods=[getComponents]
+//}
+//private object_item ::= END_OF_LINE_COMMENT | COMMENT | property
 
 boolean ::= BOOLEAN_TOKEN
 

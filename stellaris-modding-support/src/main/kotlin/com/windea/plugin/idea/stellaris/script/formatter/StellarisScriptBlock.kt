@@ -47,11 +47,11 @@ class StellarisScriptBlock (
 	override fun buildChildren(): List<Block> {
 		//如果已经需要缩进，或者是list的子节点，则注意需要缩进
 		return  myNode.nodes().map {
-			val parentType = it.treeParent.elementType
 			when {
 				shouldIndent -> StellarisScriptBlock(it, settings, true)
-				parentType == OBJECT -> StellarisScriptBlock(it, settings, true)
-				parentType == ARRAY -> StellarisScriptBlock(it, settings, true)
+				it.treeParent.elementType == BLOCK -> StellarisScriptBlock(it, settings, true)
+				//it.treeParent.elementType == OBJECT -> StellarisScriptBlock(it, settings, true)
+				//it.treeParent.elementType == ARRAY -> StellarisScriptBlock(it, settings, true)
 				else -> StellarisScriptBlock(it, settings)
 			}
 		}

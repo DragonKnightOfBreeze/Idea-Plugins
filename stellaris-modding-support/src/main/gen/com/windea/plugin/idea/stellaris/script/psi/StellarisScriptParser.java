@@ -36,39 +36,40 @@ public class StellarisScriptParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // "{" array_item * "}"
-  public static boolean array(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "array")) return false;
+  // "{" block_item * "}"
+  public static boolean block(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "block")) return false;
     if (!nextTokenIs(b, LEFT_BRACE)) return false;
     boolean r, p;
-    Marker m = enter_section_(b, l, _NONE_, ARRAY, null);
+    Marker m = enter_section_(b, l, _NONE_, BLOCK, null);
     r = consumeToken(b, LEFT_BRACE);
     p = r; // pin = 1
-    r = r && report_error_(b, array_1(b, l + 1));
+    r = r && report_error_(b, block_1(b, l + 1));
     r = p && consumeToken(b, RIGHT_BRACE) && r;
     exit_section_(b, l, m, r, p, null);
     return r || p;
   }
 
-  // array_item *
-  private static boolean array_1(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "array_1")) return false;
+  // block_item *
+  private static boolean block_1(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "block_1")) return false;
     while (true) {
       int c = current_position_(b);
-      if (!array_item(b, l + 1)) break;
-      if (!empty_element_parsed_guard_(b, "array_1", c)) break;
+      if (!block_item(b, l + 1)) break;
+      if (!empty_element_parsed_guard_(b, "block_1", c)) break;
     }
     return true;
   }
 
   /* ********************************************************** */
-  // END_OF_LINE_COMMENT | COMMENT | string
-  static boolean array_item(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "array_item")) return false;
+  // END_OF_LINE_COMMENT | COMMENT | string | property
+  static boolean block_item(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "block_item")) return false;
     boolean r;
     r = consumeToken(b, END_OF_LINE_COMMENT);
     if (!r) r = consumeToken(b, COMMENT);
     if (!r) r = string(b, l + 1);
+    if (!r) r = property(b, l + 1);
     return r;
   }
 
@@ -93,43 +94,6 @@ public class StellarisScriptParser implements PsiParser, LightPsiParser {
     Marker m = enter_section_(b);
     r = consumeToken(b, NUMBER_TOKEN);
     exit_section_(b, m, NUMBER, r);
-    return r;
-  }
-
-  /* ********************************************************** */
-  // "{" object_item * "}"
-  public static boolean object(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "object")) return false;
-    if (!nextTokenIs(b, LEFT_BRACE)) return false;
-    boolean r, p;
-    Marker m = enter_section_(b, l, _NONE_, OBJECT, null);
-    r = consumeToken(b, LEFT_BRACE);
-    p = r; // pin = 1
-    r = r && report_error_(b, object_1(b, l + 1));
-    r = p && consumeToken(b, RIGHT_BRACE) && r;
-    exit_section_(b, l, m, r, p, null);
-    return r || p;
-  }
-
-  // object_item *
-  private static boolean object_1(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "object_1")) return false;
-    while (true) {
-      int c = current_position_(b);
-      if (!object_item(b, l + 1)) break;
-      if (!empty_element_parsed_guard_(b, "object_1", c)) break;
-    }
-    return true;
-  }
-
-  /* ********************************************************** */
-  // END_OF_LINE_COMMENT | COMMENT | property
-  static boolean object_item(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "object_item")) return false;
-    boolean r;
-    r = consumeToken(b, END_OF_LINE_COMMENT);
-    if (!r) r = consumeToken(b, COMMENT);
-    if (!r) r = property(b, l + 1);
     return r;
   }
 
@@ -176,7 +140,7 @@ public class StellarisScriptParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // boolean | number | variable_reference | string | array | object
+  // boolean | number | variable_reference | string | block
   public static boolean property_value(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "property_value")) return false;
     boolean r;
@@ -185,8 +149,7 @@ public class StellarisScriptParser implements PsiParser, LightPsiParser {
     if (!r) r = number(b, l + 1);
     if (!r) r = variable_reference(b, l + 1);
     if (!r) r = string(b, l + 1);
-    if (!r) r = array(b, l + 1);
-    if (!r) r = object(b, l + 1);
+    if (!r) r = block(b, l + 1);
     exit_section_(b, l, m, r, false, null);
     return r;
   }

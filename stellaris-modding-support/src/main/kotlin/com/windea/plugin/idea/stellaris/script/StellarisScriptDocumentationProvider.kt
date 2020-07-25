@@ -14,10 +14,10 @@ class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
 	override fun getQuickNavigateInfo(element: PsiElement?, originalElement: PsiElement?): String? {
 		return when(element) {
 			is StellarisScriptVariableDefinition -> {
-				"${getLocationText(element)}<br>${element.name}"
+				"${element.name} ${getLocationText(element)}"
 			}
 			is StellarisScriptProperty -> {
-				"${getLocationText(element)}<br>${element.name}"
+				"${element.name} ${getLocationText(element)}"
 			}
 			else -> null
 		}
@@ -78,8 +78,9 @@ class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
 	private fun getPropertyValueText(property:StellarisScriptProperty):String{
 		return property.propertyValue?.let {
 			when {
-				it.array != null -> "{...}"
-				it.`object` != null -> "{...}"
+				it.block != null -> "{...}"
+				//it.array != null -> "{...}"
+				//it.`object` != null -> "{...}"
 				else -> it.text
 			}
 		}.orEmpty()

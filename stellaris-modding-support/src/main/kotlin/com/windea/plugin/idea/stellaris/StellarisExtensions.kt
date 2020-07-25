@@ -186,33 +186,19 @@ fun selectElement(editor: Editor, element: PsiElement?) {
 //region Stellaris Script
 fun findScriptVariableDefinitionInFile(name: String?, psiFile: PsiFile?): StellarisScriptVariableDefinition? {
 	if(name == null || psiFile !is StellarisScriptFile) return null
-	return psiFile.variableDefinitions.first { it.name == name }
+	return psiFile.variableDefinitions.firstOrNull { it.name == name }
 }
 
 fun findScriptVariableDefinitionInProject(name: String?, project: Project): StellarisScriptVariableDefinition? {
 	if(name == null) return null
 	val files = project.findPsiFiles(StellarisScriptFileType) as List<StellarisScriptFile>
-	return files.flatMap { it.variableDefinitions.toList() }.first { it.name == name }
+	return files.flatMap { it.variableDefinitions.toList() }.firstOrNull { it.name == name }
 }
 
 fun findScriptVariableDefinitionsInProject(name: String?, project: Project): List<StellarisScriptVariableDefinition>? {
 	if(name == null) return null
 	val files = project.findPsiFiles(StellarisScriptFileType) as List<StellarisScriptFile>
 	return files.flatMap { it.variableDefinitions.toList() }.filter { it.name == name }
-}
-
-fun findScriptVariableDefinitions(project: Project, key: String): List<StellarisScriptVariableDefinition> {
-	val result = mutableListOf<StellarisScriptVariableDefinition>()
-	val virtualFiles = FileTypeIndex.getFiles(StellarisScriptFileType, GlobalSearchScope.projectScope(project))
-	for(virtualFile in virtualFiles) {
-		val file = PsiManager.getInstance(project).findFile(virtualFile) ?: continue
-		val variables0 = PsiTreeUtil.getChildrenOfType(file, StellarisScriptVariableDefinition::class.java)
-		val variables = variables0?.cast() ?: continue
-		for(variable in variables) {
-			if(key == StellarisScriptPsiImplUtil.getName(variable)) result += variable
-		}
-	}
-	return result
 }
 
 fun findAllScriptVariableDefinitions(project: Project): List<StellarisScriptVariableDefinition> {
@@ -224,7 +210,7 @@ fun findAllScriptVariableDefinitions(project: Project): List<StellarisScriptVari
 fun findScriptPropertyInProject(name: String?, project: Project): StellarisScriptProperty? {
 	if(name == null) return null
 	val files = project.findPsiFiles(StellarisScriptFileType) as List<StellarisScriptFile>
-	return files.flatMap { it.properties.toList() }.first { it.name == name }
+	return files.flatMap { it.properties.toList() }.firstOrNull { it.name == name }
 }
 
 fun findScriptPropertiesInProject(name: String?, project: Project): List<StellarisScriptProperty>? {

@@ -1,5 +1,6 @@
 definitions:
   army:
+    title: Army
     type: object
     properties:
       damage:
@@ -19,7 +20,7 @@ definitions:
         $ref: "core.yml/#/definitions/boolean"
         default: yes
       time:
-        $ref: "core.yml/#/definitions/unit"
+        $ref: "core.yml/#/definitions/uint"
       icon_frame:
         $ref: "core.yml/#/definitions/factor"
       pop_limited:
@@ -41,6 +42,7 @@ definitions:
           allow:
             $ref: "core.yml/#/definitions/trigger"
 
+title: Armies
 type: object
 additionalProperties:
   $ref: "#/definitions/army"

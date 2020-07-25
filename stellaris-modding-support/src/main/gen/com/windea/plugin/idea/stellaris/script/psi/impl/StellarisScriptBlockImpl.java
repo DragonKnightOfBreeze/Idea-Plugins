@@ -11,14 +11,14 @@ import static com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.windea.plugin.idea.stellaris.script.psi.*;
 
-public class StellarisScriptArrayImpl extends ASTWrapperPsiElement implements StellarisScriptArray {
+public class StellarisScriptBlockImpl extends ASTWrapperPsiElement implements StellarisScriptBlock {
 
-  public StellarisScriptArrayImpl(@NotNull ASTNode node) {
+  public StellarisScriptBlockImpl(@NotNull ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull StellarisScriptVisitor visitor) {
-    visitor.visitArray(this);
+    visitor.visitBlock(this);
   }
 
   public void accept(@NotNull PsiElementVisitor visitor) {
@@ -28,8 +28,24 @@ public class StellarisScriptArrayImpl extends ASTWrapperPsiElement implements St
 
   @Override
   @NotNull
+  public List<StellarisScriptProperty> getPropertyList() {
+    return PsiTreeUtil.getChildrenOfTypeAsList(this, StellarisScriptProperty.class);
+  }
+
+  @Override
+  @NotNull
   public List<StellarisScriptString> getStringList() {
     return PsiTreeUtil.getChildrenOfTypeAsList(this, StellarisScriptString.class);
+  }
+
+  @Override
+  public boolean isArray() {
+    return StellarisScriptPsiImplUtil.isArray(this);
+  }
+
+  @Override
+  public boolean isObject() {
+    return StellarisScriptPsiImplUtil.isObject(this);
   }
 
   @Override

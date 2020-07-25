@@ -63,9 +63,9 @@ public class StellarisScriptLexer implements FlexLexer {
   /* The ZZ_CMAP_A table has 640 entries */
   static final char ZZ_CMAP_A[] = zzUnpackCMap(
     "\11\0\1\4\1\3\2\2\1\3\22\0\1\4\1\0\1\21\1\5\4\0\1\22\4\0\1\17\1\14\1\0\12"+
-    "\13\2\0\1\35\1\25\1\36\1\0\1\15\1\31\2\16\1\33\11\16\1\32\1\27\2\16\1\30\1"+
-    "\16\1\34\6\16\1\0\1\23\2\0\1\24\1\0\4\20\1\7\10\20\1\11\1\12\3\20\1\10\5\20"+
-    "\1\6\1\20\1\37\1\0\1\26\7\0\1\2\32\0\1\1\337\0\1\1\177\0\13\1\35\0\2\2\5\0"+
+    "\13\2\0\1\34\1\24\1\35\1\0\1\15\1\30\2\16\1\32\11\16\1\31\1\26\2\16\1\27\1"+
+    "\16\1\33\6\16\1\0\1\23\2\0\1\20\1\0\4\20\1\7\10\20\1\11\1\12\3\20\1\10\5\20"+
+    "\1\6\1\20\1\36\1\0\1\25\7\0\1\2\32\0\1\1\337\0\1\1\177\0\13\1\35\0\2\2\5\0"+
     "\1\1\57\0\1\1\40\0");
 
   /** 
@@ -76,15 +76,14 @@ public class StellarisScriptLexer implements FlexLexer {
   private static final String ZZ_ACTION_PACKED_0 =
     "\10\0\1\1\1\2\1\3\1\4\1\1\1\2\1\5"+
     "\1\6\1\7\1\1\1\5\1\2\1\10\1\11\1\4"+
-    "\2\12\1\11\1\13\3\12\1\2\1\14\1\15\1\16"+
-    "\1\17\2\11\1\20\1\11\1\21\1\22\1\1\1\14"+
-    "\1\2\1\23\1\22\1\24\1\25\3\0\1\26\1\11"+
-    "\1\4\2\12\1\27\1\30\1\11\1\31\1\11\1\32"+
-    "\2\0\1\33\1\22\1\7\1\26\1\0\1\20\1\33"+
-    "\1\0";
+    "\1\11\1\12\3\11\1\2\1\13\1\14\1\15\1\16"+
+    "\2\11\1\17\1\11\1\20\1\21\1\1\1\13\1\2"+
+    "\1\22\1\21\1\23\1\24\3\0\1\25\1\11\1\4"+
+    "\2\11\1\26\1\27\1\11\1\30\1\11\1\31\2\0"+
+    "\1\32\1\21\1\7\1\25\1\0\1\17\1\32\1\0";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[72];
+    int [] result = new int[70];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -109,18 +108,18 @@ public class StellarisScriptLexer implements FlexLexer {
   private static final int [] ZZ_ROWMAP = zzUnpackRowMap();
 
   private static final String ZZ_ROWMAP_PACKED_0 =
-    "\0\0\0\40\0\100\0\140\0\200\0\240\0\300\0\340"+
-    "\0\u0100\0\u0120\0\u0140\0\u0160\0\u0180\0\u01a0\0\u01a0\0\u0100"+
-    "\0\u01c0\0\u01e0\0\u01e0\0\u0200\0\u0220\0\u0240\0\u0260\0\u0280"+
-    "\0\u02a0\0\u02c0\0\u0240\0\u02e0\0\u0300\0\u0320\0\u0340\0\u0340"+
-    "\0\u0100\0\u0360\0\u0380\0\u03a0\0\u03c0\0\u03e0\0\u0400\0\u0240"+
-    "\0\u0420\0\u0440\0\u0440\0\u0460\0\u0480\0\u04a0\0\u0420\0\u0180"+
-    "\0\u04c0\0\u01e0\0\u04e0\0\u0240\0\u0500\0\u02a0\0\u0520\0\u0540"+
-    "\0\u0100\0\u0100\0\u0560\0\u0240\0\u0580\0\u0400\0\u0440\0\u05a0"+
-    "\0\u0420\0\u05c0\0\u04c0\0\u0100\0\u05e0\0\u0580\0\u0100\0\u0600";
+    "\0\0\0\37\0\76\0\135\0\174\0\233\0\272\0\331"+
+    "\0\370\0\u0117\0\u0136\0\u0155\0\u0174\0\u0193\0\u0193\0\370"+
+    "\0\u01b2\0\u01d1\0\u01d1\0\u01f0\0\u020f\0\u022e\0\u024d\0\u026c"+
+    "\0\u022e\0\u028b\0\u02aa\0\u02c9\0\u02e8\0\u02e8\0\370\0\u0307"+
+    "\0\u0326\0\u0345\0\u0364\0\u0383\0\u03a2\0\u022e\0\u03c1\0\u03e0"+
+    "\0\u03e0\0\u03ff\0\u041e\0\u043d\0\u03c1\0\u0174\0\u045c\0\u01d1"+
+    "\0\u047b\0\u022e\0\u049a\0\u022e\0\u04b9\0\u04d8\0\370\0\370"+
+    "\0\u04f7\0\u022e\0\u0516\0\u03a2\0\u03e0\0\u0535\0\u03c1\0\u0554"+
+    "\0\u045c\0\370\0\u0573\0\u0516\0\370\0\u0592";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[72];
+    int [] result = new int[70];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -143,50 +142,41 @@ public class StellarisScriptLexer implements FlexLexer {
   private static final int [] ZZ_TRANS = zzUnpackTrans();
 
   private static final String ZZ_TRANS_PACKED_0 =
-    "\1\11\4\12\1\13\6\14\1\11\1\15\1\11\2\14"+
-    "\3\11\1\14\14\11\1\16\2\17\1\16\20\11\1\20"+
-    "\13\11\1\16\2\17\1\16\6\11\1\21\25\11\1\22"+
-    "\2\23\1\24\1\25\32\11\1\26\4\12\1\13\5\27"+
-    "\1\30\2\26\1\31\1\30\1\27\1\32\2\26\1\30"+
-    "\1\26\1\33\1\34\1\31\1\35\1\36\2\31\3\26"+
-    "\1\11\1\37\2\40\1\37\20\11\1\41\7\11\1\42"+
-    "\1\43\1\11\1\26\4\12\1\13\1\44\2\26\1\45"+
-    "\1\26\1\46\1\26\1\47\3\26\1\32\15\26\1\50"+
-    "\1\51\1\52\2\53\1\54\1\55\13\51\1\56\4\51"+
-    "\1\57\11\51\41\0\4\12\33\0\3\13\1\0\34\13"+
-    "\6\0\6\14\3\0\2\14\3\0\1\14\21\0\6\60"+
-    "\2\0\1\60\1\0\1\60\3\0\1\60\2\0\6\60"+
-    "\4\0\1\16\2\17\1\16\46\0\1\21\1\61\24\0"+
-    "\1\62\2\23\1\62\34\0\1\62\2\23\1\24\33\0"+
-    "\3\25\1\0\34\25\1\26\4\0\34\26\4\0\1\26"+
-    "\6\27\3\26\2\27\3\26\1\27\14\26\4\0\1\26"+
-    "\5\27\1\30\2\26\1\31\1\30\1\27\3\26\1\30"+
-    "\2\26\6\31\4\26\4\0\6\26\1\31\2\26\2\31"+
-    "\4\26\1\31\2\26\6\31\3\26\1\32\2\63\1\0"+
-    "\1\63\14\32\1\64\1\26\1\65\14\32\1\26\4\0"+
-    "\6\26\1\31\2\26\2\31\4\26\1\31\2\26\1\31"+
-    "\1\66\4\31\4\26\4\0\6\26\1\31\2\26\2\31"+
-    "\4\26\1\31\2\26\3\31\1\67\2\31\4\26\4\0"+
-    "\6\26\1\31\2\26\2\31\4\26\1\31\2\26\1\70"+
-    "\5\31\3\26\1\0\1\37\2\40\1\37\60\0\1\71"+
-    "\37\0\1\72\12\0\1\26\4\0\2\26\1\73\31\26"+
-    "\4\0\5\26\1\74\26\26\4\0\6\26\1\46\1\75"+
-    "\24\26\4\0\1\26\6\76\2\26\1\76\1\26\1\76"+
-    "\3\26\1\76\2\26\6\76\3\26\1\51\4\0\33\51"+
-    "\1\0\1\77\2\53\1\77\34\0\1\77\2\53\1\54"+
-    "\33\0\3\55\1\0\34\55\1\56\2\100\1\0\1\100"+
-    "\14\56\1\101\1\51\1\102\14\56\13\0\1\103\24\0"+
-    "\3\63\1\0\15\63\1\104\1\0\1\105\14\63\1\32"+
-    "\1\63\2\0\1\63\33\32\1\26\4\0\6\26\1\31"+
-    "\2\26\2\31\4\26\1\31\2\26\4\31\1\66\1\31"+
-    "\4\26\4\0\6\26\1\31\2\26\2\31\4\26\1\31"+
-    "\2\26\1\31\1\66\3\31\1\66\4\26\4\0\3\26"+
-    "\1\74\30\26\4\0\6\26\1\106\24\26\3\100\1\0"+
-    "\15\100\1\107\1\0\1\110\14\100\1\56\1\100\2\0"+
-    "\1\100\33\56\2\63\2\0\34\63\2\100\2\0\34\100";
+    "\1\11\4\12\1\13\6\14\1\11\1\15\3\14\5\11"+
+    "\6\14\4\11\1\16\2\17\1\16\17\11\1\20\13\11"+
+    "\1\16\2\17\1\16\6\11\1\21\24\11\1\22\2\23"+
+    "\1\24\1\25\31\11\1\26\4\12\1\13\6\27\3\26"+
+    "\2\27\1\30\3\26\1\31\1\32\1\26\1\33\1\34"+
+    "\5\26\1\11\1\35\2\36\1\35\17\11\1\37\7\11"+
+    "\1\40\1\41\1\11\1\26\4\12\1\13\1\42\2\26"+
+    "\1\43\1\26\1\44\1\26\1\45\3\26\1\30\14\26"+
+    "\1\46\1\47\1\50\2\51\1\52\1\53\13\47\1\54"+
+    "\3\47\1\55\11\47\40\0\4\12\32\0\3\13\1\0"+
+    "\33\13\6\0\6\14\2\0\3\14\5\0\6\14\11\0"+
+    "\6\56\2\0\1\56\1\0\1\56\5\0\6\56\4\0"+
+    "\1\16\2\17\1\16\45\0\1\21\1\57\23\0\1\60"+
+    "\2\23\1\60\33\0\1\60\2\23\1\24\32\0\3\25"+
+    "\1\0\33\25\1\26\4\0\33\26\4\0\1\26\6\27"+
+    "\3\26\2\27\16\26\1\30\2\61\1\0\1\61\14\30"+
+    "\1\62\1\26\1\63\13\30\1\26\4\0\22\26\1\64"+
+    "\10\26\4\0\24\26\1\65\6\26\4\0\21\26\1\66"+
+    "\10\26\1\0\1\35\2\36\1\35\56\0\1\67\36\0"+
+    "\1\70\12\0\1\26\4\0\2\26\1\71\30\26\4\0"+
+    "\5\26\1\72\25\26\4\0\6\26\1\44\1\73\23\26"+
+    "\4\0\1\26\6\74\2\26\1\74\1\26\1\74\5\26"+
+    "\6\74\3\26\1\47\4\0\32\47\1\0\1\75\2\51"+
+    "\1\75\33\0\1\75\2\51\1\52\32\0\3\53\1\0"+
+    "\33\53\1\54\2\76\1\0\1\76\14\54\1\77\1\47"+
+    "\1\100\13\54\13\0\1\101\23\0\3\61\1\0\15\61"+
+    "\1\102\1\0\1\103\13\61\1\30\1\61\2\0\1\61"+
+    "\32\30\1\26\4\0\25\26\1\64\5\26\4\0\22\26"+
+    "\1\64\3\26\1\64\4\26\4\0\3\26\1\72\27\26"+
+    "\4\0\6\26\1\104\23\26\3\76\1\0\15\76\1\105"+
+    "\1\0\1\106\13\76\1\54\1\76\2\0\1\76\32\54"+
+    "\2\61\2\0\33\61\2\76\2\0\33\76";
 
   private static int [] zzUnpackTrans() {
-    int [] result = new int[1568];
+    int [] result = new int[1457];
     int offset = 0;
     offset = zzUnpackTrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -224,12 +214,12 @@ public class StellarisScriptLexer implements FlexLexer {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\10\0\1\11\6\1\1\11\20\1\1\11\17\1\3\0"+
+    "\10\0\1\11\6\1\1\11\16\1\1\11\17\1\3\0"+
     "\5\1\2\11\4\1\2\0\3\1\1\11\1\0\1\1"+
     "\1\11\1\0";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[72];
+    int [] result = new int[70];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -285,7 +275,14 @@ public class StellarisScriptLexer implements FlexLexer {
   private boolean zzEOFDone;
 
   /* user code: */
-  int depth=0;
+  int depth = 0;
+
+  public int nextState(){
+  	if(depth <= 0)
+  		return YYINITIAL;
+  	else
+  		return WAITING_PROPERTY_KEY;
+  }
 
 
   /**
@@ -536,138 +533,132 @@ public class StellarisScriptLexer implements FlexLexer {
             { return BAD_CHARACTER;
             } 
             // fall through
-          case 28: break;
+          case 27: break;
           case 2: 
             { return WHITE_SPACE;
             } 
             // fall through
-          case 29: break;
+          case 28: break;
           case 3: 
             { return COMMENT;
             } 
             // fall through
-          case 30: break;
+          case 29: break;
           case 4: 
             { yybegin(WATIING_PROPERTY_SEPARATOR); return PROPERTY_KEY_ID;
             } 
             // fall through
-          case 31: break;
+          case 30: break;
           case 5: 
             { yybegin(YYINITIAL); return WHITE_SPACE;
             } 
             // fall through
-          case 32: break;
+          case 31: break;
           case 6: 
             { yybegin(WAITING_VARIABLE_VALUE); return EQUAL_SIGN;
             } 
             // fall through
-          case 33: break;
+          case 32: break;
           case 7: 
             { yybegin(WAITING_VARIABLE_EOL); return NUMBER_TOKEN;
             } 
             // fall through
-          case 34: break;
+          case 33: break;
           case 8: 
             { yybegin(YYINITIAL); return END_OF_LINE_COMMENT;
             } 
             // fall through
-          case 35: break;
+          case 34: break;
           case 9: 
             { yybegin(WAITING_PROPERTY_EOL); return UNQUOTED_STRING_TOKEN;
             } 
             // fall through
-          case 36: break;
+          case 35: break;
           case 10: 
-            { if(depth<=0){ yybegin(WATIING_PROPERTY_SEPARATOR); return PROPERTY_KEY_ID;}
-        else{ yybegin(WAITING_PROPERTY_EOL); return UNQUOTED_STRING_TOKEN;}
+            { depth--; yybegin(nextState()); return RIGHT_BRACE;
+            } 
+            // fall through
+          case 36: break;
+          case 11: 
+            { yybegin(nextState()); return WHITE_SPACE;
             } 
             // fall through
           case 37: break;
-          case 11: 
-            { depth--; return RIGHT_BRACE;
-            } 
-            // fall through
-          case 38: break;
           case 12: 
-            { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE;
-            } 
-            // fall through
-          case 39: break;
-          case 13: 
             { yybegin(WAITING_PROPERTY_VALUE); return EQUAL_SIGN;
             } 
             // fall through
-          case 40: break;
-          case 14: 
+          case 38: break;
+          case 13: 
             { yybegin(WAITING_PROPERTY_VALUE); return LT_SIGN;
             } 
             // fall through
-          case 41: break;
-          case 15: 
+          case 39: break;
+          case 14: 
             { yybegin(WAITING_PROPERTY_VALUE); return GT_SIGN;
             } 
             // fall through
-          case 42: break;
-          case 16: 
+          case 40: break;
+          case 15: 
             { yybegin(WAITING_PROPERTY_EOL); return NUMBER_TOKEN;
             } 
             // fall through
-          case 43: break;
-          case 17: 
-            { depth++; yybegin(WAITING_PROPERTY_KEY); return LEFT_BRACE;
+          case 41: break;
+          case 16: 
+            { depth++;  yybegin(nextState()); return LEFT_BRACE;
             } 
             // fall through
-          case 44: break;
-          case 18: 
+          case 42: break;
+          case 17: 
             { return UNQUOTED_STRING_TOKEN;
             } 
             // fall through
-          case 45: break;
-          case 19: 
+          case 43: break;
+          case 18: 
             { return END_OF_LINE_COMMENT;
             } 
             // fall through
-          case 46: break;
-          case 20: 
-            { depth--; yybegin(WAITING_PROPERTY_KEY); return RIGHT_BRACE;
+          case 44: break;
+          case 19: 
+            { depth--;  yybegin(nextState()); return RIGHT_BRACE;
             } 
             // fall through
-          case 47: break;
-          case 21: 
+          case 45: break;
+          case 20: 
             { yybegin(WAITING_VARIABLE_EQUAL_SIGN); return VARIABLE_NAME_ID;
             } 
             // fall through
-          case 48: break;
-          case 22: 
+          case 46: break;
+          case 21: 
             { yybegin(WAITING_PROPERTY_EOL); return STRING_TOKEN;
             } 
             // fall through
-          case 49: break;
-          case 23: 
+          case 47: break;
+          case 22: 
             { yybegin(WAITING_PROPERTY_VALUE); return LE_SIGN;
             } 
             // fall through
-          case 50: break;
-          case 24: 
+          case 48: break;
+          case 23: 
             { yybegin(WAITING_PROPERTY_VALUE); return GE_SIGN;
             } 
             // fall through
-          case 51: break;
-          case 25: 
+          case 49: break;
+          case 24: 
             { yybegin(WAITING_PROPERTY_EOL); return BOOLEAN_TOKEN;
             } 
             // fall through
-          case 52: break;
-          case 26: 
+          case 50: break;
+          case 25: 
             { yybegin(WAITING_PROPERTY_EOL); return VARIABLE_REFERENCE_ID;
             } 
             // fall through
-          case 53: break;
-          case 27: 
+          case 51: break;
+          case 26: 
             { return STRING_TOKEN;
             } 
             // fall through
-          case 54: break;
+          case 52: break;
           default:
             zzScanError(ZZ_NO_MATCH);
           }

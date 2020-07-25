@@ -25,6 +25,7 @@ class StellarisScriptCompletionContributor : CompletionContributor() {
 		extend(
 			CompletionType.BASIC,
 			psiElement().afterSiblingSkipping(psiElement().whitespace(),psiElement(PROPERTY_SEPARATOR)),
+			//psiElement(PROPERTY_VALUE),
 			BooleanCompletionProvider()
 		)
 	}

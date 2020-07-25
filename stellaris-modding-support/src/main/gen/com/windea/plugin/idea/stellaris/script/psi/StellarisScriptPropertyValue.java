@@ -8,16 +8,13 @@ import com.intellij.psi.PsiElement;
 public interface StellarisScriptPropertyValue extends PsiElement {
 
   @Nullable
-  StellarisScriptArray getArray();
+  StellarisScriptBlock getBlock();
 
   @Nullable
   StellarisScriptBoolean getBoolean();
 
   @Nullable
   StellarisScriptNumber getNumber();
-
-  @Nullable
-  StellarisScriptObject getObject();
 
   @Nullable
   StellarisScriptString getString();

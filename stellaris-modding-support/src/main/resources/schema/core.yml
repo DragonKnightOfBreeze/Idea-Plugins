@@ -1,25 +1,34 @@
 definitions:
-  factor:
-    description: Multiplication factor.
-    type: number
-    minimum: 0.0
-    default: 1.00
+  int:
+    title: Integer
+    type: integer
+    default: 0
   uint:
-    description: Unsign integer.
+    title: Unsign Integer
     type: integer
     minimum: 0
     default: 0
+  number:
+    title: Number
+    type: number
+    default: 0.0
+  factor:
+    title: Multiplication Factor
+    type: number
+    minimum: 0.0
+    default: 1.00
   boolean:
-    description: Boolean value.
+    title: Boolean
     enum: [yes, no]
   resources:
+    title: Resources
     type: object
     propertyNames:
       $type: resource
     additionalProperties:
-      $ref: "#/definitions/unit"
+      $ref: "#/definitions/uint"
   trigger:
-    description: Conditions and predicates.
+    title: Trigger
     type: object
     anyOf:
     - properties:
@@ -36,8 +45,12 @@ definitions:
     - propertyNames:
         $type: scripted_trigger
   tech:
+    title: Tech Name
     $type: tech
   techs:
+    title: Tech Names
     type: array
     items:
       $ref: "#/definitions/tech"
+  mod_path:
+    type: string

@@ -14,14 +14,14 @@ class StellarisScriptVariablePsiReference(
 		return findScriptVariableDefinitionInFile(name,element.containingFile)
 	}
 
-	override fun multiResolve(incompleteCode: Boolean): Array<ResolveResult> {
-		return findScriptVariableDefinitions(element.project, name).mapArray {
+	override fun multiResolve(incompleteCode: Boolean): Array<out ResolveResult> {
+		return findScriptVariableDefinitionsInProject(name, element.project)?.mapArray {
 			PsiElementResolveResult(it)
-		}
+		}.orEmpty()
 	}
 
 	//用于代码补全
-	override fun getVariants(): Array<Any> {
+	override fun getVariants(): Array<out Any> {
 		return findAllScriptVariableDefinitions(element.project).mapArray {
 			createLookupElement(it.name!!,icon = it.getIcon(0),typeText = it.containingFile.name)
 		}

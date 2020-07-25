@@ -31,6 +31,8 @@
       <a href="https://steamcommunity.com/id/DragonKnightOfBreeze/myworkshopfiles/?appid=281990&browsefilter=myfiles&browsesort=myfiles&p=1">我的群星模组</a>。
     </p>
 
+    <hr/>
+
     <p>Support for Stellaris modding.</p>
     <ul>
       <li>Support Stellaris Script Language. (*.txt, *.gfx, *.mod)</li>
@@ -67,6 +69,8 @@
       <a href='https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/CHANGELOG.md'>CHANGELOG</a> 文档
       查看完整的更新日志。
     </p>
+
+    <hr/>
 
     <p>
       See the whole changelog at the

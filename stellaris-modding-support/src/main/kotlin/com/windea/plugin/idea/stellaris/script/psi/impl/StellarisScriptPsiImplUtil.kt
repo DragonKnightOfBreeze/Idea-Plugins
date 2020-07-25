@@ -104,18 +104,36 @@ object StellarisScriptPsiImplUtil {
 	}
 	//endregion
 
-	//region StellarisScriptArray
+	//region StellarisScriptBlock
 	@JvmStatic
-	fun getComponents(element: StellarisScriptArray): List<PsiElement> {
-		return  element.stringList
+	fun isArray(element: StellarisScriptBlock):Boolean{
+		return element.firstChild is StellarisScriptString
+	}
+
+	@JvmStatic
+	fun isObject(element: StellarisScriptBlock):Boolean{
+		return element.firstChild is StellarisScriptProperty
+	}
+
+	@JvmStatic
+	fun getComponents(element: StellarisScriptBlock): List<PsiElement> {
+		//如果存在元素为property，则认为所有合法的元素都是property
+		return if(element.isObject) element.propertyList else element.stringList
 	}
 	//endregion
 
-	//region StellarisScriptObject
-	@JvmStatic
-	fun getComponents(element: StellarisScriptObject): List<PsiElement> {
-		return element.propertyList
-	}
+	////region StellarisScriptArray
+	//@JvmStatic
+	//fun getComponents(element: StellarisScriptArray): List<PsiElement> {
+	//	return  element.stringList
+	//}
+	////endregion
+	//
+	////region StellarisScriptObject
+	//@JvmStatic
+	//fun getComponents(element: StellarisScriptObject): List<PsiElement> {
+	//	return element.propertyList
+	//}
 	//endregion
 
 	//region StellarisScriptString

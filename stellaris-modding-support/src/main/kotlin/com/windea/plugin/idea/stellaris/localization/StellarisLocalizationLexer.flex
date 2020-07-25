@@ -34,13 +34,13 @@ import static com.windea.plugin.idea.stellaris.localization.psi.StellarisLocaliz
 %state WAITING_COLORFUL_TEXT
 
 %{
-  int textDepth = 0;
+  int depth = 0;
 
-  public int textState(){
-  	if(textDepth <= 0)
-  		return WAITING_RICH_TEXT;
-  	else
-  		return WAITING_COLORFUL_TEXT;
+  public int nextState(){
+    if(depth <= 0)
+      return WAITING_RICH_TEXT;
+    else
+      return WAITING_COLORFUL_TEXT;
   }
 %}
 
@@ -56,9 +56,9 @@ ROOT_COMMENT=#[^\r\n]*
 NUMBER=\d
 LOCALE_ID=[a-z_]+
 PROPERTY_KEY_ID=[a-zA-Z][a-zA-Z0-9_.\-]*
-STRING_TOKEN=([^\"\r\n]|\\.)+
-INVALID_ESCAPE_TOKEN=\\[\"rn%$\[]
-VALID_ESCAPE_TOKEN=\\.
+STRING_TOKEN=([^\"\[$£§%\r\n\\]|\\.)+
+VALID_ESCAPE_TOKEN=\\[\"rn$£§%\[]
+INVALID_ESCAPE_TOKEN=\\.
 LEFT_QUOTE="\""
 RIGHT_QUOTE="\""
 PROPERTY_REFERENCE_START="$"
@@ -121,60 +121,62 @@ COLORFUL_TEXT_END="§!"
 }
 <WAITING_RICH_TEXT>{
   {RIGHT_QUOTE} { yybegin(WAITING_PROPERTY_KEY); return RIGHT_QUOTE;}
-  {INVALID_ESCAPE_TOKEN} {return INVALID_ESCAPE_TOKEN;}
-  {VALID_ESCAPE_TOKEN} {return VALID_ESCAPE_TOKEN;}
   {PROPERTY_REFERENCE_START} { yybegin(WAITING_PROPERTY_REFERENCE); return PROPERTY_REFERENCE_START;}
   {CODE_START} { yybegin(WAITING_CODE); return CODE_START;}
   {ICON_START} { yybegin(WAITING_ICON); return ICON_START;}
   {SERIAL_NUMBER_START} { yybegin(WAITING_SERIAL_NUMBER); return SERIAL_NUMBER_START;}
-  {COLORFUL_TEXT_START} { textDepth++; yybegin(WAITING_COLORFUL_TEXT_ID); return COLORFUL_TEXT_START;}
+  {COLORFUL_TEXT_START} { depth++; yybegin(WAITING_COLORFUL_TEXT_ID); return COLORFUL_TEXT_START;}
+  {VALID_ESCAPE_TOKEN} {return VALID_ESCAPE_TOKEN;}
+  {INVALID_ESCAPE_TOKEN} {return INVALID_ESCAPE_TOKEN;}
   {STRING_TOKEN} {  return STRING_TOKEN;}
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
 }
 <WAITING_PROPERTY_REFERENCE>{
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
   {RIGHT_QUOTE} { yybegin(WAITING_PROPERTY_KEY); return RIGHT_QUOTE;} //跳过非法字符
-  {PROPERTY_REFERENCE_END} {yybegin(textState()); return PROPERTY_REFERENCE_END;}
+  {PROPERTY_REFERENCE_END} {yybegin(nextState()); return PROPERTY_REFERENCE_END;}
   {PROPERTY_KEY_ID} {return PROPERTY_KEY_ID;}
   {PROPERTY_REFERENCE_SEPARATOR} { yybegin(WAITING_PROPERTY_REFERENCE_PARAMETER); return PROPERTY_REFERENCE_SEPARATOR;}
 }
 <WAITING_PROPERTY_REFERENCE_PARAMETER>{
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
   {RIGHT_QUOTE} { yybegin(WAITING_PROPERTY_KEY); return RIGHT_QUOTE;} //跳过非法字符
-  {PROPERTY_REFERENCE_END} {yybegin(textState()); return PROPERTY_REFERENCE_END;}
+  {PROPERTY_REFERENCE_END} {yybegin(nextState()); return PROPERTY_REFERENCE_END;}
   {PROPERTY_REFERENCE_PARAMETER} {return PROPERTY_REFERENCE_PARAMETER;}
 }
 <WAITING_CODE>{
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
   {RIGHT_QUOTE} { yybegin(WAITING_PROPERTY_KEY); return RIGHT_QUOTE;} //跳过非法字符
-  {CODE_END} {yybegin(textState()); return CODE_END;}
+  {CODE_END} {yybegin(nextState()); return CODE_END;}
   {CODE_TEXT} {return CODE_TEXT;}
 }
 <WAITING_ICON>{
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
   {RIGHT_QUOTE} { yybegin(WAITING_PROPERTY_KEY); return RIGHT_QUOTE;} //跳过非法字符
-  {ICON_END} {yybegin(textState()); return ICON_END;}
+  {ICON_END} {yybegin(nextState()); return ICON_END;}
   {ICON_ID} {return ICON_ID;}
 }
 <WAITING_SERIAL_NUMBER>{
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
   {RIGHT_QUOTE} { yybegin(WAITING_PROPERTY_KEY); return RIGHT_QUOTE;} //跳过非法字符
-  {SERIAL_NUMBER_END} {yybegin(textState()); return SERIAL_NUMBER_END;}
+  {SERIAL_NUMBER_END} {yybegin(nextState()); return SERIAL_NUMBER_END;}
   {SERIAL_NUMBER_ID} {return SERIAL_NUMBER_ID;}
 }
 <WAITING_COLORFUL_TEXT_ID>{
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
   {RIGHT_QUOTE} { yybegin(WAITING_PROPERTY_KEY); return RIGHT_QUOTE;} //跳过非法字符
-  {COLORFUL_TEXT_END} {textDepth--; yybegin(textState()); return COLORFUL_TEXT_END;} //跳过非法字符
+  {COLORFUL_TEXT_END} {depth--; yybegin(nextState()); return COLORFUL_TEXT_END;} //跳过非法字符
   {COLORFUL_TEXT_ID} {yybegin(WAITING_COLORFUL_TEXT); return COLORFUL_TEXT_ID;}
 }
 <WAITING_COLORFUL_TEXT>{
-  {COLORFUL_TEXT_END} {textDepth--;  ;yybegin(textState()); return COLORFUL_TEXT_END;} //跳过非法字符
+  {COLORFUL_TEXT_END} {depth--; yybegin(nextState()); return COLORFUL_TEXT_END;} //跳过非法字符
   {RIGHT_QUOTE} { yybegin(WAITING_PROPERTY_KEY); return RIGHT_QUOTE;}
   {PROPERTY_REFERENCE_START} { yybegin(WAITING_PROPERTY_REFERENCE); return PROPERTY_REFERENCE_START;}
   {CODE_START} { yybegin(WAITING_CODE); return CODE_START;}
   {ICON_START} { yybegin(WAITING_ICON); return ICON_START;}
   {SERIAL_NUMBER_START} { yybegin(WAITING_SERIAL_NUMBER); return SERIAL_NUMBER_START;}
+  {VALID_ESCAPE_TOKEN} {return VALID_ESCAPE_TOKEN;}
+  {INVALID_ESCAPE_TOKEN} {return INVALID_ESCAPE_TOKEN;}
   {STRING_TOKEN} {  return STRING_TOKEN;}
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
 }

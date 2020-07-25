@@ -28,8 +28,8 @@ public class StellarisScriptPropertyValueImpl extends ASTWrapperPsiElement imple
 
   @Override
   @Nullable
-  public StellarisScriptArray getArray() {
-    return findChildByClass(StellarisScriptArray.class);
+  public StellarisScriptBlock getBlock() {
+    return findChildByClass(StellarisScriptBlock.class);
   }
 
   @Override
@@ -42,12 +42,6 @@ public class StellarisScriptPropertyValueImpl extends ASTWrapperPsiElement imple
   @Nullable
   public StellarisScriptNumber getNumber() {
     return findChildByClass(StellarisScriptNumber.class);
-  }
-
-  @Override
-  @Nullable
-  public StellarisScriptObject getObject() {
-    return findChildByClass(StellarisScriptObject.class);
   }
 
   @Override

@@ -26,7 +26,8 @@ class StellarisLocalizationCompletionContributor : CompletionContributor() {
 	init {
 		extend(
 			CompletionType.BASIC,
-			psiElement().withParent(psiElement(PsiErrorElement::class.java).afterSibling(psiElement(LOCALE_ID))),
+			//psiElement().withParent(psiElement(PsiErrorElement::class.java).afterSibling(psiElement(LOCALE_ID))),
+			psiElement(LOCALE_ID),
 			LocaleCompletionProvider()
 		)
 	}
@@ -36,5 +37,8 @@ class StellarisLocalizationCompletionContributor : CompletionContributor() {
 		context.replacementOffset--
 	}
 
+	override fun fillCompletionVariants(parameters: CompletionParameters, result: CompletionResultSet) {
+		super.fillCompletionVariants(parameters, result)
+	}
 }
 

@@ -8,10 +8,9 @@ import com.windea.plugin.idea.stellaris.script.psi.impl.*;
 
 public interface StellarisScriptTypes {
 
-  IElementType ARRAY = new StellarisScriptElementType("ARRAY");
+  IElementType BLOCK = new StellarisScriptElementType("BLOCK");
   IElementType BOOLEAN = new StellarisScriptElementType("BOOLEAN");
   IElementType NUMBER = new StellarisScriptElementType("NUMBER");
-  IElementType OBJECT = new StellarisScriptElementType("OBJECT");
   IElementType PROPERTY = new StellarisScriptElementType("PROPERTY");
   IElementType PROPERTY_KEY = new StellarisScriptElementType("PROPERTY_KEY");
   IElementType PROPERTY_SEPARATOR = new StellarisScriptElementType("PROPERTY_SEPARATOR");
@@ -43,17 +42,14 @@ public interface StellarisScriptTypes {
   class Factory {
     public static PsiElement createElement(ASTNode node) {
       IElementType type = node.getElementType();
-      if (type == ARRAY) {
-        return new StellarisScriptArrayImpl(node);
+      if (type == BLOCK) {
+        return new StellarisScriptBlockImpl(node);
       }
       else if (type == BOOLEAN) {
         return new StellarisScriptBooleanImpl(node);
       }
       else if (type == NUMBER) {
         return new StellarisScriptNumberImpl(node);
-      }
-      else if (type == OBJECT) {
-        return new StellarisScriptObjectImpl(node);
       }
       else if (type == PROPERTY) {
         return new StellarisScriptPropertyImpl(node);

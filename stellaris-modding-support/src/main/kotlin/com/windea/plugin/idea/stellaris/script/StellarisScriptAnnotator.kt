@@ -57,17 +57,24 @@ class StellarisScriptAnnotator : Annotator ,DumbAware{
 	override fun annotate(element: PsiElement, holder: AnnotationHolder) {
 		when(element){
 			//字符串可能是script property、localization property
+			//只显示gutterIcon，不更改文本颜色
 			is StellarisScriptString -> {
+				println("is StellarisScriptString")
 				val resolve = element.reference?.resolve() ?: return
+				println("resolve: $resolve")
 				if(resolve is StellarisLocalizationProperty) {
+					println("is StellarisLocalizationProperty")
 					holder.newSilentAnnotation(INFORMATION)
 						.gutterIconRenderer(LocalizationPropertyGutterIconRenderer(resolve))
-						.textAttributes(StellarisLocalizationAttributesKeys.PROPERTY_KEY_KEY).create()
+						//.textAttributes(StellarisLocalizationAttributesKeys.PROPERTY_KEY_KEY)
+						.create()
 				}
-				if(resolve is StellarisScriptProperty) {
+				else if(resolve is StellarisScriptProperty) {
+					println("is StellarisScriptProperty")
 					holder.newSilentAnnotation(INFORMATION)
 						.gutterIconRenderer(ScriptPropertyGutterIconRenderer(resolve))
-						.textAttributes(StellarisScriptAttributesKeys.PROPERTY_KEY_KEY).create()
+						//.textAttributes(StellarisScriptAttributesKeys.PROPERTY_KEY_KEY)
+						.create()
 				}
 			}
 			//NOTE 不能这样做：可能是外部变量，而来源难以判断

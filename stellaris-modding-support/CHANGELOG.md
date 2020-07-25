@@ -71,6 +71,7 @@
 * [X] 更新项目描述
 * [X] 高亮转义字符
 * [X] 重构和重命名Psi
+* [X] 修复BUG
 * [ ] DocComment：仅允许第一个空行之前的LineComment作为DocComment
 
 ### 1.7
