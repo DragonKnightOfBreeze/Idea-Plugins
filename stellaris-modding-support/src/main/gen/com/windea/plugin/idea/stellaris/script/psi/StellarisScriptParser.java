@@ -62,13 +62,13 @@ public class StellarisScriptParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // END_OF_LINE_COMMENT | COMMENT | text
+  // END_OF_LINE_COMMENT | COMMENT | string
   static boolean array_item(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "array_item")) return false;
     boolean r;
     r = consumeToken(b, END_OF_LINE_COMMENT);
     if (!r) r = consumeToken(b, COMMENT);
-    if (!r) r = text(b, l + 1);
+    if (!r) r = string(b, l + 1);
     return r;
   }
 
@@ -224,18 +224,6 @@ public class StellarisScriptParser implements PsiParser, LightPsiParser {
     Marker m = enter_section_(b, l, _NONE_, STRING, "<string>");
     r = consumeToken(b, UNQUOTED_STRING_TOKEN);
     if (!r) r = consumeToken(b, STRING_TOKEN);
-    exit_section_(b, l, m, r, false, null);
-    return r;
-  }
-
-  /* ********************************************************** */
-  // string
-  public static boolean text(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "text")) return false;
-    if (!nextTokenIs(b, "<text>", STRING_TOKEN, UNQUOTED_STRING_TOKEN)) return false;
-    boolean r;
-    Marker m = enter_section_(b, l, _NONE_, TEXT, "<text>");
-    r = string(b, l + 1);
     exit_section_(b, l, m, r, false, null);
     return r;
   }

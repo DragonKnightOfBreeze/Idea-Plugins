@@ -28,8 +28,8 @@ public class StellarisScriptArrayImpl extends ASTWrapperPsiElement implements St
 
   @Override
   @NotNull
-  public List<StellarisScriptText> getTextList() {
-    return PsiTreeUtil.getChildrenOfTypeAsList(this, StellarisScriptText.class);
+  public List<StellarisScriptString> getStringList() {
+    return PsiTreeUtil.getChildrenOfTypeAsList(this, StellarisScriptString.class);
   }
 
   @Override

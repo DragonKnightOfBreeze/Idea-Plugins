@@ -107,7 +107,7 @@ object StellarisScriptPsiImplUtil {
 	//region StellarisScriptArray
 	@JvmStatic
 	fun getComponents(element: StellarisScriptArray): List<PsiElement> {
-		return  element.textList
+		return  element.stringList
 	}
 	//endregion
 
@@ -118,19 +118,12 @@ object StellarisScriptPsiImplUtil {
 	}
 	//endregion
 
-	//region StellarisScriptText
+	//region StellarisScriptString
 	@JvmStatic
-	fun getIcon(element: StellarisScriptText, @Iconable.IconFlags flags: Int): Icon? {
+	fun getIcon(element: StellarisScriptString, @Iconable.IconFlags flags: Int): Icon? {
 		return scriptTextIcon
 	}
 
-	@JvmStatic
-	fun getValue(element: StellarisScriptText): String {
-		return element.text.unquote()
-	}
-	//endregion
-
-	//region StellarisScriptString
 	@JvmStatic
 	fun getValue(element: StellarisScriptString): String {
 		return element.text.unquote()

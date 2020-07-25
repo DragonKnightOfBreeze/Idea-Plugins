@@ -5,7 +5,7 @@ import com.intellij.psi.TokenType;
 import com.intellij.psi.tree.IElementType;
 
 import static com.intellij.psi.TokenType.*;
-import static com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*;
+import static com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationTypes.*;
 
 %%
 

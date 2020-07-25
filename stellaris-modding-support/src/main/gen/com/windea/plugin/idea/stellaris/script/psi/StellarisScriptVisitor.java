@@ -4,8 +4,8 @@ package com.windea.plugin.idea.stellaris.script.psi;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiLiteralValue;
 import com.intellij.psi.PsiListLikeElement;
+import com.intellij.psi.PsiLiteralValue;
 
 public class StellarisScriptVisitor extends PsiElementVisitor {
 
@@ -42,10 +42,6 @@ public class StellarisScriptVisitor extends PsiElementVisitor {
   }
 
   public void visitString(@NotNull StellarisScriptString o) {
-    visitPsiLiteralValue(o);
-  }
-
-  public void visitText(@NotNull StellarisScriptText o) {
     visitPsiLiteralValue(o);
   }
 

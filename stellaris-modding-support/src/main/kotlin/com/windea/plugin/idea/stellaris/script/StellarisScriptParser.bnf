@@ -72,7 +72,7 @@ array ::= "{" array_item * "}" {
   implements="com.intellij.psi.PsiListLikeElement"
   methods=[getComponents]
 }
-private array_item ::= END_OF_LINE_COMMENT | COMMENT | text
+private array_item ::= END_OF_LINE_COMMENT | COMMENT | string
 
 object ::= "{" object_item * "}" {
  pin=1
@@ -81,16 +81,11 @@ object ::= "{" object_item * "}" {
 }
 private object_item ::= END_OF_LINE_COMMENT | COMMENT | property
 
-text ::= string {
-  implements="com.intellij.psi.PsiLiteralValue"
-  methods=[getIcon getValue]
-}
-
 boolean ::= BOOLEAN_TOKEN
 
 number ::= NUMBER_TOKEN
 
 string ::= UNQUOTED_STRING_TOKEN | STRING_TOKEN {
   implements="com.intellij.psi.PsiLiteralValue"
-  methods=[getValue getReference isValidPropertyKey]
+  methods=[getIcon getValue getReference isValidPropertyKey]
 }

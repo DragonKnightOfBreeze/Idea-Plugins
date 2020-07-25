@@ -17,7 +17,6 @@ public interface StellarisScriptTypes {
   IElementType PROPERTY_SEPARATOR = new StellarisScriptElementType("PROPERTY_SEPARATOR");
   IElementType PROPERTY_VALUE = new StellarisScriptElementType("PROPERTY_VALUE");
   IElementType STRING = new StellarisScriptElementType("STRING");
-  IElementType TEXT = new StellarisScriptElementType("TEXT");
   IElementType VARIABLE_DEFINITION = new StellarisScriptElementType("VARIABLE_DEFINITION");
   IElementType VARIABLE_DEFINITION_SEPARATOR = new StellarisScriptElementType("VARIABLE_DEFINITION_SEPARATOR");
   IElementType VARIABLE_NAME = new StellarisScriptElementType("VARIABLE_NAME");
@@ -70,9 +69,6 @@ public interface StellarisScriptTypes {
       }
       else if (type == STRING) {
         return new StellarisScriptStringImpl(node);
-      }
-      else if (type == TEXT) {
-        return new StellarisScriptTextImpl(node);
       }
       else if (type == VARIABLE_DEFINITION) {
         return new StellarisScriptVariableDefinitionImpl(node);

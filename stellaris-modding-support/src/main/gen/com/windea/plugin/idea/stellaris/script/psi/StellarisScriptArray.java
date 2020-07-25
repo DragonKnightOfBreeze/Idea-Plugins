@@ -9,7 +9,7 @@ import com.intellij.psi.PsiListLikeElement;
 public interface StellarisScriptArray extends PsiListLikeElement {
 
   @NotNull
-  List<StellarisScriptText> getTextList();
+  List<StellarisScriptString> getStringList();
 
   @NotNull
   List<PsiElement> getComponents();
