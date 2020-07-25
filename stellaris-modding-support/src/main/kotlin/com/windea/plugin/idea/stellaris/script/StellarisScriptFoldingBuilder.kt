@@ -18,7 +18,8 @@ class StellarisScriptFoldingBuilder : FoldingBuilder, DumbAware {
 	override fun getPlaceholderText(node: ASTNode): String? {
 		return when(node.elementType){
 			COMMENT -> "#..."
-			LIST -> "{...}"
+			ARRAY -> "{...}"
+			OBJECT -> "{...}"
 			VARIABLE_DEFINITION -> "@..."
 			else -> foldedBlock //不应该出现这种情况
 		}
@@ -38,7 +39,7 @@ class StellarisScriptFoldingBuilder : FoldingBuilder, DumbAware {
 		var startOffset: Int
 		var endOffset: Int
 		when(node.elementType) {
-			LIST -> {
+			ARRAY,OBJECT -> {
 				if(spanMultipleLines(node, document)) {
 					descriptors.add(FoldingDescriptor(node, node.textRange))
 				}

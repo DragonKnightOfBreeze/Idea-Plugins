@@ -5,19 +5,19 @@ import com.intellij.ide.structureView.impl.common.*
 import com.windea.plugin.idea.stellaris.script.psi.*
 
 class StellarisScriptPropertyTreeElement(
-	private val psiElement: StellarisScriptProperty?
-) : PsiTreeElementBase<StellarisScriptProperty>(psiElement) {
+	private val element: StellarisScriptProperty?
+) : PsiTreeElementBase<StellarisScriptProperty>(element) {
 	override fun getChildrenBase(): MutableCollection<StructureViewTreeElement> {
-		val list =  psiElement?.propertyValue?.list
-		//认为只要存在元素为text，则所有元素都是text
+		val array = element?.propertyValue?.array
+		val `object` = element?.propertyValue?.`object`
 		return when{
-			list == null -> mutableListOf()
-			list.textList.isEmpty() -> list.propertyList.mapTo(mutableListOf()) { StellarisScriptPropertyTreeElement(it) }
-			else -> list.textList.mapTo(mutableListOf()) { StellarisScriptTextTreeElement(it) }
+			array != null -> array.textList.mapTo(mutableListOf()) { StellarisScriptTextTreeElement(it) }
+			`object` != null ->  `object`.propertyList.mapTo(mutableListOf()) { StellarisScriptPropertyTreeElement(it) }
+			else -> mutableListOf()
 		}
 	}
 
 	override fun getPresentableText(): String? {
-		return psiElement?.name
+		return element?.name
 	}
 }

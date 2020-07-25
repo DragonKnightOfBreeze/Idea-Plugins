@@ -10,15 +10,16 @@ import com.intellij.psi.util.PsiTreeUtil;
 import static com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.windea.plugin.idea.stellaris.script.psi.*;
+import com.intellij.psi.PsiReference;
 
-public class StellarisScriptListImpl extends ASTWrapperPsiElement implements StellarisScriptList {
+public class StellarisScriptStringImpl extends ASTWrapperPsiElement implements StellarisScriptString {
 
-  public StellarisScriptListImpl(@NotNull ASTNode node) {
+  public StellarisScriptStringImpl(@NotNull ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull StellarisScriptVisitor visitor) {
-    visitor.visitList(this);
+    visitor.visitString(this);
   }
 
   public void accept(@NotNull PsiElementVisitor visitor) {
@@ -27,21 +28,32 @@ public class StellarisScriptListImpl extends ASTWrapperPsiElement implements Ste
   }
 
   @Override
-  @NotNull
-  public List<StellarisScriptProperty> getPropertyList() {
-    return PsiTreeUtil.getChildrenOfTypeAsList(this, StellarisScriptProperty.class);
+  @Nullable
+  public PsiElement getStringToken() {
+    return findChildByType(STRING_TOKEN);
+  }
+
+  @Override
+  @Nullable
+  public PsiElement getUnquotedStringToken() {
+    return findChildByType(UNQUOTED_STRING_TOKEN);
   }
 
   @Override
   @NotNull
-  public List<StellarisScriptText> getTextList() {
-    return PsiTreeUtil.getChildrenOfTypeAsList(this, StellarisScriptText.class);
+  public String getValue() {
+    return StellarisScriptPsiImplUtil.getValue(this);
   }
 
   @Override
-  @NotNull
-  public List<PsiElement> getComponents() {
-    return StellarisScriptPsiImplUtil.getComponents(this);
+  @Nullable
+  public PsiReference getReference() {
+    return StellarisScriptPsiImplUtil.getReference(this);
+  }
+
+  @Override
+  public boolean isValidPropertyKey() {
+    return StellarisScriptPsiImplUtil.isValidPropertyKey(this);
   }
 
 }

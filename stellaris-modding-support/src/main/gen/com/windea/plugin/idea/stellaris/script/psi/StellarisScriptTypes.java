@@ -8,14 +8,15 @@ import com.windea.plugin.idea.stellaris.script.psi.impl.*;
 
 public interface StellarisScriptTypes {
 
-  IElementType BOOLEAN_LITERAL = new StellarisScriptElementType("BOOLEAN_LITERAL");
-  IElementType LIST = new StellarisScriptElementType("LIST");
-  IElementType NUMBER_LITERAL = new StellarisScriptElementType("NUMBER_LITERAL");
+  IElementType ARRAY = new StellarisScriptElementType("ARRAY");
+  IElementType BOOLEAN = new StellarisScriptElementType("BOOLEAN");
+  IElementType NUMBER = new StellarisScriptElementType("NUMBER");
+  IElementType OBJECT = new StellarisScriptElementType("OBJECT");
   IElementType PROPERTY = new StellarisScriptElementType("PROPERTY");
   IElementType PROPERTY_KEY = new StellarisScriptElementType("PROPERTY_KEY");
   IElementType PROPERTY_SEPARATOR = new StellarisScriptElementType("PROPERTY_SEPARATOR");
   IElementType PROPERTY_VALUE = new StellarisScriptElementType("PROPERTY_VALUE");
-  IElementType STRING_LITERAL = new StellarisScriptElementType("STRING_LITERAL");
+  IElementType STRING = new StellarisScriptElementType("STRING");
   IElementType TEXT = new StellarisScriptElementType("TEXT");
   IElementType VARIABLE_DEFINITION = new StellarisScriptElementType("VARIABLE_DEFINITION");
   IElementType VARIABLE_DEFINITION_SEPARATOR = new StellarisScriptElementType("VARIABLE_DEFINITION_SEPARATOR");
@@ -23,34 +24,37 @@ public interface StellarisScriptTypes {
   IElementType VARIABLE_REFERENCE = new StellarisScriptElementType("VARIABLE_REFERENCE");
   IElementType VARIABLE_VALUE = new StellarisScriptElementType("VARIABLE_VALUE");
 
-  IElementType BOOLEAN = new StellarisScriptTokenType("BOOLEAN");
+  IElementType BOOLEAN_TOKEN = new StellarisScriptTokenType("BOOLEAN_TOKEN");
   IElementType COMMENT = new StellarisScriptTokenType("COMMENT");
   IElementType END_OF_LINE_COMMENT = new StellarisScriptTokenType("END_OF_LINE_COMMENT");
   IElementType EQUAL_SIGN = new StellarisScriptTokenType("=");
   IElementType GE_SIGN = new StellarisScriptTokenType(">=");
   IElementType GT_SIGN = new StellarisScriptTokenType(">");
-  IElementType KEY_TOKEN = new StellarisScriptTokenType("KEY_TOKEN");
   IElementType LEFT_BRACE = new StellarisScriptTokenType("{");
   IElementType LE_SIGN = new StellarisScriptTokenType("<=");
   IElementType LT_SIGN = new StellarisScriptTokenType("<");
-  IElementType NUMBER = new StellarisScriptTokenType("NUMBER");
+  IElementType NUMBER_TOKEN = new StellarisScriptTokenType("NUMBER_TOKEN");
+  IElementType PROPERTY_KEY_ID = new StellarisScriptTokenType("PROPERTY_KEY_ID");
   IElementType RIGHT_BRACE = new StellarisScriptTokenType("}");
-  IElementType STRING = new StellarisScriptTokenType("STRING");
-  IElementType UNQUOTED_STRING = new StellarisScriptTokenType("UNQUOTED_STRING");
-  IElementType VARIABLE_NAME_TOKEN = new StellarisScriptTokenType("VARIABLE_NAME_TOKEN");
-  IElementType VARIABLE_REFERENCE_TOKEN = new StellarisScriptTokenType("VARIABLE_REFERENCE_TOKEN");
+  IElementType STRING_TOKEN = new StellarisScriptTokenType("STRING_TOKEN");
+  IElementType UNQUOTED_STRING_TOKEN = new StellarisScriptTokenType("UNQUOTED_STRING_TOKEN");
+  IElementType VARIABLE_NAME_ID = new StellarisScriptTokenType("VARIABLE_NAME_ID");
+  IElementType VARIABLE_REFERENCE_ID = new StellarisScriptTokenType("VARIABLE_REFERENCE_ID");
 
   class Factory {
     public static PsiElement createElement(ASTNode node) {
       IElementType type = node.getElementType();
-      if (type == BOOLEAN_LITERAL) {
-        return new StellarisScriptBooleanLiteralImpl(node);
+      if (type == ARRAY) {
+        return new StellarisScriptArrayImpl(node);
       }
-      else if (type == LIST) {
-        return new StellarisScriptListImpl(node);
+      else if (type == BOOLEAN) {
+        return new StellarisScriptBooleanImpl(node);
       }
-      else if (type == NUMBER_LITERAL) {
-        return new StellarisScriptNumberLiteralImpl(node);
+      else if (type == NUMBER) {
+        return new StellarisScriptNumberImpl(node);
+      }
+      else if (type == OBJECT) {
+        return new StellarisScriptObjectImpl(node);
       }
       else if (type == PROPERTY) {
         return new StellarisScriptPropertyImpl(node);
@@ -64,8 +68,8 @@ public interface StellarisScriptTypes {
       else if (type == PROPERTY_VALUE) {
         return new StellarisScriptPropertyValueImpl(node);
       }
-      else if (type == STRING_LITERAL) {
-        return new StellarisScriptStringLiteralImpl(node);
+      else if (type == STRING) {
+        return new StellarisScriptStringImpl(node);
       }
       else if (type == TEXT) {
         return new StellarisScriptTextImpl(node);

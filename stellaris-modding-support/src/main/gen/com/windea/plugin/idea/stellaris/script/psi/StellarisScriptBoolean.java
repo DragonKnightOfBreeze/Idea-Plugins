@@ -5,9 +5,9 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
-public interface StellarisScriptBooleanLiteral extends PsiElement {
+public interface StellarisScriptBoolean extends PsiElement {
 
   @NotNull
-  PsiElement getBoolean();
+  PsiElement getBooleanToken();
 
 }

@@ -28,8 +28,8 @@ public class StellarisScriptVariableNameImpl extends ASTWrapperPsiElement implem
 
   @Override
   @NotNull
-  public PsiElement getVariableNameToken() {
-    return findNotNullChildByType(VARIABLE_NAME_TOKEN);
+  public PsiElement getVariableNameId() {
+    return findNotNullChildByType(VARIABLE_NAME_ID);
   }
 
 }

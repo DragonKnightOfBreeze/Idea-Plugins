@@ -11,14 +11,14 @@ import static com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.windea.plugin.idea.stellaris.script.psi.*;
 
-public class StellarisScriptVariableValueImpl extends ASTWrapperPsiElement implements StellarisScriptVariableValue {
+public class StellarisScriptArrayImpl extends ASTWrapperPsiElement implements StellarisScriptArray {
 
-  public StellarisScriptVariableValueImpl(@NotNull ASTNode node) {
+  public StellarisScriptArrayImpl(@NotNull ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull StellarisScriptVisitor visitor) {
-    visitor.visitVariableValue(this);
+    visitor.visitArray(this);
   }
 
   public void accept(@NotNull PsiElementVisitor visitor) {
@@ -28,14 +28,14 @@ public class StellarisScriptVariableValueImpl extends ASTWrapperPsiElement imple
 
   @Override
   @NotNull
-  public StellarisScriptNumber getNumber() {
-    return findNotNullChildByClass(StellarisScriptNumber.class);
+  public List<StellarisScriptText> getTextList() {
+    return PsiTreeUtil.getChildrenOfTypeAsList(this, StellarisScriptText.class);
   }
 
   @Override
-  @Nullable
-  public String getValue() {
-    return StellarisScriptPsiImplUtil.getValue(this);
+  @NotNull
+  public List<PsiElement> getComponents() {
+    return StellarisScriptPsiImplUtil.getComponents(this);
   }
 
 }

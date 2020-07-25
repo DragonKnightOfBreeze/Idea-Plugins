@@ -25,7 +25,7 @@ class StellarisScriptGoToDeclarationHandler:  GotoDeclarationHandlerBase() {
 				findScriptVariableDefinitionInFile(sourceElement.name, sourceElement.containingFile)?.let{return it}
 				findScriptVariableDefinitionInProject(sourceElement.name,sourceElement.project)
 			}
-			is StellarisScriptStringLiteral ->{
+			is StellarisScriptString ->{
 				if(!sourceElement.isValidPropertyKey) return null
 
 				val name = sourceElement.value
@@ -47,7 +47,7 @@ class StellarisScriptGoToDeclarationHandler:  GotoDeclarationHandlerBase() {
 				findScriptVariableDefinitionsInProject(sourceElement.name,sourceElement.project)?.let { return it.toTypedArray() }
 			}
 			//字符串可以是脚本文件属性，也可以是本地化文件属性
-			is StellarisScriptStringLiteral -> {
+			is StellarisScriptString -> {
 				if(!sourceElement.isValidPropertyKey) return null
 
 				val name = sourceElement.value

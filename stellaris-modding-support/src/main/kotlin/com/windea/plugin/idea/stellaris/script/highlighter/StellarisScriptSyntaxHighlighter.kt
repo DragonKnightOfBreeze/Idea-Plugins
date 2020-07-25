@@ -1,6 +1,5 @@
 package com.windea.plugin.idea.stellaris.script.highlighter
 
-import com.intellij.lexer.*
 import com.intellij.openapi.editor.colors.*
 import com.intellij.openapi.fileTypes.*
 import com.intellij.psi.*
@@ -30,13 +29,13 @@ class StellarisScriptSyntaxHighlighter : SyntaxHighlighterBase() {
 		StellarisScriptTypes.PROPERTY_SEPARATOR -> SEPARATOR_KEYS
 		StellarisScriptTypes.LEFT_BRACE -> BRACE_KEYS
 		StellarisScriptTypes.RIGHT_BRACE -> BRACE_KEYS
-		StellarisScriptTypes.VARIABLE_NAME_TOKEN -> VARIABLE_KEYS
-		StellarisScriptTypes.KEY_TOKEN -> PROPERTY_KEY_KEYS
-		StellarisScriptTypes.VARIABLE_REFERENCE_TOKEN -> VARIABLE_KEYS
-		StellarisScriptTypes.BOOLEAN -> KEYWORD_KEYS
-		StellarisScriptTypes.NUMBER -> NUMBER_KEYS
-		StellarisScriptTypes.STRING -> STRING_KEYS
-		StellarisScriptTypes.UNQUOTED_STRING -> STRING_KEYS
+		StellarisScriptTypes.VARIABLE_NAME_ID -> VARIABLE_KEYS
+		StellarisScriptTypes.PROPERTY_KEY_ID -> PROPERTY_KEY_KEYS
+		StellarisScriptTypes.VARIABLE_REFERENCE_ID -> VARIABLE_KEYS
+		StellarisScriptTypes.BOOLEAN_TOKEN -> KEYWORD_KEYS
+		StellarisScriptTypes.NUMBER_TOKEN -> NUMBER_KEYS
+		StellarisScriptTypes.STRING_TOKEN -> STRING_KEYS
+		StellarisScriptTypes.UNQUOTED_STRING_TOKEN -> STRING_KEYS
 		StellarisScriptTypes.COMMENT -> COMMENT_KEYS
 		StellarisScriptTypes.END_OF_LINE_COMMENT -> COMMENT_KEYS
 		StringEscapesTokenTypes.VALID_STRING_ESCAPE_TOKEN -> VALID_ESCAPE_KEYS

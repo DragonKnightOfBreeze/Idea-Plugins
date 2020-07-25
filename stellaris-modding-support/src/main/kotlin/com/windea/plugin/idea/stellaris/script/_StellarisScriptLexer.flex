@@ -1,6 +1,5 @@
 package com.windea.plugin.idea.stellaris.script;
 
-import com.intellij.lexer.FlexLexer;
 import com.intellij.psi.tree.IElementType;
 
 import static com.intellij.psi.TokenType.BAD_CHARACTER;
@@ -53,13 +52,13 @@ KEY_TOKEN=[a-z0-9_]+
   {BLANK}                         { return BLANK; }
   {COMMENT}                       { return COMMENT; }
   {END_OF_LINE_COMMENT}           { return END_OF_LINE_COMMENT; }
-  {BOOLEAN}                       { return BOOLEAN; }
-  {NUMBER}                        { return NUMBER; }
-  {VARIABLE_NAME_TOKEN}           { return VARIABLE_NAME_TOKEN; }
-  {VARIABLE_REFERENCE_TOKEN}      { return VARIABLE_REFERENCE_TOKEN; }
-  {STRING}                        { return STRING; }
-  {UNQUOTED_STRING}               { return UNQUOTED_STRING; }
-  {KEY_TOKEN}                     { return KEY_TOKEN; }
+  {BOOLEAN}                       { return BOOLEAN_TOKEN; }
+  {NUMBER}                        { return NUMBER_TOKEN; }
+  {VARIABLE_NAME_TOKEN}           { return VARIABLE_NAME_ID; }
+  {VARIABLE_REFERENCE_TOKEN}      { return VARIABLE_REFERENCE_ID; }
+  {STRING}                        { return STRING_TOKEN; }
+  {UNQUOTED_STRING}               { return UNQUOTED_STRING_TOKEN; }
+  {KEY_TOKEN}                     { return PROPERTY_KEY_ID; }
 
 }
 

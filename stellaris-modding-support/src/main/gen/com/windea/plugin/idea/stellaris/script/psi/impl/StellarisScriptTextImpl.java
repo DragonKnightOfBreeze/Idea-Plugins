@@ -30,8 +30,8 @@ public class StellarisScriptTextImpl extends ASTWrapperPsiElement implements Ste
 
   @Override
   @NotNull
-  public StellarisScriptStringLiteral getStringLiteral() {
-    return findNotNullChildByClass(StellarisScriptStringLiteral.class);
+  public StellarisScriptString getString() {
+    return findNotNullChildByClass(StellarisScriptString.class);
   }
 
   @Override

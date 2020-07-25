@@ -57,7 +57,7 @@ class StellarisScriptAnnotator : Annotator ,DumbAware{
 	override fun annotate(element: PsiElement, holder: AnnotationHolder) {
 		when(element){
 			//字符串可能是script property、localization property
-			is StellarisScriptStringLiteral -> {
+			is StellarisScriptString -> {
 				val resolve = element.reference?.resolve() ?: return
 				if(resolve is StellarisLocalizationProperty) {
 					holder.newSilentAnnotation(INFORMATION)

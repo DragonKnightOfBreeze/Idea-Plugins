@@ -35,7 +35,7 @@ class StellarisScriptParserDefinition : ParserDefinition {
 
 	override fun spaceExistenceTypeBetweenTokens(left: ASTNode?, right: ASTNode?) = when {
 		//文本之间必须有空白
-		left?.elementType == STRING_LITERAL && right?.elementType == STRING_LITERAL -> MUST
+		left?.elementType == STRING && right?.elementType == STRING -> MUST
 		//变量之前必须换行
 		right?.elementType == VARIABLE_NAME -> MUST_LINE_BREAK
 		//属性之前必须换行，除非是"{"

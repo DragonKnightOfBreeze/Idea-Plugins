@@ -29,8 +29,8 @@ public class StellarisScriptVariableReferenceImpl extends ASTWrapperPsiElement i
 
   @Override
   @NotNull
-  public PsiElement getVariableReferenceToken() {
-    return findNotNullChildByType(VARIABLE_REFERENCE_TOKEN);
+  public PsiElement getVariableReferenceId() {
+    return findNotNullChildByType(VARIABLE_REFERENCE_ID);
   }
 
   @Override

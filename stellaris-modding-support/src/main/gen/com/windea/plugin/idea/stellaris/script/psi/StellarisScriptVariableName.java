@@ -8,6 +8,6 @@ import com.intellij.psi.PsiElement;
 public interface StellarisScriptVariableName extends PsiElement {
 
   @NotNull
-  PsiElement getVariableNameToken();
+  PsiElement getVariableNameId();
 
 }

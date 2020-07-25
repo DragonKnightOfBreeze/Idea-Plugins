@@ -8,6 +8,6 @@ import com.intellij.psi.PsiElement;
 public interface StellarisScriptPropertyKey extends PsiElement {
 
   @NotNull
-  PsiElement getKeyToken();
+  PsiElement getPropertyKeyId();
 
 }

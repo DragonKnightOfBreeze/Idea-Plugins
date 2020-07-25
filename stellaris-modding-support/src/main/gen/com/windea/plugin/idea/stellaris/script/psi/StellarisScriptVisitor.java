@@ -9,16 +9,20 @@ import com.intellij.psi.PsiListLikeElement;
 
 public class StellarisScriptVisitor extends PsiElementVisitor {
 
-  public void visitBooleanLiteral(@NotNull StellarisScriptBooleanLiteral o) {
-    visitPsiElement(o);
-  }
-
-  public void visitList(@NotNull StellarisScriptList o) {
+  public void visitArray(@NotNull StellarisScriptArray o) {
     visitPsiListLikeElement(o);
   }
 
-  public void visitNumberLiteral(@NotNull StellarisScriptNumberLiteral o) {
+  public void visitBoolean(@NotNull StellarisScriptBoolean o) {
     visitPsiElement(o);
+  }
+
+  public void visitNumber(@NotNull StellarisScriptNumber o) {
+    visitPsiElement(o);
+  }
+
+  public void visitObject(@NotNull StellarisScriptObject o) {
+    visitPsiListLikeElement(o);
   }
 
   public void visitProperty(@NotNull StellarisScriptProperty o) {
@@ -37,7 +41,7 @@ public class StellarisScriptVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
-  public void visitStringLiteral(@NotNull StellarisScriptStringLiteral o) {
+  public void visitString(@NotNull StellarisScriptString o) {
     visitPsiLiteralValue(o);
   }
 

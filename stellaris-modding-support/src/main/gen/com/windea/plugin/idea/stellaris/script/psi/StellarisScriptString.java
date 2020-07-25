@@ -7,13 +7,13 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiLiteralValue;
 import com.intellij.psi.PsiReference;
 
-public interface StellarisScriptStringLiteral extends PsiLiteralValue {
+public interface StellarisScriptString extends PsiLiteralValue {
 
   @Nullable
-  PsiElement getString();
+  PsiElement getStringToken();
 
   @Nullable
-  PsiElement getUnquotedString();
+  PsiElement getUnquotedStringToken();
 
   @NotNull
   String getValue();

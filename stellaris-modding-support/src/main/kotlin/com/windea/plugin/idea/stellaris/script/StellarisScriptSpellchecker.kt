@@ -13,11 +13,11 @@ import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
 class StellarisScriptSpellchecker : SpellcheckingStrategy() {
 	override fun getTokenizer(element: PsiElement): Tokenizer<*> {
 		return when(element.elementType) {
-			VARIABLE_NAME_TOKEN -> TEXT_TOKENIZER
-			KEY_TOKEN -> TEXT_TOKENIZER
-			VARIABLE_REFERENCE_TOKEN -> TEXT_TOKENIZER
-			STRING -> TEXT_TOKENIZER
-			UNQUOTED_STRING -> TEXT_TOKENIZER
+			VARIABLE_NAME_ID -> TEXT_TOKENIZER
+			PROPERTY_KEY_ID -> TEXT_TOKENIZER
+			VARIABLE_REFERENCE_ID -> TEXT_TOKENIZER
+			STRING_TOKEN -> TEXT_TOKENIZER
+			UNQUOTED_STRING_TOKEN -> TEXT_TOKENIZER
 			COMMENT -> TEXT_TOKENIZER
 			END_OF_LINE_COMMENT -> TEXT_TOKENIZER
 			else -> EMPTY_TOKENIZER

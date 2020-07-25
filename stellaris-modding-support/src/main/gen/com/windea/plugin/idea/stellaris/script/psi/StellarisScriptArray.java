@@ -6,10 +6,7 @@ import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiListLikeElement;
 
-public interface StellarisScriptList extends PsiListLikeElement {
-
-  @NotNull
-  List<StellarisScriptProperty> getPropertyList();
+public interface StellarisScriptArray extends PsiListLikeElement {
 
   @NotNull
   List<StellarisScriptText> getTextList();

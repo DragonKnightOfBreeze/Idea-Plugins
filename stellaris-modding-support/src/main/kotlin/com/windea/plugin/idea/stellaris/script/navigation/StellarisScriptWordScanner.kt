@@ -7,9 +7,9 @@ import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
 
 class StellarisScriptWordScanner: DefaultWordsScanner(
 	StellarisScriptLexerAdapter(),
-	TokenSet.create(VARIABLE_NAME_TOKEN,VARIABLE_REFERENCE_TOKEN,KEY_TOKEN),
+	TokenSet.create(VARIABLE_NAME_ID,VARIABLE_REFERENCE_ID,PROPERTY_KEY_ID),
 	TokenSet.create(COMMENT, END_OF_LINE_COMMENT),
-	TokenSet.create(STRING, UNQUOTED_STRING)
+	TokenSet.create(STRING_TOKEN, UNQUOTED_STRING_TOKEN)
 ){
 	init {
 		setMayHaveFileRefsInLiterals(true)

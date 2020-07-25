@@ -9,7 +9,7 @@ import com.intellij.psi.PsiReference;
 public interface StellarisScriptVariableReference extends PsiElement {
 
   @NotNull
-  PsiElement getVariableReferenceToken();
+  PsiElement getVariableReferenceId();
 
   @NotNull
   PsiReference getReference();

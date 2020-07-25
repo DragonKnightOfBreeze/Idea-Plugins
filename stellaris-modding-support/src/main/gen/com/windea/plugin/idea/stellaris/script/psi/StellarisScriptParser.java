@@ -36,89 +36,100 @@ public class StellarisScriptParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // BOOLEAN
-  public static boolean boolean_literal(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "boolean_literal")) return false;
-    if (!nextTokenIs(b, BOOLEAN)) return false;
-    boolean r;
-    Marker m = enter_section_(b);
-    r = consumeToken(b, BOOLEAN);
-    exit_section_(b, m, BOOLEAN_LITERAL, r);
-    return r;
-  }
-
-  /* ********************************************************** */
-  // END_OF_LINE_COMMENT | COMMENT | text | property {
-  //   //recoverWhile=element_item_recover
-  // }
-  static boolean element_item(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "element_item")) return false;
-    boolean r;
-    Marker m = enter_section_(b);
-    r = consumeToken(b, END_OF_LINE_COMMENT);
-    if (!r) r = consumeToken(b, COMMENT);
-    if (!r) r = text(b, l + 1);
-    if (!r) r = element_item_3(b, l + 1);
-    exit_section_(b, m, null, r);
-    return r;
-  }
-
-  // property {
-  //   //recoverWhile=element_item_recover
-  // }
-  private static boolean element_item_3(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "element_item_3")) return false;
-    boolean r;
-    Marker m = enter_section_(b);
-    r = property(b, l + 1);
-    r = r && element_item_3_1(b, l + 1);
-    exit_section_(b, m, null, r);
-    return r;
-  }
-
-  // {
-  //   //recoverWhile=element_item_recover
-  // }
-  private static boolean element_item_3_1(PsiBuilder b, int l) {
-    return true;
-  }
-
-  /* ********************************************************** */
-  // element_item*
-  static boolean element_items(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "element_items")) return false;
-    while (true) {
-      int c = current_position_(b);
-      if (!element_item(b, l + 1)) break;
-      if (!empty_element_parsed_guard_(b, "element_items", c)) break;
-    }
-    return true;
-  }
-
-  /* ********************************************************** */
-  // "{" element_items "}"
-  public static boolean list(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "list")) return false;
+  // "{" array_item * "}"
+  public static boolean array(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "array")) return false;
     if (!nextTokenIs(b, LEFT_BRACE)) return false;
     boolean r, p;
-    Marker m = enter_section_(b, l, _NONE_, LIST, null);
+    Marker m = enter_section_(b, l, _NONE_, ARRAY, null);
     r = consumeToken(b, LEFT_BRACE);
     p = r; // pin = 1
-    r = r && report_error_(b, element_items(b, l + 1));
+    r = r && report_error_(b, array_1(b, l + 1));
     r = p && consumeToken(b, RIGHT_BRACE) && r;
     exit_section_(b, l, m, r, p, null);
     return r || p;
   }
 
+  // array_item *
+  private static boolean array_1(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "array_1")) return false;
+    while (true) {
+      int c = current_position_(b);
+      if (!array_item(b, l + 1)) break;
+      if (!empty_element_parsed_guard_(b, "array_1", c)) break;
+    }
+    return true;
+  }
+
   /* ********************************************************** */
-  // NUMBER
-  public static boolean number_literal(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "number_literal")) return false;
-    if (!nextTokenIs(b, NUMBER)) return false;
+  // END_OF_LINE_COMMENT | COMMENT | text
+  static boolean array_item(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "array_item")) return false;
+    boolean r;
+    r = consumeToken(b, END_OF_LINE_COMMENT);
+    if (!r) r = consumeToken(b, COMMENT);
+    if (!r) r = text(b, l + 1);
+    return r;
+  }
+
+  /* ********************************************************** */
+  // BOOLEAN_TOKEN
+  public static boolean boolean_$(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "boolean_$")) return false;
+    if (!nextTokenIs(b, BOOLEAN_TOKEN)) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = consumeToken(b, NUMBER);
-    exit_section_(b, m, NUMBER_LITERAL, r);
+    r = consumeToken(b, BOOLEAN_TOKEN);
+    exit_section_(b, m, BOOLEAN, r);
+    return r;
+  }
+
+  /* ********************************************************** */
+  // NUMBER_TOKEN
+  public static boolean number(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "number")) return false;
+    if (!nextTokenIs(b, NUMBER_TOKEN)) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeToken(b, NUMBER_TOKEN);
+    exit_section_(b, m, NUMBER, r);
+    return r;
+  }
+
+  /* ********************************************************** */
+  // "{" object_item * "}"
+  public static boolean object(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "object")) return false;
+    if (!nextTokenIs(b, LEFT_BRACE)) return false;
+    boolean r, p;
+    Marker m = enter_section_(b, l, _NONE_, OBJECT, null);
+    r = consumeToken(b, LEFT_BRACE);
+    p = r; // pin = 1
+    r = r && report_error_(b, object_1(b, l + 1));
+    r = p && consumeToken(b, RIGHT_BRACE) && r;
+    exit_section_(b, l, m, r, p, null);
+    return r || p;
+  }
+
+  // object_item *
+  private static boolean object_1(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "object_1")) return false;
+    while (true) {
+      int c = current_position_(b);
+      if (!object_item(b, l + 1)) break;
+      if (!empty_element_parsed_guard_(b, "object_1", c)) break;
+    }
+    return true;
+  }
+
+  /* ********************************************************** */
+  // END_OF_LINE_COMMENT | COMMENT | property
+  static boolean object_item(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "object_item")) return false;
+    boolean r;
+    r = consumeToken(b, END_OF_LINE_COMMENT);
+    if (!r) r = consumeToken(b, COMMENT);
+    if (!r) r = property(b, l + 1);
     return r;
   }
 
@@ -126,7 +137,7 @@ public class StellarisScriptParser implements PsiParser, LightPsiParser {
   // property_key property_separator property_value
   public static boolean property(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "property")) return false;
-    if (!nextTokenIs(b, KEY_TOKEN)) return false;
+    if (!nextTokenIs(b, PROPERTY_KEY_ID)) return false;
     boolean r, p;
     Marker m = enter_section_(b, l, _NONE_, PROPERTY, null);
     r = property_key(b, l + 1);
@@ -138,13 +149,13 @@ public class StellarisScriptParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // KEY_TOKEN
+  // PROPERTY_KEY_ID
   public static boolean property_key(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "property_key")) return false;
-    if (!nextTokenIs(b, KEY_TOKEN)) return false;
+    if (!nextTokenIs(b, PROPERTY_KEY_ID)) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = consumeToken(b, KEY_TOKEN);
+    r = consumeToken(b, PROPERTY_KEY_ID);
     exit_section_(b, m, PROPERTY_KEY, r);
     return r;
   }
@@ -165,16 +176,17 @@ public class StellarisScriptParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // boolean_literal | number_literal | variable_reference | string_literal | list
+  // boolean | number | variable_reference | string | array | object
   public static boolean property_value(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "property_value")) return false;
     boolean r;
     Marker m = enter_section_(b, l, _NONE_, PROPERTY_VALUE, "<property value>");
-    r = boolean_literal(b, l + 1);
-    if (!r) r = number_literal(b, l + 1);
+    r = boolean_$(b, l + 1);
+    if (!r) r = number(b, l + 1);
     if (!r) r = variable_reference(b, l + 1);
-    if (!r) r = string_literal(b, l + 1);
-    if (!r) r = list(b, l + 1);
+    if (!r) r = string(b, l + 1);
+    if (!r) r = array(b, l + 1);
+    if (!r) r = object(b, l + 1);
     exit_section_(b, l, m, r, false, null);
     return r;
   }
@@ -204,26 +216,26 @@ public class StellarisScriptParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // STRING | UNQUOTED_STRING
-  public static boolean string_literal(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "string_literal")) return false;
-    if (!nextTokenIs(b, "<string literal>", STRING, UNQUOTED_STRING)) return false;
+  // UNQUOTED_STRING_TOKEN | STRING_TOKEN
+  public static boolean string(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "string")) return false;
+    if (!nextTokenIs(b, "<string>", STRING_TOKEN, UNQUOTED_STRING_TOKEN)) return false;
     boolean r;
-    Marker m = enter_section_(b, l, _NONE_, STRING_LITERAL, "<string literal>");
-    r = consumeToken(b, STRING);
-    if (!r) r = consumeToken(b, UNQUOTED_STRING);
+    Marker m = enter_section_(b, l, _NONE_, STRING, "<string>");
+    r = consumeToken(b, UNQUOTED_STRING_TOKEN);
+    if (!r) r = consumeToken(b, STRING_TOKEN);
     exit_section_(b, l, m, r, false, null);
     return r;
   }
 
   /* ********************************************************** */
-  // string_literal
+  // string
   public static boolean text(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "text")) return false;
-    if (!nextTokenIs(b, "<text>", STRING, UNQUOTED_STRING)) return false;
+    if (!nextTokenIs(b, "<text>", STRING_TOKEN, UNQUOTED_STRING_TOKEN)) return false;
     boolean r;
     Marker m = enter_section_(b, l, _NONE_, TEXT, "<text>");
-    r = string_literal(b, l + 1);
+    r = string(b, l + 1);
     exit_section_(b, l, m, r, false, null);
     return r;
   }
@@ -232,7 +244,7 @@ public class StellarisScriptParser implements PsiParser, LightPsiParser {
   // variable_name variable_definition_separator variable_value
   public static boolean variable_definition(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "variable_definition")) return false;
-    if (!nextTokenIs(b, VARIABLE_NAME_TOKEN)) return false;
+    if (!nextTokenIs(b, VARIABLE_NAME_ID)) return false;
     boolean r, p;
     Marker m = enter_section_(b, l, _NONE_, VARIABLE_DEFINITION, null);
     r = variable_name(b, l + 1);
@@ -256,37 +268,37 @@ public class StellarisScriptParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // VARIABLE_NAME_TOKEN
+  // VARIABLE_NAME_ID
   public static boolean variable_name(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "variable_name")) return false;
-    if (!nextTokenIs(b, VARIABLE_NAME_TOKEN)) return false;
+    if (!nextTokenIs(b, VARIABLE_NAME_ID)) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = consumeToken(b, VARIABLE_NAME_TOKEN);
+    r = consumeToken(b, VARIABLE_NAME_ID);
     exit_section_(b, m, VARIABLE_NAME, r);
     return r;
   }
 
   /* ********************************************************** */
-  // VARIABLE_REFERENCE_TOKEN
+  // VARIABLE_REFERENCE_ID
   public static boolean variable_reference(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "variable_reference")) return false;
-    if (!nextTokenIs(b, VARIABLE_REFERENCE_TOKEN)) return false;
+    if (!nextTokenIs(b, VARIABLE_REFERENCE_ID)) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = consumeToken(b, VARIABLE_REFERENCE_TOKEN);
+    r = consumeToken(b, VARIABLE_REFERENCE_ID);
     exit_section_(b, m, VARIABLE_REFERENCE, r);
     return r;
   }
 
   /* ********************************************************** */
-  // number_literal
+  // number
   public static boolean variable_value(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "variable_value")) return false;
-    if (!nextTokenIs(b, NUMBER)) return false;
+    if (!nextTokenIs(b, NUMBER_TOKEN)) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = number_literal(b, l + 1);
+    r = number(b, l + 1);
     exit_section_(b, m, VARIABLE_VALUE, r);
     return r;
   }

@@ -70,7 +70,7 @@ object StellarisScriptPsiImplUtil {
 
 	@JvmStatic
 	fun getReference(element: StellarisScriptVariableReference):PsiReference{
-		return StellarisScriptVariablePsiReference(element,element.variableReferenceToken.textRangeInParent )
+		return StellarisScriptVariablePsiReference(element,element.variableReferenceId.textRangeInParent )
 	}
 	//endregion
 
@@ -104,11 +104,17 @@ object StellarisScriptPsiImplUtil {
 	}
 	//endregion
 
-	//region StellarisScriptPropertyList
+	//region StellarisScriptArray
 	@JvmStatic
-	fun getComponents(element: StellarisScriptList): List<PsiElement> {
-		//如果存在元素为text，则认为所有合法的元素都是text
-		return if(element.textList.isEmpty()) element.propertyList else element.textList
+	fun getComponents(element: StellarisScriptArray): List<PsiElement> {
+		return  element.textList
+	}
+	//endregion
+
+	//region StellarisScriptObject
+	@JvmStatic
+	fun getComponents(element: StellarisScriptObject): List<PsiElement> {
+		return element.propertyList
 	}
 	//endregion
 
@@ -124,22 +130,22 @@ object StellarisScriptPsiImplUtil {
 	}
 	//endregion
 
-	//region StellarisScriptStringLiteral
+	//region StellarisScriptString
 	@JvmStatic
-	fun getValue(element: StellarisScriptStringLiteral): String {
+	fun getValue(element: StellarisScriptString): String {
 		return element.text.unquote()
 	}
 
 	//只有可能是属性的键的情况下才有可能是引用
 	@JvmStatic
-	fun getReference(element:StellarisScriptStringLiteral):PsiReference?{
+	fun getReference(element: StellarisScriptString):PsiReference?{
 		if(!element.isValidPropertyKey) return null
 		return StellarisScriptStringLiteralPsiReference(element, TextRange(0,element.textLength))
 	}
 
 	//不包含空格的情况下才有可能是属性的键
 	@JvmStatic
-	fun isValidPropertyKey(element:StellarisScriptStringLiteral):Boolean{
+	fun isValidPropertyKey(element: StellarisScriptString):Boolean{
 		return !element.value.any { it.isWhitespace() }
 	}
 	//endregion

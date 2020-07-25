@@ -4,14 +4,14 @@ package com.windea.plugin.idea.stellaris.script.psi;
 import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiLiteralValue;
+import com.intellij.psi.PsiListLikeElement;
 
-public interface StellarisScriptVariableValue extends PsiLiteralValue {
+public interface StellarisScriptObject extends PsiListLikeElement {
 
   @NotNull
-  StellarisScriptNumber getNumber();
+  List<StellarisScriptProperty> getPropertyList();
 
-  @Nullable
-  String getValue();
+  @NotNull
+  List<PsiElement> getComponents();
 
 }

@@ -53,7 +53,7 @@ object StellarisScriptElementFactory {
 	/**创建属性的值*/
 	@JvmStatic
 	fun createPropertyValue(project: Project, value: String): PsiElement {
-		return createProperty(project, "a", value).propertyValue
+		return createProperty(project, "a", value).propertyValue!!
 			.also { logger.info { "create property value: '$it'" } }
 	}
 }

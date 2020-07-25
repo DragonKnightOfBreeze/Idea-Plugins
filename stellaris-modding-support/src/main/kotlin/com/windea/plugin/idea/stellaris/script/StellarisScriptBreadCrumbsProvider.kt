@@ -21,12 +21,12 @@ class StellarisScriptBreadCrumbsProvider :BreadcrumbsProvider{
 		return when(element){
 			is StellarisScriptProperty -> element.name
 			is StellarisScriptVariableDefinition -> element.name
-			is StellarisScriptStringLiteral -> element.text
+			is StellarisScriptString -> element.text
 			else -> breadCrumbsElement
 		} ?: anonymousElement
 	}
 
 	override fun acceptElement(element: PsiElement): Boolean {
-		return element is StellarisScriptProperty || element is StellarisScriptVariableName || element is StellarisScriptStringLiteral
+		return element is StellarisScriptProperty || element is StellarisScriptVariableName || element is StellarisScriptString
 	}
 }

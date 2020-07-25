@@ -11,14 +11,14 @@ import static com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.windea.plugin.idea.stellaris.script.psi.*;
 
-public class StellarisScriptBooleanLiteralImpl extends ASTWrapperPsiElement implements StellarisScriptBooleanLiteral {
+public class StellarisScriptBooleanImpl extends ASTWrapperPsiElement implements StellarisScriptBoolean {
 
-  public StellarisScriptBooleanLiteralImpl(@NotNull ASTNode node) {
+  public StellarisScriptBooleanImpl(@NotNull ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull StellarisScriptVisitor visitor) {
-    visitor.visitBooleanLiteral(this);
+    visitor.visitBoolean(this);
   }
 
   public void accept(@NotNull PsiElementVisitor visitor) {
@@ -28,8 +28,8 @@ public class StellarisScriptBooleanLiteralImpl extends ASTWrapperPsiElement impl
 
   @Override
   @NotNull
-  public PsiElement getBoolean() {
-    return findNotNullChildByType(BOOLEAN);
+  public PsiElement getBooleanToken() {
+    return findNotNullChildByType(BOOLEAN_TOKEN);
   }
 
 }

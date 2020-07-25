@@ -11,7 +11,7 @@ import javax.swing.Icon;
 public interface StellarisScriptText extends PsiLiteralValue {
 
   @NotNull
-  StellarisScriptStringLiteral getStringLiteral();
+  StellarisScriptString getString();
 
   @Nullable
   Icon getIcon(@IconFlags int flags);
