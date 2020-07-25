@@ -54,3 +54,7 @@ definitions:
       $ref: "#/definitions/tech"
   mod_path:
     type: string
+  game_path:
+    type: string
+  workshop_path:
+    type: string

@@ -21,7 +21,7 @@ class StellarisScriptAnnotator : Annotator ,DumbAware{
 	class ScriptPropertyGutterIconRenderer(
 		private val property:StellarisScriptProperty
 	): GutterIconRenderer(),DumbAware {
-		override fun getIcon() = externalLocalizationPropertyIcon
+		override fun getIcon() = externalScriptPropertyIcon
 
 		override fun getTooltipText() = message("stellaris.script.annotator.externalScriptProperty", property.name!!)
 
@@ -35,7 +35,7 @@ class StellarisScriptAnnotator : Annotator ,DumbAware{
 	class LocalizationPropertyGutterIconRenderer(
 		private val property:StellarisLocalizationProperty
 	): GutterIconRenderer(),DumbAware {
-		override fun getIcon() = externalScriptPropertyIcon
+		override fun getIcon() = externalLocalizationPropertyIcon
 
 		override fun getTooltipText() = message("stellaris.script.annotator.externalLocalizationProperty", property.name!!)
 
@@ -59,7 +59,6 @@ class StellarisScriptAnnotator : Annotator ,DumbAware{
 			//字符串可能是script property、localization property
 			//只显示gutterIcon，不更改文本颜色
 			is StellarisScriptString -> {
-				println("is StellarisScriptString")
 				val resolve = element.reference?.resolve() ?: return
 				println("resolve: $resolve")
 				if(resolve is StellarisLocalizationProperty) {

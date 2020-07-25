@@ -9,7 +9,7 @@ class StellarisScriptPropertyPsiReference(
 	rangeInElement: TextRange
 ) : PsiReferenceBase<PsiElement>(element, rangeInElement), PsiPolyVariantReference {
 	//去除包围的引号
-	private val name = rangeInElement.substring(element.text).unquote()
+	private val name = element.text.unquote()
 
 	override fun resolve(): PsiElement? {
 		return findScriptPropertyInProject(name,element.project)

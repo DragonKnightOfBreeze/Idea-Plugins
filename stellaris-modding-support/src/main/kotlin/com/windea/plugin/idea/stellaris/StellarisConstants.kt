@@ -22,6 +22,7 @@ const val stellarisLocalizationLanguageName = "$stellarisLocalizationName Langua
 const val stellarisLocalizationFileTypeName = "$stellarisLocalizationName File"
 const val stellarisLocalizationFileTypeDescription = "$stellarisLocalizationName Language"
 const val stellarisLocalizationExtension = "yml"
+
 val stellarisLocalizationDummyText = "/example.yml".toClassPathResource<StellarisBundle>().readText()
 val stellarisLocalizationLocaleRegex = "[a-z_]+".toRegex()
 val stellarisLocalizationPropertyKeyRegex = "[a-zA-Z][a-zA-Z0-9_.]*".toRegex()
@@ -33,6 +34,7 @@ const val stellarisScriptLanguageName = "$stellarisScriptName Language"
 const val stellarisScriptFileTypeName = "$stellarisScriptName File"
 const val stellarisScriptFileTypeDescription = "$stellarisScriptName Language"
 const val stellarisScriptExtension = "txt"
+
 val stellarisScriptDummyText = "/example.txt".toClassPathResource<StellarisBundle>().readText()
 val stellarisScriptVariableRegex = "@[a-zA-Z0-9_-]+".toRegex()
 val stellarisScriptPropertyRegex = "[a-z0-9_-]+".toRegex()

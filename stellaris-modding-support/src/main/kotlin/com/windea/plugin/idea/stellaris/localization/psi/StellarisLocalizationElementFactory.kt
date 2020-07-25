@@ -17,7 +17,7 @@ object StellarisLocalizationElementFactory {
 
 	@JvmStatic
 	fun createLocale(project: Project, locale: String): StellarisLocalizationLocale {
-		return createDummyFile(project, "$locale:").Locale!!
+		return createDummyFile(project, "$locale:").locale!!
 			.also { logger.info { "create locale: '$it'" } }
 	}
 
