@@ -52,7 +52,7 @@ const val stellarisBundleName = "messages.StellarisBundle"
 
 val localizationFileIcon = IconLoader.getIcon("/icons/stellaris_localization.png")
 val localizationLocaleIcon = AllIcons.FileTypes.Properties
-val localizationPropertyIcon = AllIcons.Nodes.Property
+val localizationPropertyIcon = AllIcons.Nodes.PropertyRead
 
 val scriptFileIcon = IconLoader.getIcon("/icons/stellaris_script.png")
 val scriptVariableIcon = AllIcons.Nodes.Variable
