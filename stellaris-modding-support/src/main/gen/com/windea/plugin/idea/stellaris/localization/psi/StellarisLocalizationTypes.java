@@ -12,6 +12,7 @@ public interface StellarisLocalizationTypes {
   IElementType COLORFUL_TEXT = new StellarisLocalizationElementType("COLORFUL_TEXT");
   IElementType ESCAPE = new StellarisLocalizationElementType("ESCAPE");
   IElementType ICON = new StellarisLocalizationElementType("ICON");
+  IElementType ICON_NAME = new StellarisLocalizationElementType("ICON_NAME");
   IElementType LOCALE = new StellarisLocalizationElementType("LOCALE");
   IElementType PROPERTY = new StellarisLocalizationElementType("PROPERTY");
   IElementType PROPERTY_KEY = new StellarisLocalizationElementType("PROPERTY_KEY");
@@ -31,7 +32,6 @@ public interface StellarisLocalizationTypes {
   IElementType COMMENT = new StellarisLocalizationTokenType("COMMENT");
   IElementType END_OF_LINE_COMMENT = new StellarisLocalizationTokenType("END_OF_LINE_COMMENT");
   IElementType ICON_END = new StellarisLocalizationTokenType("£");
-  IElementType ICON_ID = new StellarisLocalizationTokenType("ICON_ID");
   IElementType ICON_START = new StellarisLocalizationTokenType("ICON_START");
   IElementType INVALID_ESCAPE_TOKEN = new StellarisLocalizationTokenType("INVALID_ESCAPE_TOKEN");
   IElementType LEFT_QUOTE = new StellarisLocalizationTokenType("LEFT_QUOTE");
@@ -64,6 +64,9 @@ public interface StellarisLocalizationTypes {
       }
       else if (type == ICON) {
         return new StellarisLocalizationIconImpl(node);
+      }
+      else if (type == ICON_NAME) {
+        return new StellarisLocalizationIconNameImpl(node);
       }
       else if (type == LOCALE) {
         return new StellarisLocalizationLocaleImpl(node);

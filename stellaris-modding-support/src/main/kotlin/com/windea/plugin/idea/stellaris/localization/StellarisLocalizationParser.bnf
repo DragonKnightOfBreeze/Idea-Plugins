@@ -32,7 +32,6 @@
 	  CODE_TEXT="regexp:[^\[\]\r\n]+"
 	  CODE_END="]"
 	  ICON_START="£"
-	  ICON_ID="regexp:[a-z_]+"
 	  ICON_END="£"
 	  SERIAL_NUMBER_START="%"
 	  SERIAL_NUMBER_ID="regexp:[A-Z]"
@@ -82,12 +81,13 @@ property_reference ::= PROPERTY_REFERENCE_START PROPERTY_KEY_ID [PROPERTY_REFERE
 code ::= CODE_START CODE_TEXT? CODE_END{
   pin=1
 }
-icon ::= ICON_START ICON_ID ICON_END {
+icon ::= ICON_START icon_name ICON_END {
   pin=1
   mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"
   implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
   methods=[getName setName getNameIdentifier getTextOffset  getReference]
 }
+icon_name ::= property_reference | string
 serial_number ::= SERIAL_NUMBER_START SERIAL_NUMBER_ID SERIAL_NUMBER_END {
   pin=1
   mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"

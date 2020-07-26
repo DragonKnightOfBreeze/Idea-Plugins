@@ -9,7 +9,7 @@ import com.windea.plugin.idea.stellaris.localization.reference.StellarisLocaliza
 public interface StellarisLocalizationIcon extends StellarisLocalizationNamedElement {
 
   @Nullable
-  PsiElement getIconId();
+  StellarisLocalizationIconName getIconName();
 
   @Nullable
   String getName();

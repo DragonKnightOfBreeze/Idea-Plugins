@@ -97,16 +97,31 @@ public class StellarisLocalizationParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // ICON_START ICON_ID ICON_END
+  // ICON_START icon_name ICON_END
   public static boolean icon(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "icon")) return false;
     if (!nextTokenIs(b, ICON_START)) return false;
     boolean r, p;
     Marker m = enter_section_(b, l, _NONE_, ICON, null);
-    r = consumeTokens(b, 1, ICON_START, ICON_ID, ICON_END);
+    r = consumeToken(b, ICON_START);
     p = r; // pin = 1
+    r = r && report_error_(b, icon_name(b, l + 1));
+    r = p && consumeToken(b, ICON_END) && r;
     exit_section_(b, l, m, r, p, null);
     return r || p;
+  }
+
+  /* ********************************************************** */
+  // property_reference | string
+  public static boolean icon_name(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "icon_name")) return false;
+    if (!nextTokenIs(b, "<icon name>", PROPERTY_REFERENCE_START, STRING_TOKEN)) return false;
+    boolean r;
+    Marker m = enter_section_(b, l, _NONE_, ICON_NAME, "<icon name>");
+    r = property_reference(b, l + 1);
+    if (!r) r = string(b, l + 1);
+    exit_section_(b, l, m, r, false, null);
+    return r;
   }
 
   /* ********************************************************** */
