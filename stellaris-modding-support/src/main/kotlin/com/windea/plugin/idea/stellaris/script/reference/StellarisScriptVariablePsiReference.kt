@@ -16,15 +16,15 @@ class StellarisScriptVariablePsiReference(
 	}
 
 	override fun multiResolve(incompleteCode: Boolean): Array<out ResolveResult> {
-		return findScriptVariableDefinitions(name, element.project)?.mapArray {
+		return findScriptVariableDefinitions(name, element.project,element.resolveScope).mapArray {
 			PsiElementResolveResult(it)
-		}.orEmpty()
+		}
 	}
 
 	//用于代码补全
 	//TODO 认为只有在特定的作用域内才提示变量
 	override fun getVariants(): Array<out Any> {
-		return findAllScriptVariableDefinitions(element.project).mapArray {
+		return findAllScriptVariableDefinitions(element.project,element.resolveScope).mapArray {
 			LookupElementBuilder.create(it.name!!).withIcon(it.getIcon(0)).withTypeText(it.containingFile.name)
 				.withPsiElement(it)
 		}

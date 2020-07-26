@@ -5,10 +5,10 @@ definitions:
     type: object
     properties:
       weight_modifier:
-        $ref: "#/definitions/weight_modifier"
+        $ref: "core.yml/#/definitions/weight_modifier"
       # anyOf
       modifier:
-        $ref: "#/definitions/modifier"
+        $ref: "core.yml/#/definitions/modifier"
 
 title: Agendas
 type: object

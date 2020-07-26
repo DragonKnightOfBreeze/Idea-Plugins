@@ -4,6 +4,16 @@ definitions:
     title: Artifact Action
     type: object
     properties:
+      resources:
+        $ref: "core.yml/#/definitions/resources"
+      ai_weight:
+        $ref: "core.yml/#/definitions/weight_modifier"
+      potential:
+        $ref: "core.yml/#/definitions/trigger"
+      allow:
+        $ref: "core.yml/#/definitions/effect"
+      effect:
+        $ref: "core.yml/#/definitions/effect"
 
 
 

@@ -71,20 +71,20 @@ definitions:
     additionalProperties:
       $ref: "#/definitions/uint"
 
+  condition_expression:
+    title: Condition Expression
+    type: object
+    # TODO
+    properties:
+      if: true
+      else_if: true
+      else: true
   trigger:
     title: Trigger
     type: object
     anyOf:
-    - properties:
-        NOT:
-          $ref: "#/definitions/trigger"
-        OR:
-          $ref: "#/definitions/trigger"
-        NOR:
-          $ref: "#/definitions/trigger"
-        AND:
-          $ref: "#/definitions/trigger"
-        always:
+    - $ref: "#/definitions/boolean_expression"
+    - always:
           $ref: "#/definitions/boolean"
     - properties:
         from:
@@ -93,6 +93,18 @@ definitions:
           $ref: "#/definitions/trigger"
     - propertyNames:
         $type: scripted_trigger
+  boolean_expression:
+    title: Boolean Expression
+    type: object
+    properties:
+      NOT:
+        $ref: "#/definitions/trigger"
+      OR:
+        $ref: "#/definitions/trigger"
+      NOR:
+        $ref: "#/definitions/trigger"
+      AND:
+        $ref: "#/definitions/trigger"
   weight_modifier:
     title: Weighted Modifier
     type: object
@@ -155,6 +167,7 @@ definitions:
     title: Effect
     type: object
     anyOf:
+    - $ref: "core.yml/#/definitions/condition_expression"
     - $ref: "core.yml/#/definitions/trigger"
     - properties:
         custom_tooltip:
