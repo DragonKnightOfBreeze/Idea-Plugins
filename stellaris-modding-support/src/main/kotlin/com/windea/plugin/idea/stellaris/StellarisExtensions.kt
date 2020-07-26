@@ -182,16 +182,18 @@ fun selectElement(editor: Editor, element: PsiElement?) {
 }
 //endregion
 
+//NOTE 如果最终只需要一个结果而需要在多个文件中查找，那么使用Sequence而非List以提高性能
+
 //region Stellaris Script
 fun findScriptVariableDefinitionInFile(name: String?, psiFile: PsiFile?): StellarisScriptVariableDefinition? {
 	if(name == null || psiFile !is StellarisScriptFile) return null
-	return psiFile.variableDefinitions.firstOrNull { it.name == name }
+	return psiFile.variableDefinitions.find { it.name == name }
 }
 
 fun findScriptVariableDefinitionInProject(name: String?, project: Project): StellarisScriptVariableDefinition? {
 	if(name == null) return null
 	val files = project.findPsiFiles(StellarisScriptFileType) as List<StellarisScriptFile>
-	return files.flatMap { it.variableDefinitions.toList() }.firstOrNull { it.name == name }
+	return files.asSequence().flatMap { it.variableDefinitions.asSequence() }.find { it.name == name }
 }
 
 fun findScriptVariableDefinitionsInProject(name: String?, project: Project): List<StellarisScriptVariableDefinition>? {
@@ -209,7 +211,7 @@ fun findAllScriptVariableDefinitions(project: Project): List<StellarisScriptVari
 fun findScriptPropertyInProject(name: String?, project: Project): StellarisScriptProperty? {
 	if(name == null) return null
 	val files = project.findPsiFiles(StellarisScriptFileType) as List<StellarisScriptFile>
-	return files.flatMap { it.properties.toList() }.firstOrNull { it.name == name }
+	return files .asSequence().flatMap { it.properties.asSequence() }.find { it.name == name }
 }
 
 fun findScriptPropertiesInProject(name: String?, project: Project): List<StellarisScriptProperty>? {
@@ -238,7 +240,7 @@ fun findLocalizationPropertiesInFile(name: String?, psiFile: PsiFile): List<Stel
 fun findLocalizationPropertyInProject(name: String?, project: Project): StellarisLocalizationProperty? {
 	if(name == null) return null
 	val files = project.findPsiFiles(StellarisLocalizationFileType) as List<StellarisLocalizationFile>
-	return files.flatMap { it.properties.toList() }.firstOrNull { it.name == name }
+	return files.asSequence().flatMap { it.properties.asSequence() }.find { it.name == name }
 }
 
 fun findLocalizationPropertiesInProject(name: String?, project: Project): List<StellarisLocalizationProperty>? {
