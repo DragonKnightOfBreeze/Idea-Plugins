@@ -72,9 +72,10 @@
 * [X] 高亮转义字符
 * [X] 重构和重命名Psi
 * [X] 修复BUG
-* [ ] DocComment：仅允许第一个空行之前的LineComment作为DocComment
 
 ### 1.7
 
+* [X] 修复对于语言区域的代码补全中的BUG，当提示时包含已输入的字符
 * [ ] 编写Stellaris的文件结构文档和Json Schema文档
+* [ ] DocComment：仅允许第一个空行之前的LineComment作为DocComment
 

@@ -12,17 +12,47 @@ definitions:
     title: Number
     type: number
     default: 0.0
+  boolean:
+    title: Boolean
+    enum: [yes, no]
+
+  level:
+    title: Level
+    type: integer
+    default: 1
+    minimum: 1
+    # maximum: 10 # 为了兼容mod
+  difficulty:
+    title: Difficulty
+    type: integer
+    default: 1
+    minimum: 1
+    # maximum: 10 # 为了兼容mod
+  chance:
+    title: Chance
+    type: number
+    minimum: 0.0
+    default: 1.00
   factor:
     title: Multiplication Factor
     type: number
     minimum: 0.0
     default: 1.00
-  boolean:
-    title: Boolean
-    enum: [yes, no]
 
-  resources:
-    title: Resources
+  localization_property_reference:
+    title: Localization Property Reference / String
+  gfx_reference:
+    title: GFX Reference
+
+  resources_cost:
+    title: Resources Cost
+    type: object
+    propertyNames:
+      $type: resource
+    additionalProperties:
+        $ref: "#/definitions/uint"
+  resources_upkeep:
+    title: Resources Upkeep
     type: object
     propertyNames:
       $type: resource
@@ -71,6 +101,14 @@ definitions:
           add:
             $ref: "#/definitions/number"
     - $ref: "#/definitions/trigger"
+  modifier_chance:
+    type: object
+    properties:
+      base:
+        $ref: "core.yml/#/definitions/uint"
+      # anyOf
+      modifier:
+        $ref: "#/definitions/modifier"
   # TODO
   category:
     title: Category

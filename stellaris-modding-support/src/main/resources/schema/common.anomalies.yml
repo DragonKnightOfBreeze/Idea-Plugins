@@ -1,0 +1,63 @@
+definitions:
+  # 背景对象
+  anomaly:
+    title: Annomaly
+    type: object
+    properties:
+      should_ai_use:
+        $ref: "core.yml/#/definitions/boolean"
+        default: no
+      show_ai_and_humans_use:
+        $ref: "core.yml/#/definitions/boolean"
+        default: no
+      # opt
+      desc:
+        oneOf:
+        - $ref: "core.yml/#/definitions/localization_property_reference"
+        - $ref: "core.yml/#/definitions/trigger"
+          properties:
+            text:
+              $ref: "core.yml/#/definitions/localization_property_reference"
+      picture:
+        $ref: "core.yml/#/definitions/gfx_reference"
+      level:
+        $ref: "core.yml/#/definitions/level"
+      null_spawn_chance:
+        $ref: "core.yml/#/definitions/chance"
+      max_once:
+        $ref: "core.yml/#/definitions/boolean"
+        default: no
+      max_once_global:
+        $ref: "core.yml/#/definitions/boolean"
+        default: no
+      spawn_chance:
+        $ref: "core.yml/#/definitions/modifier_chance"
+      # opt
+      on_spawn:
+        $ref: "#/definitions/anomaly_event"
+      on_success:
+        $ref: "#/definitions/anomaly_event"
+
+  anomaly_event:
+    oneOf:
+    - $type: event_id
+    - propertyNames:
+        $ref: "core.yml/#/definitions/unit"
+      additionalProperties:
+      oneOf:
+      - $type: event_id
+      - $ref: "core.yml/#/definitions/modifier"
+        properties:
+          max_once:
+            $ref: "core.yml/#/definitions/boolean"
+            default: yes
+          max_once_global:
+            $ref: "core.yml/#/definitions/boolean"
+            default: no
+          anomaly_event:
+            $type: event_id
+
+title: Annomalies
+type: object
+additionalProperties:
+  $ref: "#/definitions/annomalies"

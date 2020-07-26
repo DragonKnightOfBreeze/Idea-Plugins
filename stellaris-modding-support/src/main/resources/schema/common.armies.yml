@@ -32,15 +32,15 @@ definitions:
         type: object
         properties:
           category:
-            const: category
+            const: armies
           cost:
-            $ref: "core.yml/#/definitions/resources"
+            $ref: "core.yml/#/definitions/resources_cost"
           upkeep:
-            $ref: "core.yml/#/definitions/resources"
-          show_tech_unlock_if:
-            $ref: "core.yml/#/definitions/trigger"
-          allow:
-            $ref: "core.yml/#/definitions/trigger"
+            $ref: "core.yml/#/definitions/resources_upkeep"
+      show_tech_unlock_if:
+        $ref: "core.yml/#/definitions/trigger"
+      allow:
+        $ref: "core.yml/#/definitions/trigger"
 
 title: Armies
 type: object

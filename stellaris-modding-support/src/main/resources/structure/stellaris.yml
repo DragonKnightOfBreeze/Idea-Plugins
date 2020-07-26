@@ -128,11 +128,13 @@ common:
       weight: scriptable_value
       # # Should match number of defined stages below.
       stages: int
+      picture: gfx_reference
       # Trigger checking if a scope with this=fleet ,prev=archaeological site is potential to excavate (this will add/remove this option without giving the player a reason).
       potential: condition
       # Trigger checking if a scope with this=fleet ,prev=archaeological site is allowed to excavate (this will toggle enable/disabled mode on buttons etc).
       allow: trigger
       # Stage definition, order dependent.
+      # region anyOf
       stage:
         # min max interval type. interval is defined either by '<int>' or '{ min = <int> max=<int> }' where the later will randomize a value between min and max.
         difficulty: int
@@ -140,10 +142,10 @@ common:
         icon: string
         # # event to fire when finished the state.
         event: event_id
-      # Second stage
-      stage#: {}
+      # endregion
       # effect to fire when a roll fails
       on_roll_failed: effect
+      visible: trigger
   # 军队
   armies:
     $army[]:

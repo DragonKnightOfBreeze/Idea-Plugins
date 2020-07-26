@@ -1,0 +1,29 @@
+definitions:
+  # 背景对象
+  archaeological_site_type:
+    title: Archaeological Site Type
+    type: object
+    properties:
+      max_instance:
+        $ref: "core.yml/#/definitions/uint"
+      weight:
+        $type: scriptable_value
+      potential:
+        $ref: "core.yml/#/definitions/trigger"
+      allow:
+        $ref: "core.yml/#/definitions/trigger"
+      # anyOf
+      state:
+        type: object
+        properties:
+          difficulty:
+            $ref: "core.yml/#/definitions/difficulty"
+          icon:
+            $ref: "core.yml/#/definitions/"
+
+
+
+title: Archaeological Site Types
+type: object
+additionalProperties:
+  $ref: "#/definitions/archaeological_site_type"

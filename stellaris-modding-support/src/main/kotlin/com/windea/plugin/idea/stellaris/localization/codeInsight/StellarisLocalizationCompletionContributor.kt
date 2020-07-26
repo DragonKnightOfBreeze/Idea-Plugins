@@ -5,7 +5,6 @@ package com.windea.plugin.idea.stellaris.localization.codeInsight
 import com.intellij.codeInsight.completion.*
 import com.intellij.codeInsight.lookup.*
 import com.intellij.patterns.PlatformPatterns.*
-import com.intellij.psi.*
 import com.intellij.util.*
 import com.windea.plugin.idea.stellaris.annotations.*
 import com.windea.plugin.idea.stellaris.domain.*
@@ -17,15 +16,13 @@ import com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationTy
 class StellarisLocalizationCompletionContributor : CompletionContributor() {
 	class LocaleCompletionProvider : CompletionProvider<CompletionParameters>() {
 		override fun addCompletions(parameters: CompletionParameters, context: ProcessingContext, result: CompletionResultSet) {
+			//当在文档开始（忽略注释）处输入时，认为正在输入语言区域，因此需要进行代码提示
+			//由于用户已经输入了一个字符，因此不能直接补全，需要添加一个前缀，一般是"l"
+			val prefix = parameters.position.prevSibling?.text
+			val resultWithPrefix = if(prefix == null) result else result.withPrefixMatcher(prefix)
 			for(locale in StellarisLocale.values()) {
-				val insertHandler = InsertHandler<LookupElement> { c, _ ->
-					//c.offsetMap.addOffset(CompletionInitializationContext.START_OFFSET, c.startOffset - 1)
-					//不能这样做：这是插入之后的动作
-					//val caretModel = c.editor.caretModel
-					//caretModel.moveToOffset(caretModel.offset - 1)
-				}
-				val lookupElement = LookupElementBuilder.create(locale.key).withTypeText(locale.description).withInsertHandler(insertHandler)
-				result.addElement(lookupElement)
+				val lookupElement = LookupElementBuilder.create(locale.key).withTypeText(locale.description)
+				resultWithPrefix.addElement(lookupElement)
 			}
 		}
 	}
@@ -35,33 +32,13 @@ class StellarisLocalizationCompletionContributor : CompletionContributor() {
 	init {
 		extend(
 			CompletionType.BASIC,
-			//psiElement().withParent(psiElement(PsiErrorElement::class.java).withParent(PsiFile::class.java)),
-			psiElement().afterSibling(psiElement(LOCALE)).andOr(
-				psiElement().withParent(psiElement(PsiErrorElement::class.java).withParent(PsiFile::class.java))
-			),
-			//psiElement(TokenType.BAD_CHARACTER).withParent(psiElement(PsiErrorElement::class.java).withParent(PsiFile::class.java)),
-			//psiElement(TokenType.BAD_CHARACTER).withText("l"),
-			//psiElement(LOCALE),
-			LocaleCompletionProvider()
+			psiElement().afterSibling(psiElement(LOCALE)),
+			StellarisLocalizationCompletionContributor.LocaleCompletionProvider()
 		)
 	}
 
-	override fun beforeCompletion(context: CompletionInitializationContext) {
-		//不能这样做：这会在"l_"处才开始代码补全
-		//println(context.dummyIdentifier)
-		//context.dummyIdentifier = context.file.findElementAt(context.startOffset-1)?.text.orEmpty()
-		//println(context.dummyIdentifier)
-		//if(context.dummyIdentifier.isEmpty()) context.offsetMap.addOffset(CompletionInitializationContext.START_OFFSET, context.startOffset - 1)
-		//println(context.startOffset)
-		//println(context.identifierEndOffset)
-		//println(context.replacementOffset)
-	}
 
 	override fun fillCompletionVariants(parameters: CompletionParameters, result: CompletionResultSet) {
-		println("current " + parameters.position)
-		println("parent " + parameters.position.parent)
-		println(parameters.position.prevSibling)
-		println(parameters.position.nextSibling)
 		super.fillCompletionVariants(parameters, result)
 	}
 }

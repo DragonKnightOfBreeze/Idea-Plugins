@@ -1,0 +1,25 @@
+definitions:
+  # 背景对象
+  ambient_object:
+    title: Ambient Object
+    type: object
+    properties:
+      name:
+        $ref: "core.yml/#/definitions/localization_property_reference"
+      entity:
+        $ref: "core.yml/#/definitions/localization_property_reference"
+      # opt
+      description:
+        $ref: "core.yml/#/definitions/localization_property_reference"
+      # opt
+      tooltip:
+        $ref: "core.yml/#/definitions/localization_property_reference"
+      selectable:
+        $ref: "core.yml/#/definitions/boolean"
+      show_name:
+        $ref: "core.yml/#/definitions/boolean"
+
+title: Ambient Objects
+type: object
+additionalProperties:
+  $ref: "#/definitions/ambient_object"

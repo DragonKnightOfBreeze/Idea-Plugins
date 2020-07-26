@@ -1,4 +1,5 @@
 definitions:
+  # 议程
   agenda:
     title: Agenda
     type: object

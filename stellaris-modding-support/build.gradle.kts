@@ -5,7 +5,7 @@ plugins {
 	id("org.jetbrains.grammarkit") version "2020.2.1"
 }
 
-version = "1.6"
+version = "1.7"
 
 sourceSets {
 	main {
