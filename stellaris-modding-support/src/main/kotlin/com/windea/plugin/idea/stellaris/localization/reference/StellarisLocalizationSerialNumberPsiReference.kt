@@ -12,3 +12,12 @@ class StellarisLocalizationSerialNumberPsiReference(
 		return null
 	}
 }
+
+class StellarisLocalizationColorfulTextPsiReference(
+	element: StellarisLocalizationColorfulText,
+	rangeInElement: TextRange?
+) : PsiReferenceBase<StellarisLocalizationColorfulText>(element, rangeInElement) {
+	override fun resolve(): PsiElement? {
+		return null
+	}
+}

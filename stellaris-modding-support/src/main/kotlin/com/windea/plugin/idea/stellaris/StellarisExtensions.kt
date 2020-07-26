@@ -46,11 +46,11 @@ inline fun <reified T : Any> String.toClassPathResource(): URL = T::class.java.g
 
 fun <T> Array<out T?>.cast() = this as Array<T>
 
-inline fun <T, reified R> List<T>.mapArray(block: (T) -> R): Array<R> {
+inline fun <T, reified R> List<T>.mapArray(block: (T) -> R): Array< R> {
 	return Array<R>(size) { block(this[it]) }
 }
 
-inline fun <T, reified R> Array<out T>.mapArray(block: (T) -> R): Array<R> {
+inline fun <T, reified R> Array<out T>.mapArray(block: (T) -> R): Array< R> {
 	return Array<R>(size) { block(this[it]) }
 }
 
@@ -72,6 +72,9 @@ fun CharSequence.indicesOf(char: Char, ignoreCase: Boolean = false): MutableList
 	return indices
 }
 
+fun <T> T.toSingletonList():List<T>{
+	return Collections.singletonList(this)
+}
 
 fun <T:Any> T?.toSingletonOrEmpty(): MutableCollection<T> {
 	return if(this == null) Collections.emptySet() else Collections.singleton(this)

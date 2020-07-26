@@ -4,7 +4,7 @@ package com.windea.plugin.idea.stellaris.script.psi;
 import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiReference;
+import com.windea.plugin.idea.stellaris.script.reference.StellarisScriptVariablePsiReference;
 
 public interface StellarisScriptVariableReference extends PsiElement {
 
@@ -12,6 +12,6 @@ public interface StellarisScriptVariableReference extends PsiElement {
   PsiElement getVariableReferenceId();
 
   @NotNull
-  PsiReference getReference();
+  StellarisScriptVariablePsiReference getReference();
 
 }

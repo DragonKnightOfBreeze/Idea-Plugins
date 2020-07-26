@@ -11,7 +11,7 @@ import static com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.windea.plugin.idea.stellaris.script.psi.*;
 import com.intellij.openapi.util.Iconable.IconFlags;
-import com.intellij.psi.PsiReference;
+import com.windea.plugin.idea.stellaris.script.reference.StellarisScriptStringPsiReference;
 import javax.swing.Icon;
 
 public class StellarisScriptStringImpl extends ASTWrapperPsiElement implements StellarisScriptString {
@@ -55,7 +55,7 @@ public class StellarisScriptStringImpl extends ASTWrapperPsiElement implements S
 
   @Override
   @Nullable
-  public PsiReference getReference() {
+  public StellarisScriptStringPsiReference getReference() {
     return StellarisScriptPsiImplUtil.getReference(this);
   }
 

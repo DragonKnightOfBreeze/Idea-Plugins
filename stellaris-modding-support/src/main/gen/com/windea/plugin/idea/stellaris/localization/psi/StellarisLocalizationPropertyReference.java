@@ -4,7 +4,7 @@ package com.windea.plugin.idea.stellaris.localization.psi;
 import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiReference;
+import com.windea.plugin.idea.stellaris.localization.reference.StellarisLocalizationPropertyPsiReference;
 
 public interface StellarisLocalizationPropertyReference extends StellarisLocalizationNamedElement {
 
@@ -26,6 +26,6 @@ public interface StellarisLocalizationPropertyReference extends StellarisLocaliz
   int getTextOffset();
 
   @NotNull
-  PsiReference getReference();
+  StellarisLocalizationPropertyPsiReference getReference();
 
 }

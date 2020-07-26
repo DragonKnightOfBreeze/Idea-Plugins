@@ -53,7 +53,7 @@ object StellarisLocalizationPsiImplUtil {
 	}
 
 	@JvmStatic
-	fun getReference(element: StellarisLocalizationLocale): PsiReference {
+	fun getReference(element: StellarisLocalizationLocale): StellarisLocalizationLocalePsiReference {
 		return StellarisLocalizationLocalePsiReference(element, element.localeId.textRangeInParent)
 	}
 	//endregion
@@ -121,7 +121,7 @@ object StellarisLocalizationPsiImplUtil {
 	}
 
 	@JvmStatic
-	fun getReference(element: StellarisLocalizationPropertyReference): PsiReference {
+	fun getReference(element: StellarisLocalizationPropertyReference): StellarisLocalizationPropertyPsiReference {
 		return StellarisLocalizationPropertyPsiReference(element, TextRange(1,element.textLength-1))
 	}
 	//endregion
@@ -149,8 +149,8 @@ object StellarisLocalizationPsiImplUtil {
 	}
 
 	@JvmStatic
-	fun getReference(element: StellarisLocalizationIcon): PsiReference {
-		return StellarisLocalizationIconPsiReference(element, element.iconId?.textRangeInParent)
+	fun getReference(element: StellarisLocalizationIcon): StellarisLocalizationIconPsiReference {
+		return StellarisLocalizationIconPsiReference(element, TextRange(1,element.textLength-1))
 	}
 	//endregion
 
@@ -182,8 +182,8 @@ object StellarisLocalizationPsiImplUtil {
 	}
 
 	@JvmStatic
-	fun getReference(element: StellarisLocalizationSerialNumber): PsiReference {
-		return StellarisLocalizationSerialNumberPsiReference(element, element.serialNumberId?.textRangeInParent)
+	fun getReference(element: StellarisLocalizationSerialNumber): StellarisLocalizationSerialNumberPsiReference {
+		return StellarisLocalizationSerialNumberPsiReference(element, TextRange(1,element.textLength-1))
 	}
 	//endregion
 
@@ -212,6 +212,11 @@ object StellarisLocalizationPsiImplUtil {
 	@JvmStatic
 	fun getColor(element: StellarisLocalizationColorfulText): StellarisColor? {
 		return element.name?.let { name -> StellarisColor.map[name] }
+	}
+
+	@JvmStatic
+	fun getReference(element: StellarisLocalizationColorfulText): StellarisLocalizationColorfulTextPsiReference {
+		return StellarisLocalizationColorfulTextPsiReference(element, TextRange(1,element.textLength-1))
 	}
 	//endregion
 }

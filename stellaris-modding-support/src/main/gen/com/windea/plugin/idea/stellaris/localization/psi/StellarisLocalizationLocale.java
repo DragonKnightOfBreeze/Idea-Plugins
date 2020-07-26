@@ -5,8 +5,8 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 import com.intellij.openapi.util.Iconable.IconFlags;
-import com.intellij.psi.PsiReference;
 import com.windea.plugin.idea.stellaris.domain.StellarisLocale;
+import com.windea.plugin.idea.stellaris.localization.reference.StellarisLocalizationLocalePsiReference;
 import javax.swing.Icon;
 
 public interface StellarisLocalizationLocale extends StellarisLocalizationNamedElement {
@@ -30,6 +30,6 @@ public interface StellarisLocalizationLocale extends StellarisLocalizationNamedE
   StellarisLocale getLocale();
 
   @NotNull
-  PsiReference getReference();
+  StellarisLocalizationLocalePsiReference getReference();
 
 }

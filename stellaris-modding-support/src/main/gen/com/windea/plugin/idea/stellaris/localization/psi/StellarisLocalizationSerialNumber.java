@@ -4,8 +4,8 @@ package com.windea.plugin.idea.stellaris.localization.psi;
 import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiReference;
 import com.windea.plugin.idea.stellaris.domain.StellarisSerialNumber;
+import com.windea.plugin.idea.stellaris.localization.reference.StellarisLocalizationSerialNumberPsiReference;
 
 public interface StellarisLocalizationSerialNumber extends StellarisLocalizationNamedElement {
 
@@ -27,6 +27,6 @@ public interface StellarisLocalizationSerialNumber extends StellarisLocalization
   StellarisSerialNumber getSerialNumber();
 
   @NotNull
-  PsiReference getReference();
+  StellarisLocalizationSerialNumberPsiReference getReference();
 
 }

@@ -10,8 +10,8 @@ import com.intellij.psi.util.PsiTreeUtil;
 import static com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationTypes.*;
 import com.windea.plugin.idea.stellaris.localization.psi.*;
 import com.intellij.openapi.util.Iconable.IconFlags;
-import com.intellij.psi.PsiReference;
 import com.windea.plugin.idea.stellaris.domain.StellarisLocale;
+import com.windea.plugin.idea.stellaris.localization.reference.StellarisLocalizationLocalePsiReference;
 import javax.swing.Icon;
 
 public class StellarisLocalizationLocaleImpl extends StellarisLocalizationNamedElementImpl implements StellarisLocalizationLocale {
@@ -67,7 +67,7 @@ public class StellarisLocalizationLocaleImpl extends StellarisLocalizationNamedE
 
   @Override
   @NotNull
-  public PsiReference getReference() {
+  public StellarisLocalizationLocalePsiReference getReference() {
     return StellarisLocalizationPsiImplUtil.getReference(this);
   }
 
