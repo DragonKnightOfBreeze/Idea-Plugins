@@ -15,10 +15,6 @@ definitions:
       effect:
         $ref: "core.yml/#/definitions/effect"
 
-
-
-
-
 title: Artifact Actions
 type: object
 additionalProperties:

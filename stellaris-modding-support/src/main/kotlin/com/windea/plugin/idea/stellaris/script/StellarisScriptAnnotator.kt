@@ -68,20 +68,20 @@ class StellarisScriptAnnotator : Annotator ,DumbAware{
 			is StellarisScriptString -> {
 				val name = element.text.unquote()
 				val reference = element.reference?:return
-				val resolves = reference.multiResolve(false).mapArray { it.element }
+				val resolves = reference.multiResolve(false)
 				when {
 					resolves.isEmpty() -> return
 					reference.resolveAsLocalizationProperty -> {
-						resolves as Array<StellarisLocalizationProperty>
+						val properties = resolves.mapArray {it.element as StellarisLocalizationProperty}
 						holder.newSilentAnnotation(INFORMATION)
-							.gutterIconRenderer(LocalizationPropertyGutterIconRenderer(name,*resolves))
+							.gutterIconRenderer(LocalizationPropertyGutterIconRenderer(name,*properties))
 							//.textAttributes(StellarisLocalizationAttributesKeys.PROPERTY_KEY_KEY)
 							.create()
 					}
 					else -> {
-						resolves as Array<StellarisScriptProperty>
+						val properties = resolves.mapArray {it.element as StellarisScriptProperty}
 						holder.newSilentAnnotation(INFORMATION)
-							.gutterIconRenderer(ScriptPropertyGutterIconRenderer(name,*resolves))
+							.gutterIconRenderer(ScriptPropertyGutterIconRenderer(name,*properties))
 							//.textAttributes(StellarisScriptAttributesKeys.PROPERTY_KEY_KEY)
 							.create()
 					}
