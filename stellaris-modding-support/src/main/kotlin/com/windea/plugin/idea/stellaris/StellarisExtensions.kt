@@ -155,19 +155,8 @@ fun findFurthestSiblingOfSameType(element: PsiElement, after: Boolean): PsiEleme
 }
 
 
-/**创建查找元素。用于代码补全。*/
-fun createLookupElement(keyword: String, icon: Icon? = null, tailText: String? = null, typeText: String? = null): LookupElementBuilder {
-	var result = LookupElementBuilder.create(keyword)
-	if(icon != null) result = result.withIcon(icon)
-	if(tailText != null) result = result.withTailText(tailText)
-	if(typeText != null) result = result.withTypeText(typeText)
-	return result
-}
+fun LookupElement.withPriority(priority: Double) = PrioritizedLookupElement.withPriority(this,priority)
 
-/**创建关键字查找元素。用于代码补全。*/
-fun createKeywordLookupElement(keyword: String, insertHandler: InsertHandler<LookupElement>? = null): LookupElement {
-	return PrioritizedLookupElement.withPriority(LookupElementBuilder.create(keyword).bold().withInsertHandler(insertHandler), 70.0)
-}
 
 /**导航到指定元素的位置*/
 fun navigateToElement(editor: Editor, element: PsiElement?) {

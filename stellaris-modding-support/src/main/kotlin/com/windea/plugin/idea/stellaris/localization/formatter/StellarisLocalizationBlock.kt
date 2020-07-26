@@ -33,10 +33,9 @@ class StellarisLocalizationBlock(
 			//	else -> Alignment.createAlignment()
 			//}
 			//return null
-			return when(val type = node.elementType) {
-				ROOT_COMMENT -> Alignment.createAlignment()
-				COMMENT -> Alignment.createAlignment()
-				LOCALE -> Alignment.createAlignment()
+			return when(node.elementType) {
+				ROOT_COMMENT, COMMENT -> Alignment.createAlignment()
+				LOCALE, LOCALE_ID -> Alignment.createAlignment()
 				else -> null
 			}
 		}
@@ -57,11 +56,11 @@ class StellarisLocalizationBlock(
 	}
 
 	override fun getIndent(): Indent {
-		return when {
+		return when(myNode.elementType) {
 			//属性之前适用缩进
-			myNode.elementType == PROPERTY -> Indent.getNormalIndent()
+			PROPERTY -> Indent.getNormalIndent()
 			//头部之后的注释之前适用缩进
-			myNode.elementType == COMMENT -> Indent.getNormalIndent()
+			COMMENT -> Indent.getNormalIndent()
 			else -> Indent.getNoneIndent()
 		}
 	}

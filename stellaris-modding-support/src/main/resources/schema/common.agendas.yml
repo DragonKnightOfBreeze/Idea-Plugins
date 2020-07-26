@@ -1,0 +1,17 @@
+definitions:
+  agenda:
+    title: Agenda
+    type: object
+    properties:
+      weight_modifier:
+        $ref: "#/definitions/weight_modifier"
+      # anyOf
+      modifier:
+        $ref: "#/definitions/modifier"
+
+title: Agendas
+type: object
+additionalProperties:
+  $ref: "#/definitions/agenda"
+
+

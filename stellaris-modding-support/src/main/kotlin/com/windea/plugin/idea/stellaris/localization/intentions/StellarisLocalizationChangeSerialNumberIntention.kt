@@ -2,6 +2,7 @@ package com.windea.plugin.idea.stellaris.localization.intentions
 
 import com.intellij.codeInsight.intention.*
 import com.intellij.icons.*
+import com.intellij.openapi.application.*
 import com.intellij.openapi.command.WriteCommandAction.*
 import com.intellij.openapi.editor.*
 import com.intellij.openapi.project.*

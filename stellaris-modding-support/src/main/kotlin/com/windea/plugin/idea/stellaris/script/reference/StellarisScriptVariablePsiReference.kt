@@ -1,5 +1,6 @@
 package com.windea.plugin.idea.stellaris.script.reference
 
+import com.intellij.codeInsight.lookup.*
 import com.intellij.openapi.util.*
 import com.intellij.psi.*
 import com.windea.plugin.idea.stellaris.*
@@ -23,7 +24,7 @@ class StellarisScriptVariablePsiReference(
 	//用于代码补全
 	override fun getVariants(): Array<out Any> {
 		return findAllScriptVariableDefinitions(element.project).mapArray {
-			createLookupElement(it.name!!,icon = it.getIcon(0),typeText = it.containingFile.name)
+			LookupElementBuilder.create(it.name!!).withIcon(it.getIcon(0)).withTypeText(it.containingFile.name)
 		}
 	}
 }

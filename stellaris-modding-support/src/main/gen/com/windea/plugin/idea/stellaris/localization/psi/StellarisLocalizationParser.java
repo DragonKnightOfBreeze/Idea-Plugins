@@ -194,13 +194,14 @@ public class StellarisLocalizationParser implements PsiParser, LightPsiParser {
   // LEFT_QUOTE rich_text * RIGHT_QUOTE
   public static boolean property_value(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "property_value")) return false;
+    if (!nextTokenIs(b, LEFT_QUOTE)) return false;
     boolean r, p;
-    Marker m = enter_section_(b, l, _NONE_, PROPERTY_VALUE, "<property value>");
+    Marker m = enter_section_(b, l, _NONE_, PROPERTY_VALUE, null);
     r = consumeToken(b, LEFT_QUOTE);
     p = r; // pin = 1
     r = r && report_error_(b, property_value_1(b, l + 1));
     r = p && consumeToken(b, RIGHT_QUOTE) && r;
-    exit_section_(b, l, m, r, p, property_value_auto_recover_);
+    exit_section_(b, l, m, r, p, null);
     return r || p;
   }
 
@@ -311,9 +312,4 @@ public class StellarisLocalizationParser implements PsiParser, LightPsiParser {
     return r;
   }
 
-  static final Parser property_value_auto_recover_ = new Parser() {
-    public boolean parse(PsiBuilder b, int l) {
-      return !nextTokenIsFast(b, COMMENT, END_OF_LINE_COMMENT, PROPERTY_KEY_ID);
-    }
-  };
 }

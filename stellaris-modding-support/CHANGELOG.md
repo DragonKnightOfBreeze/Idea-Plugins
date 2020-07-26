@@ -76,5 +76,5 @@
 
 ### 1.7
 
-* [ ] 编写Stellaris的文件结构文档和Json Schema文档，
+* [ ] 编写Stellaris的文件结构文档和Json Schema文档
 

@@ -1,0 +1,38 @@
+definitions:
+  budget:
+    title: Budget
+    type: object
+    properties:
+      resource:
+        $type: resource
+      type:
+        const: expenditure
+      category:
+        $ref: "#/definitions/category"
+      poential:
+        $ref: "#/definitions/trigger"
+      fraction:
+        $ref: "#/definitions/weight_modifier"
+      static_min:
+        type: object
+        properties:
+          base:
+            $ref: "core.yml/#/definitions/uint"
+          # anyOf
+          modifier:
+            $ref: "#/definitions/modifier"
+      static_max:
+        type: object
+        properties:
+          base:
+            $ref: "core.yml/#/definitions/uint"
+          # anyOf
+          modifier:
+            $ref: "#/definitions/modifier"
+
+title: AI Budget
+type: object
+additionalProperties:
+  $ref: "#/definitions/budget"
+
+

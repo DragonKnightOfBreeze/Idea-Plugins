@@ -1,6 +1,7 @@
 package com.windea.plugin.idea.stellaris.script.codeInsight
 
 import com.intellij.codeInsight.completion.*
+import com.intellij.codeInsight.lookup.*
 import com.intellij.patterns.PlatformPatterns.*
 import com.intellij.util.*
 import com.windea.plugin.idea.stellaris.*
@@ -18,7 +19,10 @@ class StellarisScriptCompletionContributor : CompletionContributor() {
 		private val values = arrayOf("yes", "no")
 
 		override fun addCompletions(parameters: CompletionParameters, context: ProcessingContext, result: CompletionResultSet) {
-			for(value in values) result.addElement(createKeywordLookupElement(value))
+			for(value in values) {
+				val lookupElement = LookupElementBuilder.create(value).bold().withPriority(80.0)
+				result.addElement(lookupElement)
+			}
 		}
 	}
 

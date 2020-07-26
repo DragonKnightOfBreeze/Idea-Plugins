@@ -13,12 +13,8 @@ import com.windea.plugin.idea.stellaris.script.psi.*
 class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
 	override fun getQuickNavigateInfo(element: PsiElement?, originalElement: PsiElement?): String? {
 		return when(element) {
-			is StellarisScriptVariableDefinition -> {
-				"${element.name} ${getLocationText(element)}"
-			}
-			is StellarisScriptProperty -> {
-				"${element.name} ${getLocationText(element)}"
-			}
+			is StellarisScriptVariableDefinition -> "${getLocationText(element)}<br>${element.name}"
+			is StellarisScriptProperty -> "${getLocationText(element)}<br>${element.name}"
 			else -> null
 		}
 	}
@@ -32,7 +28,7 @@ class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
 			is StellarisScriptVariableDefinition -> {
 				buildString {
 					append(DocumentationMarkup.DEFINITION_START)
-					append("<b>${element.name}</b> = ${getVariableValueText(element)} ${getLocationText(element)}")
+					append("${getLocationText(element)}<br><b>${element.name}</b> = ${getVariableValueText(element)}")
 					append(DocumentationMarkup.DEFINITION_END)
 
 					val textAttributesKey = StellarisScriptAttributesKeys.COMMENT_KEY
@@ -47,7 +43,7 @@ class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
 			is StellarisScriptProperty -> {
 				buildString {
 					append(DocumentationMarkup.DEFINITION_START)
-					append("<b>${element.name}</b> = ${getPropertyValueText(element)} ${getLocationText(element)}")
+					append("${getLocationText(element)}<br><b>${element.name}</b> = ${getPropertyValueText(element)}")
 					append(DocumentationMarkup.DEFINITION_END)
 
 					//只有顶级才生成文档注释中的描述

@@ -20,7 +20,7 @@ class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider
 
 	override fun getQuickNavigateInfo(element: PsiElement?, originalElement: PsiElement?): String? {
 		return when {
-			element is StellarisLocalizationProperty -> "${element.name} ${getLocationText(element)}"
+			element is StellarisLocalizationProperty -> "${getLocationText(element)}<br>${element.name}"
 			element is StellarisLocalizationLocale -> "locale \"${element.name}\""
 			element is StellarisLocalizationIcon -> "icon \"${element.name}\""
 			element is StellarisLocalizationColorfulText -> "color \"${element.name}\""
@@ -39,7 +39,7 @@ class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider
 			element is StellarisLocalizationProperty -> {
 				buildString {
 					append(DocumentationMarkup.DEFINITION_START)
-					append("<b>${element.name}</b>: ${getPropertyValueText(element)} ${getLocationText(element)}")
+					append("${getLocationText(element)}<br><b>${element.name}</b>: ${getPropertyValueText(element)}")
 					append(DocumentationMarkup.DEFINITION_END)
 
 					val textAttributesKey = StellarisLocalizationAttributesKeys.COMMENT_KEY

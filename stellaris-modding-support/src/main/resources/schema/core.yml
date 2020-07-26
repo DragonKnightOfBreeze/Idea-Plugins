@@ -20,6 +20,7 @@ definitions:
   boolean:
     title: Boolean
     enum: [yes, no]
+
   resources:
     title: Resources
     type: object
@@ -42,8 +43,38 @@ definitions:
           $ref: "#/definitions/trigger"
         always:
           $ref: "#/definitions/boolean"
+    - properties:
+        from:
+          $ref: "#/definitions/trigger"
+        owner:
+          $ref: "#/definitions/trigger"
     - propertyNames:
         $type: scripted_trigger
+  weight_modifier:
+    title: Weighted Modifier
+    type: object
+    properties:
+      weight:
+        $ref: "#/definitions/number"
+      # anyOf
+      modifier:
+        $ref: "#/definitions/modifier"
+  modifier:
+    title: Modifier
+    type: object
+    allOf:
+    - oneOf:
+      - properties:
+          factor:
+            $ref: "#/definitions/factor"
+      - properties:
+          add:
+            $ref: "#/definitions/number"
+    - $ref: "#/definitions/trigger"
+  # TODO
+  category:
+    title: Category
+
   tech:
     title: Tech Name
     $type: tech
@@ -52,6 +83,7 @@ definitions:
     type: array
     items:
       $ref: "#/definitions/tech"
+
   mod_path:
     type: string
   game_path:
