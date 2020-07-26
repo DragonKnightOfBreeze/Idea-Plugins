@@ -16,28 +16,7 @@ import com.windea.plugin.idea.stellaris.script.psi.*
 //TODO 变量 - mod目录
 
 @ExtensionPoint
-class StellarisScriptGoToDeclarationHandler:  GotoDeclarationHandlerBase() {
-	override fun getGotoDeclarationTarget(sourceElement: PsiElement?, editor: Editor?): PsiElement? {
-		return when(sourceElement) {
-			null -> null
-			is StellarisScriptVariableDefinition -> {
-				//查找当前文件，如果没有，查找当前项目
-				findScriptVariableDefinitionInFile(sourceElement.name, sourceElement.containingFile)?.let{return it}
-				findScriptVariableDefinitionInProject(sourceElement.name,sourceElement.project)
-			}
-			is StellarisScriptString ->{
-				if(!sourceElement.isValidPropertyKey) return null
-
-				val name = sourceElement.value
-				val project = sourceElement.project
-				//查找当前项目的脚本文件属性，然后再查找当前项目的本地化文件属性
-				findScriptPropertyInProject(name,project)?.let { return it }
-				findLocalizationPropertyInProject(name,project)?.let { return it }
-			}
-			else -> null
-		}
-	}
-
+class StellarisScriptGoToDeclarationHandler:  GotoDeclarationHandler {
 	override fun getGotoDeclarationTargets(sourceElement: PsiElement?, offset: Int, editor: Editor?): Array<out PsiElement?>? {
 		return when(sourceElement) {
 			null -> null
@@ -50,9 +29,9 @@ class StellarisScriptGoToDeclarationHandler:  GotoDeclarationHandlerBase() {
 			is StellarisScriptString -> {
 				if(!sourceElement.isValidPropertyKey) return null
 
+				//查找当前项目的脚本文件属性，然后再查找当前项目的本地化文件属性
 				val name = sourceElement.value
 				val project = sourceElement.project
-				//查找当前项目的脚本文件属性，然后再查找当前项目的本地化文件属性
 				findScriptPropertiesInProject(name, project)?.let { return it.toTypedArray() }
 				findLocalizationPropertiesInProject(name, project)?.let { return it.toTypedArray() }
 			}

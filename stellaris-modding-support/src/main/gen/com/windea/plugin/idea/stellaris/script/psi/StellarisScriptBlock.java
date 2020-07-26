@@ -14,6 +14,8 @@ public interface StellarisScriptBlock extends PsiListLikeElement {
   @NotNull
   List<StellarisScriptString> getStringList();
 
+  boolean isEmpty();
+
   boolean isArray();
 
   boolean isObject();

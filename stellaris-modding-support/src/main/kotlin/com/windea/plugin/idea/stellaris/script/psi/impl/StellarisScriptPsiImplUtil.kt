@@ -106,13 +106,18 @@ object StellarisScriptPsiImplUtil {
 
 	//region StellarisScriptBlock
 	@JvmStatic
+	fun isEmpty(element: StellarisScriptBlock):Boolean{
+		return element.firstChild == null
+	}
+
+	@JvmStatic
 	fun isArray(element: StellarisScriptBlock):Boolean{
-		return element.firstChild is StellarisScriptString
+		return element.firstChild is StellarisScriptString?
 	}
 
 	@JvmStatic
 	fun isObject(element: StellarisScriptBlock):Boolean{
-		return element.firstChild is StellarisScriptProperty
+		return element.firstChild is StellarisScriptProperty?
 	}
 
 	@JvmStatic

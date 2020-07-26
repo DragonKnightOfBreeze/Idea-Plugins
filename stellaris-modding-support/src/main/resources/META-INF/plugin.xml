@@ -150,15 +150,19 @@
       implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationAnnotator"/>
 
     <intentionAction>
-      <className>com.windea.plugin.idea.stellaris.localization.intentions.StellarisLocalizationChangeLocaleIntention</className>
+      <className>com.windea.plugin.idea.stellaris.localization.intentions.StellarisLocalizationChangeLocaleIntention
+      </className>
       <category>Stellaris localization</category>
     </intentionAction>
     <intentionAction>
-      <className>com.windea.plugin.idea.stellaris.localization.intentions.StellarisLocalizationChangeColorIntention</className>
+      <className>com.windea.plugin.idea.stellaris.localization.intentions.StellarisLocalizationChangeColorIntention
+      </className>
       <category>Stellaris localization</category>
     </intentionAction>
     <intentionAction>
-      <className>com.windea.plugin.idea.stellaris.localization.intentions.StellarisLocalizationChangeSerialNumberIntention</className>
+      <className>
+        com.windea.plugin.idea.stellaris.localization.intentions.StellarisLocalizationChangeSerialNumberIntention
+      </className>
       <category>Stellaris localization</category>
     </intentionAction>
 
@@ -219,8 +223,8 @@
     <refactoring.safeDeleteProcessor
       implementation="com.windea.plugin.idea.stellaris.script.refactoring.StellarisScriptVariableSafeDeleteProcessor"/>
     <refactoring.inlineHandler
-          language="Stellaris Script"
-          implementationClass="com.windea.plugin.idea.stellaris.script.refactoring.StellarisScriptInlineHandler"/>
+      language="Stellaris Script"
+      implementationClass="com.windea.plugin.idea.stellaris.script.refactoring.StellarisScriptInlineHandler"/>
     <completion.contributor
       language="Stellaris Script"
       implementationClass="com.windea.plugin.idea.stellaris.script.codeInsight.StellarisScriptCompletionContributor"/>
@@ -268,6 +272,28 @@
       key="stellaris.script.inspection.invalidFileEncoding"
       enabledByDefault="true" level="WARNING"
       implementationClass="com.windea.plugin.idea.stellaris.script.inspections.StellarisScriptInvalidFileEncodingInspection"/>
+    <!--endregion-->
+
+    <!--region Stellaris Script Schema-->
+    <json.jsonSchemaEnabler
+      implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaEnabler"/>
+    <completion.contributor
+      language="Stellaris Script"
+      implementationClass="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaCompletionContributor"/>
+    <documentationProvider
+      implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaDocumentationProvider"/>
+    <gotoDeclarationHandler
+      implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaGotoDeclarationHandler"/>
+    <json.jsonLikePsiWalkerFactory
+      implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptJsonLikePsiWalkerFactory"/>
+
+    <localInspection
+      language="Stellaris Script"
+      shortName="StellarisScriptSchemaValidation" bundle="messages.StellarisBundle"
+      groupKey="stellaris.script.inspection"
+      key="stellaris.script.inspection.schemaValidation"
+      enabledByDefault="true" level="WARNING"
+      implementationClass="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaInspectionTool"/>
     <!--endregion-->
   </extensions>
 

@@ -13,6 +13,7 @@ import com.intellij.openapi.project.*
 import com.intellij.psi.*
 import com.intellij.psi.search.*
 import com.intellij.psi.util.*
+import com.intellij.util.containers.*
 import com.windea.plugin.idea.stellaris.localization.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
 import com.windea.plugin.idea.stellaris.script.*
@@ -21,6 +22,7 @@ import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptParserDefiniti
 import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
 import com.windea.plugin.idea.stellaris.script.psi.impl.*
 import java.net.*
+import java.util.*
 import javax.swing.*
 
 //region Logging
@@ -32,11 +34,11 @@ fun <T> T.andPrint(name: String? = null): T {
 	}
 	return this
 }
+
+private fun Any?.toStringSmartly() = if(this is Array<*>) this.contentDeepToString() else this.toString()
 //endregion
 
 //region Stdlib
-fun Any?.toStringSmartly() = if(this is Array<*>) this.contentDeepToString() else this.toString()
-
 fun Boolean.toInt() = if(this) 1 else 0
 
 inline fun <reified T : Any> String.toClassPathResource(): URL = T::class.java.getResource(this)
@@ -68,6 +70,11 @@ fun CharSequence.indicesOf(char: Char, ignoreCase: Boolean = false): MutableList
 		lastIndex = indexOf(char, lastIndex + 1, ignoreCase)
 	}
 	return indices
+}
+
+
+fun <T:Any> T?.toSingletonOrEmpty(): MutableCollection<T> {
+	return if(this == null) Collections.emptySet() else Collections.singleton(this)
 }
 //endregion
 

@@ -16,20 +16,7 @@ import com.windea.plugin.idea.stellaris.localization.psi.*
 //TODO 属性 - mod目录
 
 @ExtensionPoint
-class StellarisLocalizationGoToDeclarationHandler : GotoDeclarationHandlerBase() {
-	override fun getGotoDeclarationTarget(sourceElement: PsiElement?, editor: Editor?): PsiElement? {
-		return when(sourceElement) {
-			null -> null
-			is StellarisLocalizationProperty -> {
-				//查找当前文件，如果没有查找当前项目
-				val name = sourceElement.name
-				findLocalizationPropertyInFile(name, sourceElement.containingFile)?.let{return it}
-				findLocalizationPropertyInProject(name, sourceElement.project)
-			}
-			else -> null
-		}
-	}
-
+class StellarisLocalizationGoToDeclarationHandler : GotoDeclarationHandler{
 	override fun getGotoDeclarationTargets(sourceElement: PsiElement?, offset: Int, editor: Editor?): Array<out PsiElement?>? {
 		return when(sourceElement) {
 			null -> null
