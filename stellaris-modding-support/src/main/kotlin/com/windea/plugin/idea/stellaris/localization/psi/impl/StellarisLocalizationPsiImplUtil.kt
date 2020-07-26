@@ -2,6 +2,7 @@
 
 package com.windea.plugin.idea.stellaris.localization.psi.impl
 
+import com.intellij.openapi.util.*
 import com.intellij.openapi.util.Iconable.*
 import com.intellij.psi.*
 import com.intellij.refactoring.suggested.*
@@ -121,7 +122,7 @@ object StellarisLocalizationPsiImplUtil {
 
 	@JvmStatic
 	fun getReference(element: StellarisLocalizationPropertyReference): PsiReference {
-		return StellarisLocalizationPropertyPsiReference(element, element.propertyKeyId?.textRangeInParent)
+		return StellarisLocalizationPropertyPsiReference(element, TextRange(1,element.textLength-1))
 	}
 	//endregion
 

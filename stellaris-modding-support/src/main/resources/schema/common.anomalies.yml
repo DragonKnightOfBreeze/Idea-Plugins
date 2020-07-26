@@ -1,5 +1,5 @@
 definitions:
-  # 背景对象
+  # 异常
   anomaly:
     title: Annomaly
     type: object
@@ -12,12 +12,7 @@ definitions:
         default: no
       # opt
       desc:
-        oneOf:
-        - $ref: "core.yml/#/definitions/localization_property_reference"
-        - $ref: "core.yml/#/definitions/trigger"
-          properties:
-            text:
-              $ref: "core.yml/#/definitions/localization_property_reference"
+        $ref: "core.yml/#/definitions/desc"
       picture:
         $ref: "core.yml/#/definitions/gfx_reference"
       level:
@@ -40,12 +35,12 @@ definitions:
 
   anomaly_event:
     oneOf:
-    - $type: event_id
+    - $ref: "core.yml/#/definitions/event_id"
     - propertyNames:
         $ref: "core.yml/#/definitions/unit"
       additionalProperties:
       oneOf:
-      - $type: event_id
+      - $ref: "core.yml/#/definitions/event_id"
       - $ref: "core.yml/#/definitions/modifier"
         properties:
           max_once:
@@ -55,7 +50,7 @@ definitions:
             $ref: "core.yml/#/definitions/boolean"
             default: no
           anomaly_event:
-            $type: event_id
+            $ref: "core.yml/#/definitions/event_id"
 
 title: Annomalies
 type: object

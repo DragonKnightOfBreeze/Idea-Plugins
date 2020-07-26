@@ -1,0 +1,15 @@
+definitions:
+  # 异常
+  artifact_action:
+    title: Artifact Action
+    type: object
+    properties:
+
+
+
+
+
+title: Artifact Actions
+type: object
+additionalProperties:
+  $ref: "#/definitions/artifact_action"

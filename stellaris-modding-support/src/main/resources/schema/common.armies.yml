@@ -1,4 +1,5 @@
 definitions:
+  # 军队
   army:
     title: Army
     type: object
@@ -28,15 +29,9 @@ definitions:
         default: yes
       prerequisites:
         $ref: "core.yml/#/definitions/tech_array"
+      # category = armies
       resources:
-        type: object
-        properties:
-          category:
-            const: armies
-          cost:
-            $ref: "core.yml/#/definitions/resources_cost"
-          upkeep:
-            $ref: "core.yml/#/definitions/resources_upkeep"
+        $ref: "core.yml/#/definitions/resources"
       show_tech_unlock_if:
         $ref: "core.yml/#/definitions/trigger"
       allow:

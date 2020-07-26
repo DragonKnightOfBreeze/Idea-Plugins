@@ -1,27 +1,49 @@
 definitions:
-  # 背景对象
+  # 考古站点类型
   archaeological_site_type:
     title: Archaeological Site Type
     type: object
     properties:
+      desc:
+        $ref: "core.yml/#/definitions/desc"
+      picture:
+        $ref: "core.yml/#/definitions/gfx_reference"
+      stages:
+        $ref: "core.yml/#/definitions/uint"
       max_instance:
         $ref: "core.yml/#/definitions/uint"
       weight:
-        $type: scriptable_value
+        $ref: "core.yml/#/definitions/weight_modifier"
       potential:
         $ref: "core.yml/#/definitions/trigger"
       allow:
         $ref: "core.yml/#/definitions/trigger"
+      visible:
+        $ref: "core.yml/#/definitions/trigger"
+      on_visible:
+        $ref: "core.yml/#/definitions/event"
       # anyOf
       state:
+        $ref: "#/definitions/state"
+      on_roll_failed:
+        $ref: "#/definitions/on_roll_failed_effect"
+
+  state:
+    type: object
+    properties:
+      difficulty:
+        $ref: "core.yml/#/definitions/difficulty"
+      icon:
+        $ref: "core.yml/#/definitions/gfx_reference"
+      event:
+        $ref: "core.yml/#/definitions/event"
+
+  on_roll_failed_effect:
+    type: object
+    properties:
+      # TODO
+      from:
         type: object
-        properties:
-          difficulty:
-            $ref: "core.yml/#/definitions/difficulty"
-          icon:
-            $ref: "core.yml/#/definitions/"
-
-
 
 title: Archaeological Site Types
 type: object

@@ -11,9 +11,9 @@ import com.windea.plugin.idea.stellaris.localization.psi.*
 
 class StellarisLocalizationPropertyPsiReference(
 	element: StellarisLocalizationPropertyReference,
-	rangeInElement: TextRange?
+	rangeInElement: TextRange
 ) : PsiReferenceBase<StellarisLocalizationPropertyReference>(element, rangeInElement), PsiPolyVariantReference {
-	private val name = rangeInElement?.substring(element.text)
+	private val name = rangeInElement.substring(element.text)
 
 	//不便于使用缓存：可能存在于当前文件中、当前项目中，甚至是外部目录
 
@@ -31,6 +31,7 @@ class StellarisLocalizationPropertyPsiReference(
 	override fun getVariants(): Array<out Any> {
 		return findAllLocalizationPropertiesInProject(element.project).mapArray {
 			LookupElementBuilder.create(it.name!!).withIcon(it.getIcon(0)).withTypeText(it.containingFile.name)
+				.withPsiElement(it)
 		}
 	}
 }

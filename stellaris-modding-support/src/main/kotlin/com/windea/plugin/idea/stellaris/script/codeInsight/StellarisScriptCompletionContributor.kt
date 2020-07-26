@@ -19,6 +19,8 @@ class StellarisScriptCompletionContributor : CompletionContributor() {
 		private val values = arrayOf("yes", "no")
 
 		override fun addCompletions(parameters: CompletionParameters, context: ProcessingContext, result: CompletionResultSet) {
+			//基础的代码提示,仅提示布尔值
+			//条件语句关键字，布尔表达式关键字，如if, else_if, AND, OR，认为只有在特定的作用域内才需提示
 			for(value in values) {
 				val lookupElement = LookupElementBuilder.create(value).bold().withPriority(80.0)
 				result.addElement(lookupElement)

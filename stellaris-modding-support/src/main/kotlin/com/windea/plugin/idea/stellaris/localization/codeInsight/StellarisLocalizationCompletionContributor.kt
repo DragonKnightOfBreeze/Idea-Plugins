@@ -27,8 +27,6 @@ class StellarisLocalizationCompletionContributor : CompletionContributor() {
 		}
 	}
 
-	//虽然不知道为什么，但是还是一个一个试吧……
-
 	init {
 		extend(
 			CompletionType.BASIC,
@@ -36,7 +34,6 @@ class StellarisLocalizationCompletionContributor : CompletionContributor() {
 			StellarisLocalizationCompletionContributor.LocaleCompletionProvider()
 		)
 	}
-
 
 	override fun fillCompletionVariants(parameters: CompletionParameters, result: CompletionResultSet) {
 		super.fillCompletionVariants(parameters, result)
