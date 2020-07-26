@@ -12,7 +12,7 @@ class StellarisScriptStringTreeElement(
 	}
 
 	override fun getPresentableText(): String? {
-		return psiElement?.text
+		return psiElement?.value
 	}
 }
 

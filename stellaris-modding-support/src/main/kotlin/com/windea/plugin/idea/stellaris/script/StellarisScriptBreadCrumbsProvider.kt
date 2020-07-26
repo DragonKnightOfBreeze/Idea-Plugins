@@ -21,7 +21,7 @@ class StellarisScriptBreadCrumbsProvider :BreadcrumbsProvider{
 		return when(element){
 			is StellarisScriptProperty -> element.name
 			is StellarisScriptVariableDefinition -> element.name
-			is StellarisScriptString -> element.text
+			is StellarisScriptString -> element.value
 			else -> breadCrumbsElement
 		} ?: anonymousElement
 	}

@@ -28,6 +28,8 @@ class StellarisScriptAnnotator : Annotator ,DumbAware{
 
 		override fun getClickAction() = NavigateAction(*properties)
 
+		override fun isNavigateAction() = true
+
 		override fun equals(other: Any?) = other is ScriptPropertyGutterIconRenderer && name == other.name
 
 		override fun hashCode() = name.hashCode()
@@ -42,6 +44,8 @@ class StellarisScriptAnnotator : Annotator ,DumbAware{
 		override fun getTooltipText() = message("stellaris.script.annotator.externalLocalizationProperty", name)
 
 		override fun getClickAction() = NavigateAction(*properties)
+
+		override fun isNavigateAction() = true
 
 		override fun equals(other: Any?) = other is LocalizationPropertyGutterIconRenderer  && name == other.name
 
