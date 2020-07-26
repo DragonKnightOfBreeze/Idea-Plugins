@@ -51,7 +51,7 @@ VARIABLE_REFERENCE_ID=@[a-zA-Z0-9_]+
 PROPERTY_KEY_ID=[a-zA-Z0-9_\-]+
 LOWER_PROPERTY_KEY_ID=[a-z0-9_\-]+
 STRING=\"([^\"(\r\n\\]|\\.)*?\"
-UNQUOTED_STRING=[^\s]+
+UNQUOTED_STRING=[^\s\(\)\[\]=\"]+
 
 %%
 <YYINITIAL> {
