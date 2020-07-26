@@ -14,18 +14,19 @@ class StellarisScriptStringPsiReference(
 	var resolveAsLocalizationProperty = true
 
 	override fun resolve(): PsiElement? {
-		findLocalizationPropertyInProject(name,element.project)?.let{ return it }
-		findScriptPropertyInProject(name,element.project)?.let{return it}
+		findLocalizationProperty(name, element.project, element.resolveScope)?.let { return it }
+		findScriptProperty(name, element.project,element.resolveScope)?.let { return it }
 		return null
 	}
 
-	override fun multiResolve(incompleteCode: Boolean): Array<out PsiElementResolveResult> {
+	override fun multiResolve(incompleteCode: Boolean): Array<out ResolveResult> {
 		//假定是localization property，然后再假定是script property，前者可以有多个
-		return findLocalizationPropertiesInProject(name, element.project)?.ifEmpty {
-			findScriptPropertyInProject(name, element.project)?.let {
-				resolveAsLocalizationProperty = false
-				it.toSingletonList()
-			}
-		}?.mapArray { PsiElementResolveResult(it) }.orEmpty()
+		findLocalizationProperties(name, element.project, element.resolveScope).mapArray {
+			PsiElementResolveResult(it)
+		}.let { if(it.isNotEmpty()) return it }
+		findScriptProperty(name, element.project, element.resolveScope)?.toSingletonArray().also {
+			resolveAsLocalizationProperty = false
+		}
+		return ResolveResult.EMPTY_ARRAY
 	}
 }

@@ -16,7 +16,7 @@ class StellarisScriptVariablePsiReference(
 	}
 
 	override fun multiResolve(incompleteCode: Boolean): Array<out ResolveResult> {
-		return findScriptVariableDefinitionsInProject(name, element.project)?.mapArray {
+		return findScriptVariableDefinitions(name, element.project)?.mapArray {
 			PsiElementResolveResult(it)
 		}.orEmpty()
 	}

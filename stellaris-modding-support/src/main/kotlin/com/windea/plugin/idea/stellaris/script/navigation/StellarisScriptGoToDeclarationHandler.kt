@@ -21,19 +21,20 @@ class StellarisScriptGoToDeclarationHandler:  GotoDeclarationHandler {
 		return when(sourceElement) {
 			null -> null
 			is StellarisScriptVariableDefinition -> {
-				//查找当前文件，然后查找当前项目
-				findScriptVariableDefinitionInFile(sourceElement.name,sourceElement.containingFile)?.let { return arrayOf(it) }
-				findScriptVariableDefinitionsInProject(sourceElement.name,sourceElement.project)?.let { return it.toTypedArray() }
+				//查找当前文件，如果没有，再查找当前项目
+				val name = sourceElement.name ?:return null
+				findScriptVariableDefinitionInFile(name,sourceElement.containingFile)?.toSingletonArray()?.let { return it }
+				findScriptVariableDefinitions(name,sourceElement.project,sourceElement.resolveScope).toArray()
 			}
 			//字符串可以是脚本文件属性，也可以是本地化文件属性
 			is StellarisScriptString -> {
 				if(!sourceElement.isValidPropertyKey) return null
 
-				//查找当前项目的脚本文件属性，然后再查找当前项目的本地化文件属性
+				//查找当前项目的本地化文件属性，如果没有，再查找当前项目的本地化文件属性
 				val name = sourceElement.value
 				val project = sourceElement.project
-				findScriptPropertiesInProject(name, project)?.let { return it.toTypedArray() }
-				findLocalizationPropertiesInProject(name, project)?.let { return it.toTypedArray() }
+				findScriptProperties(name, project,sourceElement.resolveScope).toArray().let { if(it.isNotEmpty()) return it }
+				findLocalizationProperties(name, project,sourceElement.resolveScope).toArray()
 			}
 			else -> null
 		}

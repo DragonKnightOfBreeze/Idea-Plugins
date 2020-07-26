@@ -16,19 +16,16 @@ import com.windea.plugin.idea.stellaris.script.psi.*
 @ExtensionPoint
 class StellarisLocalizationFindUsagesProvider : FindUsagesProvider {
 	override fun getDescriptiveName(element: PsiElement): String {
-		return when(element) {
-			is StellarisLocalizationProperty -> "${element.name}"
-			else -> ""
-		}
+		return if(element is PsiNamedElement) "${element.name}" else ""
 	}
 
 	override fun getType(element: PsiElement): String {
 		return when(element) {
 			is StellarisLocalizationProperty -> message("stellaris.localization.findUsages.property")
-			//is StellarisLocalizationLocale -> message("stellaris.localization.findUsages.Locale")
-			//is StellarisLocalizationIcon -> message("stellaris.localization.findUsages.icon")
-			//is StellarisLocalizationColorfulText -> message("stellaris.localization.findUsages.color")
-			//is StellarisLocalizationSerialNumber -> message("stellaris.localization.findUsages.serialNumber")
+			is StellarisLocalizationLocale -> message("stellaris.localization.findUsages.Locale")
+			is StellarisLocalizationIcon -> message("stellaris.localization.findUsages.icon")
+			is StellarisLocalizationColorfulText -> message("stellaris.localization.findUsages.color")
+			is StellarisLocalizationSerialNumber -> message("stellaris.localization.findUsages.serialNumber")
 			else -> ""
 		}
 	}

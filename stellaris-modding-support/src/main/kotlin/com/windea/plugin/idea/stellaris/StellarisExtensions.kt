@@ -1,4 +1,4 @@
-@file:Suppress("UNCHECKED_CAST", "UNUSED_PARAMETER")
+@file:Suppress("UNUSED_PARAMETER")
 
 package com.windea.plugin.idea.stellaris
 
@@ -12,18 +12,17 @@ import com.intellij.openapi.fileTypes.*
 import com.intellij.openapi.project.*
 import com.intellij.psi.*
 import com.intellij.psi.search.*
+import com.intellij.psi.search.GlobalSearchScope.*
 import com.intellij.psi.util.*
-import com.intellij.util.containers.*
+import com.intellij.util.*
 import com.windea.plugin.idea.stellaris.localization.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
 import com.windea.plugin.idea.stellaris.script.*
 import com.windea.plugin.idea.stellaris.script.psi.*
 import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptParserDefinition.Companion.COMMENTS
 import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
-import com.windea.plugin.idea.stellaris.script.psi.impl.*
 import java.net.*
 import java.util.*
-import javax.swing.*
 
 //region Logging
 const val doPrint = true
@@ -44,6 +43,7 @@ fun Boolean.toInt() = if(this) 1 else 0
 inline fun <reified T : Any> String.toClassPathResource(): URL = T::class.java.getResource(this)
 
 
+@Suppress("UNCHECKED_CAST")
 fun <T> Array<out T?>.cast() = this as Array<T>
 
 inline fun <T, reified R> List<T>.mapArray(block: (T) -> R): Array< R> {
@@ -54,6 +54,9 @@ inline fun <T, reified R> Array<out T>.mapArray(block: (T) -> R): Array< R> {
 	return Array<R>(size) { block(this[it]) }
 }
 
+inline fun <T, reified R> Sequence<T>.mapArray(block: (T) -> R): Array< R> {
+	return this.toList().mapArray(block)
+}
 
 fun String.quote() = if(startsWith('"') && endsWith('"')) this else "\"$this\""
 
@@ -70,6 +73,14 @@ fun CharSequence.indicesOf(char: Char, ignoreCase: Boolean = false): MutableList
 		lastIndex = indexOf(char, lastIndex + 1, ignoreCase)
 	}
 	return indices
+}
+
+inline fun <reified T> T.toSingletonArray():Array<T>{
+	return arrayOf(this)
+}
+
+inline fun <reified T> Sequence<T>.toArray():Array<T>{
+	return this.toList().toTypedArray()
 }
 
 fun <T> T.toSingletonList():List<T>{
@@ -95,10 +106,11 @@ fun ASTNode.nodes(): List<ASTNode> {
 	return result
 }
 
-fun Project.findPsiFiles(type: LanguageFileType,globalSearchScope: GlobalSearchScope = GlobalSearchScope.projectScope(this)): List<PsiFile> {
-	return FileTypeIndex.getFiles(type, globalSearchScope).mapNotNull {
+@Suppress("UNCHECKED_CAST")
+fun <T:PsiFile> Project.findFiles(type: LanguageFileType,globalSearchScope: GlobalSearchScope = projectScope(this)): Sequence<T> {
+	return FileTypeIndex.getFiles(type, globalSearchScope).asSequence().mapNotNull {
 		PsiManager.getInstance(this).findFile(it)
-	}
+	} as Sequence<T>
 }
 //endregion
 
@@ -165,7 +177,7 @@ fun findFurthestSiblingOfSameType(element: PsiElement, after: Boolean): PsiEleme
 }
 
 
-fun LookupElement.withPriority(priority: Double) = PrioritizedLookupElement.withPriority(this,priority)
+fun LookupElement.withPriority(priority: Double): LookupElement = PrioritizedLookupElement.withPriority(this,priority)
 
 
 /**导航到指定元素的位置*/
@@ -185,72 +197,66 @@ fun selectElement(editor: Editor, element: PsiElement?) {
 //NOTE 如果最终只需要一个结果而需要在多个文件中查找，那么使用Sequence而非List以提高性能
 
 //region Stellaris Script
-fun findScriptVariableDefinitionInFile(name: String?, psiFile: PsiFile?): StellarisScriptVariableDefinition? {
-	if(name == null || psiFile !is StellarisScriptFile) return null
+fun findScriptVariableDefinitionInFile(name: String, psiFile: PsiFile?): StellarisScriptVariableDefinition? {
+	if( psiFile !is StellarisScriptFile) return null
 	return psiFile.variableDefinitions.find { it.name == name }
 }
 
-fun findScriptVariableDefinitionInProject(name: String?, project: Project): StellarisScriptVariableDefinition? {
-	if(name == null) return null
-	val files = project.findPsiFiles(StellarisScriptFileType) as List<StellarisScriptFile>
-	return files.asSequence().flatMap { it.variableDefinitions.asSequence() }.find { it.name == name }
+fun findScriptVariableDefinition(name: String, project: Project, globalSearchScope: GlobalSearchScope): StellarisScriptVariableDefinition? {
+	val files = project.findFiles<StellarisScriptFile>(StellarisScriptFileType,globalSearchScope)
+	return files.flatMap { it.variableDefinitions.asSequence() }.find { it.name == name }
 }
 
-fun findScriptVariableDefinitionsInProject(name: String?, project: Project): List<StellarisScriptVariableDefinition>? {
-	if(name == null) return null
-	val files = project.findPsiFiles(StellarisScriptFileType) as List<StellarisScriptFile>
-	return files.flatMap { it.variableDefinitions.toList() }.filter { it.name == name }
+fun findScriptVariableDefinitions(name: String, project: Project, globalSearchScope: GlobalSearchScope): Sequence< StellarisScriptVariableDefinition> {
+	val files = project.findFiles<StellarisScriptFile>(StellarisScriptFileType,globalSearchScope)
+	return files.flatMap { it.variableDefinitions.asSequence() }.filter { it.name == name }
 }
 
-fun findAllScriptVariableDefinitions(project: Project): List<StellarisScriptVariableDefinition> {
-	val files = project.findPsiFiles(StellarisScriptFileType) as List<StellarisScriptFile>
-	return files.flatMap { it.variableDefinitions.toList() }.filterNot { it.name.isNullOrEmpty() }
+fun findAllScriptVariableDefinitions(project: Project, globalSearchScope: GlobalSearchScope): Sequence< StellarisScriptVariableDefinition> {
+	val files = project.findFiles<StellarisScriptFile>(StellarisScriptFileType,globalSearchScope)
+	return files.flatMap { it.variableDefinitions.asSequence() }.filterNot { it.name.isNullOrEmpty() }
 }
 
 
-fun findScriptPropertyInProject(name: String?, project: Project): StellarisScriptProperty? {
-	if(name == null) return null
-	val files = project.findPsiFiles(StellarisScriptFileType) as List<StellarisScriptFile>
-	return files .asSequence().flatMap { it.properties.asSequence() }.find { it.name == name }
+fun findScriptPropertyInFile(name: String,  file: PsiFile): StellarisScriptProperty? {
+	if(file !is StellarisScriptFile) return null
+	return file.properties.find { it.name == name }
 }
 
-fun findScriptPropertiesInProject(name: String?, project: Project): List<StellarisScriptProperty>? {
-	if(name == null) return null
-	val files = project.findPsiFiles(StellarisScriptFileType) as List<StellarisScriptFile>
-	return files.flatMap { it.properties.toList() }.filter { it.name == name }
+fun findScriptProperty(name: String, project: Project, globalSearchScope: GlobalSearchScope): StellarisScriptProperty? {
+	val files = project.findFiles<StellarisScriptFile>(StellarisScriptFileType,globalSearchScope)
+	return files.flatMap { it.properties.asSequence() }.find { it.name == name }
 }
 
-fun findAllScriptProperties(project: Project): List<StellarisScriptProperty> {
-	val files = project.findPsiFiles(StellarisScriptFileType) as List<StellarisScriptFile>
-	return files.flatMap { it.properties.toList() }.filterNot { it.name.isNullOrEmpty() }
+fun findScriptProperties(name: String, project: Project, globalSearchScope: GlobalSearchScope): Sequence<StellarisScriptProperty> {
+	val files = project.findFiles<StellarisScriptFile>(StellarisScriptFileType,globalSearchScope)
+	return files.flatMap { it.properties.asSequence() }.filter { it.name == name }
+}
+
+fun findScriptProperties(project: Project, globalSearchScope: GlobalSearchScope): Sequence<StellarisScriptProperty> {
+	val files = project.findFiles<StellarisScriptFile>(StellarisScriptFileType,globalSearchScope)
+	return files.flatMap { it.properties.asSequence() }.filterNot { it.name.isNullOrEmpty() }
 }
 //endregion
 
 //region Stellaris Localization
-fun findLocalizationPropertyInFile(name: String?, psiFile: PsiFile): StellarisLocalizationProperty? {
-	if(name == null || psiFile !is StellarisLocalizationFile) return null
-	return psiFile.properties.find { it.name == name }
+fun findLocalizationPropertyInFile(name: String, file: PsiFile): StellarisLocalizationProperty? {
+	if(file !is StellarisLocalizationFile) return null
+	return file.properties.find { it.name == name }
 }
 
-fun findLocalizationPropertiesInFile(name: String?, psiFile: PsiFile): List<StellarisLocalizationProperty>? {
-	if(name == null || psiFile !is StellarisLocalizationFile) return null
-	return psiFile.properties.filter { it.name == name }
+fun findLocalizationProperty(name: String, project: Project, globalSearchScope: GlobalSearchScope): StellarisLocalizationProperty? {
+	val files = project.findFiles<StellarisLocalizationFile>(StellarisLocalizationFileType,globalSearchScope)
+	return files.flatMap { it.properties.asSequence() }.find { it.name == name }
 }
 
-fun findLocalizationPropertyInProject(name: String?, project: Project): StellarisLocalizationProperty? {
-	if(name == null) return null
-	val files = project.findPsiFiles(StellarisLocalizationFileType) as List<StellarisLocalizationFile>
-	return files.asSequence().flatMap { it.properties.asSequence() }.find { it.name == name }
+fun findLocalizationProperties(name: String, project: Project, globalSearchScope: GlobalSearchScope): Sequence<StellarisLocalizationProperty> {
+	val files = project.findFiles<StellarisLocalizationFile>(StellarisLocalizationFileType,globalSearchScope)
+	return files.flatMap { it.properties.asSequence() }.filter { it.name == name }
 }
 
-fun findLocalizationPropertiesInProject(name: String?, project: Project): List<StellarisLocalizationProperty>? {
-	if(name == null) return null
-	val files = project.findPsiFiles(StellarisLocalizationFileType) as List<StellarisLocalizationFile>
-	return files.flatMap { it.properties.toList() }.filter { it.name == name }
-}
-
-fun findAllLocalizationPropertiesInProject(project: Project): List<StellarisLocalizationProperty> {
-	val files = project.findPsiFiles(StellarisLocalizationFileType) as List<StellarisLocalizationFile>
-	return files.flatMap { it.properties.toList() }.filterNot { it.name.isNullOrEmpty() }
+fun findLocalizationProperties(project:Project, globalSearchScope: GlobalSearchScope): Sequence<StellarisLocalizationProperty> {
+	val files = project.findFiles<StellarisLocalizationFile>(StellarisLocalizationFileType,globalSearchScope)
+	return files.flatMap { it.properties.asSequence() }.filterNot { it.name.isNullOrEmpty() }
 }
 //endregion

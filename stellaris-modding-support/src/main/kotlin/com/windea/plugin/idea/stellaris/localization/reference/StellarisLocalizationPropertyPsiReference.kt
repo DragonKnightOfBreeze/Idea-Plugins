@@ -3,7 +3,6 @@
 package com.windea.plugin.idea.stellaris.localization.reference
 
 import com.intellij.codeInsight.lookup.*
-import com.intellij.model.*
 import com.intellij.openapi.util.*
 import com.intellij.psi.*
 import com.windea.plugin.idea.stellaris.*
@@ -18,20 +17,19 @@ class StellarisLocalizationPropertyPsiReference(
 	//不便于使用缓存：可能存在于当前文件中、当前项目中，甚至是外部目录
 
 	override fun resolve(): PsiElement? {
-		return findLocalizationPropertyInProject(name, element.project)
+		return findLocalizationProperty(name, element.project,element.resolveScope)
 	}
 
 	override fun multiResolve(incompleteCode: Boolean): Array<out ResolveResult> {
-		return findLocalizationPropertiesInProject(name, element.project)?.mapArray {
+		return findLocalizationProperties(name, element.project,element.resolveScope).mapArray {
 			PsiElementResolveResult(it)
-		}.orEmpty()
+		}
 	}
 
 	//注意要传入elementName而非element
 	override fun getVariants(): Array<out Any> {
-		return findAllLocalizationPropertiesInProject(element.project).mapArray {
-			LookupElementBuilder.create(it.name!!).withIcon(it.getIcon(0)).withTypeText(it.containingFile.name)
-				.withPsiElement(it)
+		return findLocalizationProperties(element.project,element.resolveScope).mapArray {
+			LookupElementBuilder.create(it.name!!).withIcon(it.getIcon(0)).withTypeText(it.containingFile.name).withPsiElement(it)
 		}
 	}
 }

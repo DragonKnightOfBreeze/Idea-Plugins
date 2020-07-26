@@ -4,12 +4,11 @@ import com.intellij.openapi.util.*
 import com.intellij.psi.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
 
-class StellarisLocalizationSerialNumberPsiReference(
-	element: StellarisLocalizationSerialNumber,
+class StellarisLocalizationColorfulTextPsiReference(
+	element: StellarisLocalizationColorfulText,
 	rangeInElement: TextRange?
-) : PsiReferenceBase<StellarisLocalizationSerialNumber>(element, rangeInElement) {
+) : PsiReferenceBase<StellarisLocalizationColorfulText>(element, rangeInElement) {
 	override fun resolve(): PsiElement? {
 		return null
 	}
 }
-
