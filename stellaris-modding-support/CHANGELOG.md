@@ -84,7 +84,7 @@
 * [X] "="周围可以没有空格（限制unquotedString）
 * [X] 限制scriptUnquotedString：不包含`{}[]="\s`
 * [ ] scriptUnquotedString实际上也可以不包含大写字母（允许的属性名：`portraits`，来自name_list）
-* [ ] scriptPropertyName，不是顶级属性时，仍然可以包含大写字母（但不以大写字母开头）
+* [X] scriptPropertyName，不是顶级属性时，仍然可以包含大写字母（但不以大写字母开头）
 * [ ] 图标名也可以是属性引用
 * [ ] 认为序号必须是%x%，其中x长度只能为1，同时不需要在字符串中转义，向后推迟解析顺序
 * [ ] 本地化属性的名字重复检查有bug，当有多个属性引用时，总是报错
