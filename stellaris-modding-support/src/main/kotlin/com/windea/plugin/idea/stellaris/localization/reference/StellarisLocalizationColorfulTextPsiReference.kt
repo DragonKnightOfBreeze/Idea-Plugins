@@ -6,7 +6,7 @@ import com.windea.plugin.idea.stellaris.localization.psi.*
 
 class StellarisLocalizationColorfulTextPsiReference(
 	element: StellarisLocalizationColorfulText,
-	rangeInElement: TextRange?
+	rangeInElement: TextRange
 ) : PsiReferenceBase<StellarisLocalizationColorfulText>(element, rangeInElement) {
 	override fun resolve(): PsiElement? {
 		return null

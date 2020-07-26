@@ -63,7 +63,7 @@ public class StellarisLocalizationSerialNumberImpl extends StellarisLocalization
   }
 
   @Override
-  @NotNull
+  @Nullable
   public StellarisLocalizationSerialNumberPsiReference getReference() {
     return StellarisLocalizationPsiImplUtil.getReference(this);
   }

@@ -5,6 +5,7 @@ package com.windea.plugin.idea.stellaris.localization.psi.impl
 import com.intellij.openapi.util.*
 import com.intellij.openapi.util.Iconable.*
 import com.intellij.psi.*
+import com.intellij.psi.util.*
 import com.intellij.refactoring.suggested.*
 import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.domain.*
@@ -53,8 +54,8 @@ object StellarisLocalizationPsiImplUtil {
 	}
 
 	@JvmStatic
-	fun getReference(element: StellarisLocalizationLocale): StellarisLocalizationLocalePsiReference {
-		return StellarisLocalizationLocalePsiReference(element, element.localeId.textRangeInParent)
+	fun getReference(element: StellarisLocalizationLocale): StellarisLocalizationLocalePsiReference? {
+		return element.localeId.let{ StellarisLocalizationLocalePsiReference(element, it.textRangeInParent)}
 	}
 	//endregion
 
@@ -121,8 +122,8 @@ object StellarisLocalizationPsiImplUtil {
 	}
 
 	@JvmStatic
-	fun getReference(element: StellarisLocalizationPropertyReference): StellarisLocalizationPropertyPsiReference {
-		return StellarisLocalizationPropertyPsiReference(element, TextRange(1,element.textLength-1))
+	fun getReference(element: StellarisLocalizationPropertyReference): StellarisLocalizationPropertyPsiReference? {
+		return element.propertyKeyId?.let{ StellarisLocalizationPropertyPsiReference(element, it.textRangeInParent)}
 	}
 	//endregion
 
@@ -149,8 +150,8 @@ object StellarisLocalizationPsiImplUtil {
 	}
 
 	@JvmStatic
-	fun getReference(element: StellarisLocalizationIcon): StellarisLocalizationIconPsiReference {
-		return StellarisLocalizationIconPsiReference(element, TextRange(1,element.textLength-1))
+	fun getReference(element: StellarisLocalizationIcon): StellarisLocalizationIconPsiReference? {
+		return element.iconName?.let{ StellarisLocalizationIconPsiReference(element, it.textRangeInParent)}
 	}
 	//endregion
 
@@ -182,8 +183,8 @@ object StellarisLocalizationPsiImplUtil {
 	}
 
 	@JvmStatic
-	fun getReference(element: StellarisLocalizationSerialNumber): StellarisLocalizationSerialNumberPsiReference {
-		return StellarisLocalizationSerialNumberPsiReference(element, TextRange(1,element.textLength-1))
+	fun getReference(element: StellarisLocalizationSerialNumber): StellarisLocalizationSerialNumberPsiReference? {
+		return element.serialNumberId?.let{ StellarisLocalizationSerialNumberPsiReference(element,it.textRangeInParent)}
 	}
 	//endregion
 
@@ -215,8 +216,8 @@ object StellarisLocalizationPsiImplUtil {
 	}
 
 	@JvmStatic
-	fun getReference(element: StellarisLocalizationColorfulText): StellarisLocalizationColorfulTextPsiReference {
-		return StellarisLocalizationColorfulTextPsiReference(element, TextRange(1,element.textLength-1))
+	fun getReference(element: StellarisLocalizationColorfulText): StellarisLocalizationColorfulTextPsiReference? {
+		return element.colorfulTextId?.let {  StellarisLocalizationColorfulTextPsiReference(element,it.textRangeInParent )}
 	}
 	//endregion
 }

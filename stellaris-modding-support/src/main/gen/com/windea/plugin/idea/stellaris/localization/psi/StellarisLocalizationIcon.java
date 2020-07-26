@@ -22,7 +22,7 @@ public interface StellarisLocalizationIcon extends StellarisLocalizationNamedEle
 
   int getTextOffset();
 
-  @NotNull
+  @Nullable
   StellarisLocalizationIconPsiReference getReference();
 
 }

@@ -24,7 +24,7 @@ class StellarisLocalizationGoToDeclarationHandler : GotoDeclarationHandler{
 				//查找当前文件，如果没有，再查找当前项目
 				val name = sourceElement.name?:return null
 				findLocalizationPropertyInFile(name, sourceElement.containingFile)?.toSingletonArray()?.let { return it }
-				findLocalizationProperties(name, sourceElement.project,sourceElement.resolveScope).toArray()
+				findLocalizationProperties(name, sourceElement.project).toArray()
 			}
 			else -> null
 		}

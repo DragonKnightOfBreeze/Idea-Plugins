@@ -12,11 +12,11 @@ class StellarisScriptPropertyPsiReference(
 	private val name = element.text.unquote()
 
 	override fun resolve(): PsiElement? {
-		return findScriptProperty(name,element.project,element.resolveScope)
+		return findScriptProperty(name,element.project)
 	}
 
 	override fun multiResolve(incompleteCode: Boolean): Array<ResolveResult> {
-		return findScriptProperties(element.project,element.resolveScope).mapArray {
+		return findScriptProperties(element.project).mapArray {
 			PsiElementResolveResult(it)
 		}
 	}

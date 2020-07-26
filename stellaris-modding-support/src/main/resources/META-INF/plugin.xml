@@ -285,25 +285,25 @@
     <!--endregion-->
 
     <!--region Stellaris Script Schema-->
-    <json.jsonSchemaEnabler
-      implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaEnabler"/>
-    <completion.contributor
-      language="Stellaris Script"
-      implementationClass="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaCompletionContributor"/>
-    <documentationProvider
-      implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaDocumentationProvider"/>
-    <gotoDeclarationHandler
-      implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaGotoDeclarationHandler"/>
-    <json.jsonLikePsiWalkerFactory
-      implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptJsonLikePsiWalkerFactory"/>
+    <!--<json.jsonSchemaEnabler-->
+    <!--  implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaEnabler"/>-->
+    <!--<completion.contributor-->
+    <!--  language="Stellaris Script"-->
+    <!--  implementationClass="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaCompletionContributor"/>-->
+    <!--<documentationProvider-->
+    <!--  implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaDocumentationProvider"/>-->
+    <!--<gotoDeclarationHandler-->
+    <!--  implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaGotoDeclarationHandler"/>-->
+    <!--<json.jsonLikePsiWalkerFactory-->
+    <!--  implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptJsonLikePsiWalkerFactory"/>-->
 
-    <localInspection
-      language="Stellaris Script"
-      shortName="StellarisScriptSchemaValidation" bundle="messages.StellarisBundle"
-      groupKey="stellaris.script.inspection"
-      key="stellaris.script.inspection.schemaValidation"
-      enabledByDefault="true" level="WARNING"
-      implementationClass="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaInspectionTool"/>
+    <!--<localInspection-->
+    <!--  language="Stellaris Script"-->
+    <!--  shortName="StellarisScriptSchemaValidation" bundle="messages.StellarisBundle"-->
+    <!--  groupKey="stellaris.script.inspection"-->
+    <!--  key="stellaris.script.inspection.schemaValidation"-->
+    <!--  enabledByDefault="true" level="WARNING"-->
+    <!--  implementationClass="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaInspectionTool"/>-->
     <!--endregion-->
   </extensions>
 

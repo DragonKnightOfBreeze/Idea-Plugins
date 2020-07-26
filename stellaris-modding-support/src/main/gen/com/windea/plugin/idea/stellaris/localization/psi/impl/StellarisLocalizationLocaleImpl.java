@@ -66,7 +66,7 @@ public class StellarisLocalizationLocaleImpl extends StellarisLocalizationNamedE
   }
 
   @Override
-  @NotNull
+  @Nullable
   public StellarisLocalizationLocalePsiReference getReference() {
     return StellarisLocalizationPsiImplUtil.getReference(this);
   }

@@ -25,7 +25,7 @@ public interface StellarisLocalizationPropertyReference extends StellarisLocaliz
 
   int getTextOffset();
 
-  @NotNull
+  @Nullable
   StellarisLocalizationPropertyPsiReference getReference();
 
 }

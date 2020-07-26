@@ -17,7 +17,11 @@ import com.windea.plugin.idea.stellaris.localization.psi.*
 import javax.swing.*
 
 @ExtensionPoint
-object StellarisLocalizationChangeSerialNumberIntention : IntentionAction {
+class StellarisLocalizationChangeSerialNumberIntention : IntentionAction {
+	companion object{
+		val instance = StellarisLocalizationChangeSerialNumberIntention()
+	}
+
 	override fun startInWriteAction() = false
 
 	override fun getText() = StellarisBundle.message("stellaris.localization.intention.changeSerialNumber")

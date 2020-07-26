@@ -26,7 +26,7 @@ public interface StellarisLocalizationSerialNumber extends StellarisLocalization
   @Nullable
   StellarisSerialNumber getSerialNumber();
 
-  @NotNull
+  @Nullable
   StellarisLocalizationSerialNumberPsiReference getReference();
 
 }

@@ -17,7 +17,11 @@ import com.windea.plugin.idea.stellaris.localization.psi.*
 import javax.swing.*
 
 @ExtensionPoint
-object StellarisLocalizationChangeLocaleIntention : IntentionAction {
+class StellarisLocalizationChangeLocaleIntention : IntentionAction {
+	companion object{
+		val instance = StellarisLocalizationChangeLocaleIntention()
+	}
+
 	override fun startInWriteAction() = false
 
 	override fun getText() = message("stellaris.localization.intention.changeLocale")

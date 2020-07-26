@@ -69,7 +69,7 @@ public class StellarisLocalizationColorfulTextImpl extends StellarisLocalization
   }
 
   @Override
-  @NotNull
+  @Nullable
   public StellarisLocalizationColorfulTextPsiReference getReference() {
     return StellarisLocalizationPsiImplUtil.getReference(this);
   }

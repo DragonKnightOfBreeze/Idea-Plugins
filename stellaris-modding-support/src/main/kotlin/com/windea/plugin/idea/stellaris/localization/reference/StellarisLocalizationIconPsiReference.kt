@@ -6,7 +6,7 @@ import com.windea.plugin.idea.stellaris.localization.psi.*
 
 class StellarisLocalizationIconPsiReference(
 	element: StellarisLocalizationIcon,
-	rangeInElement: TextRange?
+	rangeInElement: TextRange
 ) : PsiReferenceBase<StellarisLocalizationIcon>(element, rangeInElement) {
 	override fun resolve(): PsiElement? {
 		return null

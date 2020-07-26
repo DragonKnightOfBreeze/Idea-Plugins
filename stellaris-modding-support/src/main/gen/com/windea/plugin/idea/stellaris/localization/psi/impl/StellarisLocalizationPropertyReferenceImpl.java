@@ -62,7 +62,7 @@ public class StellarisLocalizationPropertyReferenceImpl extends StellarisLocaliz
   }
 
   @Override
-  @NotNull
+  @Nullable
   public StellarisLocalizationPropertyPsiReference getReference() {
     return StellarisLocalizationPsiImplUtil.getReference(this);
   }

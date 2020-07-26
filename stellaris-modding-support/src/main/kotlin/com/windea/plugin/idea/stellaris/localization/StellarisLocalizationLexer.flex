@@ -30,6 +30,7 @@ import static com.windea.plugin.idea.stellaris.localization.psi.StellarisLocaliz
 %state WAITING_PROPERTY_REFERENCE_PARAMETER
 %state WAITING_CODE
 %state WAITING_ICON
+%state WAITING_SERIAL_NUMEBR_START
 %state WAITING_SERIAL_NUMBER
 %state WAITING_COLORFUL_TEXT_ID
 %state WAITING_COLORFUL_TEXT
@@ -37,7 +38,6 @@ import static com.windea.plugin.idea.stellaris.localization.psi.StellarisLocaliz
 %{
   int depth = 0;
   boolean inIconName = false;
-  boolean isSerialNumber = true;
 
   public int nextState(){
   	if(depth <= 0) return WAITING_RICH_TEXT;
@@ -45,7 +45,7 @@ import static com.windea.plugin.idea.stellaris.localization.psi.StellarisLocaliz
   }
 
   public int nextStateInIconName(){
-  	if(inIconName) return WAITING_CODE;
+  	if(inIconName) return WAITING_ICON;
   	else return nextState();
   }
 %}
@@ -56,13 +56,14 @@ EOL=\s*\R
 WHITE_SPACE=\s+
 SPACE=[ \t]+
 
+IS_SERIAL_NUMBER=%.%
+
 COMMENT=#[^\r\n]*
 END_OF_LINE_COMMENT=#[^\r\n]*
 ROOT_COMMENT=#[^\r\n]*
 NUMBER=\d
 LOCALE_ID=[a-z_]+
 PROPERTY_KEY_ID=[a-zA-Z][a-zA-Z0-9_.\-]*
-STRING_TOKEN=[^\"\[$£§%\r\n\\]+
 VALID_ESCAPE_TOKEN=\\[\"rn$£§%\[]
 INVALID_ESCAPE_TOKEN=\\.
 LEFT_QUOTE="\""
@@ -77,13 +78,13 @@ CODE_END="]"
 ICON_START="£"
 ICON_ID=[a-zA-Z\-_]+
 ICON_END="£"
-NOT_A_SERIAL_NUMBER=%.[^%]
 SERIAL_NUMBER_START="%"
 SERIAL_NUMBER_ID=[A-Z]
 SERIAL_NUMBER_END="%"
 COLORFUL_TEXT_START="§"
 COLORFUL_TEXT_ID=[A-Z]
 COLORFUL_TEXT_END="§!"
+STRING_TOKEN=[^\"\[$£§\r\n\\][^\"\[$£§%\r\n\\]* //允许单独的"%"
 
 %%
 
@@ -132,7 +133,8 @@ COLORFUL_TEXT_END="§!"
   {CODE_START} { yybegin(WAITING_CODE); return CODE_START;}
   {ICON_START} { yybegin(WAITING_ICON); return ICON_START;}
   {COLORFUL_TEXT_START} { depth++; yybegin(WAITING_COLORFUL_TEXT_ID); return COLORFUL_TEXT_START;}
-  {SERIAL_NUMBER_START} { yybegin(WAITING_SERIAL_NUMBER); return SERIAL_NUMBER_START;}
+  //测试下一个元素是否是编号，只有测试通过时才解析为编号
+  {IS_SERIAL_NUMBER} { yypushback(yylength()); yybegin(WAITING_SERIAL_NUMEBR_START);}
   {VALID_ESCAPE_TOKEN} {return VALID_ESCAPE_TOKEN;}
   {INVALID_ESCAPE_TOKEN} {return INVALID_ESCAPE_TOKEN;}
   {STRING_TOKEN} {  return STRING_TOKEN;}
@@ -164,6 +166,9 @@ COLORFUL_TEXT_END="§!"
   {PROPERTY_REFERENCE_START} {yybegin(WAITING_PROPERTY_REFERENCE); inIconName=true; return PROPERTY_REFERENCE_START;}
   {ICON_ID} {return ICON_ID;}
 }
+<WAITING_SERIAL_NUMEBR_START>{
+  {SERIAL_NUMBER_START} { yybegin(WAITING_SERIAL_NUMBER); return SERIAL_NUMBER_START;}
+}
 <WAITING_SERIAL_NUMBER>{
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
   {RIGHT_QUOTE} { yybegin(WAITING_PROPERTY_KEY); return RIGHT_QUOTE;} //跳过非法字符
@@ -183,13 +188,9 @@ COLORFUL_TEXT_END="§!"
   {CODE_START} { yybegin(WAITING_CODE); return CODE_START;}
   {ICON_START} { yybegin(WAITING_ICON); return ICON_START;}
   {COLORFUL_TEXT_START} { depth++; yybegin(WAITING_COLORFUL_TEXT_ID); return COLORFUL_TEXT_START;}
-  //测试下一个元素是否是编号
-  {NOT_A_SERIAL_NUMBER} { yypushback(yylength()); isSerialNumber=false;}
-  {SERIAL_NUMBER_START} {
-    if(isSerialNumber) { yybegin(WAITING_SERIAL_NUMBER); return SERIAL_NUMBER_START;}
-    else {yypushback((yylength())); isSerialNumber=true;}
-  }
-  {VALID_ESCAPE_TOKEN} {return VALID_ESCAPE_TOKEN;}
+  //测试下一个元素是否是编号，只有测试通过时才解析为编号
+  {IS_SERIAL_NUMBER} { yypushback(yylength()); yybegin(WAITING_SERIAL_NUMEBR_START);}
+  {VALID_ESCAPE_TOKEN} { return VALID_ESCAPE_TOKEN;}
   {INVALID_ESCAPE_TOKEN} {return INVALID_ESCAPE_TOKEN;}
   {STRING_TOKEN} {  return STRING_TOKEN;}
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符

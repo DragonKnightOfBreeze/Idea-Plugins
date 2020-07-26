@@ -6,7 +6,7 @@ import com.windea.plugin.idea.stellaris.localization.psi.*
 
 class StellarisLocalizationLocalePsiReference(
 	element: StellarisLocalizationLocale,
-	rangeInElement: TextRange?
+	rangeInElement: TextRange
 ) : PsiReferenceBase<StellarisLocalizationLocale>(element, rangeInElement) {
 	override fun resolve(): PsiElement? {
 		return null

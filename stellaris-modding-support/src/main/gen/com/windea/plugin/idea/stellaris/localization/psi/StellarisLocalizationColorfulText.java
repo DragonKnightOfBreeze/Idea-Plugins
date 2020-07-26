@@ -29,7 +29,7 @@ public interface StellarisLocalizationColorfulText extends StellarisLocalization
   @Nullable
   StellarisColor getColor();
 
-  @NotNull
+  @Nullable
   StellarisLocalizationColorfulTextPsiReference getReference();
 
 }

@@ -84,14 +84,14 @@ public class StellarisLocalizationParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // INVALID_ESCAPE_TOKEN | VALID_ESCAPE_TOKEN
+  // VALID_ESCAPE_TOKEN | INVALID_ESCAPE_TOKEN
   public static boolean escape(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "escape")) return false;
     if (!nextTokenIs(b, "<escape>", INVALID_ESCAPE_TOKEN, VALID_ESCAPE_TOKEN)) return false;
     boolean r;
     Marker m = enter_section_(b, l, _NONE_, ESCAPE, "<escape>");
-    r = consumeToken(b, INVALID_ESCAPE_TOKEN);
-    if (!r) r = consumeToken(b, VALID_ESCAPE_TOKEN);
+    r = consumeToken(b, VALID_ESCAPE_TOKEN);
+    if (!r) r = consumeToken(b, INVALID_ESCAPE_TOKEN);
     exit_section_(b, l, m, r, false, null);
     return r;
   }

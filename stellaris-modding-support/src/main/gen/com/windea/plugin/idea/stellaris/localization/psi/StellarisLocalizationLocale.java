@@ -29,7 +29,7 @@ public interface StellarisLocalizationLocale extends StellarisLocalizationNamedE
   @Nullable
   StellarisLocale getLocale();
 
-  @NotNull
+  @Nullable
   StellarisLocalizationLocalePsiReference getReference();
 
 }

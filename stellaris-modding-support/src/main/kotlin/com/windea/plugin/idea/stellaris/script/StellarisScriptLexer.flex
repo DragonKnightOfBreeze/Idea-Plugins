@@ -25,6 +25,8 @@ import static com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
 %state WAITING_PROPERTY_VALUE
 %state WAITING_PROPERTY_EOL
 
+%state WAITING_PROPERTY_KEY_START
+
 %{
   int depth = 0;
 
@@ -42,7 +44,9 @@ EOL=\s*\R
 WHITE_SPACE=\s+
 SPACE=[ \t]+
 
-COMMENT=#[^\r\n]*
+IS_PROEPRTY=[^\"][^\r\n]*=
+
+COMMENT =#[^\r\n]*
 END_OF_LINE_COMMENT=#[^\r\n]*
 BOOLEAN=(yes)|(no)
 NUMBER=[0-9]+(\.[0-9]+)?
@@ -51,7 +55,7 @@ VARIABLE_REFERENCE_ID=@[a-zA-Z0-9_]+
 PROPERTY_KEY_ID=[a-zA-Z0-9_\-]+
 LOWER_START_PROPERTY_KEY_ID=[a-z][a-zA-Z0-9_\-]+
 STRING=\"([^\"(\r\n\\]|\\.)*?\"
-UNQUOTED_STRING=[^\s\(\)\[\]=\"]+
+UNQUOTED_STRING=[^\s\(\)\[\]\{\}=\"]+
 
 %%
 <YYINITIAL> {
@@ -80,10 +84,15 @@ UNQUOTED_STRING=[^\s\(\)\[\]=\"]+
   "}" {depth--; yybegin(nextState()); return RIGHT_BRACE;}
   {WHITE_SPACE} { return WHITE_SPACE; } //继续解析
   {COMMENT} {  return COMMENT; }
-  "OR"|"AND"|"NOR"|"NOT" {yybegin(WATIING_PROPERTY_SEPARATOR); return PROPERTY_KEY_ID;}
-  {LOWER_START_PROPERTY_KEY_ID} {yybegin(WATIING_PROPERTY_SEPARATOR); return PROPERTY_KEY_ID;}
-  {STRING} {yybegin(WAITING_PROPERTY_EOL); return STRING_TOKEN;}
+  //在这里根据后面是否有"="判断是否是property
+  {IS_PROEPRTY} {yypushback(yylength()); yybegin(WAITING_PROPERTY_KEY_START);}
   {UNQUOTED_STRING} {yybegin(WAITING_PROPERTY_EOL); return UNQUOTED_STRING_TOKEN;}
+  {STRING} {yybegin(WAITING_PROPERTY_EOL); return STRING_TOKEN;}
+}
+<WAITING_PROPERTY_KEY_START>{
+  {PROPERTY_KEY_ID} {yybegin(WATIING_PROPERTY_SEPARATOR); return PROPERTY_KEY_ID;}
+  {WHITE_SPACE} { return WHITE_SPACE; } //继续解析
+  {COMMENT} {  return COMMENT; }
 }
 <WATIING_PROPERTY_SEPARATOR> {
   "=" {yybegin(WAITING_PROPERTY_VALUE); return EQUAL_SIGN;}

@@ -19,6 +19,8 @@ class StellarisLocalizationAnnotator : Annotator, DumbAware {
 	):GutterIconRenderer(),DumbAware{
 		override fun getIcon() = color.gutterIcon
 
+		override fun isNavigateAction() = true
+
 		override fun equals(other: Any?) = other is ColorGutterIconRenderer && color == other.color
 
 		override fun hashCode() = color.hashCode()
@@ -30,14 +32,14 @@ class StellarisLocalizationAnnotator : Annotator, DumbAware {
 			is StellarisLocalizationLocale -> {
 				if(element.locale == null) {
 					holder.newAnnotation(ERROR, message("stellaris.localization.annotator.unsupportedLocale"))
-						.withFix(StellarisLocalizationChangeLocaleIntention)
+						.withFix(StellarisLocalizationChangeLocaleIntention.instance)
 						.create()
 				}
 			}
 			is StellarisLocalizationSerialNumber -> {
 				if(element.serialNumber == null) {
 					holder.newAnnotation(ERROR, message("stellaris.localization.annotator.unsupportedSerialNumber"))
-						.withFix(StellarisLocalizationChangeSerialNumberIntention)
+						.withFix(StellarisLocalizationChangeSerialNumberIntention.instance)
 						.create()
 				}
 			}
@@ -46,7 +48,7 @@ class StellarisLocalizationAnnotator : Annotator, DumbAware {
 			is StellarisLocalizationColorfulText -> {
 				if(element.color == null) {
 					holder.newAnnotation(ERROR, message("stellaris.localization.annotator.unsupportedColor"))
-						.withFix(StellarisLocalizationChangeColorIntention)
+						.withFix(StellarisLocalizationChangeColorIntention.instance)
 						.create()
 				} else {
 					val attributesKey = StellarisLocalizationAttributesKeys.COLOR_CODE_KEYS[element.name] ?: return

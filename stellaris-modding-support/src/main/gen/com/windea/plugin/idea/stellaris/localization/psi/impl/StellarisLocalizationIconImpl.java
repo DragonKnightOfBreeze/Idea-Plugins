@@ -56,7 +56,7 @@ public class StellarisLocalizationIconImpl extends StellarisLocalizationNamedEle
   }
 
   @Override
-  @NotNull
+  @Nullable
   public StellarisLocalizationIconPsiReference getReference() {
     return StellarisLocalizationPsiImplUtil.getReference(this);
   }

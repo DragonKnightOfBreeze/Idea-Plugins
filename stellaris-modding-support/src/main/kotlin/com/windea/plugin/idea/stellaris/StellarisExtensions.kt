@@ -202,17 +202,17 @@ fun findScriptVariableDefinitionInFile(name: String, psiFile: PsiFile?): Stellar
 	return psiFile.variableDefinitions.find { it.name == name }
 }
 
-fun findScriptVariableDefinition(name: String, project: Project, globalSearchScope: GlobalSearchScope): StellarisScriptVariableDefinition? {
+fun findScriptVariableDefinition(name: String, project: Project, globalSearchScope: GlobalSearchScope=GlobalSearchScope.projectScope(project)): StellarisScriptVariableDefinition? {
 	val files = project.findFiles<StellarisScriptFile>(StellarisScriptFileType,globalSearchScope)
 	return files.flatMap { it.variableDefinitions.asSequence() }.find { it.name == name }
 }
 
-fun findScriptVariableDefinitions(name: String, project: Project, globalSearchScope: GlobalSearchScope): Sequence< StellarisScriptVariableDefinition> {
+fun findScriptVariableDefinitions(name: String, project: Project, globalSearchScope: GlobalSearchScope=GlobalSearchScope.projectScope(project)): Sequence< StellarisScriptVariableDefinition> {
 	val files = project.findFiles<StellarisScriptFile>(StellarisScriptFileType,globalSearchScope)
 	return files.flatMap { it.variableDefinitions.asSequence() }.filter { it.name == name }
 }
 
-fun findAllScriptVariableDefinitions(project: Project, globalSearchScope: GlobalSearchScope): Sequence< StellarisScriptVariableDefinition> {
+fun findAllScriptVariableDefinitions(project: Project, globalSearchScope: GlobalSearchScope=GlobalSearchScope.projectScope(project)): Sequence< StellarisScriptVariableDefinition> {
 	val files = project.findFiles<StellarisScriptFile>(StellarisScriptFileType,globalSearchScope)
 	return files.flatMap { it.variableDefinitions.asSequence() }.filterNot { it.name.isNullOrEmpty() }
 }
@@ -223,17 +223,17 @@ fun findScriptPropertyInFile(name: String,  file: PsiFile): StellarisScriptPrope
 	return file.properties.find { it.name == name }
 }
 
-fun findScriptProperty(name: String, project: Project, globalSearchScope: GlobalSearchScope): StellarisScriptProperty? {
+fun findScriptProperty(name: String, project: Project, globalSearchScope: GlobalSearchScope=GlobalSearchScope.projectScope(project)): StellarisScriptProperty? {
 	val files = project.findFiles<StellarisScriptFile>(StellarisScriptFileType,globalSearchScope)
 	return files.flatMap { it.properties.asSequence() }.find { it.name == name }
 }
 
-fun findScriptProperties(name: String, project: Project, globalSearchScope: GlobalSearchScope): Sequence<StellarisScriptProperty> {
+fun findScriptProperties(name: String, project: Project, globalSearchScope: GlobalSearchScope=GlobalSearchScope.projectScope(project)): Sequence<StellarisScriptProperty> {
 	val files = project.findFiles<StellarisScriptFile>(StellarisScriptFileType,globalSearchScope)
 	return files.flatMap { it.properties.asSequence() }.filter { it.name == name }
 }
 
-fun findScriptProperties(project: Project, globalSearchScope: GlobalSearchScope): Sequence<StellarisScriptProperty> {
+fun findScriptProperties(project: Project, globalSearchScope: GlobalSearchScope=GlobalSearchScope.projectScope(project)): Sequence<StellarisScriptProperty> {
 	val files = project.findFiles<StellarisScriptFile>(StellarisScriptFileType,globalSearchScope)
 	return files.flatMap { it.properties.asSequence() }.filterNot { it.name.isNullOrEmpty() }
 }
@@ -245,17 +245,17 @@ fun findLocalizationPropertyInFile(name: String, file: PsiFile): StellarisLocali
 	return file.properties.find { it.name == name }
 }
 
-fun findLocalizationProperty(name: String, project: Project, globalSearchScope: GlobalSearchScope): StellarisLocalizationProperty? {
+fun findLocalizationProperty(name: String, project: Project, globalSearchScope: GlobalSearchScope=GlobalSearchScope.projectScope(project)): StellarisLocalizationProperty? {
 	val files = project.findFiles<StellarisLocalizationFile>(StellarisLocalizationFileType,globalSearchScope)
 	return files.flatMap { it.properties.asSequence() }.find { it.name == name }
 }
 
-fun findLocalizationProperties(name: String, project: Project, globalSearchScope: GlobalSearchScope): Sequence<StellarisLocalizationProperty> {
+fun findLocalizationProperties(name: String, project: Project, globalSearchScope: GlobalSearchScope=GlobalSearchScope.projectScope(project)): Sequence<StellarisLocalizationProperty> {
 	val files = project.findFiles<StellarisLocalizationFile>(StellarisLocalizationFileType,globalSearchScope)
 	return files.flatMap { it.properties.asSequence() }.filter { it.name == name }
 }
 
-fun findLocalizationProperties(project:Project, globalSearchScope: GlobalSearchScope): Sequence<StellarisLocalizationProperty> {
+fun findLocalizationProperties(project:Project, globalSearchScope: GlobalSearchScope=GlobalSearchScope.projectScope(project)): Sequence<StellarisLocalizationProperty> {
 	val files = project.findFiles<StellarisLocalizationFile>(StellarisLocalizationFileType,globalSearchScope)
 	return files.flatMap { it.properties.asSequence() }.filterNot { it.name.isNullOrEmpty() }
 }

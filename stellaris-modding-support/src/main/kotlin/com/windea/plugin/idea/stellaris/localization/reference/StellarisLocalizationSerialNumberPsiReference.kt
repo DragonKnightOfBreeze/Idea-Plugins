@@ -6,7 +6,7 @@ import com.windea.plugin.idea.stellaris.localization.psi.*
 
 class StellarisLocalizationSerialNumberPsiReference(
 	element: StellarisLocalizationSerialNumber,
-	rangeInElement: TextRange?
+	rangeInElement: TextRange
 ) : PsiReferenceBase<StellarisLocalizationSerialNumber>(element, rangeInElement) {
 	override fun resolve(): PsiElement? {
 		return null
