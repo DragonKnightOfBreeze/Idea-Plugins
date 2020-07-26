@@ -32,6 +32,7 @@ public interface StellarisLocalizationTypes {
   IElementType COMMENT = new StellarisLocalizationTokenType("COMMENT");
   IElementType END_OF_LINE_COMMENT = new StellarisLocalizationTokenType("END_OF_LINE_COMMENT");
   IElementType ICON_END = new StellarisLocalizationTokenType("£");
+  IElementType ICON_ID = new StellarisLocalizationTokenType("ICON_ID");
   IElementType ICON_START = new StellarisLocalizationTokenType("ICON_START");
   IElementType INVALID_ESCAPE_TOKEN = new StellarisLocalizationTokenType("INVALID_ESCAPE_TOKEN");
   IElementType LEFT_QUOTE = new StellarisLocalizationTokenType("LEFT_QUOTE");

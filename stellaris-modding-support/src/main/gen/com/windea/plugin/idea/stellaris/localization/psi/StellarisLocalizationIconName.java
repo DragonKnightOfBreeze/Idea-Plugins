@@ -11,6 +11,6 @@ public interface StellarisLocalizationIconName extends PsiElement {
   StellarisLocalizationPropertyReference getPropertyReference();
 
   @Nullable
-  StellarisLocalizationString getString();
+  PsiElement getIconId();
 
 }

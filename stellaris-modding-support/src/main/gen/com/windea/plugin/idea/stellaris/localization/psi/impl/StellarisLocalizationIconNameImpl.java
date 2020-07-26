@@ -34,8 +34,8 @@ public class StellarisLocalizationIconNameImpl extends ASTWrapperPsiElement impl
 
   @Override
   @Nullable
-  public StellarisLocalizationString getString() {
-    return findChildByClass(StellarisLocalizationString.class);
+  public PsiElement getIconId() {
+    return findChildByType(ICON_ID);
   }
 
 }

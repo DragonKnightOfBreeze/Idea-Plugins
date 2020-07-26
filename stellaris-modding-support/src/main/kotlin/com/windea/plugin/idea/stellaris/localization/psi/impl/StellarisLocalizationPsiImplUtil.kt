@@ -129,18 +129,18 @@ object StellarisLocalizationPsiImplUtil {
 	//region StellarisLocalizationIcon
 	@JvmStatic
 	fun getName(element: StellarisLocalizationIcon): String? {
-		return element.iconId?.text
+		return element.iconName?.text
 	}
 
 	@JvmStatic
 	fun setName(element: StellarisLocalizationIcon, name: String): PsiElement {
-		element.iconId?.replace(createIcon(element.project, name).iconId!!)
+		element.iconName?.replace(createIcon(element.project, name).iconName!!)
 		return element
 	}
 
 	@JvmStatic
 	fun getNameIdentifier(element: StellarisLocalizationIcon): PsiElement? {
-		return element.iconId
+		return element.iconName
 	}
 
 	@JvmStatic

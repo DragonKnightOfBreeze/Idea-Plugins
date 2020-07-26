@@ -37,6 +37,7 @@ import static com.windea.plugin.idea.stellaris.localization.psi.StellarisLocaliz
 %{
   int depth = 0;
   boolean inIconName = false;
+  boolean isSerialNumber = true;
 
   public int nextState(){
   	if(depth <= 0) return WAITING_RICH_TEXT;
@@ -74,8 +75,9 @@ CODE_START="["
 CODE_TEXT=[^\[\]\r\n]+
 CODE_END="]"
 ICON_START="£"
-ICON_ID=[a-z_]+
+ICON_ID=[a-zA-Z\-_]+
 ICON_END="£"
+NOT_A_SERIAL_NUMBER=%.[^%]
 SERIAL_NUMBER_START="%"
 SERIAL_NUMBER_ID=[A-Z]
 SERIAL_NUMBER_END="%"
@@ -160,7 +162,7 @@ COLORFUL_TEXT_END="§!"
   {RIGHT_QUOTE} { yybegin(WAITING_PROPERTY_KEY); return RIGHT_QUOTE;} //跳过非法字符
   {ICON_END} {yybegin(nextState()); return ICON_END;}
   {PROPERTY_REFERENCE_START} {yybegin(WAITING_PROPERTY_REFERENCE); inIconName=true; return PROPERTY_REFERENCE_START;}
-  {STRING_TOKEN} {return STRING_TOKEN;}
+  {ICON_ID} {return ICON_ID;}
 }
 <WAITING_SERIAL_NUMBER>{
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
@@ -181,7 +183,12 @@ COLORFUL_TEXT_END="§!"
   {CODE_START} { yybegin(WAITING_CODE); return CODE_START;}
   {ICON_START} { yybegin(WAITING_ICON); return ICON_START;}
   {COLORFUL_TEXT_START} { depth++; yybegin(WAITING_COLORFUL_TEXT_ID); return COLORFUL_TEXT_START;}
-  {SERIAL_NUMBER_START} { yybegin(WAITING_SERIAL_NUMBER); return SERIAL_NUMBER_START;}
+  //测试下一个元素是否是编号
+  {NOT_A_SERIAL_NUMBER} { yypushback(yylength()); isSerialNumber=false;}
+  {SERIAL_NUMBER_START} {
+    if(isSerialNumber) { yybegin(WAITING_SERIAL_NUMBER); return SERIAL_NUMBER_START;}
+    else {yypushback((yylength())); isSerialNumber=true;}
+  }
   {VALID_ESCAPE_TOKEN} {return VALID_ESCAPE_TOKEN;}
   {INVALID_ESCAPE_TOKEN} {return INVALID_ESCAPE_TOKEN;}
   {STRING_TOKEN} {  return STRING_TOKEN;}
