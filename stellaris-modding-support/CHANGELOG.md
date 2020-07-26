@@ -76,6 +76,7 @@
 ### 1.7
 
 * [X] 修复对于语言区域的代码补全中的BUG，当提示时包含已输入的字符
-* [ ] 编写Stellaris的文件结构文档和Json Schema文档
+* [ ] 为脚本文件提供Json Schema的支持
+* [ ] 编写Stellaris的文件结Json Schema文档
 * [ ] DocComment：仅允许第一个空行之前的LineComment作为DocComment
 
