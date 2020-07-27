@@ -1,15 +1,19 @@
-@file:Suppress("UNUSED_PARAMETER")
+@file:Suppress("UNUSED_PARAMETER", "UNUSED_DESTRUCTURED_PARAMETER_ENTRY")
 
 package com.windea.plugin.idea.stellaris.script.psi.impl
 
 import com.intellij.openapi.util.*
 import com.intellij.psi.*
 import com.intellij.refactoring.suggested.*
+import com.intellij.ui.*
 import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.script.psi.*
 import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptElementFactory.createPropertyKey
 import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptElementFactory.createVariableName
 import com.windea.plugin.idea.stellaris.script.reference.*
+import org.apache.commons.imaging.color.*
+import org.apache.xmlgraphics.java2d.color.ColorUtil
+import java.awt.*
 import javax.swing.*
 
 object StellarisScriptPsiImplUtil {
@@ -184,6 +188,30 @@ object StellarisScriptPsiImplUtil {
 	@JvmStatic
 	fun isValidPropertyKey(element: StellarisScriptString): Boolean {
 		return !element.value.any { it.isWhitespace() }
+	}
+	//endregion
+
+	//region StellarisScriptNumber
+	@JvmStatic
+	fun getValue(element: StellarisScriptColor): String? {
+		return element.text
+	}
+
+	@JvmStatic
+	fun getColor(element:StellarisScriptColor): Color?{
+		return runCatching {
+			val args =  element.colorParameter.text
+				.let{ it.substring(1,it.length)}.trim()
+				.split("\\s+".toRegex())
+
+			when(element.colorType.text) {
+				"rgb" -> args.let { (r, g, b) -> Color(r.toInt(), g.toInt(), b.toInt()) }
+				"rgba" -> args.let { (r, g, b,a) -> Color(r.toInt(), g.toInt(), b.toInt(),a.toInt()) }
+				"hsv" -> args.let { (h, s, v) -> null } //TODO
+				"hsb" -> args.let { (h, s, b) -> Color.getHSBColor(h.toFloat(),s.toFloat(),b.toFloat()) }
+				else -> null
+			}
+		}.getOrNull()
 	}
 	//endregion
 }

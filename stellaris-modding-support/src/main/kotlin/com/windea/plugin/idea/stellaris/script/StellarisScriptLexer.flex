@@ -58,6 +58,9 @@ NUMBER=-?[0-9]+(\.[0-9]+)?
 STRING=\"([^\"(\r\n\\]|\\.)*?\"
 UNQUOTED_STRING=[^\s\(\)\[\]\{\}=\"@]+
 
+COLOR_TYPE=rgb|rgba|hsv
+COLOR_PARAMETER=\{[^\r\n]*?}
+
 %%
 <YYINITIAL> {
   {WHITE_SPACE} { return WHITE_SPACE; } //继续解析

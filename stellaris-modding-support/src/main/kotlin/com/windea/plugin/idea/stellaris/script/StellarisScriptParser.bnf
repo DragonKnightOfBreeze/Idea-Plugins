@@ -29,6 +29,8 @@
 	  NUMBER_TOKEN='regexp:-?[0-9]+(\.[0-9]+)?'
 	  UNQUOTED_STRING_TOKEN='regexp:[^\s()\[\]{}="@]+'
 	  STRING_TOKEN='regexp:"([^"(\r\n\\]|\\.)*?"'
+	  COLOR_TYPE="regexp:(rgb)|(rgba)|(hsv)"
+	  COLOR_PARAMETER='regexp:\{[^\r\n]*?}'
 	]
 }
 
@@ -75,7 +77,7 @@ block ::= "{" block_item * "}" {
 }
 private block_item ::= END_OF_LINE_COMMENT | COMMENT | property | item
 
-item ::= boolean | number | string {
+item ::= boolean | number | string | color {
   implements="com.intellij.psi.PsiLiteralValue"
   methods=[getIcon getValue]
 }
@@ -91,4 +93,8 @@ number ::= NUMBER_TOKEN {
 string ::= UNQUOTED_STRING_TOKEN | STRING_TOKEN {
   implements="com.intellij.psi.PsiLiteralValue"
   methods=[getValue getReference isValidPropertyKey]
+}
+color ::= COLOR_TYPE COLOR_PARAMETER {
+  implements="com.intellij.psi.PsiLiteralValue"
+  methods=[getValue getColor]
 }

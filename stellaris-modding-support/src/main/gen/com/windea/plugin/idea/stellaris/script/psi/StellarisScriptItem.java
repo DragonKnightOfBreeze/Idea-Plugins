@@ -14,6 +14,9 @@ public interface StellarisScriptItem extends PsiLiteralValue {
   StellarisScriptBoolean getBoolean();
 
   @Nullable
+  StellarisScriptColor getColor();
+
+  @Nullable
   StellarisScriptNumber getNumber();
 
   @Nullable

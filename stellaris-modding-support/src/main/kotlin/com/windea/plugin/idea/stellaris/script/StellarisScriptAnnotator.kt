@@ -10,11 +10,14 @@ import com.intellij.openapi.project.*
 import com.intellij.pom.*
 import com.intellij.psi.*
 import com.intellij.util.*
+import com.intellij.util.ui.*
 import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.StellarisBundle.message
 import com.windea.plugin.idea.stellaris.annotations.*
+import com.windea.plugin.idea.stellaris.domain.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
 import com.windea.plugin.idea.stellaris.script.psi.*
+import java.awt.*
 
 @ExtensionPoint
 class StellarisScriptAnnotator : Annotator ,DumbAware{
@@ -60,6 +63,18 @@ class StellarisScriptAnnotator : Annotator ,DumbAware{
 		}
 	}
 
+	class ColorGutterIconRenderer(
+		private val color: Color
+	):GutterIconRenderer(),DumbAware{
+		override fun getIcon() = ColorIcon(12,color)
+
+		override fun isNavigateAction() = false
+
+		override fun equals(other: Any?) = other is ColorGutterIconRenderer && color == other.color
+
+		override fun hashCode() = color.hashCode()
+	}
+
 	override fun annotate(element: PsiElement, holder: AnnotationHolder) {
 		when(element){
 			//字符串可能是script property、localization property
@@ -86,6 +101,13 @@ class StellarisScriptAnnotator : Annotator ,DumbAware{
 							.create()
 					}
 				}
+			}
+			//对于颜色类型，显示对应的颜色图标
+			is StellarisScriptColor -> {
+				val color = element.color?:return
+				holder.newSilentAnnotation(INFORMATION)
+					.gutterIconRenderer(ColorGutterIconRenderer(color))
+					.create()
 			}
 			//NOTE 不能这样做：可能是外部变量，而来源难以判断
 			//is StellarisScriptVariableReference -> {

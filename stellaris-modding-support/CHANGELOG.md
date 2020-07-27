@@ -103,6 +103,7 @@
 * [X] 数字也可以作为数组的元素，即，`{1 2 3}`是合法的
 * [X] LocalIntention：ClassNotFoundException（`intentionAction.className`标签中不能有任何空格）（黑人问号？？？）
 * [X] 更新结构视图和面包屑导航以匹配完善后的语法。
+* [X] 补充关于Color类型的代码。
 
 # TODO
 

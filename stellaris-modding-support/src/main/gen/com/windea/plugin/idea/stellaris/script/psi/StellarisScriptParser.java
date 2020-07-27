@@ -86,7 +86,19 @@ public class StellarisScriptParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // boolean | number | string
+  // COLOR_TYPE COLOR_PARAMETER
+  public static boolean color(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "color")) return false;
+    if (!nextTokenIs(b, COLOR_TYPE)) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeTokens(b, 0, COLOR_TYPE, COLOR_PARAMETER);
+    exit_section_(b, m, COLOR, r);
+    return r;
+  }
+
+  /* ********************************************************** */
+  // boolean | number | string | color
   public static boolean item(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "item")) return false;
     boolean r;
@@ -94,6 +106,7 @@ public class StellarisScriptParser implements PsiParser, LightPsiParser {
     r = boolean_$(b, l + 1);
     if (!r) r = number(b, l + 1);
     if (!r) r = string(b, l + 1);
+    if (!r) r = color(b, l + 1);
     exit_section_(b, l, m, r, false, null);
     return r;
   }
