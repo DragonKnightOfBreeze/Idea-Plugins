@@ -191,7 +191,7 @@ object StellarisScriptPsiImplUtil {
 	}
 	//endregion
 
-	//region StellarisScriptNumber
+	//region StellarisScriptColor
 	@JvmStatic
 	fun getValue(element: StellarisScriptColor): String? {
 		return element.text
