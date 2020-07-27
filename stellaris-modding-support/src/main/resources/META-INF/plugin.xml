@@ -8,7 +8,7 @@
   <description><![CDATA[
     <p>为开发Stellaris的mod提供支持。</p>
     <ul>
-      <li>支持Stellaris的脚本语言。(*.txt, *.gfx, *.mod)</li>
+      <li>支持Stellaris的脚本语言。(*.txt, *.gfx, *.asset, *.mod)</li>
       <li>支持Stellaris的本地化语言。(*.yml)</li>
       <li>已实现基本的语言特性。（如，代码高亮，文件结构，代码格式化）</li>
       <li>正在实现扩展的语言特性。（如，查找使用，定位到定义）</li>
@@ -40,7 +40,7 @@
 
     <p>Support for Stellaris modding.</p>
     <ul>
-      <li>Support Stellaris Script Language. (*.txt, *.gfx, *.mod)</li>
+      <li>Support Stellaris Script Language. (*.txt, *.gfx, *.asset, *.mod)</li>
       <li>Support Stellaris Localization Language. (*.yml)</li>
       <li>Basic language features has been implemented. (e.g., Syntax highlight, file structure, code format)</li>
       <li>Extended language features is implementing. (e.g., find usages, go to declaration)</li>
@@ -202,7 +202,7 @@
     <!--region Stellaris Script-->
     <fileType name="Stellaris Script File"
               implementationClass="com.windea.plugin.idea.stellaris.script.StellarisScriptFileType"
-              fieldName="INSTANCE" language="Stellaris Script" extensions="txt;mod;gfx;"/>
+              fieldName="INSTANCE" language="Stellaris Script" extensions="txt;mod;gfx;assert"/>
     <lang.parserDefinition
       language="Stellaris Script"
       implementationClass="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptParserDefinition"/>

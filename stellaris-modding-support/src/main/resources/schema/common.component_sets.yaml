@@ -1,0 +1,17 @@
+definitions:
+  # 舰船组件
+  component_set:
+    title: Component Set
+    type: object
+    properties:
+      key:
+        $ref: "core.yaml/#/definitions/loc_reference"
+      icon:
+        $ref: "core.yaml/#/definitions/gfx_reference"
+      icon_frame:
+        $ref: "core.yaml/#/definitions/uint"
+
+title: Component Sets
+type: object
+additionalProperties:
+  $ref: "#/definitions/component_set"

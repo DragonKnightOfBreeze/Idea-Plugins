@@ -44,13 +44,13 @@ definitions:
       triggered_desc:
         $ref: "core.yaml/#/definitions/triggered_desc"
       on_queued:
-        $ref: "core.yaml/#/definitions/action"
+        $ref: "core.yaml/#/definitions/effect"
       on_unqueued:
-        $ref: "core.yaml/#/definitions/action"
+        $ref: "core.yaml/#/definitions/effect"
       on_built:
-        $ref: "core.yaml/#/definitions/action"
+        $ref: "core.yaml/#/definitions/effect"
       on_destroy:
-        $ref: "core.yaml/#/definitions/action"
+        $ref: "core.yaml/#/definitions/effect"
       ai_weight:
         $ref: "core.yaml/#/definitions/weight_modifier"
 

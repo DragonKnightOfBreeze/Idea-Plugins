@@ -1,0 +1,27 @@
+definitions:
+  # 舰船插槽模版
+  component_slot_template:
+    title: Component Slot Template
+    type: object
+    properties:
+      size:
+        $ref: "core.yaml/#/definitions/component_size"
+      component:
+        $ref: "core/yaml/#/definitions/component_type"
+      # opt
+      is_fixed:
+        $ref: "core.yaml/#/definitions/boolean"
+      entities:
+        type: object
+        properties:
+          weapon_type_kinetic:
+            $ref: "core/yaml/#/definitions/entity"
+          weapon_type_energy:
+            $ref: "core/yaml/#/definitions/entity"
+          weapon_type_explosive:
+            $ref: "core/yaml/#/definitions/entity"
+
+title: Component Slot Templates
+type: object
+additionalProperties:
+  $ref: "#/definitions/component_slot_template"

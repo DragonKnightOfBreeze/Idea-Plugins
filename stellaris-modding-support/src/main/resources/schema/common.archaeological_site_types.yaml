@@ -21,12 +21,12 @@ definitions:
       visible:
         $ref: "core.yaml/#/definitions/trigger"
       on_visible:
-        $ref: "core.yaml/#/definitions/event"
+        $ref: "core.yaml/#/definitions/effect"
       # anyOf
       state:
         $ref: "#/definitions/state"
       on_roll_failed:
-        $ref: "#/definitions/on_roll_failed_effect"
+        $ref: "core.yaml/#/definitions/effect"
 
   state:
     type: object
@@ -37,13 +37,6 @@ definitions:
         $ref: "core.yaml/#/definitions/gfx_reference"
       event:
         $ref: "core.yaml/#/definitions/event"
-
-  on_roll_failed_effect:
-    type: object
-    properties:
-      # TODO
-      from:
-        type: object
 
 title: Archaeological Site Types
 type: object

@@ -1,0 +1,27 @@
+definitions:
+  # 自动殖民算法的异常
+  colony_automation_exception:
+    title: Colony Automation Exception
+    type: object
+    properties:
+      available:
+        $ref: "core.yaml/#/definitions/trigger"
+      crisis:
+        $ref: "core.yaml/#/definitions/boolean"
+      prio_districts:
+        $type: district[]
+      buildings:
+        type: object
+        properties:
+          precinct:
+            properties:
+              # anyOf (building, available)
+              bulding:
+                $type: building
+              available:
+                $ref: "core.yaml/#/definitions/trigger"
+
+title: Colony Automation Exception
+type: object
+additionalProperties:
+  $ref: "#/definitions/colony_automation_exception"

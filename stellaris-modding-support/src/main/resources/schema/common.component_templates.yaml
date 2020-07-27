@@ -1,0 +1,98 @@
+definitions:
+  # 舰船组件模版
+  component_template:
+    title: Component Template
+    type: object
+    properties:
+      key:
+        $ref: "core.yaml/#/definitions/loc_reference"
+      size:
+        $ref: "core.yaml/#/definitions/component_size"
+      type:
+        $ref: "core.yaml/#/definitions/component_type"
+      icon:
+        $ref: "core.yaml/#/definitions/gfx_reference"
+      icon_frame:
+        $ref: "core.yaml/#/definitions/uint"
+      color:
+        $ref: "core.yaml/#/definitions/color"
+      prio_projectile:
+        $ref: "core.yaml/#/definitions/boolean"
+      hidden:
+        $ref: "core.yaml/#/definitions/boolean"
+      firing_arc:
+        $ref: "core.yaml/#/definitions/number"
+      min_range:
+        $ref: "core.yaml/#/definitions/number"
+      power:
+        $ref: "core.yaml/#/definitions/int"
+      count:
+        $ref: "core.yaml/#/definitions/uint"
+      regeneration_per_day:
+        $ref: "core.yaml/#/definitions/number"
+      launch_time:
+        $ref: "core.yaml/#/definitions/number"
+      damage:
+        $ref: "core.yaml/#/definitions/damage"
+      cooldown:
+        $ref: "core.yaml/#/definitions/uint"
+      range:
+        $ref: "core.yaml/#/definitions/uint"
+      engagement_range:
+        $ref: "core.yaml/#/definitions/uint"
+      accuracy:
+        $ref: "core.yaml/#/definitions/number"
+      tracking:
+        $ref: "core.yaml/#/definitions/number"
+
+      health:
+        $ref: "core.yaml/#/definitions/uint"
+      armor:
+        $ref: "core.yaml/#/definitions/uint"
+      shield:
+        $ref: "core.yaml/#/definitions/uint"
+      evasion:
+        $ref: "core.yaml/#/definitions/number"
+
+      speed:
+        $ref: "core.yaml/#/definitions/uint"
+      rotation_speed:
+        $ref: "core.yaml/#/definitions/number"
+      acceleration:
+        $ref: "core.yaml/#/definitions/number"
+
+      shield_damage:
+        $ref: "core.yaml/#/definitions/number"
+      shield_penetration:
+        $ref: "core.yaml/#/definitions/number"
+      armor_penetration:
+        $ref: "core.yaml/#/definitions/number"
+
+      ship_behavior:
+        $type: ship_behavior
+
+      weapon_type:
+        $ref: "core.yaml/#/definitions/component_type"
+      entity:
+        $ref: "core.yaml/#/definitions/entity"
+      prerequisites:
+        $type: tech[]
+      component_set:
+        $type: component_set
+      projectile_gfx:
+        $type: projectile.name
+      tags:
+        $type: component_tag[]
+      upgrades_to:
+        $type: component_template.key
+      ai_tags:
+        $type: component_tag[]
+      resources:
+        $ref: "core.yaml/#/definitions/resources"
+
+title: Component Templates
+type: object
+additionalProperties:
+  $ref: "#/definitions/component_template"
+
+

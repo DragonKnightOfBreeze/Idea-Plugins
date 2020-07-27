@@ -38,11 +38,24 @@ definitions:
     type: number
     minimum: 0.0
     default: 1.00
+  color:
+    type: array
+    items:
+      type: integer
+  damage:
+    type: object
+    properties:
+      min:
+        type: integer
+      max:
+        type: integer
 
-  localization_property_reference:
+  loc_reference:
     title: Localization Property Reference / String
   gfx_reference:
     title: GFX Reference
+  assert_reference:
+    title: Asset Reference
 
   resources:
     type: object
@@ -70,7 +83,15 @@ definitions:
       $type: resource
     additionalProperties:
       $ref: "#/definitions/uint"
-
+  desc:
+    oneOf:
+    - $ref: "core.yaml/#/definitions/loc_reference"
+    - $ref: "core.yaml/#/definitions/triggered_desc"
+  triggered_desc:
+    $ref: "core.yaml/#/definitions/trigger"
+    properties:
+      text:
+        $ref: "core.yaml/#/definitions/loc_reference"
   condition_expression:
     title: Condition Expression
     type: object
@@ -157,53 +178,35 @@ definitions:
           type: string
       additionalProperties: true # args
   # TODO
-  category:
-    title: Category
-  # TODO
   event_type:
     title: Event Type
-  desc:
-    oneOf:
-    - $ref: "core.yaml/#/definitions/localization_property_reference"
-    - $ref: "core.yaml/#/definitions/triggered_desc"
-  triggered_desc:
-    $ref: "core.yaml/#/definitions/trigger"
-    properties:
-      text:
-        $ref: "core.yaml/#/definitions/localization_property_reference"
+  # NOTE param: from, owner
   effect:
     title: Effect
     type: object
     anyOf:
-    - $ref: "core.yaml/#/definitions/condition_expression"
-    - $ref: "core.yaml/#/definitions/trigger"
     - properties:
+        limit:
+          $ref: "core.yaml/#/definitions/trigger"
+        from:
+          $ref: "core.yaml/#/definitions/effect_item"
+        owner:
+          $ref: "core.yaml/#/definitions/effect_item"
         custom_tooltip:
-          $ref: "core.yaml/#/definitions/localization_property_reference"
-        generate_lcluster_clue:
-          $ref: "core.yaml/#/definitions/boolean"
+          oneOf:
+          - $ref: "core.yaml/#/definitions/loc_reference"
+          - $ref: "core.yaml/#/definitions/triggered_tooltip"
         hidden_effect:
           $ref: "core.yaml/#/definitions/effect"
     - $ref: "core.yaml/#/definitions/effect_item"
   # TODO
   effect_item:
     additionalProperties: true
-  action:
-    title: Action
-    type: object
-    anyOf:
-    - $ref: "core.yaml/#/definitions/condition_expression"
-    - properties:
-        owner:
-          $ref: "core.yaml/#/definitions/action_item"
-        from:
-          $ref: "core.yaml/#/definitions/action_item"
-  # TODO
-  action_item:
-    properties:
-      limit:
-        $ref: "core.yaml/#/definitions/trigger"
-    additionalProperties: true
+
+  triggered_tooltip:
+    $ref: "core.yaml/#/definitions/trigger"
+    fail_text:
+      $ref: "core.yaml/#/definitions/loc_reference"
 
   mod_path:
     type: string
@@ -211,3 +214,26 @@ definitions:
     type: string
   workshop_path:
     type: string
+
+  component_size:
+    type: string
+    enum:
+    - small
+    - medium
+    - large
+    - extra_large
+    - point_defence
+    - torpedo
+    - titanic
+    - planet_killer
+
+  component_type:
+    type: string
+    enum:
+    - instant
+    - missile
+    - point_defence
+
+  entity:
+    type: string
+
