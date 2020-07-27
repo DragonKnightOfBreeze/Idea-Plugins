@@ -11,14 +11,15 @@ class StellarisScriptPropertyTreeElement(
 		val block = element?.propertyValue?.block ?: return mutableListOf()
 		val propertyList = block.propertyList
 		if(propertyList.isNotEmpty()) return propertyList.mapTo(mutableListOf()) { StellarisScriptPropertyTreeElement(it) }
-		val stringList = block.stringList
-		if(stringList.isNotEmpty()) return stringList.mapTo(mutableListOf()) { StellarisScriptStringTreeElement(it) }
+
+		val itemList = block.itemList
+		if(itemList.isNotEmpty()) return itemList.mapTo(mutableListOf()) { StellarisScriptItemTreeElement(it) }
 		return mutableListOf()
 
 		//val array = element?.propertyValue?.array
 		//val `object` = element?.propertyValue?.`object`
 		//return when{
-		//	array != null -> array.stringList.mapTo(mutableListOf()) { StellarisScriptStringTreeElement(it) }
+		//	array != null -> array.stringList.mapTo(mutableListOf()) { StellarisScriptItemTreeElement(it) }
 		//	object` != null ->  `object`.propertyList.mapTo(mutableListOf()) { StellarisScriptPropertyTreeElement(it) }
 		//	else -> mutableListOf()
 		//}

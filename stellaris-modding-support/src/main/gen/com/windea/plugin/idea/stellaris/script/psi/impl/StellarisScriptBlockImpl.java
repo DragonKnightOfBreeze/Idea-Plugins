@@ -28,14 +28,14 @@ public class StellarisScriptBlockImpl extends ASTWrapperPsiElement implements St
 
   @Override
   @NotNull
-  public List<StellarisScriptProperty> getPropertyList() {
-    return PsiTreeUtil.getChildrenOfTypeAsList(this, StellarisScriptProperty.class);
+  public List<StellarisScriptItem> getItemList() {
+    return PsiTreeUtil.getChildrenOfTypeAsList(this, StellarisScriptItem.class);
   }
 
   @Override
   @NotNull
-  public List<StellarisScriptString> getStringList() {
-    return PsiTreeUtil.getChildrenOfTypeAsList(this, StellarisScriptString.class);
+  public List<StellarisScriptProperty> getPropertyList() {
+    return PsiTreeUtil.getChildrenOfTypeAsList(this, StellarisScriptProperty.class);
   }
 
   @Override

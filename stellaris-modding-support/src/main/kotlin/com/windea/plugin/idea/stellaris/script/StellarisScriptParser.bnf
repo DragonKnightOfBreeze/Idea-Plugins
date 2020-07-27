@@ -27,7 +27,7 @@
 	  PROPERTY_KEY_ID='regexp:[a-zA-Zz0-9_\-]+'
 	  BOOLEAN_TOKEN='regexp:(yes)|(no)'
 	  NUMBER_TOKEN='regexp:-?[0-9]+(\.[0-9]+)?'
-	  UNQUOTED_STRING_TOKEN='regexp:[^\s()\[\]{}="]+'
+	  UNQUOTED_STRING_TOKEN='regexp:[^\s()\[\]{}="@]+'
 	  STRING_TOKEN='regexp:"([^"(\r\n\\]|\\.)*?"'
 	]
 }
@@ -40,7 +40,7 @@
 //DONE 分隔符可以是比较运算符
 
 root ::= root_item *
-private root_item ::= END_OF_LINE_COMMENT | COMMENT | variable_definition | property
+private root_item ::= END_OF_LINE_COMMENT | COMMENT | variable_definition | property | item
 variable_definition ::= variable_name variable_definition_separator variable_value {
   pin=1
   mixin="com.windea.plugin.idea.stellaris.script.psi.impl.StellarisScriptNamedElementImpl"
@@ -65,7 +65,7 @@ property ::= property_key property_separator property_value {
 }
 property_key ::= PROPERTY_KEY_ID
 property_separator ::= "=" | "<" | ">" | "<=" | ">="
-property_value ::= boolean | number | variable_reference | string | block
+property_value ::= variable_reference | boolean | number | string | block
 //property_value ::= boolean | number | variable_reference | string | array | object
 
 block ::= "{" block_item * "}" {
@@ -73,27 +73,16 @@ block ::= "{" block_item * "}" {
   implements="com.intellij.psi.PsiListLikeElement"
   methods=[isEmpty isArray isObject getComponents]
 }
-private block_item ::= END_OF_LINE_COMMENT | COMMENT | string | property
+private block_item ::= END_OF_LINE_COMMENT | COMMENT | property | item
 
-//array ::= "{" array_item * "}" {
-//  pin=1
-//  implements="com.intellij.psi.PsiListLikeElement"
-//  methods=[getComponents]
-//}
-//private array_item ::= END_OF_LINE_COMMENT | COMMENT | string
-//
-//object ::= "{" object_item * "}" {
-// pin=1
-// implements="com.intellij.psi.PsiListLikeElement"
-// methods=[getComponents]
-//}
-//private object_item ::= END_OF_LINE_COMMENT | COMMENT | property
+item ::=  variable_reference | boolean | number | string {
+  implements="com.intellij.psi.PsiLiteralValue"
+  methods=[getIcon getValue]
+}
 
 boolean ::= BOOLEAN_TOKEN
-
 number ::= NUMBER_TOKEN
-
 string ::= UNQUOTED_STRING_TOKEN | STRING_TOKEN {
   implements="com.intellij.psi.PsiLiteralValue"
-  methods=[getIcon getValue getReference isValidPropertyKey]
+  methods=[getValue getReference isValidPropertyKey]
 }

@@ -57,7 +57,7 @@ val localizationPropertyIcon = AllIcons.Nodes.PropertyRead
 val scriptFileIcon = IconLoader.getIcon("/icons/stellaris_script.png")
 val scriptVariableIcon = AllIcons.Nodes.Variable
 val scriptPropertyIcon = AllIcons.Nodes.Property
-val scriptTextIcon = AllIcons.Nodes.Constant
+val scriptItemIcon = AllIcons.Nodes.Constant
 val externalLocalizationPropertyIcon = IconUtil.toSize(AllIcons.Nodes.PropertyRead, 12, 12)
 val externalScriptPropertyIcon = IconUtil.toSize(AllIcons.Nodes.Property, 12, 12)
 

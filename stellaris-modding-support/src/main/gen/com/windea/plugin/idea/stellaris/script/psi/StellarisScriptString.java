@@ -5,9 +5,7 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiLiteralValue;
-import com.intellij.openapi.util.Iconable.IconFlags;
 import com.windea.plugin.idea.stellaris.script.reference.StellarisScriptStringPsiReference;
-import javax.swing.Icon;
 
 public interface StellarisScriptString extends PsiLiteralValue {
 
@@ -16,9 +14,6 @@ public interface StellarisScriptString extends PsiLiteralValue {
 
   @Nullable
   PsiElement getUnquotedStringToken();
-
-  @Nullable
-  Icon getIcon(@IconFlags int flags);
 
   @NotNull
   String getValue();

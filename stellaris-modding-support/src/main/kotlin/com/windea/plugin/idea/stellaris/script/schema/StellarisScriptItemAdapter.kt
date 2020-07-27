@@ -3,8 +3,8 @@ package com.windea.plugin.idea.stellaris.script.schema
 import com.jetbrains.jsonSchema.extension.adapters.*
 import com.windea.plugin.idea.stellaris.script.psi.*
 
-class StellarisScriptStringAdapter(
-	private val element: StellarisScriptString
+class StellarisScriptItemAdapter(
+	private val element: StellarisScriptItem
 ): JsonValueAdapter {
 	override fun getDelegate() = element
 

@@ -11,7 +11,7 @@ class StellarisScriptArrayAdapter(
 	}
 
 	private fun computeAdapters():List<JsonValueAdapter>{
-		return element.stringList.map { StellarisScriptStringAdapter(it) }
+		return element.itemList.map { StellarisScriptItemAdapter(it) }
 	}
 
 	override fun getDelegate() = element

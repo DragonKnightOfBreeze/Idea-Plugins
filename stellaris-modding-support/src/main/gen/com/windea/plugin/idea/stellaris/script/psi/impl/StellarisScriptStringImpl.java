@@ -10,9 +10,7 @@ import com.intellij.psi.util.PsiTreeUtil;
 import static com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.windea.plugin.idea.stellaris.script.psi.*;
-import com.intellij.openapi.util.Iconable.IconFlags;
 import com.windea.plugin.idea.stellaris.script.reference.StellarisScriptStringPsiReference;
-import javax.swing.Icon;
 
 public class StellarisScriptStringImpl extends ASTWrapperPsiElement implements StellarisScriptString {
 
@@ -39,12 +37,6 @@ public class StellarisScriptStringImpl extends ASTWrapperPsiElement implements S
   @Nullable
   public PsiElement getUnquotedStringToken() {
     return findChildByType(UNQUOTED_STRING_TOKEN);
-  }
-
-  @Override
-  @Nullable
-  public Icon getIcon(@IconFlags int flags) {
-    return StellarisScriptPsiImplUtil.getIcon(this, flags);
   }
 
   @Override

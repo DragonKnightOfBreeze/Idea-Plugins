@@ -4,9 +4,9 @@ import com.intellij.ide.structureView.*
 import com.intellij.ide.structureView.impl.common.*
 import com.windea.plugin.idea.stellaris.script.psi.*
 
-class StellarisScriptStringTreeElement(
-	private val psiElement: StellarisScriptString?
-): PsiTreeElementBase<StellarisScriptString>(psiElement){
+class StellarisScriptItemTreeElement(
+	private val psiElement: StellarisScriptItem?
+): PsiTreeElementBase<StellarisScriptItem>(psiElement){
 	override fun getChildrenBase(): MutableCollection<StructureViewTreeElement> {
 		return mutableListOf()
 	}

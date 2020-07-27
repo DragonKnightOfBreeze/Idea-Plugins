@@ -10,6 +10,7 @@ public interface StellarisScriptTypes {
 
   IElementType BLOCK = new StellarisScriptElementType("BLOCK");
   IElementType BOOLEAN = new StellarisScriptElementType("BOOLEAN");
+  IElementType ITEM = new StellarisScriptElementType("ITEM");
   IElementType NUMBER = new StellarisScriptElementType("NUMBER");
   IElementType PROPERTY = new StellarisScriptElementType("PROPERTY");
   IElementType PROPERTY_KEY = new StellarisScriptElementType("PROPERTY_KEY");
@@ -47,6 +48,9 @@ public interface StellarisScriptTypes {
       }
       else if (type == BOOLEAN) {
         return new StellarisScriptBooleanImpl(node);
+      }
+      else if (type == ITEM) {
+        return new StellarisScriptItemImpl(node);
       }
       else if (type == NUMBER) {
         return new StellarisScriptNumberImpl(node);

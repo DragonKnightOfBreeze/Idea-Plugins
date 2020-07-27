@@ -123,7 +123,7 @@ object StellarisScriptPsiImplUtil {
 	@JvmStatic
 	fun getComponents(element: StellarisScriptBlock): List<PsiElement> {
 		//如果存在元素为property，则认为所有合法的元素都是property
-		return if(element.isObject) element.propertyList else element.stringList
+		return if(element.isObject) element.propertyList else element.itemList
 	}
 	//endregion
 
@@ -143,10 +143,17 @@ object StellarisScriptPsiImplUtil {
 
 	//region StellarisScriptString
 	@JvmStatic
-	fun getIcon(element: StellarisScriptString, @Iconable.IconFlags flags: Int): Icon? {
-		return scriptTextIcon
+	fun getIcon(element: StellarisScriptItem, @Iconable.IconFlags flags: Int): Icon? {
+		return scriptItemIcon
 	}
 
+	@JvmStatic
+	fun getValue(element: StellarisScriptItem): String {
+		return element.text.unquote()
+	}
+	//endregion
+
+	//region StellarisScriptString
 	@JvmStatic
 	fun getValue(element: StellarisScriptString): String {
 		return element.text.unquote()

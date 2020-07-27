@@ -87,7 +87,7 @@ object StellarisScriptJsonLikePsiWalker : JsonLikePsiWalker {
 	override fun createValueAdapter(element: PsiElement): JsonValueAdapter? {
 		return when{
 			element is StellarisScriptPropertyValue -> StellarisScriptValueAdapter(element)
-			element is StellarisScriptString && element.parent is StellarisScriptBlock -> StellarisScriptStringAdapter(element)
+			element is StellarisScriptItem && element.parent is StellarisScriptBlock -> StellarisScriptItemAdapter(element)
 			else -> null
 		}
 	}
@@ -126,10 +126,10 @@ object StellarisScriptJsonLikePsiWalker : JsonLikePsiWalker {
 				current = current.parent
 				if(current is StellarisScriptBlock && current.isArray) {
 					val array: StellarisScriptBlock = current
-					val expressions: List<StellarisScriptString> = array.stringList
+					val expressions: List<StellarisScriptItem> = array.itemList
 					var idx = -1
 					for(i in expressions.indices) {
-						val value: StellarisScriptString = expressions[i]
+						val value = expressions[i]
 						if(position == value) {
 							idx = i
 							break
