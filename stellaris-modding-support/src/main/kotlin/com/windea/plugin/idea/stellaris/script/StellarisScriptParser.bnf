@@ -26,7 +26,7 @@
 	  VARIABLE_REFERENCE_ID="regexp:@[a-zA-Z0-9_]+"
 	  PROPERTY_KEY_ID='regexp:[a-zA-Zz0-9_\-]+'
 	  BOOLEAN_TOKEN='regexp:(yes)|(no)'
-	  NUMBER_TOKEN='regexp:[0-9]+(\.[0-9]+)?'
+	  NUMBER_TOKEN='regexp:-?[0-9]+(\.[0-9]+)?'
 	  UNQUOTED_STRING_TOKEN='regexp:[^\s()\[\]{}="]+'
 	  STRING_TOKEN='regexp:"([^"(\r\n\\]|\\.)*?"'
 	]
