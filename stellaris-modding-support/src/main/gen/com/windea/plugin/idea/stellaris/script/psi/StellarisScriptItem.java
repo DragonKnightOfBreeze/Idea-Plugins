@@ -20,9 +20,6 @@ public interface StellarisScriptItem extends PsiLiteralValue {
   StellarisScriptString getString();
 
   @Nullable
-  StellarisScriptVariableReference getVariableReference();
-
-  @Nullable
   Icon getIcon(@IconFlags int flags);
 
   @NotNull

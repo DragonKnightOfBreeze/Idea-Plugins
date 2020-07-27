@@ -1,58 +1,56 @@
 package com.windea.plugin.idea.stellaris.localization.intentions
 
 import com.intellij.codeInsight.intention.*
-import com.intellij.icons.*
-import com.intellij.openapi.application.*
 import com.intellij.openapi.command.WriteCommandAction.*
 import com.intellij.openapi.editor.*
 import com.intellij.openapi.project.*
 import com.intellij.openapi.ui.popup.*
 import com.intellij.openapi.ui.popup.util.*
 import com.intellij.psi.*
-import com.intellij.util.*
-import com.intellij.util.ui.*
+import com.intellij.psi.util.*
 import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.annotations.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
-import javax.swing.*
 
 @ExtensionPoint
-class StellarisLocalizationChangeSerialNumberIntention : IntentionAction {
+class ChangeColorIntention : IntentionAction {
 	companion object{
-		val instance = StellarisLocalizationChangeSerialNumberIntention()
+		val instance = ChangeColorIntention()
 	}
 
 	override fun startInWriteAction() = false
 
-	override fun getText() = StellarisBundle.message("stellaris.localization.intention.changeSerialNumber")
+	override fun getText() = StellarisBundle.message("stellaris.localization.intention.changeColor")
 
 	override fun getFamilyName() = text
 
 	override fun isAvailable(project: Project, editor: Editor?, file: PsiFile?): Boolean {
 		if(editor == null || file == null) return false
-		val element = file.findElementAt(editor.caretModel.offset)?.parent as? StellarisLocalizationSerialNumber
+		val element = file.findElementAt(editor.caretModel.offset)?.parentOfType<StellarisLocalizationColorfulText>()
 		return element != null
 	}
 
 	override fun invoke(project: Project, editor: Editor?, file: PsiFile?) {
 		if(editor == null || file == null) return
-		val element = file.findElementAt(editor.caretModel.offset)?.parent as? StellarisLocalizationSerialNumber ?: return
-		val values = localizationSerialNumberCache.register(project)
+		val element = file.findElementAt(editor.caretModel.offset)?.parentOfType<StellarisLocalizationColorfulText>() ?: return
+		val values = localizationColorfulTextCache.register(project)
 		JBPopupFactory.getInstance().createListPopup(Popup(element, values)).showInBestPositionFor(editor)
 	}
 
 	private class Popup(
-		private val value: StellarisLocalizationSerialNumber,
-		values: Array<StellarisLocalizationSerialNumber>
-	) : BaseListPopupStep<StellarisLocalizationSerialNumber>(StellarisBundle.message("stellaris.localization.intention.changeSerialNumber.title"), *values){
-		override fun getTextFor(value: StellarisLocalizationSerialNumber) = value.serialNumber!!.popupText
+		private val value: StellarisLocalizationColorfulText,
+		values: Array<StellarisLocalizationColorfulText>
+	) : BaseListPopupStep<StellarisLocalizationColorfulText>(StellarisBundle.message("stellaris.localization.intention.changeColor.title"), *values) {
+		override fun getIconFor(value: StellarisLocalizationColorfulText) = value.color!!.icon
+
+		override fun getTextFor(value: StellarisLocalizationColorfulText) = value.color!!.popupText
 
 		override fun getDefaultOptionIndex() = 0
 
 		override fun isSpeedSearchEnabled(): Boolean = true
 
-		override fun onChosen(selectedValue: StellarisLocalizationSerialNumber?, finalChoice: Boolean): PopupStep<*>? {
-			if(selectedValue!= null) {
+		override fun onChosen(selectedValue: StellarisLocalizationColorfulText?, finalChoice: Boolean): PopupStep<*>? {
+			if(selectedValue != null) {
 				//需要在WriteCommandAction里面执行
 				runWriteCommandAction(selectedValue.project) { value.setName(selectedValue.name!!) }
 			}

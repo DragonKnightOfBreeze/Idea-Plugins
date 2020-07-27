@@ -141,7 +141,7 @@ object StellarisScriptPsiImplUtil {
 	//}
 	//endregion
 
-	//region StellarisScriptString
+	//region StellarisScriptItem,
 	@JvmStatic
 	fun getIcon(element: StellarisScriptItem, @Iconable.IconFlags flags: Int): Icon? {
 		return scriptItemIcon
@@ -150,6 +150,20 @@ object StellarisScriptPsiImplUtil {
 	@JvmStatic
 	fun getValue(element: StellarisScriptItem): String {
 		return element.text.unquote()
+	}
+	//endregion
+
+	//region StellarisScriptBoolean
+	@JvmStatic
+	fun getValue(element: StellarisScriptBoolean): String {
+		return element.text
+	}
+	//endregion
+
+	//region StellarisScriptNumber
+	@JvmStatic
+	fun getValue(element: StellarisScriptNumber): String {
+		return element.text
 	}
 	//endregion
 

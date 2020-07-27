@@ -44,16 +44,17 @@ EOL=\s*\R
 WHITE_SPACE=\s+
 SPACE=[ \t]+
 
-IS_PROEPRTY=[^\"][^\r\n]*=
-
 COMMENT =#[^\r\n]*
 END_OF_LINE_COMMENT=#[^\r\n]*
+
+VARIABLE_NAME_ID=@[a-zA-Z0-9_]+
+
+IS_PROEPRTY=[^\"@][^\r\n]*[=><]
+
+PROPERTY_KEY_ID=[a-zA-Z0-9_\-]+
+VARIABLE_REFERENCE_ID=@[a-zA-Z0-9_]+
 BOOLEAN=(yes)|(no)
 NUMBER=-?[0-9]+(\.[0-9]+)?
-VARIABLE_NAME_ID=@[a-zA-Z0-9_]+
-VARIABLE_REFERENCE_ID=@[a-zA-Z0-9_]+
-PROPERTY_KEY_ID=[a-zA-Z0-9_\-]+
-LOWER_START_PROPERTY_KEY_ID=[a-z][a-zA-Z0-9_\-]+
 STRING=\"([^\"(\r\n\\]|\\.)*?\"
 UNQUOTED_STRING=[^\s\(\)\[\]\{\}=\"@]+
 
@@ -64,6 +65,8 @@ UNQUOTED_STRING=[^\s\(\)\[\]\{\}=\"@]+
   {VARIABLE_NAME_ID} { yybegin(WAITING_VARIABLE_EQUAL_SIGN); return VARIABLE_NAME_ID; }
   //在这里根据后面是否有"="判断是否是property
   {IS_PROEPRTY} {yypushback(yylength()); yybegin(WAITING_PROPERTY_KEY_START);}
+  {BOOLEAN} { yybegin(WAITING_PROPERTY_EOL); return BOOLEAN_TOKEN; }
+  {NUMBER} { yybegin(WAITING_PROPERTY_EOL); return NUMBER_TOKEN; }
   {UNQUOTED_STRING} {yybegin(WAITING_PROPERTY_EOL); return UNQUOTED_STRING_TOKEN;}
   {STRING} {yybegin(WAITING_PROPERTY_EOL); return STRING_TOKEN;}
 }
@@ -89,7 +92,6 @@ UNQUOTED_STRING=[^\s\(\)\[\]\{\}=\"@]+
   {COMMENT} {  return COMMENT; }
   //在这里根据后面是否有"="判断是否是property
   {IS_PROEPRTY} {yypushback(yylength()); yybegin(WAITING_PROPERTY_KEY_START);}
-  {VARIABLE_REFERENCE_ID} {yybegin(WAITING_PROPERTY_EOL); return VARIABLE_REFERENCE_ID;}
   {BOOLEAN} { yybegin(WAITING_PROPERTY_EOL); return BOOLEAN_TOKEN; }
   {NUMBER} { yybegin(WAITING_PROPERTY_EOL); return NUMBER_TOKEN; }
   {UNQUOTED_STRING} {yybegin(WAITING_PROPERTY_EOL); return UNQUOTED_STRING_TOKEN;}
@@ -124,7 +126,8 @@ UNQUOTED_STRING=[^\s\(\)\[\]\{\}=\"@]+
   {EOL} {  yybegin(nextState()); return WHITE_SPACE; }
   {SPACE} { return WHITE_SPACE; }
   {END_OF_LINE_COMMENT} {  return END_OF_LINE_COMMENT; }
-  {VARIABLE_REFERENCE_ID} { return VARIABLE_REFERENCE_ID;}
+
+  //可以在同一行
   {BOOLEAN} { return BOOLEAN_TOKEN; }
   {NUMBER} { return NUMBER_TOKEN; }
   {STRING} { return STRING_TOKEN;}

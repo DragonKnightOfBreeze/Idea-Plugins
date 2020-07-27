@@ -19,14 +19,20 @@ class StellarisScriptBreadCrumbsProvider :BreadcrumbsProvider{
 
 	override fun getElementInfo(element: PsiElement): String {
 		return when(element){
-			is StellarisScriptProperty -> element.name
 			is StellarisScriptVariableDefinition -> element.name
+			is StellarisScriptProperty -> element.name
+			is StellarisScriptBoolean -> element.value
+			is StellarisScriptNumber -> element.value
 			is StellarisScriptString -> element.value
-			else -> breadCrumbsElement
+			else -> anonymousElement
 		} ?: anonymousElement
 	}
 
 	override fun acceptElement(element: PsiElement): Boolean {
-		return element is StellarisScriptProperty || element is StellarisScriptVariableName || element is StellarisScriptString
+		return element is StellarisScriptVariableDefinition
+		       || element is StellarisScriptProperty
+		       || element is StellarisScriptBoolean
+		       || element is StellarisScriptNumber
+		       || element is StellarisScriptString
 	}
 }

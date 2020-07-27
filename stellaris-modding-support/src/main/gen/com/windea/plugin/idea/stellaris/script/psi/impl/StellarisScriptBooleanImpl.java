@@ -32,4 +32,10 @@ public class StellarisScriptBooleanImpl extends ASTWrapperPsiElement implements 
     return findNotNullChildByType(BOOLEAN_TOKEN);
   }
 
+  @Override
+  @NotNull
+  public String getValue() {
+    return StellarisScriptPsiImplUtil.getValue(this);
+  }
+
 }

@@ -18,7 +18,7 @@ import com.windea.plugin.idea.stellaris.script.psi.*
 import javax.swing.*
 
 @ExtensionPoint
-class StellarisScriptDuplicateVariableDefinitionsInspection :LocalInspectionTool(){
+class DuplicateVariableDefinitionsInspection :LocalInspectionTool(){
 	override fun buildVisitor(holder: ProblemsHolder, isOnTheFly: Boolean): PsiElementVisitor {
 		return Visitor(holder)
 	}

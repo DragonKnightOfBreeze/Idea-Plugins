@@ -32,4 +32,10 @@ public class StellarisScriptNumberImpl extends ASTWrapperPsiElement implements S
     return findNotNullChildByType(NUMBER_TOKEN);
   }
 
+  @Override
+  @NotNull
+  public String getValue() {
+    return StellarisScriptPsiImplUtil.getValue(this);
+  }
+
 }

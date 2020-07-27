@@ -8,13 +8,16 @@ class StellarisScriptPropertyTreeElement(
 	private val element: StellarisScriptProperty?
 ) : PsiTreeElementBase<StellarisScriptProperty>(element) {
 	override fun getChildrenBase(): MutableCollection<StructureViewTreeElement> {
-		val block = element?.propertyValue?.block ?: return mutableListOf()
+		val result = mutableListOf<StructureViewTreeElement>()
+		val block = element?.propertyValue?.block ?: return result
+
 		val propertyList = block.propertyList
-		if(propertyList.isNotEmpty()) return propertyList.mapTo(mutableListOf()) { StellarisScriptPropertyTreeElement(it) }
+		if(propertyList.isNotEmpty()) propertyList.mapTo(result) { StellarisScriptPropertyTreeElement(it) }
 
 		val itemList = block.itemList
-		if(itemList.isNotEmpty()) return itemList.mapTo(mutableListOf()) { StellarisScriptItemTreeElement(it) }
-		return mutableListOf()
+		if(itemList.isNotEmpty()) itemList.mapTo(result) { StellarisScriptItemTreeElement(it) }
+
+		return result
 
 		//val array = element?.propertyValue?.array
 		//val `object` = element?.propertyValue?.`object`

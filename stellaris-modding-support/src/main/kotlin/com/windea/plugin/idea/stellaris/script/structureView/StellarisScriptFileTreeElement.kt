@@ -9,11 +9,12 @@ class StellarisScriptFileTreeElement(
 	private val psiElement: StellarisScriptFile?
 ): PsiTreeElementBase<StellarisScriptFile>(psiElement){
 	override fun getChildrenBase(): MutableCollection<StructureViewTreeElement> {
-		return PsiTreeUtil.getChildrenOfAnyType(psiElement, StellarisScriptVariableDefinition::class.java, StellarisScriptProperty::class.java)
+		return PsiTreeUtil.getChildrenOfAnyType(psiElement, StellarisScriptVariableDefinition::class.java, StellarisScriptProperty::class.java,StellarisScriptItem::class.java)
 			.mapTo(mutableListOf()){
 				when(it){
 					is StellarisScriptVariableDefinition -> StellarisScriptVariableTreeElement(it)
 					is StellarisScriptProperty -> StellarisScriptPropertyTreeElement(it)
+					is StellarisScriptItem -> StellarisScriptItemTreeElement(it)
 					else -> throw InternalError()
 				}
 			}

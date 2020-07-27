@@ -1,4 +1,4 @@
-package com.windea.plugin.idea.stellaris.script.inspections
+package com.windea.plugin.idea.stellaris.localization.inspections
 
 import com.intellij.codeInspection.*
 import com.intellij.openapi.editor.*
@@ -7,28 +7,26 @@ import com.intellij.psi.*
 import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.StellarisBundle.message
 
-class StellarisScriptInvalidFileEncodingInspection: LocalInspectionTool(){
+class InvalidFileEncodingInspection : LocalInspectionTool() {
 	override fun checkFile(file: PsiFile, manager: InspectionManager, isOnTheFly: Boolean): Array<out ProblemDescriptor?>? {
 		val charset = file.virtualFile.charset
 		val hasBom = file.virtualFile.bom != null
-		val isNameList = file.virtualFile.parent.name == "name_lists"
-		val isValid = charset == Charsets.UTF_8 && (if(isNameList) hasBom else !hasBom)
+		val isValid = charset == Charsets.UTF_8 && hasBom
 		if(!isValid){
 			val holder = ProblemsHolder(manager,file,isOnTheFly)
 			val bomText = if(hasBom) "BOM" else "NO BOM"
-			val description = message("stellaris.script.inspection.invalidFileEncoding.description", charset,bomText)
-			holder.registerProblem(file, description, ChangeFileEncoding(file, isNameList))
+			val description = message("stellaris.localization.inspection.invalidFileEncoding.description", charset,bomText)
+			holder.registerProblem(file, description, ChangeFileEncoding(file))
 			return holder.resultsArray
 		}
 		return null
 	}
 
 	private class ChangeFileEncoding(
-		element: PsiElement,
-		private val isNameList:Boolean
+		element: PsiElement
 	) : LocalQuickFixAndIntentionActionOnPsiElement(element) {
 		override fun getText(): String {
-			return message("stellaris.script.quickFix.changeFileEncoding")
+			return message("stellaris.localization.quickFix.changeFileEncoding")
 		}
 
 		override fun getFamilyName(): String {
@@ -37,7 +35,7 @@ class StellarisScriptInvalidFileEncodingInspection: LocalInspectionTool(){
 
 		override fun invoke(project: Project, file: PsiFile, editor: Editor?, startElement: PsiElement, endElement: PsiElement) {
 			file.virtualFile.charset = Charsets.UTF_8
-			if(isNameList) file.virtualFile.bom = utf8Bom else file.virtualFile.bom = null
+			file.virtualFile.bom = utf8Bom
 			file.virtualFile.refresh(true,false)
 			file.subtreeChanged()
 		}

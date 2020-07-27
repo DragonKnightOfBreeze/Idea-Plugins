@@ -86,13 +86,12 @@ public class StellarisScriptParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // variable_reference | boolean | number | string
+  // boolean | number | string
   public static boolean item(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "item")) return false;
     boolean r;
     Marker m = enter_section_(b, l, _NONE_, ITEM, "<item>");
-    r = variable_reference(b, l + 1);
-    if (!r) r = boolean_$(b, l + 1);
+    r = boolean_$(b, l + 1);
     if (!r) r = number(b, l + 1);
     if (!r) r = string(b, l + 1);
     exit_section_(b, l, m, r, false, null);

@@ -48,12 +48,6 @@ public class StellarisScriptItemImpl extends ASTWrapperPsiElement implements Ste
 
   @Override
   @Nullable
-  public StellarisScriptVariableReference getVariableReference() {
-    return findChildByClass(StellarisScriptVariableReference.class);
-  }
-
-  @Override
-  @Nullable
   public Icon getIcon(@IconFlags int flags) {
     return StellarisScriptPsiImplUtil.getIcon(this, flags);
   }

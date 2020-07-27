@@ -160,19 +160,15 @@
       implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationAnnotator"/>
 
     <intentionAction>
-      <className>com.windea.plugin.idea.stellaris.localization.intentions.StellarisLocalizationChangeLocaleIntention
-      </className>
+      <className>com.windea.plugin.idea.stellaris.localization.intentions.ChangeLocaleIntention</className>
       <category>Stellaris localization</category>
     </intentionAction>
     <intentionAction>
-      <className>com.windea.plugin.idea.stellaris.localization.intentions.StellarisLocalizationChangeColorIntention
-      </className>
+      <className>com.windea.plugin.idea.stellaris.localization.intentions.ChangeColorIntention</className>
       <category>Stellaris localization</category>
     </intentionAction>
     <intentionAction>
-      <className>
-        com.windea.plugin.idea.stellaris.localization.intentions.StellarisLocalizationChangeSerialNumberIntention
-      </className>
+      <className>com.windea.plugin.idea.stellaris.localization.intentions.ChangeSerialNumberIntention</className>
       <category>Stellaris localization</category>
     </intentionAction>
 
@@ -182,21 +178,21 @@
       groupKey="stellaris.localization.inspection"
       key="stellaris.localization.inspection.duplicatePropertyKeys"
       enabledByDefault="true" level="ERROR"
-      implementationClass="com.windea.plugin.idea.stellaris.localization.inspections.StellarisLocalizationDuplicatePropertyKeysInspection"/>
-    <localInspection
-      language="Stellaris Localization"
-      shortName="StellarisLocalizationInvalidFileName" bundle="messages.StellarisBundle"
-      groupKey="stellaris.localization.inspection"
-      key="stellaris.localization.inspection.invalidFileName"
-      enabledByDefault="true" level="WARNING"
-      implementationClass="com.windea.plugin.idea.stellaris.localization.inspections.StellarisLocalizationInvalidFileNameInspection"/>
+      implementationClass="com.windea.plugin.idea.stellaris.localization.inspections.DuplicatePropertyKeysInspection"/>
     <localInspection
       language="Stellaris Localization"
       shortName="StellarisLocalizationInvalidFileEncoding" bundle="messages.StellarisBundle"
       groupKey="stellaris.localization.inspection"
       key="stellaris.localization.inspection.invalidFileEncoding"
       enabledByDefault="true" level="WARNING"
-      implementationClass="com.windea.plugin.idea.stellaris.localization.inspections.StellarisLocalizationInvalidFileEncodingInspection"/>
+      implementationClass="com.windea.plugin.idea.stellaris.localization.inspections.InvalidFileEncodingInspection"/>
+    <localInspection
+      language="Stellaris Localization"
+      shortName="StellarisLocalizationInvalidFileName" bundle="messages.StellarisBundle"
+      groupKey="stellaris.localization.inspection"
+      key="stellaris.localization.inspection.invalidFileName"
+      enabledByDefault="true" level="WARNING"
+      implementationClass="com.windea.plugin.idea.stellaris.localization.inspections.InvalidFileNameInspection"/>
     <!--endregion-->
 
     <!--region Stellaris Script-->
@@ -274,14 +270,14 @@
       groupKey="stellaris.script.inspection"
       key="stellaris.script.inspection.duplicateVariableDefinitions"
       enabledByDefault="true" level="ERROR"
-      implementationClass="com.windea.plugin.idea.stellaris.script.inspections.StellarisScriptDuplicateVariableDefinitionsInspection"/>
+      implementationClass="com.windea.plugin.idea.stellaris.script.inspections.DuplicateVariableDefinitionsInspection"/>
     <localInspection
       language="Stellaris Script"
       shortName="StellarisScriptInvalidFileEncoding" bundle="messages.StellarisBundle"
       groupKey="stellaris.script.inspection"
       key="stellaris.script.inspection.invalidFileEncoding"
       enabledByDefault="true" level="WARNING"
-      implementationClass="com.windea.plugin.idea.stellaris.script.inspections.StellarisScriptInvalidFileEncodingInspection"/>
+      implementationClass="com.windea.plugin.idea.stellaris.script.inspections.InvalidFileEncodingInspection"/>
     <!--endregion-->
 
     <!--region Stellaris Script Schema-->

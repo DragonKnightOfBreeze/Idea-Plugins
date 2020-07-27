@@ -27,7 +27,9 @@ class StellarisScriptStructureViewModel(
 		private val defaultSuitableClasses = arrayOf(
 			StellarisScriptFile::class.java,
 			StellarisScriptVariableDefinition::class.java,
-			StellarisScriptProperty::class.java
+			StellarisScriptProperty::class.java,
+			StellarisScriptPropertyValue::class.java,
+			StellarisScriptItem::class.java
 		)
 		private val defaultSorters = arrayOf(Sorter.ALPHA_SORTER)
 	}

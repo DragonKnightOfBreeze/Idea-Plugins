@@ -14,7 +14,7 @@ public class StellarisScriptVisitor extends PsiElementVisitor {
   }
 
   public void visitBoolean(@NotNull StellarisScriptBoolean o) {
-    visitPsiElement(o);
+    visitPsiLiteralValue(o);
   }
 
   public void visitItem(@NotNull StellarisScriptItem o) {
@@ -22,7 +22,7 @@ public class StellarisScriptVisitor extends PsiElementVisitor {
   }
 
   public void visitNumber(@NotNull StellarisScriptNumber o) {
-    visitPsiElement(o);
+    visitPsiLiteralValue(o);
   }
 
   public void visitProperty(@NotNull StellarisScriptProperty o) {

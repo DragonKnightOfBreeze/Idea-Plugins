@@ -75,13 +75,19 @@ block ::= "{" block_item * "}" {
 }
 private block_item ::= END_OF_LINE_COMMENT | COMMENT | property | item
 
-item ::=  variable_reference | boolean | number | string {
+item ::= boolean | number | string {
   implements="com.intellij.psi.PsiLiteralValue"
   methods=[getIcon getValue]
 }
 
-boolean ::= BOOLEAN_TOKEN
-number ::= NUMBER_TOKEN
+boolean ::= BOOLEAN_TOKEN {
+  implements="com.intellij.psi.PsiLiteralValue"
+  methods=[getValue]
+}
+number ::= NUMBER_TOKEN {
+  implements="com.intellij.psi.PsiLiteralValue"
+  methods=[getValue]
+}
 string ::= UNQUOTED_STRING_TOKEN | STRING_TOKEN {
   implements="com.intellij.psi.PsiLiteralValue"
   methods=[getValue getReference isValidPropertyKey]
