@@ -1,0 +1,213 @@
+definitions:
+  int:
+    title: Integer
+    type: integer
+    default: 0
+  uint:
+    title: Unsign Integer
+    type: integer
+    minimum: 0
+    default: 0
+  number:
+    title: Number
+    type: number
+    default: 0.0
+  boolean:
+    title: Boolean
+    enum: [yes, no]
+
+  level:
+    title: Level
+    type: integer
+    default: 1
+    minimum: 1
+    # maximum: 10 # 为了兼容mod
+  difficulty:
+    title: Difficulty
+    type: integer
+    default: 1
+    minimum: 1
+    # maximum: 10 # 为了兼容mod
+  chance:
+    title: Chance
+    type: number
+    minimum: 0.0
+    default: 1.00
+  factor:
+    title: Multiplication Factor
+    type: number
+    minimum: 0.0
+    default: 1.00
+
+  localization_property_reference:
+    title: Localization Property Reference / String
+  gfx_reference:
+    title: GFX Reference
+
+  resources:
+    type: object
+    properties:
+      category:
+        $ref: "core.yaml/#/definitions/resources_category"
+      cost:
+        $ref: "core.yaml/#/definitions/resources_cost"
+      upkeep:
+        $ref: "core.yaml/#/definitions/resources_upkeep"
+  # TODO
+  resources_category:
+    title: Resources Category
+  resources_cost:
+    title: Resources Cost
+    type: object
+    propertyNames:
+      $type: resource
+    additionalProperties:
+        $ref: "#/definitions/uint"
+  resources_upkeep:
+    title: Resources Upkeep
+    type: object
+    propertyNames:
+      $type: resource
+    additionalProperties:
+      $ref: "#/definitions/uint"
+
+  condition_expression:
+    title: Condition Expression
+    type: object
+    # TODO
+    properties:
+      if: true
+      else_if: true
+      else: true
+  trigger:
+    title: Trigger
+    type: object
+    anyOf:
+    - $ref: "#/definitions/boolean_expression"
+    - always:
+          $ref: "#/definitions/boolean"
+    - properties:
+        from:
+          $ref: "#/definitions/trigger"
+        owner:
+          $ref: "#/definitions/trigger"
+    - propertyNames:
+        $type: scripted_trigger
+  boolean_expression:
+    title: Boolean Expression
+    type: object
+    properties:
+      NOT:
+        $ref: "#/definitions/trigger"
+      OR:
+        $ref: "#/definitions/trigger"
+      NOR:
+        $ref: "#/definitions/trigger"
+      AND:
+        $ref: "#/definitions/trigger"
+  weight_modifier:
+    title: Weighted Modifier
+    type: object
+    properties:
+      weight:
+        $ref: "#/definitions/number"
+      # anyOf
+      modifier:
+        $ref: "#/definitions/modifier"
+  modifier:
+    title: Modifier
+    type: object
+    allOf:
+    - oneOf:
+      - properties:
+          factor:
+            $ref: "#/definitions/factor"
+      - properties:
+          add:
+            $ref: "#/definitions/number"
+    - $ref: "#/definitions/trigger"
+  triggered_modifier:
+    type: object
+    properties:
+      potential:
+        $ref: "core.yaml/#/definitions/trigger"
+    $ref: "core.yaml/#/definitions/modifier"
+  modifier_chance:
+    type: object
+    properties:
+      base:
+        $ref: "core.yaml/#/definitions/uint"
+      # anyOf
+      modifier:
+        $ref: "#/definitions/modifier"
+  event:
+    oneOf:
+    - $ref: "core.yaml/#/definitions/event_id"
+    - propertyNames:
+        $ref: "core.yaml/#/definitions/event_type"
+      additionalProperties:
+        $ref: "core.yaml/#/definitions/event_id"
+  event_id:
+    oneOf:
+    - type: string
+    - type: object
+      $ref: "core.yaml/#/definitions/modifier"
+      properties:
+        id:
+          type: string
+      additionalProperties: true # args
+  # TODO
+  category:
+    title: Category
+  # TODO
+  event_type:
+    title: Event Type
+  desc:
+    oneOf:
+    - $ref: "core.yaml/#/definitions/localization_property_reference"
+    - $ref: "core.yaml/#/definitions/triggered_desc"
+  triggered_desc:
+    $ref: "core.yaml/#/definitions/trigger"
+    properties:
+      text:
+        $ref: "core.yaml/#/definitions/localization_property_reference"
+  effect:
+    title: Effect
+    type: object
+    anyOf:
+    - $ref: "core.yaml/#/definitions/condition_expression"
+    - $ref: "core.yaml/#/definitions/trigger"
+    - properties:
+        custom_tooltip:
+          $ref: "core.yaml/#/definitions/localization_property_reference"
+        generate_lcluster_clue:
+          $ref: "core.yaml/#/definitions/boolean"
+        hidden_effect:
+          $ref: "core.yaml/#/definitions/effect"
+    - $ref: "core.yaml/#/definitions/effect_item"
+  # TODO
+  effect_item:
+    additionalProperties: true
+  action:
+    title: Action
+    type: object
+    anyOf:
+    - $ref: "core.yaml/#/definitions/condition_expression"
+    - properties:
+        owner:
+          $ref: "core.yaml/#/definitions/action_item"
+        from:
+          $ref: "core.yaml/#/definitions/action_item"
+  # TODO
+  action_item:
+    properties:
+      limit:
+        $ref: "core.yaml/#/definitions/trigger"
+    additionalProperties: true
+
+  mod_path:
+    type: string
+  game_path:
+    type: string
+  workshop_path:
+    type: string

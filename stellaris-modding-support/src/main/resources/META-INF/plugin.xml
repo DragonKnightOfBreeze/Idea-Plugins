@@ -95,7 +95,7 @@
     <fileType
       name="Stellaris Localization File"
       implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationFileType"
-      fieldName="INSTANCE" language="Stellaris Localization" extensions="yml;syaml"/>
+      fieldName="INSTANCE" language="Stellaris Localization" extensions="yml"/>
     <lang.parserDefinition
       language="Stellaris Localization"
       implementationClass="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationParserDefinition"/>

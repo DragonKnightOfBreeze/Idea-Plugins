@@ -1,0 +1,74 @@
+definitions:
+  # 建筑
+  building:
+    title: Building
+    type: object
+    properties:
+      base_buildtime:
+        $ref: "core.yaml/#/definitions/uint"
+      # opt
+      base_cap_amount:
+        $ref: "core.yaml/#/definitions/uint"
+      capital:
+        $ref: "core.yaml/#/definitions/boolean"
+      can_build:
+        $ref: "core.yaml/#/definitions/boolean"
+      can_demolish:
+        $ref: "core.yaml/#/definitions/boolean"
+      can_be_ruined:
+        $ref: "core.yaml/#/definitions/boolean"
+      can_be_disabled:
+        $ref: "core.yaml/#/definitions/boolean"
+      category:
+        $ref: "#/definitions/building_category"
+      potential:
+        $ref: "core.yaml/#/definitions/trigger"
+      convert_to:
+        $type: building[]
+      planet_modifier:
+        $ref: "core.yaml/#/definitions/modifier"
+      destroy_trigger:
+        $ref: "core.yaml/#/definitions/trigger"
+      allow:
+        $ref: "core.yaml/#/definitions/trigger"
+      # anyOf
+      triggered_plant_modifier:
+        $ref: "core.yaml/#/definitions/triggered_modifier"
+      resources:
+        $ref: "core.yaml/#/definitions/resource"
+      upgrades:
+        $type: building[]
+      prerequisites:
+        $type: building[]
+      # anyOf
+      triggered_desc:
+        $ref: "core.yaml/#/definitions/triggered_desc"
+      on_queued:
+        $ref: "core.yaml/#/definitions/action"
+      on_unqueued:
+        $ref: "core.yaml/#/definitions/action"
+      on_built:
+        $ref: "core.yaml/#/definitions/action"
+      on_destroy:
+        $ref: "core.yaml/#/definitions/action"
+      ai_weight:
+        $ref: "core.yaml/#/definitions/weight_modifier"
+
+  building_category:
+    type: string
+    enum:
+    - government
+    - planet_buildings
+    - pop_assembly
+    - resource
+    - manufacturing
+    - research
+    - trade
+    - amenity
+    - unity
+    - army
+
+title: Building
+type: object
+additionalProperties:
+  $ref: "#/definitions/building"

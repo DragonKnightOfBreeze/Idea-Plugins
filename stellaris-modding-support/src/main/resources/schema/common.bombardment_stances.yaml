@@ -1,0 +1,41 @@
+bombardment_stances
+
+definitions:
+  # 轰炸状态
+  bombardment_stance:
+    title: Bombardment Stance
+    type: object
+    properties:
+      trigger:
+        $ref: "core.yaml/#/definitions/trigger"
+      # = fleet
+      icon_frame:
+        $ref: "core.yaml/#/definitions/uint"
+      default:
+        $ref: "core.yaml/#/definitions/boolean"
+      stop_when_armies_dead:
+        $ref: "core.yaml/#/definitions/boolean"
+        default: no
+      abduct_pops:
+        $ref: "core.yaml/#/definitions/boolean"
+        default: no
+      plant_damage:
+        $ref: "core.yaml/#/definitions/number"
+      army_damage:
+        $ref: "core.yaml/#/definitions/number"
+      kill_pop_chance:
+        $ref: "core.yaml/#/definitions/modifier_chance"
+      min_pop_to_kill_pop:
+        $ref: "core.yaml/#/definitions/uint"
+      root:
+        type: string
+      # = planet
+      from:
+        type: string
+      ai_weight:
+        $ref: "core.yaml/#/definitions/weight_modifier"
+
+title: Bombardment Stances
+type: object
+additionalProperties:
+  $ref: "#/definitions/bombardment_stance"

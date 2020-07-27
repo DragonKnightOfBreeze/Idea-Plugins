@@ -1,0 +1,16 @@
+definitions:
+  # 小行星带
+  asteroid_belt:
+    title: Asteroid Belt
+    type: object
+    properties:
+      # anyOf
+      mesh:
+        $ref: "core.yaml/#/definitions/gfx_reference"
+      shader:
+        type: string
+
+title: Asteroid Belts
+type: object
+additionalProperties:
+  $ref: "#/definitions/asteroid_belts"

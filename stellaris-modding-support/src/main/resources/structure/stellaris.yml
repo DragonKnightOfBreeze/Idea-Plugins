@@ -214,7 +214,7 @@ common:
   colony_types: {}
   colors: {}
   component_sets: {}
-  component_solt_templates: {}
+  component_slot_templates: {}
   component_tags: {}
   component_templates: {}
   country_customization: {}
@@ -261,7 +261,7 @@ common:
   percursor_civilizations: {}
   random_names: {}
   relics: {}
-  resolution_categoriries: {}
+  resolution_categories: {}
   resolutions: {}
   scripted_effects: {}
   scripted_loc: {}

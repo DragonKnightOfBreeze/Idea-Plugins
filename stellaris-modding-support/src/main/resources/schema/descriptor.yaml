@@ -1,0 +1,25 @@
+title: Mod Descriptor
+type: object
+properties:
+  name:
+    type: string
+  version:
+    type: string
+  tags:
+    type: array
+    items:
+      type: string
+  picture:
+    $ref: "core.yaml/#/definitions/mod_path"
+  supported_version:
+    type: string
+  path:
+    type: string
+    format: url
+  archive:
+    type: string
+    format: url
+  remote_file_id:
+    type: string
+
+

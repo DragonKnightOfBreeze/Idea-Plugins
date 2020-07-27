@@ -1,0 +1,46 @@
+definitions:
+  # 支出
+  budget:
+    title: Budget
+    type: object
+    properties:
+      resource:
+        $type: resource
+      type:
+        $ref: "#/definitions/budget_type"
+      category:
+        $ref: "#/definitions/budget_category"
+      poential:
+        $ref: "core.yaml/#/definitions/trigger"
+      fraction:
+        $ref: "core.yaml/#/definitions/weight_modifier"
+      static_min:
+        $ref: "core.yaml/#/definitions/modifier_chance"
+      static_max:
+        $ref: "core.yaml/#/definitions/modifier_chance"
+  budget_type:
+    enum:
+    - expenditure
+    - upkeep
+  budget_category:
+    enum:
+    - buffer
+    - ships
+    - ship_upgrades
+    - planets
+    - starbases
+    - colonies
+    - megastructures
+    - decisions
+    - trade
+    - leaders
+    - deposit_blockers
+    - campaigns
+    - ...
+
+title: AI Budget
+type: object
+additionalProperties:
+  $ref: "#/definitions/budget"
+
+

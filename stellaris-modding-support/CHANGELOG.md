@@ -91,6 +91,9 @@
 * [X] LocalIntention不要直接定义为object，可能存在问题
 * [X] scriptString显示文本时去除包围的引号
 * [X] ClassCastException（数组不要直接转换泛型）
+
+### 1.8
+
 * [ ] LocalIntention：ClassNotFoundException（CPU不足？）
 * [ ] 本地化属性的名字重复检查有bug，当有多个属性引用时，总是报错（？）
 * [ ] 本地化文件中属性默认缩进1空格对齐（？）

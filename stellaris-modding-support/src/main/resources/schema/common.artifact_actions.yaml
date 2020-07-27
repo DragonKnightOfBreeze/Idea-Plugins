@@ -1,0 +1,21 @@
+definitions:
+  # 异常
+  artifact_action:
+    title: Artifact Action
+    type: object
+    properties:
+      resources:
+        $ref: "core.yaml/#/definitions/resources"
+      ai_weight:
+        $ref: "core.yaml/#/definitions/weight_modifier"
+      potential:
+        $ref: "core.yaml/#/definitions/trigger"
+      allow:
+        $ref: "core.yaml/#/definitions/effect"
+      effect:
+        $ref: "core.yaml/#/definitions/effect"
+
+title: Artifact Actions
+type: object
+additionalProperties:
+  $ref: "#/definitions/artifact_action"

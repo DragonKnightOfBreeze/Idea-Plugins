@@ -1,0 +1,18 @@
+definitions:
+  # 议程
+  agenda:
+    title: Agenda
+    type: object
+    properties:
+      weight_modifier:
+        $ref: "core.yaml/#/definitions/weight_modifier"
+      # anyOf
+      modifier:
+        $ref: "core.yaml/#/definitions/modifier"
+
+title: Agendas
+type: object
+additionalProperties:
+  $ref: "#/definitions/agenda"
+
+

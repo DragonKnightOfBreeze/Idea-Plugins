@@ -1,0 +1,45 @@
+definitions:
+  # 军队
+  army:
+    title: Army
+    type: object
+    properties:
+      damage:
+        $ref: "core.yaml/#/definitions/factor"
+      health:
+        $ref: "core.yaml/#/definitions/factor"
+      morale:
+        $ref: "core.yaml/#/definitions/factor"
+      collateral_damage:
+        $ref: "core.yaml/#/definitions/factor"
+      war_exhaustion:
+        $ref: "core.yaml/#/definitions/factor"
+      has_morale:
+        $ref: "core.yaml/#/definitions/boolean"
+        default: yes
+      has_species:
+        $ref: "core.yaml/#/definitions/boolean"
+        default: yes
+      time:
+        $ref: "core.yaml/#/definitions/uint"
+      icon_frame:
+        $ref: "core.yaml/#/definitions/factor"
+      pop_limited:
+        $ref: "core.yaml/#/definitions/boolean"
+        default: yes
+      prerequisites:
+        $type: tech[]
+      # category = armies
+      resources:
+        $ref: "core.yaml/#/definitions/resources"
+      show_tech_unlock_if:
+        $ref: "core.yaml/#/definitions/trigger"
+      allow:
+        $ref: "core.yaml/#/definitions/trigger"
+
+title: Armies
+type: object
+additionalProperties:
+  $ref: "#/definitions/army"
+
+

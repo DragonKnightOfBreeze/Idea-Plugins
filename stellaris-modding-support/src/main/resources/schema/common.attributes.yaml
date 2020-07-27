@@ -1,0 +1,41 @@
+definitions:
+  # AI关系：
+  # attack
+  # weaken
+  # alliance
+  # vassalize
+  # trade
+  # coexist
+
+  # AI态度
+  attribute:
+    title: Attribute
+    type: object
+    properties:
+      # same to attribute name
+      type:
+        type: string
+      behaviour:
+        $ref: "#/definitions/behaviour"
+
+  behaviour:
+    type: object
+    propertyNames:
+      $ref: "#/definitions/behaviour_name"
+    additionalProperties:
+      $ref: "core.yaml/#/definitions/boolean"
+
+  behaviour_name:
+    type: string
+    enum:
+    - attack
+    - weaken
+    - alliance
+    - vassalize
+    - trade
+    - coexist
+
+title: Attributes
+type: object
+additionalProperties:
+  $ref: "#/definitions/attribute"

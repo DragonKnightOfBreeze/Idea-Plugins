@@ -1,0 +1,17 @@
+definitions:
+  # 建筑
+  button_effect:
+    Title: Button Effect
+    type: object
+    properties:
+      potential:
+        $ref: "core.yaml/#/definitions/trigger"
+      allow:
+        $ref: "core.yaml/#/definitions/trigger"
+      effect:
+        $ref: "core.yaml/#/definitions/effect"
+
+title: Button Effects
+type: object
+additionalProperties:
+  $ref: "#/definitions/button_effect"
