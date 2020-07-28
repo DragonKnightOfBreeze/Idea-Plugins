@@ -15,7 +15,7 @@ class StellarisLocalizationSyntaxHighlighter : SyntaxHighlighterBase() {
 		private val NUMBER_KEYS = arrayOf(StellarisLocalizationAttributesKeys.NUMBER_KEY)
 		private val LOCALE_KEYS = arrayOf(StellarisLocalizationAttributesKeys.LOCALE_KEY)
 		private val PROPERTY_KEY_KEYS = arrayOf(StellarisLocalizationAttributesKeys.PROPERTY_KEY_KEY)
-		private val PROPERTY_VALUE_KEYS = arrayOf(StellarisLocalizationAttributesKeys.PROPERTY_VALUE_KEY)
+		private val STRING_KEYS = arrayOf(StellarisLocalizationAttributesKeys.STRING_KEY)
 		private val COMMENT_KEYS = arrayOf(StellarisLocalizationAttributesKeys.COMMENT_KEY)
 		private val MARKER_KEYS = arrayOf(StellarisLocalizationAttributesKeys.MARKER_KEY)
 		private val PROPERTY_REFERENCE_PARAMETER_KEYS = arrayOf(StellarisLocalizationAttributesKeys.PROPERTY_REFERENCE_PARAMETER_KEY)
@@ -30,9 +30,10 @@ class StellarisLocalizationSyntaxHighlighter : SyntaxHighlighterBase() {
 	}
 
 	override fun getTokenHighlights(tokenType: IElementType?) = when(tokenType) {
+		COLON -> COLON_KEYS
 		LOCALE_ID -> LOCALE_KEYS
 		PROPERTY_KEY_ID -> PROPERTY_KEY_KEYS
-		STRING_TOKEN, LEFT_QUOTE, RIGHT_QUOTE -> PROPERTY_VALUE_KEYS
+		STRING_TOKEN, LEFT_QUOTE, RIGHT_QUOTE -> STRING_KEYS
 		PROPERTY_REFERENCE_START, PROPERTY_REFERENCE_SEPARATOR, PROPERTY_REFERENCE_END,
 		CODE_START, CODE_END, ICON_START, ICON_END,
 		SERIAL_NUMBER_START, SERIAL_NUMBER_END, COLORFUL_TEXT_START, COLORFUL_TEXT_END -> MARKER_KEYS

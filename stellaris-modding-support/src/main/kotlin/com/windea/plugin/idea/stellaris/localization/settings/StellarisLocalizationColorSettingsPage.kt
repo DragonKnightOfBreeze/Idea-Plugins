@@ -19,7 +19,7 @@ class StellarisLocalizationColorSettingsPage : ColorSettingsPage {
 			AttributesDescriptor(message("stellaris.localization.color.number"), StellarisLocalizationAttributesKeys.NUMBER_KEY),
 			AttributesDescriptor(message("stellaris.localization.color.Locale"), StellarisLocalizationAttributesKeys.LOCALE_KEY),
 			AttributesDescriptor(message("stellaris.localization.color.propertyKey"), StellarisLocalizationAttributesKeys.PROPERTY_KEY_KEY),
-			AttributesDescriptor(message("stellaris.localization.color.propertyValue"), StellarisLocalizationAttributesKeys.PROPERTY_VALUE_KEY),
+			AttributesDescriptor(message("stellaris.localization.color.string"), StellarisLocalizationAttributesKeys.STRING_KEY),
 			AttributesDescriptor(message("stellaris.localization.color.comment"), StellarisLocalizationAttributesKeys.COMMENT_KEY),
 			AttributesDescriptor(message("stellaris.localization.color.marker"), StellarisLocalizationAttributesKeys.MARKER_KEY),
 			AttributesDescriptor(message("stellaris.localization.color.propertyReferenceParameter"), StellarisLocalizationAttributesKeys.PROPERTY_REFERENCE_PARAMETER_KEY),
