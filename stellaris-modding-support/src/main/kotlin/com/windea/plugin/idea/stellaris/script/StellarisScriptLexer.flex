@@ -1,5 +1,6 @@
 package com.windea.plugin.idea.stellaris.script.psi;
 
+import com.intellij.lexer.FlexLexer;
 import com.intellij.psi.tree.IElementType;
 
 import static com.intellij.psi.TokenType.*;
@@ -101,7 +102,8 @@ COLOR_PARAMETER=\{[^\r\n]*?}
   {COMMENT} {  return COMMENT; }
 }
 <WAITING_PROPERTY_KEY> {
-  "}" {depth--; yybegin(nextState()); return RIGHT_BRACE;}
+  "}" {depth--;  yybegin(nextState()); return RIGHT_BRACE;}
+  "{" {depth++;  yybegin(nextState()); return LEFT_BRACE;}
   {WHITE_SPACE} { return WHITE_SPACE; } //继续解析
   {COMMENT} {  return COMMENT; }
   //在这里根据后面是否有"="判断是否是property
@@ -112,6 +114,8 @@ COLOR_PARAMETER=\{[^\r\n]*?}
   {STRING} {yybegin(WAITING_PROPERTY_EOL); return STRING_TOKEN;}
 }
 <WATIING_PROPERTY_SEPARATOR> {
+  "}" {depth--;  yybegin(nextState()); return RIGHT_BRACE;}
+  "{" {depth++;  yybegin(nextState()); return LEFT_BRACE;}
   "=" {yybegin(WAITING_PROPERTY_VALUE); return EQUAL_SIGN;}
   "<" {yybegin(WAITING_PROPERTY_VALUE); return LT_SIGN;}
   ">" {yybegin(WAITING_PROPERTY_VALUE); return GT_SIGN;}
@@ -124,6 +128,7 @@ COLOR_PARAMETER=\{[^\r\n]*?}
 <WAITING_PROPERTY_VALUE>{
   {WHITE_SPACE} { return WHITE_SPACE; } //继续解析
   {COMMENT} {  return COMMENT; }
+  "}" {depth--;  yybegin(nextState()); return RIGHT_BRACE;}
   "{" {depth++;  yybegin(nextState()); return LEFT_BRACE;}
   {VARIABLE_REFERENCE_ID} {yybegin(WAITING_PROPERTY_EOL); return VARIABLE_REFERENCE_ID;}
   {BOOLEAN} { yybegin(WAITING_PROPERTY_EOL); return BOOLEAN_TOKEN; }
@@ -133,6 +138,7 @@ COLOR_PARAMETER=\{[^\r\n]*?}
 }
 <WAITING_PROPERTY_EOL> {
   "}" {depth--;  yybegin(nextState()); return RIGHT_BRACE;}
+  "{" {depth++;  yybegin(nextState()); return LEFT_BRACE;}
   {EOL} {  yybegin(nextState()); return WHITE_SPACE; }
   {SPACE} { return WHITE_SPACE; }
   {END_OF_LINE_COMMENT} {  return END_OF_LINE_COMMENT; }
