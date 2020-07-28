@@ -26,7 +26,7 @@ class StellarisLocalizationColorSettingsPage : ColorSettingsPage {
 			AttributesDescriptor(message("stellaris.localization.color.code"), StellarisLocalizationAttributesKeys.CODE_KEY),
 			AttributesDescriptor(message("stellaris.localization.color.icon"), StellarisLocalizationAttributesKeys.ICON_KEY),
 			AttributesDescriptor(message("stellaris.localization.color.serialNumberId"), StellarisLocalizationAttributesKeys.SERIAL_NUMBER_ID_KEY),
-			AttributesDescriptor(message("stellaris.localization.color.colorCode"), StellarisLocalizationAttributesKeys.COLOR_CODE_KEY),
+			AttributesDescriptor(message("stellaris.localization.color.colorId"), StellarisLocalizationAttributesKeys.COLOR_ID_KEY),
 			AttributesDescriptor(message("stellaris.localization.color.validEscape"), StellarisLocalizationAttributesKeys.VALID_ESCAPE_KEY),
 			AttributesDescriptor(message("stellaris.localization.color.invalidEscape"), StellarisLocalizationAttributesKeys.INVALID_ESCAPE_KEY),
 			AttributesDescriptor(message("stellaris.localization.color.badCharacter"), StellarisLocalizationAttributesKeys.BAD_CHARACTER_KEY)

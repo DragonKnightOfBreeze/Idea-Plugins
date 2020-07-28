@@ -51,7 +51,7 @@ class StellarisLocalizationAnnotator : Annotator, DumbAware {
 						.withFix(ChangeColorIntention.instance)
 						.create()
 				} else {
-					val attributesKey = StellarisLocalizationAttributesKeys.COLOR_CODE_KEYS[element.name] ?: return
+					val attributesKey = StellarisLocalizationAttributesKeys.COLOR_ID_KEYS[element.name] ?: return
 					holder.newSilentAnnotation(INFORMATION)
 						//.gutterIconRenderer(ColorGutterIconRenderer(element.color!!))
 						.range(element.colorfulTextId!!).textAttributes(attributesKey)

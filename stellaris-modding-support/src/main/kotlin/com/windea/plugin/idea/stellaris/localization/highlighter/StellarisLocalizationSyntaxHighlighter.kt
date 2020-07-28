@@ -22,7 +22,7 @@ class StellarisLocalizationSyntaxHighlighter : SyntaxHighlighterBase() {
 		private val CODE_KEYS = arrayOf(StellarisLocalizationAttributesKeys.CODE_KEY)
 		private val ICON_KEYS = arrayOf(StellarisLocalizationAttributesKeys.ICON_KEY)
 		private val SERIAL_NUMBER_ID_KEYS = arrayOf(StellarisLocalizationAttributesKeys.SERIAL_NUMBER_ID_KEY)
-		private val COLOR_CODE_KEYS = arrayOf(StellarisLocalizationAttributesKeys.COLOR_CODE_KEY)
+		private val COLOR_ID_KEYS = arrayOf(StellarisLocalizationAttributesKeys.COLOR_ID_KEY)
 		private val VALID_ESCAPE_KEYS = arrayOf(StellarisLocalizationAttributesKeys.VALID_ESCAPE_KEY)
 		private val INVALID_ESCAPE_KEYS = arrayOf(StellarisLocalizationAttributesKeys.INVALID_ESCAPE_KEY)
 		private val BAD_CHARACTER_KEYS = arrayOf(StellarisLocalizationAttributesKeys.BAD_CHARACTER_KEY)
@@ -41,7 +41,7 @@ class StellarisLocalizationSyntaxHighlighter : SyntaxHighlighterBase() {
 		CODE_TEXT -> CODE_KEYS
 		ICON_ID -> ICON_KEYS
 		SERIAL_NUMBER_ID -> SERIAL_NUMBER_ID_KEYS
-		COLORFUL_TEXT_ID -> COLOR_CODE_KEYS
+		COLORFUL_TEXT_ID -> COLOR_ID_KEYS
 		COMMENT, ROOT_COMMENT -> COMMENT_KEYS
 		VALID_ESCAPE_TOKEN -> VALID_ESCAPE_KEYS
 		INVALID_ESCAPE_TOKEN -> INVALID_ESCAPE_KEYS

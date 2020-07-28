@@ -1,7 +1,7 @@
 ﻿# Root comment
 # Second line comment
 l_english:
- # Comment 
+ # Comment
  KEY:0 "Value"
  KEY_1:0 "Value\nNew line"
  KEY_WITH_REFERENCE:0 "Reference text: $KEY$ "
