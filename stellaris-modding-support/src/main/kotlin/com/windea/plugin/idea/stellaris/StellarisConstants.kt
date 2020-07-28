@@ -58,9 +58,13 @@ val scriptFileIcon = IconLoader.getIcon("/icons/stellaris_script.png")
 val scriptVariableIcon = AllIcons.Nodes.Variable
 val scriptPropertyIcon = AllIcons.Nodes.Property
 val scriptItemIcon = AllIcons.Nodes.Constant
-val externalLocalizationPropertyIcon = IconUtil.toSize(AllIcons.Nodes.PropertyRead, 12, 12)
-val externalScriptPropertyIcon = IconUtil.toSize(AllIcons.Nodes.Property, 12, 12)
 
+val externalLocalizationPropertyGutterIcon = IconUtil.toSize(localizationLocaleIcon, 12, 12)
+val externalScriptPropertyGutterIcon = IconUtil.toSize(scriptPropertyIcon, 12, 12)
+val eventIdGutterIcon = IconUtil.toSize(AllIcons.Nodes.Protected,12,12)
+val gfxKeyGutterIcon = IconUtil.toSize(AllIcons.Nodes.Related,12,12)
+val assetKeyGutterIcon = IconUtil.toSize(AllIcons.Nodes.Related,12,12)
+val actionFieldGutterIcon = IconUtil.toSize(AllIcons.Nodes.Field,12,12)
 
 //Caches
 val localizationLocaleCache = ConcurrentHashMap<Project, Array<StellarisLocalizationLocale>>()

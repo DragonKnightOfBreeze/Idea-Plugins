@@ -128,10 +128,13 @@ fun getDocCommentTextFromPreviousComment(element: PsiElement): String {
 	return buildString {
 		var prevElement = element.prevSibling
 		while(prevElement != null) {
+			val text = prevElement.text
 			if(prevElement !is PsiWhiteSpace) {
 				if(!isPreviousComment(prevElement)) break
 				if(length != 0) insert(0, "\n")
-				insert(0, prevElement.text)
+				insert(0, text.trimStart('#').trim())
+			} else{
+				if(containsBlankLine(text)) break
 			}
 			prevElement = prevElement.prevSibling
 		}
@@ -140,6 +143,15 @@ fun getDocCommentTextFromPreviousComment(element: PsiElement): String {
 
 fun isPreviousComment(element: PsiElement): Boolean {
 	return element.elementType == StellarisLocalizationTypes.COMMENT || element.elementType == StellarisScriptTypes.COMMENT
+}
+
+fun containsBlankLine(text:String):Boolean{
+	var newLine = 0
+	text.forEach {
+		if(it == '\r' || it == '\n') newLine ++
+		if(newLine >= 2) return true
+	}
+	return false
 }
 
 /**得到指定元素之前的所有直接的注释的Html文本，作为文档注释，跳过空白。*/
@@ -151,7 +163,7 @@ fun getDocCommentHtmlFromPreviousComment(element: PsiElement, textAttributeKey: 
 		//if(bgColor != null) append("<div bgcolor=#${GuiUtils.colorToHex(bgColor)}>")
 		//if(color != null) append("<font color=#${GuiUtils.colorToHex(color)}>")
 		val text = getDocCommentTextFromPreviousComment(element)
-		val html = text.split("\n").joinToString("<br>") { it.trimStart('#').trim() }
+		val html = text.split("\n").joinToString("<br>") { it }
 		append(html)
 		//if(color != null) append("</font>")
 		//if(bgColor != null) append("</div>")

@@ -97,7 +97,7 @@ serial_number ::= SERIAL_NUMBER_START SERIAL_NUMBER_ID SERIAL_NUMBER_END {
   implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
   methods=[getName setName getNameIdentifier getTextOffset getSerialNumber getReference]
 }
-colorful_text ::= COLORFUL_TEXT_START COLORFUL_TEXT_ID rich_text* COLORFUL_TEXT_END{
+colorful_text ::= COLORFUL_TEXT_START COLORFUL_TEXT_ID rich_text* [COLORFUL_TEXT_END]{
   pin=1
   mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"
   implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"

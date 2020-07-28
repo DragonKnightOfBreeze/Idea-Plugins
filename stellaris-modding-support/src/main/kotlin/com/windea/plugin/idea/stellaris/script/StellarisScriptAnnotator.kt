@@ -7,9 +7,7 @@ import com.intellij.lang.annotation.*
 import com.intellij.lang.annotation.HighlightSeverity.*
 import com.intellij.openapi.actionSystem.*
 import com.intellij.openapi.editor.markup.*
-import com.intellij.openapi.fileEditor.*
 import com.intellij.openapi.project.*
-import com.intellij.pom.*
 import com.intellij.psi.*
 import com.intellij.ui.awt.*
 import com.intellij.util.*
@@ -17,7 +15,6 @@ import com.intellij.util.ui.*
 import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.StellarisBundle.message
 import com.windea.plugin.idea.stellaris.annotations.*
-import com.windea.plugin.idea.stellaris.domain.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
 import com.windea.plugin.idea.stellaris.script.psi.*
 import java.awt.*
@@ -32,7 +29,7 @@ class StellarisScriptAnnotator : Annotator ,DumbAware{
 		private val tooltip = message("stellaris.script.annotator.externalScriptProperty",name)
 		private val title = message("stellaris.script.annotator.externalScriptProperty.title")
 
-		override fun getIcon() = externalScriptPropertyIcon
+		override fun getIcon() = externalScriptPropertyGutterIcon
 
 		override fun getTooltipText() = tooltip
 
@@ -52,7 +49,7 @@ class StellarisScriptAnnotator : Annotator ,DumbAware{
 		private val tooltip = message("stellaris.script.annotator.externalLocalizationProperty",name)
 		private val title = message("stellaris.script.annotator.externalLocalizationProperty.title")
 
-		override fun getIcon() = externalLocalizationPropertyIcon
+		override fun getIcon() = externalLocalizationPropertyGutterIcon
 
 		override fun getTooltipText() = tooltip
 

@@ -6,6 +6,7 @@ import com.intellij.openapi.util.*
 import com.intellij.psi.*
 import com.intellij.refactoring.suggested.*
 import com.intellij.ui.*
+import com.jetbrains.rd.util.string.*
 import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.script.psi.*
 import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptElementFactory.createPropertyKey
@@ -207,7 +208,7 @@ object StellarisScriptPsiImplUtil {
 			when(element.colorType.text) {
 				"rgb" -> args.let { (r, g, b) -> Color(r.toInt(), g.toInt(), b.toInt()) }
 				"rgba" -> args.let { (r, g, b,a) -> Color(r.toInt(), g.toInt(), b.toInt(),a.toInt()) }
-				"hsv" -> args.let { (h, s, v) -> null } //TODO
+				"hsv" -> args.let { (h, s, v) -> TODO() }
 				"hsb" -> args.let { (h, s, b) -> Color.getHSBColor(h.toFloat(),s.toFloat(),b.toFloat()) }
 				else -> null
 			}

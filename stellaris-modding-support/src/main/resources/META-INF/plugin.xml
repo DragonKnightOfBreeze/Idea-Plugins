@@ -6,7 +6,7 @@
   <category>Languages</category>
 
   <description><![CDATA[
-    <p>为开发Stellaris的mod提供支持。</p>
+    <p>支持Stellaris模组编程。</p>
     <ul>
       <li>支持Stellaris的脚本语言。(*.txt, *.gfx, *.asset, *.mod)</li>
       <li>支持Stellaris的本地化语言。(*.yml)</li>
@@ -20,12 +20,20 @@
       </li>
     </ul>
     <p>
-      请注意，<b>瑞典蠢驴</b>的模组语言实际上是非常非常复杂而混乱的，
-      因此这个插件可能存在一些<i>语法解析兼容性问题</i>以及<i>引用问题</i>。
-      但是现在，好时代，已然，来临了！
+      请注意，我开发这个插件的目的仅仅只是为了便于开发Stellaris的mod以及（以及熟悉IDEA插件开发），
+      但是其他游戏可能也会使用到这样的的脚本语言和富文本语言。
     </p>
     <p>
-      如果遇到BUG或问题，欢迎在项目的
+      请注意，<b>瑞典蠢驴</b>的模组语言实际上是非常非常复杂的，
+      因此这个插件可能存在一些<i>语法解析兼容性问题</i>以及<i>引用问题</i>。
+    </p>
+    <P>
+      你也可以使用VSCode IDE并配合CWTTools插件来进行Stellaris模组编程。
+      但请注意，IDEA相比VSCode功能无疑更加强大，
+      这意味着这个插件未来可能会提供一些CWTTools所不可能支持的高级功能。
+    </P>
+    <p>
+      这个插件仍然在更新中，如果遇到BUG或问题，欢迎在项目的
       <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/issues">Github Issue页面</a>
       中提出。（附带标签<i>stellaris-modding-support</i>）
     </p>
@@ -52,15 +60,25 @@
       </li>
     </ul>
     <p>
-      Please note that <b>Paradox Interactive</b>'s modding language is actually very complex and even more chaos,
-      so that this plugin maybe have some <i>syntax compatibility problems</i> and <i>reference problems</i>.
-      But at this moment, this plugin shall be very useful and friendly.
+      Please note that why I develop this plugin is simply: to write Stellaris mods easily
+      (and take the first step ),
+      By some other games may also use such script language and rich text language.
     </p>
+    <p>
+      please note that <b>Paradox Interactive</b>'s modding language is actually very complex and even more chaos,
+      so that this plugin maybe have some <i>syntax compatibility problems</i> and <i>reference problems</i>.
+    </p>
+    <P>
+      You can also write Stellaris mods by VSCode IDE with CWTTools plugin.
+      But please note that, IDEA is undoubtedly more powful than VSCode,
+      meaning that this plugin may support some advance features that CWTTools will never provide.
+    </P>
     <p>
       Please note most document of this project is written by Simple Chinese.
     </p>
     <p>
-      If you have found any bugs or problems, feel free to report them in project's
+      This plugin is still in developing,
+      if you have found any bugs or problems, feel free to report them in project's
       <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/issues">Github Issue Page</a>.
       (With label <i>stellaris-modding-support</i>)
     </p>
