@@ -27,7 +27,7 @@
 	  PROPERTY_KEY_ID='regexp:[a-zA-Zz0-9_\-]+'
 	  BOOLEAN_TOKEN='regexp:(yes)|(no)'
 	  NUMBER_TOKEN='regexp:-?[0-9]+(\.[0-9]+)?'
-	  UNQUOTED_STRING_TOKEN='regexp:[^\s()\[\]{}="@]+'
+	  UNQUOTED_STRING_TOKEN='regexp:[^\s()\[\]{}="]+'
 	  STRING_TOKEN='regexp:"([^"(\r\n\\]|\\.)*?"'
 	  COLOR_TYPE="regexp:(rgb)|(rgba)|(hsv)"
 	  COLOR_PARAMETER='regexp:\{[^\r\n]*?}'

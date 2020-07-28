@@ -2,13 +2,16 @@
 
 package com.windea.plugin.idea.stellaris.script
 
+import com.intellij.codeInsight.navigation.*
 import com.intellij.lang.annotation.*
 import com.intellij.lang.annotation.HighlightSeverity.*
 import com.intellij.openapi.actionSystem.*
 import com.intellij.openapi.editor.markup.*
+import com.intellij.openapi.fileEditor.*
 import com.intellij.openapi.project.*
 import com.intellij.pom.*
 import com.intellij.psi.*
+import com.intellij.ui.awt.*
 import com.intellij.util.*
 import com.intellij.util.ui.*
 import com.windea.plugin.idea.stellaris.*
@@ -18,6 +21,7 @@ import com.windea.plugin.idea.stellaris.domain.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
 import com.windea.plugin.idea.stellaris.script.psi.*
 import java.awt.*
+import java.awt.event.*
 
 @ExtensionPoint
 class StellarisScriptAnnotator : Annotator ,DumbAware{
@@ -25,11 +29,14 @@ class StellarisScriptAnnotator : Annotator ,DumbAware{
 		private val name:String,
 		private vararg val properties: StellarisScriptProperty
 	): GutterIconRenderer(),DumbAware {
+		private val tooltip = message("stellaris.script.annotator.externalScriptProperty",name)
+		private val title = message("stellaris.script.annotator.externalScriptProperty.title")
+
 		override fun getIcon() = externalScriptPropertyIcon
 
-		override fun getTooltipText() = message("stellaris.script.annotator.externalScriptProperty", name)
+		override fun getTooltipText() = tooltip
 
-		override fun getClickAction() = NavigateAction(*properties)
+		override fun getClickAction() = NavigateAction(title,*properties)
 
 		override fun isNavigateAction() = true
 
@@ -42,11 +49,14 @@ class StellarisScriptAnnotator : Annotator ,DumbAware{
 		private val name:String,
 		private vararg val properties: StellarisLocalizationProperty
 	): GutterIconRenderer(),DumbAware {
+		private val tooltip = message("stellaris.script.annotator.externalLocalizationProperty",name)
+		private val title = message("stellaris.script.annotator.externalLocalizationProperty.title")
+
 		override fun getIcon() = externalLocalizationPropertyIcon
 
-		override fun getTooltipText() = message("stellaris.script.annotator.externalLocalizationProperty", name)
+		override fun getTooltipText() = tooltip
 
-		override fun getClickAction() = NavigateAction(*properties)
+		override fun getClickAction() = NavigateAction(title, *properties)
 
 		override fun isNavigateAction() = true
 
@@ -56,10 +66,17 @@ class StellarisScriptAnnotator : Annotator ,DumbAware{
 	}
 
 	class NavigateAction(
-		private vararg val navigatables: Navigatable
+		private val title:String,
+		private vararg val elements: NavigatablePsiElement
 	):AnAction(){
 		override fun actionPerformed(e: AnActionEvent) {
-			OpenSourceUtil.navigate(true,*navigatables)
+			//如果只有一个，则直接导航，否则弹出popup再导航
+			if(elements.size == 1){
+				OpenSourceUtil.navigate(true,elements.first())
+			}else{
+				NavigationUtil.getPsiElementPopup(elements,title)
+					.show(RelativePoint(e.inputEvent as @org.jetbrains.annotations.NotNull MouseEvent))
+			}
 		}
 	}
 

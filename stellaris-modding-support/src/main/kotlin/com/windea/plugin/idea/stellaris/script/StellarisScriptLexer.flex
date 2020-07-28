@@ -1,7 +1,5 @@
 package com.windea.plugin.idea.stellaris.script.psi;
 
-import com.intellij.lexer.FlexLexer;
-import com.intellij.psi.TokenType;
 import com.intellij.psi.tree.IElementType;
 
 import static com.intellij.psi.TokenType.*;
@@ -16,16 +14,17 @@ import static com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
 %type IElementType
 %unicode
 
+%state WAITING_VARIABLE
 %state WAITING_VARIABLE_EQUAL_SIGN
 %state WAITING_VARIABLE_VALUE
 %state WAITING_VARIABLE_EOL
 
+%state WAITING_PROPERTY
 %state WAITING_PROPERTY_KEY
 %state WATIING_PROPERTY_SEPARATOR
 %state WAITING_PROPERTY_VALUE
 %state WAITING_PROPERTY_EOL
 
-%state WAITING_PROPERTY_KEY_START
 
 %{
   int depth = 0;
@@ -44,19 +43,18 @@ EOL=\s*\R
 WHITE_SPACE=\s+
 SPACE=[ \t]+
 
-COMMENT =#[^\r\n]*
-END_OF_LINE_COMMENT=#[^\r\n]*
-
-VARIABLE_NAME_ID=@[a-zA-Z0-9_]+
-
+IS_VARIABLE="@"
 IS_PROEPRTY=[^\"@][^\r\n]*[=><]
 
+COMMENT =#[^\r\n]*
+END_OF_LINE_COMMENT=#[^\r\n]*
+VARIABLE_NAME_ID=@[a-zA-Z0-9_]+
 PROPERTY_KEY_ID=[a-zA-Z0-9_\-]+
 VARIABLE_REFERENCE_ID=@[a-zA-Z0-9_]+
 BOOLEAN=(yes)|(no)
 NUMBER=-?[0-9]+(\.[0-9]+)?
 STRING=\"([^\"(\r\n\\]|\\.)*?\"
-UNQUOTED_STRING=[^\s\(\)\[\]\{\}=\"@]+
+UNQUOTED_STRING=[^\s\(\)\[\]\{\}=\"]+
 
 COLOR_TYPE=rgb|rgba|hsv
 COLOR_PARAMETER=\{[^\r\n]*?}
@@ -65,45 +63,53 @@ COLOR_PARAMETER=\{[^\r\n]*?}
 <YYINITIAL> {
   {WHITE_SPACE} { return WHITE_SPACE; } //继续解析
   {COMMENT} {return COMMENT; }
-  {VARIABLE_NAME_ID} { yybegin(WAITING_VARIABLE_EQUAL_SIGN); return VARIABLE_NAME_ID; }
+  //根据是否以@开始判断是否是variable
+  {IS_VARIABLE} {yypushback(yylength()); yybegin(WAITING_VARIABLE);}
   //在这里根据后面是否有"="判断是否是property
-  {IS_PROEPRTY} {yypushback(yylength()); yybegin(WAITING_PROPERTY_KEY_START);}
+  {IS_PROEPRTY} {yypushback(yylength()); yybegin(WAITING_PROPERTY);}
   {BOOLEAN} { yybegin(WAITING_PROPERTY_EOL); return BOOLEAN_TOKEN; }
   {NUMBER} { yybegin(WAITING_PROPERTY_EOL); return NUMBER_TOKEN; }
   {UNQUOTED_STRING} {yybegin(WAITING_PROPERTY_EOL); return UNQUOTED_STRING_TOKEN;}
   {STRING} {yybegin(WAITING_PROPERTY_EOL); return STRING_TOKEN;}
+}
+<WAITING_VARIABLE>{
+  {VARIABLE_NAME_ID} { yybegin(WAITING_VARIABLE_EQUAL_SIGN); return VARIABLE_NAME_ID; }
+  {WHITE_SPACE} { return WHITE_SPACE; } //继续解析
+  {COMMENT} {  return COMMENT; }
 }
 <WAITING_VARIABLE_EQUAL_SIGN> {
   "=" {yybegin(WAITING_VARIABLE_VALUE); return EQUAL_SIGN;}
   {EOL} { yybegin(YYINITIAL); return WHITE_SPACE; } //跳过非法字符
   {WHITE_SPACE} { return WHITE_SPACE; } //继续解析
+  {COMMENT} {  return COMMENT; }
 }
 <WAITING_VARIABLE_VALUE> {
   {NUMBER} {yybegin(WAITING_VARIABLE_EOL); return NUMBER_TOKEN; }
   {EOL} { yybegin(YYINITIAL); return WHITE_SPACE; } //跳过非法字符
   {WHITE_SPACE} { return WHITE_SPACE; } //继续解析
+  {COMMENT} {  return COMMENT; }
 }
 <WAITING_VARIABLE_EOL> {
   {EOL} { yybegin(YYINITIAL); return WHITE_SPACE; }
   {SPACE} { return WHITE_SPACE; } //继续解析
-  {END_OF_LINE_COMMENT} { yybegin(YYINITIAL); return END_OF_LINE_COMMENT; }
+  {END_OF_LINE_COMMENT} { return END_OF_LINE_COMMENT; }
 }
 
+<WAITING_PROPERTY>{
+  {PROPERTY_KEY_ID} {yybegin(WATIING_PROPERTY_SEPARATOR); return PROPERTY_KEY_ID;}
+  {WHITE_SPACE} { return WHITE_SPACE; } //继续解析
+  {COMMENT} {  return COMMENT; }
+}
 <WAITING_PROPERTY_KEY> {
   "}" {depth--; yybegin(nextState()); return RIGHT_BRACE;}
   {WHITE_SPACE} { return WHITE_SPACE; } //继续解析
   {COMMENT} {  return COMMENT; }
   //在这里根据后面是否有"="判断是否是property
-  {IS_PROEPRTY} {yypushback(yylength()); yybegin(WAITING_PROPERTY_KEY_START);}
+  {IS_PROEPRTY} {yypushback(yylength()); yybegin(WAITING_PROPERTY);}
   {BOOLEAN} { yybegin(WAITING_PROPERTY_EOL); return BOOLEAN_TOKEN; }
   {NUMBER} { yybegin(WAITING_PROPERTY_EOL); return NUMBER_TOKEN; }
   {UNQUOTED_STRING} {yybegin(WAITING_PROPERTY_EOL); return UNQUOTED_STRING_TOKEN;}
   {STRING} {yybegin(WAITING_PROPERTY_EOL); return STRING_TOKEN;}
-}
-<WAITING_PROPERTY_KEY_START>{
-  {PROPERTY_KEY_ID} {yybegin(WATIING_PROPERTY_SEPARATOR); return PROPERTY_KEY_ID;}
-  {WHITE_SPACE} { return WHITE_SPACE; } //继续解析
-  {COMMENT} {  return COMMENT; }
 }
 <WATIING_PROPERTY_SEPARATOR> {
   "=" {yybegin(WAITING_PROPERTY_VALUE); return EQUAL_SIGN;}
@@ -113,6 +119,7 @@ COLOR_PARAMETER=\{[^\r\n]*?}
   ">=" {yybegin(WAITING_PROPERTY_VALUE); return GE_SIGN;}
   {EOL} {  yybegin(nextState()); return WHITE_SPACE; } //跳过非法字符
   {WHITE_SPACE} { return WHITE_SPACE; } //继续解析
+  {COMMENT} {  return COMMENT; }
 }
 <WAITING_PROPERTY_VALUE>{
   {WHITE_SPACE} { return WHITE_SPACE; } //继续解析

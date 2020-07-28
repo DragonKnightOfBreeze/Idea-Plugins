@@ -5,27 +5,25 @@ import com.intellij.formatting.Indent
 import com.intellij.lang.*
 import com.intellij.psi.codeStyle.*
 import com.intellij.psi.formatter.common.*
-import com.intellij.psi.tree.*
 import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.localization.*
-import com.windea.plugin.idea.stellaris.script.psi.*
 import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
 import com.windea.plugin.idea.stellaris.script.settings.*
 
-class StellarisScriptBlock (
+class StellarisScriptBlock(
 	node: ASTNode,
-	private val settings:CodeStyleSettings,
-	private val shouldIndent:Boolean = false
-):AbstractBlock(node, createWrap(), createAlignment(node)){
+	private val settings: CodeStyleSettings,
+	private val shouldIndent: Boolean = false
+) : AbstractBlock(node, createWrap(), createAlignment(node)) {
 	companion object {
 		private fun createWrap(): Wrap? {
 			return null
 		}
 
 		//让变量定义总是对齐行首，
-		private fun createAlignment(node:ASTNode): Alignment? {
+		private fun createAlignment(node: ASTNode): Alignment? {
 			//DELAY 对齐属性名
-			return when(node.elementType){
+			return when(node.elementType) {
 				COMMENT -> Alignment.createAlignment()
 				VARIABLE_DEFINITION, VARIABLE_NAME, VARIABLE_NAME_ID -> Alignment.createAlignment()
 				else -> null
@@ -47,7 +45,7 @@ class StellarisScriptBlock (
 
 	override fun buildChildren(): List<Block> {
 		//如果已经需要缩进，或者是list的子节点，则注意需要缩进
-		return  myNode.nodes().map {
+		return myNode.nodes().map {
 			when {
 				shouldIndent -> StellarisScriptBlock(it, settings, true)
 				it.treeParent.elementType == BLOCK -> StellarisScriptBlock(it, settings, true)
@@ -59,18 +57,18 @@ class StellarisScriptBlock (
 	}
 
 	override fun getIndent(): Indent? {
+		if(!shouldIndent) return Indent.getNoneIndent()
 		//list下面的所有属性和非行尾注释都要缩进
-		return when{
-			!shouldIndent -> Indent.getNoneIndent()
-			 myNode.elementType == STRING -> Indent.getNormalIndent()
-			 myNode.elementType == PROPERTY -> Indent.getNormalIndent()
-			myNode.elementType == COMMENT -> Indent.getNormalIndent()
+		return when(myNode.elementType) {
+			ITEM -> Indent.getNormalIndent()
+			PROPERTY -> Indent.getNormalIndent()
+			COMMENT -> Indent.getNormalIndent()
 			else -> Indent.getNoneIndent()
 		}
 	}
 
 	override fun getSpacing(child1: Block?, child2: Block): Spacing? {
-		return spacingBuilder.getSpacing(this,child1, child2)
+		return spacingBuilder.getSpacing(this, child1, child2)
 	}
 
 	override fun isLeaf(): Boolean {

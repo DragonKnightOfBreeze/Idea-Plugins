@@ -15,7 +15,7 @@ class StellarisScriptParserDefinition : ParserDefinition {
 	companion object {
 		val WHITE_SPACES = TokenSet.create(WHITE_SPACE)
 		val COMMENTS = TokenSet.create(COMMENT, END_OF_LINE_COMMENT)
-		val STRINGS = TokenSet.create(PROPERTY_VALUE)
+		val STRINGS = TokenSet.create(STRING_TOKEN, UNQUOTED_STRING_TOKEN)
 		val FILE = IFileElementType(StellarisScriptLanguage)
 	}
 

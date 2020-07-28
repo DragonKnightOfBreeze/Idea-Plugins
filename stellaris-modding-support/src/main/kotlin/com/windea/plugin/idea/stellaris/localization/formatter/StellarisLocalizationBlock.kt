@@ -41,8 +41,9 @@ class StellarisLocalizationBlock(
 		}
 
 		private fun createSpacingBuilder(settings: CodeStyleSettings): SpacingBuilder {
-			//数字和属性值之间有一个空格
+			//数字和属性值之间有一个空格，冒号和属性值之间也有
 			return SpacingBuilder(settings, StellarisLocalizationLanguage)
+				.between(COLON, PROPERTY_VALUE).spaces(1)
 				.between(NUMBER, PROPERTY_VALUE).spaces(1)
 		}
 	}
@@ -55,7 +56,7 @@ class StellarisLocalizationBlock(
 		return myNode.nodes().map { StellarisLocalizationBlock(it, settings) }
 	}
 
-	override fun getIndent(): Indent {
+	override fun getIndent(): Indent? {
 		return when(myNode.elementType) {
 			//属性之前适用缩进
 			PROPERTY -> Indent.getNormalIndent()
