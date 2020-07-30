@@ -1,0 +1,35 @@
+definitions:
+  # 外交行动
+  diplomatic_action:
+    title: Diplomatic Actions
+    type: object
+    properties:
+      icon:
+        $ref: "core.yaml/#/definitions/gfx_reference"
+      auto_accepted:
+        $ref: "core.yaml/#/definitions/boolean"
+      require_envoy:
+        $ref: "core.yaml/#/definitions/boolean"
+      envoy_assignment:
+        additionalProperties: true # TODO
+      requires_actor_independence:
+        $ref: "core.yaml/#/definitions/boolean"
+      requires_recipient_independence:
+        $ref: "core.yaml/#/definitions/boolean"
+      action_type:
+        $ref: "#/definitions/action_type"
+      potential:
+        $ref: "core.yaml/#/definitions/trigger"
+      possible:
+        $ref: "core.yaml/#/definitions/effect"
+
+
+  action_type:
+    type: string
+    enum:
+    - positive
+
+title: Diplomatic Actions
+type: object
+additionalProperties:
+  $ref: "#/definitions/diplomatic_action"

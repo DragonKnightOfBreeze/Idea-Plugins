@@ -1,0 +1,31 @@
+definitions:
+  # （星球）决策
+  decision:
+    title: Decision
+    type: object
+    properties:
+      owned_planets_only:
+        $ref: "core.yaml/#/definitions/boolean"
+      sound:
+        $type: sound_effect
+      icon:
+        $type: icon
+      resources:
+        $ref: "core.yaml/#/definitions/resources"
+      potential:
+        $ref: "core.yaml/#/definitions/trigger"
+      allow:
+        $ref: "core.yaml/#/definitions/trigger"
+      effect:
+        $ref: "core.yaml/#/definitions/effect"
+      ai_weight:
+        $ref: "core.yaml/#/definitions/weight_modifier"
+      modifier:
+        $ref: "core.yaml/#/definitions/modifier"
+
+title: Decisions
+type: object
+additionalProperties:
+  $ref: "#/definitions/decision"
+
+

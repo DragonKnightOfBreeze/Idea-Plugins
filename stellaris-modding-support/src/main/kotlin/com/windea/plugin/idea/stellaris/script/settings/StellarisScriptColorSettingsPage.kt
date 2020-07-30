@@ -19,6 +19,7 @@ class StellarisScriptColorSettingsPage : ColorSettingsPage {
 			AttributesDescriptor(message("stellaris.script.color.variable"), StellarisScriptAttributesKeys.VARIABLE_KEY),
 			AttributesDescriptor(message("stellaris.script.color.propertyKey"), StellarisScriptAttributesKeys.PROPERTY_KEY_KEY),
 			AttributesDescriptor(message("stellaris.script.color.keyword"), StellarisScriptAttributesKeys.KEYWORD_KEY),
+			AttributesDescriptor(message("stellaris.script.color.color"),StellarisScriptAttributesKeys.COLOR_KEN),
 			AttributesDescriptor(message("stellaris.script.color.number"),StellarisScriptAttributesKeys. STRING_KEY),
 			AttributesDescriptor(message("stellaris.script.color.string"), StellarisScriptAttributesKeys.NUMBER_KEY),
 			AttributesDescriptor(message("stellaris.script.color.comment"), StellarisScriptAttributesKeys.COMMENT_KEY),

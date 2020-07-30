@@ -105,7 +105,9 @@
 * [X] 更新结构视图和面包屑导航以匹配完善后的语法。
 * [X] 补充关于Color类型的代码。
 
-#### 1.9
+### 1.9
+
+语法兼容性优化。
 
 * [X] scriptUnquoteString可以包含非开头的`@`
 * [X] gutterIcon可以导航到多个localizationProperty
@@ -115,11 +117,18 @@
 * [X] 允许单独的`§R`（这也可以？？？）
 * [X] DocComment：仅允许第一个空行之前的LineComment作为DocComment
 * [X] 更新项目和插件文档
-* [ ] 兼容颜色语法（作为一种类型）：`rgb { 142 188 241 }` 
-* [ ] 格式化：本地化文件中，语言区域之后，除了非行尾注释以外，属性也要缩进 （？？？）
+
+### 1.10
+ 
+* [X] scriptProperty也可以在同一行
+* [X] 更新IDE版本
+* [X] 兼容颜色语法（作为一种类型）：`rgb { 142 188 241 }` 
 
 # TODO
-
+ 
+* [ ] 格式化：本地化文件中，语言区域之后，除了非行尾注释以外，属性也要缩进 （？？？）
+* [ ] 意向：scriptUnquotedString，引号括起
+* [ ] 意向：scriptString，移除包围的引号（如果移除引号后是合法的scriptUnquotedString）
 * [ ] 更多的引用类型：
   * [ ] event_id
   * [ ] gfx_reference

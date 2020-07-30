@@ -2,10 +2,10 @@ import org.jetbrains.grammarkit.tasks.*
 
 plugins {
 	id("org.jetbrains.intellij") version "0.4.21"
-	id("org.jetbrains.grammarkit") version "2020.2.1"
+	id("org.jetbrains.grammarkit") version "2020.2.2"
 }
 
-version = "1.8"
+version = "1.10"
 
 sourceSets {
 	main {
@@ -19,7 +19,7 @@ dependencies {
 
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
-	version = "2020.1.2"
+	version = "2020.2"
 	pluginName = "Stellaris Modding Support"
 }
 
@@ -31,12 +31,6 @@ grammarKit {
 }
 
 tasks {
-	compileKotlin {
-		kotlinOptions.jvmTarget = "11"
-	}
-	compileTestKotlin {
-		kotlinOptions.jvmTarget = "11"
-	}
 	register<GenerateParser>("generateParser") {
 		// source bnf file
 		source = "src/main/kotlin/com/windea/plugin/idea/stellaris/StellarisLocalization.bnf"

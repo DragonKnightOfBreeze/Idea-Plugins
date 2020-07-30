@@ -18,6 +18,7 @@ class StellarisScriptSyntaxHighlighter : SyntaxHighlighterBase() {
 		private val VARIABLE_KEYS = arrayOf(StellarisScriptAttributesKeys.VARIABLE_KEY)
 		private val PROPERTY_KEY_KEYS = arrayOf(StellarisScriptAttributesKeys.PROPERTY_KEY_KEY)
 		private val KEYWORD_KEYS = arrayOf(StellarisScriptAttributesKeys.KEYWORD_KEY)
+		private val COLOR_KEYS = arrayOf(StellarisScriptAttributesKeys.COLOR_KEY)
 		private val NUMBER_KEYS = arrayOf(StellarisScriptAttributesKeys.NUMBER_KEY)
 		private val STRING_KEYS = arrayOf(StellarisScriptAttributesKeys.STRING_KEY)
 		private val COMMENT_KEYS = arrayOf(StellarisScriptAttributesKeys.COMMENT_KEY)
@@ -34,6 +35,7 @@ class StellarisScriptSyntaxHighlighter : SyntaxHighlighterBase() {
 		PROPERTY_KEY_ID -> PROPERTY_KEY_KEYS
 		VARIABLE_REFERENCE_ID -> VARIABLE_KEYS
 		BOOLEAN_TOKEN -> KEYWORD_KEYS
+		COLOR_TOKEN -> COLOR_KEYS
 		NUMBER_TOKEN -> NUMBER_KEYS
 		STRING_TOKEN -> STRING_KEYS
 		UNQUOTED_STRING_TOKEN -> STRING_KEYS

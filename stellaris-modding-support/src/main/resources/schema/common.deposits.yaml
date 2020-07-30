@@ -1,0 +1,33 @@
+definitions:
+  # 地块
+  deposit:
+    title: Deposit
+    type: object
+    properties:
+      is_null:
+        $ref: "core.yaml/#/definitions/boolean"
+      time:
+        $ref: "core.yaml/#/definitions/uint"
+      is_for_colonizeable:
+        $ref: "core.yaml/#/definitions/boolean"
+      category:
+        $type: deposit_category
+      resources:
+        $ref: "core.yaml/#/definitions/resources"
+      potential:
+        $ref: "core.yaml/#/definitions/trigger"
+      plant_modifier:
+        $ref: "core.yaml/#/definitions/modifier"
+      drop_weight:
+        $ref: "core.yaml/#/definitions/weight_modifier"
+      ai_weight:
+        $ref: "core.yaml/#/definitions/weight_modifier"
+      prerequisites:
+        $type: tech[]
+
+title: Deposits
+type: object
+additionalProperties:
+  $ref: "#/definitions/deposit"
+
+

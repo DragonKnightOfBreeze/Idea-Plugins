@@ -125,6 +125,7 @@ fun String.toDefinitionText(): String {
 
 /**得到指定元素之前的所有直接的注释的文本，作为文档注释，跳过空白。*/
 fun getDocCommentTextFromPreviousComment(element: PsiElement): String {
+	//我们认为当前元素之前，之间没有空行的非行尾行注释，可以视为文档注释，但这并非文档注释的全部
 	return buildString {
 		var prevElement = element.prevSibling
 		while(prevElement != null) {

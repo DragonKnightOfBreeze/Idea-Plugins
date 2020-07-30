@@ -16,6 +16,28 @@ definitions:
     title: Boolean
     enum: [yes, no]
 
+  int_range:
+    type: object
+    properties:
+      min:
+        $ref: "core.yaml/#/definitions/int"
+      max:
+        $ref: "core.yaml/#/definitions/int"
+  uint_range:
+    type: object
+    properties:
+      min:
+        $ref: "core.yaml/#/definitions/uint"
+      max:
+        $ref: "core.yaml/#/definitions/uint"
+  number_range:
+    type: object
+    properties:
+      min:
+        $ref: "core.yaml/#/definitions/number"
+      max:
+        $ref: "core.yaml/#/definitions/number"
+
   level:
     title: Level
     type: integer
@@ -62,27 +84,31 @@ definitions:
     properties:
       category:
         $ref: "core.yaml/#/definitions/resources_category"
+      # anyOf
+      produces:
+        $ref: "core.yaml/#/definitions/resources_item"
+      # anyOf
       cost:
-        $ref: "core.yaml/#/definitions/resources_cost"
+        $ref: "core.yaml/#/definitions/resources_item"
+      # anyOf
       upkeep:
-        $ref: "core.yaml/#/definitions/resources_upkeep"
+        $ref: "core.yaml/#/definitions/resources_item"
   # TODO
   resources_category:
     title: Resources Category
-  resources_cost:
+  resources_item:
     title: Resources Cost
     type: object
-    propertyNames:
-      $type: resource
-    additionalProperties:
+    anyOf:
+    - properties:
+        # anyOf
+        trigger:
+          $ref: "core.yaml/#/definitions/trigger"
+    - propertyNames:
+        $type: resource
+      additionalProperties:
         $ref: "#/definitions/uint"
-  resources_upkeep:
-    title: Resources Upkeep
-    type: object
-    propertyNames:
-      $type: resource
-    additionalProperties:
-      $ref: "#/definitions/uint"
+
   desc:
     oneOf:
     - $ref: "core.yaml/#/definitions/loc_reference"
@@ -126,6 +152,12 @@ definitions:
         $ref: "#/definitions/trigger"
       AND:
         $ref: "#/definitions/trigger"
+  weight:
+    title: Weight
+    type: object
+    properties:
+      weight:
+        $ref: "#/definitions/number"
   weight_modifier:
     title: Weighted Modifier
     type: object

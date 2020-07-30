@@ -1,0 +1,19 @@
+definitions:
+  # 地块类型
+  deposit_category:
+    title: Deposit Category
+    type: object
+    properties:
+      # opt
+      blocker:
+        $ref: "core.yaml/#/definitions/boolean"
+      # opt
+      important:
+        $ref: "core.yaml/#/definitions/boolean"
+
+title: Deposit Categories
+type: object
+additionalProperties:
+  $ref: "#/definitions/deposit_category"
+
+

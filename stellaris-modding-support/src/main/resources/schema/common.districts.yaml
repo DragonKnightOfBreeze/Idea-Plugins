@@ -1,0 +1,38 @@
+definitions:
+  # 地块
+  district:
+    title: District
+    type: object
+    properties:
+      base_buildtime:
+        $ref: "core.yaml/#/definitions/uint"
+      is_capped_by_modifier:
+        $ref: "core.yaml/#/definitions/boolean"
+      show_on_uncolonized:
+        $ref: "core.yaml/#/definitions/trigger"
+      potential:
+        $ref: "core.yaml/#/definitions/trigger"
+      allow:
+        $ref: "core.yaml/#/definitions/trigger"
+      conversion_ratio:
+        $ref: "core.yaml/#/definitions/number"
+      convert_to:
+        $type: district[]
+      resources:
+        $ref: "core.yaml/#/definitions/resources"
+      planet_modifier:
+        $ref: "core.yaml/#/definitions/modifier"
+      # anyOf
+      triggered_plant_modifier:
+        $ref: "core.yaml/#/definitions/triggered_modifier"
+      ai_weight:
+        $ref: "core.yaml/#/definitions/weight_modifier"
+      modifier:
+        $ref: "core.yaml/#/definitions/modifier"
+
+title: Districts
+type: object
+additionalProperties:
+  $ref: "#/definitions/district"
+
+

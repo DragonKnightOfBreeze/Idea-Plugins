@@ -1,0 +1,14 @@
+definitions:
+  # 定义
+  # 不做解析
+  define:
+    title: Define
+    type: object
+    additionalProperties: true
+
+title: Definines
+type: object
+additionalProperties:
+  $ref: "#/definitions/define"
+
+

@@ -29,8 +29,7 @@
 	  NUMBER_TOKEN='regexp:-?[0-9]+(\.[0-9]+)?'
 	  UNQUOTED_STRING_TOKEN='regexp:[^@\s\[\]{}="][^\s\[\]{}="]*'
 	  STRING_TOKEN='regexp:"([^"(\r\n\\]|\\.)*?"'
-	  COLOR_TYPE="regexp:(rgb)|(rgba)|(hsv)"
-	  COLOR_PARAMETER='regexp:\{[^\r\n]*?}'
+	  COLOR_TOKEN="regexp:(rgb|rgba|hsv)[ \t]*\{[^\r\n]*?}"
 	]
 }
 
@@ -94,7 +93,7 @@ string ::= UNQUOTED_STRING_TOKEN | STRING_TOKEN {
   implements="com.intellij.psi.PsiLiteralValue"
   methods=[getValue getReference isValidPropertyKey]
 }
-color ::= COLOR_TYPE COLOR_PARAMETER {
+color ::= COLOR_TOKEN {
   implements="com.intellij.psi.PsiLiteralValue"
   methods=[getValue getColor]
 }

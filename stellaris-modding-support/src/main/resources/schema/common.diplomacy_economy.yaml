@@ -1,0 +1,21 @@
+definitions:
+  # 外交关系花费
+  diplomacy_economy:
+    title: Diplomacy Economy
+    type: object
+    propertyNames:
+      $type: diplomacy
+    additionalProperties:
+      type: object
+      properties:
+        trigger:
+          $ref: "core.yaml/#/definitions/trigger"
+        resources:
+          $ref: "core.yaml/#/definitions/resources"
+
+title: Diplomacy Economy
+type: object
+additionalProperties:
+  $ref: "#/definitions/diplomacy_economy"
+
+
