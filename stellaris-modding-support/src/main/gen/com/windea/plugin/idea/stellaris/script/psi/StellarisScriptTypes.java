@@ -25,8 +25,7 @@ public interface StellarisScriptTypes {
   IElementType VARIABLE_VALUE = new StellarisScriptElementType("VARIABLE_VALUE");
 
   IElementType BOOLEAN_TOKEN = new StellarisScriptTokenType("BOOLEAN_TOKEN");
-  IElementType COLOR_PARAMETER = new StellarisScriptTokenType("COLOR_PARAMETER");
-  IElementType COLOR_TYPE = new StellarisScriptTokenType("COLOR_TYPE");
+  IElementType COLOR_TOKEN = new StellarisScriptTokenType("COLOR_TOKEN");
   IElementType COMMENT = new StellarisScriptTokenType("COMMENT");
   IElementType END_OF_LINE_COMMENT = new StellarisScriptTokenType("END_OF_LINE_COMMENT");
   IElementType EQUAL_SIGN = new StellarisScriptTokenType("=");

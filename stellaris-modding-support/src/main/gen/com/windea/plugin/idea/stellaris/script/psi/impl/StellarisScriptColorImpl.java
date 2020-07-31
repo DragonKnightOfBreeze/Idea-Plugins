@@ -29,14 +29,8 @@ public class StellarisScriptColorImpl extends ASTWrapperPsiElement implements St
 
   @Override
   @NotNull
-  public PsiElement getColorParameter() {
-    return findNotNullChildByType(COLOR_PARAMETER);
-  }
-
-  @Override
-  @NotNull
-  public PsiElement getColorType() {
-    return findNotNullChildByType(COLOR_TYPE);
+  public PsiElement getColorToken() {
+    return findNotNullChildByType(COLOR_TOKEN);
   }
 
   @Override

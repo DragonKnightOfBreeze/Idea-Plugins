@@ -2,20 +2,10 @@ import org.jetbrains.grammarkit.tasks.*
 
 plugins {
 	id("org.jetbrains.intellij") version "0.4.21"
-	id("org.jetbrains.grammarkit") version "2020.2.2"
+	id("org.jetbrains.grammarkit") version "2020.1.2"
 }
 
 version = "1.10"
-
-sourceSets {
-	main {
-		java.srcDir("src/main/gen")
-	}
-}
-
-dependencies {
-	implementation(kotlin("stdlib"))
-}
 
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {

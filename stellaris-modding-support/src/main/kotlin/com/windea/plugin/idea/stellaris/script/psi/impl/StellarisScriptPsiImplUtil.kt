@@ -201,15 +201,16 @@ object StellarisScriptPsiImplUtil {
 	@JvmStatic
 	fun getColor(element:StellarisScriptColor): Color?{
 		return runCatching {
-			val args =  element.colorParameter.text
-				.let{ it.substring(1,it.length)}.trim()
+			val text = element.text
+			val colorType = text.substringBefore('{').trim()
+			val args = text.substringAfter('{').substringBefore('}').trim()
 				.split("\\s+".toRegex())
 
-			when(element.colorType.text) {
+			when(colorType) {
 				"rgb" -> args.let { (r, g, b) -> Color(r.toInt(), g.toInt(), b.toInt()) }
 				"rgba" -> args.let { (r, g, b,a) -> Color(r.toInt(), g.toInt(), b.toInt(),a.toInt()) }
-				"hsv" -> args.let { (h, s, v) -> TODO() }
 				"hsb" -> args.let { (h, s, b) -> Color.getHSBColor(h.toFloat(),s.toFloat(),b.toFloat()) }
+				"hsv" -> args.let { (h, s, v) -> TODO() }
 				else -> null
 			}
 		}.getOrNull()

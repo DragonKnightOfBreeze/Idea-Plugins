@@ -20,23 +20,36 @@ allprojects {
 	}
 
 	repositories {
+		maven("https://dl.bintray.com/kotlin/kotlin-eap")
 		maven("https://maven.aliyun.com/nexus/content/groups/public")
 		mavenCentral()
 		jcenter()
 	}
+
+	dependencies {
+		implementation(kotlin("stdlib"))
+	}
+
+	sourceSets {
+		main {
+			java.srcDir("src/main/gen")
+		}
+	}
+
+	tasks {
+		compileKotlin {
+			incremental = true
+			//javaPackagePrefix = "com.windea.plugin.idea"
+			kotlinOptions.jvmTarget = "11"
+		}
+		compileTestKotlin {
+			incremental = true
+			//javaPackagePrefix = "com.windea.plugin.idea"
+			kotlinOptions.jvmTarget = "11"
+		}
+	}
 }
 
-tasks {
-	compileKotlin {
-		incremental = true
-		javaPackagePrefix = "com.windea.plugin.idea"
-		kotlinOptions.jvmTarget = "11"
-	}
-	compileTestKotlin {
-		incremental = true
-		javaPackagePrefix = "com.windea.plugin.idea"
-		kotlinOptions.jvmTarget = "11"
-	}
-}
+
 
 

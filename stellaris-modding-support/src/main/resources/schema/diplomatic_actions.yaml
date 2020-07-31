@@ -23,7 +23,6 @@ definitions:
       possible:
         $ref: "core.yaml/#/definitions/effect"
 
-
   action_type:
     type: string
     enum:

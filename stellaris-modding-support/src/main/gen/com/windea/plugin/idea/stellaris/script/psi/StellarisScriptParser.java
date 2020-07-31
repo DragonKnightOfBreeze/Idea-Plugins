@@ -86,13 +86,13 @@ public class StellarisScriptParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // COLOR_TYPE COLOR_PARAMETER
+  // COLOR_TOKEN
   public static boolean color(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "color")) return false;
-    if (!nextTokenIs(b, COLOR_TYPE)) return false;
+    if (!nextTokenIs(b, COLOR_TOKEN)) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = consumeTokens(b, 0, COLOR_TYPE, COLOR_PARAMETER);
+    r = consumeToken(b, COLOR_TOKEN);
     exit_section_(b, m, COLOR, r);
     return r;
   }

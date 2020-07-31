@@ -10,10 +10,7 @@ import java.awt.Color;
 public interface StellarisScriptColor extends PsiLiteralValue {
 
   @NotNull
-  PsiElement getColorParameter();
-
-  @NotNull
-  PsiElement getColorType();
+  PsiElement getColorToken();
 
   @Nullable
   String getValue();
