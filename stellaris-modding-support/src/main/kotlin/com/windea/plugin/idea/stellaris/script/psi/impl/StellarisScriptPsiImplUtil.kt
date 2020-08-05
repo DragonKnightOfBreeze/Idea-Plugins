@@ -1,4 +1,4 @@
-@file:Suppress("UNUSED_PARAMETER", "UNUSED_DESTRUCTURED_PARAMETER_ENTRY")
+@file:Suppress("UNUSED_PARAMETER", "UNUSED_DESTRUCTURED_PARAMETER_ENTRY", "IntroduceWhenSubject", "MoveVariableDeclarationIntoWhen")
 
 package com.windea.plugin.idea.stellaris.script.psi.impl
 
@@ -198,22 +198,83 @@ object StellarisScriptPsiImplUtil {
 		return element.text
 	}
 
+	//RGB转化到HSV的算法:
+	//max=max(R,G,B)
+	//min=min(R,G,B)
+	//if R = max, H = (G-B)/(max-min)
+	//if G = max, H = 2 + (B-R)/(max-min)
+	//if B = max, H = 4 + (R-G)/(max-min)
+	//
+	//H = H * 60
+	//if H < 0, H = H + 360
+	//
+	//V=max(R,G,B)
+	//S=(max-min)/max
+	//
+	//HSV转化到RGB的算法
+	//if s = 0
+	//R=G=B=V
+	//else
+	//H /= 60;
+	//i = INTEGER(H)
+	//
+	//f = H - i
+	//a = V * ( 1 - s )
+	//b = V * ( 1 - s * f )
+	//c = V * ( 1 - s * (1 - f ) )
+	//
+	//switch(i)
+	//case 0: R = V; G = c; B = a;
+	//case 1: R = b; G = v; B = a;
+	//case 2: R = a; G = v; B = c;
+	//case 3: R = a; G = b; B = v;
+	//case 4: R = c; G = a; B = v;
+	//case 5: R = v; G = a; B = b;
+
 	@JvmStatic
 	fun getColor(element:StellarisScriptColor): Color?{
+		//忽略异常
 		return runCatching {
 			val text = element.text
 			val colorType = text.substringBefore('{').trim()
-			val args = text.substringAfter('{').substringBefore('}').trim()
-				.split("\\s+".toRegex())
+			val args = text.substringAfter('{').substringBefore('}').trim().split("\\s+".toRegex())
 
+			//根据不同的颜色类型得到不同的颜色对象
 			when(colorType) {
 				"rgb" -> args.let { (r, g, b) -> Color(r.toInt(), g.toInt(), b.toInt()) }
 				"rgba" -> args.let { (r, g, b,a) -> Color(r.toInt(), g.toInt(), b.toInt(),a.toInt()) }
 				"hsb" -> args.let { (h, s, b) -> Color.getHSBColor(h.toFloat(),s.toFloat(),b.toFloat()) }
-				"hsv" -> args.let { (h, s, v) -> TODO() }
+				"hsv" -> args.let { (h, s, v) -> ColorHsv(h.toDouble(),s.toDouble(),v.toDouble()).toColor() }
+				"hsl" -> args.let { (h, s, l) -> ColorHsl(h.toDouble(),s.toDouble(),l.toDouble()).toColor() }
 				else -> null
 			}
 		}.getOrNull()
 	}
+
+	@JvmStatic
+	fun setColor(element:StellarisScriptColor,color:Color){
+		runCatching {
+			val text = element.text
+			val colorType = text.substringBefore('{').trim()
+
+			//根据不同的颜色类型生成不同的文本
+			val newText = when(colorType) {
+				"rgb" -> "rgb { ${color.run { "$red $green $blue" }} }"
+				"rgba" -> "rgba { ${color.run { "$red $green $blue $alpha" }} }"
+				"hsv" -> "hsv { ${color.toColorHsv().run { "$H $S $V" }} }"
+				"hsl" -> "hsl { ${color.toColorHsl().run { "$H $S $L" }} }"
+				else -> "rgba { ${color.run { "$red $green $blue $alpha" }} }"
+			}
+			element.replace(StellarisScriptElementFactory.createColor(element.project, newText))
+		}
+	}
+
+	private fun ColorHsl.toColor() =Color(ColorConversions.convertHSLtoRGB(this))
+
+	private fun Color.toColorHsl() = ColorConversions.convertRGBtoHSL(this.rgb)
+
+	private fun ColorHsv.toColor() =Color(ColorConversions.convertHSVtoRGB(this))
+
+	private fun Color.toColorHsv() = ColorConversions.convertRGBtoHSV(this.rgb)
 	//endregion
 }

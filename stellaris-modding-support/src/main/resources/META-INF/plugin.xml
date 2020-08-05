@@ -249,6 +249,8 @@
       implementationClass="com.windea.plugin.idea.stellaris.script.codeInsight.StellarisScriptCompletionContributor"/>
     <breadcrumbsInfoProvider
       implementation="com.windea.plugin.idea.stellaris.script.StellarisScriptBreadCrumbsProvider"/>
+    <colorProvider
+      implementation="com.windea.plugin.idea.stellaris.script.StellarisScriptColorProvider"/>
     <lang.psiStructureViewFactory
       language="Stellaris Script"
       implementationClass="com.windea.plugin.idea.stellaris.script.structureView.StellarisScriptStructureViewFactory"/>

@@ -95,5 +95,5 @@ string ::= UNQUOTED_STRING_TOKEN | STRING_TOKEN {
 }
 color ::= COLOR_TOKEN {
   implements="com.intellij.psi.PsiLiteralValue"
-  methods=[getValue getColor]
+  methods=[getValue getColor setColor]
 }

@@ -18,4 +18,6 @@ public interface StellarisScriptColor extends PsiLiteralValue {
   @Nullable
   Color getColor();
 
+  void setColor(@NotNull Color color);
+
 }

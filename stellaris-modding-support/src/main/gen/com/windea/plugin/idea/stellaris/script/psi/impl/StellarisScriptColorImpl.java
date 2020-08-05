@@ -45,4 +45,9 @@ public class StellarisScriptColorImpl extends ASTWrapperPsiElement implements St
     return StellarisScriptPsiImplUtil.getColor(this);
   }
 
+  @Override
+  public void setColor(@NotNull Color color) {
+    StellarisScriptPsiImplUtil.setColor(this, color);
+  }
+
 }
