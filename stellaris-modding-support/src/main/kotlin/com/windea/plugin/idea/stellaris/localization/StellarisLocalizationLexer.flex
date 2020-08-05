@@ -24,6 +24,7 @@ import static com.windea.plugin.idea.stellaris.localization.psi.StellarisLocaliz
 %state WAITING_PROPERTY_SPACE
 %state WAITING_PROPERTY_VALUE
 %state WAITING_PROPERTY_EOL
+%state WAITING_PROPERTY_VALUE_END
 
 %state WAITING_RICH_TEXT
 %state WAITING_PROPERTY_REFERENCE
@@ -57,13 +58,14 @@ WHITE_SPACE=\s+
 SPACE=[ \t]+
 
 IS_SERIAL_NUMBER=%.%
+IS_PROPERTY_VALUE_END=\"[ \t]*[\r\n]
 
 COMMENT=#[^\r\n]*
 END_OF_LINE_COMMENT=#[^\r\n]*
 ROOT_COMMENT=#[^\r\n]*
 NUMBER=\d
 LOCALE_ID=[a-z_]+
-PROPERTY_KEY_ID=[a-zA-Z][a-zA-Z0-9_.\-]*
+PROPERTY_KEY_ID=[a-zA-Z0-9_.\-']+
 VALID_ESCAPE_TOKEN=\\[\"rn$£§%\[]
 INVALID_ESCAPE_TOKEN=\\.
 LEFT_QUOTE="\""
@@ -79,12 +81,12 @@ ICON_START="£"
 ICON_ID=[a-zA-Z\-_]+
 ICON_END="£"
 SERIAL_NUMBER_START="%"
-SERIAL_NUMBER_ID=[A-Z]
+SERIAL_NUMBER_ID=[a-zA-Z]
 SERIAL_NUMBER_END="%"
 COLORFUL_TEXT_START="§"
 COLORFUL_TEXT_ID=[A-Z]
 COLORFUL_TEXT_END="§!"
-STRING_TOKEN=[^\"\[$£§\r\n\\][^\"\[$£§%\r\n\\]* //允许单独的"%"
+STRING_TOKEN=[^$£§\[\r\n\\][^\"%$£§\[\r\n\\]* //允许开始字符是"、%
 
 %%
 
@@ -100,7 +102,7 @@ STRING_TOKEN=[^\"\[$£§\r\n\\][^\"\[$£§%\r\n\\]* //允许单独的"%"
 }
 <WAITING_LOCALE_EOL>{
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }
-  //{COMMENT} { yybegin(WAITING_LOCALE_EOL); return COMMENT; }
+  //{END_OF_LINE_COMMENT} {  return END_OF_LINE_COMMENT; }
   {SPACE} { return WHITE_SPACE; } //继续解析
 }
 
@@ -128,40 +130,45 @@ STRING_TOKEN=[^\"\[$£§\r\n\\][^\"\[$£§%\r\n\\]* //允许单独的"%"
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
 }
 <WAITING_RICH_TEXT>{
-  {RIGHT_QUOTE} { yybegin(WAITING_PROPERTY_KEY); return RIGHT_QUOTE;}
+  {VALID_ESCAPE_TOKEN} {return VALID_ESCAPE_TOKEN;}
+  {INVALID_ESCAPE_TOKEN} {return INVALID_ESCAPE_TOKEN;}
   {PROPERTY_REFERENCE_START} { yybegin(WAITING_PROPERTY_REFERENCE); return PROPERTY_REFERENCE_START;}
   {CODE_START} { yybegin(WAITING_CODE); return CODE_START;}
   {ICON_START} { yybegin(WAITING_ICON); return ICON_START;}
   {COLORFUL_TEXT_START} { depth++; yybegin(WAITING_COLORFUL_TEXT_ID); return COLORFUL_TEXT_START;}
   //测试下一个元素是否是编号，只有测试通过时才解析为编号
   {IS_SERIAL_NUMBER} { yypushback(yylength()); yybegin(WAITING_SERIAL_NUMEBR_START);}
-  {VALID_ESCAPE_TOKEN} {return VALID_ESCAPE_TOKEN;}
-  {INVALID_ESCAPE_TOKEN} {return INVALID_ESCAPE_TOKEN;}
+  {IS_PROPERTY_VALUE_END} {yypushback(yylength()); yybegin(WAITING_PROPERTY_VALUE_END);}
   {STRING_TOKEN} {  return STRING_TOKEN;}
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
 }
+<WAITING_PROPERTY_VALUE_END>{
+  {RIGHT_QUOTE} { yybegin(WAITING_PROPERTY_EOL); return RIGHT_QUOTE;}
+}
 <WAITING_PROPERTY_REFERENCE>{
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
-  {RIGHT_QUOTE} { yybegin(WAITING_PROPERTY_KEY); return RIGHT_QUOTE;} //跳过非法字符
+  {IS_PROPERTY_VALUE_END} {yypushback(yylength()); yybegin(WAITING_PROPERTY_VALUE_END);}
   {PROPERTY_REFERENCE_END} {yybegin(nextStateInIconName()); inIconName=false; return PROPERTY_REFERENCE_END;}
   {PROPERTY_KEY_ID} {return PROPERTY_KEY_ID;}
   {PROPERTY_REFERENCE_SEPARATOR} { yybegin(WAITING_PROPERTY_REFERENCE_PARAMETER); return PROPERTY_REFERENCE_SEPARATOR;}
+  //测试下一个元素是否是右引号
+  {IS_PROPERTY_VALUE_END} {yypushback(yylength()); yybegin(WAITING_PROPERTY_VALUE_END);}
 }
 <WAITING_PROPERTY_REFERENCE_PARAMETER>{
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
-  {RIGHT_QUOTE} { yybegin(WAITING_PROPERTY_KEY); return RIGHT_QUOTE;} //跳过非法字符
+  {IS_PROPERTY_VALUE_END} {yypushback(yylength()); yybegin(WAITING_PROPERTY_VALUE_END);}
   {PROPERTY_REFERENCE_END} {yybegin(nextState()); return PROPERTY_REFERENCE_END;}
   {PROPERTY_REFERENCE_PARAMETER} {return PROPERTY_REFERENCE_PARAMETER;}
 }
 <WAITING_CODE>{
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
-  {RIGHT_QUOTE} { yybegin(WAITING_PROPERTY_KEY); return RIGHT_QUOTE;} //跳过非法字符
+  {IS_PROPERTY_VALUE_END} {yypushback(yylength()); yybegin(WAITING_PROPERTY_VALUE_END);}
   {CODE_END} {yybegin(nextState()); return CODE_END;}
   {CODE_TEXT} {return CODE_TEXT;}
 }
 <WAITING_ICON>{
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
-  {RIGHT_QUOTE} { yybegin(WAITING_PROPERTY_KEY); return RIGHT_QUOTE;} //跳过非法字符
+  {IS_PROPERTY_VALUE_END} {yypushback(yylength()); yybegin(WAITING_PROPERTY_VALUE_END);}
   {ICON_END} {yybegin(nextState()); return ICON_END;}
   {PROPERTY_REFERENCE_START} {yybegin(WAITING_PROPERTY_REFERENCE); inIconName=true; return PROPERTY_REFERENCE_START;}
   {ICON_ID} {return ICON_ID;}
@@ -171,34 +178,34 @@ STRING_TOKEN=[^\"\[$£§\r\n\\][^\"\[$£§%\r\n\\]* //允许单独的"%"
 }
 <WAITING_SERIAL_NUMBER>{
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
-  {RIGHT_QUOTE} { yybegin(WAITING_PROPERTY_KEY); return RIGHT_QUOTE;} //跳过非法字符
+  {IS_PROPERTY_VALUE_END} {yypushback(yylength()); yybegin(WAITING_PROPERTY_VALUE_END);}
   {SERIAL_NUMBER_END} {yybegin(nextState()); return SERIAL_NUMBER_END;}
   {SERIAL_NUMBER_ID} {return SERIAL_NUMBER_ID;}
 }
 <WAITING_COLORFUL_TEXT_ID>{
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
-  {RIGHT_QUOTE} { yybegin(WAITING_PROPERTY_KEY); return RIGHT_QUOTE;} //跳过非法字符
+  {IS_PROPERTY_VALUE_END} {yypushback(yylength()); yybegin(WAITING_PROPERTY_VALUE_END);}
   {COLORFUL_TEXT_END} {depth--; yybegin(nextState()); return COLORFUL_TEXT_END;} //跳过非法字符
   {COLORFUL_TEXT_ID} {yybegin(WAITING_COLORFUL_TEXT); return COLORFUL_TEXT_ID;}
 }
 <WAITING_COLORFUL_TEXT>{
   {COLORFUL_TEXT_END} {depth--; yybegin(nextState()); return COLORFUL_TEXT_END;} //跳过非法字符
-  {RIGHT_QUOTE} { yybegin(WAITING_PROPERTY_KEY); return RIGHT_QUOTE;}
+  {VALID_ESCAPE_TOKEN} { return VALID_ESCAPE_TOKEN;}
+  {INVALID_ESCAPE_TOKEN} {return INVALID_ESCAPE_TOKEN;}
   {PROPERTY_REFERENCE_START} { yybegin(WAITING_PROPERTY_REFERENCE); return PROPERTY_REFERENCE_START;}
   {CODE_START} { yybegin(WAITING_CODE); return CODE_START;}
   {ICON_START} { yybegin(WAITING_ICON); return ICON_START;}
   {COLORFUL_TEXT_START} { depth++; yybegin(WAITING_COLORFUL_TEXT_ID); return COLORFUL_TEXT_START;}
   //测试下一个元素是否是编号，只有测试通过时才解析为编号
   {IS_SERIAL_NUMBER} { yypushback(yylength()); yybegin(WAITING_SERIAL_NUMEBR_START);}
-  {VALID_ESCAPE_TOKEN} { return VALID_ESCAPE_TOKEN;}
-  {INVALID_ESCAPE_TOKEN} {return INVALID_ESCAPE_TOKEN;}
+  {IS_PROPERTY_VALUE_END} {yypushback(yylength()); yybegin(WAITING_PROPERTY_VALUE_END);}
   {STRING_TOKEN} {  return STRING_TOKEN;}
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
 }
 <WAITING_PROPERTY_EOL>{
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }
   {SPACE} { return WHITE_SPACE; } //继续解析
-  {END_OF_LINE_COMMENT} {  return END_OF_LINE_COMMENT; }
+  //{END_OF_LINE_COMMENT} {  return END_OF_LINE_COMMENT; }
 }
 
 [^] { return TokenType.BAD_CHARACTER; }

@@ -18,7 +18,7 @@
 	  ROOT_COMMENT="regexp:#[^\r\n]*"
 	  END_OF_LINE_COMMENT="regexp:#[^\r\n]*"
 	  LOCALE_ID="regexp:[a-z_]+"
-	  PROPERTY_KEY_ID='regexp:[a-zA-Z][a-zA-Z0-9_.\-]*'
+	  PROPERTY_KEY_ID="regexp:[a-zA-Z0-9_.\-']+"
 	  VALID_ESCAPE_TOKEN='regexp:\\["rn$£§%\[]'
 	  INVALID_ESCAPE_TOKEN='regexp:\\.'
 	  LEFT_QUOTE="\""
@@ -37,9 +37,9 @@
 	  SERIAL_NUMBER_ID="regexp:[A-Z]"
 	  SERIAL_NUMBER_END="%"
 	  COLORFUL_TEXT_START="§"
-	  COLORFUL_TEXT_ID="regexp:[A-Z]"
+	  COLORFUL_TEXT_ID="regexp:[a-zA-Z]"
 	  COLORFUL_TEXT_END="§!"
-	  STRING_TOKEN='regexp:[^"\[$£§\r\n\\][^"\[$£§%\r\n\\]*' //允许单独的"%"
+	  STRING_TOKEN='regexp:[^$£§\[\r\n\\][^"%$£§\[\r\n\\]*' //允许开始字符是"、%
 	]
 }
 

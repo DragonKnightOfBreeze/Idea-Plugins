@@ -19,7 +19,8 @@ enum class StellarisLocale(
 	GERMAN("l_german", "(locale) German"),
 	PONISH("l_ponish", "(locale) Ponish"),
 	RUSSIAN("l_russian", "(locale) Russian"),
-	SPANISH("l_spanish", "(locale) Spanish");
+	SPANISH("l_spanish", "(locale) Spanish"),
+	DEFAULT("l_default", "(locale) Default");
 
 	val popupText = "'$key' - $description"
 
