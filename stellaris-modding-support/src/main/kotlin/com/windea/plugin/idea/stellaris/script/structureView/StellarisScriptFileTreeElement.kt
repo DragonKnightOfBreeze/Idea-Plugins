@@ -6,10 +6,10 @@ import com.intellij.psi.util.*
 import com.windea.plugin.idea.stellaris.script.psi.*
 
 class StellarisScriptFileTreeElement(
-	private val psiElement: StellarisScriptFile?
-): PsiTreeElementBase<StellarisScriptFile>(psiElement){
+	private val element: StellarisScriptFile
+): PsiTreeElementBase<StellarisScriptFile>(element){
 	override fun getChildrenBase(): MutableCollection<StructureViewTreeElement> {
-		return PsiTreeUtil.getChildrenOfAnyType(psiElement, StellarisScriptVariableDefinition::class.java, StellarisScriptProperty::class.java,StellarisScriptItem::class.java)
+		return PsiTreeUtil.getChildrenOfAnyType(element, StellarisScriptVariableDefinition::class.java, StellarisScriptProperty::class.java,StellarisScriptItem::class.java)
 			.mapTo(mutableListOf()){
 				when(it){
 					is StellarisScriptVariableDefinition -> StellarisScriptVariableTreeElement(it)
@@ -21,10 +21,6 @@ class StellarisScriptFileTreeElement(
 	}
 
 	override fun getPresentableText(): String? {
-		//显示所在目录作为后缀
-		//val type = psiElement?.containingDirectory?.name
-		//val typeSnippet = if(type != null) " <$type>" else ""
-		//return "${psiElement?.name}$typeSnippet"
-		return psiElement?.name
+		return element.name
 	}
 }

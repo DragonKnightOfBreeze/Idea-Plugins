@@ -5,30 +5,20 @@ import com.intellij.ide.structureView.impl.common.*
 import com.windea.plugin.idea.stellaris.script.psi.*
 
 class StellarisScriptPropertyTreeElement(
-	private val element: StellarisScriptProperty?
+	private val element: StellarisScriptProperty
 ) : PsiTreeElementBase<StellarisScriptProperty>(element) {
 	override fun getChildrenBase(): MutableCollection<StructureViewTreeElement> {
-		val result = mutableListOf<StructureViewTreeElement>()
-		val block = element?.propertyValue?.block ?: return result
+		val block = element.propertyValue?.block
 
-		val propertyList = block.propertyList
-		if(propertyList.isNotEmpty()) propertyList.mapTo(result) { StellarisScriptPropertyTreeElement(it) }
-
-		val itemList = block.itemList
-		if(itemList.isNotEmpty()) itemList.mapTo(result) { StellarisScriptItemTreeElement(it) }
-
-		return result
-
-		//val array = element?.propertyValue?.array
-		//val `object` = element?.propertyValue?.`object`
-		//return when{
-		//	array != null -> array.stringList.mapTo(mutableListOf()) { StellarisScriptItemTreeElement(it) }
-		//	object` != null ->  `object`.propertyList.mapTo(mutableListOf()) { StellarisScriptPropertyTreeElement(it) }
-		//	else -> mutableListOf()
-		//}
+		return when{
+			block == null || block.isEmpty -> mutableListOf()
+			block.isObject -> block.propertyList.mapTo(mutableListOf()){StellarisScriptPropertyTreeElement(it)}
+			block.isArray -> block.itemList.mapTo(mutableListOf()){StellarisScriptItemTreeElement(it)}
+			else -> mutableListOf()
+		}
 	}
 
 	override fun getPresentableText(): String? {
-		return element?.name
+		return element.name
 	}
 }

@@ -5,14 +5,14 @@ import com.intellij.ide.structureView.impl.common.*
 import com.windea.plugin.idea.stellaris.script.psi.*
 
 class StellarisScriptItemTreeElement(
-	private val psiElement: StellarisScriptItem?
-): PsiTreeElementBase<StellarisScriptItem>(psiElement){
+	private val element: StellarisScriptItem
+): PsiTreeElementBase<StellarisScriptItem>(element){
 	override fun getChildrenBase(): MutableCollection<StructureViewTreeElement> {
 		return mutableListOf()
 	}
 
 	override fun getPresentableText(): String? {
-		return psiElement?.value
+		return element.value
 	}
 }
 

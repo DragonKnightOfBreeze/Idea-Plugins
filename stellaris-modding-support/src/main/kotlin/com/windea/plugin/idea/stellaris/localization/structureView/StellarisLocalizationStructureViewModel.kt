@@ -8,8 +8,8 @@ import com.windea.plugin.idea.stellaris.localization.psi.*
 
 class StellarisLocalizationStructureViewModel(
 	editor: Editor?,
-	psiFile: PsiFile
-) : TextEditorBasedStructureViewModel(editor, psiFile), StructureViewModel.ElementInfoProvider {
+	file: PsiFile
+) : TextEditorBasedStructureViewModel(editor, file), StructureViewModel.ElementInfoProvider {
 	//指定根节点，一般为psiFile
 	override fun getRoot() = StellarisLocalizationFileTreeElement(psiFile as StellarisLocalizationFile)
 

@@ -1,9 +1,9 @@
 <idea-plugin>
   <id>com.windea.stellaris</id>
   <name>Stellaris Modding Support</name>
+  <category>Languages</category>
 
   <vendor email="dk_breeze@qq.com" url="https://github.com/DragonKnightOfBreeze">DragonKnightOfBreeze</vendor>
-  <category>Languages</category>
 
   <description><![CDATA[
     <p>支持Stellaris模组编程。</p>
@@ -107,6 +107,8 @@
       document of this project.
     </p>
     ]]></change-notes>
+
+  <depends>com.intellij.modules.lang</depends>
 
   <extensions defaultExtensionNs="com.intellij">
     <!--region Stellaris Localization-->
@@ -320,6 +322,4 @@
     <!--  implementationClass="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaInspectionTool"/>-->
     <!--endregion-->
   </extensions>
-
-  <depends>com.intellij.modules.lang</depends>
 </idea-plugin>
