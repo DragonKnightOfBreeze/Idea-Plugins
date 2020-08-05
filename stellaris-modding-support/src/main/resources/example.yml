@@ -4,7 +4,7 @@ l_english:
   # Comment
   KEY:0 "Value"
   KEY_1:0 "Value\nNew line"
-  KEY_WITH_REFERENCE:0 "Reference text: $KEY$ "
+  KEY_WITH_REFERENCE:0 "Reference text: $KEY$"
   KEY_WITH_REFERENCE_1:0 "Reference text: $KEY|*0$"
   KEY_WITH_COLORFUL_TEXT:0 "Colorful text: §RRed text§!"
   KEY_WITH_ICON:0 "Icon: £unity£"

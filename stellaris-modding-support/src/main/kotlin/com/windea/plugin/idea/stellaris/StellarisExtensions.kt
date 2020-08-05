@@ -25,16 +25,16 @@ import java.net.*
 import java.util.*
 
 //region Logging
-const val doPrint = true
-
-fun <T> T.andPrint(name: String? = null): T {
-	if(doPrint){
-		println(name?.let { "$it: " }.orEmpty() + toStringSmartly())
-	}
-	return this
-}
-
-private fun Any?.toStringSmartly() = if(this is Array<*>) this.contentDeepToString() else this.toString()
+//const val doPrint = true
+//
+//fun <T> T.andPrint(name: String? = null): T {
+//	if(doPrint){
+//		println(name?.let { "$it: " }.orEmpty() + toStringSmartly())
+//	}
+//	return this
+//}
+//
+//private fun Any?.toStringSmartly() = if(this is Array<*>) this.contentDeepToString() else this.toString()
 //endregion
 
 //region Stdlib
@@ -58,11 +58,15 @@ inline fun <T, reified R> Sequence<T>.mapArray(block: (T) -> R): Array< R> {
 	return this.toList().mapArray(block)
 }
 
+
 fun String.quote() = if(startsWith('"') && endsWith('"')) this else "\"$this\""
 
 fun String.quoteIfNecessary() = if(contains("\\s".toRegex())) quote() else this
 
 fun String.unquote() = if(startsWith('"') && endsWith('"')) substring(1, length - 1) else this
+
+
+fun String.truncate(limit:Int) = if(this.length <= limit) this else this.take(limit) + "..."
 
 
 fun CharSequence.indicesOf(char: Char, ignoreCase: Boolean = false): MutableList<Int> {

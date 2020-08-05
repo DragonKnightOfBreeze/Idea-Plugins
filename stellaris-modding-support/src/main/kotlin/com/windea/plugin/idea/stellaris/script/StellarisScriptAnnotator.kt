@@ -72,7 +72,7 @@ class StellarisScriptAnnotator : Annotator ,DumbAware{
 				OpenSourceUtil.navigate(true,elements.first())
 			}else{
 				NavigationUtil.getPsiElementPopup(elements,title)
-					.show(RelativePoint(e.inputEvent as @org.jetbrains.annotations.NotNull MouseEvent))
+					.show(RelativePoint(e.inputEvent as  MouseEvent))
 			}
 		}
 	}

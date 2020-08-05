@@ -74,7 +74,7 @@ class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
 				it.block != null -> "{...}"
 				//it.array != null -> "{...}"
 				//it.`object` != null -> "{...}"
-				else -> it.text
+				else -> it.text.truncate(60)
 			}
 		}.orEmpty()
 	}

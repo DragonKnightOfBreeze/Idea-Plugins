@@ -39,7 +39,7 @@ class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider
 			element is StellarisLocalizationProperty -> {
 				buildString {
 					append(DocumentationMarkup.DEFINITION_START)
-					append("${getLocationText(element)}<br><b>${element.name}</b>: ${getPropertyValueText(element)}")
+					append("${getLocationText(element)}<br><b>${element.name}</b>: ${element.value.truncate(60)}")
 					append(DocumentationMarkup.DEFINITION_END)
 
 					val textAttributesKey = StellarisLocalizationAttributesKeys.COMMENT_KEY
@@ -62,10 +62,6 @@ class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider
 	private fun getLocationText(element: PsiElement): String {
 		val file = element.containingFile ?: return ""
 		return "[${file.name}]"
-	}
-
-	private fun getPropertyValueText(element: StellarisLocalizationProperty): String {
-		return  StringUtil.unescapeXmlEntities(element.value)
 	}
 }
 
