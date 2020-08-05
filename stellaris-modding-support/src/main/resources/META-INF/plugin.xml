@@ -20,12 +20,16 @@
       </li>
     </ul>
     <p>
-      请注意，我开发这个插件的目的仅仅只是为了便于开发Stellaris的mod以及（以及熟悉IDEA插件开发），
-      但是其他游戏可能也会使用到这样的的脚本语言和富文本语言。
+      请注意，我开发这个插件的目的仅仅只是为了便于开发Stellaris的mod（以及熟悉IDEA插件开发），
+      不过，其他游戏可能也会使用到这个插件所支持的脚本语言和本地化语言。
     </p>
     <p>
       请注意，<b>瑞典蠢驴</b>的模组语言实际上是非常非常复杂的，
-      因此这个插件可能存在一些<i>语法解析兼容性问题</i>以及<i>引用问题</i>。
+      因此这个插件仍然可能存在一些<i>语法解析兼容性问题</i>以及<i>引用问题</i>。
+    </p>
+    <p>
+      请注意，这个插件会将所有.txt文件识别为Stellaris的脚本文件，将所有.yml文件识别为Stellaris的本地化文件。
+      因此建议在不需要使用到这个插件时禁用它。
     </p>
     <P>
       你也可以使用VSCode IDE并配合CWTTools插件来进行Stellaris模组编程。
@@ -62,11 +66,15 @@
     <p>
       Please note that why I develop this plugin is simply: to write Stellaris mods easily
       (and take the first step ),
-      By some other games may also use such script language and rich text language.
+      however, some other games may also use such script language and localization language.
     </p>
     <p>
       please note that <b>Paradox Interactive</b>'s modding language is actually very complex and even more chaos,
       so that this plugin maybe have some <i>syntax compatibility problems</i> and <i>reference problems</i>.
+    </p>
+    <p>
+      Please note that this plugin will register all .txt files as Stellaris Script File, and register all .yml files as Stellaris Localization File.
+      So it is recommended to disable this plugin when you do not need it.
     </p>
     <P>
       You can also write Stellaris mods by VSCode IDE with CWTTools plugin.
