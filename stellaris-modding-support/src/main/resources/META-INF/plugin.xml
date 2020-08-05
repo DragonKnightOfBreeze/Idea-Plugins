@@ -206,13 +206,6 @@
       key="stellaris.localization.inspection.invalidFileEncoding"
       enabledByDefault="true" level="WARNING"
       implementationClass="com.windea.plugin.idea.stellaris.localization.inspections.InvalidFileEncodingInspection"/>
-    <localInspection
-      language="Stellaris Localization"
-      shortName="StellarisLocalizationInvalidFileName" bundle="messages.StellarisBundle"
-      groupKey="stellaris.localization.inspection"
-      key="stellaris.localization.inspection.invalidFileName"
-      enabledByDefault="true" level="WARNING"
-      implementationClass="com.windea.plugin.idea.stellaris.localization.inspections.InvalidFileNameInspection"/>
     <!--endregion-->
 
     <!--region Stellaris Script-->
