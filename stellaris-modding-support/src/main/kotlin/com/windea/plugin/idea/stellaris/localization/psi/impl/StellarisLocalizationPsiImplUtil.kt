@@ -158,7 +158,7 @@ object StellarisLocalizationPsiImplUtil {
 	//region StellarisLocalizationSerialNumber
 	@JvmStatic
 	fun getName(element: StellarisLocalizationSerialNumber): String? {
-		return element.serialNumberId?.text
+		return element.serialNumberId?.text?.toUpperCase() //NOTE 认为是忽略大小写的
 	}
 
 	@JvmStatic
@@ -191,18 +191,18 @@ object StellarisLocalizationPsiImplUtil {
 	//region StellarisLocalizationColorfulText
 	@JvmStatic
 	fun getName(element: StellarisLocalizationColorfulText): String? {
-		return element.colorfulTextId?.text
+		return element.colorCode?.text?.toUpperCase() //NOTE 认为是忽略大小写的
 	}
 
 	@JvmStatic
 	fun setName(element: StellarisLocalizationColorfulText, name: String): PsiElement {
-		element.colorfulTextId?.replace(createColorfulText(element.project, name).colorfulTextId!!)
+		element.colorCode?.replace(createColorfulText(element.project, name).colorCode!!)
 		return element
 	}
 
 	@JvmStatic
 	fun getNameIdentifier(element: StellarisLocalizationColorfulText): PsiElement? {
-		return element.colorfulTextId
+		return element.colorCode
 	}
 
 	@JvmStatic
@@ -217,7 +217,7 @@ object StellarisLocalizationPsiImplUtil {
 
 	@JvmStatic
 	fun getReference(element: StellarisLocalizationColorfulText): StellarisLocalizationColorfulTextPsiReference? {
-		return element.colorfulTextId?.let {  StellarisLocalizationColorfulTextPsiReference(element,it.textRangeInParent )}
+		return element.colorCode?.let {  StellarisLocalizationColorfulTextPsiReference(element,it.textRangeInParent )}
 	}
 	//endregion
 }

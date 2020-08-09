@@ -1,7 +1,6 @@
 definitions:
   # 背景对象
   ambient_object:
-    title: Ambient Object
     type: object
     properties:
       name:
@@ -19,7 +18,6 @@ definitions:
       show_name:
         $ref: "core.yaml/#/definitions/boolean"
 
-title: Ambient Objects
 type: object
 additionalProperties:
   $ref: "#/definitions/ambient_object"

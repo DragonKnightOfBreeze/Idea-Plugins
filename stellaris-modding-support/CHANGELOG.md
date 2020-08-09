@@ -143,16 +143,15 @@
 
 * [X] 调整代码检查的错误级别，将大部分检查的错误级别改为WARNING而非ERROR
 * [X] 对于脚本文件颜色，通过gutterIcon更改颜色时，使用rgb或者rgba
+* [X] 认为本地化文件的编号和颜色码是忽略大小写的（暂不清楚颜色码g对应什么颜色）
 
 # TODO
  
 * [ ] 格式化：本地化文件中，语言区域之后，除了非行尾注释以外，属性也要缩进 
 * [ ] 意向：scriptUnquotedString，引号括起
 * [ ] 意向：scriptString，移除包围的引号（如果移除引号后是合法的scriptUnquotedString）
-* [ ] 更多的引用类型：
-  * [ ] event_id
-  * [ ] gfx_reference
-  * [ ] path
+* [ ] 更多的引用类型：event_id，gfx_reference，path
 * [ ] 为脚本文件编写基础的Json Schema
 * [ ] 根据脚本文件的位置和后缀名，为其应用对应的Json Schema
 * [ ] 一个本地化文件实际上可以包含多个语言区域+下面的属性，当文件名中存在语言区域时要匹配
+* [ ] 通过网络爬虫爬取<https://stellaris.paradoxwikis.com/>中的相关内容，以生成更完善的schema（不适合，有些条目不一一匹配）

@@ -41,9 +41,9 @@ definitions:
       prerequisites:
         $type: tech[]
       on_pre_explore:
-        $ref: "core.yaml/#/definitions/effect"
+        $ref: "core.yaml/#/definitions/effects"
       country_can_use:
-        $ref: "core.yaml/#/definitions/trigger"
+        $ref: "core.yaml/#/definitions/conditions"
       on_action:
         $type: on_action
       scripted_connection:
@@ -60,10 +60,10 @@ definitions:
     properties:
       # has_star_flag = ...
       nodes:
-        $ref: "core.yaml/#/definitions/trigger"
+        $ref: "core.yaml/#/definitions/conditions"
       # has_star_flag = ...
       nexus:
-        $ref: "core.yaml/#/definitions/trigger"
+        $ref: "core.yaml/#/definitions/conditions"
 
 title: Bypasses
 type: object

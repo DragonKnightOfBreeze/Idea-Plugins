@@ -9,9 +9,9 @@ definitions:
       type: object
       properties:
         trigger:
-          $ref: "core.yaml/#/definitions/trigger"
+          $ref: "core.yaml/#/definitions/conditions"
         resources:
-          $ref: "core.yaml/#/definitions/resources"
+          $ref: "core.yaml/#/definitions/economy_unit"
 
 title: Diplomacy Economy
 type: object

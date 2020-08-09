@@ -88,7 +88,7 @@ definitions:
       ai_tags:
         $type: component_tag[]
       resources:
-        $ref: "core.yaml/#/definitions/resources"
+        $ref: "core.yaml/#/definitions/economy_unit"
 
 title: Component Templates
 type: object

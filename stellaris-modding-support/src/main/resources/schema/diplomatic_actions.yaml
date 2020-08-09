@@ -19,9 +19,9 @@ definitions:
       action_type:
         $ref: "#/definitions/action_type"
       potential:
-        $ref: "core.yaml/#/definitions/trigger"
+        $ref: "core.yaml/#/definitions/conditions"
       possible:
-        $ref: "core.yaml/#/definitions/effect"
+        $ref: "core.yaml/#/definitions/effects"
 
   action_type:
     type: string

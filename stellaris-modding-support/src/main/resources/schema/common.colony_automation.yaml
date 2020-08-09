@@ -5,7 +5,7 @@ definitions:
     type: object
     properties:
       available:
-        $ref: "core.yaml/#/definitions/trigger"
+        $ref: "core.yaml/#/definitions/conditions"
       prio_districts:
         $type: district[]
       buildings:
@@ -19,7 +19,7 @@ definitions:
             bulding:
               $type: building
             available:
-              $ref: "core.yaml/#/definitions/trigger"
+              $ref: "core.yaml/#/definitions/conditions"
 
 title: Colony Automation
 type: object

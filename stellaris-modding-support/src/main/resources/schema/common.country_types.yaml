@@ -79,15 +79,15 @@ definitions:
               $ref: "#/definitions/ship_data"
 
       trade_route_available:
-        $ref: "core.yaml/#/definitions/trigger"
+        $ref: "core.yaml/#/definitions/conditions"
       modules:
         type: object
         propertyNames:
           $type: module
       resources:
-        $ref: "core.yaml/#/definitions/resources"
+        $ref: "core.yaml/#/definitions/economy_unit"
       branch_office_resources:
-        $ref: "core.yaml/#/definitions/resources"
+        $ref: "core.yaml/#/definitions/economy_unit"
 
   ship_data:
     oneOf:

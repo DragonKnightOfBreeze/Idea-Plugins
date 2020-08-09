@@ -13,9 +13,9 @@ definitions:
       category:
         $type: deposit_category
       resources:
-        $ref: "core.yaml/#/definitions/resources"
+        $ref: "core.yaml/#/definitions/economy_unit"
       potential:
-        $ref: "core.yaml/#/definitions/trigger"
+        $ref: "core.yaml/#/definitions/conditions"
       plant_modifier:
         $ref: "core.yaml/#/definitions/modifier"
       drop_weight:

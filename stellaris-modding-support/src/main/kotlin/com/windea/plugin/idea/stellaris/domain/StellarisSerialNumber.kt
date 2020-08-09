@@ -9,10 +9,11 @@ enum class StellarisSerialNumber(
 	val key: String,
 	val description:String
 ) {
-	Cardinal("C","(serial number) Cardinal Number 1, 2, 3..."),
-	Ordinal("O","(serial number) Ordinal Number 1st, 2nd, 3rd..."),
-	Roman("R","(serial number) Roman Number I, II, III...");
+	Cardinal("C","Cardinal Number 1, 2, 3..."),
+	Ordinal("O","Ordinal Number 1st, 2nd, 3rd..."),
+	Roman("R","Roman Number I, II, III...");
 
+	val documentText = "(serial number) $description"
 	val popupText = "'$key' - $description"
 
 	companion object{

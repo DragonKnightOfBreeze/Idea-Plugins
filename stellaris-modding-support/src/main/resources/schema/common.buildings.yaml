@@ -22,15 +22,15 @@ definitions:
       category:
         $ref: "#/definitions/building_category"
       potential:
-        $ref: "core.yaml/#/definitions/trigger"
+        $ref: "core.yaml/#/definitions/conditions"
       convert_to:
         $type: building[]
       planet_modifier:
         $ref: "core.yaml/#/definitions/modifier"
       destroy_trigger:
-        $ref: "core.yaml/#/definitions/trigger"
+        $ref: "core.yaml/#/definitions/conditions"
       allow:
-        $ref: "core.yaml/#/definitions/trigger"
+        $ref: "core.yaml/#/definitions/conditions"
       # anyOf
       triggered_plant_modifier:
         $ref: "core.yaml/#/definitions/triggered_modifier"
@@ -44,13 +44,13 @@ definitions:
       triggered_desc:
         $ref: "core.yaml/#/definitions/triggered_desc"
       on_queued:
-        $ref: "core.yaml/#/definitions/effect"
+        $ref: "core.yaml/#/definitions/effects"
       on_unqueued:
-        $ref: "core.yaml/#/definitions/effect"
+        $ref: "core.yaml/#/definitions/effects"
       on_built:
-        $ref: "core.yaml/#/definitions/effect"
+        $ref: "core.yaml/#/definitions/effects"
       on_destroy:
-        $ref: "core.yaml/#/definitions/effect"
+        $ref: "core.yaml/#/definitions/effects"
       ai_weight:
         $ref: "core.yaml/#/definitions/weight_modifier"
 

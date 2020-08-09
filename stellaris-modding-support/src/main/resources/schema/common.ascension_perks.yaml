@@ -1,21 +1,19 @@
 definitions:
   # 飞升天赋
   ascension_perk:
-    title: Ascension Perk
     type: object
     properties:
       potential:
-        $ref: "core.yaml/#/definitions/trigger"
+        $ref: "core.yaml/#/definitions/conditions"
       possible:
-        $ref: "core.yaml/#/definitions/effect"
+        $ref: "core.yaml/#/definitions/effects"
       on_enabled:
-        $ref: "core.yaml/#/definitions/effect"
+        $ref: "core.yaml/#/definitions/effects"
       modifier:
         $ref: "core.yaml/#/definitions/modifier"
       ai_weight:
         $ref: "core.yaml/#/definitions/weight_modifier"
 
-title: Ascension Perks
 type: object
 additionalProperties:
   $ref: "#/definitions/ascension_perk"

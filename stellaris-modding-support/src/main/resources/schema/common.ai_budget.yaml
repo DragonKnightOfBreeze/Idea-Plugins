@@ -1,7 +1,6 @@
 definitions:
   # 支出
   budget:
-    title: Budget
     type: object
     properties:
       resource:
@@ -11,7 +10,7 @@ definitions:
       category:
         $ref: "#/definitions/budget_category"
       poential:
-        $ref: "core.yaml/#/definitions/trigger"
+        $ref: "core.yaml/#/definitions/conditions"
       fraction:
         $ref: "core.yaml/#/definitions/weight_modifier"
       static_min:
@@ -38,7 +37,6 @@ definitions:
     - campaigns
     - ...
 
-title: AI Budget
 type: object
 additionalProperties:
   $ref: "#/definitions/budget"

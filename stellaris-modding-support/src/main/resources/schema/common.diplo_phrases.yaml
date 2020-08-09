@@ -10,7 +10,7 @@ definitions:
       properties:
         # anyOf
         trigger:
-          $ref: "core.yaml/#/definitions/trigger"
+          $ref: "core.yaml/#/definitions/conditions"
         weight:
           $ref: "core.yaml/#/definitions/weight"
 

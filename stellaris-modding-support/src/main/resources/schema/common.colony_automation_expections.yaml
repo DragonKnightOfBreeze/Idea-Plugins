@@ -5,7 +5,7 @@ definitions:
     type: object
     properties:
       available:
-        $ref: "core.yaml/#/definitions/trigger"
+        $ref: "core.yaml/#/definitions/conditions"
       crisis:
         $ref: "core.yaml/#/definitions/boolean"
       prio_districts:
@@ -19,7 +19,7 @@ definitions:
               bulding:
                 $type: building
               available:
-                $ref: "core.yaml/#/definitions/trigger"
+                $ref: "core.yaml/#/definitions/conditions"
 
 title: Colony Automation Exception
 type: object

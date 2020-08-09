@@ -1,21 +1,19 @@
 definitions:
-  # 异常
+  # 遗珍动作
   artifact_action:
-    title: Artifact Action
     type: object
     properties:
       resources:
-        $ref: "core.yaml/#/definitions/resources"
+        $ref: "core.yaml/#/definitions/economy_unit"
       ai_weight:
         $ref: "core.yaml/#/definitions/weight_modifier"
       potential:
-        $ref: "core.yaml/#/definitions/trigger"
+        $ref: "core.yaml/#/definitions/conditions"
       allow:
-        $ref: "core.yaml/#/definitions/effect"
+        $ref: "core.yaml/#/definitions/effects"
       effect:
-        $ref: "core.yaml/#/definitions/effect"
+        $ref: "core.yaml/#/definitions/effects"
 
-title: Artifact Actions
 type: object
 additionalProperties:
   $ref: "#/definitions/artifact_action"

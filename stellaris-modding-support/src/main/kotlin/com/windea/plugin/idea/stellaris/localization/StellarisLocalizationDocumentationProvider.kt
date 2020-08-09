@@ -51,10 +51,10 @@ class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider
 					}
 				}
 			}
-			element is StellarisLocalizationLocale -> element.locale?.description?.toDefinitionText()
+			element is StellarisLocalizationLocale -> element.locale?.documentText?.toDefinitionText()
 			element is StellarisLocalizationIcon ->element.name?.let { name -> "(icon) $name".toDefinitionText() }
-			element is StellarisLocalizationColorfulText -> element.color?.description?.toDefinitionText()
-			element is StellarisLocalizationSerialNumber -> element.serialNumber?.description?.toDefinitionText()
+			element is StellarisLocalizationColorfulText -> element.color?.documentText?.toDefinitionText()
+			element is StellarisLocalizationSerialNumber -> element.serialNumber?.documentText?.toDefinitionText()
 			else -> null
 		}
 	}

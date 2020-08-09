@@ -7,7 +7,7 @@ definitions:
       icon:
         $ref: "core.yaml/#/definitions/uint"
       potential:
-        $ref: "core.yaml/#/definitions/trigger"
+        $ref: "core.yaml/#/definitions/conditions"
       plant_modifier:
         $ref: "core.yaml/#/definitions/modifier"
       weight_modifier:

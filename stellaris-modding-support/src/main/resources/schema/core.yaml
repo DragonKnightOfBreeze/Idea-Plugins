@@ -1,20 +1,21 @@
 definitions:
   int:
-    title: Integer
     type: integer
     default: 0
+  float:
+    type: number
+    default: 0.0
+  boolean:
+    enum: [yes, no]
+
+
   uint:
-    title: Unsign Integer
     type: integer
     minimum: 0
     default: 0
   number:
-    title: Number
     type: number
     default: 0.0
-  boolean:
-    title: Boolean
-    enum: [yes, no]
 
   int_range:
     type: object
@@ -30,33 +31,29 @@ definitions:
         $ref: "core.yaml/#/definitions/uint"
       max:
         $ref: "core.yaml/#/definitions/uint"
-  number_range:
+  float_range:
     type: object
     properties:
       min:
-        $ref: "core.yaml/#/definitions/number"
+        $ref: "core.yaml/#/definitions/float"
       max:
-        $ref: "core.yaml/#/definitions/number"
+        $ref: "core.yaml/#/definitions/float"
 
   level:
-    title: Level
     type: integer
     default: 1
     minimum: 1
     # maximum: 10 # 为了兼容mod
   difficulty:
-    title: Difficulty
     type: integer
     default: 1
     minimum: 1
     # maximum: 10 # 为了兼容mod
   chance:
-    title: Chance
     type: number
     minimum: 0.0
     default: 1.00
   factor:
-    title: Multiplication Factor
     type: number
     minimum: 0.0
     default: 1.00
@@ -73,13 +70,13 @@ definitions:
         type: integer
 
   loc_reference:
-    title: Localization Property Reference / String
+    type: string
   gfx_reference:
-    title: GFX Reference
+    type: string
   assert_reference:
-    title: Asset Reference
+    type: string
 
-  resources:
+  economy_unit:
     type: object
     properties:
       category:
@@ -95,15 +92,13 @@ definitions:
         $ref: "core.yaml/#/definitions/resources_item"
   # TODO
   resources_category:
-    title: Resources Category
   resources_item:
-    title: Resources Cost
     type: object
     anyOf:
     - properties:
         # anyOf
         trigger:
-          $ref: "core.yaml/#/definitions/trigger"
+          $ref: "core.yaml/#/definitions/conditions"
     - propertyNames:
         $type: resource
       additionalProperties:
@@ -114,52 +109,72 @@ definitions:
     - $ref: "core.yaml/#/definitions/loc_reference"
     - $ref: "core.yaml/#/definitions/triggered_desc"
   triggered_desc:
-    $ref: "core.yaml/#/definitions/trigger"
+    $ref: "core.yaml/#/definitions/conditions"
     properties:
       text:
         $ref: "core.yaml/#/definitions/loc_reference"
-  condition_expression:
-    title: Condition Expression
+
+  condition_expressions:
     type: object
-    # TODO
+    propertyNames:
+      $ref: "#/definitions/condition_expression_name"
     properties:
-      if: true
-      else_if: true
-      else: true
-  trigger:
-    title: Trigger
+      limit:
+        $ref: "core.yaml/#/definitions/conditions"
+    additionalProperties:
+      $ref: "core.yaml/#/definitions/conditions"
+  condition_expression_name:
+    type: string
+    enum: [AND, OR, NOT, NAND, NOR]
+  boolean_expressions:
+    type: object
+    propertyNames:
+      $ref: "#/definitions/boolean_expression_name"
+    additionalProperties:
+      $ref: "core.yaml/#/definitions/conditions"
+  boolean_expression_name:
+    type: string
+    enum: [if, else, else_if, AND, OR, NOT, NAND, NOR]
+  scope_expressions:
+    type: object
+    propertyNames:
+      $ref: "#/definitions/scope_name"
+    additionalProperties:
+      $ref: "core.yaml/#/definitions/conditions"
+  scope_name:
+    type: string
+    enum: [capital, controller, root, from, owner, planet, prev, random, this, pop]
+
+  conditions:
     type: object
     anyOf:
-    - $ref: "#/definitions/boolean_expression"
-    - always:
-          $ref: "#/definitions/boolean"
-    - properties:
-        from:
-          $ref: "#/definitions/trigger"
-        owner:
-          $ref: "#/definitions/trigger"
-    - propertyNames:
-        $type: scripted_trigger
-  boolean_expression:
-    title: Boolean Expression
+    - $ref: "#/definitions/condition_expressions"
+    - $ref: "#/definitions/boolean_expressions"
+    - $ref: "#/definitions/scope_expressions"
+    - $ref: "#/definitions/scripted_triggers"
+  scripted_triggers:
     type: object
-    properties:
-      NOT:
-        $ref: "#/definitions/trigger"
-      OR:
-        $ref: "#/definitions/trigger"
-      NOR:
-        $ref: "#/definitions/trigger"
-      AND:
-        $ref: "#/definitions/trigger"
+    additionalProperties: true
+    $type: scripted_trigger
+
+  effects:
+    type: object
+    anyOf:
+    - $ref: "#/definitions/condition_expressions"
+    - $ref: "#/definitions/boolean_expressions"
+    - $ref: "#/definitions/scope_expressions"
+    - $ref: "#/definitions/scripted_triggers"
+  scripted_effects:
+    type: object
+    additionalProperties: true
+    $type: scripted_effect
+
   weight:
-    title: Weight
     type: object
     properties:
       weight:
         $ref: "#/definitions/number"
   weight_modifier:
-    title: Weighted Modifier
     type: object
     properties:
       weight:
@@ -168,7 +183,6 @@ definitions:
       modifier:
         $ref: "#/definitions/modifier"
   modifier:
-    title: Modifier
     type: object
     allOf:
     - oneOf:
@@ -178,18 +192,18 @@ definitions:
       - properties:
           add:
             $ref: "#/definitions/number"
-    - $ref: "#/definitions/trigger"
+    - $ref: "#/definitions/conditions"
   triggered_modifier:
     type: object
     properties:
       potential:
-        $ref: "core.yaml/#/definitions/trigger"
+        $ref: "core.yaml/#/definitions/conditions"
     $ref: "core.yaml/#/definitions/modifier"
   modifier_chance:
     type: object
     properties:
       base:
-        $ref: "core.yaml/#/definitions/uint"
+        $ref: "core.yaml/#/definitions/int"
       # anyOf
       modifier:
         $ref: "#/definitions/modifier"
@@ -211,32 +225,8 @@ definitions:
       additionalProperties: true # args
   # TODO
   event_type:
-    title: Event Type
-  # NOTE param: from, owner
-  effect:
-    title: Effect
-    type: object
-    anyOf:
-    - properties:
-        limit:
-          $ref: "core.yaml/#/definitions/trigger"
-        from:
-          $ref: "core.yaml/#/definitions/effect_item"
-        owner:
-          $ref: "core.yaml/#/definitions/effect_item"
-        custom_tooltip:
-          oneOf:
-          - $ref: "core.yaml/#/definitions/loc_reference"
-          - $ref: "core.yaml/#/definitions/triggered_tooltip"
-        hidden_effect:
-          $ref: "core.yaml/#/definitions/effect"
-    - $ref: "core.yaml/#/definitions/effect_item"
-  # TODO
-  effect_item:
-    additionalProperties: true
-
   triggered_tooltip:
-    $ref: "core.yaml/#/definitions/trigger"
+    $ref: "core.yaml/#/definitions/conditions"
     fail_text:
       $ref: "core.yaml/#/definitions/loc_reference"
 

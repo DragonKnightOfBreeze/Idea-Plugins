@@ -1,7 +1,6 @@
 definitions:
   # 异常
   anomaly:
-    title: Annomaly
     type: object
     properties:
       should_ai_use:
@@ -16,9 +15,9 @@ definitions:
       picture:
         $ref: "core.yaml/#/definitions/gfx_reference"
       level:
-        $ref: "core.yaml/#/definitions/level"
+        $ref: "core.yaml/#/definitions/int"
       null_spawn_chance:
-        $ref: "core.yaml/#/definitions/chance"
+        $ref: "core.yaml/#/definitions/float"
       max_once:
         $ref: "core.yaml/#/definitions/boolean"
         default: no
@@ -52,7 +51,6 @@ definitions:
           anomaly_event:
             $ref: "core.yaml/#/definitions/event_id"
 
-title: Annomalies
 type: object
 additionalProperties:
-  $ref: "#/definitions/annomalies"
+  $ref: "#/definitions/anomaly"

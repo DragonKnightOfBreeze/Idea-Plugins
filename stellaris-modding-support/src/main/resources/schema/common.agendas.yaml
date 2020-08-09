@@ -1,7 +1,6 @@
 definitions:
   # 议程
   agenda:
-    title: Agenda
     type: object
     properties:
       weight_modifier:
@@ -10,7 +9,6 @@ definitions:
       modifier:
         $ref: "core.yaml/#/definitions/modifier"
 
-title: Agendas
 type: object
 additionalProperties:
   $ref: "#/definitions/agenda"

@@ -11,13 +11,13 @@ definitions:
       icon:
         $type: icon
       resources:
-        $ref: "core.yaml/#/definitions/resources"
+        $ref: "core.yaml/#/definitions/economy_unit"
       potential:
-        $ref: "core.yaml/#/definitions/trigger"
+        $ref: "core.yaml/#/definitions/conditions"
       allow:
-        $ref: "core.yaml/#/definitions/trigger"
+        $ref: "core.yaml/#/definitions/conditions"
       effect:
-        $ref: "core.yaml/#/definitions/effect"
+        $ref: "core.yaml/#/definitions/effects"
       ai_weight:
         $ref: "core.yaml/#/definitions/weight_modifier"
       modifier:

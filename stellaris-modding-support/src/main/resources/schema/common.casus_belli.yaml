@@ -11,11 +11,11 @@ definitions:
         $ref: "core.yaml/#/definitions/boolean"
         default: yes
       potential:
-        $ref: "core.yaml/#/definitions/trigger"
+        $ref: "core.yaml/#/definitions/conditions"
       is_valid:
-        $ref: "core.yaml/#/definitions/trigger"
+        $ref: "core.yaml/#/definitions/conditions"
       destroy_if:
-        $ref: "core.yaml/#/definitions/trigger"
+        $ref: "core.yaml/#/definitions/conditions"
 
 
 title: Casus Belli

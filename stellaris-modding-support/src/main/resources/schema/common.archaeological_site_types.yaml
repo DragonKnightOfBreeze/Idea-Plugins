@@ -1,7 +1,6 @@
 definitions:
   # 考古站点类型
   archaeological_site_type:
-    title: Archaeological Site Type
     type: object
     properties:
       desc:
@@ -9,25 +8,24 @@ definitions:
       picture:
         $ref: "core.yaml/#/definitions/gfx_reference"
       stages:
-        $ref: "core.yaml/#/definitions/uint"
+        $ref: "core.yaml/#/definitions/int"
       max_instance:
-        $ref: "core.yaml/#/definitions/uint"
+        $ref: "core.yaml/#/definitions/int"
       weight:
         $ref: "core.yaml/#/definitions/weight_modifier"
       potential:
-        $ref: "core.yaml/#/definitions/trigger"
+        $ref: "core.yaml/#/definitions/conditions"
       allow:
-        $ref: "core.yaml/#/definitions/trigger"
+        $ref: "core.yaml/#/definitions/conditions"
       visible:
-        $ref: "core.yaml/#/definitions/trigger"
+        $ref: "core.yaml/#/definitions/conditions"
       on_visible:
-        $ref: "core.yaml/#/definitions/effect"
+        $ref: "core.yaml/#/definitions/effects"
       # anyOf
       state:
         $ref: "#/definitions/state"
       on_roll_failed:
-        $ref: "core.yaml/#/definitions/effect"
-
+        $ref: "core.yaml/#/definitions/effects"
   state:
     type: object
     properties:
@@ -38,7 +36,6 @@ definitions:
       event:
         $ref: "core.yaml/#/definitions/event"
 
-title: Archaeological Site Types
 type: object
 additionalProperties:
   $ref: "#/definitions/archaeological_site_type"

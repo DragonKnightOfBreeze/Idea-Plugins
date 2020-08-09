@@ -13,7 +13,7 @@ public interface StellarisLocalizationColorfulText extends StellarisLocalization
   List<StellarisLocalizationRichText> getRichTextList();
 
   @Nullable
-  PsiElement getColorfulTextId();
+  PsiElement getColorCode();
 
   @Nullable
   String getName();
