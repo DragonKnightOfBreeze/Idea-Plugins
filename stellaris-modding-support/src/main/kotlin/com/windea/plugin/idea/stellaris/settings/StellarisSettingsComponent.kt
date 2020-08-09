@@ -9,6 +9,7 @@ import com.intellij.ui.components.*
 import com.intellij.util.ui.*
 import com.windea.plugin.idea.stellaris.StellarisBundle.message
 import javax.swing.*
+import javax.swing.text.*
 
 //* 是否解析外部引用
 //* 路径
@@ -17,16 +18,18 @@ import javax.swing.*
 //  * stellaris路径
 //  * stellaris mods路径
 
+//TODO 验证这些路径
+
 class StellarisSettingsComponent {
 	val resolveExternalReferencesCheckBox = JBCheckBox(message("stellaris.settings.resolveExternalReferences"))
 
 	val useSteamDirectoryCheckBox = JBCheckBox(message("stellaris.settings.useSteamDirectory")).apply {
 		addChangeListener {
 			//it: JBCheckBox
-			val component = (it.source as JBCheckBox).isSelected
-			steamDirectoryTextField.isEnabled = component
-			stellarisDirectoryTextField.isEnabled = !component
-			stellarisModsDirectoryTextField.isEnabled = !component
+			val useSteamDirectory = (it.source as JBCheckBox).isSelected
+			steamDirectoryTextField.isEnabled = useSteamDirectory
+			stellarisDirectoryTextField.isEnabled = !useSteamDirectory
+			stellarisModsDirectoryTextField.isEnabled = !useSteamDirectory
 		}
 	}
 	private val steamDirectoryLabel = JBLabel(message("stellaris.settings.steamDirectory"))
