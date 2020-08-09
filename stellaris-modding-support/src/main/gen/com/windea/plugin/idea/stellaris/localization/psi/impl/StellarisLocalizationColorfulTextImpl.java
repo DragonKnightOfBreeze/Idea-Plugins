@@ -36,7 +36,7 @@ public class StellarisLocalizationColorfulTextImpl extends StellarisLocalization
   @Override
   @Nullable
   public PsiElement getColorfulTextId() {
-    return findChildByType(COLORFUL_TEXT_ID);
+    return findChildByType(COLOR_CODE);
   }
 
   @Override

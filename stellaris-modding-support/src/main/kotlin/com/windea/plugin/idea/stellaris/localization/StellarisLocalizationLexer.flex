@@ -33,7 +33,7 @@ import static com.windea.plugin.idea.stellaris.localization.psi.StellarisLocaliz
 %state WAITING_ICON
 %state WAITING_SERIAL_NUMEBR_START
 %state WAITING_SERIAL_NUMBER
-%state WAITING_COLORFUL_TEXT_ID
+%state WAITING_COLOR_CODE
 %state WAITING_COLORFUL_TEXT
 
 %{
@@ -78,13 +78,13 @@ CODE_START="["
 CODE_TEXT=[^\[\]\r\n]+
 CODE_END="]"
 ICON_START="£"
-ICON_ID=[a-zA-Z\-_]+
+ICON_ID=[a-zA-Z\-_\\/]+
 ICON_END="£"
 SERIAL_NUMBER_START="%"
 SERIAL_NUMBER_ID=[a-zA-Z]
 SERIAL_NUMBER_END="%"
 COLORFUL_TEXT_START="§"
-COLORFUL_TEXT_ID=[A-Z]
+COLOR_CODE=[a-zA-Z]
 COLORFUL_TEXT_END="§!"
 STRING_TOKEN=[^$£§\[\r\n\\][^\"%$£§\[\r\n\\]* //允许开始字符是"、%
 
@@ -135,7 +135,7 @@ STRING_TOKEN=[^$£§\[\r\n\\][^\"%$£§\[\r\n\\]* //允许开始字符是"、%
   {PROPERTY_REFERENCE_START} { yybegin(WAITING_PROPERTY_REFERENCE); return PROPERTY_REFERENCE_START;}
   {CODE_START} { yybegin(WAITING_CODE); return CODE_START;}
   {ICON_START} { yybegin(WAITING_ICON); return ICON_START;}
-  {COLORFUL_TEXT_START} { depth++; yybegin(WAITING_COLORFUL_TEXT_ID); return COLORFUL_TEXT_START;}
+  {COLORFUL_TEXT_START} { depth++; yybegin(WAITING_COLOR_CODE); return COLORFUL_TEXT_START;}
   //测试下一个元素是否是编号，只有测试通过时才解析为编号
   {IS_SERIAL_NUMBER} { yypushback(yylength()); yybegin(WAITING_SERIAL_NUMEBR_START);}
   {IS_PROPERTY_VALUE_END} {yypushback(yylength()); yybegin(WAITING_PROPERTY_VALUE_END);}
@@ -182,11 +182,11 @@ STRING_TOKEN=[^$£§\[\r\n\\][^\"%$£§\[\r\n\\]* //允许开始字符是"、%
   {SERIAL_NUMBER_END} {yybegin(nextState()); return SERIAL_NUMBER_END;}
   {SERIAL_NUMBER_ID} {return SERIAL_NUMBER_ID;}
 }
-<WAITING_COLORFUL_TEXT_ID>{
+<WAITING_COLOR_CODE>{
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
   {IS_PROPERTY_VALUE_END} {yypushback(yylength()); yybegin(WAITING_PROPERTY_VALUE_END);}
   {COLORFUL_TEXT_END} {depth--; yybegin(nextState()); return COLORFUL_TEXT_END;} //跳过非法字符
-  {COLORFUL_TEXT_ID} {yybegin(WAITING_COLORFUL_TEXT); return COLORFUL_TEXT_ID;}
+  {COLOR_CODE} {yybegin(WAITING_COLORFUL_TEXT); return COLOR_CODE;}
 }
 <WAITING_COLORFUL_TEXT>{
   {COLORFUL_TEXT_END} {depth--; yybegin(nextState()); return COLORFUL_TEXT_END;} //跳过非法字符
@@ -195,7 +195,7 @@ STRING_TOKEN=[^$£§\[\r\n\\][^\"%$£§\[\r\n\\]* //允许开始字符是"、%
   {PROPERTY_REFERENCE_START} { yybegin(WAITING_PROPERTY_REFERENCE); return PROPERTY_REFERENCE_START;}
   {CODE_START} { yybegin(WAITING_CODE); return CODE_START;}
   {ICON_START} { yybegin(WAITING_ICON); return ICON_START;}
-  {COLORFUL_TEXT_START} { depth++; yybegin(WAITING_COLORFUL_TEXT_ID); return COLORFUL_TEXT_START;}
+  {COLORFUL_TEXT_START} { depth++; yybegin(WAITING_COLOR_CODE); return COLORFUL_TEXT_START;}
   //测试下一个元素是否是编号，只有测试通过时才解析为编号
   {IS_SERIAL_NUMBER} { yypushback(yylength()); yybegin(WAITING_SERIAL_NUMEBR_START);}
   {IS_PROPERTY_VALUE_END} {yypushback(yylength()); yybegin(WAITING_PROPERTY_VALUE_END);}

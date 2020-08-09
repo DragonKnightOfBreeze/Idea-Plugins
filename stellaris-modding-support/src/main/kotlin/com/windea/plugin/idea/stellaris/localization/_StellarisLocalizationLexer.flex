@@ -36,7 +36,7 @@ PROPERTY_REFERENCE_PARAMETER=[^$\r\n]+
 CODE_TEXT=[^\[\]\r\n]+
 ICON_ID=[a-z_]+
 SERIAL_NUMBER_ID=[A-Z]
-COLORFUL_TEXT_ID=[A-Z]
+COLOR_CODE=[A-Z]
 
 %%
 <YYINITIAL> {
@@ -69,7 +69,7 @@ COLORFUL_TEXT_ID=[A-Z]
   {CODE_TEXT}                         { return CODE_TEXT; }
   {ICON_ID}                         { return ICON_ID; }
   {SERIAL_NUMBER_ID}                { return SERIAL_NUMBER_ID; }
-  {COLORFUL_TEXT_ID}                { return COLORFUL_TEXT_ID; }
+  {COLOR_CODE}                { return COLOR_CODE; }
 
 }
 

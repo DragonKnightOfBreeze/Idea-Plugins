@@ -31,14 +31,14 @@ class StellarisLocalizationAnnotator : Annotator, DumbAware {
 			//如果有无法解析的枚举项，则报错
 			is StellarisLocalizationLocale -> {
 				if(element.locale == null) {
-					holder.newAnnotation(ERROR, message("stellaris.localization.annotator.unsupportedLocale"))
+					holder.newAnnotation(WARNING, message("stellaris.localization.annotator.unsupportedLocale"))
 						.withFix(ChangeLocaleIntention.instance)
 						.create()
 				}
 			}
 			is StellarisLocalizationSerialNumber -> {
 				if(element.serialNumber == null) {
-					holder.newAnnotation(ERROR, message("stellaris.localization.annotator.unsupportedSerialNumber"))
+					holder.newAnnotation(WARNING, message("stellaris.localization.annotator.unsupportedSerialNumber"))
 						.withFix(ChangeSerialNumberIntention.instance)
 						.create()
 				}
@@ -47,7 +47,7 @@ class StellarisLocalizationAnnotator : Annotator, DumbAware {
 			//取消在页面右边显示彩色文本的颜色（因为可能有很多）
 			is StellarisLocalizationColorfulText -> {
 				if(element.color == null) {
-					holder.newAnnotation(ERROR, message("stellaris.localization.annotator.unsupportedColor"))
+					holder.newAnnotation(WARNING, message("stellaris.localization.annotator.unsupportedColor"))
 						.withFix(ChangeColorIntention.instance)
 						.create()
 				} else {

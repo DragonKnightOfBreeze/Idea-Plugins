@@ -4,6 +4,7 @@ package com.windea.plugin.idea.stellaris.script.psi.impl
 
 import com.intellij.openapi.util.*
 import com.intellij.psi.*
+import com.intellij.psi.util.*
 import com.intellij.refactoring.suggested.*
 import com.intellij.ui.*
 import com.jetbrains.rd.util.string.*
@@ -111,18 +112,25 @@ object StellarisScriptPsiImplUtil {
 
 	//region StellarisScriptBlock
 	@JvmStatic
-	fun isEmpty(element: StellarisScriptBlock): Boolean {
-		return element.firstChild == null
+	fun isObject(element: StellarisScriptBlock): Boolean {
+		element.forEachChild {
+			when(it){
+				is StellarisScriptProperty ->return true
+				is StellarisScriptItem -> return false
+			}
+		}
+		return false
 	}
 
 	@JvmStatic
 	fun isArray(element: StellarisScriptBlock): Boolean {
-		return element.firstChild is StellarisScriptString?
-	}
-
-	@JvmStatic
-	fun isObject(element: StellarisScriptBlock): Boolean {
-		return element.firstChild is StellarisScriptProperty?
+		element.forEachChild {
+			when(it){
+				is StellarisScriptProperty ->return false
+				is StellarisScriptItem -> return true
+			}
+		}
+		return false
 	}
 
 	@JvmStatic

@@ -19,7 +19,6 @@ object StellarisScriptJsonLikePsiWalker : JsonLikePsiWalker {
 				val parent = element.parent
 				if(parent is StellarisScriptBlock) {
 					when {
-						parent.isEmpty -> ThreeState.UNSURE
 						parent.isObject -> ThreeState.YES
 						parent.isArray -> ThreeState.NO
 						else -> ThreeState.UNSURE

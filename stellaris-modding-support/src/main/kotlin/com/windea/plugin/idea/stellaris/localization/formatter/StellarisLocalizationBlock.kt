@@ -53,7 +53,7 @@ class StellarisLocalizationBlock(
 
 	//收集所有节点
 	override fun buildChildren(): List<Block> {
-		return myNode.nodes().map { StellarisLocalizationBlock(it, settings) }
+		return myNode.nodesNotWhiteSpace().map { StellarisLocalizationBlock(it, settings) }
 	}
 
 	override fun getIndent(): Indent? {

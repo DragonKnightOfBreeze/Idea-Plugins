@@ -16,7 +16,7 @@
       <li>
         所有计划中的语言特性都已在项目的
         <a href='https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/README.md'>README</a>
-        文档中列出。
+        文档中列出。（中文）
       </li>
     </ul>
     <p>
@@ -60,7 +60,7 @@
       <li>
         All planned language feature are listed in the
         <a href='https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/README.md'>README</a>
-        document of this project.
+        document of this project. (Simple Chinese)
       </li>
     </ul>
     <p>
@@ -69,7 +69,7 @@
       however, some other games may also use such script language and localization language.
     </p>
     <p>
-      please note that <b>Paradox Interactive</b>'s modding language is actually very complex and even more chaos,
+      Please note that <b>Paradox Interactive</b>'s modding language is actually very complex and even more chaos,
       so that this plugin maybe have some <i>syntax compatibility problems</i> and <i>reference problems</i>.
     </p>
     <p>
@@ -81,9 +81,6 @@
       But please note that, IDEA is undoubtedly more powful than VSCode,
       meaning that this plugin may support some advance features that CWTTools will never provide.
     </P>
-    <p>
-      Please note most document of this project is written by Simple Chinese.
-    </p>
     <p>
       This plugin is still in developing,
       if you have found any bugs or problems, feel free to report them in project's
@@ -103,7 +100,7 @@
       通过项目的
       <a href='https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/README.md'>README</a> 文档和
       <a href='https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/CHANGELOG.md'>CHANGELOG</a> 文档
-      查看完整的更新日志。
+      查看完整的更新日志。（中文）
     </p>
 
     <hr/>
@@ -112,7 +109,7 @@
       See the whole changelog at the
       <a href='https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/README.md'>README</a> and
       <a href='https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/CHANGELOG.md'>CHANGELOG</a>
-      document of this project.
+      document of this project. (Simple Chinese)
     </p>
     ]]></change-notes>
 
@@ -205,7 +202,7 @@
       shortName="StellarisLocalizationDuplicatePropertyKeys" bundle="messages.StellarisBundle"
       groupKey="stellaris.localization.inspection"
       key="stellaris.localization.inspection.duplicatePropertyKeys"
-      enabledByDefault="true" level="ERROR"
+      enabledByDefault="true" level="WARNING"
       implementationClass="com.windea.plugin.idea.stellaris.localization.inspections.DuplicatePropertyKeysInspection"/>
     <localInspection
       language="Stellaris Localization"
@@ -292,7 +289,7 @@
       shortName="StellarisScriptDuplicateVariableDefinitions" bundle="messages.StellarisBundle"
       groupKey="stellaris.script.inspection"
       key="stellaris.script.inspection.duplicateVariableDefinitions"
-      enabledByDefault="true" level="ERROR"
+      enabledByDefault="true" level="WARNING"
       implementationClass="com.windea.plugin.idea.stellaris.script.inspections.DuplicateVariableDefinitionsInspection"/>
     <localInspection
       language="Stellaris Script"

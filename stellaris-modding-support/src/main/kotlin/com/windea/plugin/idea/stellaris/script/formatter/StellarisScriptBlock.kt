@@ -45,7 +45,7 @@ class StellarisScriptBlock(
 
 	override fun buildChildren(): List<Block> {
 		//如果已经需要缩进，或者是list的子节点，则注意需要缩进
-		return myNode.nodes().map {
+		return myNode.nodesNotWhiteSpace().map {
 			when {
 				shouldIndent -> StellarisScriptBlock(it, settings, true)
 				it.treeParent.elementType == BLOCK -> StellarisScriptBlock(it, settings, true)

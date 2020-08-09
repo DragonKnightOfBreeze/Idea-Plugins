@@ -97,8 +97,16 @@ fun <T:Any> T?.toSingletonOrEmpty(): MutableCollection<T> {
 //endregion
 
 //region Psi
-/**得到所有非空白节点的子节点*/
-fun ASTNode.nodes(): List<ASTNode> {
+inline fun PsiElement.forEachChild(block: (PsiElement) -> Unit){
+	var child = this.firstChild
+	while(child != null){
+		block(child)
+		child = child.nextSibling
+	}
+}
+
+/**得到当前Ast节点的所有非空白子节点。*/
+fun ASTNode.nodesNotWhiteSpace(): List<ASTNode> {
 	val result = mutableListOf<ASTNode>()
 	var child = this.firstChildNode
 	while(child != null) {
@@ -110,6 +118,7 @@ fun ASTNode.nodes(): List<ASTNode> {
 	return result
 }
 
+/**查找当前项目中指定语言文件类型和作用域的Psi文件。*/
 @Suppress("UNCHECKED_CAST")
 fun <T:PsiFile> Project.findFiles(type: LanguageFileType,globalSearchScope: GlobalSearchScope = projectScope(this)): Sequence<T> {
 	return FileTypeIndex.getFiles(type, globalSearchScope).asSequence().mapNotNull {

@@ -9,5 +9,5 @@ l_english:
   KEY_WITH_COLORFUL_TEXT:0 "Colorful text: §RRed text§!"
   KEY_WITH_ICON:0 "Icon: £unity£"
   KEY_WITH_CODE:0 "Code: [Root.GetName]"
-  KEY_WITH_SERIAL_NUMBER:0 "Serial number: %C%"
+  KEY_WITH_SERIAL_NUMBER:0 "Serial number: %R%"
   EMPTY:0 ""
