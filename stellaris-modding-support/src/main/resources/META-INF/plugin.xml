@@ -15,7 +15,7 @@
       <li>非常复杂的语言特性可能需要很长时间才能实现……（如，在游戏目录中查找使用）</li>
       <li>
         所有计划中的语言特性都已在项目的
-        <a href='https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/README.md'>README</a>
+        <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/README.md">README</a>
         文档中列出。（中文）
       </li>
     </ul>
@@ -59,7 +59,7 @@
       <li>Very complex language features could be implemented long long after...(e.g., Find usages in game directory)</li>
       <li>
         All planned language feature are listed in the
-        <a href='https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/README.md'>README</a>
+        <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/README.md">README</a>
         document of this project. (Simple Chinese)
       </li>
     </ul>
@@ -98,8 +98,8 @@
   <change-notes><![CDATA[
     <p>
       通过项目的
-      <a href='https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/README.md'>README</a> 文档和
-      <a href='https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/CHANGELOG.md'>CHANGELOG</a> 文档
+      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/README.md">README</a> 文档和
+      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/CHANGELOG.md">CHANGELOG</a> 文档
       查看完整的更新日志。（中文）
     </p>
 
@@ -107,8 +107,8 @@
 
     <p>
       See the whole changelog at the
-      <a href='https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/README.md'>README</a> and
-      <a href='https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/CHANGELOG.md'>CHANGELOG</a>
+      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/README.md">README</a> and
+      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/CHANGELOG.md">CHANGELOG</a>
       document of this project. (Simple Chinese)
     </p>
     ]]></change-notes>
@@ -116,6 +116,14 @@
   <depends>com.intellij.modules.lang</depends>
 
   <extensions defaultExtensionNs="com.intellij">
+    <!--region Stellaris Settings-->
+    <applicationService serviceImplementation="com.windea.plugin.idea.stellaris.settings.AppSettingsState"/>
+    <applicationConfigurable
+      parentId="language"
+      instance="com.windea.plugin.idea.stellaris.settings.AppSettingsConfigurable"
+      id="com.windea.plugin.idea.stellaris.settings.AppSettingsConfigurable"/>
+    <!--endregion-->
+
     <!--region Stellaris Localization-->
     <fileType
       name="Stellaris Localization File"
@@ -301,25 +309,25 @@
     <!--endregion-->
 
     <!--region Stellaris Script Schema-->
-    <!--<json.jsonSchemaEnabler-->
-    <!--  implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaEnabler"/>-->
-    <!--<completion.contributor-->
-    <!--  language="Stellaris Script"-->
-    <!--  implementationClass="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaCompletionContributor"/>-->
-    <!--<documentationProvider-->
-    <!--  implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaDocumentationProvider"/>-->
-    <!--<gotoDeclarationHandler-->
-    <!--  implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaGotoDeclarationHandler"/>-->
-    <!--<json.jsonLikePsiWalkerFactory-->
-    <!--  implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptJsonLikePsiWalkerFactory"/>-->
+    <!--<json.jsonSchemaEnabler
+      implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaEnabler"/>
+    <completion.contributor
+      language="Stellaris Script"
+      implementationClass="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaCompletionContributor"/>
+    <gotoDeclarationHandler
+      implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaGotoDeclarationHandler"/>
+     <documentationProvider
+      implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaDocumentationProvider"/>
+    <json.jsonLikePsiWalkerFactory
+      implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptJsonLikePsiWalkerFactory"/>
 
-    <!--<localInspection-->
-    <!--  language="Stellaris Script"-->
-    <!--  shortName="StellarisScriptSchemaValidation" bundle="messages.StellarisBundle"-->
-    <!--  groupKey="stellaris.script.inspection"-->
-    <!--  key="stellaris.script.inspection.schemaValidation"-->
-    <!--  enabledByDefault="true" level="WARNING"-->
-    <!--  implementationClass="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaInspectionTool"/>-->
+    <localInspection
+      language="Stellaris Script"
+      shortName="StellarisScriptSchemaValidation" bundle="messages.StellarisBundle"
+      groupKey="stellaris.script.inspection"
+      key="stellaris.script.inspection.schemaValidation"
+      enabledByDefault="true" level="ERROR"
+      implementationClass="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaInspectionTool"/>-->
     <!--endregion-->
   </extensions>
 </idea-plugin>
