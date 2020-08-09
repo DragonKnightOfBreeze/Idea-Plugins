@@ -1,10 +1,11 @@
-package com.windea.plugin.idea.stellaris.script.settings
+package com.windea.plugin.idea.stellaris.script.formatter
 
 import com.intellij.application.options.*
 import com.intellij.psi.codeStyle.*
 import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.annotations.*
 import com.windea.plugin.idea.stellaris.script.*
+import com.windea.plugin.idea.stellaris.script.formatter.*
 
 @ExtensionPoint
 class StellarisScriptCodeStyleSettingsProvider : CodeStyleSettingsProvider() {

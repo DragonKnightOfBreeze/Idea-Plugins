@@ -1,7 +1,6 @@
-package com.windea.plugin.idea.stellaris.domain
+package com.windea.plugin.idea.stellaris.enums
 
 import com.windea.plugin.idea.stellaris.*
-import com.windea.plugin.idea.stellaris.localization.psi.*
 
 /**
  * 本地化文件的语言区域枚举

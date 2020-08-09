@@ -1,10 +1,11 @@
-package com.windea.plugin.idea.stellaris.localization.settings
+package com.windea.plugin.idea.stellaris.localization.formatter
 
 import com.intellij.application.options.*
 import com.intellij.psi.codeStyle.*
 import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.annotations.*
 import com.windea.plugin.idea.stellaris.localization.*
+import com.windea.plugin.idea.stellaris.localization.formatter.*
 
 @ExtensionPoint
 class StellarisLocalizationCodeStyleSettingsProvider : CodeStyleSettingsProvider() {

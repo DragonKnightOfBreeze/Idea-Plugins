@@ -8,7 +8,6 @@ import com.intellij.psi.formatter.common.*
 import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.localization.*
 import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
-import com.windea.plugin.idea.stellaris.script.settings.*
 
 class StellarisScriptBlock(
 	node: ASTNode,

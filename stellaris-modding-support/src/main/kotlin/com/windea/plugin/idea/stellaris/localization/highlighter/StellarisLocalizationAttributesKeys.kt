@@ -6,7 +6,7 @@ import com.intellij.openapi.editor.DefaultLanguageHighlighterColors.*
 import com.intellij.openapi.editor.HighlighterColors.*
 import com.intellij.openapi.editor.colors.TextAttributesKey.*
 import com.windea.plugin.idea.stellaris.StellarisBundle.message
-import com.windea.plugin.idea.stellaris.domain.*
+import com.windea.plugin.idea.stellaris.enums.*
 import java.awt.*
 
 object StellarisLocalizationAttributesKeys {

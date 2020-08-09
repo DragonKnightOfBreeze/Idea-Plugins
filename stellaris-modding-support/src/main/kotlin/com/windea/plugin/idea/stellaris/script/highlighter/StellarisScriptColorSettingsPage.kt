@@ -1,4 +1,4 @@
-package com.windea.plugin.idea.stellaris.script.settings
+package com.windea.plugin.idea.stellaris.script.highlighter
 
 import com.intellij.openapi.fileTypes.*
 import com.intellij.openapi.options.colors.*
@@ -7,7 +7,6 @@ import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.StellarisBundle.message
 import com.windea.plugin.idea.stellaris.annotations.*
 import com.windea.plugin.idea.stellaris.script.*
-import com.windea.plugin.idea.stellaris.script.highlighter.*
 
 @ExtensionPoint
 class StellarisScriptColorSettingsPage : ColorSettingsPage {

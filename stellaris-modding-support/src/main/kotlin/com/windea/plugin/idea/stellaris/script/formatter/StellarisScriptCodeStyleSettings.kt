@@ -1,6 +1,6 @@
 @file:Suppress("PropertyName")
 
-package com.windea.plugin.idea.stellaris.script.settings
+package com.windea.plugin.idea.stellaris.script.formatter
 
 import com.intellij.psi.codeStyle.*
 import com.windea.plugin.idea.stellaris.*

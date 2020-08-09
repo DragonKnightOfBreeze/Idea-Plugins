@@ -1,4 +1,4 @@
-package com.windea.plugin.idea.stellaris.localization.settings
+package com.windea.plugin.idea.stellaris.localization.formatter
 
 import com.intellij.application.options.*
 import com.intellij.psi.codeStyle.*

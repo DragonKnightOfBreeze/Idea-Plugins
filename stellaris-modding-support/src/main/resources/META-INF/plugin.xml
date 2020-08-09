@@ -134,7 +134,7 @@
       language="Stellaris Localization"
       implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationFoldingBuilder"/>
     <colorSettingsPage
-      implementation="com.windea.plugin.idea.stellaris.localization.settings.StellarisLocalizationColorSettingsPage"/>
+      implementation="com.windea.plugin.idea.stellaris.localization.highlighter.StellarisLocalizationColorSettingsPage"/>
     <lang.commenter
       language="Stellaris Localization"
       implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationCommenter"/>
@@ -163,9 +163,9 @@
       language="Stellaris Localization"
       implementationClass="com.windea.plugin.idea.stellaris.localization.formatter.StellarisLocalizationFormattingModelBuilder"/>
     <codeStyleSettingsProvider
-      implementation="com.windea.plugin.idea.stellaris.localization.settings.StellarisLocalizationCodeStyleSettingsProvider"/>
+      implementation="com.windea.plugin.idea.stellaris.localization.formatter.StellarisLocalizationCodeStyleSettingsProvider"/>
     <langCodeStyleSettingsProvider
-      implementation="com.windea.plugin.idea.stellaris.localization.settings.StellarisLocalizationLanguageCodeStyleSettingsProvider"/>
+      implementation="com.windea.plugin.idea.stellaris.localization.formatter.StellarisLocalizationLanguageCodeStyleSettingsProvider"/>
     <lang.quoteHandler
       language="Stellaris Localization"
       implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationQuoteHandler"/>
@@ -230,7 +230,7 @@
       language="Stellaris Script"
       implementationClass="com.windea.plugin.idea.stellaris.script.StellarisScriptFoldingBuilder"/>
     <colorSettingsPage
-      implementation="com.windea.plugin.idea.stellaris.script.settings.StellarisScriptColorSettingsPage"/>
+      implementation="com.windea.plugin.idea.stellaris.script.highlighter.StellarisScriptColorSettingsPage"/>
     <lang.commenter
       language="Stellaris Script"
       implementationClass="com.windea.plugin.idea.stellaris.script.StellarisScriptCommenter"/>
@@ -263,9 +263,9 @@
       language="Stellaris Script"
       implementationClass="com.windea.plugin.idea.stellaris.script.formatter.StellarisScriptFormattingModelBuilder"/>
     <codeStyleSettingsProvider
-      implementation="com.windea.plugin.idea.stellaris.script.settings.StellarisScriptCodeStyleSettingsProvider"/>
+      implementation="com.windea.plugin.idea.stellaris.script.formatter.StellarisScriptCodeStyleSettingsProvider"/>
     <langCodeStyleSettingsProvider
-      implementation="com.windea.plugin.idea.stellaris.script.settings.StellarisScriptLanguageCodeStyleSettingsProvider"/>
+      implementation="com.windea.plugin.idea.stellaris.script.formatter.StellarisScriptLanguageCodeStyleSettingsProvider"/>
     <lang.quoteHandler
       language="Stellaris Script"
       implementationClass="com.windea.plugin.idea.stellaris.script.StellarisScriptQuoteHandler"/>

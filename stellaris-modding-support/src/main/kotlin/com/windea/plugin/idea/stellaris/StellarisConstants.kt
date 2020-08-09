@@ -4,7 +4,7 @@ import com.intellij.icons.*
 import com.intellij.openapi.project.*
 import com.intellij.openapi.util.*
 import com.intellij.util.*
-import com.windea.plugin.idea.stellaris.domain.*
+import com.windea.plugin.idea.stellaris.enums.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
 import java.util.concurrent.*
 
@@ -12,7 +12,6 @@ import java.util.concurrent.*
 
 const val fatalError = "<fatal error>"
 const val foldedBlock = "<folded block>"
-const val breadCrumbsElement = "<bread crumbs element>"
 const val anonymousElement = "<anonymous element>"
 
 const val stellarisLocalizationName = "Stellaris Localization"
@@ -50,11 +49,11 @@ const val stellarisBundleName = "messages.StellarisBundle"
 
 //Resources
 
-val localizationFileIcon = IconLoader.getIcon("/icons/stellaris_localization.png")
+val localizationFileIcon =AllIcons.FileTypes.Yaml
 val localizationLocaleIcon = AllIcons.FileTypes.Properties
 val localizationPropertyIcon = AllIcons.Nodes.PropertyRead
 
-val scriptFileIcon = IconLoader.getIcon("/icons/stellaris_script.png")
+val scriptFileIcon = AllIcons.FileTypes.Text
 val scriptVariableIcon = AllIcons.Nodes.Variable
 val scriptPropertyIcon = AllIcons.Nodes.Property
 val scriptItemIcon = AllIcons.Nodes.Constant
@@ -64,7 +63,6 @@ val externalScriptPropertyGutterIcon = IconUtil.toSize(scriptPropertyIcon, 12, 1
 val eventIdGutterIcon = IconUtil.toSize(AllIcons.Nodes.Protected,12,12)
 val gfxKeyGutterIcon = IconUtil.toSize(AllIcons.Nodes.Related,12,12)
 val assetKeyGutterIcon = IconUtil.toSize(AllIcons.Nodes.Related,12,12)
-val actionFieldGutterIcon = IconUtil.toSize(AllIcons.Nodes.Field,12,12)
 
 //Caches
 val localizationLocaleCache = ConcurrentHashMap<Project, Array<StellarisLocalizationLocale>>()

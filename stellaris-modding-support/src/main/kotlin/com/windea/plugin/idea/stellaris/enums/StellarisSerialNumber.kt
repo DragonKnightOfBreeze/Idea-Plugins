@@ -1,4 +1,4 @@
-package com.windea.plugin.idea.stellaris.domain
+package com.windea.plugin.idea.stellaris.enums
 
 import com.windea.plugin.idea.stellaris.*
 

@@ -3,11 +3,9 @@
 package com.windea.plugin.idea.stellaris.localization
 
 import com.intellij.lang.documentation.*
-import com.intellij.openapi.util.text.*
 import com.intellij.psi.*
 import com.jetbrains.rd.util.*
 import com.windea.plugin.idea.stellaris.*
-import com.windea.plugin.idea.stellaris.domain.*
 import com.windea.plugin.idea.stellaris.localization.highlighter.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
 

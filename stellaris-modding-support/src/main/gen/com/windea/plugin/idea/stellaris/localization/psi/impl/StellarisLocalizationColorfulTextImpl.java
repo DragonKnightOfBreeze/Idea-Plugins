@@ -9,7 +9,7 @@ import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
 import static com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationTypes.*;
 import com.windea.plugin.idea.stellaris.localization.psi.*;
-import com.windea.plugin.idea.stellaris.domain.StellarisColor;
+import com.windea.plugin.idea.stellaris.enums.StellarisColor;
 import com.windea.plugin.idea.stellaris.localization.reference.StellarisLocalizationColorfulTextPsiReference;
 
 public class StellarisLocalizationColorfulTextImpl extends StellarisLocalizationNamedElementImpl implements StellarisLocalizationColorfulText {

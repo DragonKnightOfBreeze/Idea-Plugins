@@ -7,7 +7,7 @@ import com.intellij.openapi.project.*
 import com.intellij.psi.*
 import com.windea.plugin.idea.stellaris.StellarisBundle.message
 import com.windea.plugin.idea.stellaris.annotations.*
-import com.windea.plugin.idea.stellaris.domain.*
+import com.windea.plugin.idea.stellaris.enums.*
 import com.windea.plugin.idea.stellaris.localization.highlighter.*
 import com.windea.plugin.idea.stellaris.localization.intentions.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
@@ -54,7 +54,7 @@ class StellarisLocalizationAnnotator : Annotator, DumbAware {
 					val attributesKey = StellarisLocalizationAttributesKeys.COLOR_ID_KEYS[element.name] ?: return
 					holder.newSilentAnnotation(INFORMATION)
 						//.gutterIconRenderer(ColorGutterIconRenderer(element.color!!))
-						.range(element.colorfulTextId!!).textAttributes(attributesKey)
+						.range(element.nameIdentifier!!).textAttributes(attributesKey)
 						.create()
 				}
 			}
