@@ -142,6 +142,7 @@
 ### 2.2
 
 * [X] 调整代码检查的错误级别，将大部分检查的错误级别改为WARNING而非ERROR
+* [X] 对于脚本文件颜色，通过gutterIcon更改颜色时，使用rgb或者rgba
 
 # TODO
  
