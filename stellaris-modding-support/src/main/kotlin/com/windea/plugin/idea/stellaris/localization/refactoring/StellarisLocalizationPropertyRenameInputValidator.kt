@@ -10,7 +10,6 @@ import com.windea.plugin.idea.stellaris.StellarisBundle.message
 import com.windea.plugin.idea.stellaris.annotations.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
 
-@ExtensionPoint
 class StellarisLocalizationPropertyRenameInputValidator : RenameInputValidatorEx {
 	override fun isInputValid(newName: String, element: PsiElement, context: ProcessingContext): Boolean {
 		return stellarisLocalizationPropertyKeyRegex.matches(newName)

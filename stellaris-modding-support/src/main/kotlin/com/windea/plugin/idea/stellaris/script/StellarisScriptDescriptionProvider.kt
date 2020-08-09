@@ -6,7 +6,6 @@ import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.annotations.*
 import com.windea.plugin.idea.stellaris.script.psi.*
 
-@ExtensionPoint
 class StellarisScriptDescriptionProvider: ElementDescriptionProvider {
 	override fun getElementDescription(element: PsiElement, location: ElementDescriptionLocation): String? {
 		return when(element) {

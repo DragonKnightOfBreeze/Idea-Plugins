@@ -10,7 +10,6 @@ import com.windea.plugin.idea.stellaris.localization.psi.*
 //模版上下文：
 //本地化文件的属性的值
 
-@ExtensionPoint
 class StellarisLocalizationTemplateContext : TemplateContextType(stellarisLocalizationNameSsc, stellarisLocalizationName) {
 	override fun isInContext(file: PsiFile, offset: Int): Boolean {
 		val element = file.findElementAt(offset)

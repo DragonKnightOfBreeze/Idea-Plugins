@@ -13,7 +13,6 @@ import com.windea.plugin.idea.stellaris.script.psi.*
 //key: value - 键，注释，字符串
 //TODO key: value - 属性引用
 
-@ExtensionPoint
 class StellarisLocalizationFindUsagesProvider : FindUsagesProvider {
 	override fun getDescriptiveName(element: PsiElement): String {
 		return if(element is PsiNamedElement) "${element.name}" else ""

@@ -10,7 +10,6 @@ import com.windea.plugin.idea.stellaris.annotations.*
 //TODO 合并
 //org.jetbrains.yaml.schema.YamlJsonSchemaDocumentationProvider
 
-@ExtensionPoint
 class StellarisScriptSchemaDocumentationProvider:DocumentationProvider {
 	override fun getQuickNavigateInfo(element: PsiElement?, originalElement: PsiElement?): String? {
 		return findSchemaAndGenerateDoc(element, true)

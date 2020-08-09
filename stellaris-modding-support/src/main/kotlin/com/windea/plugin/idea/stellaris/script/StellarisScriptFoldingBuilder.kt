@@ -13,7 +13,6 @@ import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.annotations.*
 import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
 
-@ExtensionPoint
 class StellarisScriptFoldingBuilder : FoldingBuilder, DumbAware {
 	override fun getPlaceholderText(node: ASTNode): String? {
 		return when(node.elementType){

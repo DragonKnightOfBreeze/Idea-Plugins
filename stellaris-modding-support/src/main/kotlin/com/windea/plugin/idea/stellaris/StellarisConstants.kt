@@ -58,8 +58,8 @@ val scriptVariableIcon = AllIcons.Nodes.Variable
 val scriptPropertyIcon = AllIcons.Nodes.Property
 val scriptItemIcon = AllIcons.Nodes.Constant
 
-val externalLocalizationPropertyGutterIcon = IconUtil.toSize(localizationLocaleIcon, 12, 12)
-val externalScriptPropertyGutterIcon = IconUtil.toSize(scriptPropertyIcon, 12, 12)
+val localizationPropertyGutterIcon = IconUtil.toSize(localizationLocaleIcon, 12, 12)
+val scriptPropertyGutterIcon = IconUtil.toSize(scriptPropertyIcon, 12, 12)
 val eventIdGutterIcon = IconUtil.toSize(AllIcons.Nodes.Protected,12,12)
 val gfxKeyGutterIcon = IconUtil.toSize(AllIcons.Nodes.Related,12,12)
 val assetKeyGutterIcon = IconUtil.toSize(AllIcons.Nodes.Related,12,12)

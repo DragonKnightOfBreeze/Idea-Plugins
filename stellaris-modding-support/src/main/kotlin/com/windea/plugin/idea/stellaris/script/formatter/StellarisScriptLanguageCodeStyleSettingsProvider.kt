@@ -21,7 +21,6 @@ import com.windea.plugin.idea.stellaris.script.formatter.StellarisScriptCodeStyl
 //* SPACE_AROUND_VARIABLE_DEFINITION_SEPARATOR
 //* SPACE_AROUND_PROPERTY_SEPARATOR
 
-@ExtensionPoint
 class StellarisScriptLanguageCodeStyleSettingsProvider : LanguageCodeStyleSettingsProvider() {
 	override fun getLanguage() = StellarisScriptLanguage
 

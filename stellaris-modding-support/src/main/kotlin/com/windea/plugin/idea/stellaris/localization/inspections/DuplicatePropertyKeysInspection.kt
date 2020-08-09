@@ -16,7 +16,6 @@ import com.windea.plugin.idea.stellaris.annotations.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
 import javax.swing.*
 
-@ExtensionPoint
 class DuplicatePropertyKeysInspection : LocalInspectionTool() {
 	override fun buildVisitor(holder: ProblemsHolder, isOnTheFly: Boolean): PsiElementVisitor {
 		return Visitor(holder)

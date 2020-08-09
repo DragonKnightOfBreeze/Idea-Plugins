@@ -10,7 +10,6 @@ import com.windea.plugin.idea.stellaris.annotations.*
 import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
 import com.windea.plugin.idea.stellaris.script.*
 
-@ExtensionPoint
 class StellarisScriptParserDefinition : ParserDefinition {
 	companion object {
 		val WHITE_SPACES = TokenSet.create(WHITE_SPACE)

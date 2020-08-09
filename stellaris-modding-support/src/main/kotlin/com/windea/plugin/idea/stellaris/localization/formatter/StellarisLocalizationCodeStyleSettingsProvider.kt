@@ -7,7 +7,6 @@ import com.windea.plugin.idea.stellaris.annotations.*
 import com.windea.plugin.idea.stellaris.localization.*
 import com.windea.plugin.idea.stellaris.localization.formatter.*
 
-@ExtensionPoint
 class StellarisLocalizationCodeStyleSettingsProvider : CodeStyleSettingsProvider() {
 	override fun createCustomSettings(settings: CodeStyleSettings) = StellarisLocalizationCodeStyleSettings(settings)
 

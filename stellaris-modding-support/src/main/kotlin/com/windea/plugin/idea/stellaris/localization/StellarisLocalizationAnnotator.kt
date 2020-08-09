@@ -12,7 +12,6 @@ import com.windea.plugin.idea.stellaris.localization.highlighter.*
 import com.windea.plugin.idea.stellaris.localization.intentions.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
 
-@ExtensionPoint
 class StellarisLocalizationAnnotator : Annotator, DumbAware {
 	class ColorGutterIconRenderer(
 		private val color:StellarisColor

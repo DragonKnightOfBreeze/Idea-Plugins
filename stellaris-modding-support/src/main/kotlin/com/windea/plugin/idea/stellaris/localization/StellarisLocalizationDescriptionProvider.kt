@@ -6,7 +6,6 @@ import com.windea.plugin.idea.stellaris.StellarisBundle.message
 import com.windea.plugin.idea.stellaris.annotations.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
 
-@ExtensionPoint
 class StellarisLocalizationDescriptionProvider : ElementDescriptionProvider {
 	override fun getElementDescription(element: PsiElement, location: ElementDescriptionLocation): String? {
 		return when(element) {

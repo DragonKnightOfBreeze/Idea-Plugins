@@ -5,7 +5,6 @@ import com.intellij.psi.*
 import com.windea.plugin.idea.stellaris.annotations.*
 import com.windea.plugin.idea.stellaris.script.psi.*
 
-@ExtensionPoint
 class StellarisScriptRefactoringSupportProvider : RefactoringSupportProvider() {
 	override fun isMemberInplaceRenameAvailable(element: PsiElement, context: PsiElement?): Boolean {
 		return element is StellarisScriptVariableDefinition || element is StellarisScriptVariableReference

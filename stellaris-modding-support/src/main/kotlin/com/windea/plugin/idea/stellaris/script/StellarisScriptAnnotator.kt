@@ -14,13 +14,11 @@ import com.intellij.util.*
 import com.intellij.util.ui.*
 import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.StellarisBundle.message
-import com.windea.plugin.idea.stellaris.annotations.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
 import com.windea.plugin.idea.stellaris.script.psi.*
 import java.awt.*
 import java.awt.event.*
 
-@ExtensionPoint
 class StellarisScriptAnnotator : Annotator ,DumbAware{
 	class ScriptPropertyGutterIconRenderer(
 		private val name:String,
@@ -29,7 +27,7 @@ class StellarisScriptAnnotator : Annotator ,DumbAware{
 		private val tooltip = message("stellaris.script.annotator.externalScriptProperty",name)
 		private val title = message("stellaris.script.annotator.externalScriptProperty.title")
 
-		override fun getIcon() = externalScriptPropertyGutterIcon
+		override fun getIcon() = scriptPropertyGutterIcon
 
 		override fun getTooltipText() = tooltip
 
@@ -46,10 +44,10 @@ class StellarisScriptAnnotator : Annotator ,DumbAware{
 		private val name:String,
 		private vararg val properties: StellarisLocalizationProperty
 	): GutterIconRenderer(),DumbAware {
-		private val tooltip = message("stellaris.script.annotator.externalLocalizationProperty",name)
-		private val title = message("stellaris.script.annotator.externalLocalizationProperty.title")
+		private val tooltip = message("stellaris.script.annotator.localizationProperty",name)
+		private val title = message("stellaris.script.annotator.localizationProperty.title")
 
-		override fun getIcon() = externalLocalizationPropertyGutterIcon
+		override fun getIcon() = localizationPropertyGutterIcon
 
 		override fun getTooltipText() = tooltip
 

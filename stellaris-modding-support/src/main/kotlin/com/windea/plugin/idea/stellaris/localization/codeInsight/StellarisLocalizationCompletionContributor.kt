@@ -12,7 +12,6 @@ import com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationTy
 
 //pattern是通过调试确定的
 
-@ExtensionPoint
 class StellarisLocalizationCompletionContributor : CompletionContributor() {
 	class LocaleCompletionProvider : CompletionProvider<CompletionParameters>() {
 		override fun addCompletions(parameters: CompletionParameters, context: ProcessingContext, result: CompletionResultSet) {

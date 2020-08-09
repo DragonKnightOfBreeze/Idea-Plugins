@@ -14,8 +14,6 @@ import com.windea.plugin.idea.stellaris.localization.psi.*
 //必须是PsiNamedElement
 
 class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider() {
-	private val logger = getLogger<StellarisLocalizationDocumentationProvider>()
-
 	override fun getQuickNavigateInfo(element: PsiElement?, originalElement: PsiElement?): String? {
 		return when {
 			element is StellarisLocalizationProperty -> "${getLocationText(element)}<br>${element.name}"
@@ -28,11 +26,6 @@ class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider
 	}
 
 	override fun generateDoc(element: PsiElement?, originalElement: PsiElement?): String? {
-		logger.info{"element: $element"}
-		logger.info{"element text: ${element?.text}"}
-		logger.info{"original element: $originalElement"}
-		logger.info{"original element text: ${originalElement?.text}"}
-
 		return when {
 			element is StellarisLocalizationProperty -> {
 				buildString {

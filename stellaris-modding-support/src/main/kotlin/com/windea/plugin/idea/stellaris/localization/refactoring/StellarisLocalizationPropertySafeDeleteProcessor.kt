@@ -14,7 +14,6 @@ import java.util.*
 //引用属性
 //TODO 代码中的引用
 
-@ExtensionPoint
 class StellarisLocalizationPropertySafeDeleteProcessor : SafeDeleteProcessorDelegateBase() {
 	override fun getElementsToSearch(element: PsiElement, module: Module?, allElementsToDelete: MutableCollection<PsiElement>): MutableCollection<out PsiElement> {
 		return Collections.singleton(element)

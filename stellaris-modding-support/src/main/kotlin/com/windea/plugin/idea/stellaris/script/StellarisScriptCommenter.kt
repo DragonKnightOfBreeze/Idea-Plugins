@@ -3,7 +3,6 @@ package com.windea.plugin.idea.stellaris.script
 import com.intellij.lang.*
 import com.windea.plugin.idea.stellaris.annotations.*
 
-@ExtensionPoint
 class StellarisScriptCommenter : Commenter {
 	override fun getLineCommentPrefix() = "#"
 

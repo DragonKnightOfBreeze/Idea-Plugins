@@ -7,7 +7,6 @@ import com.windea.plugin.idea.stellaris.annotations.*
 import com.windea.plugin.idea.stellaris.script.*
 import com.windea.plugin.idea.stellaris.script.formatter.*
 
-@ExtensionPoint
 class StellarisScriptCodeStyleSettingsProvider : CodeStyleSettingsProvider() {
 	override fun createCustomSettings(settings: CodeStyleSettings) = StellarisScriptCodeStyleSettings(settings)
 

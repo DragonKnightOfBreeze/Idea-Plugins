@@ -10,7 +10,6 @@ import com.windea.plugin.idea.stellaris.annotations.*
 import com.windea.plugin.idea.stellaris.script.psi.*
 import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
 
-@ExtensionPoint
 class StellarisScriptSyntaxHighlighter : SyntaxHighlighterBase() {
 	companion object {
 		private val SEPARATOR_KEYS = arrayOf(StellarisScriptAttributesKeys.SEPARATOR_KEY)

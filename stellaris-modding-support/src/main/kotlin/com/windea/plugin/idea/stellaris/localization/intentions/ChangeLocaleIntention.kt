@@ -12,7 +12,6 @@ import com.windea.plugin.idea.stellaris.StellarisBundle.message
 import com.windea.plugin.idea.stellaris.annotations.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
 
-@ExtensionPoint
 class ChangeLocaleIntention : IntentionAction {
 	companion object{
 		val instance = ChangeLocaleIntention()

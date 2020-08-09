@@ -8,7 +8,6 @@ import com.windea.plugin.idea.stellaris.annotations.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
 import com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationTypes.*
 
-@ExtensionPoint
 class StellarisLocalizationSyntaxHighlighter : SyntaxHighlighterBase() {
 	companion object {
 		private val COLON_KEYS = arrayOf(StellarisLocalizationAttributesKeys.COLON_KEY)

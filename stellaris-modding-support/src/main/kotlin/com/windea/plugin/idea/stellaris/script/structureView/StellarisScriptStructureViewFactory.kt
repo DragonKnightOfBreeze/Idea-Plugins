@@ -6,7 +6,6 @@ import com.intellij.openapi.editor.*
 import com.intellij.psi.*
 import com.windea.plugin.idea.stellaris.annotations.*
 
-@ExtensionPoint
 class StellarisScriptStructureViewFactory : PsiStructureViewFactory {
 	override fun getStructureViewBuilder(psiFile: PsiFile): StructureViewBuilder {
 		return object : TreeBasedStructureViewBuilder() {

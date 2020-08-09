@@ -13,7 +13,6 @@ import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
 
 //pattern是通过调试确定的
 
-@ExtensionPoint
 class StellarisScriptCompletionContributor : CompletionContributor() {
 	class BooleanCompletionProvider : CompletionProvider<CompletionParameters>() {
 		private val values = arrayOf("yes", "no")

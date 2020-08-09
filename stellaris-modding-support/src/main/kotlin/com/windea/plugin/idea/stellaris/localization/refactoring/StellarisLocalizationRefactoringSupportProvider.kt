@@ -9,7 +9,6 @@ import com.windea.plugin.idea.stellaris.localization.psi.*
 //重命名：属性
 //安全删除：属性
 
-@ExtensionPoint
 class StellarisLocalizationRefactoringSupportProvider : RefactoringSupportProvider() {
 	override fun isMemberInplaceRenameAvailable(element: PsiElement, context: PsiElement?): Boolean {
 		return element is StellarisLocalizationProperty

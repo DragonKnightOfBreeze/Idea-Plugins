@@ -6,7 +6,6 @@ import com.intellij.openapi.vfs.*
 import com.windea.plugin.idea.stellaris.annotations.*
 import com.windea.plugin.idea.stellaris.script.highlighter.*
 
-@ExtensionPoint
 class StellarisScriptSyntaxHighlighterFactory : SyntaxHighlighterFactory() {
 	override fun getSyntaxHighlighter(project: Project?, virtualFile: VirtualFile?) = StellarisScriptSyntaxHighlighter()
 }

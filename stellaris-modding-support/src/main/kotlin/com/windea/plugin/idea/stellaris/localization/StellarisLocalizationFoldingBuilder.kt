@@ -13,7 +13,6 @@ import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.annotations.*
 import com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationTypes.*
 
-@ExtensionPoint
 class StellarisLocalizationFoldingBuilder :FoldingBuilder,DumbAware{
 	override fun getPlaceholderText(node: ASTNode): String? {
 		return when(node.elementType){

@@ -5,7 +5,6 @@ import com.intellij.openapi.editor.*
 import com.intellij.psi.*
 import com.windea.plugin.idea.stellaris.annotations.*
 
-@ExtensionPoint
 class StellarisScriptInlineHandler: InlineHandler {
 	override fun createInliner(element: PsiElement, settings: InlineHandler.Settings): InlineHandler.Inliner? {
 		return null

@@ -8,7 +8,6 @@ import com.windea.plugin.idea.stellaris.StellarisBundle.message
 import com.windea.plugin.idea.stellaris.annotations.*
 import com.windea.plugin.idea.stellaris.script.*
 
-@ExtensionPoint
 class StellarisScriptColorSettingsPage : ColorSettingsPage {
 	companion object {
 		//Capitalized Words

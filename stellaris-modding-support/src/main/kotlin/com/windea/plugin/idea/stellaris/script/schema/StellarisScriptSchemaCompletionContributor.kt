@@ -7,7 +7,6 @@ import com.windea.plugin.idea.stellaris.annotations.*
 
 //org.jetbrains.yaml.schema.YamlJsonSchemaCompletionContributor
 
-@ExtensionPoint
 class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 	override fun fillCompletionVariants(parameters: CompletionParameters, result: CompletionResultSet) {
 		val position = parameters.position

@@ -10,7 +10,6 @@ import com.windea.plugin.idea.stellaris.annotations.*
 import com.windea.plugin.idea.stellaris.localization.*
 import com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationTypes.*
 
-@ExtensionPoint
 class StellarisLocalizationParserDefinition : ParserDefinition {
 	companion object {
 		val WHITE_SPACES = TokenSet.create(WHITE_SPACE)

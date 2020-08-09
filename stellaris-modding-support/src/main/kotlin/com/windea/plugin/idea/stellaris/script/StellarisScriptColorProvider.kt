@@ -6,7 +6,6 @@ import com.windea.plugin.idea.stellaris.annotations.*
 import com.windea.plugin.idea.stellaris.script.psi.*
 import java.awt.*
 
-@ExtensionPoint
 class StellarisScriptColorProvider :ElementColorProvider{
 	override fun getColorFrom(element: PsiElement): Color? {
 		return when(element){

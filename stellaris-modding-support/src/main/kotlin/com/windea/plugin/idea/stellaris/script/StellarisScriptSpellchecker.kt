@@ -9,7 +9,6 @@ import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
 //拼写检查：
 //检查variableName、key、value、comment
 
-@ExtensionPoint
 class StellarisScriptSpellchecker : SpellcheckingStrategy() {
 	override fun getTokenizer(element: PsiElement): Tokenizer<*> {
 		return when(element.elementType) {

@@ -15,7 +15,6 @@ import javax.swing.*
 //org.jetbrains.yaml.schema.YamlJsonSchemaInspectionBase
 //org.jetbrains.yaml.schema.YamlJsonSchemaHighlightingInspection
 
-@ExtensionPoint
 class StellarisScriptSchemaInspectionTool : LocalInspectionTool() {
 	@JvmField
 	public var caseInsensitiveEnum = false

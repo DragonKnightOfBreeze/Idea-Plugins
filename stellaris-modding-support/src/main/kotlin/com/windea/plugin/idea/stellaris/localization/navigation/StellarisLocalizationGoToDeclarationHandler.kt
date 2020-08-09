@@ -15,7 +15,6 @@ import com.windea.plugin.idea.stellaris.localization.psi.*
 //TODO 属性 - 游戏目录
 //TODO 属性 - mod目录
 
-@ExtensionPoint
 class StellarisLocalizationGoToDeclarationHandler : GotoDeclarationHandler{
 	override fun getGotoDeclarationTargets(sourceElement: PsiElement?, offset: Int, editor: Editor?): Array<out PsiElement?>? {
 		return when(sourceElement) {

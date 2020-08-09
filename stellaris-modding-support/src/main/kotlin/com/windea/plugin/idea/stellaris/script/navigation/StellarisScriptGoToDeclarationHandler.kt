@@ -15,7 +15,6 @@ import com.windea.plugin.idea.stellaris.script.psi.*
 //TODO 变量 - 游戏目录
 //TODO 变量 - mod目录
 
-@ExtensionPoint
 class StellarisScriptGoToDeclarationHandler:  GotoDeclarationHandler {
 	override fun getGotoDeclarationTargets(sourceElement: PsiElement?, offset: Int, editor: Editor?): Array<out PsiElement?>? {
 		return when(sourceElement) {

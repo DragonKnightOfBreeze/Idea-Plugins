@@ -12,7 +12,6 @@ import com.windea.plugin.idea.stellaris.annotations.*
 import com.windea.plugin.idea.stellaris.script.psi.*
 import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
 
-@ExtensionPoint
 class StellarisScriptVariableRenameInputValidator : RenameInputValidatorEx {
 	override fun isInputValid(newName: String, element: PsiElement, context: ProcessingContext): Boolean {
 		return stellarisScriptVariableRegex.matches(newName)

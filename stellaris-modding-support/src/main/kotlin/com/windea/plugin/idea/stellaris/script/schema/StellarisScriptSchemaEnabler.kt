@@ -10,7 +10,6 @@ import com.windea.plugin.idea.stellaris.script.*
 
 //org.jetbrains.yaml.schema.StellarisScriptSchemaEnabler
 
-@ExtensionPoint
 class StellarisScriptSchemaEnabler:JsonSchemaEnabler {
 	override fun isEnabledForFile(file: VirtualFile, project: Project?): Boolean {
 		val fileType = file.fileType

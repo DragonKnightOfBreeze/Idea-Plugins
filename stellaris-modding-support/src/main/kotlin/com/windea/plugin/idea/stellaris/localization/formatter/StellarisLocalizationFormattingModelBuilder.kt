@@ -8,7 +8,6 @@ import com.intellij.psi.codeStyle.*
 import com.windea.plugin.idea.stellaris.annotations.*
 import com.windea.plugin.idea.stellaris.localization.formatter.*
 
-@ExtensionPoint
 class StellarisLocalizationFormattingModelBuilder : FormattingModelBuilder {
 	override fun createModel(element: PsiElement, settings: CodeStyleSettings): FormattingModel {
 		return FormattingModelProvider.createFormattingModelForPsiFile(

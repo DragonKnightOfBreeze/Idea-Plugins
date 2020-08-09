@@ -13,7 +13,6 @@ import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
 
 //org.jetbrains.yaml.schema.YamlJsonSchemaGotoDeclarationHandler
 
-@ExtensionPoint
 class StellarisScriptSchemaGotoDeclarationHandler:GotoDeclarationHandler {
 	override fun getGotoDeclarationTargets(sourceElement: PsiElement?, offset: Int, editor: Editor?): Array<out PsiElement>? {
 		return when(sourceElement){

@@ -7,7 +7,6 @@ import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.annotations.*
 import com.windea.plugin.idea.stellaris.script.psi.*
 
-@ExtensionPoint
 class StellarisScriptBreadCrumbsProvider :BreadcrumbsProvider{
 	companion object{
 		val defaultLanguages: Array<Language> = arrayOf(StellarisScriptLanguage)

@@ -14,7 +14,6 @@ import com.windea.plugin.idea.stellaris.localization.*
 //WRAPPING_AND_BRACES_SETTINGS
 //* ALIGN_PROPERTY_VALUES
 
-@ExtensionPoint
 class StellarisLocalizationLanguageCodeStyleSettingsProvider : LanguageCodeStyleSettingsProvider() {
 	override fun getLanguage() = StellarisLocalizationLanguage
 

@@ -10,7 +10,6 @@ import com.windea.plugin.idea.stellaris.annotations.*
 import com.windea.plugin.idea.stellaris.script.psi.*
 import java.util.*
 
-@ExtensionPoint
 class StellarisScriptVariableSafeDeleteProcessor : SafeDeleteProcessorDelegateBase() {
 	override fun getElementsToSearch(element: PsiElement, module: Module?, allElementsToDelete: MutableCollection<PsiElement>): MutableCollection<out PsiElement> {
 		return Collections.singleton(element)

@@ -9,7 +9,6 @@ import com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationTy
 //拼写检查：
 //检查key、value、comment
 
-@ExtensionPoint
 class StellarisLocalizationSpellchecker : SpellcheckingStrategy() {
 	override fun getTokenizer(element: PsiElement): Tokenizer<*> {
 		return when(element.elementType) {
