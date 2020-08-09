@@ -43,7 +43,7 @@ class StellarisLocalizationAnnotator : Annotator, DumbAware {
 				}
 			}
 			//如果是颜色文本，则为颜色代码文本加粗，并加上对应的颜色
-			//取消在页面右边显示彩色文本的颜色（因为可能有很多）
+			//取消在页面左边显示彩色文本的颜色（因为可能有很多）
 			is StellarisLocalizationColorfulText -> {
 				if(element.color == null) {
 					holder.newAnnotation(WARNING, message("stellaris.localization.annotator.unsupportedColor"))

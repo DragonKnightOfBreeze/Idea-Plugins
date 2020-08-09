@@ -17,9 +17,11 @@ class ChangeColorIntention : IntentionAction {
 		val instance = ChangeColorIntention()
 	}
 
+	private val text = StellarisBundle.message("stellaris.localization.intention.changeColor")
+
 	override fun startInWriteAction() = false
 
-	override fun getText() = StellarisBundle.message("stellaris.localization.intention.changeColor")
+	override fun getText() = text
 
 	override fun getFamilyName() = text
 
