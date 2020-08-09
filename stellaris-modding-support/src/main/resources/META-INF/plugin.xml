@@ -117,11 +117,11 @@
 
   <extensions defaultExtensionNs="com.intellij">
     <!--region Stellaris Settings-->
-    <applicationService serviceImplementation="com.windea.plugin.idea.stellaris.settings.AppSettingsState"/>
+    <applicationService serviceImplementation="com.windea.plugin.idea.stellaris.settings.StellarisSettingsState"/>
     <applicationConfigurable
       parentId="language"
-      instance="com.windea.plugin.idea.stellaris.settings.AppSettingsConfigurable"
-      id="com.windea.plugin.idea.stellaris.settings.AppSettingsConfigurable"/>
+      instance="com.windea.plugin.idea.stellaris.settings.StellarisSettingsConfigurable"
+      id="com.windea.plugin.idea.stellaris.settings.StellarisSettingsConfigurable"/>
     <!--endregion-->
 
     <!--region Stellaris Localization-->
