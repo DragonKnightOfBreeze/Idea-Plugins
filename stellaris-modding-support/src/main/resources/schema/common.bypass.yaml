@@ -1,7 +1,6 @@
 definitions:
   # 路径
   bypass:
-    title: Bypass
     type: object
     properties:
       name:
@@ -65,7 +64,6 @@ definitions:
       nexus:
         $ref: "core.yaml/#/definitions/conditions"
 
-title: Bypasses
 type: object
 additionalProperties:
   $ref: "#/definitions/bypass"

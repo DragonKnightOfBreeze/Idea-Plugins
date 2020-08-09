@@ -1,7 +1,6 @@
 definitions:
   # 建筑
   building:
-    title: Building
     type: object
     properties:
       base_buildtime:
@@ -68,7 +67,6 @@ definitions:
     - unity
     - army
 
-title: Building
 type: object
 additionalProperties:
   $ref: "#/definitions/building"

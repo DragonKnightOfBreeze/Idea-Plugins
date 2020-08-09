@@ -1,7 +1,6 @@
 definitions:
   # 殖民地类型
   colony_type:
-    title: Colony Type
     type: object
     properties:
       icon:
@@ -16,7 +15,6 @@ definitions:
       triggered_planet_modifier:
         $ref: "core.yaml/#/definitions/triggered_modifier"
 
-title: Colony Types
 type: object
 additionalProperties:
   $ref: "#/definitions/colony_type"

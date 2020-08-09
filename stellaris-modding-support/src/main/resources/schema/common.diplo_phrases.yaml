@@ -1,7 +1,6 @@
 definitions:
   # 问候
   diplo_phrase:
-    title: Diplo Phrase
     type: object
     propertyNames:
       $ref: "core.yaml/#/definitions/loc_reference"
@@ -14,7 +13,6 @@ definitions:
         weight:
           $ref: "core.yaml/#/definitions/weight"
 
-title: Diplo Phrases
 type: object
 additionalProperties:
   $ref: "#/definitions/diplo_phrase"

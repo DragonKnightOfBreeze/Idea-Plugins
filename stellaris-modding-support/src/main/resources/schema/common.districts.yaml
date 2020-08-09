@@ -1,7 +1,6 @@
 definitions:
   # 地块
   district:
-    title: District
     type: object
     properties:
       base_buildtime:
@@ -30,7 +29,6 @@ definitions:
       modifier:
         $ref: "core.yaml/#/definitions/modifier"
 
-title: Districts
 type: object
 additionalProperties:
   $ref: "#/definitions/district"

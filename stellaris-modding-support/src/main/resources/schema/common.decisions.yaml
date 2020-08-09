@@ -1,7 +1,6 @@
 definitions:
   # （星球）决策
   decision:
-    title: Decision
     type: object
     properties:
       owned_planets_only:
@@ -23,7 +22,6 @@ definitions:
       modifier:
         $ref: "core.yaml/#/definitions/modifier"
 
-title: Decisions
 type: object
 additionalProperties:
   $ref: "#/definitions/decision"

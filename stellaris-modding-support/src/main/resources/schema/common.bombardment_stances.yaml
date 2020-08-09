@@ -3,7 +3,6 @@ bombardment_stances
 definitions:
   # 轰炸状态
   bombardment_stance:
-    title: Bombardment Stance
     type: object
     properties:
       trigger:
@@ -35,7 +34,6 @@ definitions:
       ai_weight:
         $ref: "core.yaml/#/definitions/weight_modifier"
 
-title: Bombardment Stances
 type: object
 additionalProperties:
   $ref: "#/definitions/bombardment_stance"

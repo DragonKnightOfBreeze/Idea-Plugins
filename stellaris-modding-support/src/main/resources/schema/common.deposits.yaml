@@ -1,7 +1,6 @@
 definitions:
   # 地块
   deposit:
-    title: Deposit
     type: object
     properties:
       is_null:
@@ -25,7 +24,6 @@ definitions:
       prerequisites:
         $type: tech[]
 
-title: Deposits
 type: object
 additionalProperties:
   $ref: "#/definitions/deposit"

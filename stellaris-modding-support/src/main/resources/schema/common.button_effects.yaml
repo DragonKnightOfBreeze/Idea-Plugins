@@ -1,7 +1,6 @@
 definitions:
   # 建筑
   button_effect:
-    Title: Button Effect
     type: object
     properties:
       potential:
@@ -11,7 +10,6 @@ definitions:
       effect:
         $ref: "core.yaml/#/definitions/effects"
 
-title: Button Effects
 type: object
 additionalProperties:
   $ref: "#/definitions/button_effect"

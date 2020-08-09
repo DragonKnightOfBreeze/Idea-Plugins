@@ -1,15 +1,6 @@
 definitions:
-  # AI关系：
-  # attack
-  # weaken
-  # alliance
-  # vassalize
-  # trade
-  # coexist
-
   # AI态度
   attribute:
-    title: Attribute
     type: object
     properties:
       # same to attribute name
@@ -25,6 +16,14 @@ definitions:
     additionalProperties:
       $ref: "core.yaml/#/definitions/boolean"
 
+  # AI关系：
+  # attack
+  # weaken
+  # alliance
+  # vassalize
+  # trade
+  # coexist
+
   behaviour_name:
     type: string
     enum:
@@ -35,7 +34,6 @@ definitions:
     - trade
     - coexist
 
-title: Attributes
 type: object
 additionalProperties:
   $ref: "#/definitions/attribute"

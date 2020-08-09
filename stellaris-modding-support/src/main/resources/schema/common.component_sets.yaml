@@ -1,7 +1,6 @@
 definitions:
   # 舰船组件
   component_set:
-    title: Component Set
     type: object
     properties:
       key:
@@ -9,9 +8,8 @@ definitions:
       icon:
         $ref: "core.yaml/#/definitions/gfx_reference"
       icon_frame:
-        $ref: "core.yaml/#/definitions/uint"
+        $ref: "core.yaml/#/definitions/int"
 
-title: Component Sets
 type: object
 additionalProperties:
   $ref: "#/definitions/component_set"

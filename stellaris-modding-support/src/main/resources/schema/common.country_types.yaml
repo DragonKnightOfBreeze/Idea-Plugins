@@ -97,7 +97,6 @@ definitions:
         fraction:
           $ref: "core.yaml/#/definitions/modifier_chance"
 
-
 title: Country Types
 type: object
 additionalProperties:
