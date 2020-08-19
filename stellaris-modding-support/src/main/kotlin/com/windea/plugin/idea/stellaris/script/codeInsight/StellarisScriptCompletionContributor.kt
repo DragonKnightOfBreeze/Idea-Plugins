@@ -5,7 +5,6 @@ import com.intellij.codeInsight.lookup.*
 import com.intellij.patterns.PlatformPatterns.*
 import com.intellij.util.*
 import com.windea.plugin.idea.stellaris.*
-import com.windea.plugin.idea.stellaris.annotations.*
 import com.windea.plugin.idea.stellaris.localization.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
 import com.windea.plugin.idea.stellaris.script.psi.*

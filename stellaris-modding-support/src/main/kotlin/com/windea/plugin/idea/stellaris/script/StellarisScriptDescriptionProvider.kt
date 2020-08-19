@@ -3,7 +3,6 @@ package com.windea.plugin.idea.stellaris.script
 import com.intellij.psi.*
 import com.intellij.usageView.*
 import com.windea.plugin.idea.stellaris.*
-import com.windea.plugin.idea.stellaris.annotations.*
 import com.windea.plugin.idea.stellaris.script.psi.*
 
 class StellarisScriptDescriptionProvider: ElementDescriptionProvider {

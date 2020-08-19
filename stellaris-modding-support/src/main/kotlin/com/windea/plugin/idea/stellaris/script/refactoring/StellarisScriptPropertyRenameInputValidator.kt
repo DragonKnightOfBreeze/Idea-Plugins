@@ -6,7 +6,6 @@ import com.intellij.psi.*
 import com.intellij.refactoring.rename.*
 import com.intellij.util.*
 import com.windea.plugin.idea.stellaris.*
-import com.windea.plugin.idea.stellaris.annotations.*
 import com.windea.plugin.idea.stellaris.script.psi.*
 
 class StellarisScriptPropertyRenameInputValidator : RenameInputValidatorEx {

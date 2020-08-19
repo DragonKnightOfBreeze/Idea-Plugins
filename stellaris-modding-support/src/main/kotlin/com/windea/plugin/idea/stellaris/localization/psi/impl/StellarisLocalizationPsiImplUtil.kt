@@ -43,7 +43,7 @@ object StellarisLocalizationPsiImplUtil {
 
 	@JvmStatic
 	fun getIcon(element: StellarisLocalizationLocale, @IconFlags flags: Int): Icon? {
-		return localizationLocaleIcon
+		return stellarisLocalizationLocaleIcon
 	}
 
 	@JvmStatic
@@ -76,7 +76,7 @@ object StellarisLocalizationPsiImplUtil {
 
 	@JvmStatic
 	fun getIcon(element: StellarisLocalizationProperty, @IconFlags flags: Int): Icon? {
-		return localizationPropertyIcon
+		return stellarisLocalizationPropertyIcon
 	}
 
 	@JvmStatic

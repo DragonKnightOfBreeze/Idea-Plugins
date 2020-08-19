@@ -5,7 +5,6 @@ import com.intellij.openapi.options.colors.*
 import com.intellij.openapi.options.colors.ColorDescriptor.*
 import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.StellarisBundle.message
-import com.windea.plugin.idea.stellaris.annotations.*
 import com.windea.plugin.idea.stellaris.script.*
 
 class StellarisScriptColorSettingsPage : ColorSettingsPage {
@@ -31,7 +30,7 @@ class StellarisScriptColorSettingsPage : ColorSettingsPage {
 
 	override fun getAdditionalHighlightingTagToDescriptorMap() = null
 
-	override fun getIcon() = scriptFileIcon
+	override fun getIcon() = stellarisScriptFileIcon
 
 	override fun getAttributeDescriptors() = attributesDescriptors
 

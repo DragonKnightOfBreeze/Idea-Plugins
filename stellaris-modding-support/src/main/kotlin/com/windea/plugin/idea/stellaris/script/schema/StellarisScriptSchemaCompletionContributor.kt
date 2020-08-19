@@ -3,7 +3,6 @@ package com.windea.plugin.idea.stellaris.script.schema
 import com.intellij.codeInsight.completion.*
 import com.jetbrains.jsonSchema.ide.*
 import com.jetbrains.jsonSchema.impl.*
-import com.windea.plugin.idea.stellaris.annotations.*
 
 //org.jetbrains.yaml.schema.YamlJsonSchemaCompletionContributor
 

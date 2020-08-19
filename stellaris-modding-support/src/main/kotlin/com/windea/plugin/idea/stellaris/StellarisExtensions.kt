@@ -24,19 +24,6 @@ import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
 import java.net.*
 import java.util.*
 
-//region Logging
-//const val doPrint = true
-//
-//fun <T> T.andPrint(name: String? = null): T {
-//	if(doPrint){
-//		println(name?.let { "$it: " }.orEmpty() + toStringSmartly())
-//	}
-//	return this
-//}
-//
-//private fun Any?.toStringSmartly() = if(this is Array<*>) this.contentDeepToString() else this.toString()
-//endregion
-
 //region Stdlib
 fun Boolean.toInt() = if(this) 1 else 0
 

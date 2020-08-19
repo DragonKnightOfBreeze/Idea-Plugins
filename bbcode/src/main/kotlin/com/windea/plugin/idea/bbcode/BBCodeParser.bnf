@@ -1,0 +1,55 @@
+{
+	parserClass="com.windea.plugin.idea.bbcode.psi.BBCodeParser"
+	extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+	psiClassPrefix="BBCode"
+	psiImplClassSuffix="Impl"
+	psiPackage="com.windea.plugin.idea.bbcode.psi"
+	psiImplPackage="com.windea.plugin.idea.bbcode.psi.impl"
+	elementTypeHolderClass="com.windea.plugin.idea.bbcode.psi.BBCodeTypes"
+	tokenTypeClass="com.windea.plugin.idea.bbcode.psi.BBCodeTokenType"
+	elementTypeClass="com.windea.plugin.idea.bbcode.psi.BBCodeElementType"
+	psiImplUtilClass="com.windea.plugin.idea.bbcode.psi.impl.BBCodePsiImplUtil"
+
+	tokens=[
+    TAG_NAME='regexp:[a-zA-Z*\-_]+'
+    ATTRIBUTE_NAME='regexp:[a-zA-Z*\-_]+'
+    ATTRIBUTE_VALUE='regexp:[^\[\]\s]+'
+    TEXT_TOKEN='regexp:[^\[\]]+'
+    EQUAL_SIGN='='
+    TAG_PREFIX_START='['
+    TAG_PREFIX_END=']'
+    TAG_SUFFIX_START='[/'
+    TAG_SUFFIX_END=']'
+	]
+}
+
+root ::= (tag | text)*
+
+tag ::= tag_prefix  tag_body ? tag_suffix ? {
+  mixin="com.windea.plugin.idea.bbcode.psi.impl.BBCodeNamedElementImpl"
+  implements="com.windea.plugin.idea.bbcode.psi.BBCodeNamedElement"
+  methods=[getName setName getNameIdentifier getIcon]
+}
+tag_prefix ::= TAG_PREFIX_START TAG_NAME tag_attributes ? TAG_PREFIX_END {
+  pin=1
+}
+private tag_attributes ::= simple_attribute | attribute_group
+private simple_attribute ::= EQUAL_SIGN ATTRIBUTE_VALUE
+private attribute_group ::= attribute +
+private tag_body ::= (tag | text) +
+tag_suffix ::= TAG_SUFFIX_START TAG_NAME TAG_SUFFIX_END {
+  pin=1
+}
+
+attribute ::= ATTRIBUTE_NAME EQUAL_SIGN ATTRIBUTE_VALUE {
+  pin=1
+  mixin="com.windea.plugin.idea.bbcode.psi.impl.BBCodeNamedElementImpl"
+  implements="com.windea.plugin.idea.bbcode.psi.BBCodeNamedElement"
+  implements="com.intellij.psi.PsiLiteralValue"
+  methods=[getName setName getNameIdentifier getValue]
+}
+
+text ::= TEXT_TOKEN{
+  implements="com.intellij.psi.PsiLiteralValue"
+  methods=[getValue]
+}

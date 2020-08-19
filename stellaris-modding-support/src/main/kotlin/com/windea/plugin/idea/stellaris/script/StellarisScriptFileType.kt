@@ -2,7 +2,6 @@ package com.windea.plugin.idea.stellaris.script
 
 import com.intellij.openapi.fileTypes.*
 import com.windea.plugin.idea.stellaris.*
-import com.windea.plugin.idea.stellaris.annotations.*
 
 object StellarisScriptFileType : LanguageFileType(StellarisScriptLanguage) {
 	override fun getName() = stellarisScriptFileTypeName
@@ -11,5 +10,5 @@ object StellarisScriptFileType : LanguageFileType(StellarisScriptLanguage) {
 
 	override fun getDefaultExtension() = stellarisScriptExtension
 
-	override fun getIcon() = scriptFileIcon
+	override fun getIcon() = stellarisScriptFileIcon
 }

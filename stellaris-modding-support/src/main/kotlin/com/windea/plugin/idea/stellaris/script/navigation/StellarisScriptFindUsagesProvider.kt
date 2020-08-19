@@ -5,7 +5,6 @@ import com.intellij.lang.cacheBuilder.*
 import com.intellij.lang.findUsages.*
 import com.intellij.psi.*
 import com.windea.plugin.idea.stellaris.*
-import com.windea.plugin.idea.stellaris.annotations.*
 import com.windea.plugin.idea.stellaris.script.psi.*
 
 class StellarisScriptFindUsagesProvider : FindUsagesProvider {

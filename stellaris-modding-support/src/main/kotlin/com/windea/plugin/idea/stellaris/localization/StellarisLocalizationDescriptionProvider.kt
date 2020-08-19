@@ -3,7 +3,6 @@ package com.windea.plugin.idea.stellaris.localization
 import com.intellij.psi.*
 import com.intellij.usageView.*
 import com.windea.plugin.idea.stellaris.StellarisBundle.message
-import com.windea.plugin.idea.stellaris.annotations.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
 
 class StellarisLocalizationDescriptionProvider : ElementDescriptionProvider {

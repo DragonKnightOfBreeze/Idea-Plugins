@@ -3,7 +3,6 @@ package com.windea.plugin.idea.stellaris.script
 import com.intellij.psi.*
 import com.intellij.psi.util.*
 import com.intellij.spellchecker.tokenizer.*
-import com.windea.plugin.idea.stellaris.annotations.*
 import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
 
 //拼写检查：

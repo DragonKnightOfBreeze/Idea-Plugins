@@ -10,7 +10,6 @@ import com.intellij.openapi.util.*
 import com.intellij.psi.*
 import com.intellij.psi.tree.*
 import com.windea.plugin.idea.stellaris.*
-import com.windea.plugin.idea.stellaris.annotations.*
 import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
 
 class StellarisScriptFoldingBuilder : FoldingBuilder, DumbAware {

@@ -2,7 +2,6 @@ package com.windea.plugin.idea.stellaris.localization
 
 import com.intellij.openapi.fileTypes.*
 import com.windea.plugin.idea.stellaris.*
-import com.windea.plugin.idea.stellaris.annotations.*
 
 object StellarisLocalizationFileType : LanguageFileType(StellarisLocalizationLanguage) {
 	override fun getName() = stellarisLocalizationFileTypeName
@@ -11,6 +10,6 @@ object StellarisLocalizationFileType : LanguageFileType(StellarisLocalizationLan
 
 	override fun getDefaultExtension() = stellarisLocalizationExtension
 
-	override fun getIcon() = localizationFileIcon
+	override fun getIcon() = stellarisLocalizationFileIcon
 }
 

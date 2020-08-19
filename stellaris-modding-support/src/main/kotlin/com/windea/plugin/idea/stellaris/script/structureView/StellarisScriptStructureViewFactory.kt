@@ -4,7 +4,6 @@ import com.intellij.ide.structureView.*
 import com.intellij.lang.*
 import com.intellij.openapi.editor.*
 import com.intellij.psi.*
-import com.windea.plugin.idea.stellaris.annotations.*
 
 class StellarisScriptStructureViewFactory : PsiStructureViewFactory {
 	override fun getStructureViewBuilder(psiFile: PsiFile): StructureViewBuilder {

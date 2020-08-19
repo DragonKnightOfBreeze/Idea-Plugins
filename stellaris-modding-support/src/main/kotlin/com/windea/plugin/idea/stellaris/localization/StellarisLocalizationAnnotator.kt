@@ -6,7 +6,6 @@ import com.intellij.openapi.editor.markup.*
 import com.intellij.openapi.project.*
 import com.intellij.psi.*
 import com.windea.plugin.idea.stellaris.StellarisBundle.message
-import com.windea.plugin.idea.stellaris.annotations.*
 import com.windea.plugin.idea.stellaris.enums.*
 import com.windea.plugin.idea.stellaris.localization.highlighter.*
 import com.windea.plugin.idea.stellaris.localization.intentions.*

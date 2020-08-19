@@ -4,7 +4,6 @@ import com.intellij.codeInsight.template.*
 import com.intellij.psi.*
 import com.intellij.psi.util.*
 import com.windea.plugin.idea.stellaris.*
-import com.windea.plugin.idea.stellaris.annotations.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
 
 //模版上下文：

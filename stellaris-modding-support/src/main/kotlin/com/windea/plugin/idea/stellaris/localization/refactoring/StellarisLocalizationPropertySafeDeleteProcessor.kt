@@ -6,7 +6,6 @@ import com.intellij.psi.*
 import com.intellij.refactoring.*
 import com.intellij.refactoring.safeDelete.*
 import com.intellij.usageView.*
-import com.windea.plugin.idea.stellaris.annotations.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
 import java.util.*
 

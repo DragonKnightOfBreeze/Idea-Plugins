@@ -2,7 +2,6 @@ package com.windea.plugin.idea.stellaris.script
 
 import com.intellij.openapi.editor.*
 import com.intellij.psi.*
-import com.windea.plugin.idea.stellaris.annotations.*
 import com.windea.plugin.idea.stellaris.script.psi.*
 import java.awt.*
 

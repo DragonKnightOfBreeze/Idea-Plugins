@@ -1,0 +1,108 @@
+<idea-plugin>
+  <id>com.windea.bbcode</id>
+  <name>BBCode</name>
+  <category>Languages</category>
+
+  <vendor email="dk_breeze@qq.com" url="https://github.com/DragonKnightOfBreeze">DragonKnightOfBreeze</vendor>
+
+  <description><![CDATA[
+    <p><a href="https://www.bbcode.org/">BBCode</a>语言支持。</p>
+    <p>
+      欢迎查看
+      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/tree/master/bbcode">本项目</a>以及
+      <a href="https://github.com/DragonKnightOfBreeze?tab=repositories">我的其他项目。
+    </p>
+
+    <br>
+
+    <p><a href="https://www.bbcode.org/">BBCode</a> language support.</p>
+    <p>
+      Welcome to have a look at
+      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/tree/master/bbcode">this project</a> and
+      <a href="https://github.com/DragonKnightOfBreeze?tab=repositories">my other projects</a>.
+    </p>
+    ]]></description>
+
+  <change-notes><![CDATA[
+    <p>
+      通过项目的
+      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/bbcode/README.md">README</a> 文档和
+      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/bbcode/CHANGELOG.md">CHANGELOG</a> 文档
+      查看完整的更新日志。（中文）
+    </p>
+
+    <br>
+
+    <p>
+      See the whole changelog at the
+      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/bbcode/README.md">README</a> and
+      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/bbcode/CHANGELOG.md">CHANGELOG</a>
+      document of this project. (Simple Chinese)
+    </p>
+    ]]></change-notes>
+
+  <depends>com.intellij.modules.lang</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <fileType
+      name="BBCode File"
+      implementationClass="com.windea.plugin.idea.bbcode.BBCodeFileType"
+      fieldName="INSTANCE" language="BBCode" extensions="bbcode;bb"/>
+    <lang.parserDefinition
+      language="BBCode"
+      implementationClass="com.windea.plugin.idea.bbcode.psi.BBCodeParserDefinition"/>
+    <!--<lang.syntaxHighlighterFactory-->
+    <!--  language="Stellaris Localization"-->
+    <!--  implementationClass="com.windea.plugin.idea.stellaris.localization.highlighter.StellarisLocalizationSyntaxHighlighterFactory"/>-->
+    <!--<lang.foldingBuilder-->
+    <!--  language="Stellaris Localization"-->
+    <!--  implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationFoldingBuilder"/>-->
+    <!--<colorSettingsPage-->
+    <!--  implementation="com.windea.plugin.idea.stellaris.localization.highlighter.StellarisLocalizationColorSettingsPage"/>-->
+    <lang.braceMatcher
+      language="BBCode"
+      implementationClass="com.windea.plugin.idea.bbcode.BBCodeBraceMatcher"/>
+    <spellchecker.support
+      language="BBCode"
+      implementationClass="com.windea.plugin.idea.bbcode.BBCodeSpellchecker"/>
+    <!--<lang.refactoringSupport-->
+    <!--  language="Stellaris Localization"-->
+    <!--  implementationClass="com.windea.plugin.idea.stellaris.localization.refactoring.StellarisLocalizationRefactoringSupportProvider"/>-->
+    <!--<renameInputValidator-->
+    <!--  implementation="com.windea.plugin.idea.stellaris.localization.refactoring.StellarisLocalizationPropertyRenameInputValidator"/>-->
+    <!--<refactoring.safeDeleteProcessor-->
+    <!--  implementation="com.windea.plugin.idea.stellaris.localization.refactoring.StellarisLocalizationPropertySafeDeleteProcessor"/>-->
+    <!--<completion.contributor-->
+    <!--  language="Stellaris Localization"-->
+    <!--  implementationClass="com.windea.plugin.idea.stellaris.localization.codeInsight.StellarisLocalizationCompletionContributor"/>-->
+    <!--<liveTemplateContext-->
+    <!--  implementation="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationTemplateContext"/>-->
+    <!--<defaultLiveTemplates file="/liveTemplates/Stellaris Localization.xml"/>-->
+    <!--<breadcrumbsInfoProvider-->
+    <!--  implementation="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationBreadCrumbsProvider"/>-->
+    <!--<lang.psiStructureViewFactory-->
+    <!--  language="Stellaris Localization"-->
+    <!--  implementationClass="com.windea.plugin.idea.stellaris.localization.structureView.StellarisLocalizationStructureViewFactory"/>-->
+    <!--<lang.formatter-->
+    <!--  language="Stellaris Localization"-->
+    <!--  implementationClass="com.windea.plugin.idea.stellaris.localization.formatter.StellarisLocalizationFormattingModelBuilder"/>-->
+    <!--<codeStyleSettingsProvider-->
+    <!--  implementation="com.windea.plugin.idea.stellaris.localization.formatter.StellarisLocalizationCodeStyleSettingsProvider"/>-->
+    <!--<langCodeStyleSettingsProvider-->
+    <!--  implementation="com.windea.plugin.idea.stellaris.localization.formatter.StellarisLocalizationLanguageCodeStyleSettingsProvider"/>-->
+    <!--<lang.documentationProvider-->
+    <!--  language="Stellaris Localization"-->
+    <!--  implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationDocumentationProvider"/>-->
+    <!--<elementDescriptionProvider-->
+    <!--  implementation="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationDescriptionProvider"/>-->
+
+    <!--<lang.findUsagesProvider-->
+    <!--  language="Stellaris Localization"-->
+    <!--  implementationClass="com.windea.plugin.idea.stellaris.localization.navigation.StellarisLocalizationFindUsagesProvider"/>-->
+    <!--<gotoDeclarationHandler-->
+    <!--  implementation="com.windea.plugin.idea.stellaris.localization.navigation.StellarisLocalizationGoToDeclarationHandler"/>-->
+    <annotator
+      language="BBCode"
+      implementationClass="com.windea.plugin.idea.bbcode.BBCodeAnnotator"/>
+  </extensions>
+</idea-plugin>

@@ -2,7 +2,6 @@ package com.windea.plugin.idea.stellaris.localization.refactoring
 
 import com.intellij.lang.refactoring.*
 import com.intellij.psi.*
-import com.windea.plugin.idea.stellaris.annotations.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
 
 //代码重构：

@@ -7,7 +7,6 @@ import com.intellij.psi.*
 import com.jetbrains.jsonSchema.extension.*
 import com.jetbrains.jsonSchema.ide.*
 import com.jetbrains.jsonSchema.impl.*
-import com.windea.plugin.idea.stellaris.annotations.*
 import com.windea.plugin.idea.stellaris.script.psi.*
 import org.jetbrains.annotations.*
 import javax.swing.*

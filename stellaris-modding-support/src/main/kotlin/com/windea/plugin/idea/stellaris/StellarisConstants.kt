@@ -2,18 +2,12 @@ package com.windea.plugin.idea.stellaris
 
 import com.intellij.icons.*
 import com.intellij.openapi.project.*
-import com.intellij.openapi.util.*
 import com.intellij.util.*
 import com.windea.plugin.idea.stellaris.enums.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
 import java.util.concurrent.*
 
-//Strings
-
-const val fatalError = "<fatal error>"
-const val foldedBlock = "<folded block>"
-const val anonymousElement = "<anonymous element>"
-
+//region Strings
 const val stellarisLocalizationName = "Stellaris Localization"
 const val stellarisLocalizationNamePc = "StellarisLocalization"
 const val stellarisLocalizationNameSsc = "STELLARIS_LOCALIZATION"
@@ -38,33 +32,34 @@ val stellarisScriptDummyText = "/example.txt".toClassPathResource<StellarisBundl
 val stellarisScriptVariableRegex = "@[a-zA-Z0-9_-]+".toRegex()
 val stellarisScriptPropertyRegex = "[a-z0-9_-]+".toRegex()
 
-//IO
+const val fatalError = "<fatal error>"
+const val foldedBlock = "<folded block>"
+const val anonymousElement = "<anonymous element>"
 
 //0xef 0xbb 0xbf
 val utf8Bom = byteArrayOf(0xef.toByte(), 0xbb.toByte(), 0xbf.toByte())
 
-//Paths
-
 const val stellarisBundleName = "messages.StellarisBundle"
+//endregion
 
-//Resources
+//region Resources
+val stellarisLocalizationFileIcon =AllIcons.FileTypes.Yaml
+val stellarisLocalizationLocaleIcon = AllIcons.FileTypes.Properties
+val stellarisLocalizationPropertyIcon = AllIcons.Nodes.PropertyRead
 
-val localizationFileIcon =AllIcons.FileTypes.Yaml
-val localizationLocaleIcon = AllIcons.FileTypes.Properties
-val localizationPropertyIcon = AllIcons.Nodes.PropertyRead
+val stellarisScriptFileIcon = AllIcons.FileTypes.Text
+val stellarisScriptVariableIcon = AllIcons.Nodes.Variable
+val stellarisScriptPropertyIcon = AllIcons.Nodes.Property
+val stellarisScriptItemIcon = AllIcons.Nodes.Constant
 
-val scriptFileIcon = AllIcons.FileTypes.Text
-val scriptVariableIcon = AllIcons.Nodes.Variable
-val scriptPropertyIcon = AllIcons.Nodes.Property
-val scriptItemIcon = AllIcons.Nodes.Constant
-
-val localizationPropertyGutterIcon = IconUtil.toSize(localizationLocaleIcon, 12, 12)
-val scriptPropertyGutterIcon = IconUtil.toSize(scriptPropertyIcon, 12, 12)
+val localizationPropertyGutterIcon = IconUtil.toSize(stellarisLocalizationLocaleIcon, 12, 12)
+val scriptPropertyGutterIcon = IconUtil.toSize(stellarisScriptPropertyIcon, 12, 12)
 val eventIdGutterIcon = IconUtil.toSize(AllIcons.Nodes.Protected,12,12)
 val gfxKeyGutterIcon = IconUtil.toSize(AllIcons.Nodes.Related,12,12)
 val assetKeyGutterIcon = IconUtil.toSize(AllIcons.Nodes.Related,12,12)
+//endregion
 
-//Caches
+//region Caches
 val localizationLocaleCache = ConcurrentHashMap<Project, Array<StellarisLocalizationLocale>>()
 fun MutableMap<Project, Array<StellarisLocalizationLocale>>.register(project: Project) = this.getOrPut(project) {
 	StellarisLocale.keys.mapArray { e -> StellarisLocalizationElementFactory.createLocale(project, e) }
@@ -79,3 +74,4 @@ val localizationColorfulTextCache = ConcurrentHashMap<Project, Array<StellarisLo
 fun MutableMap<Project, Array<StellarisLocalizationColorfulText>>.register(project: Project) = this.getOrPut(project) {
 	StellarisColor.keys.mapArray { e -> StellarisLocalizationElementFactory.createColorfulText(project, e) }
 }
+//endregion

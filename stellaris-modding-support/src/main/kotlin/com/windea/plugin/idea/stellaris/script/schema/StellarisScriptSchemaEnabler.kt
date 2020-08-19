@@ -5,7 +5,6 @@ import com.intellij.openapi.fileTypes.*
 import com.intellij.openapi.project.*
 import com.intellij.openapi.vfs.*
 import com.jetbrains.jsonSchema.extension.*
-import com.windea.plugin.idea.stellaris.annotations.*
 import com.windea.plugin.idea.stellaris.script.*
 
 //org.jetbrains.yaml.schema.StellarisScriptSchemaEnabler

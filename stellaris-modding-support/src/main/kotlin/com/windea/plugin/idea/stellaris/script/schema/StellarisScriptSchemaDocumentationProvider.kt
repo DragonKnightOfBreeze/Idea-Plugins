@@ -5,7 +5,6 @@ import com.intellij.openapi.editor.*
 import com.intellij.psi.*
 import com.jetbrains.jsonSchema.ide.*
 import com.jetbrains.jsonSchema.impl.*
-import com.windea.plugin.idea.stellaris.annotations.*
 
 //TODO 合并
 //org.jetbrains.yaml.schema.YamlJsonSchemaDocumentationProvider

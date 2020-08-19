@@ -9,7 +9,6 @@ import com.intellij.openapi.ui.popup.util.*
 import com.intellij.psi.*
 import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.StellarisBundle.message
-import com.windea.plugin.idea.stellaris.annotations.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
 
 class ChangeLocaleIntention : IntentionAction {

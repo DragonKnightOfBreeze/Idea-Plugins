@@ -9,6 +9,9 @@ class StellarisLocalizationFile(
 ) : PsiFileBase(viewProvider, StellarisLocalizationLanguage){
 	override fun getFileType() = StellarisLocalizationFileType
 
-	val locale get() = findChildByClass(StellarisLocalizationLocale::class.java)
-	val properties get() = findChildrenByClass(StellarisLocalizationProperty::class.java)
+	val locale: StellarisLocalizationLocale?
+		get() = findChildByClass(StellarisLocalizationLocale::class.java)
+
+	val properties: Array<StellarisLocalizationProperty>
+		get() = findChildrenByClass(StellarisLocalizationProperty::class.java)
 }
