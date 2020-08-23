@@ -6,7 +6,6 @@ import com.intellij.psi.*
 import com.jetbrains.jsonSchema.ide.*
 import com.jetbrains.jsonSchema.impl.*
 
-//TODO 合并
 //org.jetbrains.yaml.schema.YamlJsonSchemaDocumentationProvider
 
 class StellarisScriptSchemaDocumentationProvider:DocumentationProvider {

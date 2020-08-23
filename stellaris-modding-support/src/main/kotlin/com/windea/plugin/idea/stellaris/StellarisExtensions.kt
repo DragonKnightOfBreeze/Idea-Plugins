@@ -92,6 +92,19 @@ inline fun PsiElement.forEachChild(block: (PsiElement) -> Unit){
 	}
 }
 
+inline fun <reified T:PsiElement> PsiElement.indexOfChild(element:T):Int{
+	var child = firstChild
+	var index = 0
+	while(child != null){
+		when(child) {
+			element -> return index
+			is T -> index++
+			else -> child = child.nextSibling
+		}
+	}
+	return -1
+}
+
 /**得到当前Ast节点的所有非空白子节点。*/
 fun ASTNode.nodesNotWhiteSpace(): List<ASTNode> {
 	val result = mutableListOf<ASTNode>()

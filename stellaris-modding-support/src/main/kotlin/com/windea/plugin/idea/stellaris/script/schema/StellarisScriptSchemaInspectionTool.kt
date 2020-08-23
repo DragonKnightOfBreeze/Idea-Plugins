@@ -39,7 +39,6 @@ class StellarisScriptSchemaInspectionTool : LocalInspectionTool() {
 				if(roots.contains(element)) {
 					val walker = JsonLikePsiWalker.getWalker(element, schemaObject) ?: return
 					JsonSchemaComplianceChecker(schemaObject, holder, walker, session, options, "Schema validation: ").annotate(element)
-
 				}
 			}
 		}

@@ -26,6 +26,7 @@ class StellarisSettingsState : PersistentStateComponent<StellarisSettingsState> 
 	override fun loadState(state: StellarisSettingsState) = XmlSerializerUtil.copyBean(state, this)
 
 	companion object {
+		@JvmStatic
 		fun getInstance(): StellarisSettingsState = ServiceManager.getService(StellarisSettingsState::class.java)
 	}
 }

@@ -11,48 +11,103 @@ import com.windea.plugin.idea.stellaris.script.psi.*
 //org.jetbrains.yaml.schema.YamlJsonPsiWalker
 
 object StellarisScriptJsonLikePsiWalker : JsonLikePsiWalker {
-	override fun isName(element: PsiElement): ThreeState {
-		return when(element) {
-			is StellarisScriptPropertyKey -> ThreeState.YES
-			is StellarisScriptPropertyValue -> ThreeState.NO
-			else -> {
-				val parent = element.parent
-				if(parent is StellarisScriptBlock) {
-					when {
-						parent.isObject -> ThreeState.YES
-						parent.isArray -> ThreeState.NO
-						else -> ThreeState.UNSURE
-					}
-				} else ThreeState.UNSURE
+	override fun findElementToCheck(element: PsiElement): PsiElement? {
+		//得到需要检查的元素
+		var current = element
+		if(current is PsiWhiteSpace) current = current.prevSibling
+		while(true){
+			if(current is PsiFile) return null
+			if(current is StellarisScriptProperty || current is StellarisScriptPropertyKey ||
+			   current is StellarisScriptPropertyValue || current is StellarisScriptItem) {
+				return current
 			}
+			current = current.parent
 		}
 	}
 
-	override fun isPropertyWithValue(element: PsiElement): Boolean {
-		return element is StellarisScriptProperty
+	override fun isName(element: PsiElement): ThreeState {
+		//将所有YES改为UNSURE
+		return when(element) {
+			is StellarisScriptProperty -> ThreeState.UNSURE
+			is StellarisScriptPropertyKey -> ThreeState.UNSURE
+			is StellarisScriptPropertyValue -> ThreeState.NO
+			is StellarisScriptItem -> ThreeState.UNSURE
+			else -> ThreeState.UNSURE
+		}
 	}
 
 	override fun isTopJsonElement(element: PsiElement): Boolean {
 		return element is StellarisScriptFile
 	}
 
-	override fun acceptsEmptyRoot(): Boolean {
-		return true
+	override fun isPropertyWithValue(element: PsiElement): Boolean {
+		return element is StellarisScriptProperty
 	}
 
-	override fun findElementToCheck(element: PsiElement): PsiElement? {
-		//得到需要检查的元素（是property，或者parent是block）
-		var current = element
-		while(true){
-			if(current !is PsiFile){
-				if(current !is StellarisScriptProperty && current.parent !is StellarisScriptBlock){
-					current = current.parent
-					continue
-				}
-				return current
-			}
-			return null
+	override fun getRoots(file: PsiFile): MutableCollection<PsiElement> {
+		return file.toSingletonOrEmpty()
+	}
+
+	override fun getParentPropertyAdapter(element: PsiElement): JsonPropertyAdapter? {
+		val parent = element.parent
+		return if(parent is StellarisScriptProperty) StellarisScriptPropertyAdapter(parent) else null
+	}
+
+	override fun getPropertyNameElement(property: PsiElement?): PsiElement? {
+		return when(property) {
+			is StellarisScriptProperty -> property.propertyKey
+			is StellarisScriptItem -> property //首先会识别item而非property，因此这里是必须的？
+			else -> null
 		}
+	}
+
+	override fun getPropertyNamesOfParentObject(originalPosition: PsiElement, computedPosition: PsiElement?): MutableSet<String> {
+		//parent也可以是file，这也合法
+		return when(val parent = originalPosition.parent) {
+			is StellarisScriptBlock -> parent.propertyList.mapNotNullTo(mutableSetOf()) { it.name }
+			is StellarisScriptFile -> parent.properties.mapNotNullTo(mutableSetOf()) { it.name }
+			else -> mutableSetOf()
+		}
+	}
+
+	override fun createValueAdapter(element: PsiElement): JsonValueAdapter? {
+		return when(element) {
+			is StellarisScriptPropertyValue -> StellarisScriptValueAdapter(element)
+			is StellarisScriptItem -> StellarisScriptItemAdapter(element)
+			else -> null
+		}
+	}
+
+	override fun findPosition(element: PsiElement, forceLastTransition: Boolean): JsonPointerPosition? {
+		//如果当前输入的是/root/p，则需要得到的是/root
+
+		val position = JsonPointerPosition()
+		//var current = element
+		var current = element.parent
+		while(true) {
+			when(current){
+				is PsiFile -> return position
+				is StellarisScriptProperty -> {
+					val name = current.name
+					position.addPrecedingStep(name)
+					current = current.parent
+				}
+				is StellarisScriptItem ->{
+					val parent = current.parent
+					val index = parent.indexOfChild(current)
+					position.addPrecedingStep(index)
+					current = parent
+				}
+				else -> {
+					current = current.parent
+				}
+			}
+		}
+	}
+
+
+	override fun acceptsEmptyRoot(): Boolean {
+		return true
 	}
 
 	override fun allowsSingleQuotes(): Boolean {
@@ -81,92 +136,5 @@ object StellarisScriptJsonLikePsiWalker : JsonLikePsiWalker {
 
 	override fun hasMissingCommaAfter(element: PsiElement): Boolean {
 		return false
-	}
-
-	override fun createValueAdapter(element: PsiElement): JsonValueAdapter? {
-		return when{
-			element is StellarisScriptPropertyValue -> StellarisScriptValueAdapter(element)
-			element is StellarisScriptItem && element.parent is StellarisScriptBlock -> StellarisScriptItemAdapter(element)
-			else -> null
-		}
-	}
-
-	override fun getParentPropertyAdapter(element: PsiElement): JsonPropertyAdapter? {
-		val parent = element.parent
-		return if(parent is StellarisScriptProperty) StellarisScriptPropertyAdapter(parent) else null
-	}
-
-	override fun getPropertyNameElement(property: PsiElement?): PsiElement? {
-		return when(property) {
-			is StellarisScriptProperty -> property.propertyKey
-			is StellarisScriptItem -> property //首先会识别item而非property，因此这里是必须的？
-			else -> null
-		}
-	}
-
-	override fun getPropertyNamesOfParentObject(originalPosition: PsiElement, computedPosition: PsiElement?): MutableSet<String> {
-		//parent也可以是file，这也合法
-		return when(val parent =  originalPosition.parent) {
-			is StellarisScriptBlock -> parent.propertyList.mapNotNullTo(mutableSetOf()){it.name}
-			is StellarisScriptFile -> parent.properties.mapNotNullTo(mutableSetOf()){it.name}
-			else -> mutableSetOf()
-		}
-	}
-
-	override fun getRoots(file: PsiFile): MutableCollection<PsiElement> {
-		return file.toSingletonOrEmpty()
-	}
-
-	//TODO 检查
-	override fun findPosition(element: PsiElement, forceLastTransition: Boolean): JsonPointerPosition? {
-		val pos = JsonPointerPosition()
-
-		var current = element
-
-		while(true) {
-			if(!breakCondition(current)) {
-				val position = current
-				current = current.parent
-				if(current is StellarisScriptBlock && current.isArray) {
-					val array: StellarisScriptBlock = current
-					val expressions: List<StellarisScriptItem> = array.itemList
-					var idx = -1
-					for(i in expressions.indices) {
-						val value = expressions[i]
-						if(position == value) {
-							idx = i
-							break
-						}
-					}
-					if(idx != -1) {
-						pos.addPrecedingStep(idx)
-					}
-					continue
-				}
-				if(current is StellarisScriptItem && current.parent is StellarisScriptBlock) {
-					continue
-				}
-				if(current is StellarisScriptProperty) {
-					val propertyName = current.name?:return null
-					current = current.parent
-					if(current !is StellarisScriptBlock) return null
-					pos.addPrecedingStep(propertyName)
-					continue
-				}
-				if(!breakCondition(current)) {
-					if(current is StellarisScriptBlock && current.isObject) {
-						val properties = current.propertyList
-						if(properties.isEmpty()) return null
-						if(position in properties) continue
-					}
-					return null
-				}
-			}
-			return pos
-		}
-	}
-
-	private fun breakCondition(current: PsiElement): Boolean {
-		return current is PsiFile
 	}
 }

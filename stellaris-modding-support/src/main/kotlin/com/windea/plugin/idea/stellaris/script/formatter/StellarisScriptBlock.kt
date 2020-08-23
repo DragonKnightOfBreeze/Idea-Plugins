@@ -13,18 +13,16 @@ class StellarisScriptBlock(
 	node: ASTNode,
 	private val settings: CodeStyleSettings,
 	private val shouldIndent: Boolean = false
-) : AbstractBlock(node, createWrap(), createAlignment(node)) {
+) : AbstractBlock(node, createWrap(), createAlignment(node,shouldIndent)) {
 	companion object {
 		private fun createWrap(): Wrap? {
 			return null
 		}
 
-		//让变量定义总是对齐行首，
-		private fun createAlignment(node: ASTNode): Alignment? {
-			//DELAY 对齐属性名
-			return when(node.elementType) {
-				COMMENT -> Alignment.createAlignment()
-				VARIABLE_DEFINITION, VARIABLE_NAME, VARIABLE_NAME_ID -> Alignment.createAlignment()
+		private fun createAlignment(node: ASTNode, shouldIndent: Boolean): Alignment? {
+			return when {
+				node.elementType == COMMENT -> Alignment.createAlignment()
+				!shouldIndent -> Alignment.createAlignment()
 				else -> null
 			}
 		}
@@ -36,7 +34,7 @@ class StellarisScriptBlock(
 			val spaceVariableDefinitionSeparator = customSettings.SPACE_AROUND_VARIABLE_DEFINITION_SEPARATOR
 			val spacePropertySeparator = customSettings.SPACE_AROUND_PROPERTY_SEPARATOR
 			return SpacingBuilder(settings, StellarisLocalizationLanguage)
-				.between(LEFT_BRACE,RIGHT_BRACE).spaces(0)
+				.between(LEFT_BRACE, RIGHT_BRACE).spaces(0)
 				.after(LEFT_BRACE).spaceIf(spaceWithinBraces)
 				.before(RIGHT_BRACE).spaceIf(spaceWithinBraces)
 				.around(VARIABLE_DEFINITION_SEPARATOR).spaces(spaceVariableDefinitionSeparator.toInt())
