@@ -5,6 +5,9 @@
 
   <vendor email="dk_breeze@qq.com" url="https://github.com/DragonKnightOfBreeze">DragonKnightOfBreeze</vendor>
 
+  <!--需要yaml插件以支持schema验证-->
+  <!--<depends>org.jetbrains.plugins.yaml</depends>-->
+
   <description><![CDATA[
     <p>支持Stellaris模组编程。</p>
     <ul>
@@ -116,8 +119,6 @@
       document of this project. (Simple Chinese)
     </p>
     ]]></change-notes>
-
-  <depends>com.intellij.modules.lang</depends>
 
   <extensions defaultExtensionNs="com.intellij">
     <!--region Stellaris Settings-->

@@ -36,6 +36,7 @@ class StellarisScriptBlock(
 			val spaceVariableDefinitionSeparator = customSettings.SPACE_AROUND_VARIABLE_DEFINITION_SEPARATOR
 			val spacePropertySeparator = customSettings.SPACE_AROUND_PROPERTY_SEPARATOR
 			return SpacingBuilder(settings, StellarisLocalizationLanguage)
+				.between(LEFT_BRACE,RIGHT_BRACE).spaces(0)
 				.after(LEFT_BRACE).spaceIf(spaceWithinBraces)
 				.before(RIGHT_BRACE).spaceIf(spaceWithinBraces)
 				.around(VARIABLE_DEFINITION_SEPARATOR).spaces(spaceVariableDefinitionSeparator.toInt())

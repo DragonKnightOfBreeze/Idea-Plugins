@@ -12,5 +12,6 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 		val jsonSchemaService = JsonSchemaService.Impl.get(position.project)
 		val schemaObject = jsonSchemaService.getSchemaObject(parameters.originalFile) ?: return
 		JsonSchemaCompletionContributor.doCompletion(parameters, result, schemaObject, false)
+		println(123)
 	}
 }

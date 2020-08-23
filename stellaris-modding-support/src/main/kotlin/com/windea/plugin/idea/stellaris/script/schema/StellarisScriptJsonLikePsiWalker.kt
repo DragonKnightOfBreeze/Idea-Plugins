@@ -97,7 +97,11 @@ object StellarisScriptJsonLikePsiWalker : JsonLikePsiWalker {
 	}
 
 	override fun getPropertyNameElement(property: PsiElement?): PsiElement? {
-		return if(property is StellarisScriptProperty) property.propertyKey else null
+		return when(property) {
+			is StellarisScriptProperty -> property.propertyKey
+			is StellarisScriptItem -> property //首先会识别item而非property，因此这里是必须的？
+			else -> null
+		}
 	}
 
 	override fun getPropertyNamesOfParentObject(originalPosition: PsiElement, computedPosition: PsiElement?): MutableSet<String> {
@@ -139,7 +143,7 @@ object StellarisScriptJsonLikePsiWalker : JsonLikePsiWalker {
 					}
 					continue
 				}
-				if(current is StellarisScriptString && current.parent is StellarisScriptBlock) {
+				if(current is StellarisScriptItem && current.parent is StellarisScriptBlock) {
 					continue
 				}
 				if(current is StellarisScriptProperty) {
