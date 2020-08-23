@@ -10,7 +10,7 @@ enum class StellarisLocale(
 	val description: String
 ) {
 	SIMP_CHINESE("l_simp_chinese", "Simple Chinese"),
-	ENGLISH("l_english", " English"),
+	ENGLISH("l_english", "English"),
 	BRAZ_POR("l_braz_por", "Brazil Portuguese"),
 	FRENCH("l_french", "French"),
 	GERMAN("l_german", "German"),

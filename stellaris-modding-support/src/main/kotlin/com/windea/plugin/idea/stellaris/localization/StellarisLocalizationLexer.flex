@@ -88,7 +88,7 @@ COLOR_CODE=[a-zA-Z]
 COLORFUL_TEXT_END="§!"
 //NOTE 实际上双引号不需要转义，但是这里认为是语法错误
 //STRING_TOKEN=[^$£§\[\r\n\\][^\"%$£§\[\r\n\\]*
-STRING_TOKEN=[^$£§\[\r\n\\][^%$£§\[\r\n\\]*
+STRING_TOKEN=[^\"$£§\[\r\n\\][^\"%$£§\[\r\n\\]*
 
 %%
 

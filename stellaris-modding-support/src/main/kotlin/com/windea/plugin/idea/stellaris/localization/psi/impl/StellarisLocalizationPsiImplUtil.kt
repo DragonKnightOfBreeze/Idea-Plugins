@@ -156,7 +156,7 @@ object StellarisLocalizationPsiImplUtil {
 	//region StellarisLocalizationSerialNumber
 	@JvmStatic
 	fun getName(element: StellarisLocalizationSerialNumber): String? {
-		return element.serialNumberId?.text?.toUpperCase() //NOTE 认为是忽略大小写的
+		return element.serialNumberId?.text
 	}
 
 	@JvmStatic

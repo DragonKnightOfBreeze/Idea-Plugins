@@ -5,6 +5,7 @@ import com.intellij.lang.annotation.HighlightSeverity.*
 import com.intellij.openapi.editor.markup.*
 import com.intellij.openapi.project.*
 import com.intellij.psi.*
+import com.intellij.psi.util.*
 import com.windea.plugin.idea.stellaris.StellarisBundle.message
 import com.windea.plugin.idea.stellaris.enums.*
 import com.windea.plugin.idea.stellaris.localization.highlighter.*
@@ -29,32 +30,50 @@ class StellarisLocalizationAnnotator : Annotator, DumbAware {
 			//如果有无法解析的枚举项，则报错
 			is StellarisLocalizationLocale -> {
 				if(element.locale == null) {
-					holder.newAnnotation(WARNING, message("stellaris.localization.annotator.unsupportedLocale"))
+					val localeId = element.localeId.text
+					holder.newAnnotation(WARNING, message("stellaris.localization.annotator.unsupportedLocale",localeId))
 						.withFix(ChangeLocaleIntention.instance)
 						.create()
 				}
 			}
 			is StellarisLocalizationSerialNumber -> {
 				if(element.serialNumber == null) {
-					holder.newAnnotation(WARNING, message("stellaris.localization.annotator.unsupportedSerialNumber"))
+					val serialNumberId = element.serialNumberId?.text?:return
+					holder.newAnnotation(WARNING, message("stellaris.localization.annotator.unsupportedSerialNumber",serialNumberId))
 						.withFix(ChangeSerialNumberIntention.instance)
 						.create()
 				}
 			}
 			//如果是颜色文本，则为颜色代码文本加粗，并加上对应的颜色
-			//取消在页面左边显示彩色文本的颜色（因为可能有很多）
 			is StellarisLocalizationColorfulText -> {
+				val colorId = element.colorCode?.text?:return
 				if(element.color == null) {
-					holder.newAnnotation(WARNING, message("stellaris.localization.annotator.unsupportedColor"))
+					holder.newAnnotation(WARNING, message("stellaris.localization.annotator.unsupportedColor",colorId))
 						.withFix(ChangeColorIntention.instance)
 						.create()
 				} else {
-					val attributesKey = StellarisLocalizationAttributesKeys.COLOR_ID_KEYS[element.name] ?: return
+					val attributesKey = StellarisLocalizationAttributesKeys.COLOR_ID_KEYS[colorId] ?: return
 					holder.newSilentAnnotation(INFORMATION)
 						//.gutterIconRenderer(ColorGutterIconRenderer(element.color!!))
 						.range(element.nameIdentifier!!).textAttributes(attributesKey)
 						.create()
 				}
+			}
+		}
+		//如果是属性引用参数，且长度为1，则认为是颜色码，则加粗，并加上对应的颜色
+		if(element.elementType == StellarisLocalizationTypes.PROPERTY_REFERENCE_PARAMETER && element.textLength == 1){
+			val colorId = element.text
+			val color = StellarisColor.map[colorId]
+			if(color == null){
+				holder.newAnnotation(WARNING, message("stellaris.localization.annotator.unsupportedColor",colorId))
+					.withFix(ChangeColorIntention.instance)
+					.create()
+			}else{
+				val attributesKey = StellarisLocalizationAttributesKeys.COLOR_ID_KEYS[colorId] ?: return
+				holder.newSilentAnnotation(INFORMATION)
+					//.gutterIconRenderer(ColorGutterIconRenderer(element.color!!))
+					.range(element).textAttributes(attributesKey)
+					.create()
 			}
 		}
 	}

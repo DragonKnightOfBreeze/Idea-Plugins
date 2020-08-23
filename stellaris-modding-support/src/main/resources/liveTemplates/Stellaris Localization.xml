@@ -51,7 +51,7 @@
             description="Insert a colorful text fragment"
             toReformat="false" toShortenFQNames="true">
     <variable name="CODE"
-              expression="enum(&quot;!&quot;,&quot;B&quot;,&quot;E&quot;,&quot;G&quot;,&quot;H&quot;,&quot;L&quot;,&quot;M&quot;,&quot;P&quot;,&quot;R&quot;,&quot;S&quot;,&quot;T&quot;,&quot;W&quot;,&quot;Y&quot;)"
+              expression="enum(&quot;B&quot;,&quot;E&quot;,&quot;G&quot;,&quot;H&quot;,&quot;L&quot;,&quot;M&quot;,&quot;P&quot;,&quot;R&quot;,&quot;S&quot;,&quot;T&quot;,&quot;W&quot;,&quot;Y&quot;)"
               alwaysStopAt="true"/>
     <variable name="TEXT" expression="" defaultValue="" alwaysStopAt="true"/>
     <context>

@@ -114,14 +114,6 @@ class StellarisScriptAnnotator : Annotator ,DumbAware{
 					}
 				}
 			}
-			//NOTE 使用ElementColorProvider
-			//对于颜色类型，显示对应的颜色图标
-			//is StellarisScriptColor -> {
-			//	val color = element.color?:return
-			//	holder.newSilentAnnotation(INFORMATION)
-			//		.gutterIconRenderer(ColorGutterIconRenderer(color))
-			//		.create()
-			//}
 			//NOTE 不能这样做：可能是外部变量，而来源难以判断
 			//is StellarisScriptVariableReference -> {
 			//	val resolve = element.reference?.resolve()
