@@ -23,7 +23,8 @@ enum class StellarisColor(
 	DarkOrange("S", "Dark Orange", Color(0xff8c00)),
 	LightGrey("T", "Light Grey", Color.LIGHT_GRAY),
 	White("W", "White", Color.WHITE),
-	Yellow("Y", "Yellow", Color.YELLOW);
+	Yellow("Y", "Yellow", Color.YELLOW),
+	A("A", "TODO", Color.BLACK);
 
 	val documentText = "(color) $description"
 	val popupText = "'$key' - $description"

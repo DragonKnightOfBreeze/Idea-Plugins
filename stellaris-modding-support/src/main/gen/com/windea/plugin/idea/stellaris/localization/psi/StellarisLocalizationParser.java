@@ -191,7 +191,7 @@ public class StellarisLocalizationParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // PROPERTY_REFERENCE_START PROPERTY_KEY_ID [PROPERTY_REFERENCE_SEPARATOR PROPERTY_REFERENCE_PARAMETER] PROPERTY_REFERENCE_END
+  // PROPERTY_REFERENCE_START PROPERTY_KEY_ID [PROPERTY_REFERENCE_SEPARATOR [PROPERTY_REFERENCE_PARAMETER]] PROPERTY_REFERENCE_END
   public static boolean property_reference(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "property_reference")) return false;
     if (!nextTokenIs(b, PROPERTY_REFERENCE_START)) return false;
@@ -205,10 +205,28 @@ public class StellarisLocalizationParser implements PsiParser, LightPsiParser {
     return r || p;
   }
 
-  // [PROPERTY_REFERENCE_SEPARATOR PROPERTY_REFERENCE_PARAMETER]
+  // [PROPERTY_REFERENCE_SEPARATOR [PROPERTY_REFERENCE_PARAMETER]]
   private static boolean property_reference_2(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "property_reference_2")) return false;
-    parseTokens(b, 0, PROPERTY_REFERENCE_SEPARATOR, PROPERTY_REFERENCE_PARAMETER);
+    property_reference_2_0(b, l + 1);
+    return true;
+  }
+
+  // PROPERTY_REFERENCE_SEPARATOR [PROPERTY_REFERENCE_PARAMETER]
+  private static boolean property_reference_2_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "property_reference_2_0")) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeToken(b, PROPERTY_REFERENCE_SEPARATOR);
+    r = r && property_reference_2_0_1(b, l + 1);
+    exit_section_(b, m, null, r);
+    return r;
+  }
+
+  // [PROPERTY_REFERENCE_PARAMETER]
+  private static boolean property_reference_2_0_1(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "property_reference_2_0_1")) return false;
+    consumeToken(b, PROPERTY_REFERENCE_PARAMETER);
     return true;
   }
 

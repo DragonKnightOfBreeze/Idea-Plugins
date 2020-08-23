@@ -19,30 +19,3 @@ grammarKit {
 	// tag or short commit hash of Grammar-Kit to use (see link below). Default is 2020.1
 	grammarKitRelease = "2020.1"
 }
-
-tasks {
-	register<GenerateParser>("generateParser") {
-		// source bnf file
-		source = "src/main/kotlin/com/windea/plugin/idea/stellaris/StellarisLocalization.bnf"
-		// optional, task-specific root for the generated files. Default: none
-		targetRoot = "src/main/gen"
-		// path to a parser file, relative to the targetRoot
-		pathToParser = "com/windea/plugin/idea/stellaris/psi/StellarisLocalizationParser.java"
-		// path to a directory with generated psi files, relative to the targetRoot
-		pathToPsiRoot = "com/windea/plugin/idea/stellaris/psi"
-		// if set, plugin will remove a parser output file and psi output directory before generating new ones. Default: false
-		purgeOldFiles = true
-	}
-	register<GenerateLexer>("generateLexer") {
-		// source flex file
-		source = "src/main/kotlin/com/windea/plugin/idea/stellaris/StellarisLocalization.flex"
-		// target directory for lexer
-		targetDir = "src/main/gen/com/windea/plugin/idea/stellaris/psi/"
-		// target classname, target file will be targetDir/targetClass.java
-		targetClass = "StellarisLocalizationLexer"
-		// optional, path to the task-specific skeleton file. Default: none
-		skeleton = "/idea-flex.skeleton"
-		// if set, plugin will remove a lexer output file before generating new one. Default: false
-		purgeOldFiles = true
-	}
-}
