@@ -39,7 +39,9 @@
 	  COLORFUL_TEXT_START="§"
 	  COLOR_CODE="regexp:[a-zA-Z]"
 	  COLORFUL_TEXT_END="§!"
-	  STRING_TOKEN='regexp:[^$£§\[\r\n\\][^"%$£§\[\r\n\\]*' //允许开始字符是"、%
+	  //NOTE 实际上双引号不需要转义，但是这里认为是语法错误
+	  //STRING_TOKEN='regexp:[^$£§\[\r\n\\][^"%$£§\[\r\n\\]*'
+	  STRING_TOKEN='regexp:[^$£§\[\r\n\\][^%$£§\[\r\n\\]*'
 	]
 }
 

@@ -32,11 +32,14 @@ class StellarisScriptBlock(
 		private fun createSpacingBuilder(settings: CodeStyleSettings): SpacingBuilder {
 			//变量声明分隔符周围的空格，属性分隔符周围的空格
 			val customSettings = settings.getCustomSettings(StellarisScriptCodeStyleSettings::class.java)
-			val spacingVariableDefinitionSeparator = customSettings.SPACE_AROUND_VARIABLE_DEFINITION_SEPARATOR.toInt()
-			val spacingPropertySeparator = customSettings.SPACE_AROUND_PROPERTY_SEPARATOR.toInt()
+			val spaceWithinBraces = customSettings.SPACE_WITHIN_BRACES
+			val spaceVariableDefinitionSeparator = customSettings.SPACE_AROUND_VARIABLE_DEFINITION_SEPARATOR
+			val spacePropertySeparator = customSettings.SPACE_AROUND_PROPERTY_SEPARATOR
 			return SpacingBuilder(settings, StellarisLocalizationLanguage)
-				.around(VARIABLE_DEFINITION_SEPARATOR).spaces(spacingVariableDefinitionSeparator)
-				.around(PROPERTY_SEPARATOR).spaces(spacingPropertySeparator)
+				.after(LEFT_BRACE).spaceIf(spaceWithinBraces)
+				.before(RIGHT_BRACE).spaceIf(spaceWithinBraces)
+				.around(VARIABLE_DEFINITION_SEPARATOR).spaces(spaceVariableDefinitionSeparator.toInt())
+				.around(PROPERTY_SEPARATOR).spaces(spacePropertySeparator.toInt())
 		}
 	}
 
