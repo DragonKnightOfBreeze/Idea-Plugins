@@ -135,7 +135,8 @@ UNQUOTED_STRING=[^@\s\[\]\{\}=\"][^\s\[\]\{\}=\"]*
 <WAITING_PROPERTY_VALUE>{
   "}" {depth--;  yybegin(nextState()); return RIGHT_BRACE;}
   "{" {depth++;  yybegin(nextState()); return LEFT_BRACE;}
-  {WHITE_SPACE} { return WHITE_SPACE; } //继续解析
+  {EOL} {  yybegin(nextState()); return WHITE_SPACE; } //跳过非法字符
+  {SPACE} { return WHITE_SPACE; }
   {END_OF_LINE_COMMENT} {  return END_OF_LINE_COMMENT; }
   {VARIABLE_REFERENCE_ID} {yybegin(WAITING_PROPERTY_EOL); return VARIABLE_REFERENCE_ID;}
   {BOOLEAN} { yybegin(WAITING_PROPERTY_EOL); return BOOLEAN_TOKEN; }
