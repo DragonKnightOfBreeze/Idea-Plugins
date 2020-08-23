@@ -1,0 +1,41 @@
+definitions:
+  # 考古站点类型
+  archaeological_site_type:
+    type: object
+    properties:
+      desc:
+        $ref: "../core.yaml/#/definitions/desc"
+      picture:
+        $ref: "../core.yaml/#/definitions/gfx_reference"
+      stages:
+        $ref: "../core.yaml/#/definitions/int"
+      max_instance:
+        $ref: "../core.yaml/#/definitions/int"
+      weight:
+        $ref: "../core.yaml/#/definitions/weight_modifier"
+      potential:
+        $ref: "../core.yaml/#/definitions/conditions"
+      allow:
+        $ref: "../core.yaml/#/definitions/conditions"
+      visible:
+        $ref: "../core.yaml/#/definitions/conditions"
+      on_visible:
+        $ref: "../core.yaml/#/definitions/effects"
+      # anyOf
+      state:
+        $ref: "#/definitions/state"
+      on_roll_failed:
+        $ref: "../core.yaml/#/definitions/effects"
+  state:
+    type: object
+    properties:
+      difficulty:
+        $ref: "../core.yaml/#/definitions/difficulty"
+      icon:
+        $ref: "../core.yaml/#/definitions/gfx_reference"
+      event:
+        $ref: "../core.yaml/#/definitions/event"
+
+type: object
+additionalProperties:
+  $ref: "#/definitions/archaeological_site_type"

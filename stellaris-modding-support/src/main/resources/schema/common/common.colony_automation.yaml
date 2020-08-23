@@ -4,13 +4,13 @@ definitions:
     type: object
     properties:
       available:
-        $ref: "core.yaml/#/definitions/conditions"
+        $ref: "../core.yaml/#/definitions/conditions"
       prio_districts:
         $type: district[]
       buildings:
         type: object
         propertyNames:
-          $ref: "core.yaml/#/definitions/uint"
+          $ref: "../core.yaml/#/definitions/uint"
         additionalProperties:
           type: object
           properties:
@@ -18,7 +18,7 @@ definitions:
             bulding:
               $type: building
             available:
-              $ref: "core.yaml/#/definitions/conditions"
+              $ref: "../core.yaml/#/definitions/conditions"
 
 type: object
 additionalProperties:

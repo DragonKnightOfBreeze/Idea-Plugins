@@ -16,7 +16,7 @@ definitions:
       texts:
         type: array
         items:
-          $ref: "core.yaml/#/definitions/loc_reference"
+          $ref: "../core.yaml/#/definitions/loc_reference"
 
 type: object
 additionalProperties:

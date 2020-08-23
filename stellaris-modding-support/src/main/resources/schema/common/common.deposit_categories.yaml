@@ -5,10 +5,10 @@ definitions:
     properties:
       # opt
       blocker:
-        $ref: "core.yaml/#/definitions/boolean"
+        $ref: "../core.yaml/#/definitions/boolean"
       # opt
       important:
-        $ref: "core.yaml/#/definitions/boolean"
+        $ref: "../core.yaml/#/definitions/boolean"
 
 type: object
 additionalProperties:

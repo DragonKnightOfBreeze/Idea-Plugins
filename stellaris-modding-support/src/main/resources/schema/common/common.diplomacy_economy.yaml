@@ -8,9 +8,9 @@ definitions:
       type: object
       properties:
         trigger:
-          $ref: "core.yaml/#/definitions/conditions"
+          $ref: "../core.yaml/#/definitions/conditions"
         resources:
-          $ref: "core.yaml/#/definitions/economy_unit"
+          $ref: "../core.yaml/#/definitions/economy_unit"
 
 type: object
 additionalProperties:

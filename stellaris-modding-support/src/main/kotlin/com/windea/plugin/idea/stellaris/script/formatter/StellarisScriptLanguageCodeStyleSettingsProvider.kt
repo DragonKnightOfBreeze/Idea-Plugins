@@ -54,7 +54,7 @@ class StellarisScriptLanguageCodeStyleSettingsProvider : LanguageCodeStyleSettin
 					StellarisScriptCodeStyleSettings::class.java,
 					Option.SPACE_WITHIN_BRACES.name,
 					message("stellaris.script.codeStyle.spaceWithinBraces"),
-					null
+					SPACES_WITHIN
 				)
 				consumer.showCustomOption(
 					StellarisScriptCodeStyleSettings::class.java,

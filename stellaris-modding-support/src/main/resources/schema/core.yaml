@@ -21,23 +21,23 @@ definitions:
     type: object
     properties:
       min:
-        $ref: "core.yaml/#/definitions/int"
+        $ref: "../core.yaml/#/definitions/int"
       max:
-        $ref: "core.yaml/#/definitions/int"
+        $ref: "../core.yaml/#/definitions/int"
   uint_range:
     type: object
     properties:
       min:
-        $ref: "core.yaml/#/definitions/uint"
+        $ref: "../core.yaml/#/definitions/uint"
       max:
-        $ref: "core.yaml/#/definitions/uint"
+        $ref: "../core.yaml/#/definitions/uint"
   float_range:
     type: object
     properties:
       min:
-        $ref: "core.yaml/#/definitions/float"
+        $ref: "../core.yaml/#/definitions/float"
       max:
-        $ref: "core.yaml/#/definitions/float"
+        $ref: "../core.yaml/#/definitions/float"
 
   level:
     type: integer
@@ -80,16 +80,16 @@ definitions:
     type: object
     properties:
       category:
-        $ref: "core.yaml/#/definitions/resources_category"
+        $ref: "../core.yaml/#/definitions/resources_category"
       # anyOf
       produces:
-        $ref: "core.yaml/#/definitions/resources_item"
+        $ref: "../core.yaml/#/definitions/resources_item"
       # anyOf
       cost:
-        $ref: "core.yaml/#/definitions/resources_item"
+        $ref: "../core.yaml/#/definitions/resources_item"
       # anyOf
       upkeep:
-        $ref: "core.yaml/#/definitions/resources_item"
+        $ref: "../core.yaml/#/definitions/resources_item"
   # TODO
   resources_category:
   resources_item:
@@ -98,7 +98,7 @@ definitions:
     - properties:
         # anyOf
         trigger:
-          $ref: "core.yaml/#/definitions/conditions"
+          $ref: "../core.yaml/#/definitions/conditions"
     - propertyNames:
         $type: resource
       additionalProperties:
@@ -106,13 +106,13 @@ definitions:
 
   desc:
     oneOf:
-    - $ref: "core.yaml/#/definitions/loc_reference"
-    - $ref: "core.yaml/#/definitions/triggered_desc"
+    - $ref: "../core.yaml/#/definitions/loc_reference"
+    - $ref: "../core.yaml/#/definitions/triggered_desc"
   triggered_desc:
-    $ref: "core.yaml/#/definitions/conditions"
+    $ref: "../core.yaml/#/definitions/conditions"
     properties:
       text:
-        $ref: "core.yaml/#/definitions/loc_reference"
+        $ref: "../core.yaml/#/definitions/loc_reference"
 
   condition_expressions:
     type: object
@@ -120,9 +120,9 @@ definitions:
       $ref: "#/definitions/condition_expression_name"
     properties:
       limit:
-        $ref: "core.yaml/#/definitions/conditions"
+        $ref: "../core.yaml/#/definitions/conditions"
     additionalProperties:
-      $ref: "core.yaml/#/definitions/conditions"
+      $ref: "../core.yaml/#/definitions/conditions"
   condition_expression_name:
     type: string
     enum: [AND, OR, NOT, NAND, NOR]
@@ -131,7 +131,7 @@ definitions:
     propertyNames:
       $ref: "#/definitions/boolean_expression_name"
     additionalProperties:
-      $ref: "core.yaml/#/definitions/conditions"
+      $ref: "../core.yaml/#/definitions/conditions"
   boolean_expression_name:
     type: string
     enum: [if, else, else_if, AND, OR, NOT, NAND, NOR]
@@ -140,7 +140,7 @@ definitions:
     propertyNames:
       $ref: "#/definitions/scope_name"
     additionalProperties:
-      $ref: "core.yaml/#/definitions/conditions"
+      $ref: "../core.yaml/#/definitions/conditions"
   scope_name:
     type: string
     enum: [capital, controller, root, from, owner, planet, prev, random, this, pop]
@@ -197,28 +197,28 @@ definitions:
     type: object
     properties:
       potential:
-        $ref: "core.yaml/#/definitions/conditions"
-    $ref: "core.yaml/#/definitions/modifier"
+        $ref: "../core.yaml/#/definitions/conditions"
+    $ref: "../core.yaml/#/definitions/modifier"
   modifier_chance:
     type: object
     properties:
       base:
-        $ref: "core.yaml/#/definitions/int"
+        $ref: "../core.yaml/#/definitions/int"
       # anyOf
       modifier:
         $ref: "#/definitions/modifier"
   event:
     oneOf:
-    - $ref: "core.yaml/#/definitions/event_id"
+    - $ref: "../core.yaml/#/definitions/event_id"
     - propertyNames:
-        $ref: "core.yaml/#/definitions/event_type"
+        $ref: "../core.yaml/#/definitions/event_type"
       additionalProperties:
-        $ref: "core.yaml/#/definitions/event_id"
+        $ref: "../core.yaml/#/definitions/event_id"
   event_id:
     oneOf:
     - type: string
     - type: object
-      $ref: "core.yaml/#/definitions/modifier"
+      $ref: "../core.yaml/#/definitions/modifier"
       properties:
         id:
           type: string
@@ -226,9 +226,9 @@ definitions:
   # TODO
   event_type:
   triggered_tooltip:
-    $ref: "core.yaml/#/definitions/conditions"
+    $ref: "../core.yaml/#/definitions/conditions"
     fail_text:
-      $ref: "core.yaml/#/definitions/loc_reference"
+      $ref: "../core.yaml/#/definitions/loc_reference"
 
   mod_path:
     type: string

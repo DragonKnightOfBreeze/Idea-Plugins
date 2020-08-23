@@ -4,17 +4,17 @@ definitions:
     type: object
     properties:
       show_in_diplomacy:
-        $ref: "core.yaml/#/definitions/boolean"
+        $ref: "../core.yaml/#/definitions/boolean"
         default: yes
       show_notification:
-        $ref: "core.yaml/#/definitions/boolean"
+        $ref: "../core.yaml/#/definitions/boolean"
         default: yes
       potential:
-        $ref: "core.yaml/#/definitions/conditions"
+        $ref: "../core.yaml/#/definitions/conditions"
       is_valid:
-        $ref: "core.yaml/#/definitions/conditions"
+        $ref: "../core.yaml/#/definitions/conditions"
       destroy_if:
-        $ref: "core.yaml/#/definitions/conditions"
+        $ref: "../core.yaml/#/definitions/conditions"
 
 type: object
 additionalProperties:

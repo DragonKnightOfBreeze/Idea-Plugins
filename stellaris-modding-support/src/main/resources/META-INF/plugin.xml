@@ -314,17 +314,17 @@
     <!--endregion-->
 
     <!--region Stellaris Script Schema-->
-    <!--<json.jsonSchemaEnabler
+    <json.jsonSchemaEnabler
       implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaEnabler"/>
     <completion.contributor
       language="Stellaris Script"
       implementationClass="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaCompletionContributor"/>
     <gotoDeclarationHandler
       implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaGotoDeclarationHandler"/>
-     <documentationProvider
-      implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaDocumentationProvider"/>
     <json.jsonLikePsiWalkerFactory
       implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptJsonLikePsiWalkerFactory"/>
+    <!--<documentationProvider
+      implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaDocumentationProvider"/>-->
 
     <localInspection
       language="Stellaris Script"
@@ -332,7 +332,7 @@
       groupKey="stellaris.script.inspection"
       key="stellaris.script.inspection.schemaValidation"
       enabledByDefault="true" level="ERROR"
-      implementationClass="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaInspectionTool"/>-->
+      implementationClass="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaInspectionTool"/>
     <!--endregion-->
   </extensions>
 </idea-plugin>

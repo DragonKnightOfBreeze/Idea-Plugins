@@ -16,6 +16,7 @@ class StellarisSettingsConfigurable: SearchableConfigurable {
 		val settingsComponent = settingsComponent!!
 		val settings = StellarisSettingsState.getInstance()
 		return settingsComponent.resolveExternalReferencesCheckBox.isSelected != settings.resolveExternalReferences
+		       || settingsComponent.resolveInternalReferencesCheckBox.isSelected != settings.resolveInternalReferences
 		       || settingsComponent.useSteamDirectoryCheckBox.isSelected != settings.useSteamDirectory
 		       || settingsComponent.steamDirectoryTextField.text != settings.steamDirectory
 		       || settingsComponent.stellarisDirectoryTextField.text != settings.stellarisDirectory
@@ -35,6 +36,7 @@ class StellarisSettingsConfigurable: SearchableConfigurable {
 	override fun apply() {
 		val settingsComponent = settingsComponent!!
 		val settings = StellarisSettingsState.getInstance()
+		settings.resolveInternalReferences = settingsComponent.resolveInternalReferencesCheckBox.isSelected
 		settings.resolveExternalReferences = settingsComponent.resolveExternalReferencesCheckBox.isSelected
 		settings.useSteamDirectory = settingsComponent.useSteamDirectoryCheckBox.isSelected
 		settings.steamDirectory = settingsComponent.steamDirectoryTextField.text
@@ -45,6 +47,7 @@ class StellarisSettingsConfigurable: SearchableConfigurable {
 	override fun reset() {
 		val settingsComponent = settingsComponent!!
 		val settings = StellarisSettingsState.getInstance()
+		settingsComponent.resolveInternalReferencesCheckBox.isSelected = settings.resolveInternalReferences
 		settingsComponent.resolveExternalReferencesCheckBox.isSelected = settings.resolveExternalReferences
 		settingsComponent.useSteamDirectoryCheckBox.isSelected = settings.useSteamDirectory
 		settingsComponent.steamDirectoryTextField.text = settings.steamDirectory

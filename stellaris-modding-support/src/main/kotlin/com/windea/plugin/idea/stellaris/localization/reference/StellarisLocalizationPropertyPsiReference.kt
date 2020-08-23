@@ -32,7 +32,7 @@ class StellarisLocalizationPropertyPsiReference(
 	override fun getVariants(): Array<out Any> {
 		println(element.resolveScope)
 		return findLocalizationProperties(element.project).mapArray {
-			LookupElementBuilder.create(it.name!!).withIcon(it.getIcon(0)).withTypeText(it.containingFile.name).withPsiElement(it)
+			LookupElementBuilder.create(it).withIcon(it.getIcon(0)).withTypeText(it.containingFile.name).withPsiElement(it)
 		}
 	}
 }

@@ -11,14 +11,14 @@ properties:
       type: string
   picture:
     $ref: "core.yaml/#/definitions/mod_path"
-  supported_version:
-    type: string
   path:
     type: string
     format: url
   archive:
     type: string
     format: url
+  supported_version:
+    type: string
   remote_file_id:
     type: string
 
