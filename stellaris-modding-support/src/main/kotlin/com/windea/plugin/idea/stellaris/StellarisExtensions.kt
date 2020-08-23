@@ -21,13 +21,19 @@ import com.windea.plugin.idea.stellaris.script.*
 import com.windea.plugin.idea.stellaris.script.psi.*
 import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptParserDefinition.Companion.COMMENTS
 import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
+import java.io.*
 import java.net.*
 import java.util.*
 
 //region Stdlib
 fun Boolean.toInt() = if(this) 1 else 0
 
-inline fun <reified T : Any> String.toClassPathResource(): URL = T::class.java.getResource(this)
+
+val workDirectory = File("")
+
+val defaultClassLoader = Thread.currentThread().contextClassLoader
+
+fun String.toClassPathResource(): URL? = defaultClassLoader.getResource(this)
 
 
 @Suppress("UNCHECKED_CAST")

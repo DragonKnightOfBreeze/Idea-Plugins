@@ -5,6 +5,7 @@
 
   <vendor email="dk_breeze@qq.com" url="https://github.com/DragonKnightOfBreeze">DragonKnightOfBreeze</vendor>
 
+  <depends>com.intellij.modules.lang</depends>
   <!--需要yaml插件以支持schema验证-->
   <!--<depends>org.jetbrains.plugins.yaml</depends>-->
 
@@ -315,33 +316,34 @@
     <!--endregion-->
 
     <!--region Stellaris Script Schema-->
-    <!--<json.jsonSchemaEnabler-->
-    <!--  implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaEnabler"/>-->
-    <!--<completion.contributor-->
-    <!--  language="Stellaris Script"-->
-    <!--  implementationClass="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaCompletionContributor"/>-->
-    <!--<completion.contributor-->
-    <!--  language="Stellaris Script"-->
-    <!--  implementationClass="com.windea.plugin.idea.stellaris.script.schema.JsonSchemaCompletionContributor0"/>-->
-    <!--<gotoDeclarationHandler-->
-    <!--  implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaGotoDeclarationHandler"/>-->
-    <!--<json.jsonLikePsiWalkerFactory-->
-    <!--  implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptJsonLikePsiWalkerFactory"/>-->
-    <!--&lt;!&ndash;<documentationProvider-->
-    <!--  implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaDocumentationProvider"/>&ndash;&gt;-->
+    <completion.contributor
+      language="JSON"
+      implementationClass="com.windea.plugin.idea.stellaris.script.schema.JsonSchemaCompletionContributor0"/>
 
-    <!--<localInspection-->
-    <!--  language="Stellaris Script"-->
-    <!--  shortName="StellarisScriptSchemaValidation" bundle="messages.StellarisBundle"-->
-    <!--  groupKey="stellaris.script.inspection"-->
-    <!--  key="stellaris.script.inspection.schemaValidation"-->
-    <!--  enabledByDefault="true" level="ERROR"-->
-    <!--  implementationClass="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaInspectionTool"/>-->
+    <json.jsonSchemaEnabler
+      implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaEnabler"/>
+    <completion.contributor
+      language="Stellaris Script"
+      implementationClass="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaCompletionContributor"/>
+    <gotoDeclarationHandler
+      implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaGotoDeclarationHandler"/>
+    <json.jsonLikePsiWalkerFactory
+      implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptJsonLikePsiWalkerFactory"/>
+    <!--<documentationProvider
+      implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaDocumentationProvider"/>-->
+
+    <localInspection
+      language="Stellaris Script"
+      shortName="StellarisScriptSchemaValidation" bundle="messages.StellarisBundle"
+      groupKey="stellaris.script.inspection"
+      key="stellaris.script.inspection.schemaValidation"
+      enabledByDefault="true" level="ERROR"
+      implementationClass="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaInspectionTool"/>
     <!--endregion-->
   </extensions>
 
-  <!--<extensions defaultExtensionNs="JavaScript">-->
-  <!--  <JsonSchema.ProviderFactory-->
-  <!--    implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaProviderFactory"/>-->
-  <!--</extensions>-->
+  <extensions defaultExtensionNs="JavaScript">
+    <JsonSchema.ProviderFactory
+      implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaProviderFactory"/>
+  </extensions>
 </idea-plugin>
