@@ -14,7 +14,12 @@ object StellarisScriptJsonLikePsiWalker : JsonLikePsiWalker {
 	override fun findElementToCheck(element: PsiElement): PsiElement? {
 		//得到需要检查的元素
 		var current = element
-		if(current is PsiWhiteSpace) current = current.prevSibling
+		//如果是空白元素，则需要特殊处理
+		if(current is PsiWhiteSpace) {
+			val prev = current.prevSibling
+			//（输入字符之后）如果之前存在元素，则得到之前的元素
+			if(prev != null) current = current.prevSibling
+		}
 		while(true){
 			if(current is PsiFile) return null
 			if(current is StellarisScriptProperty || current is StellarisScriptPropertyKey ||

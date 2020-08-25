@@ -158,13 +158,15 @@
 
 ### 2.4
 
+* [X] 解决加载扩展时的ClassNotFoundException（如果`/src/main/kotlin`中包含java文件，那么`sourceSets.java`需要包含这个目录）
+* [ ] 仅当找到descriptor.mod文件时，才将所在目录中你的yml文件和txt文件识别为本地化文件和脚本文件
 * [ ] Schema验证进行代码补全时，插入等号而非冒号（原始代码是硬编码，需要自行调整）
 * [ ] 实现脚本文件的Schema验证功能
 * [ ] 为脚本文件提供较为完善的Schema
 
 # TODO
 
-* [ ] 格式化：本地化文件中，语言区域之后，除了非行尾注释以外，属性也要缩进 
+* [ ] 格式化：本地化文件中，语言区域之后，除了非行尾注释以外，属性也要缩进
 * [ ] 意向：scriptUnquotedString，引号括起
 * [ ] 意向：scriptString，移除包围的引号（如果移除引号后是合法的scriptUnquotedString）
 * [ ] 更多的引用类型：event_id，gfx_reference，path

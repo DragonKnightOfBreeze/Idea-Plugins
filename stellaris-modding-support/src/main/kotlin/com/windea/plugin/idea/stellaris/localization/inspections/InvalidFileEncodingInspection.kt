@@ -16,14 +16,17 @@ class InvalidFileEncodingInspection : LocalInspectionTool() {
 			val holder = ProblemsHolder(manager,file,isOnTheFly)
 			val bomText = if(hasBom) "BOM" else "NO BOM"
 			val description = message("stellaris.localization.inspection.invalidFileEncoding.description", charset,bomText)
-			holder.registerProblem(file, description, ChangeFileEncoding(file))
+			//holder.registerProblem(file, description, ChangeFileEncoding(file))
+			//快速修正之后调用回调，刷新警告
+			holder.registerProblem(file, description, ChangeFileEncoding(file){ checkFile(file,manager, isOnTheFly) })
 			return holder.resultsArray
 		}
 		return null
 	}
 
 	private class ChangeFileEncoding(
-		element: PsiElement
+		element: PsiElement,
+		private val callback:()->Unit
 	) : LocalQuickFixAndIntentionActionOnPsiElement(element) {
 		override fun getText(): String {
 			return message("stellaris.localization.quickFix.changeFileEncoding")
@@ -38,6 +41,7 @@ class InvalidFileEncodingInspection : LocalInspectionTool() {
 			file.virtualFile.bom = utf8Bom
 			file.virtualFile.refresh(true,false)
 			file.subtreeChanged()
+			callback()
 		}
 	}
 }

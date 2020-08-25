@@ -36,7 +36,6 @@ import com.jetbrains.jsonSchema.impl.*;
 import org.jetbrains.annotations.*;
 
 import javax.swing.*;
-import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -813,7 +812,7 @@ public class JsonSchemaCompletionContributor0 extends CompletionContributor {
 		int offset = editor.getCaretModel().getOffset();
 		CharSequence charSequence = editor.getDocument().getCharsSequence();
 		final String ws = charSequence.length() > offset && charSequence.charAt(offset) == ' ' ? "" : " ";
-		final String colonWs = insertColon ? SEPARATOR + ws : ws;
+		final String colonWs = insertColon ? ws + SEPARATOR + ws : ws;
 		String stringToInsert = colonWs + (hasDefaultValue ? defaultValue : (hasQuotes ? "" : "\"\"")) + comma;
 		EditorModificationUtil.insertStringAtCaret(editor, stringToInsert, false, true,
 			insertColon ? 2 : 1);

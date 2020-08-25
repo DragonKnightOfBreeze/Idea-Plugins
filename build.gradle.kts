@@ -1,4 +1,5 @@
 plugins {
+	java
 	kotlin("jvm") version "1.3.72"
 }
 
@@ -32,6 +33,7 @@ allprojects {
 	sourceSets {
 		main {
 			java.srcDir("src/main/gen")
+			java.srcDir("src/main/kotlin")
 		}
 	}
 
