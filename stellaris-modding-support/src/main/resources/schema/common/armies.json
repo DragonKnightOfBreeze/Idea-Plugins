@@ -1,0 +1,10 @@
+{
+  "definitions": {
+    "army": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": {
+    "$ref": "#/definitions/army"
+  }
+}

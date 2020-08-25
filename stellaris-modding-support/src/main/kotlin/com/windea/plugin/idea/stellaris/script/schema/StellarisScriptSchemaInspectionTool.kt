@@ -36,10 +36,11 @@ class StellarisScriptSchemaInspectionTool : LocalInspectionTool() {
 		val options = JsonComplianceCheckerOptions(caseInsensitiveEnum)
 		return object : StellarisScriptVisitor() {
 			override fun visitElement(element: PsiElement) {
-				if(roots.contains(element)) {
+				if(element in roots) {
 					val walker = JsonLikePsiWalker.getWalker(element, schemaObject) ?: return
 					JsonSchemaComplianceChecker(schemaObject, holder, walker, session, options, "Schema validation: ").annotate(element)
 				}
+				super.visitElement(element)
 			}
 		}
 	}

@@ -2,6 +2,7 @@ package com.windea.plugin.idea.stellaris.script.schema
 
 import com.intellij.openapi.vfs.*
 import com.jetbrains.jsonSchema.extension.*
+import com.jetbrains.jsonSchema.impl.*
 import com.windea.plugin.idea.stellaris.script.*
 
 class StellarisScriptSchemaProvider(
@@ -9,12 +10,12 @@ class StellarisScriptSchemaProvider(
 	private val isDirectory :Boolean = false,
 	private val schemaFile: VirtualFile
 ) : JsonSchemaFileProvider {
-	private val reversedPathList = name.removePrefix("/").split("/").reversed()
+	private val reversedPathList = name.split("/").reversed()
 
 	override fun isAvailable(file: VirtualFile): Boolean {
 		return file.fileType == StellarisScriptFileType && isMatched(file)
 		//val fileType = file.fileType
-		//return fileType is LanguageFileType && fileType.language is StellarisScriptLanguage && isMatched(file)
+		//return fileType is LanguageFileType && fileType.language is StellarisScriptLanguage && isMatched(file)  && isMatched(file)
 	}
 
 	private fun isMatched(file: VirtualFile): Boolean {
@@ -38,5 +39,9 @@ class StellarisScriptSchemaProvider(
 
 	override fun getSchemaType(): SchemaType {
 		return SchemaType.schema
+	}
+
+	override fun getSchemaVersion(): JsonSchemaVersion {
+		return JsonSchemaVersion.SCHEMA_7
 	}
 }

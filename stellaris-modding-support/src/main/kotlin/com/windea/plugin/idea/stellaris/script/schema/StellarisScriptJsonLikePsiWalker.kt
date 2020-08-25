@@ -2,7 +2,9 @@ package com.windea.plugin.idea.stellaris.script.schema
 
 import com.intellij.json.pointer.*
 import com.intellij.psi.*
+import com.intellij.psi.util.*
 import com.intellij.util.*
+import com.intellij.util.containers.*
 import com.jetbrains.jsonSchema.extension.*
 import com.jetbrains.jsonSchema.extension.adapters.*
 import com.windea.plugin.idea.stellaris.*
@@ -50,12 +52,13 @@ object StellarisScriptJsonLikePsiWalker : JsonLikePsiWalker {
 	}
 
 	override fun getRoots(file: PsiFile): MutableCollection<PsiElement> {
-		return file.toSingletonOrEmpty()
+		val root =  PsiTreeUtil.findChildOfType(file,StellarisScriptPropertyValue::class.java)
+		return ContainerUtil.createMaybeSingletonList(root)
 	}
 
 	override fun getParentPropertyAdapter(element: PsiElement): JsonPropertyAdapter? {
-		val parent = element.parent
-		return if(parent is StellarisScriptProperty) StellarisScriptPropertyAdapter(parent) else null
+		val parent = element.parentOfType<StellarisScriptProperty>(true)
+		return if(parent != null) StellarisScriptPropertyAdapter(parent) else null
 	}
 
 	override fun getPropertyNameElement(property: PsiElement?): PsiElement? {
