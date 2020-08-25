@@ -14,22 +14,28 @@ import com.windea.plugin.idea.stellaris.script.psi.*
 
 object StellarisScriptJsonLikePsiWalker : JsonLikePsiWalker {
 	override fun findElementToCheck(element: PsiElement): PsiElement? {
+		//    PsiElement current = element;
+		//    while (current != null && !(current instanceof PsiFile)) {
+		//      if (current instanceof JsonValue || current instanceof JsonProperty) {
+		//        return current;
+		//      }
+		//      current = current.getParent();
+		//    }
+		//    return null;
 		//得到需要检查的元素
 		var current = element
-		//如果是空白元素，则需要特殊处理
-		if(current is PsiWhiteSpace) {
-			val prev = current.prevSibling
-			//（输入字符之后）如果之前存在元素，则得到之前的元素的父元素
-			if(prev != null) return current.prevSibling.parent
-		}
-		while(true){
-			if(current is PsiFile) return null
-			if(current is StellarisScriptProperty || current is StellarisScriptPropertyKey ||
-			   current is StellarisScriptPropertyValue || current is StellarisScriptItem) {
-				return current
+		while(current !is PsiFile){
+			when(current) {
+				is StellarisScriptProperty, is StellarisScriptPropertyKey, is StellarisScriptPropertyValue -> {
+					return current
+				}
+				is StellarisScriptItem -> {
+					return current.parent
+				}
+				else -> current = current.parent
 			}
-			current = current.parent
 		}
+		return null
 	}
 
 	override fun isName(element: PsiElement): ThreeState {
