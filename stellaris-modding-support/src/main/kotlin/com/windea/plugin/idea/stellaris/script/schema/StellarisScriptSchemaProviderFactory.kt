@@ -12,7 +12,10 @@ class StellarisScriptSchemaProviderFactory : JsonSchemaProviderFactory {
 		val schemaUrl = "schema".toClassPathResource()
 		if(schemaUrl!=null){
 			val manager = VirtualFileManager.getInstance()
-			val schemaFile = File(schemaUrl.toURI())
+			//实际上读取的是jar中的文件，因此不能直接使用uri
+			val path = schemaUrl.file.replace("%20"," ")
+			val schemaFile = File(path)
+			val files = schemaFile.list()
 			schemaFile.walk().forEach {
 				when {
 					it.isDirectory || it.extension != "yml" || it.extension != "yaml" -> return@forEach

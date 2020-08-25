@@ -39,6 +39,8 @@ import javax.swing.*;
 import java.util.*;
 import java.util.stream.Collectors;
 
+//TODO 规范格式的代码补全
+
 //修改原有的代码：将所有冒号替换为等号
 
 //com.jetbrains.jsonSchema.impl.JsonSchemaCompletionContributor
@@ -46,7 +48,7 @@ import java.util.stream.Collectors;
 @SuppressWarnings("ALL")
 public class JsonSchemaCompletionContributor0 extends CompletionContributor {
 	private static final Character SEPARATOR_CHAR = '=';
-	private static final String SEPARATOR = "=";
+	private static final String SEPARATOR = " = ";
 
 	private static final String BUILTIN_USAGE_KEY = "builtin";
 	private static final String SCHEMA_USAGE_KEY = "schema";
@@ -812,7 +814,7 @@ public class JsonSchemaCompletionContributor0 extends CompletionContributor {
 		int offset = editor.getCaretModel().getOffset();
 		CharSequence charSequence = editor.getDocument().getCharsSequence();
 		final String ws = charSequence.length() > offset && charSequence.charAt(offset) == ' ' ? "" : " ";
-		final String colonWs = insertColon ? ws + SEPARATOR + ws : ws;
+		final String colonWs = insertColon ? SEPARATOR : ws;
 		String stringToInsert = colonWs + (hasDefaultValue ? defaultValue : (hasQuotes ? "" : "\"\"")) + comma;
 		EditorModificationUtil.insertStringAtCaret(editor, stringToInsert, false, true,
 			insertColon ? 2 : 1);

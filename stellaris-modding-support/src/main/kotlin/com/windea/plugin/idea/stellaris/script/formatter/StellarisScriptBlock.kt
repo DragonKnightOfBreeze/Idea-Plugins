@@ -13,16 +13,17 @@ class StellarisScriptBlock(
 	node: ASTNode,
 	private val settings: CodeStyleSettings,
 	private val shouldIndent: Boolean = false
-) : AbstractBlock(node, createWrap(), createAlignment(node,shouldIndent)) {
+) : AbstractBlock(node, createWrap(), createAlignment(node)) {
 	companion object {
 		private fun createWrap(): Wrap? {
 			return null
 		}
 
-		private fun createAlignment(node: ASTNode, shouldIndent: Boolean): Alignment? {
-			return when {
-				node.elementType == COMMENT -> Alignment.createAlignment()
-				!shouldIndent -> Alignment.createAlignment()
+		private fun createAlignment(node: ASTNode): Alignment? {
+			return when(node.elementType) {
+				COMMENT -> Alignment.createAlignment()
+				VARIABLE_DEFINITION -> Alignment.createAlignment()
+				PROPERTY -> Alignment.createAlignment()
 				else -> null
 			}
 		}

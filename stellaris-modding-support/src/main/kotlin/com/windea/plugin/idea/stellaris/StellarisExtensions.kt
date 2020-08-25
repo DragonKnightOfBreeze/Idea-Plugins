@@ -14,7 +14,6 @@ import com.intellij.psi.*
 import com.intellij.psi.search.*
 import com.intellij.psi.search.GlobalSearchScope.*
 import com.intellij.psi.util.*
-import com.intellij.util.*
 import com.windea.plugin.idea.stellaris.localization.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
 import com.windea.plugin.idea.stellaris.script.*
@@ -31,23 +30,30 @@ fun Boolean.toInt() = if(this) 1 else 0
 
 val workDirectory = File("")
 
-val defaultClassLoader = Thread.currentThread().contextClassLoader
+private val classPathLocationClass = StellarisBundle.javaClass
+
+private val defaultClassLoader = runCatching {
+	classPathLocationClass.classLoader
+}.recoverCatching{
+	ClassLoader.getSystemClassLoader()
+}.recoverCatching {
+	ClassLoader.getPlatformClassLoader()
+}.getOrThrow()
 
 fun String.toClassPathResource(): URL? = defaultClassLoader.getResource(this)
-
 
 @Suppress("UNCHECKED_CAST")
 fun <T> Array<out T?>.cast() = this as Array<T>
 
-inline fun <T, reified R> List<T>.mapArray(block: (T) -> R): Array< R> {
+inline fun <T, reified R> List<T>.mapArray(block: (T) -> R): Array<R> {
 	return Array<R>(size) { block(this[it]) }
 }
 
-inline fun <T, reified R> Array<out T>.mapArray(block: (T) -> R): Array< R> {
+inline fun <T, reified R> Array<out T>.mapArray(block: (T) -> R): Array<R> {
 	return Array<R>(size) { block(this[it]) }
 }
 
-inline fun <T, reified R> Sequence<T>.mapArray(block: (T) -> R): Array< R> {
+inline fun <T, reified R> Sequence<T>.mapArray(block: (T) -> R): Array<R> {
 	return this.toList().mapArray(block)
 }
 
@@ -59,7 +65,7 @@ fun String.quoteIfNecessary() = if(contains("\\s".toRegex())) quote() else this
 fun String.unquote() = if(startsWith('"') && endsWith('"')) substring(1, length - 1) else this
 
 
-fun String.truncate(limit:Int) = if(this.length <= limit) this else this.take(limit) + "..."
+fun String.truncate(limit: Int) = if(this.length <= limit) this else this.take(limit) + "..."
 
 
 fun CharSequence.indicesOf(char: Char, ignoreCase: Boolean = false): MutableList<Int> {
@@ -72,36 +78,36 @@ fun CharSequence.indicesOf(char: Char, ignoreCase: Boolean = false): MutableList
 	return indices
 }
 
-inline fun <reified T> T.toSingletonArray():Array<T>{
+inline fun <reified T> T.toSingletonArray(): Array<T> {
 	return arrayOf(this)
 }
 
-inline fun <reified T> Sequence<T>.toArray():Array<T>{
+inline fun <reified T> Sequence<T>.toArray(): Array<T> {
 	return this.toList().toTypedArray()
 }
 
-fun <T> T.toSingletonList():List<T>{
+fun <T> T.toSingletonList(): List<T> {
 	return Collections.singletonList(this)
 }
 
-fun <T:Any> T?.toSingletonOrEmpty(): MutableCollection<T> {
+fun <T : Any> T?.toSingletonOrEmpty(): MutableCollection<T> {
 	return if(this == null) Collections.emptySet() else Collections.singleton(this)
 }
 //endregion
 
 //region Psi
-inline fun PsiElement.forEachChild(block: (PsiElement) -> Unit){
+inline fun PsiElement.forEachChild(block: (PsiElement) -> Unit) {
 	var child = this.firstChild
-	while(child != null){
+	while(child != null) {
 		block(child)
 		child = child.nextSibling
 	}
 }
 
-inline fun <reified T:PsiElement> PsiElement.indexOfChild(element:T):Int{
+inline fun <reified T : PsiElement> PsiElement.indexOfChild(element: T): Int {
 	var child = firstChild
 	var index = 0
-	while(child != null){
+	while(child != null) {
 		when(child) {
 			element -> return index
 			is T -> index++
@@ -126,7 +132,7 @@ fun ASTNode.nodesNotWhiteSpace(): List<ASTNode> {
 
 /**查找当前项目中指定语言文件类型和作用域的Psi文件。*/
 @Suppress("UNCHECKED_CAST")
-fun <T:PsiFile> Project.findFiles(type: LanguageFileType,globalSearchScope: GlobalSearchScope = projectScope(this)): Sequence<T> {
+fun <T : PsiFile> Project.findFiles(type: LanguageFileType, globalSearchScope: GlobalSearchScope = projectScope(this)): Sequence<T> {
 	return FileTypeIndex.getFiles(type, globalSearchScope).asSequence().mapNotNull {
 		PsiManager.getInstance(this).findFile(it)
 	} as Sequence<T>
@@ -153,7 +159,7 @@ fun getDocCommentTextFromPreviousComment(element: PsiElement): String {
 				if(!isPreviousComment(prevElement)) break
 				if(length != 0) insert(0, "\n")
 				insert(0, text.trimStart('#').trim())
-			} else{
+			} else {
 				if(containsBlankLine(text)) break
 			}
 			prevElement = prevElement.prevSibling
@@ -165,10 +171,10 @@ fun isPreviousComment(element: PsiElement): Boolean {
 	return element.elementType == StellarisLocalizationTypes.COMMENT || element.elementType == StellarisScriptTypes.COMMENT
 }
 
-fun containsBlankLine(text:String):Boolean{
+fun containsBlankLine(text: String): Boolean {
 	var newLine = 0
 	text.forEach {
-		if(it == '\r' || it == '\n') newLine ++
+		if(it == '\r' || it == '\n') newLine++
 		if(newLine >= 2) return true
 	}
 	return false
@@ -209,7 +215,7 @@ fun findFurthestSiblingOfSameType(element: PsiElement, after: Boolean): PsiEleme
 }
 
 
-fun LookupElement.withPriority(priority: Double): LookupElement = PrioritizedLookupElement.withPriority(this,priority)
+fun LookupElement.withPriority(priority: Double): LookupElement = PrioritizedLookupElement.withPriority(this, priority)
 
 
 /**导航到指定元素的位置*/
@@ -230,43 +236,43 @@ fun selectElement(editor: Editor, element: PsiElement?) {
 
 //region Stellaris Script
 fun findScriptVariableDefinitionInFile(name: String, psiFile: PsiFile?): StellarisScriptVariableDefinition? {
-	if( psiFile !is StellarisScriptFile) return null
+	if(psiFile !is StellarisScriptFile) return null
 	return psiFile.variableDefinitions.find { it.name == name }
 }
 
-fun findScriptVariableDefinition(name: String, project: Project, globalSearchScope: GlobalSearchScope=GlobalSearchScope.projectScope(project)): StellarisScriptVariableDefinition? {
-	val files = project.findFiles<StellarisScriptFile>(StellarisScriptFileType,globalSearchScope)
+fun findScriptVariableDefinition(name: String, project: Project, globalSearchScope: GlobalSearchScope = GlobalSearchScope.projectScope(project)): StellarisScriptVariableDefinition? {
+	val files = project.findFiles<StellarisScriptFile>(StellarisScriptFileType, globalSearchScope)
 	return files.flatMap { it.variableDefinitions.asSequence() }.find { it.name == name }
 }
 
-fun findScriptVariableDefinitions(name: String, project: Project, globalSearchScope: GlobalSearchScope=GlobalSearchScope.projectScope(project)): Sequence< StellarisScriptVariableDefinition> {
-	val files = project.findFiles<StellarisScriptFile>(StellarisScriptFileType,globalSearchScope)
+fun findScriptVariableDefinitions(name: String, project: Project, globalSearchScope: GlobalSearchScope = GlobalSearchScope.projectScope(project)): Sequence<StellarisScriptVariableDefinition> {
+	val files = project.findFiles<StellarisScriptFile>(StellarisScriptFileType, globalSearchScope)
 	return files.flatMap { it.variableDefinitions.asSequence() }.filter { it.name == name }
 }
 
-fun findAllScriptVariableDefinitions(project: Project, globalSearchScope: GlobalSearchScope=GlobalSearchScope.projectScope(project)): Sequence< StellarisScriptVariableDefinition> {
-	val files = project.findFiles<StellarisScriptFile>(StellarisScriptFileType,globalSearchScope)
+fun findAllScriptVariableDefinitions(project: Project, globalSearchScope: GlobalSearchScope = GlobalSearchScope.projectScope(project)): Sequence<StellarisScriptVariableDefinition> {
+	val files = project.findFiles<StellarisScriptFile>(StellarisScriptFileType, globalSearchScope)
 	return files.flatMap { it.variableDefinitions.asSequence() }.filterNot { it.name.isNullOrEmpty() }
 }
 
 
-fun findScriptPropertyInFile(name: String,  file: PsiFile): StellarisScriptProperty? {
+fun findScriptPropertyInFile(name: String, file: PsiFile): StellarisScriptProperty? {
 	if(file !is StellarisScriptFile) return null
 	return file.properties.find { it.name == name }
 }
 
-fun findScriptProperty(name: String, project: Project, globalSearchScope: GlobalSearchScope=GlobalSearchScope.projectScope(project)): StellarisScriptProperty? {
-	val files = project.findFiles<StellarisScriptFile>(StellarisScriptFileType,globalSearchScope)
+fun findScriptProperty(name: String, project: Project, globalSearchScope: GlobalSearchScope = GlobalSearchScope.projectScope(project)): StellarisScriptProperty? {
+	val files = project.findFiles<StellarisScriptFile>(StellarisScriptFileType, globalSearchScope)
 	return files.flatMap { it.properties.asSequence() }.find { it.name == name }
 }
 
-fun findScriptProperties(name: String, project: Project, globalSearchScope: GlobalSearchScope=GlobalSearchScope.projectScope(project)): Sequence<StellarisScriptProperty> {
-	val files = project.findFiles<StellarisScriptFile>(StellarisScriptFileType,globalSearchScope)
+fun findScriptProperties(name: String, project: Project, globalSearchScope: GlobalSearchScope = GlobalSearchScope.projectScope(project)): Sequence<StellarisScriptProperty> {
+	val files = project.findFiles<StellarisScriptFile>(StellarisScriptFileType, globalSearchScope)
 	return files.flatMap { it.properties.asSequence() }.filter { it.name == name }
 }
 
-fun findScriptProperties(project: Project, globalSearchScope: GlobalSearchScope=GlobalSearchScope.projectScope(project)): Sequence<StellarisScriptProperty> {
-	val files = project.findFiles<StellarisScriptFile>(StellarisScriptFileType,globalSearchScope)
+fun findScriptProperties(project: Project, globalSearchScope: GlobalSearchScope = GlobalSearchScope.projectScope(project)): Sequence<StellarisScriptProperty> {
+	val files = project.findFiles<StellarisScriptFile>(StellarisScriptFileType, globalSearchScope)
 	return files.flatMap { it.properties.asSequence() }.filterNot { it.name.isNullOrEmpty() }
 }
 //endregion
@@ -277,18 +283,18 @@ fun findLocalizationPropertyInFile(name: String, file: PsiFile): StellarisLocali
 	return file.properties.find { it.name == name }
 }
 
-fun findLocalizationProperty(name: String, project: Project, globalSearchScope: GlobalSearchScope=GlobalSearchScope.projectScope(project)): StellarisLocalizationProperty? {
-	val files = project.findFiles<StellarisLocalizationFile>(StellarisLocalizationFileType,globalSearchScope)
+fun findLocalizationProperty(name: String, project: Project, globalSearchScope: GlobalSearchScope = GlobalSearchScope.projectScope(project)): StellarisLocalizationProperty? {
+	val files = project.findFiles<StellarisLocalizationFile>(StellarisLocalizationFileType, globalSearchScope)
 	return files.flatMap { it.properties.asSequence() }.find { it.name == name }
 }
 
-fun findLocalizationProperties(name: String, project: Project, globalSearchScope: GlobalSearchScope=GlobalSearchScope.projectScope(project)): Sequence<StellarisLocalizationProperty> {
-	val files = project.findFiles<StellarisLocalizationFile>(StellarisLocalizationFileType,globalSearchScope)
+fun findLocalizationProperties(name: String, project: Project, globalSearchScope: GlobalSearchScope = GlobalSearchScope.projectScope(project)): Sequence<StellarisLocalizationProperty> {
+	val files = project.findFiles<StellarisLocalizationFile>(StellarisLocalizationFileType, globalSearchScope)
 	return files.flatMap { it.properties.asSequence() }.filter { it.name == name }
 }
 
-fun findLocalizationProperties(project:Project, globalSearchScope: GlobalSearchScope=GlobalSearchScope.projectScope(project)): Sequence<StellarisLocalizationProperty> {
-	val files = project.findFiles<StellarisLocalizationFile>(StellarisLocalizationFileType,globalSearchScope)
+fun findLocalizationProperties(project: Project, globalSearchScope: GlobalSearchScope = GlobalSearchScope.projectScope(project)): Sequence<StellarisLocalizationProperty> {
+	val files = project.findFiles<StellarisLocalizationFile>(StellarisLocalizationFileType, globalSearchScope)
 	return files.flatMap { it.properties.asSequence() }.filterNot { it.name.isNullOrEmpty() }
 }
 //endregion
