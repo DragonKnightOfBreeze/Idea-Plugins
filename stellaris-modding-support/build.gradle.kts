@@ -19,3 +19,9 @@ grammarKit {
 	// tag or short commit hash of Grammar-Kit to use (see link below). Default is 2020.1
 	grammarKitRelease = "2020.1"
 }
+
+dependencies{
+	testImplementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:0.13.0")
+	testImplementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.10.1")
+	testImplementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.10.1")
+}

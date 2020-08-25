@@ -17,9 +17,8 @@ class StellarisScriptSchemaGotoDeclarationHandler:GotoDeclarationHandler {
 		//经测试这里的sourceElement是PROPERTY_KEY_ID
 		if(sourceElement == null) return null
 		return when(sourceElement.elementType){
-			PROPERTY_KEY_ID -> getTargets(sourceElement)
+			PROPERTY_KEY_ID -> getTargets(sourceElement.parent)
 			PROPERTY_KEY -> getTargets(sourceElement)
-			PROPERTY -> getTargets(sourceElement)
 			else -> null
 		}
 	}
@@ -30,7 +29,7 @@ class StellarisScriptSchemaGotoDeclarationHandler:GotoDeclarationHandler {
 		if(service.isApplicableToFile(file.virtualFile)){
 			val steps = StellarisScriptJsonLikePsiWalker.findPosition(sourceElement,true)?:return null
 			val schemaObject = service.getSchemaObject(file)?:return null
-			val target = JsonSchemaResolver(sourceElement.project,schemaObject,steps).findNavigationTarget(sourceElement.parent)?:return null
+			val target = JsonSchemaResolver(sourceElement.project,schemaObject,steps).findNavigationTarget(sourceElement)?:return null
 			return arrayOf(target)
 		}
 		return null

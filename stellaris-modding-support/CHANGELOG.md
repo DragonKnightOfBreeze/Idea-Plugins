@@ -163,8 +163,9 @@
 * [X] Schema：进行代码补全时，插入等号而非冒号（原始代码是硬编码，需要自行调整）
 * [X] Schema：可以从属性名定位到Schema文件中的定义处
 * [X] Schema：根据文件名和所在目录，自动关联对应的Schema文件
+* [X] Schema：进行Schema验证，当规则不匹配时显示错误
+* [ ] Schema：由Yaml Schema生成Json Schema，jar包中需要Json Schema（Yaml Schema不识别并且可能产生意外错误）
 * [ ] Schema：更加符合格式的代码补全
-* [ ] Schema：进行Schema验证，当规则不匹配时显示警告/错误
 * [ ] Schema：为脚本文件提供较为完善的Schema文件
 * [ ] 仅当找到descriptor.mod文件时，才将所在目录中你的yml文件和txt文件识别为本地化文件和脚本文件
 

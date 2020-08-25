@@ -19,8 +19,8 @@ object StellarisScriptJsonLikePsiWalker : JsonLikePsiWalker {
 		//如果是空白元素，则需要特殊处理
 		if(current is PsiWhiteSpace) {
 			val prev = current.prevSibling
-			//（输入字符之后）如果之前存在元素，则得到之前的元素
-			if(prev != null) current = current.prevSibling
+			//（输入字符之后）如果之前存在元素，则得到之前的元素的父元素
+			if(prev != null) return current.prevSibling.parent
 		}
 		while(true){
 			if(current is PsiFile) return null
@@ -87,11 +87,8 @@ object StellarisScriptJsonLikePsiWalker : JsonLikePsiWalker {
 	}
 
 	override fun findPosition(element: PsiElement, forceLastTransition: Boolean): JsonPointerPosition? {
-		//如果当前输入的是/root/p，则需要得到的是/root
-
 		val position = JsonPointerPosition()
-		//var current = element
-		var current = element.parent
+		var current = element
 		while(true) {
 			when(current){
 				is PsiFile -> return position
