@@ -388,14 +388,10 @@ public class JsonSchemaCompletionContributor0 extends CompletionContributor {
 				addValueVariant("null", null);
 			} else if(JsonSchemaType._array.equals(type)) {
 				String value = myWalker.getDefaultArrayValue();
-				addValueVariant(value, null,
-					"[...]", createArrayOrObjectLiteralInsertHandler(myWalker.hasWhitespaceDelimitedCodeBlocks(),
-						value.length()));
+				addValueVariant(value, null, "[...]", createArrayOrObjectLiteralInsertHandler(value.length()));
 			} else if(JsonSchemaType._object.equals(type)) {
 				String value = myWalker.getDefaultObjectValue();
-				addValueVariant(value, null,
-					"{...}", createArrayOrObjectLiteralInsertHandler(myWalker.hasWhitespaceDelimitedCodeBlocks(),
-						value.length()));
+				addValueVariant(value, null, "{...}", createArrayOrObjectLiteralInsertHandler(value.length()));
 			}
 		}
 
@@ -536,21 +532,12 @@ public class JsonSchemaCompletionContributor0 extends CompletionContributor {
 			return variants.stream().map(JsonSchemaObject::guessType).filter(Objects::nonNull).distinct().count() <= 1;
 		}
 
-		private static InsertHandler<LookupElement> createArrayOrObjectLiteralInsertHandler(boolean newline,
-			int insertedTextSize) {
+		private static InsertHandler<LookupElement> createArrayOrObjectLiteralInsertHandler(int insertedTextSize) {
 			return new InsertHandler<LookupElement>() {
 				@Override
 				public void handleInsert(@NotNull InsertionContext context, @NotNull LookupElement item) {
 					Editor editor = context.getEditor();
-
-					if(!newline) {
-						EditorModificationUtil.moveCaretRelatively(editor, -1);
-					} else {
-						EditorModificationUtil.moveCaretRelatively(editor, -insertedTextSize);
-						PsiDocumentManager.getInstance(context.getProject()).commitDocument(editor.getDocument());
-						invokeEnterHandler(editor);
-						EditorActionUtil.moveCaretToLineEnd(editor, false, false);
-					}
+					EditorModificationUtil.moveCaretRelatively(editor, -1);
 					AutoPopupController.getInstance(context.getProject()).autoPopupMemberLookup(editor, null);
 				}
 			};

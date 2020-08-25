@@ -14,19 +14,24 @@ import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
 
 class StellarisScriptSchemaGotoDeclarationHandler:GotoDeclarationHandler {
 	override fun getGotoDeclarationTargets(sourceElement: PsiElement?, offset: Int, editor: Editor?): Array<PsiElement>? {
-		//sourceElement: PROPERTY_KEY_ID
+		//经测试这里的sourceElement是PROPERTY_KEY_ID
 		if(sourceElement == null) return null
-		when(sourceElement.elementType){
-			PROPERTY_KEY_ID -> {
-				val file = sourceElement.containingFile?:return null
-				val service = JsonSchemaService.Impl.get(sourceElement.project)
-				if(service.isApplicableToFile(file.virtualFile)){
-					val steps = StellarisScriptJsonLikePsiWalker.findPosition(sourceElement,true)?:return null
-					val schemaObject = service.getSchemaObject(file)?:return null
-					val target = JsonSchemaResolver(sourceElement.project,schemaObject,steps).findNavigationTarget(sourceElement.parent)?:return null
-					return arrayOf(target)
-				}
-			}
+		return when(sourceElement.elementType){
+			PROPERTY_KEY_ID -> getTargets(sourceElement)
+			PROPERTY_KEY -> getTargets(sourceElement)
+			PROPERTY -> getTargets(sourceElement)
+			else -> null
+		}
+	}
+
+	private fun getTargets(sourceElement: PsiElement):Array<PsiElement>?{
+		val file = sourceElement.containingFile?:return null
+		val service = JsonSchemaService.Impl.get(sourceElement.project)
+		if(service.isApplicableToFile(file.virtualFile)){
+			val steps = StellarisScriptJsonLikePsiWalker.findPosition(sourceElement,true)?:return null
+			val schemaObject = service.getSchemaObject(file)?:return null
+			val target = JsonSchemaResolver(sourceElement.project,schemaObject,steps).findNavigationTarget(sourceElement.parent)?:return null
+			return arrayOf(target)
 		}
 		return null
 	}

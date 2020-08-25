@@ -11,15 +11,9 @@ import com.windea.plugin.idea.stellaris.script.*
 
 class StellarisScriptSchemaEnabler:JsonSchemaEnabler {
 	override fun isEnabledForFile(file: VirtualFile, project: Project?): Boolean {
-		val fileType = file.fileType
-		return when {
-			fileType is LanguageFileType && fileType.language is StellarisScriptLanguage -> true
-			project != null && ScratchUtil.isScratch(file) -> {
-				val rootType = ScratchFileService.findRootType(file)
-				rootType != null && rootType.substituteLanguage(project,file) is StellarisScriptLanguage
-			}
-			else -> false
-		}
+		return file.fileType == StellarisScriptFileType
+		//val fileType = file.fileType
+		//return fileType is LanguageFileType && fileType.language is StellarisScriptLanguage
 	}
 
 	override fun canBeSchemaFile(file: VirtualFile?): Boolean {

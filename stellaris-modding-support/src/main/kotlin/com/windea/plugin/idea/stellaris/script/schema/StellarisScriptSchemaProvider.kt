@@ -1,35 +1,35 @@
 package com.windea.plugin.idea.stellaris.script.schema
 
-import com.intellij.openapi.fileTypes.*
 import com.intellij.openapi.vfs.*
 import com.jetbrains.jsonSchema.extension.*
 import com.windea.plugin.idea.stellaris.script.*
 
 class StellarisScriptSchemaProvider(
-	private val pattern:String,
+	private val name:String,
 	private val isDirectory :Boolean = false,
 	private val schemaFile: VirtualFile
-): JsonSchemaFileProvider {
+) : JsonSchemaFileProvider {
+	private val reversedPathList = name.removePrefix("/").split("/").reversed()
+
 	override fun isAvailable(file: VirtualFile): Boolean {
-		val fileType = file.fileType
-		return fileType is LanguageFileType && fileType.language is StellarisScriptLanguage && isMatched(file)
+		return file.fileType == StellarisScriptFileType && isMatched(file)
+		//val fileType = file.fileType
+		//return fileType is LanguageFileType && fileType.language is StellarisScriptLanguage && isMatched(file)
 	}
 
-	private fun isMatched(file: VirtualFile):Boolean{
-		return if(isDirectory){
-			val dirs = pattern.split("/")
-			val current = file.parent
-			dirs.reversed().forEach { it ->
-				if(it != current.name) return false
-			}
-			true
-		}else{
-			file.name == pattern
+	private fun isMatched(file: VirtualFile): Boolean {
+		//匹配名字与当前文件的文件名和目录
+		var current = file
+		if(isDirectory) current = file.parent
+		reversedPathList.forEach {
+			if(it != current.name) return false
+			current = current.parent
 		}
+		return true
 	}
 
 	override fun getName(): String {
-		return schemaFile.name
+		return name
 	}
 
 	override fun getSchemaFile(): VirtualFile? {

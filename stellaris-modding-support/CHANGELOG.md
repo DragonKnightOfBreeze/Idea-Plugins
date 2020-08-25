@@ -162,8 +162,8 @@
 * [X] 解决`String.toClassPathResource()`扩展方法的bug（最好基于特定的Class而非ClassLoader，需要考虑发布版本从jar中读取的情况）
 * [X] Schema：进行代码补全时，插入等号而非冒号（原始代码是硬编码，需要自行调整）
 * [X] Schema：可以从属性名定位到Schema文件中的定义处
+* [X] Schema：根据文件名和所在目录，自动关联对应的Schema文件
 * [ ] Schema：更加符合格式的代码补全
-* [ ] Schema：根据文件名和所在目录，自动关联对应的Schema文件
 * [ ] Schema：进行Schema验证，当规则不匹配时显示警告/错误
 * [ ] Schema：为脚本文件提供较为完善的Schema文件
 * [ ] 仅当找到descriptor.mod文件时，才将所在目录中你的yml文件和txt文件识别为本地化文件和脚本文件
