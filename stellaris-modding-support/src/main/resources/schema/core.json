@@ -9,7 +9,7 @@
       "default" : 0.0
     },
     "boolean" : {
-      "enum" : [ true, false ]
+      "enum" : [ "yes", "no" ]
     },
     "uint" : {
       "type" : "integer",

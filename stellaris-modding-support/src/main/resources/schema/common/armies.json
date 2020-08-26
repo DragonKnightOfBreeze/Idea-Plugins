@@ -20,7 +20,7 @@
         },
         "has_morale" : {
           "$ref" : "../core.json#/definitions/boolean",
-          "default" : true
+          "default" : "yes"
         },
         "collateral_damage" : {
           "$ref" : "../core.json#/definitions/float"
@@ -36,11 +36,11 @@
         },
         "has_species" : {
           "$ref" : "../core.json#/definitions/boolean",
-          "default" : true
+          "default" : "yes"
         },
         "pop_limited" : {
           "$ref" : "../core.json#/definitions/boolean",
-          "default" : true
+          "default" : "yes"
         },
         "defensive" : {
           "$ref" : "../core.json#/definitions/boolean"

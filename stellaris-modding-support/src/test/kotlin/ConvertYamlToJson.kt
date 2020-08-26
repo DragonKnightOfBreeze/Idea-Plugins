@@ -17,7 +17,7 @@ fun main() {
 		runCatching {
 			if(it.isFile && it.extension == "yaml") {
 				//snakeYaml将yes/no识别为布尔值，因此这里需要特殊处理
-				val yaml = it.readText().replace("""\b(yes|no)\b""","$1")
+				val yaml = it.readText().replace("""\b(yes|no)\b""".toRegex(),"\"$1\"")
 				val data = yamlMapper.readValue(yaml, Any::class.java)
 				val json = jsonMapper.writeValueAsString(data)
 					.replace(".yaml",".json")

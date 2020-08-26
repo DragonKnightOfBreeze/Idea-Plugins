@@ -15,6 +15,9 @@ public interface StellarisScriptVariableValue extends PsiLiteralValue {
   StellarisScriptNumber getNumber();
 
   @Nullable
+  StellarisScriptString getString();
+
+  @Nullable
   String getValue();
 
 }

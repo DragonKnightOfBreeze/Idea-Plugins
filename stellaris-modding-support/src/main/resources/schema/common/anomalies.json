@@ -5,11 +5,11 @@
       "properties" : {
         "should_ai_use" : {
           "$ref" : "../core.json#/definitions/boolean",
-          "default" : false
+          "default" : "no"
         },
         "show_ai_and_humans_use" : {
           "$ref" : "../core.json#/definitions/boolean",
-          "default" : false
+          "default" : "no"
         },
         "desc" : {
           "$ref" : "../core.json#/definitions/desc"
@@ -25,11 +25,11 @@
         },
         "max_once" : {
           "$ref" : "../core.json#/definitions/boolean",
-          "default" : false
+          "default" : "no"
         },
         "max_once_global" : {
           "$ref" : "../core.json#/definitions/boolean",
-          "default" : false
+          "default" : "no"
         },
         "spawn_chance" : {
           "$ref" : "../core.json#/definitions/modifier_chance"
@@ -57,11 +57,11 @@
             "properties" : {
               "max_once" : {
                 "$ref" : "../core.json#/definitions/boolean",
-                "default" : true
+                "default" : "yes"
               },
               "max_once_global" : {
                 "$ref" : "../core.json#/definitions/boolean",
-                "default" : false
+                "default" : "no"
               },
               "anomaly_event" : {
                 "$ref" : "../core.json#/definitions/event_id"

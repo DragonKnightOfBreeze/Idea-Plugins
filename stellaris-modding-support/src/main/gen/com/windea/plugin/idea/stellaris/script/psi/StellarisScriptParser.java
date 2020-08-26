@@ -270,14 +270,14 @@ public class StellarisScriptParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // boolean | number
+  // boolean | number | string
   public static boolean variable_value(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "variable_value")) return false;
-    if (!nextTokenIs(b, "<variable value>", BOOLEAN_TOKEN, NUMBER_TOKEN)) return false;
     boolean r;
     Marker m = enter_section_(b, l, _NONE_, VARIABLE_VALUE, "<variable value>");
     r = boolean_$(b, l + 1);
     if (!r) r = number(b, l + 1);
+    if (!r) r = string(b, l + 1);
     exit_section_(b, l, m, r, false, null);
     return r;
   }

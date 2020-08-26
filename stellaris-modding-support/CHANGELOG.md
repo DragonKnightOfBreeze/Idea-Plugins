@@ -165,9 +165,9 @@
 * [X] Schema：根据文件名和所在目录，自动关联对应的Schema文件
 * [X] Schema：进行Schema验证，当规则不匹配时显示错误
 * [X] Schema：由Yaml Schema生成Json Schema，jar包中需要Json Schema（Yaml Schema不识别并且可能产生意外错误）
-* [ ] Schema：解决jar包中的指向其他schema文件的`$ref`属性不能正确工作的bug
 * [X] Schema：从Yaml Schema生成Json Schema时，不将yes/no识别为布尔值
 * [X] Schema：更加符合格式的代码补全（光标向右移1格，数组和对象补全不换行）
+* [ ] Schema：解决jar包中的指向其他schema文件的`$ref`属性不能正确工作的bug
 * [ ] Schema：为脚本文件提供较为完善的Schema文件
 * [ ] 仅当找到descriptor.mod文件时，才将所在目录中你的yml文件和txt文件识别为本地化文件和脚本文件
 

@@ -5,11 +5,11 @@
       "properties" : {
         "show_in_diplomacy" : {
           "$ref" : "../core.json#/definitions/boolean",
-          "default" : true
+          "default" : "yes"
         },
         "show_notification" : {
           "$ref" : "../core.json#/definitions/boolean",
-          "default" : true
+          "default" : "yes"
         },
         "potential" : {
           "$ref" : "../core.json#/definitions/conditions"
