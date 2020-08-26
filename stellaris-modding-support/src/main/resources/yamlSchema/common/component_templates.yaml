@@ -12,7 +12,7 @@ definitions:
       icon:
         $ref: "../core.yaml/#/definitions/gfx_reference"
       icon_frame:
-        $ref: "../core.yaml/#/definitions/uint"
+        $ref: "../core.yaml/#/definitions/int"
       color:
         $ref: "../core.yaml/#/definitions/color"
       prio_projectile:
@@ -20,72 +20,78 @@ definitions:
       hidden:
         $ref: "../core.yaml/#/definitions/boolean"
       firing_arc:
-        $ref: "../core.yaml/#/definitions/number"
+        $ref: "../core.yaml/#/definitions/float"
       min_range:
-        $ref: "../core.yaml/#/definitions/number"
+        $ref: "../core.yaml/#/definitions/float"
       power:
         $ref: "../core.yaml/#/definitions/int"
       count:
-        $ref: "../core.yaml/#/definitions/uint"
+        $ref: "../core.yaml/#/definitions/int"
       regeneration_per_day:
-        $ref: "../core.yaml/#/definitions/number"
+        $ref: "../core.yaml/#/definitions/float"
       launch_time:
-        $ref: "../core.yaml/#/definitions/number"
+        $ref: "../core.yaml/#/definitions/float"
       damage:
-        $ref: "../core.yaml/#/definitions/damage"
+        $ref: "../core.yaml/#/definitions/int"
       cooldown:
-        $ref: "../core.yaml/#/definitions/uint"
+        $ref: "../core.yaml/#/definitions/int"
       range:
-        $ref: "../core.yaml/#/definitions/uint"
+        $ref: "../core.yaml/#/definitions/int"
       engagement_range:
-        $ref: "../core.yaml/#/definitions/uint"
+        $ref: "../core.yaml/#/definitions/int"
       accuracy:
-        $ref: "../core.yaml/#/definitions/number"
+        $ref: "../core.yaml/#/definitions/float"
       tracking:
-        $ref: "../core.yaml/#/definitions/number"
+        $ref: "../core.yaml/#/definitions/float"
 
       health:
-        $ref: "../core.yaml/#/definitions/uint"
+        $ref: "../core.yaml/#/definitions/int"
       armor:
-        $ref: "../core.yaml/#/definitions/uint"
+        $ref: "../core.yaml/#/definitions/int"
       shield:
-        $ref: "../core.yaml/#/definitions/uint"
+        $ref: "../core.yaml/#/definitions/int"
       evasion:
-        $ref: "../core.yaml/#/definitions/number"
+        $ref: "../core.yaml/#/definitions/float"
 
       speed:
-        $ref: "../core.yaml/#/definitions/uint"
+        $ref: "../core.yaml/#/definitions/int"
       rotation_speed:
-        $ref: "../core.yaml/#/definitions/number"
+        $ref: "../core.yaml/#/definitions/float"
       acceleration:
-        $ref: "../core.yaml/#/definitions/number"
+        $ref: "../core.yaml/#/definitions/float"
 
       shield_damage:
-        $ref: "../core.yaml/#/definitions/number"
+        $ref: "../core.yaml/#/definitions/float"
       shield_penetration:
-        $ref: "../core.yaml/#/definitions/number"
+        $ref: "../core.yaml/#/definitions/float"
       armor_penetration:
-        $ref: "../core.yaml/#/definitions/number"
+        $ref: "../core.yaml/#/definitions/float"
 
       ship_behavior:
-        $type: ship_behavior
+        $type: "ship_behavior"
 
       weapon_type:
         $ref: "../core.yaml/#/definitions/component_type"
       entity:
         $ref: "../core.yaml/#/definitions/entity"
       prerequisites:
-        $type: tech[]
+        type: array
+        items:
+          $type: "tech"
       component_set:
-        $type: component_set
+        $type: "component_set"
       projectile_gfx:
-        $type: projectile.name
+        $type: "projectile.name"
       tags:
-        $type: component_tag[]
+        type: array
+        items:
+          $type: "component_tag"
       upgrades_to:
-        $type: component_template.key
+        $type: "component_template.key"
       ai_tags:
-        $type: component_tag[]
+        type: array
+        items:
+          $type: "component_tag"
       resources:
         $ref: "../core.yaml/#/definitions/economy_unit"
 

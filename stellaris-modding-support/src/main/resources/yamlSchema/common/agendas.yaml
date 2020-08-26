@@ -6,8 +6,8 @@ definitions:
       weight_modifier:
         $ref: "../core.yaml/#/definitions/weight_modifier"
       modifier:
-        multiple: true
         $ref: "../core.yaml/#/definitions/modifier"
+        multiple: true
 
 type: object
 additionalProperties:

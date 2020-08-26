@@ -33,7 +33,7 @@ definitions:
     oneOf:
     - $ref: "../core.yaml/#/definitions/event_id"
     - propertyNames:
-        $ref: "../core.yaml/#/definitions/unit"
+        $ref: "../core.yaml/#/definitions/nit"
       additionalProperties:
         oneOf:
         - $ref: "../core.yaml/#/definitions/event_id"

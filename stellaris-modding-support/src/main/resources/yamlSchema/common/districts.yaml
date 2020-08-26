@@ -4,7 +4,7 @@ definitions:
     type: object
     properties:
       base_buildtime:
-        $ref: "../core.yaml/#/definitions/uint"
+        $ref: "../core.yaml/#/definitions/int"
       is_capped_by_modifier:
         $ref: "../core.yaml/#/definitions/boolean"
       show_on_uncolonized:
@@ -14,9 +14,11 @@ definitions:
       allow:
         $ref: "../core.yaml/#/definitions/conditions"
       conversion_ratio:
-        $ref: "../core.yaml/#/definitions/number"
+        $ref: "../core.yaml/#/definitions/float"
       convert_to:
-        $type: district[]
+        type: array
+        items:
+          $type: "district"
       resources:
         $ref: "../core.yaml/#/definitions/economy_unit"
       planet_modifier:

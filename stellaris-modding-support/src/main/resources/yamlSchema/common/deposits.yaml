@@ -6,11 +6,11 @@ definitions:
       is_null:
         $ref: "../core.yaml/#/definitions/boolean"
       time:
-        $ref: "../core.yaml/#/definitions/uint"
+        $ref: "../core.yaml/#/definitions/int"
       is_for_colonizeable:
         $ref: "../core.yaml/#/definitions/boolean"
       category:
-        $type: deposit_category
+        $type: "deposit_category"
       resources:
         $ref: "../core.yaml/#/definitions/economy_unit"
       potential:
@@ -22,7 +22,9 @@ definitions:
       ai_weight:
         $ref: "../core.yaml/#/definitions/weight_modifier"
       prerequisites:
-        $type: tech[]
+        type: array
+        items:
+          $type: "tech"
 
 type: object
 additionalProperties:

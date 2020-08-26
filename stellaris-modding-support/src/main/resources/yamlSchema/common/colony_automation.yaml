@@ -6,17 +6,19 @@ definitions:
       available:
         $ref: "../core.yaml/#/definitions/conditions"
       prio_districts:
-        $type: district[]
+        type: array
+        items:
+          $type: "district"
       buildings:
         type: object
         propertyNames:
-          $ref: "../core.yaml/#/definitions/uint"
+          $ref: "../core.yaml/#/definitions/int"
         additionalProperties:
           type: object
           properties:
-            # anyOf (building, available)
             bulding:
-              $type: building
+              $type: "building"
+              multiple: true
             available:
               $ref: "../core.yaml/#/definitions/conditions"
 

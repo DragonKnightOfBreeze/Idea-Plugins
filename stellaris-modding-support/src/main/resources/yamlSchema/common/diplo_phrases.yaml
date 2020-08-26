@@ -7,9 +7,9 @@ definitions:
     additionalProperties:
       type: object
       properties:
-        # anyOf
         trigger:
           $ref: "../core.yaml/#/definitions/conditions"
+          multiple: true
         weight:
           $ref: "../core.yaml/#/definitions/weight"
 

@@ -6,8 +6,8 @@ definitions:
       base_buildtime:
         $ref: "../core.yaml/#/definitions/int"
       base_cap_amount:
-        optional: true
         $ref: "../core.yaml/#/definitions/int"
+        optional: true
       capital:
         $ref: "../core.yaml/#/definitions/boolean"
       can_build:
@@ -25,7 +25,7 @@ definitions:
       convert_to:
         type: array
         items:
-          $ref: "../core.yaml/#/definitions/building"
+          $type: "building"
       planet_modifier:
         $ref: "../core.yaml/#/definitions/modifier"
       destroy_trigger:
@@ -36,18 +36,20 @@ definitions:
       triggered_plant_modifier:
         $ref: "../core.yaml/#/definitions/triggered_modifier"
       resources:
-        $ref: "../core.yaml/#/definitions/resource"
+        type: array
+        items:
+          $type: "resource"
       upgrades:
         type: array
         items:
-          $ref: "../core.yaml/#/definitions/building"
+          $type: "building"
       prerequisites:
         type: array
         items:
-          $ref: "../core.yaml/#/definitions/building"
-      # anyOf
+          $type: "building"
       triggered_desc:
         $ref: "../core.yaml/#/definitions/triggered_desc"
+        multiple: true
       on_queued:
         $ref: "../core.yaml/#/definitions/effects"
       on_unqueued:

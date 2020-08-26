@@ -40,13 +40,13 @@ definitions:
       prerequisites:
         type: array
         items:
-          $ref: "../core.yaml/#/definitions/tech"
+          $type: "tech"
       on_pre_explore:
         $ref: "../core.yaml/#/definitions/effects"
       country_can_use:
         $ref: "../core.yaml/#/definitions/conditions"
       on_action:
-        $ref: "../core.yaml/#/definitions/on_action"
+        $type: "on_action"
       scripted_connection:
         $ref: "#/definitions/scripted_connection"
   connection_type:

@@ -1,7 +1,6 @@
 definitions:
   # 国家类型
   country_type:
-    title: Country Type
     type: object
     properties:
       has_difficulty_bonuses:
@@ -44,9 +43,9 @@ definitions:
           declare_war:
             $ref: "../core.yaml/#/definitions/boolean"
           min_navy_for_wars:
-            $ref: "../core.yaml/#/definitions/number"
+            $ref: "../core.yaml/#/definitions/float"
           min_assault_armies_for_wars:
-            $ref: "../core.yaml/#/definitions/uint"
+            $ref: "../core.yaml/#/definitions/int"
           colonizer:
             $ref: "../core.yaml/#/definitions/boolean"
           internal_policies:
@@ -64,31 +63,31 @@ definitions:
           can_use_market:
             $ref: "../core.yaml/#/definitions/boolean"
           modules:
-            $type: module[] # TODO
+            type: array
+            items:
+              $type: "module"
           ship_data:
             type: object
             propertyNames:
-              $type: ship
+              $type: "ship"
             additionalProperties:
                 $ref: "#/definitions/ship_data"
           army_data:
             type: object
             propertyNames:
-              $type: army
+              $type: "army"
             additionalProperties:
               $ref: "#/definitions/ship_data"
-
       trade_route_available:
         $ref: "../core.yaml/#/definitions/conditions"
       modules:
         type: object
         propertyNames:
-          $type: module
+          $type: "module"
       resources:
         $ref: "../core.yaml/#/definitions/economy_unit"
       branch_office_resources:
         $ref: "../core.yaml/#/definitions/economy_unit"
-
   ship_data:
     oneOf:
     - $ref: "../core.yaml/#/definitions/uint_range"
@@ -97,7 +96,6 @@ definitions:
         fraction:
           $ref: "../core.yaml/#/definitions/modifier_chance"
 
-title: Country Types
 type: object
 additionalProperties:
   $ref: "#/definitions/country_type"

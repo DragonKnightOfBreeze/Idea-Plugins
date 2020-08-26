@@ -21,7 +21,6 @@ definitions:
         $ref: "../core.yaml/#/definitions/conditions"
       possible:
         $ref: "../core.yaml/#/definitions/effects"
-
   action_type:
     type: string
     enum:

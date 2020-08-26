@@ -50,7 +50,7 @@ definitions:
       prerequisites:
         type: array
         items:
-          $ref: "../core.yaml/#/definitions/tech"
+          $type: "tech"
       show_tech_unlock_if:
         $ref: "../core.yaml/#/definitions/conditions"
 

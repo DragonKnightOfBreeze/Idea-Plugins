@@ -8,17 +8,20 @@ definitions:
       crisis:
         $ref: "../core.yaml/#/definitions/boolean"
       prio_districts:
-        $type: district[]
+        type: object
+        items:
+          $type: "district"
       buildings:
         type: object
         properties:
           precinct:
             properties:
-              # anyOf (building, available)
               bulding:
-                $type: building
+                $type: "building"
+                multiple: true
               available:
                 $ref: "../core.yaml/#/definitions/conditions"
+                multiple: true
 
 type: object
 additionalProperties:

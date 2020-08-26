@@ -91,7 +91,7 @@ definitions:
       upkeep:
         $ref: "#/definitions/resources_item"
   # TODO
-  resources_category:
+  resources_category: true
   resources_item:
     type: object
     anyOf:
@@ -103,6 +103,8 @@ definitions:
         $type: resource
       additionalProperties:
         $ref: "#/definitions/uint"
+
+  entity: true
 
   desc:
     oneOf:
@@ -256,13 +258,4 @@ definitions:
     - instant
     - missile
     - point_defence
-
-  entity:
-    type: string
-  tech:
-    type: string
-  building:
-    type: string
-  on_action:
-    type: string
 

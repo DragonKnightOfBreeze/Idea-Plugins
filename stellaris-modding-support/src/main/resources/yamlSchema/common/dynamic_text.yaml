@@ -4,15 +4,25 @@ definitions:
     type: object
     properties:
       mandatory:
-        $type: mandatory_tag[]
+        type: array
+        items:
+          $type: "mandatory_tag"
       relevant:
-        $type: relevant_tag[]
+        type: array
+        items:
+          $type: "relevant_tag"
       add:
-        $type: relevant_tag[]
+        type: array
+        items:
+          $type: "relevant_tag"
       blocked:
-        $type: blocked_tag[]
+        type: array
+        items:
+          $type: "blocked_tag"
       next_mandatory:
-        $type: next_mandatory_tag[]
+        type: array
+        items:
+          $type: "next_mandatory_tag"
       texts:
         type: array
         items:
