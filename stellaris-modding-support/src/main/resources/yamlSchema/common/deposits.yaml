@@ -4,23 +4,23 @@ definitions:
     type: object
     properties:
       is_null:
-        $ref: "../core.yaml/#/definitions/boolean"
+        $ref: "../core.yaml#/definitions/boolean"
       time:
-        $ref: "../core.yaml/#/definitions/int"
+        $ref: "../core.yaml#/definitions/int"
       is_for_colonizeable:
-        $ref: "../core.yaml/#/definitions/boolean"
+        $ref: "../core.yaml#/definitions/boolean"
       category:
         $type: "deposit_category"
       resources:
-        $ref: "../core.yaml/#/definitions/economy_unit"
+        $ref: "../core.yaml#/definitions/economy_unit"
       potential:
-        $ref: "../core.yaml/#/definitions/conditions"
+        $ref: "../core.yaml#/definitions/conditions"
       plant_modifier:
-        $ref: "../core.yaml/#/definitions/modifier"
+        $ref: "../core.yaml#/definitions/modifier"
       drop_weight:
-        $ref: "../core.yaml/#/definitions/weight_modifier"
+        $ref: "../core.yaml#/definitions/weight_modifier"
       ai_weight:
-        $ref: "../core.yaml/#/definitions/weight_modifier"
+        $ref: "../core.yaml#/definitions/weight_modifier"
       prerequisites:
         type: array
         items:

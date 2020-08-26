@@ -4,11 +4,11 @@ definitions:
     type: object
     properties:
       potential:
-        $ref: "../core.yaml/#/definitions/conditions"
+        $ref: "../core.yaml#/definitions/conditions"
       allow:
-        $ref: "../core.yaml/#/definitions/conditions"
+        $ref: "../core.yaml#/definitions/conditions"
       effect:
-        $ref: "../core.yaml/#/definitions/effects"
+        $ref: "../core.yaml#/definitions/effects"
 
 type: object
 additionalProperties:

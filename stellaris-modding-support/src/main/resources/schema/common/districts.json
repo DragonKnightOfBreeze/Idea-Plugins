@@ -4,22 +4,22 @@
       "type" : "object",
       "properties" : {
         "base_buildtime" : {
-          "$ref" : "../core.json/#/definitions/int"
+          "$ref" : "../core.json#/definitions/int"
         },
         "is_capped_by_modifier" : {
-          "$ref" : "../core.json/#/definitions/boolean"
+          "$ref" : "../core.json#/definitions/boolean"
         },
         "show_on_uncolonized" : {
-          "$ref" : "../core.json/#/definitions/conditions"
+          "$ref" : "../core.json#/definitions/conditions"
         },
         "potential" : {
-          "$ref" : "../core.json/#/definitions/conditions"
+          "$ref" : "../core.json#/definitions/conditions"
         },
         "allow" : {
-          "$ref" : "../core.json/#/definitions/conditions"
+          "$ref" : "../core.json#/definitions/conditions"
         },
         "conversion_ratio" : {
-          "$ref" : "../core.json/#/definitions/float"
+          "$ref" : "../core.json#/definitions/float"
         },
         "convert_to" : {
           "type" : "array",
@@ -28,19 +28,19 @@
           }
         },
         "resources" : {
-          "$ref" : "../core.json/#/definitions/economy_unit"
+          "$ref" : "../core.json#/definitions/economy_unit"
         },
         "planet_modifier" : {
-          "$ref" : "../core.json/#/definitions/modifier"
+          "$ref" : "../core.json#/definitions/modifier"
         },
         "triggered_plant_modifier" : {
-          "$ref" : "../core.json/#/definitions/triggered_modifier"
+          "$ref" : "../core.json#/definitions/triggered_modifier"
         },
         "ai_weight" : {
-          "$ref" : "../core.json/#/definitions/weight_modifier"
+          "$ref" : "../core.json#/definitions/weight_modifier"
         },
         "modifier" : {
-          "$ref" : "../core.json/#/definitions/modifier"
+          "$ref" : "../core.json#/definitions/modifier"
         }
       }
     }

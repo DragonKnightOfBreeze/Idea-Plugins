@@ -4,31 +4,31 @@
       "type" : "object",
       "properties" : {
         "icon" : {
-          "$ref" : "../core.json/#/definitions/gfx_reference"
+          "$ref" : "../core.json#/definitions/gfx_reference"
         },
         "auto_accepted" : {
-          "$ref" : "../core.json/#/definitions/boolean"
+          "$ref" : "../core.json#/definitions/boolean"
         },
         "require_envoy" : {
-          "$ref" : "../core.json/#/definitions/boolean"
+          "$ref" : "../core.json#/definitions/boolean"
         },
         "envoy_assignment" : {
           "additionalProperties" : true
         },
         "requires_actor_independence" : {
-          "$ref" : "../core.json/#/definitions/boolean"
+          "$ref" : "../core.json#/definitions/boolean"
         },
         "requires_recipient_independence" : {
-          "$ref" : "../core.json/#/definitions/boolean"
+          "$ref" : "../core.json#/definitions/boolean"
         },
         "action_type" : {
           "$ref" : "#/definitions/action_type"
         },
         "potential" : {
-          "$ref" : "../core.json/#/definitions/conditions"
+          "$ref" : "../core.json#/definitions/conditions"
         },
         "possible" : {
-          "$ref" : "../core.json/#/definitions/effects"
+          "$ref" : "../core.json#/definitions/effects"
         }
       }
     },

@@ -10,13 +10,13 @@ definitions:
       category:
         $ref: "#/definitions/budget_category"
       poential:
-        $ref: "../core.yaml/#/definitions/conditions"
+        $ref: "../core.yaml#/definitions/conditions"
       fraction:
-        $ref: "../core.yaml/#/definitions/weight_modifier"
+        $ref: "../core.yaml#/definitions/weight_modifier"
       static_min:
-        $ref: "../core.yaml/#/definitions/modifier_chance"
+        $ref: "../core.yaml#/definitions/modifier_chance"
       static_max:
-        $ref: "../core.yaml/#/definitions/modifier_chance"
+        $ref: "../core.yaml#/definitions/modifier_chance"
   budget_type:
     enum:
     - expenditure

@@ -8,7 +8,10 @@ import com.intellij.psi.PsiLiteralValue;
 
 public interface StellarisScriptVariableValue extends PsiLiteralValue {
 
-  @NotNull
+  @Nullable
+  StellarisScriptBoolean getBoolean();
+
+  @Nullable
   StellarisScriptNumber getNumber();
 
   @Nullable

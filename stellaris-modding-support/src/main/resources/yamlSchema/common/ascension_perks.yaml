@@ -4,15 +4,15 @@ definitions:
     type: object
     properties:
       potential:
-        $ref: "../core.yaml/#/definitions/conditions"
+        $ref: "../core.yaml#/definitions/conditions"
       possible:
-        $ref: "../core.yaml/#/definitions/effects"
+        $ref: "../core.yaml#/definitions/effects"
       on_enabled:
-        $ref: "../core.yaml/#/definitions/effects"
+        $ref: "../core.yaml#/definitions/effects"
       modifier:
-        $ref: "../core.yaml/#/definitions/modifier"
+        $ref: "../core.yaml#/definitions/modifier"
       ai_weight:
-        $ref: "../core.yaml/#/definitions/weight_modifier"
+        $ref: "../core.yaml#/definitions/weight_modifier"
 
 type: object
 additionalProperties:

@@ -4,7 +4,7 @@
       "type" : "object",
       "properties" : {
         "owned_planets_only" : {
-          "$ref" : "../core.json/#/definitions/boolean"
+          "$ref" : "../core.json#/definitions/boolean"
         },
         "sound" : {
           "$type" : "sound_effect"
@@ -13,22 +13,22 @@
           "$type" : "icon"
         },
         "resources" : {
-          "$ref" : "../core.json/#/definitions/economy_unit"
+          "$ref" : "../core.json#/definitions/economy_unit"
         },
         "potential" : {
-          "$ref" : "../core.json/#/definitions/conditions"
+          "$ref" : "../core.json#/definitions/conditions"
         },
         "allow" : {
-          "$ref" : "../core.json/#/definitions/conditions"
+          "$ref" : "../core.json#/definitions/conditions"
         },
         "effect" : {
-          "$ref" : "../core.json/#/definitions/effects"
+          "$ref" : "../core.json#/definitions/effects"
         },
         "ai_weight" : {
-          "$ref" : "../core.json/#/definitions/weight_modifier"
+          "$ref" : "../core.json#/definitions/weight_modifier"
         },
         "modifier" : {
-          "$ref" : "../core.json/#/definitions/modifier"
+          "$ref" : "../core.json#/definitions/modifier"
         }
       }
     }

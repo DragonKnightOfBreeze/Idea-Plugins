@@ -4,37 +4,37 @@ definitions:
     type: object
     properties:
       base_buildtime:
-        $ref: "../core.yaml/#/definitions/int"
+        $ref: "../core.yaml#/definitions/int"
       base_cap_amount:
-        $ref: "../core.yaml/#/definitions/int"
+        $ref: "../core.yaml#/definitions/int"
         optional: true
       capital:
-        $ref: "../core.yaml/#/definitions/boolean"
+        $ref: "../core.yaml#/definitions/boolean"
       can_build:
-        $ref: "../core.yaml/#/definitions/boolean"
+        $ref: "../core.yaml#/definitions/boolean"
       can_demolish:
-        $ref: "../core.yaml/#/definitions/boolean"
+        $ref: "../core.yaml#/definitions/boolean"
       can_be_ruined:
-        $ref: "../core.yaml/#/definitions/boolean"
+        $ref: "../core.yaml#/definitions/boolean"
       can_be_disabled:
-        $ref: "../core.yaml/#/definitions/boolean"
+        $ref: "../core.yaml#/definitions/boolean"
       category:
         $ref: "#/definitions/building_category"
       potential:
-        $ref: "../core.yaml/#/definitions/conditions"
+        $ref: "../core.yaml#/definitions/conditions"
       convert_to:
         type: array
         items:
           $type: "building"
       planet_modifier:
-        $ref: "../core.yaml/#/definitions/modifier"
+        $ref: "../core.yaml#/definitions/modifier"
       destroy_trigger:
-        $ref: "../core.yaml/#/definitions/conditions"
+        $ref: "../core.yaml#/definitions/conditions"
       allow:
-        $ref: "../core.yaml/#/definitions/conditions"
+        $ref: "../core.yaml#/definitions/conditions"
       # anyOf
       triggered_plant_modifier:
-        $ref: "../core.yaml/#/definitions/triggered_modifier"
+        $ref: "../core.yaml#/definitions/triggered_modifier"
       resources:
         type: array
         items:
@@ -48,18 +48,18 @@ definitions:
         items:
           $type: "building"
       triggered_desc:
-        $ref: "../core.yaml/#/definitions/triggered_desc"
+        $ref: "../core.yaml#/definitions/triggered_desc"
         multiple: true
       on_queued:
-        $ref: "../core.yaml/#/definitions/effects"
+        $ref: "../core.yaml#/definitions/effects"
       on_unqueued:
-        $ref: "../core.yaml/#/definitions/effects"
+        $ref: "../core.yaml#/definitions/effects"
       on_built:
-        $ref: "../core.yaml/#/definitions/effects"
+        $ref: "../core.yaml#/definitions/effects"
       on_destroy:
-        $ref: "../core.yaml/#/definitions/effects"
+        $ref: "../core.yaml#/definitions/effects"
       ai_weight:
-        $ref: "../core.yaml/#/definitions/weight_modifier"
+        $ref: "../core.yaml#/definitions/weight_modifier"
   building_category:
     type: string
     enum:

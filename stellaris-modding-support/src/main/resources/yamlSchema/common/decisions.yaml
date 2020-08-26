@@ -4,23 +4,23 @@ definitions:
     type: object
     properties:
       owned_planets_only:
-        $ref: "../core.yaml/#/definitions/boolean"
+        $ref: "../core.yaml#/definitions/boolean"
       sound:
         $type: "sound_effect"
       icon:
         $type: "icon"
       resources:
-        $ref: "../core.yaml/#/definitions/economy_unit"
+        $ref: "../core.yaml#/definitions/economy_unit"
       potential:
-        $ref: "../core.yaml/#/definitions/conditions"
+        $ref: "../core.yaml#/definitions/conditions"
       allow:
-        $ref: "../core.yaml/#/definitions/conditions"
+        $ref: "../core.yaml#/definitions/conditions"
       effect:
-        $ref: "../core.yaml/#/definitions/effects"
+        $ref: "../core.yaml#/definitions/effects"
       ai_weight:
-        $ref: "../core.yaml/#/definitions/weight_modifier"
+        $ref: "../core.yaml#/definitions/weight_modifier"
       modifier:
-        $ref: "../core.yaml/#/definitions/modifier"
+        $ref: "../core.yaml#/definitions/modifier"
 
 type: object
 additionalProperties:

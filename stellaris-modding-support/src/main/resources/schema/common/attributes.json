@@ -17,7 +17,7 @@
         "$ref" : "#/definitions/behaviour_name"
       },
       "additionalProperties" : {
-        "$ref" : "../core.json/#/definitions/boolean"
+        "$ref" : "../core.json#/definitions/boolean"
       }
     },
     "behaviour_name" : {

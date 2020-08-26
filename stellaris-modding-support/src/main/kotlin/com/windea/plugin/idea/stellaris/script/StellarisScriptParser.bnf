@@ -50,7 +50,7 @@ variable_definition ::= variable_name variable_definition_separator variable_val
 }
 variable_name ::= VARIABLE_NAME_ID
 variable_definition_separator ::= "="
-variable_value ::= number {
+variable_value ::= boolean | number {
   implements="com.intellij.psi.PsiLiteralValue"
   methods=[getValue]
 }

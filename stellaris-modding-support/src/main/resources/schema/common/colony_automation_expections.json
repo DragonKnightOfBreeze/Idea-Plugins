@@ -4,10 +4,10 @@
       "type" : "object",
       "properties" : {
         "available" : {
-          "$ref" : "../core.json/#/definitions/conditions"
+          "$ref" : "../core.json#/definitions/conditions"
         },
         "crisis" : {
-          "$ref" : "../core.json/#/definitions/boolean"
+          "$ref" : "../core.json#/definitions/boolean"
         },
         "prio_districts" : {
           "type" : "object",
@@ -25,7 +25,7 @@
                   "multiple" : true
                 },
                 "available" : {
-                  "$ref" : "../core.json/#/definitions/conditions",
+                  "$ref" : "../core.json#/definitions/conditions",
                   "multiple" : true
                 }
               }

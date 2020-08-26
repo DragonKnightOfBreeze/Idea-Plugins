@@ -4,19 +4,19 @@
       "type" : "object",
       "properties" : {
         "resources" : {
-          "$ref" : "../core.json/#/definitions/economy_unit"
+          "$ref" : "../core.json#/definitions/economy_unit"
         },
         "ai_weight" : {
-          "$ref" : "../core.json/#/definitions/weight_modifier"
+          "$ref" : "../core.json#/definitions/weight_modifier"
         },
         "potential" : {
-          "$ref" : "../core.json/#/definitions/conditions"
+          "$ref" : "../core.json#/definitions/conditions"
         },
         "allow" : {
-          "$ref" : "../core.json/#/definitions/effects"
+          "$ref" : "../core.json#/definitions/effects"
         },
         "effect" : {
-          "$ref" : "../core.json/#/definitions/effects"
+          "$ref" : "../core.json#/definitions/effects"
         }
       }
     }

@@ -489,6 +489,7 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 						JsonSchemaType._string, JsonSchemaType._integer, JsonSchemaType._number -> {
 							insertPropertyWithEnum(context, editor, defaultValueAsString, values, finalType, comma, myWalker, insertColon)
 						}
+						else -> {}
 					}
 				} else {
 					insertPropertyWithEnum(context, editor, defaultValueAsString, values, null, comma, myWalker, insertColon)

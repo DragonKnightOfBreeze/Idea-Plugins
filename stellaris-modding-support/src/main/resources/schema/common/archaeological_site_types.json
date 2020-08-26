@@ -4,38 +4,38 @@
       "type" : "object",
       "properties" : {
         "desc" : {
-          "$ref" : "../core.json/#/definitions/desc"
+          "$ref" : "../core.json#/definitions/desc"
         },
         "picture" : {
-          "$ref" : "../core.json/#/definitions/gfx_reference"
+          "$ref" : "../core.json#/definitions/gfx_reference"
         },
         "stages" : {
-          "$ref" : "../core.json/#/definitions/int"
+          "$ref" : "../core.json#/definitions/int"
         },
         "max_instance" : {
-          "$ref" : "../core.json/#/definitions/int"
+          "$ref" : "../core.json#/definitions/int"
         },
         "weight" : {
-          "$ref" : "../core.json/#/definitions/weight_modifier"
+          "$ref" : "../core.json#/definitions/weight_modifier"
         },
         "potential" : {
-          "$ref" : "../core.json/#/definitions/conditions"
+          "$ref" : "../core.json#/definitions/conditions"
         },
         "allow" : {
-          "$ref" : "../core.json/#/definitions/conditions"
+          "$ref" : "../core.json#/definitions/conditions"
         },
         "visible" : {
-          "$ref" : "../core.json/#/definitions/conditions"
+          "$ref" : "../core.json#/definitions/conditions"
         },
         "on_visible" : {
-          "$ref" : "../core.json/#/definitions/effects"
+          "$ref" : "../core.json#/definitions/effects"
         },
         "state" : {
           "$ref" : "#/definitions/state",
           "multiple" : true
         },
         "on_roll_failed" : {
-          "$ref" : "../core.json/#/definitions/effects"
+          "$ref" : "../core.json#/definitions/effects"
         }
       }
     },
@@ -43,13 +43,13 @@
       "type" : "object",
       "properties" : {
         "difficulty" : {
-          "$ref" : "../core.json/#/definitions/difficulty"
+          "$ref" : "../core.json#/definitions/difficulty"
         },
         "icon" : {
-          "$ref" : "../core.json/#/definitions/gfx_reference"
+          "$ref" : "../core.json#/definitions/gfx_reference"
         },
         "event" : {
-          "$ref" : "../core.json/#/definitions/event"
+          "$ref" : "../core.json#/definitions/event"
         }
       }
     }

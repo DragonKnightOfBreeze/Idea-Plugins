@@ -4,15 +4,15 @@ definitions:
     type: object
     properties:
       icon:
-        $ref: "../core.yaml/#/definitions/int"
+        $ref: "../core.yaml#/definitions/int"
       potential:
-        $ref: "../core.yaml/#/definitions/conditions"
+        $ref: "../core.yaml#/definitions/conditions"
       plant_modifier:
-        $ref: "../core.yaml/#/definitions/modifier"
+        $ref: "../core.yaml#/definitions/modifier"
       weight_modifier:
-        $ref: "../core.yaml/#/definitions/weight_modifier"
+        $ref: "../core.yaml#/definitions/weight_modifier"
       triggered_planet_modifier:
-        $ref: "../core.yaml/#/definitions/triggered_modifier"
+        $ref: "../core.yaml#/definitions/triggered_modifier"
         multiple: true
 
 type: object

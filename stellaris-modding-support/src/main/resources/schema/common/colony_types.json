@@ -4,19 +4,19 @@
       "type" : "object",
       "properties" : {
         "icon" : {
-          "$ref" : "../core.json/#/definitions/int"
+          "$ref" : "../core.json#/definitions/int"
         },
         "potential" : {
-          "$ref" : "../core.json/#/definitions/conditions"
+          "$ref" : "../core.json#/definitions/conditions"
         },
         "plant_modifier" : {
-          "$ref" : "../core.json/#/definitions/modifier"
+          "$ref" : "../core.json#/definitions/modifier"
         },
         "weight_modifier" : {
-          "$ref" : "../core.json/#/definitions/weight_modifier"
+          "$ref" : "../core.json#/definitions/weight_modifier"
         },
         "triggered_planet_modifier" : {
-          "$ref" : "../core.json/#/definitions/triggered_modifier",
+          "$ref" : "../core.json#/definitions/triggered_modifier",
           "multiple" : true
         }
       }

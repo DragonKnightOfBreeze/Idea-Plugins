@@ -4,32 +4,32 @@
       "type" : "object",
       "properties" : {
         "base_buildtime" : {
-          "$ref" : "../core.json/#/definitions/int"
+          "$ref" : "../core.json#/definitions/int"
         },
         "base_cap_amount" : {
-          "$ref" : "../core.json/#/definitions/int",
+          "$ref" : "../core.json#/definitions/int",
           "optional" : true
         },
         "capital" : {
-          "$ref" : "../core.json/#/definitions/boolean"
+          "$ref" : "../core.json#/definitions/boolean"
         },
         "can_build" : {
-          "$ref" : "../core.json/#/definitions/boolean"
+          "$ref" : "../core.json#/definitions/boolean"
         },
         "can_demolish" : {
-          "$ref" : "../core.json/#/definitions/boolean"
+          "$ref" : "../core.json#/definitions/boolean"
         },
         "can_be_ruined" : {
-          "$ref" : "../core.json/#/definitions/boolean"
+          "$ref" : "../core.json#/definitions/boolean"
         },
         "can_be_disabled" : {
-          "$ref" : "../core.json/#/definitions/boolean"
+          "$ref" : "../core.json#/definitions/boolean"
         },
         "category" : {
           "$ref" : "#/definitions/building_category"
         },
         "potential" : {
-          "$ref" : "../core.json/#/definitions/conditions"
+          "$ref" : "../core.json#/definitions/conditions"
         },
         "convert_to" : {
           "type" : "array",
@@ -38,16 +38,16 @@
           }
         },
         "planet_modifier" : {
-          "$ref" : "../core.json/#/definitions/modifier"
+          "$ref" : "../core.json#/definitions/modifier"
         },
         "destroy_trigger" : {
-          "$ref" : "../core.json/#/definitions/conditions"
+          "$ref" : "../core.json#/definitions/conditions"
         },
         "allow" : {
-          "$ref" : "../core.json/#/definitions/conditions"
+          "$ref" : "../core.json#/definitions/conditions"
         },
         "triggered_plant_modifier" : {
-          "$ref" : "../core.json/#/definitions/triggered_modifier"
+          "$ref" : "../core.json#/definitions/triggered_modifier"
         },
         "resources" : {
           "type" : "array",
@@ -68,23 +68,23 @@
           }
         },
         "triggered_desc" : {
-          "$ref" : "../core.json/#/definitions/triggered_desc",
+          "$ref" : "../core.json#/definitions/triggered_desc",
           "multiple" : true
         },
         "on_queued" : {
-          "$ref" : "../core.json/#/definitions/effects"
+          "$ref" : "../core.json#/definitions/effects"
         },
         "on_unqueued" : {
-          "$ref" : "../core.json/#/definitions/effects"
+          "$ref" : "../core.json#/definitions/effects"
         },
         "on_built" : {
-          "$ref" : "../core.json/#/definitions/effects"
+          "$ref" : "../core.json#/definitions/effects"
         },
         "on_destroy" : {
-          "$ref" : "../core.json/#/definitions/effects"
+          "$ref" : "../core.json#/definitions/effects"
         },
         "ai_weight" : {
-          "$ref" : "../core.json/#/definitions/weight_modifier"
+          "$ref" : "../core.json#/definitions/weight_modifier"
         }
       }
     },

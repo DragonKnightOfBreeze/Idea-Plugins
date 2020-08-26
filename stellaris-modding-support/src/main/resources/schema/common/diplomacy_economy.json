@@ -9,10 +9,10 @@
         "type" : "object",
         "properties" : {
           "trigger" : {
-            "$ref" : "../core.json/#/definitions/conditions"
+            "$ref" : "../core.json#/definitions/conditions"
           },
           "resources" : {
-            "$ref" : "../core.json/#/definitions/economy_unit"
+            "$ref" : "../core.json#/definitions/economy_unit"
           }
         }
       }

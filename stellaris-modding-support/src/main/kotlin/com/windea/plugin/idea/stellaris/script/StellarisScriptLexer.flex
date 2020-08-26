@@ -87,6 +87,7 @@ UNQUOTED_STRING=[^@\s\[\]\{\}=\"][^\s\[\]\{\}=\"]*
 <WAITING_VARIABLE_VALUE> {
   "}" {depth--;  yybegin(nextState()); return RIGHT_BRACE;}
   "{" {depth++;  yybegin(nextState()); return LEFT_BRACE;}
+  {BOOLEAN} { yybegin(WAITING_PROPERTY_EOL); return BOOLEAN_TOKEN; }
   {NUMBER} {yybegin(WAITING_VARIABLE_EOL); return NUMBER_TOKEN; }
   {EOL} { yybegin(YYINITIAL); return WHITE_SPACE; } //跳过非法字符
   {WHITE_SPACE} { return WHITE_SPACE; } //继续解析

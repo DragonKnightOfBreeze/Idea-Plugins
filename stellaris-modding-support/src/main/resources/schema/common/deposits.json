@@ -4,31 +4,31 @@
       "type" : "object",
       "properties" : {
         "is_null" : {
-          "$ref" : "../core.json/#/definitions/boolean"
+          "$ref" : "../core.json#/definitions/boolean"
         },
         "time" : {
-          "$ref" : "../core.json/#/definitions/int"
+          "$ref" : "../core.json#/definitions/int"
         },
         "is_for_colonizeable" : {
-          "$ref" : "../core.json/#/definitions/boolean"
+          "$ref" : "../core.json#/definitions/boolean"
         },
         "category" : {
           "$type" : "deposit_category"
         },
         "resources" : {
-          "$ref" : "../core.json/#/definitions/economy_unit"
+          "$ref" : "../core.json#/definitions/economy_unit"
         },
         "potential" : {
-          "$ref" : "../core.json/#/definitions/conditions"
+          "$ref" : "../core.json#/definitions/conditions"
         },
         "plant_modifier" : {
-          "$ref" : "../core.json/#/definitions/modifier"
+          "$ref" : "../core.json#/definitions/modifier"
         },
         "drop_weight" : {
-          "$ref" : "../core.json/#/definitions/weight_modifier"
+          "$ref" : "../core.json#/definitions/weight_modifier"
         },
         "ai_weight" : {
-          "$ref" : "../core.json/#/definitions/weight_modifier"
+          "$ref" : "../core.json#/definitions/weight_modifier"
         },
         "prerequisites" : {
           "type" : "array",

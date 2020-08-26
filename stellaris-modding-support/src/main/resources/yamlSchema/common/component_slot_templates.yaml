@@ -4,21 +4,21 @@ definitions:
     type: object
     properties:
       size:
-        $ref: "../core.yaml/#/definitions/component_size"
+        $ref: "../core.yaml#/definitions/component_size"
       component:
-        $ref: "../core.yaml/#/definitions/component_type"
+        $ref: "../core.yaml#/definitions/component_type"
       is_fixed:
-        $ref: "../core.yaml/#/definitions/boolean"
+        $ref: "../core.yaml#/definitions/boolean"
         optional: true
       entities:
         type: object
         properties:
           weapon_type_kinetic:
-            $ref: "../core.yaml/#/definitions/entity"
+            $ref: "../core.yaml#/definitions/entity"
           weapon_type_energy:
-            $ref: "../core.yaml/#/definitions/entity"
+            $ref: "../core.yaml#/definitions/entity"
           weapon_type_explosive:
-            $ref: "../core.yaml/#/definitions/entity"
+            $ref: "../core.yaml#/definitions/entity"
 
 type: object
 additionalProperties:

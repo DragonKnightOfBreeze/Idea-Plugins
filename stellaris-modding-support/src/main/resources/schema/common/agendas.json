@@ -4,10 +4,10 @@
       "type" : "object",
       "properties" : {
         "weight_modifier" : {
-          "$ref" : "../core.json/#/definitions/weight_modifier"
+          "$ref" : "../core.json#/definitions/weight_modifier"
         },
         "modifier" : {
-          "$ref" : "../core.json/#/definitions/modifier",
+          "$ref" : "../core.json#/definitions/modifier",
           "multiple" : true
         }
       }

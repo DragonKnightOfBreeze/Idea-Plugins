@@ -3,15 +3,15 @@ definitions:
   diplo_phrase:
     type: object
     propertyNames:
-      $ref: "../core.yaml/#/definitions/loc_reference"
+      $ref: "../core.yaml#/definitions/loc_reference"
     additionalProperties:
       type: object
       properties:
         trigger:
-          $ref: "../core.yaml/#/definitions/conditions"
+          $ref: "../core.yaml#/definitions/conditions"
           multiple: true
         weight:
-          $ref: "../core.yaml/#/definitions/weight"
+          $ref: "../core.yaml#/definitions/weight"
 
 type: object
 additionalProperties:

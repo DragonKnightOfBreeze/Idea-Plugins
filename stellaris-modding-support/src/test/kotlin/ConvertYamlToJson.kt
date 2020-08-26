@@ -1,5 +1,8 @@
+import com.fasterxml.jackson.core.*
 import com.fasterxml.jackson.databind.*
 import com.fasterxml.jackson.dataformat.yaml.*
+import org.snakeyaml.engine.v2.api.*
+import org.yaml.snakeyaml.*
 import java.io.*
 
 fun main() {
@@ -13,8 +16,10 @@ fun main() {
 	File(path).walk().forEach {
 		runCatching {
 			if(it.isFile && it.extension == "yaml") {
-				val yaml = it.readText()
-				val json = jsonMapper.writeValueAsString(yamlMapper.readValue(yaml, Any::class.java))
+				//snakeYaml将yes/no识别为布尔值，因此这里需要特殊处理
+				val yaml = it.readText().replace("""\b(yes|no)\b""","$1")
+				val data = yamlMapper.readValue(yaml, Any::class.java)
+				val json = jsonMapper.writeValueAsString(data)
 					.replace(".yaml",".json")
 				File(it.path.replace("yamlSchema", "schema").replace(".yaml", ".json")).writeText(json)
 			} else {

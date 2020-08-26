@@ -13,16 +13,16 @@
           "$ref" : "#/definitions/budget_category"
         },
         "poential" : {
-          "$ref" : "../core.json/#/definitions/conditions"
+          "$ref" : "../core.json#/definitions/conditions"
         },
         "fraction" : {
-          "$ref" : "../core.json/#/definitions/weight_modifier"
+          "$ref" : "../core.json#/definitions/weight_modifier"
         },
         "static_min" : {
-          "$ref" : "../core.json/#/definitions/modifier_chance"
+          "$ref" : "../core.json#/definitions/modifier_chance"
         },
         "static_max" : {
-          "$ref" : "../core.json/#/definitions/modifier_chance"
+          "$ref" : "../core.json#/definitions/modifier_chance"
         }
       }
     },

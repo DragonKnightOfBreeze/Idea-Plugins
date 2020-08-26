@@ -2,10 +2,12 @@ package com.windea.plugin.idea.stellaris.script.codeInsight
 
 import com.intellij.codeInsight.completion.*
 import com.intellij.codeInsight.lookup.*
+import com.intellij.openapi.util.*
 import com.intellij.patterns.*
 import com.intellij.patterns.PlatformPatterns.*
 import com.intellij.psi.*
 import com.intellij.psi.TokenType.*
+import com.intellij.psi.util.*
 import com.intellij.util.*
 import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.localization.*
@@ -21,10 +23,11 @@ class StellarisScriptCompletionContributor : CompletionContributor() {
 
 		override fun addCompletions(parameters: CompletionParameters, context: ProcessingContext, result: CompletionResultSet) {
 			//基础的代码提示,仅提示布尔值
-			//条件语句关键字，布尔表达式关键字，如if, else_if, AND, OR，认为只有在特定的作用域内才需提示
+			val position = parameters.position
+			val resultWithPrefix = if(position is PsiWhiteSpace) result.withPrefixMatcher(position.prevLeaf()?.text.orEmpty()) else result
 			for(value in values) {
 				val lookupElement = LookupElementBuilder.create(value).bold().withPriority(80.0)
-				result.addElement(lookupElement)
+				resultWithPrefix.addElement(lookupElement)
 			}
 		}
 	}
@@ -32,10 +35,9 @@ class StellarisScriptCompletionContributor : CompletionContributor() {
 	init {
 		extend(
 			CompletionType.BASIC,
-			//psiElement().afterSiblingSkipping(psiElement().whitespace(),psiElement(PROPERTY_SEPARATOR)),
-			StandardPatterns.or(
+			or(
 				psiElement(UNQUOTED_STRING_TOKEN),
-				PlatformPatterns.psiElement().whitespace().afterSibling(psiElement(PROPERTY))
+				psiElement().whitespace().afterLeaf(psiElement(UNQUOTED_STRING_TOKEN))
 			),
 			BooleanCompletionProvider()
 		)

@@ -4,11 +4,11 @@ definitions:
     type: object
     properties:
       key:
-        $ref: "../core.yaml/#/definitions/loc_reference"
+        $ref: "../core.yaml#/definitions/loc_reference"
       icon:
-        $ref: "../core.yaml/#/definitions/gfx_reference"
+        $ref: "../core.yaml#/definitions/gfx_reference"
       icon_frame:
-        $ref: "../core.yaml/#/definitions/int"
+        $ref: "../core.yaml#/definitions/int"
 
 type: object
 additionalProperties:
