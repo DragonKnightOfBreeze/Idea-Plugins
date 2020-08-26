@@ -1,7 +1,6 @@
 import com.windea.plugin.idea.stellaris.*
 import org.junit.*
 import java.io.*
-import java.nio.file.*
 import java.util.jar.*
 
 class MiscTests {
@@ -25,7 +24,7 @@ class MiscTests {
 
 		val path = "D:\\My Documents\\My Projects\\Managed\\Idea-Plugins\\stellaris-modding-support\\build\\idea-sandbox\\plugins\\Stellaris Modding Support\\lib\\stellaris-modding-support-2.4.jar"
 		val jarFile = JarFile(File(path))
-		val schemaEntry = jarFile.getJarEntry("schema")
+		val schemaEntry = jarFile.getJarEntry("jsonSchema")
 		val entiries = jarFile.entries()
 		jarFile.stream().forEach {
 			println(it.name)

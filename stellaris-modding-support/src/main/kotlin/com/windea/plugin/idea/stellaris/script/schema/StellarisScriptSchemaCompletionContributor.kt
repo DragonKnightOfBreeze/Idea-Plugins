@@ -592,7 +592,7 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 		private const val SEPARATOR_LENGTH = SEPARATOR.length
 		private const val SEPARATOR_CHAR = '='
 		private const val BUILTIN_USAGE_KEY = "builtin"
-		private const val SCHEMA_USAGE_KEY = "schema"
+		private const val SCHEMA_USAGE_KEY = "jsonSchema"
 		private const val USER_USAGE_KEY = "user"
 		private const val REMOTE_USAGE_KEY = "remote"
 

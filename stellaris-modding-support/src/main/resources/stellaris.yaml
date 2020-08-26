@@ -1,5 +1,4 @@
 # $xxx 表示一个占位符，名字理论上可以是任意的
-
 # 类型定义
 types:
   weight_modifier:

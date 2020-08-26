@@ -4,14 +4,13 @@ import com.intellij.openapi.project.*
 import com.intellij.openapi.vfs.*
 import com.jetbrains.jsonSchema.extension.*
 import com.windea.plugin.idea.stellaris.*
-import java.io.*
 
 class StellarisScriptSchemaProviderFactory : JsonSchemaProviderFactory {
 	override fun getProviders(project: Project): MutableList<JsonSchemaFileProvider> {
 		val providers = mutableListOf<JsonSchemaFileProvider>()
 
 		//实际上读取的是jar中的文件
-		val schemaUrl = "schema".toClassPathResource()
+		val schemaUrl = "jsonSchema".toClassPathResource()
 		if(schemaUrl != null) {
 			//替换成标准的路径
 			val schemaPath = schemaUrl.path.replace("%20", " ").removePrefix("file:/").removeSuffix("/")

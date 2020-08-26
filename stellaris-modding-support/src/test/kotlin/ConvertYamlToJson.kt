@@ -1,8 +1,5 @@
-import com.fasterxml.jackson.core.*
 import com.fasterxml.jackson.databind.*
 import com.fasterxml.jackson.dataformat.yaml.*
-import org.snakeyaml.engine.v2.api.*
-import org.yaml.snakeyaml.*
 import java.io.*
 
 fun main() {
@@ -21,9 +18,9 @@ fun main() {
 				val data = yamlMapper.readValue(yaml, Any::class.java)
 				val json = jsonMapper.writeValueAsString(data)
 					.replace(".yaml",".json")
-				File(it.path.replace("yamlSchema", "schema").replace(".yaml", ".json")).writeText(json)
+				File(it.path.replace("yamlSchema", "jsonSchema").replace(".yaml", ".json")).writeText(json)
 			} else {
-				it.copyTo(File(it.path.replace("yamlSchema", "schema")), true)
+				it.copyTo(File(it.path.replace("yamlSchema", "jsonSchema")), true)
 			}
 		}
 	}
