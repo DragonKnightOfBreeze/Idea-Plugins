@@ -7,8 +7,6 @@ import com.windea.plugin.idea.stellaris.*
 import java.io.*
 
 class StellarisScriptSchemaProviderFactory : JsonSchemaProviderFactory {
-	private val schemaFileExtensions = arrayOf("yaml","json")
-
 	override fun getProviders(project: Project): MutableList<JsonSchemaFileProvider> {
 		val providers = mutableListOf<JsonSchemaFileProvider>()
 
@@ -35,7 +33,7 @@ class StellarisScriptSchemaProviderFactory : JsonSchemaProviderFactory {
 				it.nameWithoutExtension == "descriptor" -> {
 					providers += StellarisScriptSchemaProvider("descriptor.mod", false, it)
 				}
-				it.extension in schemaFileExtensions -> {
+				it.extension == "json" -> {
 					//TODO 等待Schema文件编写完毕
 					providers += StellarisScriptSchemaProvider("$pathPrefix/${it.nameWithoutExtension}".removePrefix("/"), true, it)
 				}

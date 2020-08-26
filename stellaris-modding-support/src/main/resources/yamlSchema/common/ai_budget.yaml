@@ -4,7 +4,7 @@ definitions:
     type: object
     properties:
       resource:
-        $type: resource
+        $ref: "../core.yaml/#/definitions/resource"
       type:
         $ref: "#/definitions/budget_type"
       category:

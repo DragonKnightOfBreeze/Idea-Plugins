@@ -1,0 +1,25 @@
+{
+  "definitions" : {
+    "diplo_phrase" : {
+      "type" : "object",
+      "propertyNames" : {
+        "$ref" : "../core.json/#/definitions/loc_reference"
+      },
+      "additionalProperties" : {
+        "type" : "object",
+        "properties" : {
+          "trigger" : {
+            "$ref" : "../core.json/#/definitions/conditions"
+          },
+          "weight" : {
+            "$ref" : "../core.json/#/definitions/weight"
+          }
+        }
+      }
+    }
+  },
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/diplo_phrase"
+  }
+}

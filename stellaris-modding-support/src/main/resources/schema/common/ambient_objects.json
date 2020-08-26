@@ -1,0 +1,31 @@
+{
+  "definitions" : {
+    "ambient_object" : {
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "$ref" : "../core.json/#/definitions/loc_reference"
+        },
+        "entity" : {
+          "$ref" : "../core.json/#/definitions/loc_reference"
+        },
+        "description" : {
+          "$ref" : "../core.json/#/definitions/loc_reference"
+        },
+        "tooltip" : {
+          "$ref" : "../core.json/#/definitions/loc_reference"
+        },
+        "selectable" : {
+          "$ref" : "../core.json/#/definitions/boolean"
+        },
+        "show_name" : {
+          "$ref" : "../core.json/#/definitions/boolean"
+        }
+      }
+    }
+  },
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/ambient_object"
+  }
+}

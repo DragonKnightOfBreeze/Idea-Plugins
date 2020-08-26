@@ -1,0 +1,36 @@
+{
+  "definitions" : {
+    "colony_automation" : {
+      "type" : "object",
+      "properties" : {
+        "available" : {
+          "$ref" : "../core.json/#/definitions/conditions"
+        },
+        "prio_districts" : {
+          "$type" : "district[]"
+        },
+        "buildings" : {
+          "type" : "object",
+          "propertyNames" : {
+            "$ref" : "../core.json/#/definitions/uint"
+          },
+          "additionalProperties" : {
+            "type" : "object",
+            "properties" : {
+              "bulding" : {
+                "$type" : "building"
+              },
+              "available" : {
+                "$ref" : "../core.json/#/definitions/conditions"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/colony_automation"
+  }
+}

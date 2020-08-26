@@ -1,0 +1,86 @@
+{
+  "definitions" : {
+    "building" : {
+      "type" : "object",
+      "properties" : {
+        "base_buildtime" : {
+          "$ref" : "../core.json/#/definitions/uint"
+        },
+        "base_cap_amount" : {
+          "$ref" : "../core.json/#/definitions/uint"
+        },
+        "capital" : {
+          "$ref" : "../core.json/#/definitions/boolean"
+        },
+        "can_build" : {
+          "$ref" : "../core.json/#/definitions/boolean"
+        },
+        "can_demolish" : {
+          "$ref" : "../core.json/#/definitions/boolean"
+        },
+        "can_be_ruined" : {
+          "$ref" : "../core.json/#/definitions/boolean"
+        },
+        "can_be_disabled" : {
+          "$ref" : "../core.json/#/definitions/boolean"
+        },
+        "category" : {
+          "$ref" : "#/definitions/building_category"
+        },
+        "potential" : {
+          "$ref" : "../core.json/#/definitions/conditions"
+        },
+        "convert_to" : {
+          "$type" : "building[]"
+        },
+        "planet_modifier" : {
+          "$ref" : "../core.json/#/definitions/modifier"
+        },
+        "destroy_trigger" : {
+          "$ref" : "../core.json/#/definitions/conditions"
+        },
+        "allow" : {
+          "$ref" : "../core.json/#/definitions/conditions"
+        },
+        "triggered_plant_modifier" : {
+          "$ref" : "../core.json/#/definitions/triggered_modifier"
+        },
+        "resources" : {
+          "$ref" : "../core.json/#/definitions/resource"
+        },
+        "upgrades" : {
+          "$type" : "building[]"
+        },
+        "prerequisites" : {
+          "$type" : "building[]"
+        },
+        "triggered_desc" : {
+          "$ref" : "../core.json/#/definitions/triggered_desc"
+        },
+        "on_queued" : {
+          "$ref" : "../core.json/#/definitions/effects"
+        },
+        "on_unqueued" : {
+          "$ref" : "../core.json/#/definitions/effects"
+        },
+        "on_built" : {
+          "$ref" : "../core.json/#/definitions/effects"
+        },
+        "on_destroy" : {
+          "$ref" : "../core.json/#/definitions/effects"
+        },
+        "ai_weight" : {
+          "$ref" : "../core.json/#/definitions/weight_modifier"
+        }
+      }
+    },
+    "building_category" : {
+      "type" : "string",
+      "enum" : [ "government", "planet_buildings", "pop_assembly", "resource", "manufacturing", "research", "trade", "amenity", "unity", "army" ]
+    }
+  },
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/building"
+  }
+}

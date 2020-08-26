@@ -1,0 +1,22 @@
+{
+  "definitions" : {
+    "button_effect" : {
+      "type" : "object",
+      "properties" : {
+        "potential" : {
+          "$ref" : "../core.json/#/definitions/conditions"
+        },
+        "allow" : {
+          "$ref" : "../core.json/#/definitions/conditions"
+        },
+        "effect" : {
+          "$ref" : "../core.json/#/definitions/effects"
+        }
+      }
+    }
+  },
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/button_effect"
+  }
+}

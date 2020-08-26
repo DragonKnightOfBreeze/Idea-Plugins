@@ -17,6 +17,11 @@
                     <option name="path" value="stellaris-modding-support/src/main/resources/schema" />
                     <option name="mappingKind" value="Directory" />
                   </Item>
+                  <Item>
+                    <option name="directory" value="true" />
+                    <option name="path" value="stellaris-modding-support/src/main/resources/yamlSchema" />
+                    <option name="mappingKind" value="Directory" />
+                  </Item>
                 </list>
               </option>
             </SchemaInfo>

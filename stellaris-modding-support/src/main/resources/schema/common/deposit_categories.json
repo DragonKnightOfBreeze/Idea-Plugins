@@ -1,0 +1,19 @@
+{
+  "definitions" : {
+    "deposit_category" : {
+      "type" : "object",
+      "properties" : {
+        "blocker" : {
+          "$ref" : "../core.json/#/definitions/boolean"
+        },
+        "important" : {
+          "$ref" : "../core.json/#/definitions/boolean"
+        }
+      }
+    }
+  },
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/deposit_category"
+  }
+}

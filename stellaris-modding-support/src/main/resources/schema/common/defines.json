@@ -1,0 +1,13 @@
+{
+  "definitions" : {
+    "define" : {
+      "type" : "object",
+      "additionalProperties" : true
+    }
+  },
+  "title" : "Definines",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/define"
+  }
+}

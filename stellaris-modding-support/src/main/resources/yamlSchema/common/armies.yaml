@@ -48,7 +48,9 @@ definitions:
       rebel:
         $ref: "../core.yaml/#/definitions/boolean"
       prerequisites:
-        $type: tech[]
+        type: array
+        items:
+          $ref: "../core.yaml/#/definitions/tech"
       show_tech_unlock_if:
         $ref: "../core.yaml/#/definitions/conditions"
 

@@ -1,17 +1,22 @@
 package com.windea.plugin.idea.stellaris.script.schema
 
+import com.intellij.psi.*
 import com.jetbrains.jsonSchema.extension.adapters.*
 import com.windea.plugin.idea.stellaris.script.psi.*
 
 class StellarisScriptObjectAdapter(
-	private val element: StellarisScriptBlock
+	private val element: PsiElement
 ): JsonObjectValueAdapter {
 	private val adapters by lazy {
 		computeAdapters()
 	}
 
 	private fun computeAdapters():List<JsonPropertyAdapter>{
-		return element.propertyList.map { StellarisScriptPropertyAdapter(it) }
+		return when(element){
+			is StellarisScriptBlock ->element.propertyList.map { StellarisScriptPropertyAdapter(it) }
+			is StellarisScriptFile -> element.properties.map {  StellarisScriptPropertyAdapter(it)}
+			else -> listOf()
+		}
 	}
 
 	override fun getDelegate() = element

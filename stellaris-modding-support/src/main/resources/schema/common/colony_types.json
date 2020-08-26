@@ -1,0 +1,28 @@
+{
+  "definitions" : {
+    "colony_type" : {
+      "type" : "object",
+      "properties" : {
+        "icon" : {
+          "$ref" : "../core.json/#/definitions/uint"
+        },
+        "potential" : {
+          "$ref" : "../core.json/#/definitions/conditions"
+        },
+        "plant_modifier" : {
+          "$ref" : "../core.json/#/definitions/modifier"
+        },
+        "weight_modifier" : {
+          "$ref" : "../core.json/#/definitions/weight_modifier"
+        },
+        "triggered_planet_modifier" : {
+          "$ref" : "../core.json/#/definitions/triggered_modifier"
+        }
+      }
+    }
+  },
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/colony_type"
+  }
+}

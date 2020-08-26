@@ -1,0 +1,343 @@
+{
+  "definitions" : {
+    "int" : {
+      "type" : "integer",
+      "default" : 0
+    },
+    "float" : {
+      "type" : "number",
+      "default" : 0.0
+    },
+    "boolean" : {
+      "enum" : [ true, false ]
+    },
+    "uint" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "default" : 0
+    },
+    "number" : {
+      "type" : "number",
+      "default" : 0.0
+    },
+    "int_range" : {
+      "type" : "object",
+      "properties" : {
+        "min" : {
+          "$ref" : "#/definitions/int"
+        },
+        "max" : {
+          "$ref" : "#/definitions/int"
+        }
+      }
+    },
+    "uint_range" : {
+      "type" : "object",
+      "properties" : {
+        "min" : {
+          "$ref" : "#/definitions/uint"
+        },
+        "max" : {
+          "$ref" : "#/definitions/uint"
+        }
+      }
+    },
+    "float_range" : {
+      "type" : "object",
+      "properties" : {
+        "min" : {
+          "$ref" : "#/definitions/float"
+        },
+        "max" : {
+          "$ref" : "#/definitions/float"
+        }
+      }
+    },
+    "level" : {
+      "type" : "integer",
+      "default" : 1,
+      "minimum" : 1
+    },
+    "difficulty" : {
+      "type" : "integer",
+      "default" : 1,
+      "minimum" : 1
+    },
+    "chance" : {
+      "type" : "number",
+      "minimum" : 0.0,
+      "default" : 1.0
+    },
+    "factor" : {
+      "type" : "number",
+      "minimum" : 0.0,
+      "default" : 1.0
+    },
+    "color" : {
+      "type" : "array",
+      "items" : {
+        "type" : "integer"
+      }
+    },
+    "damage" : {
+      "type" : "object",
+      "properties" : {
+        "min" : {
+          "type" : "integer"
+        },
+        "max" : {
+          "type" : "integer"
+        }
+      }
+    },
+    "loc_reference" : {
+      "type" : "string"
+    },
+    "gfx_reference" : {
+      "type" : "string"
+    },
+    "assert_reference" : {
+      "type" : "string"
+    },
+    "economy_unit" : {
+      "type" : "object",
+      "properties" : {
+        "category" : {
+          "$ref" : "#/definitions/resources_category"
+        },
+        "produces" : {
+          "$ref" : "#/definitions/resources_item"
+        },
+        "cost" : {
+          "$ref" : "#/definitions/resources_item"
+        },
+        "upkeep" : {
+          "$ref" : "#/definitions/resources_item"
+        }
+      }
+    },
+    "resources_category" : null,
+    "resources_item" : {
+      "type" : "object",
+      "anyOf" : [ {
+        "properties" : {
+          "trigger" : {
+            "$ref" : "#/definitions/conditions"
+          }
+        }
+      }, {
+        "propertyNames" : {
+          "$type" : "resource"
+        },
+        "additionalProperties" : {
+          "$ref" : "#/definitions/uint"
+        }
+      } ]
+    },
+    "desc" : {
+      "oneOf" : [ {
+        "$ref" : "#/definitions/loc_reference"
+      }, {
+        "$ref" : "#/definitions/triggered_desc"
+      } ]
+    },
+    "triggered_desc" : {
+      "$ref" : "#/definitions/conditions",
+      "properties" : {
+        "text" : {
+          "$ref" : "#/definitions/loc_reference"
+        }
+      }
+    },
+    "condition_expressions" : {
+      "type" : "object",
+      "propertyNames" : {
+        "$ref" : "#/definitions/condition_expression_name"
+      },
+      "properties" : {
+        "limit" : {
+          "$ref" : "#/definitions/conditions"
+        }
+      },
+      "additionalProperties" : {
+        "$ref" : "#/definitions/conditions"
+      }
+    },
+    "condition_expression_name" : {
+      "type" : "string",
+      "enum" : [ "AND", "OR", "NOT", "NAND", "NOR" ]
+    },
+    "boolean_expressions" : {
+      "type" : "object",
+      "propertyNames" : {
+        "$ref" : "#/definitions/boolean_expression_name"
+      },
+      "additionalProperties" : {
+        "$ref" : "#/definitions/conditions"
+      }
+    },
+    "boolean_expression_name" : {
+      "type" : "string",
+      "enum" : [ "if", "else", "else_if", "AND", "OR", "NOT", "NAND", "NOR" ]
+    },
+    "scope_expressions" : {
+      "type" : "object",
+      "propertyNames" : {
+        "$ref" : "#/definitions/scope_name"
+      },
+      "additionalProperties" : {
+        "$ref" : "#/definitions/conditions"
+      }
+    },
+    "scope_name" : {
+      "type" : "string",
+      "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
+    },
+    "conditions" : {
+      "type" : "object",
+      "anyOf" : [ {
+        "$ref" : "#/definitions/condition_expressions"
+      }, {
+        "$ref" : "#/definitions/boolean_expressions"
+      }, {
+        "$ref" : "#/definitions/scope_expressions"
+      }, {
+        "$ref" : "#/definitions/scripted_triggers"
+      } ]
+    },
+    "scripted_triggers" : {
+      "type" : "object",
+      "additionalProperties" : true,
+      "$type" : "scripted_trigger"
+    },
+    "effects" : {
+      "type" : "object",
+      "anyOf" : [ {
+        "$ref" : "#/definitions/condition_expressions"
+      }, {
+        "$ref" : "#/definitions/boolean_expressions"
+      }, {
+        "$ref" : "#/definitions/scope_expressions"
+      }, {
+        "$ref" : "#/definitions/scripted_triggers"
+      } ]
+    },
+    "scripted_effects" : {
+      "type" : "object",
+      "additionalProperties" : true,
+      "$type" : "scripted_effect"
+    },
+    "weight" : {
+      "type" : "object",
+      "properties" : {
+        "weight" : {
+          "$ref" : "#/definitions/number"
+        }
+      }
+    },
+    "weight_modifier" : {
+      "type" : "object",
+      "properties" : {
+        "weight" : {
+          "$ref" : "#/definitions/number"
+        },
+        "modifier" : {
+          "$ref" : "#/definitions/modifier"
+        }
+      }
+    },
+    "modifier" : {
+      "type" : "object",
+      "allOf" : [ {
+        "oneOf" : [ {
+          "properties" : {
+            "factor" : {
+              "$ref" : "#/definitions/factor"
+            }
+          }
+        }, {
+          "properties" : {
+            "add" : {
+              "$ref" : "#/definitions/number"
+            }
+          }
+        } ]
+      }, {
+        "$ref" : "#/definitions/conditions"
+      } ]
+    },
+    "triggered_modifier" : {
+      "type" : "object",
+      "properties" : {
+        "potential" : {
+          "$ref" : "#/definitions/conditions"
+        }
+      },
+      "$ref" : "#/definitions/modifier"
+    },
+    "modifier_chance" : {
+      "type" : "object",
+      "properties" : {
+        "base" : {
+          "$ref" : "#/definitions/int"
+        },
+        "modifier" : {
+          "$ref" : "#/definitions/modifier"
+        }
+      }
+    },
+    "event" : {
+      "oneOf" : [ {
+        "$ref" : "#/definitions/event_id"
+      }, {
+        "propertyNames" : {
+          "$ref" : "#/definitions/event_type"
+        },
+        "additionalProperties" : {
+          "$ref" : "#/definitions/event_id"
+        }
+      } ]
+    },
+    "event_id" : {
+      "oneOf" : [ {
+        "type" : "string"
+      }, {
+        "type" : "object",
+        "$ref" : "#/definitions/modifier",
+        "properties" : {
+          "id" : {
+            "type" : "string"
+          }
+        },
+        "additionalProperties" : true
+      } ]
+    },
+    "event_type" : null,
+    "triggered_tooltip" : {
+      "$ref" : "#/definitions/conditions",
+      "fail_text" : {
+        "$ref" : "#/definitions/loc_reference"
+      }
+    },
+    "mod_path" : {
+      "type" : "string"
+    },
+    "game_path" : {
+      "type" : "string"
+    },
+    "workshop_path" : {
+      "type" : "string"
+    },
+    "component_size" : {
+      "type" : "string",
+      "enum" : [ "small", "medium", "large", "extra_large", "point_defence", "torpedo", "titanic", "planet_killer" ]
+    },
+    "component_type" : {
+      "type" : "string",
+      "enum" : [ "instant", "missile", "point_defence" ]
+    },
+    "entity" : {
+      "type" : "string"
+    }
+  }
+}

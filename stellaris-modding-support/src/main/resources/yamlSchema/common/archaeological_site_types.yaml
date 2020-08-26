@@ -21,8 +21,8 @@ definitions:
         $ref: "../core.yaml/#/definitions/conditions"
       on_visible:
         $ref: "../core.yaml/#/definitions/effects"
-      # anyOf
       state:
+        multiple: true
         $ref: "#/definitions/state"
       on_roll_failed:
         $ref: "../core.yaml/#/definitions/effects"

@@ -1,0 +1,34 @@
+{
+  "definitions" : {
+    "dynamic_text" : {
+      "type" : "object",
+      "properties" : {
+        "mandatory" : {
+          "$type" : "mandatory_tag[]"
+        },
+        "relevant" : {
+          "$type" : "relevant_tag[]"
+        },
+        "add" : {
+          "$type" : "relevant_tag[]"
+        },
+        "blocked" : {
+          "$type" : "blocked_tag[]"
+        },
+        "next_mandatory" : {
+          "$type" : "next_mandatory_tag[]"
+        },
+        "texts" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "../core.json/#/definitions/loc_reference"
+          }
+        }
+      }
+    }
+  },
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/dynamic_text"
+  }
+}

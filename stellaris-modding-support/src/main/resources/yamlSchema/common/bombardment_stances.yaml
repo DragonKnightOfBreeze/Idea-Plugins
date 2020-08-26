@@ -9,7 +9,7 @@ definitions:
         $ref: "../core.yaml/#/definitions/conditions"
       # = fleet
       icon_frame:
-        $ref: "../core.yaml/#/definitions/uint"
+        $ref: "../core.yaml/#/definitions/int"
       default:
         $ref: "../core.yaml/#/definitions/boolean"
       stop_when_armies_dead:
@@ -19,13 +19,13 @@ definitions:
         $ref: "../core.yaml/#/definitions/boolean"
         default: no
       plant_damage:
-        $ref: "../core.yaml/#/definitions/number"
+        $ref: "../core.yaml/#/definitions/float"
       army_damage:
-        $ref: "../core.yaml/#/definitions/number"
+        $ref: "../core.yaml/#/definitions/float"
       kill_pop_chance:
         $ref: "../core.yaml/#/definitions/modifier_chance"
       min_pop_to_kill_pop:
-        $ref: "../core.yaml/#/definitions/uint"
+        $ref: "../core.yaml/#/definitions/int"
       root:
         type: string
       # = planet

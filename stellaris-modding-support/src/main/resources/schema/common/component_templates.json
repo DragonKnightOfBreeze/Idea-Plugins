@@ -1,0 +1,133 @@
+{
+  "definitions" : {
+    "component_template" : {
+      "type" : "object",
+      "properties" : {
+        "key" : {
+          "$ref" : "../core.json/#/definitions/loc_reference"
+        },
+        "size" : {
+          "$ref" : "../core.json/#/definitions/component_size"
+        },
+        "type" : {
+          "$ref" : "../core.json/#/definitions/component_type"
+        },
+        "icon" : {
+          "$ref" : "../core.json/#/definitions/gfx_reference"
+        },
+        "icon_frame" : {
+          "$ref" : "../core.json/#/definitions/uint"
+        },
+        "color" : {
+          "$ref" : "../core.json/#/definitions/color"
+        },
+        "prio_projectile" : {
+          "$ref" : "../core.json/#/definitions/boolean"
+        },
+        "hidden" : {
+          "$ref" : "../core.json/#/definitions/boolean"
+        },
+        "firing_arc" : {
+          "$ref" : "../core.json/#/definitions/number"
+        },
+        "min_range" : {
+          "$ref" : "../core.json/#/definitions/number"
+        },
+        "power" : {
+          "$ref" : "../core.json/#/definitions/int"
+        },
+        "count" : {
+          "$ref" : "../core.json/#/definitions/uint"
+        },
+        "regeneration_per_day" : {
+          "$ref" : "../core.json/#/definitions/number"
+        },
+        "launch_time" : {
+          "$ref" : "../core.json/#/definitions/number"
+        },
+        "damage" : {
+          "$ref" : "../core.json/#/definitions/damage"
+        },
+        "cooldown" : {
+          "$ref" : "../core.json/#/definitions/uint"
+        },
+        "range" : {
+          "$ref" : "../core.json/#/definitions/uint"
+        },
+        "engagement_range" : {
+          "$ref" : "../core.json/#/definitions/uint"
+        },
+        "accuracy" : {
+          "$ref" : "../core.json/#/definitions/number"
+        },
+        "tracking" : {
+          "$ref" : "../core.json/#/definitions/number"
+        },
+        "health" : {
+          "$ref" : "../core.json/#/definitions/uint"
+        },
+        "armor" : {
+          "$ref" : "../core.json/#/definitions/uint"
+        },
+        "shield" : {
+          "$ref" : "../core.json/#/definitions/uint"
+        },
+        "evasion" : {
+          "$ref" : "../core.json/#/definitions/number"
+        },
+        "speed" : {
+          "$ref" : "../core.json/#/definitions/uint"
+        },
+        "rotation_speed" : {
+          "$ref" : "../core.json/#/definitions/number"
+        },
+        "acceleration" : {
+          "$ref" : "../core.json/#/definitions/number"
+        },
+        "shield_damage" : {
+          "$ref" : "../core.json/#/definitions/number"
+        },
+        "shield_penetration" : {
+          "$ref" : "../core.json/#/definitions/number"
+        },
+        "armor_penetration" : {
+          "$ref" : "../core.json/#/definitions/number"
+        },
+        "ship_behavior" : {
+          "$type" : "ship_behavior"
+        },
+        "weapon_type" : {
+          "$ref" : "../core.json/#/definitions/component_type"
+        },
+        "entity" : {
+          "$ref" : "../core.json/#/definitions/entity"
+        },
+        "prerequisites" : {
+          "$type" : "tech[]"
+        },
+        "component_set" : {
+          "$type" : "component_set"
+        },
+        "projectile_gfx" : {
+          "$type" : "projectile.name"
+        },
+        "tags" : {
+          "$type" : "component_tag[]"
+        },
+        "upgrades_to" : {
+          "$type" : "component_template.key"
+        },
+        "ai_tags" : {
+          "$type" : "component_tag[]"
+        },
+        "resources" : {
+          "$ref" : "../core.json/#/definitions/economy_unit"
+        }
+      }
+    }
+  },
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/component_template"
+  }
+}

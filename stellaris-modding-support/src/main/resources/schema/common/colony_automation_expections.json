@@ -1,0 +1,37 @@
+{
+  "definitions" : {
+    "colony_automation_exception" : {
+      "type" : "object",
+      "properties" : {
+        "available" : {
+          "$ref" : "../core.json/#/definitions/conditions"
+        },
+        "crisis" : {
+          "$ref" : "../core.json/#/definitions/boolean"
+        },
+        "prio_districts" : {
+          "$type" : "district[]"
+        },
+        "buildings" : {
+          "type" : "object",
+          "properties" : {
+            "precinct" : {
+              "properties" : {
+                "bulding" : {
+                  "$type" : "building"
+                },
+                "available" : {
+                  "$ref" : "../core.json/#/definitions/conditions"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/colony_automation_exception"
+  }
+}

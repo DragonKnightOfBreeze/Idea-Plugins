@@ -1,0 +1,28 @@
+{
+  "definitions" : {
+    "ascension_perk" : {
+      "type" : "object",
+      "properties" : {
+        "potential" : {
+          "$ref" : "../core.json/#/definitions/conditions"
+        },
+        "possible" : {
+          "$ref" : "../core.json/#/definitions/effects"
+        },
+        "on_enabled" : {
+          "$ref" : "../core.json/#/definitions/effects"
+        },
+        "modifier" : {
+          "$ref" : "../core.json/#/definitions/modifier"
+        },
+        "ai_weight" : {
+          "$ref" : "../core.json/#/definitions/weight_modifier"
+        }
+      }
+    }
+  },
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/ascension_perk"
+  }
+}

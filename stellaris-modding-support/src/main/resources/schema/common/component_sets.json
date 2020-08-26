@@ -1,0 +1,22 @@
+{
+  "definitions" : {
+    "component_set" : {
+      "type" : "object",
+      "properties" : {
+        "key" : {
+          "$ref" : "../core.json/#/definitions/loc_reference"
+        },
+        "icon" : {
+          "$ref" : "../core.json/#/definitions/gfx_reference"
+        },
+        "icon_frame" : {
+          "$ref" : "../core.json/#/definitions/int"
+        }
+      }
+    }
+  },
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/component_set"
+  }
+}

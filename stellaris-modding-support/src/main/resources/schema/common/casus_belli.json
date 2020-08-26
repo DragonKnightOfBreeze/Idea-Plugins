@@ -1,0 +1,30 @@
+{
+  "definitions" : {
+    "casus_belli" : {
+      "type" : "object",
+      "properties" : {
+        "show_in_diplomacy" : {
+          "$ref" : "../core.json/#/definitions/boolean",
+          "default" : true
+        },
+        "show_notification" : {
+          "$ref" : "../core.json/#/definitions/boolean",
+          "default" : true
+        },
+        "potential" : {
+          "$ref" : "../core.json/#/definitions/conditions"
+        },
+        "is_valid" : {
+          "$ref" : "../core.json/#/definitions/conditions"
+        },
+        "destroy_if" : {
+          "$ref" : "../core.json/#/definitions/conditions"
+        }
+      }
+    }
+  },
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/casus_belli"
+  }
+}

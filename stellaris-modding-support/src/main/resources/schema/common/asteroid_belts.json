@@ -1,0 +1,19 @@
+{
+  "definitions" : {
+    "asteroid_belt" : {
+      "type" : "object",
+      "properties" : {
+        "mesh" : {
+          "$ref" : "../core.json/#/definitions/gfx_reference"
+        },
+        "shader" : {
+          "type" : "string"
+        }
+      }
+    }
+  },
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/asteroid_belts"
+  }
+}

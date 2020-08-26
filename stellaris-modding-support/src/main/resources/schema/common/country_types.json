@@ -1,0 +1,152 @@
+{
+  "definitions" : {
+    "country_type" : {
+      "title" : "Country Type",
+      "type" : "object",
+      "properties" : {
+        "has_difficulty_bonuses" : {
+          "$ref" : "../core.json/#/definitions/boolean"
+        },
+        "counts_for_victory" : {
+          "$ref" : "../core.json/#/definitions/boolean"
+        },
+        "pop_growth" : {
+          "$ref" : "../core.json/#/definitions/boolean"
+        },
+        "playable" : {
+          "$ref" : "../core.json/#/definitions/boolean"
+        },
+        "has_pulse_events" : {
+          "$ref" : "../core.json/#/definitions/boolean"
+        },
+        "piracy_risk" : {
+          "$ref" : "../core.json/#/definitions/boolean"
+        },
+        "randomize_ethos" : {
+          "$ref" : "../core.json/#/definitions/boolean"
+        },
+        "shuffle_pop_ethos" : {
+          "$ref" : "../core.json/#/definitions/boolean"
+        },
+        "needs_survey" : {
+          "$ref" : "../core.json/#/definitions/boolean"
+        },
+        "diplomatic_wars" : {
+          "$ref" : "../core.json/#/definitions/boolean"
+        },
+        "ship_disengagement" : {
+          "$ref" : "../core.json/#/definitions/boolean"
+        },
+        "army_disengagement" : {
+          "$ref" : "../core.json/#/definitions/boolean"
+        },
+        "relations" : {
+          "$ref" : "../core.json/#/definitions/boolean"
+        },
+        "observable" : {
+          "$ref" : "../core.json/#/definitions/boolean"
+        },
+        "can_use_invalid_technology" : {
+          "$ref" : "../core.json/#/definitions/boolean"
+        },
+        "can_receive_envoys" : {
+          "$ref" : "../core.json/#/definitions/boolean"
+        },
+        "ai" : {
+          "type" : "object",
+          "properties" : {
+            "enabled" : {
+              "$ref" : "../core.json/#/definitions/boolean"
+            },
+            "declare_war" : {
+              "$ref" : "../core.json/#/definitions/boolean"
+            },
+            "min_navy_for_wars" : {
+              "$ref" : "../core.json/#/definitions/number"
+            },
+            "min_assault_armies_for_wars" : {
+              "$ref" : "../core.json/#/definitions/uint"
+            },
+            "colonizer" : {
+              "$ref" : "../core.json/#/definitions/boolean"
+            },
+            "internal_policies" : {
+              "$ref" : "../core.json/#/definitions/boolean"
+            },
+            "modification" : {
+              "$ref" : "../core.json/#/definitions/boolean"
+            },
+            "government" : {
+              "$ref" : "../core.json/#/definitions/boolean"
+            },
+            "tarditions" : {
+              "$ref" : "../core.json/#/definitions/boolean"
+            },
+            "construction" : {
+              "$ref" : "../core.json/#/definitions/boolean"
+            },
+            "follow" : {
+              "$ref" : "../core.json/#/definitions/boolean"
+            },
+            "can_use_market" : {
+              "$ref" : "../core.json/#/definitions/boolean"
+            },
+            "modules" : {
+              "$type" : "module[]"
+            },
+            "ship_data" : {
+              "type" : "object",
+              "propertyNames" : {
+                "$type" : "ship"
+              },
+              "additionalProperties" : {
+                "$ref" : "#/definitions/ship_data"
+              }
+            },
+            "army_data" : {
+              "type" : "object",
+              "propertyNames" : {
+                "$type" : "army"
+              },
+              "additionalProperties" : {
+                "$ref" : "#/definitions/ship_data"
+              }
+            }
+          }
+        },
+        "trade_route_available" : {
+          "$ref" : "../core.json/#/definitions/conditions"
+        },
+        "modules" : {
+          "type" : "object",
+          "propertyNames" : {
+            "$type" : "module"
+          }
+        },
+        "resources" : {
+          "$ref" : "../core.json/#/definitions/economy_unit"
+        },
+        "branch_office_resources" : {
+          "$ref" : "../core.json/#/definitions/economy_unit"
+        }
+      }
+    },
+    "ship_data" : {
+      "oneOf" : [ {
+        "$ref" : "../core.json/#/definitions/uint_range"
+      }, {
+        "type" : "object",
+        "properties" : {
+          "fraction" : {
+            "$ref" : "../core.json/#/definitions/modifier_chance"
+          }
+        }
+      } ]
+    }
+  },
+  "title" : "Country Types",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/country_type"
+  }
+}

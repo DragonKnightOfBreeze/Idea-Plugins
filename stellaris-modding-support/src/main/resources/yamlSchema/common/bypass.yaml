@@ -12,15 +12,15 @@ definitions:
       always_active:
         $ref: "../core.yaml/#/definitions/boolean"
       windup_time:
-        $ref: "../core.yaml/#/definitions/uint"
+        $ref: "../core.yaml/#/definitions/int"
       winddown_time:
-        $ref: "../core.yaml/#/definitions/uint"
+        $ref: "../core.yaml/#/definitions/int"
       ftl_multiplier:
-        $ref: "../core.yaml/#/definitions/uint"
+        $ref: "../core.yaml/#/definitions/int"
       extends_sensors:
         $ref: "../core.yaml/#/definitions/boolean"
       icon_frame:
-        $ref: "../core.yaml/#/definitions/uint"
+        $ref: "../core.yaml/#/definitions/int"
       remember_instances:
         $ref: "../core.yaml/#/definitions/boolean"
       galactic_map_tooltip_header:
@@ -36,31 +36,29 @@ definitions:
       bypass_effect:
         $ref: "../core.yaml/#/definitions/assert_reference"
       animation_time:
-        $ref: "../core.yaml/#/definitions/uint"
+        $ref: "../core.yaml/#/definitions/int"
       prerequisites:
-        $type: tech[]
+        type: array
+        items:
+          $ref: "../core.yaml/#/definitions/tech"
       on_pre_explore:
         $ref: "../core.yaml/#/definitions/effects"
       country_can_use:
         $ref: "../core.yaml/#/definitions/conditions"
       on_action:
-        $type: on_action
+        $ref: "../core.yaml/#/definitions/on_action"
       scripted_connection:
         $ref: "#/definitions/scripted_connection"
-
   connection_type:
     type: string
     enum:
     - any_other
     - one_to_one
     - scripted_connection
-
   scripted_connection:
     properties:
-      # has_star_flag = ...
       nodes:
         $ref: "../core.yaml/#/definitions/conditions"
-      # has_star_flag = ...
       nexus:
         $ref: "../core.yaml/#/definitions/conditions"
 

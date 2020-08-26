@@ -1,0 +1,12 @@
+{
+  "definitions" : {
+    "color" : {
+      "type" : "array",
+      "items" : true
+    }
+  },
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/color"
+  }
+}

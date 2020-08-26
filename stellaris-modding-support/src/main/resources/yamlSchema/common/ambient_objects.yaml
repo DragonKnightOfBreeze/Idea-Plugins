@@ -7,13 +7,14 @@ definitions:
         $ref: "../core.yaml/#/definitions/loc_reference"
       entity:
         $ref: "../core.yaml/#/definitions/loc_reference"
-      # opt
       description:
+        optional: true
         $ref: "../core.yaml/#/definitions/loc_reference"
-      # opt
       tooltip:
+        optional: true
         $ref: "../core.yaml/#/definitions/loc_reference"
       selectable:
+        optional: true
         $ref: "../core.yaml/#/definitions/boolean"
       show_name:
         $ref: "../core.yaml/#/definitions/boolean"

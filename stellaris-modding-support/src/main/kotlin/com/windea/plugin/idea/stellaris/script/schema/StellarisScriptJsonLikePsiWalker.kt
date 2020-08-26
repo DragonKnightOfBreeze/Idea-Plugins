@@ -14,16 +14,14 @@ import com.windea.plugin.idea.stellaris.script.psi.*
 
 object StellarisScriptJsonLikePsiWalker : JsonLikePsiWalker {
 	override fun findElementToCheck(element: PsiElement): PsiElement? {
-		//    PsiElement current = element;
-		//    while (current != null && !(current instanceof PsiFile)) {
-		//      if (current instanceof JsonValue || current instanceof JsonProperty) {
-		//        return current;
-		//      }
-		//      current = current.getParent();
-		//    }
-		//    return null;
 		//得到需要检查的元素
+		//如果是item，则得到父元素（限于语法解析）
+		//如果是空白，判断之前的元素是否是item，若是则得到之前的元素
 		var current = element
+		if(current is PsiWhiteSpace){
+			val prev = current.prevSibling
+			if(prev is StellarisScriptItem) current = prev
+		}
 		while(current !is PsiFile){
 			when(current) {
 				is StellarisScriptProperty, is StellarisScriptPropertyKey, is StellarisScriptPropertyValue -> {
@@ -50,7 +48,8 @@ object StellarisScriptJsonLikePsiWalker : JsonLikePsiWalker {
 	}
 
 	override fun isTopJsonElement(element: PsiElement): Boolean {
-		return element is StellarisScriptFile
+		//可能是psiFile，也可能子元素是psiFile，因为底层逻辑是判断root的父元素是否是topJsonElement
+		return element is StellarisScriptFile || (element is PsiDirectory)
 	}
 
 	override fun isPropertyWithValue(element: PsiElement): Boolean {
@@ -79,7 +78,6 @@ object StellarisScriptJsonLikePsiWalker : JsonLikePsiWalker {
 		//parent也可以是file，这也合法
 		return when(val parent = originalPosition.parent) {
 			is StellarisScriptBlock -> parent.propertyList.mapNotNullTo(mutableSetOf()) { it.name }
-			is StellarisScriptFile -> parent.properties.mapNotNullTo(mutableSetOf()) { it.name }
 			else -> mutableSetOf()
 		}
 	}

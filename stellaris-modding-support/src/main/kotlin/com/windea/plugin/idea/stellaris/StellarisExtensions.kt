@@ -232,12 +232,12 @@ fun selectElement(editor: Editor, element: PsiElement?) {
 }
 //endregion
 
-//NOTE 如果最终只需要一个结果而需要在多个文件中查找，那么使用Sequence而非List以提高性能
+//TODO 使用CachedValue以提高性能
 
 //region Stellaris Script
-fun findScriptVariableDefinitionInFile(name: String, psiFile: PsiFile?): StellarisScriptVariableDefinition? {
-	if(psiFile !is StellarisScriptFile) return null
-	return psiFile.variableDefinitions.find { it.name == name }
+fun findScriptVariableDefinitionInFile(name: String, file: PsiFile?): StellarisScriptVariableDefinition? {
+	if(file !is StellarisScriptFile) return null
+	return file.variableDefinitions.find { it.name == name }
 }
 
 fun findScriptVariableDefinition(name: String, project: Project, globalSearchScope: GlobalSearchScope = GlobalSearchScope.projectScope(project)): StellarisScriptVariableDefinition? {

@@ -4,10 +4,10 @@ definitions:
     type: object
     properties:
       base_buildtime:
-        $ref: "../core.yaml/#/definitions/uint"
-      # opt
+        $ref: "../core.yaml/#/definitions/int"
       base_cap_amount:
-        $ref: "../core.yaml/#/definitions/uint"
+        optional: true
+        $ref: "../core.yaml/#/definitions/int"
       capital:
         $ref: "../core.yaml/#/definitions/boolean"
       can_build:
@@ -23,7 +23,9 @@ definitions:
       potential:
         $ref: "../core.yaml/#/definitions/conditions"
       convert_to:
-        $type: building[]
+        type: array
+        items:
+          $ref: "../core.yaml/#/definitions/building"
       planet_modifier:
         $ref: "../core.yaml/#/definitions/modifier"
       destroy_trigger:
@@ -36,9 +38,13 @@ definitions:
       resources:
         $ref: "../core.yaml/#/definitions/resource"
       upgrades:
-        $type: building[]
+        type: array
+        items:
+          $ref: "../core.yaml/#/definitions/building"
       prerequisites:
-        $type: building[]
+        type: array
+        items:
+          $ref: "../core.yaml/#/definitions/building"
       # anyOf
       triggered_desc:
         $ref: "../core.yaml/#/definitions/triggered_desc"
@@ -52,7 +58,6 @@ definitions:
         $ref: "../core.yaml/#/definitions/effects"
       ai_weight:
         $ref: "../core.yaml/#/definitions/weight_modifier"
-
   building_category:
     type: string
     enum:

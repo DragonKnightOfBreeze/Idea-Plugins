@@ -36,6 +36,6 @@ class StellarisScriptPropertyAdapter(
 
 	override fun getParentObject(): JsonObjectValueAdapter? {
 		val parent = element.parent
-		return if(parent is StellarisScriptBlock) StellarisScriptObjectAdapter(parent) else null
+		return if(parent is StellarisScriptBlock || parent is StellarisScriptFile) StellarisScriptObjectAdapter(parent) else null
 	}
 }

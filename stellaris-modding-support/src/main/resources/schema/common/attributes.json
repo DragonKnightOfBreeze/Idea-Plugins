@@ -1,0 +1,32 @@
+{
+  "definitions" : {
+    "attribute" : {
+      "type" : "object",
+      "properties" : {
+        "type" : {
+          "type" : "string"
+        },
+        "behaviour" : {
+          "$ref" : "#/definitions/behaviour"
+        }
+      }
+    },
+    "behaviour" : {
+      "type" : "object",
+      "propertyNames" : {
+        "$ref" : "#/definitions/behaviour_name"
+      },
+      "additionalProperties" : {
+        "$ref" : "../core.json/#/definitions/boolean"
+      }
+    },
+    "behaviour_name" : {
+      "type" : "string",
+      "enum" : [ "attack", "weaken", "alliance", "vassalize", "trade", "coexist" ]
+    }
+  },
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/attribute"
+  }
+}
