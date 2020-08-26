@@ -47,27 +47,28 @@
         "$ref" : "../core.json/#/definitions/event_id"
       }, {
         "propertyNames" : {
-          "$ref" : "../core.json/#/definitions/unit"
+          "$ref" : "../core.json/#/definitions/nit"
         },
-        "additionalProperties" : null,
-        "oneOf" : [ {
-          "$ref" : "../core.json/#/definitions/event_id"
-        }, {
-          "$ref" : "../core.json/#/definitions/modifier",
-          "properties" : {
-            "max_once" : {
-              "$ref" : "../core.json/#/definitions/boolean",
-              "default" : true
-            },
-            "max_once_global" : {
-              "$ref" : "../core.json/#/definitions/boolean",
-              "default" : false
-            },
-            "anomaly_event" : {
-              "$ref" : "../core.json/#/definitions/event_id"
+        "additionalProperties" : {
+          "oneOf" : [ {
+            "$ref" : "../core.json/#/definitions/event_id"
+          }, {
+            "$ref" : "../core.json/#/definitions/modifier",
+            "properties" : {
+              "max_once" : {
+                "$ref" : "../core.json/#/definitions/boolean",
+                "default" : true
+              },
+              "max_once_global" : {
+                "$ref" : "../core.json/#/definitions/boolean",
+                "default" : false
+              },
+              "anomaly_event" : {
+                "$ref" : "../core.json/#/definitions/event_id"
+              }
             }
-          }
-        } ]
+          } ]
+        }
       } ]
     }
   },

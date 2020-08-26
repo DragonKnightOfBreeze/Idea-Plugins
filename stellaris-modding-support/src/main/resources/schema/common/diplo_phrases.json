@@ -9,7 +9,8 @@
         "type" : "object",
         "properties" : {
           "trigger" : {
-            "$ref" : "../core.json/#/definitions/conditions"
+            "$ref" : "../core.json/#/definitions/conditions",
+            "multiple" : true
           },
           "weight" : {
             "$ref" : "../core.json/#/definitions/weight"

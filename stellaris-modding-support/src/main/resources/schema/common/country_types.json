@@ -1,7 +1,6 @@
 {
   "definitions" : {
     "country_type" : {
-      "title" : "Country Type",
       "type" : "object",
       "properties" : {
         "has_difficulty_bonuses" : {
@@ -62,10 +61,10 @@
               "$ref" : "../core.json/#/definitions/boolean"
             },
             "min_navy_for_wars" : {
-              "$ref" : "../core.json/#/definitions/number"
+              "$ref" : "../core.json/#/definitions/float"
             },
             "min_assault_armies_for_wars" : {
-              "$ref" : "../core.json/#/definitions/uint"
+              "$ref" : "../core.json/#/definitions/int"
             },
             "colonizer" : {
               "$ref" : "../core.json/#/definitions/boolean"
@@ -92,7 +91,10 @@
               "$ref" : "../core.json/#/definitions/boolean"
             },
             "modules" : {
-              "$type" : "module[]"
+              "type" : "array",
+              "items" : {
+                "$type" : "module"
+              }
             },
             "ship_data" : {
               "type" : "object",
@@ -144,7 +146,6 @@
       } ]
     }
   },
-  "title" : "Country Types",
   "type" : "object",
   "additionalProperties" : {
     "$ref" : "#/definitions/country_type"

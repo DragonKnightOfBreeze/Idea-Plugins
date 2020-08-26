@@ -16,19 +16,19 @@
           "$ref" : "../core.json/#/definitions/boolean"
         },
         "windup_time" : {
-          "$ref" : "../core.json/#/definitions/uint"
+          "$ref" : "../core.json/#/definitions/int"
         },
         "winddown_time" : {
-          "$ref" : "../core.json/#/definitions/uint"
+          "$ref" : "../core.json/#/definitions/int"
         },
         "ftl_multiplier" : {
-          "$ref" : "../core.json/#/definitions/uint"
+          "$ref" : "../core.json/#/definitions/int"
         },
         "extends_sensors" : {
           "$ref" : "../core.json/#/definitions/boolean"
         },
         "icon_frame" : {
-          "$ref" : "../core.json/#/definitions/uint"
+          "$ref" : "../core.json/#/definitions/int"
         },
         "remember_instances" : {
           "$ref" : "../core.json/#/definitions/boolean"
@@ -52,10 +52,13 @@
           "$ref" : "../core.json/#/definitions/assert_reference"
         },
         "animation_time" : {
-          "$ref" : "../core.json/#/definitions/uint"
+          "$ref" : "../core.json/#/definitions/int"
         },
         "prerequisites" : {
-          "$type" : "tech[]"
+          "type" : "array",
+          "items" : {
+            "$type" : "tech"
+          }
         },
         "on_pre_explore" : {
           "$ref" : "../core.json/#/definitions/effects"

@@ -140,7 +140,7 @@ object StellarisScriptJsonLikePsiWalker : JsonLikePsiWalker {
 	}
 
 	override fun hasWhitespaceDelimitedCodeBlocks(): Boolean {
-		return true
+		return false
 	}
 
 	override fun hasMissingCommaAfter(element: PsiElement): Boolean {

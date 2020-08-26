@@ -10,7 +10,10 @@
           "$ref" : "../core.json/#/definitions/boolean"
         },
         "prio_districts" : {
-          "$type" : "district[]"
+          "type" : "object",
+          "items" : {
+            "$type" : "district"
+          }
         },
         "buildings" : {
           "type" : "object",
@@ -18,10 +21,12 @@
             "precinct" : {
               "properties" : {
                 "bulding" : {
-                  "$type" : "building"
+                  "$type" : "building",
+                  "multiple" : true
                 },
                 "available" : {
-                  "$ref" : "../core.json/#/definitions/conditions"
+                  "$ref" : "../core.json/#/definitions/conditions",
+                  "multiple" : true
                 }
               }
             }

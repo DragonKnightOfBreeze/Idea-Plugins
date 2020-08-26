@@ -2,7 +2,10 @@ package com.windea.plugin.idea.stellaris.script.codeInsight
 
 import com.intellij.codeInsight.completion.*
 import com.intellij.codeInsight.lookup.*
+import com.intellij.patterns.*
 import com.intellij.patterns.PlatformPatterns.*
+import com.intellij.psi.*
+import com.intellij.psi.TokenType.*
 import com.intellij.util.*
 import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.localization.*
@@ -30,7 +33,10 @@ class StellarisScriptCompletionContributor : CompletionContributor() {
 		extend(
 			CompletionType.BASIC,
 			//psiElement().afterSiblingSkipping(psiElement().whitespace(),psiElement(PROPERTY_SEPARATOR)),
-			psiElement(UNQUOTED_STRING_TOKEN),
+			StandardPatterns.or(
+				psiElement(UNQUOTED_STRING_TOKEN),
+				PlatformPatterns.psiElement().whitespace().afterSibling(psiElement(PROPERTY))
+			),
 			BooleanCompletionProvider()
 		)
 	}

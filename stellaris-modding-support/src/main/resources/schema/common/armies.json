@@ -67,7 +67,10 @@
           "$ref" : "../core.json/#/definitions/boolean"
         },
         "prerequisites" : {
-          "$type" : "tech[]"
+          "type" : "array",
+          "items" : {
+            "$type" : "tech"
+          }
         },
         "show_tech_unlock_if" : {
           "$ref" : "../core.json/#/definitions/conditions"

@@ -7,8 +7,8 @@
           "$ref" : "../core.json/#/definitions/weight_modifier"
         },
         "modifier" : {
-          "breeze_multiple" : true,
-          "$ref" : "../core.json/#/definitions/modifier"
+          "$ref" : "../core.json/#/definitions/modifier",
+          "multiple" : true
         }
       }
     }

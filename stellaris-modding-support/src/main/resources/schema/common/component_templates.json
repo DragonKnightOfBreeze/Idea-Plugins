@@ -16,7 +16,7 @@
           "$ref" : "../core.json/#/definitions/gfx_reference"
         },
         "icon_frame" : {
-          "$ref" : "../core.json/#/definitions/uint"
+          "$ref" : "../core.json/#/definitions/int"
         },
         "color" : {
           "$ref" : "../core.json/#/definitions/color"
@@ -28,70 +28,70 @@
           "$ref" : "../core.json/#/definitions/boolean"
         },
         "firing_arc" : {
-          "$ref" : "../core.json/#/definitions/number"
+          "$ref" : "../core.json/#/definitions/float"
         },
         "min_range" : {
-          "$ref" : "../core.json/#/definitions/number"
+          "$ref" : "../core.json/#/definitions/float"
         },
         "power" : {
           "$ref" : "../core.json/#/definitions/int"
         },
         "count" : {
-          "$ref" : "../core.json/#/definitions/uint"
+          "$ref" : "../core.json/#/definitions/int"
         },
         "regeneration_per_day" : {
-          "$ref" : "../core.json/#/definitions/number"
+          "$ref" : "../core.json/#/definitions/float"
         },
         "launch_time" : {
-          "$ref" : "../core.json/#/definitions/number"
+          "$ref" : "../core.json/#/definitions/float"
         },
         "damage" : {
-          "$ref" : "../core.json/#/definitions/damage"
+          "$ref" : "../core.json/#/definitions/int"
         },
         "cooldown" : {
-          "$ref" : "../core.json/#/definitions/uint"
+          "$ref" : "../core.json/#/definitions/int"
         },
         "range" : {
-          "$ref" : "../core.json/#/definitions/uint"
+          "$ref" : "../core.json/#/definitions/int"
         },
         "engagement_range" : {
-          "$ref" : "../core.json/#/definitions/uint"
+          "$ref" : "../core.json/#/definitions/int"
         },
         "accuracy" : {
-          "$ref" : "../core.json/#/definitions/number"
+          "$ref" : "../core.json/#/definitions/float"
         },
         "tracking" : {
-          "$ref" : "../core.json/#/definitions/number"
+          "$ref" : "../core.json/#/definitions/float"
         },
         "health" : {
-          "$ref" : "../core.json/#/definitions/uint"
+          "$ref" : "../core.json/#/definitions/int"
         },
         "armor" : {
-          "$ref" : "../core.json/#/definitions/uint"
+          "$ref" : "../core.json/#/definitions/int"
         },
         "shield" : {
-          "$ref" : "../core.json/#/definitions/uint"
+          "$ref" : "../core.json/#/definitions/int"
         },
         "evasion" : {
-          "$ref" : "../core.json/#/definitions/number"
+          "$ref" : "../core.json/#/definitions/float"
         },
         "speed" : {
-          "$ref" : "../core.json/#/definitions/uint"
+          "$ref" : "../core.json/#/definitions/int"
         },
         "rotation_speed" : {
-          "$ref" : "../core.json/#/definitions/number"
+          "$ref" : "../core.json/#/definitions/float"
         },
         "acceleration" : {
-          "$ref" : "../core.json/#/definitions/number"
+          "$ref" : "../core.json/#/definitions/float"
         },
         "shield_damage" : {
-          "$ref" : "../core.json/#/definitions/number"
+          "$ref" : "../core.json/#/definitions/float"
         },
         "shield_penetration" : {
-          "$ref" : "../core.json/#/definitions/number"
+          "$ref" : "../core.json/#/definitions/float"
         },
         "armor_penetration" : {
-          "$ref" : "../core.json/#/definitions/number"
+          "$ref" : "../core.json/#/definitions/float"
         },
         "ship_behavior" : {
           "$type" : "ship_behavior"
@@ -103,7 +103,10 @@
           "$ref" : "../core.json/#/definitions/entity"
         },
         "prerequisites" : {
-          "$type" : "tech[]"
+          "type" : "array",
+          "items" : {
+            "$type" : "tech"
+          }
         },
         "component_set" : {
           "$type" : "component_set"
@@ -112,13 +115,19 @@
           "$type" : "projectile.name"
         },
         "tags" : {
-          "$type" : "component_tag[]"
+          "type" : "array",
+          "items" : {
+            "$type" : "component_tag"
+          }
         },
         "upgrades_to" : {
           "$type" : "component_template.key"
         },
         "ai_tags" : {
-          "$type" : "component_tag[]"
+          "type" : "array",
+          "items" : {
+            "$type" : "component_tag"
+          }
         },
         "resources" : {
           "$ref" : "../core.json/#/definitions/economy_unit"

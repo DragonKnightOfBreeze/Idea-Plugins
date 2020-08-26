@@ -4,7 +4,7 @@
       "type" : "object",
       "properties" : {
         "icon" : {
-          "$ref" : "../core.json/#/definitions/uint"
+          "$ref" : "../core.json/#/definitions/int"
         },
         "potential" : {
           "$ref" : "../core.json/#/definitions/conditions"
@@ -16,7 +16,8 @@
           "$ref" : "../core.json/#/definitions/weight_modifier"
         },
         "triggered_planet_modifier" : {
-          "$ref" : "../core.json/#/definitions/triggered_modifier"
+          "$ref" : "../core.json/#/definitions/triggered_modifier",
+          "multiple" : true
         }
       }
     }

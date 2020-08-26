@@ -7,18 +7,22 @@
           "$ref" : "../core.json/#/definitions/conditions"
         },
         "prio_districts" : {
-          "$type" : "district[]"
+          "type" : "array",
+          "items" : {
+            "$type" : "district"
+          }
         },
         "buildings" : {
           "type" : "object",
           "propertyNames" : {
-            "$ref" : "../core.json/#/definitions/uint"
+            "$ref" : "../core.json/#/definitions/int"
           },
           "additionalProperties" : {
             "type" : "object",
             "properties" : {
               "bulding" : {
-                "$type" : "building"
+                "$type" : "building",
+                "multiple" : true
               },
               "available" : {
                 "$ref" : "../core.json/#/definitions/conditions"

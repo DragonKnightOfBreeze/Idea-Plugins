@@ -7,7 +7,7 @@
           "$ref" : "../core.json/#/definitions/boolean"
         },
         "time" : {
-          "$ref" : "../core.json/#/definitions/uint"
+          "$ref" : "../core.json/#/definitions/int"
         },
         "is_for_colonizeable" : {
           "$ref" : "../core.json/#/definitions/boolean"
@@ -31,7 +31,10 @@
           "$ref" : "../core.json/#/definitions/weight_modifier"
         },
         "prerequisites" : {
-          "$type" : "tech[]"
+          "type" : "array",
+          "items" : {
+            "$type" : "tech"
+          }
         }
       }
     }

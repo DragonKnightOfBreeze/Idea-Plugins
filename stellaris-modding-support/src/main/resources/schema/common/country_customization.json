@@ -30,9 +30,11 @@
           },
           "additionalProperties" : {
             "type" : "object",
-            "propertyNames" : null,
-            "modifier" : {
-              "$ref" : "../core.json/#/definitions/modifier"
+            "property" : {
+              "modifier" : {
+                "$ref" : "../core.json/#/definitions/modifier",
+                "multiple" : true
+              }
             }
           }
         }

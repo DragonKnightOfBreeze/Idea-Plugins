@@ -316,10 +316,6 @@
     <!--endregion-->
 
     <!--region Stellaris Script Schema-->
-    <completion.contributor
-      language="JSON"
-      implementationClass="com.windea.plugin.idea.stellaris.script.schema.JsonSchemaCompletionContributor0"/>
-
     <json.jsonSchemaEnabler
       implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaEnabler"/>
     <completion.contributor

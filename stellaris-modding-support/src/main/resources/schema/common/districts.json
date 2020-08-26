@@ -4,7 +4,7 @@
       "type" : "object",
       "properties" : {
         "base_buildtime" : {
-          "$ref" : "../core.json/#/definitions/uint"
+          "$ref" : "../core.json/#/definitions/int"
         },
         "is_capped_by_modifier" : {
           "$ref" : "../core.json/#/definitions/boolean"
@@ -19,10 +19,13 @@
           "$ref" : "../core.json/#/definitions/conditions"
         },
         "conversion_ratio" : {
-          "$ref" : "../core.json/#/definitions/number"
+          "$ref" : "../core.json/#/definitions/float"
         },
         "convert_to" : {
-          "$type" : "district[]"
+          "type" : "array",
+          "items" : {
+            "$type" : "district"
+          }
         },
         "resources" : {
           "$ref" : "../core.json/#/definitions/economy_unit"

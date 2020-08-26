@@ -4,10 +4,11 @@
       "type" : "object",
       "properties" : {
         "base_buildtime" : {
-          "$ref" : "../core.json/#/definitions/uint"
+          "$ref" : "../core.json/#/definitions/int"
         },
         "base_cap_amount" : {
-          "$ref" : "../core.json/#/definitions/uint"
+          "$ref" : "../core.json/#/definitions/int",
+          "optional" : true
         },
         "capital" : {
           "$ref" : "../core.json/#/definitions/boolean"
@@ -31,7 +32,10 @@
           "$ref" : "../core.json/#/definitions/conditions"
         },
         "convert_to" : {
-          "$type" : "building[]"
+          "type" : "array",
+          "items" : {
+            "$type" : "building"
+          }
         },
         "planet_modifier" : {
           "$ref" : "../core.json/#/definitions/modifier"
@@ -46,16 +50,26 @@
           "$ref" : "../core.json/#/definitions/triggered_modifier"
         },
         "resources" : {
-          "$ref" : "../core.json/#/definitions/resource"
+          "type" : "array",
+          "items" : {
+            "$type" : "resource"
+          }
         },
         "upgrades" : {
-          "$type" : "building[]"
+          "type" : "array",
+          "items" : {
+            "$type" : "building"
+          }
         },
         "prerequisites" : {
-          "$type" : "building[]"
+          "type" : "array",
+          "items" : {
+            "$type" : "building"
+          }
         },
         "triggered_desc" : {
-          "$ref" : "../core.json/#/definitions/triggered_desc"
+          "$ref" : "../core.json/#/definitions/triggered_desc",
+          "multiple" : true
         },
         "on_queued" : {
           "$ref" : "../core.json/#/definitions/effects"

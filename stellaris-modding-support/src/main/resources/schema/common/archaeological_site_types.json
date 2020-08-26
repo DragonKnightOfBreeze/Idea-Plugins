@@ -31,7 +31,8 @@
           "$ref" : "../core.json/#/definitions/effects"
         },
         "state" : {
-          "$ref" : "#/definitions/state"
+          "$ref" : "#/definitions/state",
+          "multiple" : true
         },
         "on_roll_failed" : {
           "$ref" : "../core.json/#/definitions/effects"
