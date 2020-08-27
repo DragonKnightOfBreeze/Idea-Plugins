@@ -32,10 +32,10 @@ class StellarisScriptSchemaProviderFactory : JsonSchemaProviderFactory {
 				it.nameWithoutExtension == "descriptor" -> {
 					providers += StellarisScriptSchemaProvider("descriptor.mod", false, it)
 				}
-				it.extension == "json" -> {
-					//TODO 等待Schema文件编写完毕
-					providers += StellarisScriptSchemaProvider("$pathPrefix/${it.nameWithoutExtension}".removePrefix("/"), true, it)
-				}
+				//TODO 等待Schema文件编写完毕
+				//it.extension == "json" -> {
+				//	providers += StellarisScriptSchemaProvider("$pathPrefix/${it.nameWithoutExtension}".removePrefix("/"), true, it)
+				//}
 			}
 		}
 	}

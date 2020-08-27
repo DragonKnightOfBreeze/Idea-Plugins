@@ -158,6 +158,8 @@
 
 ### 2.4
 
+基本完成脚本文件的Schema验证功能。
+
 * [X] 解决加载扩展时的ClassNotFoundException（如果`/src/main/kotlin`中包含java文件，那么`sourceSets.java`需要包含这个目录）
 * [X] 解决`String.toClassPathResource()`扩展方法的bug（最好基于特定的Class而非ClassLoader，需要考虑发布版本从jar中读取的情况）
 * [X] Schema：进行代码补全时，插入等号而非冒号（原始代码是硬编码，需要自行调整）
@@ -167,6 +169,9 @@
 * [X] Schema：由Yaml Schema生成Json Schema，jar包中需要Json Schema（Yaml Schema不识别并且可能产生意外错误）
 * [X] Schema：更加符合格式的代码补全（光标向右移1格，数组和对象补全不换行）
 * [X] Schema：从Yaml Schema生成Json Schema时，不将yes/no识别为布尔值
+
+### 2.5
+
 * [ ] Schema：解决jar包中的指向其他schema文件的`$ref`属性不能正确工作的bug
 * [ ] Schema：为脚本文件提供较为完善的Schema文件
 * [ ] 仅当找到descriptor.mod文件时，才将所在目录中你的yml文件和txt文件识别为本地化文件和脚本文件
