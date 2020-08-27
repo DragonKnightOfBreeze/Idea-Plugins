@@ -1,0 +1,20 @@
+definitions:
+  # 事件链
+  event_chain:
+    type: object
+    properties:
+      icon:
+        $ref: "../core.yaml#/definitions/mod_path"
+      picture:
+        $ref: "../core.yaml#/definitions/gfx_reference"
+      counter:
+        type: object
+        propertyNames:
+          $type: "counter"
+        additionalProperties:
+          max:
+            $ref: "../core.yaml#/definitions/int"
+
+type: object
+additionalProperties:
+  $ref: "#/definitions/event_chain"

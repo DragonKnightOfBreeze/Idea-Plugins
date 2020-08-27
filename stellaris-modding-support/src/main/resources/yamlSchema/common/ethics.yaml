@@ -6,7 +6,7 @@ definitions:
       cost:
         $ref: "../core.yaml#/definitions/int"
       category:
-        $ref: "../core.yaml#/definitions/ethic_category"
+        $ref: "#/definitions/ethic_category"
       category_value:
         $ref: "../core.yaml#/definitions/int"
       category_opposite:
@@ -32,8 +32,6 @@ definitions:
         $ref: "../core.yaml#/definitions/modified_attraction"
       pop_attraction:
         $ref: "../core.yaml#/definitions/modified_attraction"
-
-
   ethic_category:
     type: string
     $def: "#/ethic_categories/{ethic_category}"

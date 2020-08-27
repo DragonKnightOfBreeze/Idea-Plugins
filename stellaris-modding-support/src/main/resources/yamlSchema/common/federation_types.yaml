@@ -1,0 +1,29 @@
+definitions:
+  # 联邦类型
+  federation_type:
+    type: object
+    properties:
+      icon:
+        $ref: "../core.yaml#/definitions/gfx_reference"
+      potential:
+        $ref: "../core.yaml#/definitions/conditions"
+      allow:
+        $ref: "../core.yaml#/definitions/effects"
+      levels:
+        additionalProperties:
+          type: object
+          properties:
+            experience:
+              $ref: "../core.yaml#/definitions/int"
+            perks:
+              type: array
+              items:
+                $type: "federation_perk"
+      on_create:
+        $ref: "../core.yaml#/definitions/effects"
+      ai_weight:
+        $ref: "../core.yaml#/definitions/weight_modifier"
+
+type: object
+additionalProperties:
+  $ref: "#/definitions/federation_type"

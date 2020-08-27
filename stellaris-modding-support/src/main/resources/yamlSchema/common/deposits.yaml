@@ -18,9 +18,9 @@ definitions:
       plant_modifier:
         $ref: "../core.yaml#/definitions/modifier"
       drop_weight:
-        $ref: "../core.yaml#/definitions/modified_weight"
+        $ref: "../core.yaml#/definitions/weight_modifier"
       ai_weight:
-        $ref: "../core.yaml#/definitions/modified_weight"
+        $ref: "../core.yaml#/definitions/weight_modifier"
       prerequisites:
         type: array
         items:

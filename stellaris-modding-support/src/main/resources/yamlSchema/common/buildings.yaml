@@ -59,7 +59,7 @@ definitions:
       on_destroy:
         $ref: "../core.yaml#/definitions/effects"
       ai_weight:
-        $ref: "../core.yaml#/definitions/modified_weight"
+        $ref: "../core.yaml#/definitions/weight_modifier"
   building_category:
     type: string
     enum:

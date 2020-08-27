@@ -12,7 +12,7 @@ definitions:
       poential:
         $ref: "../core.yaml#/definitions/conditions"
       fraction:
-        $ref: "../core.yaml#/definitions/modified_weight"
+        $ref: "../core.yaml#/definitions/weight_modifier"
       static_min:
         $ref: "../core.yaml#/definitions/modifier_chance"
       static_max:

@@ -1,0 +1,19 @@
+definitions:
+  # 联邦法律分类
+  federation_law_category:
+    type: object
+    properties:
+      centralization:
+        $ref: "../core.yaml#/definitions/boolean"
+      show_succession_date:
+        $ref: "../core.yaml#/definitions/boolean"
+      laws:
+        type: array
+        items:
+          $type: "federation_law"
+      potential:
+        $ref: "../core.yaml#/definitions/conditions"
+
+type: object
+additionalProperties:
+  $ref: "#/definitions/federation_law_category"

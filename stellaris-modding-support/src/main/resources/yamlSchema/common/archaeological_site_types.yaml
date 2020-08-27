@@ -12,7 +12,7 @@ definitions:
       max_instance:
         $ref: "../core.yaml#/definitions/int"
       weight:
-        $ref: "../core.yaml#/definitions/modified_weight"
+        $ref: "../core.yaml#/definitions/weight_modifier"
       potential:
         $ref: "../core.yaml#/definitions/conditions"
       allow:

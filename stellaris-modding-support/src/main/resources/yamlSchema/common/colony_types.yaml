@@ -10,7 +10,7 @@ definitions:
       plant_modifier:
         $ref: "../core.yaml#/definitions/modifier"
       weight_modifier:
-        $ref: "../core.yaml#/definitions/modified_weight"
+        $ref: "../core.yaml#/definitions/weight_modifier"
       triggered_planet_modifier:
         $ref: "../core.yaml#/definitions/triggered_modifier"
         multiple: true

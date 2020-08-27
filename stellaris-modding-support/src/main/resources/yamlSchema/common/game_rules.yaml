@@ -1,0 +1,9 @@
+definitions:
+  # 游戏规则
+  game_rule:
+    type: object
+    $ref: "../core.yaml#/definitions/effects"
+
+type: object
+additionalProperties:
+  $ref: "#/definitions/game_rule"

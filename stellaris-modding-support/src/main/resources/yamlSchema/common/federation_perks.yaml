@@ -1,0 +1,29 @@
+definitions:
+  # 联邦修正
+  federation_perk:
+    type: object
+    properties:
+      federation_modifier:
+        $ref: "../core.yaml#/definitions/modifier"
+      federation_triggered_modifier:
+        $ref: "../core.yaml#/definitions/triggered_modifier"
+      members_modifier:
+        $ref: "../core.yaml#/definitions/modifier"
+      members_triggered_modifier:
+        $ref: "../core.yaml#/definitions/triggered_modifier"
+      leader_modifier:
+        $ref: "../core.yaml#/definitions/modifier"
+      leader_triggered_modifier:
+        $ref: "../core.yaml#/definitions/triggered_modifier"
+      envoy_modifier:
+        $ref: "../core.yaml#/definitions/modifier"
+      envoy_triggered_modifier:
+        $ref: "../core.yaml#/definitions/triggered_modifier"
+      on_activate:
+        $ref: "../core.yaml#/definitions/effects"
+      on_deactivate:
+        $ref: "../core.yaml#/definitions/effects"
+
+type: object
+additionalProperties:
+  $ref: "#/definitions/federation_perk"

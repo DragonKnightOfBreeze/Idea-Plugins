@@ -1,0 +1,21 @@
+definitions:
+  # 联邦法律
+  federation_law:
+    type: object
+    properties:
+      display_level:
+        $ref: "../core.yaml#/definitions/int"
+      unlocks_centralization:
+        $ref: "../core.yaml#/definitions/int"
+      cohesion_growth:
+        $ref: "../core.yaml#/definitions/int"
+      allow:
+        $ref: "../core.yaml#/definitions/effects"
+      on_enact:
+        $ref: "../core.yaml#/definitions/effects"
+      ai_weight:
+        $ref: "../core.yaml#/definitions/weight_modifier"
+
+type: object
+additionalProperties:
+  $ref: "#/definitions/federation_law"

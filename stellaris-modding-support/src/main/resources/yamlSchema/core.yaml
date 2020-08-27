@@ -186,7 +186,7 @@ definitions:
     properties:
       weight:
         $ref: "#/definitions/number"
-  modified_weight:
+  weight_modifier:
     type: object
     properties:
       weight:
