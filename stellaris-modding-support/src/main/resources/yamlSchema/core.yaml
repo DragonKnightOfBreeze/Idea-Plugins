@@ -69,6 +69,7 @@ definitions:
       max:
         type: integer
 
+  # 总是也可以是单纯的字符串
   loc_reference:
     type: string
   gfx_reference:
@@ -102,7 +103,7 @@ definitions:
     - propertyNames:
         $type: resource
       additionalProperties:
-        $ref: "#/definitions/uint"
+        $ref: "#/definitions/int"
 
   entity: true
 
@@ -115,6 +116,15 @@ definitions:
     properties:
       text:
         $ref: "#/definitions/loc_reference"
+
+  modified_attraction:
+    properties:
+      value:
+        $ref: "../core.yaml#/definitions/int"
+      # anyOf
+      modifier:
+        $ref: "#/definitions/modifier"
+
 
   condition_expressions:
     type: object
@@ -176,7 +186,7 @@ definitions:
     properties:
       weight:
         $ref: "#/definitions/number"
-  weight_modifier:
+  modified_weight:
     type: object
     properties:
       weight:
@@ -184,6 +194,11 @@ definitions:
       # anyOf
       modifier:
         $ref: "#/definitions/modifier"
+  random_weight:
+    type: object
+    properties:
+      value:
+        $ref: "#/definitions/int"
   modifier:
     type: object
     allOf:

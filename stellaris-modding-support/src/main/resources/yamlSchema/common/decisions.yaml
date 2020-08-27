@@ -18,7 +18,7 @@ definitions:
       effect:
         $ref: "../core.yaml#/definitions/effects"
       ai_weight:
-        $ref: "../core.yaml#/definitions/weight_modifier"
+        $ref: "../core.yaml#/definitions/modified_weight"
       modifier:
         $ref: "../core.yaml#/definitions/modifier"
 

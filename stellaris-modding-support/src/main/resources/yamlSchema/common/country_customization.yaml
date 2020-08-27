@@ -14,7 +14,7 @@ definitions:
           additionalProperties:
             $type: "building"
       weight:
-        $ref: "../core.yaml#/definitions/weight_modifier"
+        $ref: "../core.yaml#/definitions/modified_weight"
       graphical_culture_for_random_empire:
         type: object
         propertyNames:

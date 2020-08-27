@@ -32,7 +32,7 @@ definitions:
       from:
         type: string
       ai_weight:
-        $ref: "../core.yaml#/definitions/weight_modifier"
+        $ref: "../core.yaml#/definitions/modified_weight"
 
 type: object
 additionalProperties:

@@ -1,0 +1,24 @@
+definitions:
+  # 经济计划
+  economic_plan:
+    type: object
+    properties:
+      type:
+       type: string
+      income:
+        $ref: "../core.yaml#/definitions/resources_item"
+      focues:
+        $ref: "../core.yaml#/definitions/resources_item"
+      subplan:
+        $ref: "../core.yaml#/definitions/resources_item"
+        multiple: true
+      pops:
+        $ref: "../core.yaml#/definitions/int"
+      empire_size:
+        $ref: "../core.yaml#/definitions/float"
+      ai_weight:
+        $ref: "../core.yaml#/definitions/modified_weight"
+
+type: object
+additionalProperties:
+  $ref: "#/definitions/economic_plan"

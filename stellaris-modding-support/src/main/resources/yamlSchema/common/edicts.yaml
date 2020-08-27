@@ -1,0 +1,36 @@
+definitions:
+  # 法令
+  edicc:
+    type: object
+    properties:
+      name:
+        $ref: "../core.yaml#/definitions/loc_reference"
+      length:
+        $ref: "../core.yaml#/definitions/int"
+      icon:
+        $ref: "../core.yaml#/definitions/gfx_reference"
+      is_ambition:
+        $ref: "../core.yaml#/definitions/boolean"
+      edict_cap_usage:
+        $ref: "../core.yaml#/definitions/int"
+      resources:
+        $ref: "../core.yaml#/definitions/economy_unit"
+      modifier:
+        $ref: "../core.yaml#/definitions/modifier"
+        multiple: true
+      potential:
+        $ref: "../core.yaml#/definitions/conditions"
+      prerequisites:
+        type: array
+        items:
+          $type: "tech"
+      show_tech_unlock_if:
+        $ref: "../core.yaml#/definitions/conditions"
+      allow:
+        $ref: "../core.yaml#/definitions/effects"
+      ai_weight:
+        $ref: "../core.yaml#/definitions/modified_weight"
+
+type: object
+additionalProperties:
+  $ref: "#/definitions/edict"

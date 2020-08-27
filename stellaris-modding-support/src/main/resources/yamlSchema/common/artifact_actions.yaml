@@ -6,7 +6,7 @@ definitions:
       resources:
         $ref: "../core.yaml#/definitions/economy_unit"
       ai_weight:
-        $ref: "../core.yaml#/definitions/weight_modifier"
+        $ref: "../core.yaml#/definitions/modified_weight"
       potential:
         $ref: "../core.yaml#/definitions/conditions"
       allow:
