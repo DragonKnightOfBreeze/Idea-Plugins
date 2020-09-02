@@ -1,0 +1,35 @@
+definitions:
+  # 政府
+  government:
+    type: object
+    properties:
+      rule_title:
+        $ref: "../core.yaml#/definitions/loc_reference"
+      rule_title_female:
+        $ref: "../core.yaml#/definitions/loc_reference"
+      heir_title:
+        $ref: "../core.yaml#/definitions/loc_reference"
+      heir_title_female:
+        $ref: "../core.yaml#/definitions/loc_reference"
+      use_regnal_names:
+        $ref: "../core.yaml#/definitions/boolean"
+      dynastic_last_names:
+        $ref: "../core.yaml#/definitions/boolean"
+      should_force_rename:
+        $ref: "../core.yaml#/definitions/boolean"
+      leader_class:
+        $type: "leader_class"
+      election_candidates:
+        type: object
+        properties:
+          modifier:
+            $ref: "../core.yaml#/definitions/modifier"
+            multiple: true
+      possible:
+        $ref: "../core.yaml#/definitions/conditions"
+      weight:
+        $ref: "../core.yaml#/definitions/weight_modifier"
+
+type: object
+additionalProperties:
+  $ref: "#/definitions/government"

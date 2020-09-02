@@ -231,7 +231,7 @@
     <!--region Stellaris Script-->
     <fileType name="Stellaris Script File"
               implementationClass="com.windea.plugin.idea.stellaris.script.StellarisScriptFileType"
-              fieldName="INSTANCE" language="Stellaris Script" extensions="txt;mod;gfx;asset"/>
+              fieldName="INSTANCE" language="Stellaris Script" extensions="txt;mod;gfx;gui;asset"/>
     <lang.parserDefinition
       language="Stellaris Script"
       implementationClass="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptParserDefinition"/>

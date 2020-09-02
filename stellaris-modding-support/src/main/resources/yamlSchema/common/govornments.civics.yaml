@@ -1,0 +1,62 @@
+definitions:
+  # 公民性
+  civic:
+    type: object
+    properties:
+      icon:
+        $ref: "../core.yaml#/definitions/mod_path"
+      description:
+        $ref: "../core.yaml#/definitions/loc_reference"
+      modification:
+        $ref: "../core.yaml#/definitions/boolean"
+      playable:
+        $ref: "../core.yaml#/definitions/conditions"
+      potential:
+        $ref: "../core.yaml#/definitions/conditions"
+      possible:
+        $ref: "../core.yaml#/definitions/conditions"
+      random_weight:
+        $ref: "../core.yaml#/definitions/weight_modifier"
+      modifier:
+        $ref: "../core.yaml#/definitions/modifier"
+      has_secondary_species:
+        type: object
+        properties:
+          title:
+            $ref: "../core.yaml#/definitions/loc_reference"
+          traits:
+            type: object
+            properties:
+              trait:
+                $type: "trait"
+                multiple: true
+      traits:
+        type: object
+        properties:
+          trait:
+            $type: "trait"
+            multiple: true
+      # for origins
+      is_origin:
+        $ref: "../core.yaml#/definitions/boolean"
+      picture:
+        $ref: "../core.yaml#/definitions/gfx_reference"
+      max_once_global:
+        $ref: "../core.yaml#/definitions/boolean"
+      advanced_start:
+        $ref: "../core.yaml#/definitions/boolean"
+      starting_colony:
+        $type: plant_class
+      habitability_preference:
+        $type: plant_class
+      preferred_planet_class_neighbor:
+        $ref: "../core.yaml#/definitions/boolean"
+      flags:
+        type: array
+        items:
+          $type: flag
+
+
+type: object
+additionalProperties:
+  $ref: "#/definitions/civic"

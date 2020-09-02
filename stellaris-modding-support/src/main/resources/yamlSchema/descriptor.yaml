@@ -8,6 +8,10 @@ properties:
     type: array
     items:
       type: string
+  dependencies:
+    type: array
+    items:
+      type: string
   picture:
     #$ref: "core.yaml#/definitions/mod_path"
     type: string

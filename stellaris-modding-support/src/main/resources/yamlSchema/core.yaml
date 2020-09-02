@@ -185,15 +185,23 @@ definitions:
     type: object
     properties:
       weight:
-        $ref: "#/definitions/number"
+        $ref: "#/definitions/int"
   weight_modifier:
     type: object
     properties:
-      weight:
-        $ref: "#/definitions/number"
-      # anyOf
+      base:
+        $ref: "#/definitions/int"
       modifier:
-        $ref: "#/definitions/modifier"
+        allOf:
+        - oneOf:
+          - properties:
+              factor:
+                $ref: "#/definitions/number"
+          - properties:
+              add:
+                $ref: "#/definitions/number"
+        - $ref: "#/definitions/modifier"
+        multiple: true
   random_weight:
     type: object
     properties:
@@ -201,15 +209,7 @@ definitions:
         $ref: "#/definitions/int"
   modifier:
     type: object
-    allOf:
-    - oneOf:
-      - properties:
-          factor:
-            $ref: "#/definitions/factor"
-      - properties:
-          add:
-            $ref: "#/definitions/number"
-    - $ref: "#/definitions/conditions"
+    additionalProperties: true
   triggered_modifier:
     type: object
     properties:
