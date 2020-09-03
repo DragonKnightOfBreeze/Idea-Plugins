@@ -10,9 +10,9 @@ definitions:
       laws:
         type: array
         items:
-          $type: "federation_law"
+          $type: federation_law
       potential:
-        $ref: "../core.yaml#/definitions/conditions"
+        $ref: "../core.yaml#/definitions/triggers"
 
 type: object
 additionalProperties:

@@ -1,0 +1,35 @@
+{
+  "definitions" : {
+    "economic_plan" : {
+      "type" : "object",
+      "properties" : {
+        "type" : {
+          "type" : "string"
+        },
+        "income" : {
+          "$ref" : "../core.json#/definitions/resources_item"
+        },
+        "focues" : {
+          "$ref" : "../core.json#/definitions/resources_item"
+        },
+        "subplan" : {
+          "$ref" : "../core.json#/definitions/resources_item",
+          "multiple" : true
+        },
+        "pops" : {
+          "$ref" : "../core.json#/definitions/int"
+        },
+        "empire_size" : {
+          "$ref" : "../core.json#/definitions/float"
+        },
+        "ai_weight" : {
+          "$ref" : "../core.json#/definitions/weight_modifier"
+        }
+      }
+    }
+  },
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : null
+  }
+}

@@ -6,7 +6,7 @@ definitions:
     type: object
     properties:
       trigger:
-        $ref: "../core.yaml#/definitions/conditions"
+        $ref: "../core.yaml#/definitions/triggers"
       # = fleet
       icon_frame:
         $ref: "../core.yaml#/definitions/int"

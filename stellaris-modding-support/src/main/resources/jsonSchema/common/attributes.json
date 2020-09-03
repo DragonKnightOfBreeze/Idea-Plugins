@@ -7,14 +7,14 @@
           "type" : "string"
         },
         "behaviour" : {
-          "$ref" : "#/definitions/behaviour"
+          "$ref" : null
         }
       }
     },
     "behaviour" : {
       "type" : "object",
       "propertyNames" : {
-        "$ref" : "#/definitions/behaviour_name"
+        "$ref" : null
       },
       "additionalProperties" : {
         "$ref" : "../core.json#/definitions/boolean"
@@ -27,6 +27,6 @@
   },
   "type" : "object",
   "additionalProperties" : {
-    "$ref" : "#/definitions/attribute"
+    "$ref" : null
   }
 }

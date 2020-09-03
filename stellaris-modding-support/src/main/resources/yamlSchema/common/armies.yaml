@@ -38,9 +38,9 @@ definitions:
       occupation:
         $ref: "../core.yaml#/definitions/boolean"
       potential:
-        $ref: "../core.yaml#/definitions/conditions"
+        $ref: "../core.yaml#/definitions/triggers"
       allow:
-        $ref: "../core.yaml#/definitions/conditions"
+        $ref: "../core.yaml#/definitions/triggers"
       on_queued:
         $ref: "../core.yaml#/definitions/effects"
       on_unqueued:
@@ -50,9 +50,9 @@ definitions:
       prerequisites:
         type: array
         items:
-          $type: "tech"
+          $type: tech
       show_tech_unlock_if:
-        $ref: "../core.yaml#/definitions/conditions"
+        $ref: "../core.yaml#/definitions/triggers"
 
 type: object
 additionalProperties:

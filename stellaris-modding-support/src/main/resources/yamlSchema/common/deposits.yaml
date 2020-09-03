@@ -10,11 +10,11 @@ definitions:
       is_for_colonizeable:
         $ref: "../core.yaml#/definitions/boolean"
       category:
-        $type: "deposit_category"
+        $type: deposit_category
       resources:
         $ref: "../core.yaml#/definitions/economy_unit"
       potential:
-        $ref: "../core.yaml#/definitions/conditions"
+        $ref: "../core.yaml#/definitions/triggers"
       plant_modifier:
         $ref: "../core.yaml#/definitions/modifier"
       drop_weight:
@@ -24,7 +24,7 @@ definitions:
       prerequisites:
         type: array
         items:
-          $type: "tech"
+          $type: tech
 
 type: object
 additionalProperties:

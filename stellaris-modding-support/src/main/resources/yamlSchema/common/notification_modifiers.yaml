@@ -1,0 +1,11 @@
+definitions:
+  # 通知修饰符
+  notification_modifier:
+    type: object
+    properties:
+      icon:
+        $ref: "../core.yaml#/definitions/game_path"
+
+type: object
+additionalProperties:
+  $ref: "#/definitions/notification_modifier"

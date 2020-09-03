@@ -8,17 +8,17 @@ definitions:
       is_capped_by_modifier:
         $ref: "../core.yaml#/definitions/boolean"
       show_on_uncolonized:
-        $ref: "../core.yaml#/definitions/conditions"
+        $ref: "../core.yaml#/definitions/triggers"
       potential:
-        $ref: "../core.yaml#/definitions/conditions"
+        $ref: "../core.yaml#/definitions/triggers"
       allow:
-        $ref: "../core.yaml#/definitions/conditions"
+        $ref: "../core.yaml#/definitions/triggers"
       conversion_ratio:
         $ref: "../core.yaml#/definitions/float"
       convert_to:
         type: array
         items:
-          $type: "district"
+          $type: district
       resources:
         $ref: "../core.yaml#/definitions/economy_unit"
       planet_modifier:

@@ -2,7 +2,46 @@ definitions:
   # 图形风格
   graphical_culture:
     type: object
-    $ref: "../core.yaml#/definitions/effects"
+    properties:
+      randomized:
+        $ref: "../core.yaml#/definitions/triggers"
+      selectable:
+        $ref: "../core.yaml#/definitions/triggers"
+      ship_color:
+        $ref: "../core.yaml#/definitions/boolean"
+      fallback:
+        $type: graphical_culture
+      ship_light:
+        $ref: "#/definitions/ship_lighting"
+  ship_lighting:
+    type: object
+    properties:
+      cam_light_1_dir:
+        $ref: "../core.yaml#/definitions/color"
+      cam_light_2_dir:
+        $ref: "../core.yaml#/definitions/color"
+      cam_light_3_dir:
+        $ref: "../core.yaml#/definitions/color"
+      intensity_near:
+        $ref: "../core.yaml#/definitions/float"
+      intensity_far:
+        $ref: "../core.yaml#/definitions/float"
+      near_value:
+        $ref: "../core.yaml#/definitions/int"
+      far_value:
+        $ref: "../core.yaml#/definitions/int"
+      rim_start_near:
+        $ref: "../core.yaml#/definitions/float"
+      rim_stop_near:
+        $ref: "../core.yaml#/definitions/float"
+      rim_start_far:
+        $ref: "../core.yaml#/definitions/float"
+      rim_stop_far:
+        $ref: "../core.yaml#/definitions/float"
+      ambient_near:
+        $ref: "../core.yaml#/definitions/float"
+      ambient_far:
+        $ref: "../core.yaml#/definitions/float"
 
 type: object
 additionalProperties:

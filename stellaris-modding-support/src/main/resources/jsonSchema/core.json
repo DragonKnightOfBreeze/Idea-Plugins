@@ -11,6 +11,56 @@
     "boolean" : {
       "enum" : [ "yes", "no" ]
     },
+    "color_type" : {
+      "type" : "string"
+    },
+    "int_range" : {
+      "type" : "object",
+      "properties" : {
+        "min" : {
+          "$ref" : null
+        },
+        "max" : {
+          "$ref" : null
+        }
+      }
+    },
+    "float_range" : {
+      "type" : "object",
+      "properties" : {
+        "min" : {
+          "$ref" : null
+        },
+        "max" : {
+          "$ref" : null
+        }
+      }
+    },
+    "vector2" : {
+      "type" : "object",
+      "properties" : {
+        "x" : {
+          "$ref" : null
+        },
+        "y" : {
+          "$ref" : null
+        }
+      }
+    },
+    "vector3" : {
+      "type" : "object",
+      "properties" : {
+        "x" : {
+          "$ref" : null
+        },
+        "y" : {
+          "$ref" : null
+        },
+        "z" : {
+          "$ref" : null
+        }
+      }
+    },
     "uint" : {
       "type" : "integer",
       "minimum" : 0,
@@ -20,36 +70,14 @@
       "type" : "number",
       "default" : 0.0
     },
-    "int_range" : {
-      "type" : "object",
-      "properties" : {
-        "min" : {
-          "$ref" : "#/definitions/int"
-        },
-        "max" : {
-          "$ref" : "#/definitions/int"
-        }
-      }
-    },
     "uint_range" : {
       "type" : "object",
       "properties" : {
         "min" : {
-          "$ref" : "#/definitions/uint"
+          "$ref" : null
         },
         "max" : {
-          "$ref" : "#/definitions/uint"
-        }
-      }
-    },
-    "float_range" : {
-      "type" : "object",
-      "properties" : {
-        "min" : {
-          "$ref" : "#/definitions/float"
-        },
-        "max" : {
-          "$ref" : "#/definitions/float"
+          "$ref" : null
         }
       }
     },
@@ -77,7 +105,9 @@
       "type" : "array",
       "items" : {
         "type" : "integer"
-      }
+      },
+      "minItems" : 3,
+      "maxItems" : 3
     },
     "damage" : {
       "type" : "object",
@@ -103,16 +133,16 @@
       "type" : "object",
       "properties" : {
         "category" : {
-          "$ref" : "#/definitions/resources_category"
+          "$ref" : null
         },
         "produces" : {
-          "$ref" : "#/definitions/resources_item"
+          "$ref" : null
         },
         "cost" : {
-          "$ref" : "#/definitions/resources_item"
+          "$ref" : null
         },
         "upkeep" : {
-          "$ref" : "#/definitions/resources_item"
+          "$ref" : null
         }
       }
     },
@@ -122,7 +152,7 @@
       "anyOf" : [ {
         "properties" : {
           "trigger" : {
-            "$ref" : "#/definitions/conditions"
+            "$ref" : null
           }
         }
       }, {
@@ -130,38 +160,48 @@
           "$type" : "resource"
         },
         "additionalProperties" : {
-          "$ref" : "#/definitions/uint"
+          "$ref" : null
         }
       } ]
     },
     "entity" : true,
     "desc" : {
       "oneOf" : [ {
-        "$ref" : "#/definitions/loc_reference"
+        "$ref" : null
       }, {
-        "$ref" : "#/definitions/triggered_desc"
+        "$ref" : null
       } ]
     },
     "triggered_desc" : {
-      "$ref" : "#/definitions/conditions",
+      "$ref" : null,
       "properties" : {
         "text" : {
-          "$ref" : "#/definitions/loc_reference"
+          "$ref" : null
+        }
+      }
+    },
+    "modified_attraction" : {
+      "properties" : {
+        "value" : {
+          "$ref" : "../core.json#/definitions/int"
+        },
+        "modifier" : {
+          "$ref" : null
         }
       }
     },
     "condition_expressions" : {
       "type" : "object",
       "propertyNames" : {
-        "$ref" : "#/definitions/condition_expression_name"
+        "$ref" : null
       },
       "properties" : {
         "limit" : {
-          "$ref" : "#/definitions/conditions"
+          "$ref" : null
         }
       },
       "additionalProperties" : {
-        "$ref" : "#/definitions/conditions"
+        "$ref" : null
       }
     },
     "condition_expression_name" : {
@@ -171,10 +211,10 @@
     "boolean_expressions" : {
       "type" : "object",
       "propertyNames" : {
-        "$ref" : "#/definitions/boolean_expression_name"
+        "$ref" : null
       },
       "additionalProperties" : {
-        "$ref" : "#/definitions/conditions"
+        "$ref" : null
       }
     },
     "boolean_expression_name" : {
@@ -184,26 +224,26 @@
     "scope_expressions" : {
       "type" : "object",
       "propertyNames" : {
-        "$ref" : "#/definitions/scope_name"
+        "$ref" : null
       },
       "additionalProperties" : {
-        "$ref" : "#/definitions/conditions"
+        "$ref" : null
       }
     },
     "scope_name" : {
       "type" : "string",
       "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     },
-    "conditions" : {
+    "triggers" : {
       "type" : "object",
       "anyOf" : [ {
-        "$ref" : "#/definitions/condition_expressions"
+        "$ref" : null
       }, {
-        "$ref" : "#/definitions/boolean_expressions"
+        "$ref" : null
       }, {
-        "$ref" : "#/definitions/scope_expressions"
+        "$ref" : null
       }, {
-        "$ref" : "#/definitions/scripted_triggers"
+        "$ref" : null
       } ]
     },
     "scripted_triggers" : {
@@ -214,13 +254,13 @@
     "effects" : {
       "type" : "object",
       "anyOf" : [ {
-        "$ref" : "#/definitions/condition_expressions"
+        "$ref" : null
       }, {
-        "$ref" : "#/definitions/boolean_expressions"
+        "$ref" : null
       }, {
-        "$ref" : "#/definitions/scope_expressions"
+        "$ref" : null
       }, {
-        "$ref" : "#/definitions/scripted_triggers"
+        "$ref" : null
       } ]
     },
     "scripted_effects" : {
@@ -232,70 +272,83 @@
       "type" : "object",
       "properties" : {
         "weight" : {
-          "$ref" : "#/definitions/number"
+          "$ref" : null
         }
       }
     },
     "weight_modifier" : {
       "type" : "object",
       "properties" : {
-        "weight" : {
-          "$ref" : "#/definitions/number"
+        "base" : {
+          "$ref" : null
         },
         "modifier" : {
-          "$ref" : "#/definitions/modifier"
+          "allOf" : [ {
+            "oneOf" : [ {
+              "properties" : {
+                "factor" : {
+                  "$ref" : null
+                }
+              }
+            }, {
+              "properties" : {
+                "add" : {
+                  "$ref" : null
+                }
+              }
+            } ]
+          }, {
+            "$ref" : null
+          } ],
+          "multiple" : true
         }
       }
     },
+    "random_weight" : {
+      "type" : "object",
+      "properties" : {
+        "value" : {
+          "$ref" : null
+        }
+      }
+    },
+    "modifiers" : {
+      "type" : "object",
+      "additionalProperties" : true
+    },
     "modifier" : {
       "type" : "object",
-      "allOf" : [ {
-        "oneOf" : [ {
-          "properties" : {
-            "factor" : {
-              "$ref" : "#/definitions/factor"
-            }
-          }
-        }, {
-          "properties" : {
-            "add" : {
-              "$ref" : "#/definitions/number"
-            }
-          }
-        } ]
-      }, {
-        "$ref" : "#/definitions/conditions"
-      } ]
+      "additionalProperties" : true
     },
     "triggered_modifier" : {
       "type" : "object",
       "properties" : {
         "potential" : {
-          "$ref" : "#/definitions/conditions"
+          "$ref" : null
         }
       },
-      "$ref" : "#/definitions/modifier"
+      "$ref" : null
     },
     "modifier_chance" : {
       "type" : "object",
       "properties" : {
         "base" : {
-          "$ref" : "#/definitions/int"
+          "$ref" : null
         },
         "modifier" : {
-          "$ref" : "#/definitions/modifier"
+          "$ref" : null
         }
       }
     },
     "event" : {
       "oneOf" : [ {
-        "$ref" : "#/definitions/event_id"
+        "$ref" : null
       }, {
         "propertyNames" : {
-          "$ref" : "#/definitions/event_type"
+          "$ref" : null
         },
         "additionalProperties" : {
-          "$ref" : "#/definitions/event_id"
+          "$ref" : null
         }
       } ]
     },
@@ -304,7 +357,7 @@
         "type" : "string"
       }, {
         "type" : "object",
-        "$ref" : "#/definitions/modifier",
+        "$ref" : null,
         "properties" : {
           "id" : {
             "type" : "string"
@@ -317,19 +370,20 @@
       "type" : "string"
     },
     "triggered_tooltip" : {
-      "$ref" : "#/definitions/conditions",
+      "$ref" : null,
       "fail_text" : {
-        "$ref" : "#/definitions/loc_reference"
+        "$ref" : null
       }
-    },
-    "mod_path" : {
-      "type" : "string"
     },
     "game_path" : {
       "type" : "string"
     },
-    "workshop_path" : {
+    "shortcut" : {
       "type" : "string"
+    },
+    "language" : {
+      "type" : "string",
+      "enum" : [ "l_simp_chinese", "l_english", "l_braz_por", "l_french", "l_german", "l_ponish", "l_russian", "l_spanish", "l_default" ]
     },
     "component_size" : {
       "type" : "string",

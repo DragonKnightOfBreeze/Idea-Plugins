@@ -1,0 +1,29 @@
+{
+  "definitions" : {
+    "mandate" : {
+      "type" : "object",
+      "properties" : {
+        "valid" : {
+          "$ref" : "../core.json#/definitions/triggers"
+        },
+        "parameters" : {
+          "$ref" : null
+        },
+        "on_term_started" : {
+          "$ref" : "../core.json#/definitions/effects"
+        },
+        "on_term_ended" : {
+          "$ref" : "../core.json#/definitions/effects"
+        }
+      }
+    },
+    "parameters" : {
+      "type" : "object",
+      "additionalProperties" : true
+    }
+  },
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : null
+  }
+}

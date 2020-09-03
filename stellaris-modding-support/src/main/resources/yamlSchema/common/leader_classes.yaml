@@ -1,0 +1,30 @@
+definitions:
+  # 领袖分类
+  leader_class:
+    type: object
+    properties:
+      can_lead_navy:
+        $ref: "../core.yaml#/definitions/boolean"
+      can_lead_army:
+        $ref: "../core.yaml#/definitions/boolean"
+      can_research:
+        $ref: "../core.yaml#/definitions/boolean"
+      can_govern_planet:
+        $ref: "../core.yaml#/definitions/boolean"
+      can_rule_empire:
+        $ref: "../core.yaml#/definitions/boolean"
+      can_be_envoy:
+        $ref: "../core.yaml#/definitions/boolean"
+      max_traint_points:
+        $ref: "../core.yaml#/definitions/int"
+      resources:
+        $ref: "../core.yaml#/definitions/economy_unit"
+      default_category:
+        type: string
+      # for evoy
+      assignment_cooldown:
+        $ref: "../core.yaml#/definitions/int"
+
+type: object
+additionalProperties:
+  $ref: "#/definitions/leader_class"

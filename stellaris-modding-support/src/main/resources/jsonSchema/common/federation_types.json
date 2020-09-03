@@ -1,0 +1,44 @@
+{
+  "definitions" : {
+    "federation_type" : {
+      "type" : "object",
+      "properties" : {
+        "icon" : {
+          "$ref" : "../core.json#/definitions/gfx_reference"
+        },
+        "potential" : {
+          "$ref" : "../core.json#/definitions/triggers"
+        },
+        "allow" : {
+          "$ref" : "../core.json#/definitions/effects"
+        },
+        "levels" : {
+          "additionalProperties" : {
+            "type" : "object",
+            "properties" : {
+              "experience" : {
+                "$ref" : "../core.json#/definitions/int"
+              },
+              "perks" : {
+                "type" : "array",
+                "items" : {
+                  "$type" : "federation_perk"
+                }
+              }
+            }
+          }
+        },
+        "on_create" : {
+          "$ref" : "../core.json#/definitions/effects"
+        },
+        "ai_weight" : {
+          "$ref" : "../core.json#/definitions/weight_modifier"
+        }
+      }
+    }
+  },
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : null
+  }
+}

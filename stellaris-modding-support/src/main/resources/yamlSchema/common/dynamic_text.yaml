@@ -6,23 +6,23 @@ definitions:
       mandatory:
         type: array
         items:
-          $type: "mandatory_tag"
+          $type: mandatory_tag
       relevant:
         type: array
         items:
-          $type: "relevant_tag"
+          $type: relevant_tag
       add:
         type: array
         items:
-          $type: "relevant_tag"
+          $type: relevant_tag
       blocked:
         type: array
         items:
-          $type: "blocked_tag"
+          $type: blocked_tag
       next_mandatory:
         type: array
         items:
-          $type: "next_mandatory_tag"
+          $type: next_mandatory_tag
       texts:
         type: array
         items:

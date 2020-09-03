@@ -1,0 +1,29 @@
+definitions:
+  # 观察站任务
+  observation_station_mission:
+    type: object
+    properties:
+      icon:
+        $ref: "../core.yaml#/definitions/gfx_reference"
+      small_icon:
+        $ref: "../core.yaml#/definitions/int"
+      planet_modifier:
+        $type: plant_modifier
+      country_modifier:
+        $type: country_modifier
+      resources:
+        $ref: "../core.yaml#/definitions/economy_unit"
+      potential:
+        $ref: "../core.yaml#/definitions/triggers"
+      valid:
+        $ref: "../core.yaml#/definitions/triggers"
+      ai_weight:
+        $ref: "../core.yaml#/definitions/weight"
+      monthly_progress:
+        $ref: "../core.yaml#/definitions/float"
+      completion_event:
+        $type: event.id
+
+type: object
+additionalProperties:
+  $ref: "#/definitions/observation_station_mission"

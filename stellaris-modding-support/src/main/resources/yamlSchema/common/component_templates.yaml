@@ -68,7 +68,7 @@ definitions:
         $ref: "../core.yaml#/definitions/float"
 
       ship_behavior:
-        $type: "ship_behavior"
+        $type: ship_behavior
 
       weapon_type:
         $ref: "../core.yaml#/definitions/component_type"
@@ -77,21 +77,21 @@ definitions:
       prerequisites:
         type: array
         items:
-          $type: "tech"
+          $type: tech
       component_set:
-        $type: "component_set"
+        $type: component_set
       projectile_gfx:
-        $type: "projectile.name"
+        $type: projectile.name
       tags:
         type: array
         items:
-          $type: "component_tag"
+          $type: component_tag
       upgrades_to:
-        $type: "component_template.key"
+        $type: component_template.key
       ai_tags:
         type: array
         items:
-          $type: "component_tag"
+          $type: component_tag
       resources:
         $ref: "../core.yaml#/definitions/economy_unit"
 

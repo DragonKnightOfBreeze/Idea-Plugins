@@ -13,7 +13,7 @@ properties:
     items:
       type: string
   picture:
-    #$ref: "core.yaml#/definitions/mod_path"
+    #$ref: "core.yaml#/definitions/game_path"
     type: string
   path:
     type: string

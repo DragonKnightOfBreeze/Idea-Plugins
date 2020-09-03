@@ -21,32 +21,32 @@ definitions:
       category:
         $ref: "#/definitions/building_category"
       potential:
-        $ref: "../core.yaml#/definitions/conditions"
+        $ref: "../core.yaml#/definitions/triggers"
       convert_to:
         type: array
         items:
-          $type: "building"
+          $type: building
       planet_modifier:
         $ref: "../core.yaml#/definitions/modifier"
       destroy_trigger:
-        $ref: "../core.yaml#/definitions/conditions"
+        $ref: "../core.yaml#/definitions/triggers"
       allow:
-        $ref: "../core.yaml#/definitions/conditions"
+        $ref: "../core.yaml#/definitions/triggers"
       # anyOf
       triggered_plant_modifier:
         $ref: "../core.yaml#/definitions/triggered_modifier"
       resources:
         type: array
         items:
-          $type: "resource"
+          $type: resource
       upgrades:
         type: array
         items:
-          $type: "building"
+          $type: building
       prerequisites:
         type: array
         items:
-          $type: "building"
+          $type: building
       triggered_desc:
         $ref: "../core.yaml#/definitions/triggered_desc"
         multiple: true

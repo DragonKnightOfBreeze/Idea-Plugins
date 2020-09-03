@@ -1,0 +1,173 @@
+{
+  "definitions" : {
+    "name_list" : {
+      "type" : "object",
+      "properties" : {
+        "category" : {
+          "type" : "string"
+        },
+        "language" : {
+          "$ref" : "../core.json#/definitions/language"
+        },
+        "ship_names" : {
+          "type" : "object",
+          "anyOf" : [ {
+            "properties" : {
+              "generic" : {
+                "$ref" : null
+              }
+            }
+          }, {
+            "propertyNames" : {
+              "$type" : "ship_class"
+            },
+            "additionalProperties" : {
+              "$ref" : null
+            }
+          } ]
+        },
+        "ship_class_names" : {
+          "type" : "object",
+          "anyOf" : [ {
+            "properties" : {
+              "generic" : {
+                "$ref" : null
+              }
+            }
+          }, {
+            "propertyNames" : {
+              "$type" : "ship_class"
+            },
+            "additionalProperties" : {
+              "$ref" : null
+            }
+          } ]
+        },
+        "fleet_names" : {
+          "type" : "object",
+          "properties" : {
+            "random_names" : {
+              "$ref" : null
+            },
+            "sequential_name" : {
+              "$ref" : null
+            }
+          }
+        },
+        "army_names" : {
+          "type" : "object",
+          "anyOf" : [ {
+            "properties" : {
+              "generic" : {
+                "$ref" : null
+              }
+            }
+          }, {
+            "propertyNames" : {
+              "$type" : "army"
+            },
+            "additionalProperties" : {
+              "$ref" : null
+            }
+          } ]
+        },
+        "plant_names" : {
+          "type" : "object",
+          "anyOf" : [ {
+            "properties" : {
+              "generic" : {
+                "$ref" : null
+              }
+            }
+          }, {
+            "propertyNames" : {
+              "$type" : "plant_class"
+            },
+            "additionalProperties" : {
+              "$ref" : null
+            }
+          } ]
+        },
+        "character_names" : {
+          "type" : "object",
+          "oneOf" : [ {
+            "properties" : {
+              "default" : {
+                "$ref" : null
+              }
+            }
+          }, {
+            "additionalProperties" : {
+              "type" : "object",
+              "allOf" : [ {
+                "properties" : {
+                  "weight" : {
+                    "$ref" : "../core.json#/definitions/int"
+                  }
+                }
+              }, {
+                "$ref" : null
+              } ]
+            }
+          } ]
+        },
+        "ruler_names" : {
+          "type" : "object",
+          "oneOf" : [ {
+            "properties" : {
+              "default" : {
+                "$ref" : null
+              }
+            }
+          }, {
+            "additionalProperties" : {
+              "type" : "object",
+              "allOf" : [ {
+                "properties" : {
+                  "weight" : {
+                    "$ref" : "../core.json#/definitions/int"
+                  }
+                }
+              }, {
+                "$ref" : null
+              } ]
+            }
+          } ]
+        }
+      }
+    },
+    "string" : {
+      "type" : "string"
+    },
+    "string_array" : {
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "character_name_definition" : {
+      "type" : "object",
+      "properties" : {
+        "full_names" : {
+          "$ref" : null
+        },
+        "first_names" : {
+          "$ref" : null
+        },
+        "second_names" : {
+          "$ref" : null
+        },
+        "regnal_first_names" : {
+          "$ref" : null
+        },
+        "regnal_second_names" : {
+          "$ref" : null
+        }
+      }
+    }
+  },
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : null
+  }
+}

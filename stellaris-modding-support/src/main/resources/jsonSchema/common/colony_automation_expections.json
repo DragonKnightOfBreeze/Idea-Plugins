@@ -4,7 +4,7 @@
       "type" : "object",
       "properties" : {
         "available" : {
-          "$ref" : "../core.json#/definitions/conditions"
+          "$ref" : "../core.json#/definitions/triggers"
         },
         "crisis" : {
           "$ref" : "../core.json#/definitions/boolean"
@@ -25,7 +25,7 @@
                   "multiple" : true
                 },
                 "available" : {
-                  "$ref" : "../core.json#/definitions/conditions",
+                  "$ref" : "../core.json#/definitions/triggers",
                   "multiple" : true
                 }
               }
@@ -37,6 +37,6 @@
   },
   "type" : "object",
   "additionalProperties" : {
-    "$ref" : "#/definitions/colony_automation_exception"
+    "$ref" : null
   }
 }

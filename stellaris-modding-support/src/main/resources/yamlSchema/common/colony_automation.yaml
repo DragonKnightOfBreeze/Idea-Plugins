@@ -4,11 +4,11 @@ definitions:
     type: object
     properties:
       available:
-        $ref: "../core.yaml#/definitions/conditions"
+        $ref: "../core.yaml#/definitions/triggers"
       prio_districts:
         type: array
         items:
-          $type: "district"
+          $type: district
       buildings:
         type: object
         propertyNames:
@@ -17,10 +17,10 @@ definitions:
           type: object
           properties:
             bulding:
-              $type: "building"
+              $type: building
               multiple: true
             available:
-              $ref: "../core.yaml#/definitions/conditions"
+              $ref: "../core.yaml#/definitions/triggers"
 
 type: object
 additionalProperties:

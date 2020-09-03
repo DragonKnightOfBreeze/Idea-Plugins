@@ -1,0 +1,30 @@
+{
+  "definitions" : {
+    "event_chain" : {
+      "type" : "object",
+      "properties" : {
+        "icon" : {
+          "$ref" : "../core.json#/definitions/game_path"
+        },
+        "picture" : {
+          "$ref" : "../core.json#/definitions/gfx_reference"
+        },
+        "counter" : {
+          "type" : "object",
+          "propertyNames" : {
+            "$type" : "counter"
+          },
+          "additionalProperties" : {
+            "max" : {
+              "$ref" : "../core.json#/definitions/int"
+            }
+          }
+        }
+      }
+    }
+  },
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : null
+  }
+}

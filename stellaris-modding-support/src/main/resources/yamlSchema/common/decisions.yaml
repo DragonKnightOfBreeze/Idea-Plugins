@@ -6,15 +6,15 @@ definitions:
       owned_planets_only:
         $ref: "../core.yaml#/definitions/boolean"
       sound:
-        $type: "sound_effect"
+        $type: sound_effect
       icon:
-        $type: "icon"
+        $type: icon
       resources:
         $ref: "../core.yaml#/definitions/economy_unit"
       potential:
-        $ref: "../core.yaml#/definitions/conditions"
+        $ref: "../core.yaml#/definitions/triggers"
       allow:
-        $ref: "../core.yaml#/definitions/conditions"
+        $ref: "../core.yaml#/definitions/triggers"
       effect:
         $ref: "../core.yaml#/definitions/effects"
       ai_weight:

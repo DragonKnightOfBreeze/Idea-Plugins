@@ -1,0 +1,43 @@
+{
+  "definitions" : {
+    "observation_station_mission" : {
+      "type" : "object",
+      "properties" : {
+        "icon" : {
+          "$ref" : "../core.json#/definitions/gfx_reference"
+        },
+        "small_icon" : {
+          "$ref" : "../core.json#/definitions/int"
+        },
+        "planet_modifier" : {
+          "$type" : "plant_modifier"
+        },
+        "country_modifier" : {
+          "$type" : "country_modifier"
+        },
+        "resources" : {
+          "$ref" : "../core.json#/definitions/economy_unit"
+        },
+        "potential" : {
+          "$ref" : "../core.json#/definitions/triggers"
+        },
+        "valid" : {
+          "$ref" : "../core.json#/definitions/triggers"
+        },
+        "ai_weight" : {
+          "$ref" : "../core.json#/definitions/weight"
+        },
+        "monthly_progress" : {
+          "$ref" : "../core.json#/definitions/float"
+        },
+        "completion_event" : {
+          "$type" : "event.id"
+        }
+      }
+    }
+  },
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : null
+  }
+}

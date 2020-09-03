@@ -65,25 +65,25 @@ definitions:
           modules:
             type: array
             items:
-              $type: "module"
+              $type: module
           ship_data:
             type: object
             propertyNames:
-              $type: "ship"
+              $type: ship
             additionalProperties:
                 $ref: "#/definitions/ship_data"
           army_data:
             type: object
             propertyNames:
-              $type: "army"
+              $type: army
             additionalProperties:
               $ref: "#/definitions/ship_data"
       trade_route_available:
-        $ref: "../core.yaml#/definitions/conditions"
+        $ref: "../core.yaml#/definitions/triggers"
       modules:
         type: object
         propertyNames:
-          $type: "module"
+          $type: module
       resources:
         $ref: "../core.yaml#/definitions/economy_unit"
       branch_office_resources:

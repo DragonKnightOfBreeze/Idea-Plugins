@@ -8,6 +8,40 @@ definitions:
   boolean:
     enum: [yes, no]
 
+  color_type:
+    type: string
+
+  int_range:
+    type: object
+    properties:
+      min:
+        $ref: "#/definitions/int"
+      max:
+        $ref: "#/definitions/int"
+  float_range:
+    type: object
+    properties:
+      min:
+        $ref: "#/definitions/float"
+      max:
+        $ref: "#/definitions/float"
+
+  vector2:
+    type: object
+    properties:
+      x:
+        $ref: "#/definitions/int"
+      y:
+        $ref: "#/definitions/int"
+  vector3:
+    type: object
+    properties:
+      x:
+        $ref: "#/definitions/int"
+      y:
+        $ref: "#/definitions/int"
+      z:
+        $ref: "#/definitions/int"
 
   uint:
     type: integer
@@ -17,13 +51,6 @@ definitions:
     type: number
     default: 0.0
 
-  int_range:
-    type: object
-    properties:
-      min:
-        $ref: "#/definitions/int"
-      max:
-        $ref: "#/definitions/int"
   uint_range:
     type: object
     properties:
@@ -31,13 +58,6 @@ definitions:
         $ref: "#/definitions/uint"
       max:
         $ref: "#/definitions/uint"
-  float_range:
-    type: object
-    properties:
-      min:
-        $ref: "#/definitions/float"
-      max:
-        $ref: "#/definitions/float"
 
   level:
     type: integer
@@ -61,6 +81,8 @@ definitions:
     type: array
     items:
       type: integer
+    minItems: 3
+    maxItems: 3
   damage:
     type: object
     properties:
@@ -99,7 +121,7 @@ definitions:
     - properties:
         # anyOf
         trigger:
-          $ref: "#/definitions/conditions"
+          $ref: "#/definitions/triggers"
     - propertyNames:
         $type: resource
       additionalProperties:
@@ -112,7 +134,7 @@ definitions:
     - $ref: "#/definitions/loc_reference"
     - $ref: "#/definitions/triggered_desc"
   triggered_desc:
-    $ref: "#/definitions/conditions"
+    $ref: "#/definitions/triggers"
     properties:
       text:
         $ref: "#/definitions/loc_reference"
@@ -125,16 +147,15 @@ definitions:
       modifier:
         $ref: "#/definitions/modifier"
 
-
   condition_expressions:
     type: object
     propertyNames:
       $ref: "#/definitions/condition_expression_name"
     properties:
       limit:
-        $ref: "#/definitions/conditions"
+        $ref: "#/definitions/triggers"
     additionalProperties:
-      $ref: "#/definitions/conditions"
+      $ref: "#/definitions/triggers"
   condition_expression_name:
     type: string
     enum: [AND, OR, NOT, NAND, NOR]
@@ -143,7 +164,7 @@ definitions:
     propertyNames:
       $ref: "#/definitions/boolean_expression_name"
     additionalProperties:
-      $ref: "#/definitions/conditions"
+      $ref: "#/definitions/triggers"
   boolean_expression_name:
     type: string
     enum: [if, else, else_if, AND, OR, NOT, NAND, NOR]
@@ -152,12 +173,12 @@ definitions:
     propertyNames:
       $ref: "#/definitions/scope_name"
     additionalProperties:
-      $ref: "#/definitions/conditions"
+      $ref: "#/definitions/triggers"
   scope_name:
     type: string
     enum: [capital, controller, root, from, owner, planet, prev, random, this, pop]
 
-  conditions:
+  triggers:
     type: object
     anyOf:
     - $ref: "#/definitions/condition_expressions"
@@ -207,6 +228,9 @@ definitions:
     properties:
       value:
         $ref: "#/definitions/int"
+  modifiers:
+    type: object
+    additionalProperties: true
   modifier:
     type: object
     additionalProperties: true
@@ -214,8 +238,8 @@ definitions:
     type: object
     properties:
       potential:
-        $ref: "#/definitions/conditions"
-    $ref: "#/definitions/modifier"
+        $ref: "#/definitions/triggers"
+    $ref: "#/definitions/modifiers"
   modifier_chance:
     type: object
     properties:
@@ -244,16 +268,28 @@ definitions:
   event_type:
     type: string
   triggered_tooltip:
-    $ref: "#/definitions/conditions"
+    $ref: "#/definitions/triggers"
     fail_text:
       $ref: "#/definitions/loc_reference"
 
-  mod_path:
-    type: string
   game_path:
     type: string
-  workshop_path:
+
+  shortcut:
     type: string
+
+  language:
+    type: string
+    enum:
+    - l_simp_chinese
+    - l_english
+    - l_braz_por
+    - l_french
+    - l_german
+    - l_ponish
+    - l_russian
+    - l_spanish
+    - l_default
 
   component_size:
     type: string

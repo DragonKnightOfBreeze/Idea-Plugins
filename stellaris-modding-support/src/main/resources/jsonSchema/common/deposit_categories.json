@@ -16,6 +16,6 @@
   },
   "type" : "object",
   "additionalProperties" : {
-    "$ref" : "#/definitions/deposit_category"
+    "$ref" : null
   }
 }

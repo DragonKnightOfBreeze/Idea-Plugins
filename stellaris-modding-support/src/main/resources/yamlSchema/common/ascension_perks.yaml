@@ -4,9 +4,9 @@ definitions:
     type: object
     properties:
       potential:
-        $ref: "../core.yaml#/definitions/conditions"
+        $ref: "../core.yaml#/definitions/triggers"
       possible:
-        $ref: "../core.yaml#/definitions/effects"
+        $ref: "../core.yaml#/definitions/triggers"
       on_enabled:
         $ref: "../core.yaml#/definitions/effects"
       modifier:

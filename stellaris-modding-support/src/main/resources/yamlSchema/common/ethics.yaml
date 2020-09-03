@@ -12,9 +12,9 @@ definitions:
       category_opposite:
         $ref: "../core.yaml#/definitions/boolean"
       regular_variant:
-        $type: "ethic"
+        $type: ethic
       fanatic_variant:
-        $type: "ethic"
+        $type: ethic
       use_for_pops:
         $ref: "../core.yaml#/definitions/boolean"
       country_modifier:

@@ -6,7 +6,7 @@ definitions:
       icon:
         $ref: "../core.yaml#/definitions/gfx_reference"
       potential:
-        $ref: "../core.yaml#/definitions/conditions"
+        $ref: "../core.yaml#/definitions/triggers"
       effect:
         $ref: "../core.yaml#/definitions/effects"
       trigger:

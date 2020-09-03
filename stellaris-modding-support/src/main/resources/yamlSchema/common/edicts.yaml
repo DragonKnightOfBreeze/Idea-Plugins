@@ -19,13 +19,13 @@ definitions:
         $ref: "../core.yaml#/definitions/modifier"
         multiple: true
       potential:
-        $ref: "../core.yaml#/definitions/conditions"
+        $ref: "../core.yaml#/definitions/triggers"
       prerequisites:
         type: array
         items:
-          $type: "tech"
+          $type: tech
       show_tech_unlock_if:
-        $ref: "../core.yaml#/definitions/conditions"
+        $ref: "../core.yaml#/definitions/triggers"
       allow:
         $ref: "../core.yaml#/definitions/effects"
       ai_weight:

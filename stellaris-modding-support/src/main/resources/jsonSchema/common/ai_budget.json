@@ -7,13 +7,13 @@
           "$type" : "resource"
         },
         "type" : {
-          "$ref" : "#/definitions/budget_type"
+          "$ref" : null
         },
         "category" : {
-          "$ref" : "#/definitions/budget_category"
+          "$ref" : null
         },
         "poential" : {
-          "$ref" : "../core.json#/definitions/conditions"
+          "$ref" : "../core.json#/definitions/triggers"
         },
         "fraction" : {
           "$ref" : "../core.json#/definitions/weight_modifier"
@@ -35,6 +35,6 @@
   },
   "type" : "object",
   "additionalProperties" : {
-    "$ref" : "#/definitions/budget"
+    "$ref" : null
   }
 }

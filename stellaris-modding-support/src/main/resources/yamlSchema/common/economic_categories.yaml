@@ -4,7 +4,7 @@ definitions:
     type: object
     properties:
       parent:
-        $type: "economic_category"
+        $type: economic_category
       hidden:
         $ref: "../core.yaml#/definitions/boolean"
       use_for_ai_budget:
@@ -21,7 +21,7 @@ definitions:
       ai_use_parent_for_resources_upkeep:
         type: array
         items:
-          $type: "resource"
+          $type: resource
       triggered_cost_modifier:
         $ref: "../core.yaml#/definitions/triggered_modifier"
         modifier: true

@@ -8,7 +8,7 @@ definitions:
       type: object
       properties:
         trigger:
-          $ref: "../core.yaml#/definitions/conditions"
+          $ref: "../core.yaml#/definitions/triggers"
           multiple: true
         weight:
           $ref: "../core.yaml#/definitions/weight"

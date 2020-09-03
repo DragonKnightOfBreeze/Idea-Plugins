@@ -4,10 +4,10 @@ definitions:
     type: object
     properties:
       graphical_culture:
-        $type: "graphical_culture"
+        $type: graphical_culture
       # TODO
       initializer:
-        $type: "initializer"
+        $type: initializer
       weight_modifier:
         $ref: "../core.yaml#/definitions/weight_modifier"
       create_country_effect:
@@ -23,14 +23,14 @@ definitions:
             - type: string
             - const: random
           class:
-            $type: "species_class"
+            $type: species_class
           portrait:
             oneOf:
-            - $type: "portrait"
+            - $type: portrait
             - const: random
           traits:
             oneOf:
-            - $type: "trait"
+            - $type: trait
             - const: random
           extra_trait_points:
             $ref: "../core.yaml#/definitions/int"
@@ -44,31 +44,31 @@ definitions:
             - type: string
             - const: random
           type:
-            $type: "country_type"
+            $type: country_type
           ignore_initial_colony_error:
             $ref: "../core.yaml#/definitions/boolean"
           authority:
-            $type: "authority"
+            $type: authority
           civics:
             type: object
             properties:
               civic:
-                $type: "civic"
+                $type: civic
                 multiple: true
           species:
-            $type: "species"
+            $type: species
           ethos:
             type: object
             properties:
               ethic:
-                $type: "ethic"
+                $type: ethic
                 multiple: true
           flag:
             oneOf:
-            - $type: "flag"
+            - $type: flag
             - const: random
           origin:
-            $type: "origin"
+            $type: origin
           effect:
             $ref: "../core.yaml#/definitions/effects"
 

@@ -3,12 +3,12 @@ definitions:
   diplomacy_economy:
     type: object
     propertyNames:
-      $type: "diplomacy"
+      $type: diplomacy
     additionalProperties:
       type: object
       properties:
         trigger:
-          $ref: "../core.yaml#/definitions/conditions"
+          $ref: "../core.yaml#/definitions/triggers"
         resources:
           $ref: "../core.yaml#/definitions/economy_unit"
 

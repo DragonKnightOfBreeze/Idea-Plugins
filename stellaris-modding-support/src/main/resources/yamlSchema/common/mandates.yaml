@@ -1,0 +1,20 @@
+definitions:
+  # 指令
+  mandate:
+    type: object
+    properties:
+      valid:
+        $ref: "../core.yaml#/definitions/triggers"
+      parameters:
+        $ref: "#/definitions/parameters"
+      on_term_started:
+        $ref: "../core.yaml#/definitions/effects"
+      on_term_ended:
+        $ref: "../core.yaml#/definitions/effects"
+  parameters:
+    type: object
+    additionalProperties: true
+
+type: object
+additionalProperties:
+  $ref: "#/definitions/mandate"

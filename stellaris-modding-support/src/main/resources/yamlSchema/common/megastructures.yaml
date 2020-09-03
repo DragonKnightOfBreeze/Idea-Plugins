@@ -1,0 +1,63 @@
+definitions:
+  # 巨型结构
+  megastructure:
+    type: object
+    properties:
+      entity:
+        $type: entity
+      construction_entity:
+        $type: entity
+      portrait:
+        $ref: "../core.yaml#/definitions/gfx_reference"
+      place_entity_on_planet_plane:
+        $ref: "../core.yaml#/definitions/boolean"
+      entity_offset:
+        $ref: "../core.yaml#/definitions/vector2"
+      upgrade_desc:
+        type: string
+        enum:
+        - default
+        - hide
+      upgrade_from:
+        type: array
+        items:
+          $type: megastructure
+      prerequisites:
+        type: array
+        items:
+          $type: tech
+      potential:
+        $ref: "../core.yaml#/definitions/triggers"
+      possible:
+        $ref: "../core.yaml#/definitions/triggers"
+      build_time:
+        $ref: "../core.yaml#/definitions/int"
+      build_cost:
+        $ref: "../core.yaml#/definitions/resources_item"
+      monthly_production:
+        $ref: "../core.yaml#/definitions/resources_item"
+      maintenance:
+        $ref: "../core.yaml#/definitions/resources_item"
+      country_modifier:
+        $ref: "../core.yaml#/definitions/modifier"
+      placement_rules:
+        type: object
+        properties:
+          planet_possible:
+            $ref: "../core.yaml#/definitions/triggers"
+      on_build_start:
+        $ref: "../core.yaml#/definitions/effects"
+      on_build_cancel:
+        $ref: "../core.yaml#/definitions/effects"
+      on_build_complete:
+        $ref: "../core.yaml#/definitions/effects"
+      ai_weight:
+        $ref: "../core.yaml#/definitions/weight_modifier"
+      resources:
+        $ref: "../core.yaml#/definitions/economy_unit"
+      construction_blocked_by_others:
+        $ref: "../core.yaml#/definitions/boolean"
+
+type: object
+additionalProperties:
+  $ref: "#/definitions/megastructure"

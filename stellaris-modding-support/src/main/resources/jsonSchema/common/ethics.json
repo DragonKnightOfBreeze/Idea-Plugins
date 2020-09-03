@@ -1,0 +1,69 @@
+{
+  "definitions" : {
+    "ethic" : {
+      "type" : "object",
+      "properties" : {
+        "cost" : {
+          "$ref" : "../core.json#/definitions/int"
+        },
+        "category" : {
+          "$ref" : null
+        },
+        "category_value" : {
+          "$ref" : "../core.json#/definitions/int"
+        },
+        "category_opposite" : {
+          "$ref" : "../core.json#/definitions/boolean"
+        },
+        "regular_variant" : {
+          "$type" : "ethic"
+        },
+        "fanatic_variant" : {
+          "$type" : "ethic"
+        },
+        "use_for_pops" : {
+          "$ref" : "../core.json#/definitions/boolean"
+        },
+        "country_modifier" : {
+          "$ref" : "../core.json#/definitions/modifier"
+        },
+        "tags" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "../core.json#/definitions/loc_reference"
+          }
+        },
+        "random_weight" : {
+          "$ref" : "../core.json#/definitions/random_weight"
+        },
+        "pop_attraction_tag" : {
+          "$ref" : "../core.json#/definitions/triggered_desc",
+          "multiple" : true
+        },
+        "country_attraction" : {
+          "$ref" : "../core.json#/definitions/modified_attraction"
+        },
+        "pop_attraction" : {
+          "$ref" : "../core.json#/definitions/modified_attraction"
+        }
+      }
+    },
+    "ethic_category" : {
+      "type" : "string",
+      "$def" : "#/ethic_categories/{ethic_category}",
+      "enum" : [ "col", "xen", "mil", "spi", "hive" ]
+    }
+  },
+  "type" : "object",
+  "properties" : {
+    "ethic_categories" : {
+      "type" : "object",
+      "additionalProperties" : {
+        "type" : "object"
+      }
+    }
+  },
+  "additionalProperties" : {
+    "$ref" : null
+  }
+}

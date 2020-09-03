@@ -8,7 +8,7 @@ definitions:
       ai_weight:
         $ref: "../core.yaml#/definitions/weight_modifier"
       potential:
-        $ref: "../core.yaml#/definitions/conditions"
+        $ref: "../core.yaml#/definitions/triggers"
       allow:
         $ref: "../core.yaml#/definitions/effects"
       effect:

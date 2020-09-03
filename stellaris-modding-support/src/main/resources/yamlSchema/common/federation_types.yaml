@@ -6,7 +6,7 @@ definitions:
       icon:
         $ref: "../core.yaml#/definitions/gfx_reference"
       potential:
-        $ref: "../core.yaml#/definitions/conditions"
+        $ref: "../core.yaml#/definitions/triggers"
       allow:
         $ref: "../core.yaml#/definitions/effects"
       levels:
@@ -18,7 +18,7 @@ definitions:
             perks:
               type: array
               items:
-                $type: "federation_perk"
+                $type: federation_perk
       on_create:
         $ref: "../core.yaml#/definitions/effects"
       ai_weight:

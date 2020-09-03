@@ -32,6 +32,6 @@
   },
   "type" : "object",
   "additionalProperties" : {
-    "$ref" : "#/definitions/component_slot_template"
+    "$ref" : null
   }
 }

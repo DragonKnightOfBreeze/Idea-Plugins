@@ -14,11 +14,11 @@ definitions:
       weight:
         $ref: "../core.yaml#/definitions/weight_modifier"
       potential:
-        $ref: "../core.yaml#/definitions/conditions"
+        $ref: "../core.yaml#/definitions/triggers"
       allow:
-        $ref: "../core.yaml#/definitions/conditions"
+        $ref: "../core.yaml#/definitions/triggers"
       visible:
-        $ref: "../core.yaml#/definitions/conditions"
+        $ref: "../core.yaml#/definitions/triggers"
       on_visible:
         $ref: "../core.yaml#/definitions/effects"
       state:

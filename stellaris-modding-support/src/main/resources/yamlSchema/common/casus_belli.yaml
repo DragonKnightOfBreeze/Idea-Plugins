@@ -10,11 +10,11 @@ definitions:
         $ref: "../core.yaml#/definitions/boolean"
         default: yes
       potential:
-        $ref: "../core.yaml#/definitions/conditions"
+        $ref: "../core.yaml#/definitions/triggers"
       is_valid:
-        $ref: "../core.yaml#/definitions/conditions"
+        $ref: "../core.yaml#/definitions/triggers"
       destroy_if:
-        $ref: "../core.yaml#/definitions/conditions"
+        $ref: "../core.yaml#/definitions/triggers"
 
 type: object
 additionalProperties:

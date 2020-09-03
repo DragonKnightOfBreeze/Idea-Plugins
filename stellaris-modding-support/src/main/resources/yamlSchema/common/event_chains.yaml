@@ -4,13 +4,13 @@ definitions:
     type: object
     properties:
       icon:
-        $ref: "../core.yaml#/definitions/mod_path"
+        $ref: "../core.yaml#/definitions/game_path"
       picture:
         $ref: "../core.yaml#/definitions/gfx_reference"
       counter:
         type: object
         propertyNames:
-          $type: "counter"
+          $type: counter
         additionalProperties:
           max:
             $ref: "../core.yaml#/definitions/int"

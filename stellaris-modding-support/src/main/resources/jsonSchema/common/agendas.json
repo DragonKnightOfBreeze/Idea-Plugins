@@ -15,6 +15,6 @@
   },
   "type" : "object",
   "additionalProperties" : {
-    "$ref" : "#/definitions/agenda"
+    "$ref" : null
   }
 }

@@ -137,6 +137,6 @@
   },
   "type" : "object",
   "additionalProperties" : {
-    "$ref" : "#/definitions/component_template"
+    "$ref" : null
   }
 }

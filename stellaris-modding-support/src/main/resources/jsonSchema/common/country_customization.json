@@ -43,6 +43,6 @@
   },
   "type" : "object",
   "additionalProperties" : {
-    "$ref" : "#/definitions/country_customization"
+    "$ref" : null
   }
 }

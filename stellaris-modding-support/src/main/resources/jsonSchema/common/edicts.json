@@ -1,0 +1,53 @@
+{
+  "definitions" : {
+    "edicc" : {
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "$ref" : "../core.json#/definitions/loc_reference"
+        },
+        "length" : {
+          "$ref" : "../core.json#/definitions/int"
+        },
+        "icon" : {
+          "$ref" : "../core.json#/definitions/gfx_reference"
+        },
+        "is_ambition" : {
+          "$ref" : "../core.json#/definitions/boolean"
+        },
+        "edict_cap_usage" : {
+          "$ref" : "../core.json#/definitions/int"
+        },
+        "resources" : {
+          "$ref" : "../core.json#/definitions/economy_unit"
+        },
+        "modifier" : {
+          "$ref" : "../core.json#/definitions/modifier",
+          "multiple" : true
+        },
+        "potential" : {
+          "$ref" : "../core.json#/definitions/triggers"
+        },
+        "prerequisites" : {
+          "type" : "array",
+          "items" : {
+            "$type" : "tech"
+          }
+        },
+        "show_tech_unlock_if" : {
+          "$ref" : "../core.json#/definitions/triggers"
+        },
+        "allow" : {
+          "$ref" : "../core.json#/definitions/effects"
+        },
+        "ai_weight" : {
+          "$ref" : "../core.json#/definitions/weight_modifier"
+        }
+      }
+    }
+  },
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : null
+  }
+}

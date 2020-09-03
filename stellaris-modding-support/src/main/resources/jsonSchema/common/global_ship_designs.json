@@ -1,0 +1,67 @@
+{
+  "definitions" : {
+    "global_ship_design" : {
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "$ref" : "../core.json#/definitions/loc_reference"
+        },
+        "ship_size" : {
+          "$ype" : "ship_size"
+        },
+        "is_event_design" : {
+          "$ref" : "../core.json#/definitions/boolean"
+        },
+        "section" : {
+          "$ref" : null
+        },
+        "required_component" : {
+          "$type" : "component_template.key"
+        },
+        "is_special_buildable" : {
+          "$ref" : "../core.json#/definitions/boolean"
+        },
+        "allow_buildable_trigger" : {
+          "oneOf" : [ {
+            "$type" : "trigger"
+          }, {
+            "$ref" : "../core.json#/definitions/triggers"
+          } ]
+        }
+      }
+    },
+    "section" : {
+      "type" : "object",
+      "properties" : {
+        "template" : {
+          "$type" : "section_template.key"
+        },
+        "slot" : {
+          "$ref" : null
+        },
+        "component" : {
+          "$ref" : null,
+          "multiple" : true
+        }
+      }
+    },
+    "component" : {
+      "type" : "object",
+      "properties" : {
+        "slot" : {
+          "$type" : "section_template.component_slot.name"
+        },
+        "template" : {
+          "$type" : "component_template.key"
+        }
+      }
+    },
+    "slot" : {
+      "type" : "string"
+    }
+  },
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : null
+  }
+}

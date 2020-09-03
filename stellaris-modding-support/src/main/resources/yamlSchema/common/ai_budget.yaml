@@ -4,13 +4,13 @@ definitions:
     type: object
     properties:
       resource:
-        $type: "resource"
+        $type: resource
       type:
         $ref: "#/definitions/budget_type"
       category:
         $ref: "#/definitions/budget_category"
       poential:
-        $ref: "../core.yaml#/definitions/conditions"
+        $ref: "../core.yaml#/definitions/triggers"
       fraction:
         $ref: "../core.yaml#/definitions/weight_modifier"
       static_min:

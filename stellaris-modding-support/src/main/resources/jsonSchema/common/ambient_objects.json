@@ -29,6 +29,6 @@
   },
   "type" : "object",
   "additionalProperties" : {
-    "$ref" : "#/definitions/ambient_object"
+    "$ref" : null
   }
 }

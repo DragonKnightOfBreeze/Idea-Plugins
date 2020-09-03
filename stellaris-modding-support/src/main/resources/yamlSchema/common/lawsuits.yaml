@@ -1,0 +1,14 @@
+definitions:
+  lawsuit:
+    type: object
+    properties:
+      effect:
+        $ref: "../core.yaml#/definitions/effects"
+      cost:
+        $ref: "../core.yaml#/definitions/economy_unit"
+      duration:
+        $ref: "../core.yaml#/definitions/float"
+
+type: object
+additionalProperties:
+  $ref: "#/definitions/lawsuit"

@@ -1,0 +1,49 @@
+{
+  "definitions" : {
+    "map_mode" : {
+      "type" : "object",
+      "properties" : {
+        "icon" : {
+          "$ref" : "../core.json#/definitions/gfx_reference"
+        },
+        "hardcoded_tooltip" : {
+          "$type" : "opinion"
+        },
+        "can_change_point_of_view" : {
+          "$ref" : "../core.json#/definitions/boolean"
+        },
+        "enable_terra_incognita" : {
+          "$ref" : "../core.json#/definitions/boolean"
+        },
+        "shortcut" : {
+          "$ref" : "../core.json#/definitions/shortcut"
+        },
+        "color" : {
+          "$ref" : null,
+          "multiple" : true
+        }
+      }
+    },
+    "color" : {
+      "type" : "object",
+      "properties" : {
+        "value" : {
+          "$ref" : "../core.json#/definitions/color_type"
+        },
+        "custom_tooltip" : {
+          "$ref" : "../core.json#/definitions/loc_reference"
+        },
+        "hardcoded_tooltip" : {
+          "type" : "string"
+        },
+        "condition" : {
+          "$ref" : "../core.json#/definitions/triggers"
+        }
+      }
+    }
+  },
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : null
+  }
+}

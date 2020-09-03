@@ -17,6 +17,6 @@
   },
   "type" : "object",
   "additionalProperties" : {
-    "$ref" : "#/definitions/component_set"
+    "$ref" : null
   }
 }

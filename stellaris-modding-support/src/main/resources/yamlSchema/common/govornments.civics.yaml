@@ -4,17 +4,17 @@ definitions:
     type: object
     properties:
       icon:
-        $ref: "../core.yaml#/definitions/mod_path"
+        $ref: "../core.yaml#/definitions/game_path"
       description:
         $ref: "../core.yaml#/definitions/loc_reference"
       modification:
         $ref: "../core.yaml#/definitions/boolean"
       playable:
-        $ref: "../core.yaml#/definitions/conditions"
+        $ref: "../core.yaml#/definitions/triggers"
       potential:
-        $ref: "../core.yaml#/definitions/conditions"
+        $ref: "../core.yaml#/definitions/triggers"
       possible:
-        $ref: "../core.yaml#/definitions/conditions"
+        $ref: "../core.yaml#/definitions/triggers"
       random_weight:
         $ref: "../core.yaml#/definitions/weight_modifier"
       modifier:
@@ -28,13 +28,13 @@ definitions:
             type: object
             properties:
               trait:
-                $type: "trait"
+                $type: trait
                 multiple: true
       traits:
         type: object
         properties:
           trait:
-            $type: "trait"
+            $type: trait
             multiple: true
       # for origins
       is_origin:

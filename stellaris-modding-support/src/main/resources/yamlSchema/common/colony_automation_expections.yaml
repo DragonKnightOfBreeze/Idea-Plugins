@@ -4,23 +4,23 @@ definitions:
     type: object
     properties:
       available:
-        $ref: "../core.yaml#/definitions/conditions"
+        $ref: "../core.yaml#/definitions/triggers"
       crisis:
         $ref: "../core.yaml#/definitions/boolean"
       prio_districts:
         type: object
         items:
-          $type: "district"
+          $type: district
       buildings:
         type: object
         properties:
           precinct:
             properties:
               bulding:
-                $type: "building"
+                $type: building
                 multiple: true
               available:
-                $ref: "../core.yaml#/definitions/conditions"
+                $ref: "../core.yaml#/definitions/triggers"
                 multiple: true
 
 type: object

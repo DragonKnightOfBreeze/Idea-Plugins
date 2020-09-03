@@ -18,7 +18,7 @@ definitions:
       should_force_rename:
         $ref: "../core.yaml#/definitions/boolean"
       leader_class:
-        $type: "leader_class"
+        $type: leader_class
       election_candidates:
         type: object
         properties:
@@ -26,7 +26,7 @@ definitions:
             $ref: "../core.yaml#/definitions/modifier"
             multiple: true
       possible:
-        $ref: "../core.yaml#/definitions/conditions"
+        $ref: "../core.yaml#/definitions/triggers"
       weight:
         $ref: "../core.yaml#/definitions/weight_modifier"
 
