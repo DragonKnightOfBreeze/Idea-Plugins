@@ -29,7 +29,7 @@ class StellarisLocalizationCompletionContributor : CompletionContributor() {
 		extend(
 			CompletionType.BASIC,
 			psiElement().afterSibling(psiElement(LOCALE)),
-			StellarisLocalizationCompletionContributor.LocaleCompletionProvider()
+			LocaleCompletionProvider()
 		)
 	}
 

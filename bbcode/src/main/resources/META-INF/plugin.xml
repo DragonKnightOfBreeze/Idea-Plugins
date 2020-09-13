@@ -77,6 +77,5 @@
     <annotator
       language="BBCode"
       implementationClass="com.windea.plugin.idea.bbcode.BBCodeAnnotator"/>
-
   </extensions>
 </idea-plugin>

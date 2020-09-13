@@ -1,0 +1,62 @@
+<idea-plugin>
+  <id>com.windea.sbtext</id>
+  <name>StarBound Text</name>
+  <category>Languages</category>
+
+  <vendor email="dk_breeze@qq.com" url="https://github.com/DragonKnightOfBreeze">DragonKnightOfBreeze</vendor>
+
+  <description><![CDATA[
+    <p>StarBound文本支持。</p>
+    <p>编写这个插件是为了便于维护和更新<a href="https://github.com/ProjectSky/FrackinUniverse-sChinese-Project">Frackin Universe汉化项目</a>。</p>
+    <p>示例：<code>This is some ^red;red^reset; text.</code></p>
+    <p>
+      欢迎查看
+      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/tree/master/bbcode">本项目</a>以及
+      <a href="https://github.com/DragonKnightOfBreeze?tab=repositories">我的其他项目。
+    </p>
+    ]]></description>
+
+  <change-notes><![CDATA[
+    <p>
+      通过项目的
+      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/bbcode/README.md">README</a> 文档和
+      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/bbcode/CHANGELOG.md">CHANGELOG</a> 文档
+      查看完整的更新日志。（中文）
+    </p>
+    ]]></change-notes>
+
+  <depends>com.intellij.modules.lang</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!--<fileType-->
+    <!--  name="BBCode File"-->
+    <!--  implementationClass="com.windea.plugin.idea.bbcode.BBCodeFileType"-->
+    <!--  fieldName="INSTANCE" language="BBCode" extensions="bbcode;bb"/>-->
+    <!--<lang.parserDefinition-->
+    <!--  language="BBCode"-->
+    <!--  implementationClass="com.windea.plugin.idea.bbcode.psi.BBCodeParserDefinition"/>-->
+    <!--<lang.syntaxHighlighterFactory-->
+    <!--  language="BBCode"-->
+    <!--  implementationClass="com.windea.plugin.idea.bbcode.highlighter.BBCodeSyntaxHighlighterFactory"/>-->
+    <!--<lang.braceMatcher-->
+    <!--  language="BBCode"-->
+    <!--  implementationClass="com.windea.plugin.idea.bbcode.BBCodeBraceMatcher"/>-->
+    <!--<colorSettingsPage-->
+    <!--  implementation="com.windea.plugin.idea.bbcode.highlighter.BBCodeColorSettingsPage"/>-->
+    <!--<spellchecker.support-->
+    <!--  language="BBCode"-->
+    <!--  implementationClass="com.windea.plugin.idea.bbcode.BBCodeSpellchecker"/>-->
+    <!--<completion.contributor-->
+    <!--  language="BBCode"-->
+    <!--  implementationClass="com.windea.plugin.idea.bbcode.codeInsight.BBCodeCompletionContributor"/>-->
+    <!--&lt;!&ndash;<lang.formatter&ndash;&gt;-->
+    <!--&lt;!&ndash;  language="BBCode"&ndash;&gt;-->
+    <!--&lt;!&ndash;  implementationClass="com.windea.plugin.idea.bbcode.formatter.BBCodeFormattingModelBuilder"/>&ndash;&gt;-->
+    <!--<elementDescriptionProvider implementation="com.windea.plugin.idea.bbcode.BBCodeDescriptionProvider"/>-->
+
+    <!--<annotator-->
+    <!--  language="BBCode"-->
+    <!--  implementationClass="com.windea.plugin.idea.bbcode.BBCodeAnnotator"/>-->
+
+  </extensions>
+</idea-plugin>

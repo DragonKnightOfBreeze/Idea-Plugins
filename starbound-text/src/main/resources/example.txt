@@ -1,0 +1,2 @@
+This is some ^red;red^reset; ext.
+And this is some ^#f8f8f8;custom color^reset; text.
