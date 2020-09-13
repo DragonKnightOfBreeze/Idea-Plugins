@@ -23,6 +23,6 @@
   },
   "type" : "object",
   "additionalProperties" : {
-    "$ref" : null
+    "$ref" : "#/definitions/ascension_perk"
   }
 }

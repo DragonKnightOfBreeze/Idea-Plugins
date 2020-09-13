@@ -37,6 +37,6 @@
   },
   "type" : "object",
   "additionalProperties" : {
-    "$ref" : null
+    "$ref" : "#/definitions/colony_automation_exception"
   }
 }

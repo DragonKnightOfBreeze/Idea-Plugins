@@ -13,7 +13,7 @@
           "$ref" : "../core.json#/definitions/boolean"
         },
         "section" : {
-          "$ref" : null
+          "$ref" : "#/definitions/section"
         },
         "required_component" : {
           "$type" : "component_template.key"
@@ -37,10 +37,10 @@
           "$type" : "section_template.key"
         },
         "slot" : {
-          "$ref" : null
+          "$ref" : "#/definitions/slot"
         },
         "component" : {
-          "$ref" : null,
+          "$ref" : "#/definitions/component",
           "multiple" : true
         }
       }
@@ -62,6 +62,6 @@
   },
   "type" : "object",
   "additionalProperties" : {
-    "$ref" : null
+    "$ref" : "#/definitions/global_ship_design"
   }
 }

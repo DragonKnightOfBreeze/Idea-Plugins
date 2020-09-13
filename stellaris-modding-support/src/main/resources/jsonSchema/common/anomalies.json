@@ -35,10 +35,10 @@
           "$ref" : "../core.json#/definitions/modifier_chance"
         },
         "on_spawn" : {
-          "$ref" : null
+          "$ref" : "#/definitions/anomaly_event"
         },
         "on_success" : {
-          "$ref" : null
+          "$ref" : "#/definitions/anomaly_event"
         }
       }
     },
@@ -74,6 +74,6 @@
   },
   "type" : "object",
   "additionalProperties" : {
-    "$ref" : null
+    "$ref" : "#/definitions/anomaly"
   }
 }

@@ -102,7 +102,7 @@
                 "$type" : "ship"
               },
               "additionalProperties" : {
-                "$ref" : null
+                "$ref" : "#/definitions/ship_data"
               }
             },
             "army_data" : {
@@ -111,7 +111,7 @@
                 "$type" : "army"
               },
               "additionalProperties" : {
-                "$ref" : null
+                "$ref" : "#/definitions/ship_data"
               }
             }
           }
@@ -148,6 +148,6 @@
   },
   "type" : "object",
   "additionalProperties" : {
-    "$ref" : null
+    "$ref" : "#/definitions/country_type"
   }
 }

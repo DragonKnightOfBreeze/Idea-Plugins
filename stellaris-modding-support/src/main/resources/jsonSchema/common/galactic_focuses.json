@@ -20,6 +20,6 @@
   },
   "type" : "object",
   "additionalProperties" : {
-    "$ref" : null
+    "$ref" : "#/definitions/galactic_focus"
   }
 }

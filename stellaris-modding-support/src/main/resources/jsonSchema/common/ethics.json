@@ -7,7 +7,7 @@
           "$ref" : "../core.json#/definitions/int"
         },
         "category" : {
-          "$ref" : null
+          "$ref" : "#/definitions/ethic_category"
         },
         "category_value" : {
           "$ref" : "../core.json#/definitions/int"
@@ -64,6 +64,6 @@
     }
   },
   "additionalProperties" : {
-    "$ref" : null
+    "$ref" : "#/definitions/ethic"
   }
 }

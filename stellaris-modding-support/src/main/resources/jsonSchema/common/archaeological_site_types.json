@@ -31,7 +31,7 @@
           "$ref" : "../core.json#/definitions/effects"
         },
         "state" : {
-          "$ref" : null,
+          "$ref" : "#/definitions/state",
           "multiple" : true
         },
         "on_roll_failed" : {
@@ -56,6 +56,6 @@
   },
   "type" : "object",
   "additionalProperties" : {
-    "$ref" : null
+    "$ref" : "#/definitions/archaeological_site_type"
   }
 }

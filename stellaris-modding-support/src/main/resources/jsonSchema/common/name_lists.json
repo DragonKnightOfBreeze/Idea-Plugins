@@ -14,7 +14,7 @@
           "anyOf" : [ {
             "properties" : {
               "generic" : {
-                "$ref" : null
+                "$ref" : "#/definitions/string_array"
               }
             }
           }, {
@@ -22,7 +22,7 @@
               "$type" : "ship_class"
             },
             "additionalProperties" : {
-              "$ref" : null
+              "$ref" : "#/definitions/string_array"
             }
           } ]
         },
@@ -31,7 +31,7 @@
           "anyOf" : [ {
             "properties" : {
               "generic" : {
-                "$ref" : null
+                "$ref" : "#/definitions/string_array"
               }
             }
           }, {
@@ -39,7 +39,7 @@
               "$type" : "ship_class"
             },
             "additionalProperties" : {
-              "$ref" : null
+              "$ref" : "#/definitions/string_array"
             }
           } ]
         },
@@ -47,10 +47,10 @@
           "type" : "object",
           "properties" : {
             "random_names" : {
-              "$ref" : null
+              "$ref" : "#/definitions/string_array"
             },
             "sequential_name" : {
-              "$ref" : null
+              "$ref" : "#/definitions/string"
             }
           }
         },
@@ -59,7 +59,7 @@
           "anyOf" : [ {
             "properties" : {
               "generic" : {
-                "$ref" : null
+                "$ref" : "#/definitions/string_array"
               }
             }
           }, {
@@ -67,7 +67,7 @@
               "$type" : "army"
             },
             "additionalProperties" : {
-              "$ref" : null
+              "$ref" : "#/definitions/string_array"
             }
           } ]
         },
@@ -76,7 +76,7 @@
           "anyOf" : [ {
             "properties" : {
               "generic" : {
-                "$ref" : null
+                "$ref" : "#/definitions/string_array"
               }
             }
           }, {
@@ -84,7 +84,7 @@
               "$type" : "plant_class"
             },
             "additionalProperties" : {
-              "$ref" : null
+              "$ref" : "#/definitions/string_array"
             }
           } ]
         },
@@ -93,7 +93,7 @@
           "oneOf" : [ {
             "properties" : {
               "default" : {
-                "$ref" : null
+                "$ref" : "#/definitions/character_name_definition"
               }
             }
           }, {
@@ -106,7 +106,7 @@
                   }
                 }
               }, {
-                "$ref" : null
+                "$ref" : "#/definitions/character_name_definition"
               } ]
             }
           } ]
@@ -116,7 +116,7 @@
           "oneOf" : [ {
             "properties" : {
               "default" : {
-                "$ref" : null
+                "$ref" : "#/definitions/character_name_definition"
               }
             }
           }, {
@@ -129,7 +129,7 @@
                   }
                 }
               }, {
-                "$ref" : null
+                "$ref" : "#/definitions/character_name_definition"
               } ]
             }
           } ]
@@ -149,25 +149,25 @@
       "type" : "object",
       "properties" : {
         "full_names" : {
-          "$ref" : null
+          "$ref" : "#/definitions/string_array"
         },
         "first_names" : {
-          "$ref" : null
+          "$ref" : "#/definitions/string_array"
         },
         "second_names" : {
-          "$ref" : null
+          "$ref" : "#/definitions/string_array"
         },
         "regnal_first_names" : {
-          "$ref" : null
+          "$ref" : "#/definitions/string_array"
         },
         "regnal_second_names" : {
-          "$ref" : null
+          "$ref" : "#/definitions/string_array"
         }
       }
     }
   },
   "type" : "object",
   "additionalProperties" : {
-    "$ref" : null
+    "$ref" : "#/definitions/name_list"
   }
 }

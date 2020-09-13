@@ -26,7 +26,7 @@
           "$ref" : "../core.json#/definitions/boolean"
         },
         "category" : {
-          "$ref" : null
+          "$ref" : "#/definitions/building_category"
         },
         "potential" : {
           "$ref" : "../core.json#/definitions/triggers"
@@ -95,6 +95,6 @@
   },
   "type" : "object",
   "additionalProperties" : {
-    "$ref" : null
+    "$ref" : "#/definitions/building"
   }
 }

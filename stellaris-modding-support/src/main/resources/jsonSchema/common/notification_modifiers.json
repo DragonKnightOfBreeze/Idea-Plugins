@@ -11,6 +11,6 @@
   },
   "type" : "object",
   "additionalProperties" : {
-    "$ref" : null
+    "$ref" : "#/definitions/notification_modifier"
   }
 }

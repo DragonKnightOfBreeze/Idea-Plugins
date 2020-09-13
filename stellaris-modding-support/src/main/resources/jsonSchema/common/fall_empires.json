@@ -13,7 +13,7 @@
           "$ref" : "../core.json#/definitions/weight_modifier"
         },
         "create_country_effect" : {
-          "$ref" : null
+          "$ref" : "#/definitions/create_country_effect"
         }
       }
     },
@@ -115,6 +115,6 @@
   },
   "type" : "object",
   "additionalProperties" : {
-    "$ref" : null
+    "$ref" : "#/definitions/fallen_empire"
   }
 }

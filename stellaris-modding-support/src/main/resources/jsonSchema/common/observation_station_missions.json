@@ -38,6 +38,6 @@
   },
   "type" : "object",
   "additionalProperties" : {
-    "$ref" : null
+    "$ref" : "#/definitions/observation_station_mission"
   }
 }

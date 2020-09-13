@@ -40,7 +40,7 @@
           "$ref" : "../core.json#/definitions/loc_reference"
         },
         "connection_type" : {
-          "$ref" : null
+          "$ref" : "#/definitions/connection_type"
         },
         "ftl_ship_effect" : {
           "$ref" : "../core.json#/definitions/assert_reference"
@@ -70,7 +70,7 @@
           "$type" : "on_action"
         },
         "scripted_connection" : {
-          "$ref" : null
+          "$ref" : "#/definitions/scripted_connection"
         }
       }
     },
@@ -91,6 +91,6 @@
   },
   "type" : "object",
   "additionalProperties" : {
-    "$ref" : null
+    "$ref" : "#/definitions/bypass"
   }
 }

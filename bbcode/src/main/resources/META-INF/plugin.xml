@@ -66,13 +66,8 @@
     <spellchecker.support
       language="BBCode"
       implementationClass="com.windea.plugin.idea.bbcode.BBCodeSpellchecker"/>
-    <completion.contributor
-      language="BBCode"
-      implementationClass="com.windea.plugin.idea.bbcode.codeInsight.BBCodeCompletionContributor"/>
-    <!--<lang.formatter-->
-    <!--  language="BBCode"-->
-    <!--  implementationClass="com.windea.plugin.idea.bbcode.formatter.BBCodeFormattingModelBuilder"/>-->
     <elementDescriptionProvider implementation="com.windea.plugin.idea.bbcode.BBCodeDescriptionProvider"/>
+    <typedHandler implementation="com.windea.plugin.idea.bbcode.BBCodeSlashTypedHandler"/>
 
     <annotator
       language="BBCode"

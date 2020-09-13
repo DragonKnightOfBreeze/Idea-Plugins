@@ -10,7 +10,7 @@
           "$ref" : "../core.json#/definitions/boolean"
         },
         "election_type" : {
-          "$ref" : null
+          "$ref" : "#/definitions/election_type"
         },
         "re_election_allowed" : {
           "$ref" : "../core.json#/definitions/boolean"
@@ -84,6 +84,6 @@
   },
   "type" : "object",
   "additionalProperties" : {
-    "$ref" : null
+    "$ref" : "#/definitions/authority"
   }
 }

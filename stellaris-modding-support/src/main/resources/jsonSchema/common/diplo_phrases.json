@@ -21,6 +21,6 @@
   },
   "type" : "object",
   "additionalProperties" : {
-    "$ref" : null
+    "$ref" : "#/definitions/diplo_phrase"
   }
 }

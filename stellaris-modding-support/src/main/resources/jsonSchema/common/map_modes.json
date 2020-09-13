@@ -19,7 +19,7 @@
           "$ref" : "../core.json#/definitions/shortcut"
         },
         "color" : {
-          "$ref" : null,
+          "$ref" : "#/definitions/color",
           "multiple" : true
         }
       }
@@ -44,6 +44,6 @@
   },
   "type" : "object",
   "additionalProperties" : {
-    "$ref" : null
+    "$ref" : "#/definitions/map_mode"
   }
 }

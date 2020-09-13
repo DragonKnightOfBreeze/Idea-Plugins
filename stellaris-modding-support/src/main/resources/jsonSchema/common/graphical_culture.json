@@ -16,7 +16,7 @@
           "$type" : "graphical_culture"
         },
         "ship_light" : {
-          "$ref" : null
+          "$ref" : "#/definitions/ship_lighting"
         }
       }
     },
@@ -67,6 +67,6 @@
   },
   "type" : "object",
   "additionalProperties" : {
-    "$ref" : null
+    "$ref" : "#/definitions/graphical_culture"
   }
 }

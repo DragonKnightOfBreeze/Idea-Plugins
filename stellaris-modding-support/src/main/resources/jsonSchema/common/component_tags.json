@@ -6,6 +6,6 @@
   },
   "type" : "array",
   "items" : {
-    "$ref" : null
+    "$ref" : "#/definitions/component_tag"
   }
 }

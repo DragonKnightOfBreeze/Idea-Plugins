@@ -7,7 +7,7 @@
           "$ref" : "../core.json#/definitions/triggers"
         },
         "parameters" : {
-          "$ref" : null
+          "$ref" : "#/definitions/parameters"
         },
         "on_term_started" : {
           "$ref" : "../core.json#/definitions/effects"
@@ -24,6 +24,6 @@
   },
   "type" : "object",
   "additionalProperties" : {
-    "$ref" : null
+    "$ref" : "#/definitions/mandate"
   }
 }

@@ -18,10 +18,10 @@
       "type" : "object",
       "properties" : {
         "min" : {
-          "$ref" : null
+          "$ref" : "#/definitions/int"
         },
         "max" : {
-          "$ref" : null
+          "$ref" : "#/definitions/int"
         }
       }
     },
@@ -29,10 +29,10 @@
       "type" : "object",
       "properties" : {
         "min" : {
-          "$ref" : null
+          "$ref" : "#/definitions/float"
         },
         "max" : {
-          "$ref" : null
+          "$ref" : "#/definitions/float"
         }
       }
     },
@@ -40,10 +40,10 @@
       "type" : "object",
       "properties" : {
         "x" : {
-          "$ref" : null
+          "$ref" : "#/definitions/int"
         },
         "y" : {
-          "$ref" : null
+          "$ref" : "#/definitions/int"
         }
       }
     },
@@ -51,13 +51,13 @@
       "type" : "object",
       "properties" : {
         "x" : {
-          "$ref" : null
+          "$ref" : "#/definitions/int"
         },
         "y" : {
-          "$ref" : null
+          "$ref" : "#/definitions/int"
         },
         "z" : {
-          "$ref" : null
+          "$ref" : "#/definitions/int"
         }
       }
     },
@@ -74,10 +74,10 @@
       "type" : "object",
       "properties" : {
         "min" : {
-          "$ref" : null
+          "$ref" : "#/definitions/uint"
         },
         "max" : {
-          "$ref" : null
+          "$ref" : "#/definitions/uint"
         }
       }
     },
@@ -133,16 +133,16 @@
       "type" : "object",
       "properties" : {
         "category" : {
-          "$ref" : null
+          "$ref" : "#/definitions/resources_category"
         },
         "produces" : {
-          "$ref" : null
+          "$ref" : "#/definitions/resources_item"
         },
         "cost" : {
-          "$ref" : null
+          "$ref" : "#/definitions/resources_item"
         },
         "upkeep" : {
-          "$ref" : null
+          "$ref" : "#/definitions/resources_item"
         }
       }
     },
@@ -152,7 +152,7 @@
       "anyOf" : [ {
         "properties" : {
           "trigger" : {
-            "$ref" : null
+            "$ref" : "#/definitions/triggers"
           }
         }
       }, {
@@ -160,23 +160,23 @@
           "$type" : "resource"
         },
         "additionalProperties" : {
-          "$ref" : null
+          "$ref" : "#/definitions/int"
         }
       } ]
     },
     "entity" : true,
     "desc" : {
       "oneOf" : [ {
-        "$ref" : null
+        "$ref" : "#/definitions/loc_reference"
       }, {
-        "$ref" : null
+        "$ref" : "#/definitions/triggered_desc"
       } ]
     },
     "triggered_desc" : {
-      "$ref" : null,
+      "$ref" : "#/definitions/triggers",
       "properties" : {
         "text" : {
-          "$ref" : null
+          "$ref" : "#/definitions/loc_reference"
         }
       }
     },
@@ -186,22 +186,22 @@
           "$ref" : "../core.json#/definitions/int"
         },
         "modifier" : {
-          "$ref" : null
+          "$ref" : "#/definitions/modifier"
         }
       }
     },
     "condition_expressions" : {
       "type" : "object",
       "propertyNames" : {
-        "$ref" : null
+        "$ref" : "#/definitions/condition_expression_name"
       },
       "properties" : {
         "limit" : {
-          "$ref" : null
+          "$ref" : "#/definitions/triggers"
         }
       },
       "additionalProperties" : {
-        "$ref" : null
+        "$ref" : "#/definitions/triggers"
       }
     },
     "condition_expression_name" : {
@@ -211,10 +211,10 @@
     "boolean_expressions" : {
       "type" : "object",
       "propertyNames" : {
-        "$ref" : null
+        "$ref" : "#/definitions/boolean_expression_name"
       },
       "additionalProperties" : {
-        "$ref" : null
+        "$ref" : "#/definitions/triggers"
       }
     },
     "boolean_expression_name" : {
@@ -224,10 +224,10 @@
     "scope_expressions" : {
       "type" : "object",
       "propertyNames" : {
-        "$ref" : null
+        "$ref" : "#/definitions/scope_name"
       },
       "additionalProperties" : {
-        "$ref" : null
+        "$ref" : "#/definitions/triggers"
       }
     },
     "scope_name" : {
@@ -237,13 +237,13 @@
     "triggers" : {
       "type" : "object",
       "anyOf" : [ {
-        "$ref" : null
+        "$ref" : "#/definitions/condition_expressions"
       }, {
-        "$ref" : null
+        "$ref" : "#/definitions/boolean_expressions"
       }, {
-        "$ref" : null
+        "$ref" : "#/definitions/scope_expressions"
       }, {
-        "$ref" : null
+        "$ref" : "#/definitions/scripted_triggers"
       } ]
     },
     "scripted_triggers" : {
@@ -254,13 +254,13 @@
     "effects" : {
       "type" : "object",
       "anyOf" : [ {
-        "$ref" : null
+        "$ref" : "#/definitions/condition_expressions"
       }, {
-        "$ref" : null
+        "$ref" : "#/definitions/boolean_expressions"
       }, {
-        "$ref" : null
+        "$ref" : "#/definitions/scope_expressions"
       }, {
-        "$ref" : null
+        "$ref" : "#/definitions/scripted_triggers"
       } ]
     },
     "scripted_effects" : {
@@ -272,7 +272,7 @@
       "type" : "object",
       "properties" : {
         "weight" : {
-          "$ref" : null
+          "$ref" : "#/definitions/int"
         }
       }
     },
@@ -280,25 +280,25 @@
       "type" : "object",
       "properties" : {
         "base" : {
-          "$ref" : null
+          "$ref" : "#/definitions/int"
         },
         "modifier" : {
           "allOf" : [ {
             "oneOf" : [ {
               "properties" : {
                 "factor" : {
-                  "$ref" : null
+                  "$ref" : "#/definitions/number"
                 }
               }
             }, {
               "properties" : {
                 "add" : {
-                  "$ref" : null
+                  "$ref" : "#/definitions/number"
                 }
               }
             } ]
           }, {
-            "$ref" : null
+            "$ref" : "#/definitions/modifier"
           } ],
           "multiple" : true
         }
@@ -308,7 +308,7 @@
       "type" : "object",
       "properties" : {
         "value" : {
-          "$ref" : null
+          "$ref" : "#/definitions/int"
         }
       }
     },
@@ -324,31 +324,31 @@
       "type" : "object",
       "properties" : {
         "potential" : {
-          "$ref" : null
+          "$ref" : "#/definitions/triggers"
         }
       },
-      "$ref" : null
+      "$ref" : "#/definitions/modifiers"
     },
     "modifier_chance" : {
       "type" : "object",
       "properties" : {
         "base" : {
-          "$ref" : null
+          "$ref" : "#/definitions/int"
         },
         "modifier" : {
-          "$ref" : null
+          "$ref" : "#/definitions/modifier"
         }
       }
     },
     "event" : {
       "oneOf" : [ {
-        "$ref" : null
+        "$ref" : "#/definitions/event_id"
       }, {
         "propertyNames" : {
-          "$ref" : null
+          "$ref" : "#/definitions/event_type"
         },
         "additionalProperties" : {
-          "$ref" : null
+          "$ref" : "#/definitions/event_id"
         }
       } ]
     },
@@ -357,7 +357,7 @@
         "type" : "string"
       }, {
         "type" : "object",
-        "$ref" : null,
+        "$ref" : "#/definitions/modifier",
         "properties" : {
           "id" : {
             "type" : "string"
@@ -370,9 +370,9 @@
       "type" : "string"
     },
     "triggered_tooltip" : {
-      "$ref" : null,
+      "$ref" : "#/definitions/triggers",
       "fail_text" : {
-        "$ref" : null
+        "$ref" : "#/definitions/loc_reference"
       }
     },
     "game_path" : {

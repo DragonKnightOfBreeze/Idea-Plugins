@@ -2,7 +2,7 @@ rootProject.name = "Idea-Plugins"
 
 include(
 	"bbcode",
-	"startbound-text",
+	"starbound-text",
 	"stellaris-modding-support",
 	"yaml-extension"
 )

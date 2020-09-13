@@ -22,7 +22,7 @@
           "$ref" : "../core.json#/definitions/boolean"
         },
         "action_type" : {
-          "$ref" : null
+          "$ref" : "#/definitions/action_type"
         },
         "potential" : {
           "$ref" : "../core.json#/definitions/triggers"
@@ -39,6 +39,6 @@
   },
   "type" : "object",
   "additionalProperties" : {
-    "$ref" : null
+    "$ref" : "#/definitions/diplomatic_action"
   }
 }
