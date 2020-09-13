@@ -6,7 +6,6 @@ import com.intellij.openapi.util.Iconable.*
 import com.intellij.psi.*
 import com.intellij.refactoring.suggested.*
 import com.windea.plugin.idea.stellaris.*
-import com.windea.plugin.idea.stellaris.enums.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
 import com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationElementFactory.createColorfulText
 import com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationElementFactory.createIcon

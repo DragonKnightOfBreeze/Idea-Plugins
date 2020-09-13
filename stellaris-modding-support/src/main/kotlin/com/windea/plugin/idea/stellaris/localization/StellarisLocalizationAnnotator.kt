@@ -6,15 +6,15 @@ import com.intellij.openapi.editor.markup.*
 import com.intellij.openapi.project.*
 import com.intellij.psi.*
 import com.intellij.psi.util.*
+import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.StellarisBundle.message
-import com.windea.plugin.idea.stellaris.enums.*
 import com.windea.plugin.idea.stellaris.localization.highlighter.*
 import com.windea.plugin.idea.stellaris.localization.intentions.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
 
 class StellarisLocalizationAnnotator : Annotator, DumbAware {
 	class ColorGutterIconRenderer(
-		private val color:StellarisColor
+		private val color: StellarisColor
 	):GutterIconRenderer(),DumbAware{
 		override fun getIcon() = color.gutterIcon
 
@@ -30,7 +30,7 @@ class StellarisLocalizationAnnotator : Annotator, DumbAware {
 			//如果有无法解析的枚举项，则报错
 			is StellarisLocalizationLocale -> {
 				if(element.locale == null) {
-					val localeId = element.localeId.text
+					val localeId = element.name?:return
 					holder.newAnnotation(WARNING, message("stellaris.localization.annotator.unsupportedLocale",localeId))
 						.withFix(ChangeLocaleIntention.instance)
 						.create()
@@ -38,7 +38,7 @@ class StellarisLocalizationAnnotator : Annotator, DumbAware {
 			}
 			is StellarisLocalizationSerialNumber -> {
 				if(element.serialNumber == null) {
-					val serialNumberId = element.serialNumberId?.text?:return
+					val serialNumberId = element.name?:return
 					holder.newAnnotation(WARNING, message("stellaris.localization.annotator.unsupportedSerialNumber",serialNumberId))
 						.withFix(ChangeSerialNumberIntention.instance)
 						.create()
@@ -46,7 +46,7 @@ class StellarisLocalizationAnnotator : Annotator, DumbAware {
 			}
 			//如果是颜色文本，则为颜色代码文本加粗，并加上对应的颜色
 			is StellarisLocalizationColorfulText -> {
-				val colorId = element.colorCode?.text?:return
+				val colorId = element.name?:return
 				if(element.color == null) {
 					holder.newAnnotation(WARNING, message("stellaris.localization.annotator.unsupportedColor",colorId))
 						.withFix(ChangeColorIntention.instance)

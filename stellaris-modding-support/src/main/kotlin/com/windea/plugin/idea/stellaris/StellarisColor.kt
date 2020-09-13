@@ -1,7 +1,6 @@
-package com.windea.plugin.idea.stellaris.enums
+package com.windea.plugin.idea.stellaris
 
 import com.intellij.util.ui.*
-import com.windea.plugin.idea.stellaris.*
 import java.awt.*
 
 /**

@@ -1,6 +1,4 @@
-package com.windea.plugin.idea.stellaris.enums
-
-import com.windea.plugin.idea.stellaris.*
+package com.windea.plugin.idea.stellaris
 
 /**
  * 本地化文件的编号枚举

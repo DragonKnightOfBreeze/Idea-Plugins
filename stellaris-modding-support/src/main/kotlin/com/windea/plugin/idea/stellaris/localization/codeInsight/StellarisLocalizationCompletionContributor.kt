@@ -6,7 +6,7 @@ import com.intellij.codeInsight.completion.*
 import com.intellij.codeInsight.lookup.*
 import com.intellij.patterns.PlatformPatterns.*
 import com.intellij.util.*
-import com.windea.plugin.idea.stellaris.enums.*
+import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationTypes.*
 
 //pattern是通过调试确定的

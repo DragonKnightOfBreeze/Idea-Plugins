@@ -5,8 +5,8 @@ package com.windea.plugin.idea.stellaris.localization.highlighter
 import com.intellij.openapi.editor.DefaultLanguageHighlighterColors.*
 import com.intellij.openapi.editor.HighlighterColors.*
 import com.intellij.openapi.editor.colors.TextAttributesKey.*
+import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.StellarisBundle.message
-import com.windea.plugin.idea.stellaris.enums.*
 import java.awt.*
 
 object StellarisLocalizationAttributesKeys {

@@ -3,7 +3,6 @@ package com.windea.plugin.idea.stellaris
 import com.intellij.icons.*
 import com.intellij.openapi.project.*
 import com.intellij.util.*
-import com.windea.plugin.idea.stellaris.enums.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
 import java.util.concurrent.*
 
