@@ -56,6 +56,11 @@ public class BBCodeAttributeImpl extends BBCodeNamedElementImpl implements BBCod
   }
 
   @Override
+  public int getTextOffset() {
+    return BBCodePsiImplUtil.getTextOffset(this);
+  }
+
+  @Override
   @Nullable
   public String getValue() {
     return BBCodePsiImplUtil.getValue(this);

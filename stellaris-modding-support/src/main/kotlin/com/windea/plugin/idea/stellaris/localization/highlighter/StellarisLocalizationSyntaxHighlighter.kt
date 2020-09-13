@@ -1,3 +1,5 @@
+@file:Suppress("HasPlatformType")
+
 package com.windea.plugin.idea.stellaris.localization.highlighter
 
 import com.intellij.openapi.editor.colors.*
@@ -24,7 +26,7 @@ class StellarisLocalizationSyntaxHighlighter : SyntaxHighlighterBase() {
 		private val VALID_ESCAPE_KEYS = arrayOf(StellarisLocalizationAttributesKeys.VALID_ESCAPE_KEY)
 		private val INVALID_ESCAPE_KEYS = arrayOf(StellarisLocalizationAttributesKeys.INVALID_ESCAPE_KEY)
 		private val BAD_CHARACTER_KEYS = arrayOf(StellarisLocalizationAttributesKeys.BAD_CHARACTER_KEY)
-		private val EMPTY_KEYS = arrayOf<TextAttributesKey>()
+		private val EMPTY_KEYS = TextAttributesKey.EMPTY_ARRAY
 	}
 
 	override fun getTokenHighlights(tokenType: IElementType?) = when(tokenType) {
@@ -48,10 +50,6 @@ class StellarisLocalizationSyntaxHighlighter : SyntaxHighlighterBase() {
 		else -> EMPTY_KEYS
 	}
 
-	//NOTE 不要使用封装后的Lexer，因为会报错，而且没必要
-	//override fun getHighlightingLexer() = StellarisLocalizationHighlighterLexer()
-
 	override fun getHighlightingLexer() = StellarisLocalizationLexerAdapter()
 }
-
 

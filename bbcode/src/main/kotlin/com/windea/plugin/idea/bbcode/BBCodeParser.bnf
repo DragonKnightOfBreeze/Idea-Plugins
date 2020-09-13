@@ -11,10 +11,10 @@
 	psiImplUtilClass="com.windea.plugin.idea.bbcode.psi.impl.BBCodePsiImplUtil"
 
 	tokens=[
-    TAG_NAME='regexp:[a-zA-Z*\-_]+'
-    ATTRIBUTE_NAME='regexp:[a-zA-Z*\-_]+'
+    TAG_NAME='regexp:[\w*\-_]+'
+    ATTRIBUTE_NAME='regexp:[\w*\-_]+'
     ATTRIBUTE_VALUE='regexp:[^\[\]\s]+'
-    TEXT_TOKEN='regexp:[^\[\]]+'
+    TEXT_TOKEN='regexp:[^\[\]]*[^\[\]\s]'
     EQUAL_SIGN='='
     TAG_PREFIX_START='['
     TAG_PREFIX_END=']'
@@ -28,14 +28,18 @@ root ::= (tag | text)*
 tag ::= tag_prefix  tag_body ? tag_suffix ? {
   mixin="com.windea.plugin.idea.bbcode.psi.impl.BBCodeNamedElementImpl"
   implements="com.windea.plugin.idea.bbcode.psi.BBCodeNamedElement"
-  methods=[getName setName getNameIdentifier getIcon]
+  methods=[getName setName getNameIdentifier getTextOffset getIcon]
 }
-tag_prefix ::= TAG_PREFIX_START TAG_NAME tag_attributes ? TAG_PREFIX_END {
+tag_prefix ::= TAG_PREFIX_START TAG_NAME attributes ? TAG_PREFIX_END {
   pin=1
 }
-private tag_attributes ::= simple_attribute | attribute_group
-private simple_attribute ::= EQUAL_SIGN ATTRIBUTE_VALUE
+
+private attributes ::= simple_attribute | attribute_group
+private simple_attribute ::= EQUAL_SIGN ATTRIBUTE_VALUE{
+  pin=1
+}
 private attribute_group ::= attribute +
+
 private tag_body ::= (tag | text) +
 tag_suffix ::= TAG_SUFFIX_START TAG_NAME TAG_SUFFIX_END {
   pin=1
@@ -46,7 +50,7 @@ attribute ::= ATTRIBUTE_NAME EQUAL_SIGN ATTRIBUTE_VALUE {
   mixin="com.windea.plugin.idea.bbcode.psi.impl.BBCodeNamedElementImpl"
   implements="com.windea.plugin.idea.bbcode.psi.BBCodeNamedElement"
   implements="com.intellij.psi.PsiLiteralValue"
-  methods=[getName setName getNameIdentifier getValue]
+  methods=[getName setName getNameIdentifier getTextOffset getValue]
 }
 
 text ::= TEXT_TOKEN{

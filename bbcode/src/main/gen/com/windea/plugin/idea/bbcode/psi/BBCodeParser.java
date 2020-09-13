@@ -66,6 +66,17 @@ public class BBCodeParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
+  // simple_attribute | attribute_group
+  static boolean attributes(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "attributes")) return false;
+    if (!nextTokenIs(b, "", ATTRIBUTE_NAME, EQUAL_SIGN)) return false;
+    boolean r;
+    r = simple_attribute(b, l + 1);
+    if (!r) r = attribute_group(b, l + 1);
+    return r;
+  }
+
+  /* ********************************************************** */
   // (tag | text)*
   static boolean root(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "root")) return false;
@@ -91,11 +102,12 @@ public class BBCodeParser implements PsiParser, LightPsiParser {
   static boolean simple_attribute(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "simple_attribute")) return false;
     if (!nextTokenIs(b, EQUAL_SIGN)) return false;
-    boolean r;
-    Marker m = enter_section_(b);
-    r = consumeTokens(b, 0, EQUAL_SIGN, ATTRIBUTE_VALUE);
-    exit_section_(b, m, null, r);
-    return r;
+    boolean r, p;
+    Marker m = enter_section_(b, l, _NONE_);
+    r = consumeTokens(b, 1, EQUAL_SIGN, ATTRIBUTE_VALUE);
+    p = r; // pin = 1
+    exit_section_(b, l, m, r, p, null);
+    return r || p;
   }
 
   /* ********************************************************** */
@@ -127,17 +139,6 @@ public class BBCodeParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // simple_attribute | attribute_group
-  static boolean tag_attributes(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "tag_attributes")) return false;
-    if (!nextTokenIs(b, "", ATTRIBUTE_NAME, EQUAL_SIGN)) return false;
-    boolean r;
-    r = simple_attribute(b, l + 1);
-    if (!r) r = attribute_group(b, l + 1);
-    return r;
-  }
-
-  /* ********************************************************** */
   // (tag | text) +
   static boolean tag_body(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "tag_body")) return false;
@@ -164,7 +165,7 @@ public class BBCodeParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // TAG_PREFIX_START TAG_NAME tag_attributes ? TAG_PREFIX_END
+  // TAG_PREFIX_START TAG_NAME attributes ? TAG_PREFIX_END
   public static boolean tag_prefix(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "tag_prefix")) return false;
     if (!nextTokenIs(b, TAG_PREFIX_START)) return false;
@@ -178,10 +179,10 @@ public class BBCodeParser implements PsiParser, LightPsiParser {
     return r || p;
   }
 
-  // tag_attributes ?
+  // attributes ?
   private static boolean tag_prefix_2(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "tag_prefix_2")) return false;
-    tag_attributes(b, l + 1);
+    attributes(b, l + 1);
     return true;
   }
 

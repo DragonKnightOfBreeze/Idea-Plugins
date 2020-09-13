@@ -14,8 +14,8 @@ class BBCodeBraceMatcher: PairedBraceMatcher {
 
 	override fun getPairs() = bracePairs
 
-	override fun getCodeConstructStart(file: PsiFile?, openingBraceOffset: Int) = openingBraceOffset
+	override fun isPairedBracesAllowedBeforeType(lbraceType: IElementType, contextType: IElementType?) = false
 
-	override fun isPairedBracesAllowedBeforeType(lbraceType: IElementType, contextType: IElementType?) = true
+	override fun getCodeConstructStart(file: PsiFile?, openingBraceOffset: Int) = openingBraceOffset
 }
 

@@ -30,6 +30,8 @@ public interface BBCodeTag extends BBCodeNamedElement {
   @Nullable
   PsiElement getNameIdentifier();
 
+  int getTextOffset();
+
   @Nullable
   Icon getIcon(@IconFlags int flags);
 

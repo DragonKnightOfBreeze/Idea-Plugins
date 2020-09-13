@@ -1,3 +1,5 @@
+@file:Suppress("HasPlatformType")
+
 package com.windea.plugin.idea.stellaris.script.highlighter
 
 import com.intellij.openapi.editor.colors.*
@@ -23,7 +25,7 @@ class StellarisScriptSyntaxHighlighter : SyntaxHighlighterBase() {
 		private val VALID_ESCAPE_KEYS = arrayOf(StellarisScriptAttributesKeys.VALID_ESCAPE_KEY)
 		private val INVALID_ESCAPE_KEYS = arrayOf(StellarisScriptAttributesKeys.INVALID_ESCAPE_KEY)
 		private val BAD_CHARACTER_KEYS = arrayOf(StellarisScriptAttributesKeys.BAD_CHARACTER_KEY)
-		private val EMPTY_KEYS = arrayOf<TextAttributesKey>()
+		private val EMPTY_KEYS = TextAttributesKey.EMPTY_ARRAY
 	}
 
 	override fun getTokenHighlights(tokenType: IElementType?) = when(tokenType) {
@@ -44,9 +46,6 @@ class StellarisScriptSyntaxHighlighter : SyntaxHighlighterBase() {
 		BAD_CHARACTER -> BAD_CHARACTER_KEYS
 		else -> EMPTY_KEYS
 	}
-
-	//NOTE 不要使用封装后的Lexer，因为会报错，而且没必要
-	//override fun getHighlightingLexer() = StellarisScriptHighlighterLexer()
 
 	override fun getHighlightingLexer() = StellarisScriptLexerAdapter()
 }

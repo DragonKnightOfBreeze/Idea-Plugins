@@ -22,6 +22,8 @@ public interface BBCodeAttribute extends BBCodeNamedElement {
   @Nullable
   PsiElement getNameIdentifier();
 
+  int getTextOffset();
+
   @Nullable
   String getValue();
 

@@ -70,6 +70,11 @@ public class BBCodeTagImpl extends BBCodeNamedElementImpl implements BBCodeTag {
   }
 
   @Override
+  public int getTextOffset() {
+    return BBCodePsiImplUtil.getTextOffset(this);
+  }
+
+  @Override
   @Nullable
   public Icon getIcon(@IconFlags int flags) {
     return BBCodePsiImplUtil.getIcon(this, flags);

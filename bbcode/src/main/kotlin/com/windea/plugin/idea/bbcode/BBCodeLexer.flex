@@ -44,15 +44,16 @@ import static com.windea.plugin.idea.bbcode.psi.BBCodeTypes.*;
 EOL=\R
 WHITE_SPACE=\s+
 
-TAG_NAME=[a-zA-Z*\-_]+
-ATTRIBUTE_NAME=[a-zA-Z*\-_]+
+TAG_NAME=[\w*\-_]+
+ATTRIBUTE_NAME=[\w*\-_]+
 ATTRIBUTE_VALUE=[^\[\]\s]+
-TEXT_TOKEN=[^\[\]]+
+TEXT_TOKEN=[^\[\]]*[^\[\]\s]
 
 %%
 <YYINITIAL> {
   {WHITE_SPACE} { return WHITE_SPACE; }
   "[" { depth++; yybegin(WAITING_TAG_PREFIX); return TAG_PREFIX_START; }
+  {WHITE_SPACE} { return WHITE_SPACE; }
   {TEXT_TOKEN} { return TEXT_TOKEN; }
 }
 <WAITING_TAG_PREFIX> {
@@ -95,12 +96,13 @@ TEXT_TOKEN=[^\[\]]+
   "[/" { yybegin(WAITING_TAG_SUFFIX); return TAG_SUFFIX_START; }
   //这是缺失标签后缀的情况，不需要depth--？
   "[" {  yybegin(WAITING_TAG_PREFIX); return TAG_PREFIX_START; }
+  {WHITE_SPACE} { return WHITE_SPACE; }
   {TEXT_TOKEN} { return TEXT_TOKEN; }
 }
 <WAITING_TAG_SUFFIX> {
   {WHITE_SPACE} { return WHITE_SPACE; }
   {TAG_NAME} { return TAG_NAME; }
-  "]" { depth--; yybegin(nextState()); return TAG_PREFIX_END; }
+  "]" { depth--; yybegin(nextState()); return TAG_SUFFIX_END; }
 }
 
 [^] { return BAD_CHARACTER; }

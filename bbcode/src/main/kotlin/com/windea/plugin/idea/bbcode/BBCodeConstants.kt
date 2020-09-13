@@ -14,11 +14,11 @@ const val bbcodeExtension = "bbcode"
 
 val bbcodeDummyText = "/example.bbcode".toClassPathResource<BBCodeBundle>().readText()
 
-const val bbcodeBundleName = "messages.BBCode"
+const val bbcodeBundleName = "messages.BBCodeBundle"
 //endregion
 
 //region Resources
-val bbcodeFileIcon = IconLoader.getIcon("icons/bbcode.png")
+val bbcodeFileIcon = IconLoader.getIcon("/icons/bbcode.png")
 val bbcodeTagIcon = AllIcons.Nodes.Tag
 //endregion
 
