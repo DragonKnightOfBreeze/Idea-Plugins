@@ -8,7 +8,7 @@ version = "1.0"
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
 	version = "2020.2"
-	pluginName = "StarBound Text"
+	pluginName = "Starbound Text"
 }
 
 grammarKit {

@@ -1,0 +1,39 @@
+{
+	parserClass="com.windea.plugin.idea.sbtext.psi.SbTextParser"
+	extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+	psiClassPrefix="SbText"
+	psiImplClassSuffix="Impl"
+	psiPackage="com.windea.plugin.idea.sbtext.psi"
+	psiImplPackage="com.windea.plugin.idea.sbtext.psi.impl"
+	elementTypeHolderClass="com.windea.plugin.idea.sbtext.psi.SbTextTypes"
+	tokenTypeClass="com.windea.plugin.idea.sbtext.psi.SbTextTokenType"
+	elementTypeClass="com.windea.plugin.idea.sbtext.psi.SbTextElementType"
+	psiImplUtilClass="com.windea.plugin.idea.sbtext.psi.impl.SbTextPsiImplUtil"
+
+	tokens=[
+    COLOR_MARKER_START='^'
+    COLOR_CODE='regexp:[\w#]+'
+    COLOR_RESET='reset'
+    COLOR_MARKER_END=';'
+    VALID_ESCAPE_TOKEN="regexp:\\['\"rnt]"
+    INVALID_ESCAPE_TOKEN='regexp:\\.'
+    TEXT_TOKEN='regexp:[^\^\\]+'
+	]
+}
+
+root ::= rich_text *
+rich_text ::= colorful_text | escape | string
+colorful_text ::=  color_marker rich_text [color_reset_marker] {
+  pin=1
+  mixin="com.windea.plugin.idea.sbtext.psi.impl.SbTextNamedElementImpl"
+  implements="com.windea.plugin.idea.sbtext.psi.SbTextNamedElement"
+  methods=[getName setName getNameIdentifier getTextOffset getColor setColor]
+}
+color_marker ::= COLOR_MARKER_START COLOR_CODE COLOR_MARKER_END {
+  pin=1
+}
+color_reset_marker ::= COLOR_MARKER_START COLOR_RESET COLOR_MARKER_END {
+  pin=1
+}
+escape ::= VALID_ESCAPE_TOKEN | INVALID_ESCAPE_TOKEN
+string ::= TEXT_TOKEN

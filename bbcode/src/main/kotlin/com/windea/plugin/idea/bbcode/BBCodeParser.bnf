@@ -26,6 +26,7 @@
 root ::= (tag | text)*
 
 tag ::= tag_prefix  tag_body ? tag_suffix ? {
+  pin=1
   mixin="com.windea.plugin.idea.bbcode.psi.impl.BBCodeNamedElementImpl"
   implements="com.windea.plugin.idea.bbcode.psi.BBCodeNamedElement"
   methods=[getName setName getNameIdentifier getTextOffset getIcon]

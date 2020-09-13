@@ -115,13 +115,14 @@ public class BBCodeParser implements PsiParser, LightPsiParser {
   public static boolean tag(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "tag")) return false;
     if (!nextTokenIs(b, TAG_PREFIX_START)) return false;
-    boolean r;
-    Marker m = enter_section_(b);
+    boolean r, p;
+    Marker m = enter_section_(b, l, _NONE_, TAG, null);
     r = tag_prefix(b, l + 1);
-    r = r && tag_1(b, l + 1);
-    r = r && tag_2(b, l + 1);
-    exit_section_(b, m, TAG, r);
-    return r;
+    p = r; // pin = 1
+    r = r && report_error_(b, tag_1(b, l + 1));
+    r = p && tag_2(b, l + 1) && r;
+    exit_section_(b, l, m, r, p, null);
+    return r || p;
   }
 
   // tag_body ?

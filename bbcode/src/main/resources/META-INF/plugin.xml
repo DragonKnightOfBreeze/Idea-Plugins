@@ -11,7 +11,7 @@
     <p>如果你正在开发发布至Steam创意工坊的游戏模组，你可能需要这个插件以支持模组描述的标记语言。</p>
     <p>
       欢迎查看
-      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/tree/master/bbcode">本项目</a>以及
+      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/tree/master/bbcode">本项目</a> 以及
       <a href="https://github.com/DragonKnightOfBreeze?tab=repositories">我的其他项目。
     </p>
 
@@ -58,16 +58,18 @@
     <lang.syntaxHighlighterFactory
       language="BBCode"
       implementationClass="com.windea.plugin.idea.bbcode.highlighter.BBCodeSyntaxHighlighterFactory"/>
-    <lang.braceMatcher
-      language="BBCode"
-      implementationClass="com.windea.plugin.idea.bbcode.BBCodeBraceMatcher"/>
     <colorSettingsPage
       implementation="com.windea.plugin.idea.bbcode.highlighter.BBCodeColorSettingsPage"/>
     <spellchecker.support
       language="BBCode"
       implementationClass="com.windea.plugin.idea.bbcode.BBCodeSpellchecker"/>
-    <elementDescriptionProvider implementation="com.windea.plugin.idea.bbcode.BBCodeDescriptionProvider"/>
-    <typedHandler implementation="com.windea.plugin.idea.bbcode.BBCodeSlashTypedHandler"/>
+    <lang.braceMatcher
+      language="BBCode"
+      implementationClass="com.windea.plugin.idea.bbcode.BBCodeBraceMatcher"/>
+    <elementDescriptionProvider
+      implementation="com.windea.plugin.idea.bbcode.BBCodeDescriptionProvider"/>
+    <typedHandler
+      implementation="com.windea.plugin.idea.bbcode.BBCodeSlashTypedHandler"/>
 
     <annotator
       language="BBCode"

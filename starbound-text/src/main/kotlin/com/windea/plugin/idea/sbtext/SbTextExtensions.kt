@@ -1,7 +1,6 @@
-package com.windea.plugin.idea.bbcode
+package com.windea.plugin.idea.sbtext
 
 import java.net.*
-import java.util.*
 
 //region Stdlib
 fun Boolean.toInt() = if(this) 1 else 0

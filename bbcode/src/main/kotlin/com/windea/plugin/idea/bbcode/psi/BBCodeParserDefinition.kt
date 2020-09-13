@@ -1,3 +1,5 @@
+@file:Suppress("HasPlatformType")
+
 package com.windea.plugin.idea.bbcode.psi
 
 import com.intellij.lang.*
@@ -9,7 +11,7 @@ import com.windea.plugin.idea.bbcode.*
 class BBCodeParserDefinition: ParserDefinition {
 		companion object {
 		val WHITE_SPACES = TokenSet.create(TokenType.WHITE_SPACE)
-		val COMMENTS = TokenSet.create()
+		val COMMENTS = TokenSet.EMPTY
 		val STRINGS = TokenSet.create(BBCodeTypes.TEXT_TOKEN)
 		val FILE = IFileElementType(BBCodeLanguage)
 	}

@@ -6,7 +6,7 @@
   <vendor email="dk_breeze@qq.com" url="https://github.com/DragonKnightOfBreeze">DragonKnightOfBreeze</vendor>
 
   <description><![CDATA[
-    <p>StarBound文本支持。</p>
+    <p>Starbound文本支持。</p>
     <p>编写这个插件是为了便于维护和更新<a href="https://github.com/ProjectSky/FrackinUniverse-sChinese-Project">Frackin Universe汉化项目</a>。</p>
     <p>示例：<code>This is some ^red;red^reset; text.</code></p>
     <p>
@@ -28,35 +28,25 @@
   <depends>com.intellij.modules.lang</depends>
 
   <extensions defaultExtensionNs="com.intellij">
-    <!--<fileType-->
-    <!--  name="BBCode File"-->
-    <!--  implementationClass="com.windea.plugin.idea.bbcode.BBCodeFileType"-->
-    <!--  fieldName="INSTANCE" language="BBCode" extensions="bbcode;bb"/>-->
-    <!--<lang.parserDefinition-->
-    <!--  language="BBCode"-->
-    <!--  implementationClass="com.windea.plugin.idea.bbcode.psi.BBCodeParserDefinition"/>-->
-    <!--<lang.syntaxHighlighterFactory-->
-    <!--  language="BBCode"-->
-    <!--  implementationClass="com.windea.plugin.idea.bbcode.highlighter.BBCodeSyntaxHighlighterFactory"/>-->
-    <!--<lang.braceMatcher-->
-    <!--  language="BBCode"-->
-    <!--  implementationClass="com.windea.plugin.idea.bbcode.BBCodeBraceMatcher"/>-->
-    <!--<colorSettingsPage-->
-    <!--  implementation="com.windea.plugin.idea.bbcode.highlighter.BBCodeColorSettingsPage"/>-->
-    <!--<spellchecker.support-->
-    <!--  language="BBCode"-->
-    <!--  implementationClass="com.windea.plugin.idea.bbcode.BBCodeSpellchecker"/>-->
-    <!--<completion.contributor-->
-    <!--  language="BBCode"-->
-    <!--  implementationClass="com.windea.plugin.idea.bbcode.codeInsight.BBCodeCompletionContributor"/>-->
-    <!--&lt;!&ndash;<lang.formatter&ndash;&gt;-->
-    <!--&lt;!&ndash;  language="BBCode"&ndash;&gt;-->
-    <!--&lt;!&ndash;  implementationClass="com.windea.plugin.idea.bbcode.formatter.BBCodeFormattingModelBuilder"/>&ndash;&gt;-->
-    <!--<elementDescriptionProvider implementation="com.windea.plugin.idea.bbcode.BBCodeDescriptionProvider"/>-->
+    <fileType
+      name="Starbound Text File"
+      implementationClass="com.windea.plugin.idea.sbtext.SbTextFileType"
+      fieldName="INSTANCE" language="Starbound Text" extensions="sbtxt"/>
+    <lang.parserDefinition
+      language="Starbound Text"
+      implementationClass="com.windea.plugin.idea.sbtext.psi.SbTextParserDefinition"/>
+    <lang.syntaxHighlighterFactory
+      language="Starbound Text"
+      implementationClass="com.windea.plugin.idea.sbtext.highlighter.SbTextSyntaxHighlighterFactory"/>
+    <colorSettingsPage
+      implementation="com.windea.plugin.idea.sbtext.highlighter.SbTextColorSettingsPage"/>
+    <spellchecker.support
+      language="Starbound Text"
+      implementationClass="com.windea.plugin.idea.sbtext.SbTextSpellchecker"/>
+    <elementDescriptionProvider
+      implementation="com.windea.plugin.idea.sbtext.SbTextDescriptionProvider"/>
 
-    <!--<annotator-->
-    <!--  language="BBCode"-->
-    <!--  implementationClass="com.windea.plugin.idea.bbcode.BBCodeAnnotator"/>-->
-
+    <colorProvider
+      implementation="com.windea.plugin.idea.sbtext.SbTextColorProvider"/>
   </extensions>
 </idea-plugin>

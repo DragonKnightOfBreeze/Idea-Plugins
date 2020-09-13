@@ -18,5 +18,4 @@ class BBCodeDescriptionProvider: ElementDescriptionProvider {
 			else -> null
 		}
 	}
-
 }

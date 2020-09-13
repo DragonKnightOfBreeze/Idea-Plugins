@@ -16,7 +16,6 @@ object BBCodePsiImplUtil {
 
 	@JvmStatic
 	fun setName(element: BBCodeTag,name:String): PsiElement {
-		//TODO
 		return element
 	}
 
@@ -26,13 +25,13 @@ object BBCodePsiImplUtil {
 	}
 
 	@JvmStatic
-	fun getIcon(element: BBCodeTag, @Iconable.IconFlags flags: Int): Icon? {
-		return bbcodeTagIcon
+	fun getTextOffset(element: BBCodeTag): Int {
+		return element.tagPrefix.tagName?.startOffset ?: element.tagPrefix.startOffset + 1
 	}
 
 	@JvmStatic
-	fun getTextOffset(element: BBCodeTag): Int {
-		return element.tagPrefix.tagName?.startOffset ?: element.tagPrefix.startOffset + 1
+	fun getIcon(element: BBCodeTag, @Iconable.IconFlags flags: Int): Icon? {
+		return bbcodeTagIcon
 	}
 	//endregion
 
@@ -44,7 +43,6 @@ object BBCodePsiImplUtil {
 
 	@JvmStatic
 	fun setName(element: BBCodeAttribute,name:String): PsiElement {
-		//TODO
 		return element
 	}
 
