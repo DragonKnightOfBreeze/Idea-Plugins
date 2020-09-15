@@ -14,14 +14,34 @@
       <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/tree/master/bbcode">本项目</a>以及
       <a href="https://github.com/DragonKnightOfBreeze?tab=repositories">我的其他项目。
     </p>
+
+    <br>
+
+    <p>Starbound Text support.</p>
+    <p>This plugin is developed to help maintaining and updating <a href="https://github.com/ProjectSky/FrackinUniverse-sChinese-Project">Frackin Universe Simple Chinese Project</a>。</p>
+    <p>Example: <code>This is some ^red;red^reset; text.</code></p>
+    <p>
+      Welcome to have a look at
+      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/tree/master/bbcode">this project</a> and
+      <a href="https://github.com/DragonKnightOfBreeze?tab=repositories">my other projects</a>.
+    </p>
     ]]></description>
 
   <change-notes><![CDATA[
     <p>
       通过项目的
-      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/bbcode/README.md">README</a> 文档和
-      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/bbcode/CHANGELOG.md">CHANGELOG</a> 文档
+      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/starbound-text/README.md">README</a> 文档和
+      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/starbound-text/CHANGELOG.md">CHANGELOG</a> 文档
       查看完整的更新日志。（中文）
+    </p>
+
+    <br>
+
+    <p>
+      See the whole changelog at the
+      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/starbound-text/README.md">README</a> and
+      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/starbound-text/CHANGELOG.md">CHANGELOG</a>
+      document of this project. (Simple Chinese)
     </p>
     ]]></change-notes>
 
