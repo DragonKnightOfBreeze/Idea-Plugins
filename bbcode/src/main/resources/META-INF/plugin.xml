@@ -6,17 +6,6 @@
   <vendor email="dk_breeze@qq.com" url="https://github.com/DragonKnightOfBreeze">DragonKnightOfBreeze</vendor>
 
   <description><![CDATA[
-    <p><a href="https://www.bbcode.org/">BBCode（Bulletin Board Code）</a>语言支持。</p>
-    <p>BBCode是一种用于论坛网站的标记语言。</p>
-    <p>如果你正在开发发布至Steam创意工坊的游戏模组，你可能需要这个插件以支持模组描述的标记语言。</p>
-    <p>
-      欢迎查看
-      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/tree/master/bbcode">本项目</a> 以及
-      <a href="https://github.com/DragonKnightOfBreeze?tab=repositories">我的其他项目。
-    </p>
-
-    <br>
-
     <p><a href="https://www.bbcode.org/">BBCode (Bulletin Board Code)</a> language support.</p>
     <p>BBCode is a markup language that is mostly used by forum websites.</p>
     <p>You may also need this plugin if you are developing a game mod which will upload to Steam Workshop, to support the markup language of mod description.</p>
@@ -25,23 +14,34 @@
       <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/tree/master/bbcode">this project</a> and
       <a href="https://github.com/DragonKnightOfBreeze?tab=repositories">my other projects</a>.
     </p>
-    ]]></description>
-
-  <change-notes><![CDATA[
-    <p>
-      通过项目的
-      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/bbcode/README.md">README</a> 文档和
-      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/bbcode/CHANGELOG.md">CHANGELOG</a> 文档
-      查看完整的更新日志。（中文）
-    </p>
 
     <br>
 
+    <p><a href="https://www.bbcode.org/">BBCode（Bulletin Board Code）</a>语言支持。</p>
+    <p>BBCode是一种用于论坛网站的标记语言。</p>
+    <p>如果你正在开发发布至Steam创意工坊的游戏模组，你可能需要这个插件以支持模组描述的标记语言。</p>
+    <p>
+      欢迎查看
+      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/tree/master/bbcode">本项目</a> 以及
+      <a href="https://github.com/DragonKnightOfBreeze?tab=repositories">我的其他项目。
+    </p>
+    ]]></description>
+
+  <change-notes><![CDATA[
     <p>
       See the whole changelog at the
       <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/bbcode/README.md">README</a> and
       <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/bbcode/CHANGELOG.md">CHANGELOG</a>
       document of this project. (Simple Chinese)
+    </p>
+
+    <br>
+
+    <p>
+      通过项目的
+      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/bbcode/README.md">README</a> 文档和
+      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/bbcode/CHANGELOG.md">CHANGELOG</a> 文档
+      查看完整的更新日志。（中文）
     </p>
     ]]></change-notes>
 

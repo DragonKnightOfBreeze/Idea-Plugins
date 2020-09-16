@@ -8,52 +8,6 @@
   <depends>com.intellij.modules.lang</depends>
 
   <description><![CDATA[
-    <p>Stellaris模组编程支持。</p>
-    <ul>
-      <li>支持Stellaris的脚本语言。(*.txt, *.gfx, *.asset, *.mod)</li>
-      <li>支持Stellaris的本地化语言。(*.yml)</li>
-      <li>已实现基本的语言特性。（如，代码高亮，文件结构，代码格式化）</li>
-      <li>已实现扩展的语言特性。（如，查找使用，定位到定义）</li>
-      <li>正在实现更加复杂的语言特性。（如，验证脚本文件）</li>
-      <li>
-        所有计划中的语言特性都已在项目的
-        <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/README.md">README</a>
-        文档中列出。（中文）
-      </li>
-    </ul>
-    <p>
-      请注意，我开发这个插件的目的仅仅只是为了便于开发Stellaris的mod（以及熟悉IDEA插件开发），
-      不过，其他游戏可能也会使用到这个插件所支持的脚本语言和本地化语言。
-    </p>
-    <p>
-      请注意，<b>瑞典蠢驴</b>的模组语言实际上是非常非常复杂的，
-      因此这个插件仍然可能存在一些<i>语法解析兼容性问题</i>以及<i>引用问题</i>。
-    </p>
-    <p>
-      请注意，这个插件会将所有.txt文件识别为Stellaris的脚本文件，将所有.yml文件识别为Stellaris的本地化文件。
-      因此建议在不需要使用到这个插件时禁用它。
-    </p>
-    <P>
-      你也可以使用VSCode IDE并配合CWTTools插件来进行Stellaris模组编程。
-      但请注意，IDEA相比VSCode功能无疑更加强大，
-      这意味着这个插件未来可能会提供一些CWTTools所不可能支持的高级功能。
-    </P>
-    <p>
-      这个插件仍然在更新中，如果遇到BUG或问题，欢迎在项目的
-      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/issues">Github Issue页面</a>
-      中提出。（附带标签<i>stellaris-modding-support</i>）
-    </p>
-    <p>
-      欢迎查看
-      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/tree/master/stellaris-modding-support">本项目</a>，
-      <a href="https://github.com/DragonKnightOfBreeze?tab=repositories">我的其他项目</a>以及
-      <a href="https://steamcommunity.com/id/DragonKnightOfBreeze/myworkshopfiles/?appid=281990&browsefilter=myfiles&browsesort=myfiles&p=1">我的群星模组</a>。
-    </p>
-
-    <br>
-    <hr>
-    <br>
-
     <p>Support for Stellaris modding.</p>
     <ul>
       <li>Support Stellaris Script Language. (*.txt, *.gfx, *.asset, *.mod)</li>
@@ -97,25 +51,67 @@
       <a href="https://github.com/DragonKnightOfBreeze?tab=repositories">my other projects</a> and
       <a href="https://steamcommunity.com/id/DragonKnightOfBreeze/myworkshopfiles/?appid=281990&browsefilter=myfiles&browsesort=myfiles&p=1">my stellaris mods</a>.
     </p>
+
+    <br>
+
+    <p>Stellaris模组编程支持。</p>
+    <ul>
+      <li>支持Stellaris的脚本语言。(*.txt, *.gfx, *.asset, *.mod)</li>
+      <li>支持Stellaris的本地化语言。(*.yml)</li>
+      <li>已实现基本的语言特性。（如，代码高亮，文件结构，代码格式化）</li>
+      <li>已实现扩展的语言特性。（如，查找使用，定位到定义）</li>
+      <li>正在实现更加复杂的语言特性。（如，验证脚本文件）</li>
+      <li>
+        所有计划中的语言特性都已在项目的
+        <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/README.md">README</a>
+        文档中列出。（中文）
+      </li>
+    </ul>
+    <p>
+      请注意，我开发这个插件的目的仅仅只是为了便于开发Stellaris的mod（以及熟悉IDEA插件开发），
+      不过，其他游戏可能也会使用到这个插件所支持的脚本语言和本地化语言。
+    </p>
+    <p>
+      请注意，<b>瑞典蠢驴</b>的模组语言实际上是非常非常复杂的，
+      因此这个插件仍然可能存在一些<i>语法解析兼容性问题</i>以及<i>引用问题</i>。
+    </p>
+    <p>
+      请注意，这个插件会将所有.txt文件识别为Stellaris的脚本文件，将所有.yml文件识别为Stellaris的本地化文件。
+      因此建议在不需要使用到这个插件时禁用它。
+    </p>
+    <P>
+      你也可以使用VSCode IDE并配合CWTTools插件来进行Stellaris模组编程。
+      但请注意，IDEA相比VSCode功能无疑更加强大，
+      这意味着这个插件未来可能会提供一些CWTTools所不可能支持的高级功能。
+    </P>
+    <p>
+      这个插件仍然在更新中，如果遇到BUG或问题，欢迎在项目的
+      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/issues">Github Issue页面</a>
+      中提出。（附带标签<i>stellaris-modding-support</i>）
+    </p>
+    <p>
+      欢迎查看
+      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/tree/master/stellaris-modding-support">本项目</a>，
+      <a href="https://github.com/DragonKnightOfBreeze?tab=repositories">我的其他项目</a>以及
+      <a href="https://steamcommunity.com/id/DragonKnightOfBreeze/myworkshopfiles/?appid=281990&browsefilter=myfiles&browsesort=myfiles&p=1">我的群星模组</a>。
+    </p>
     ]]></description>
 
   <change-notes><![CDATA[
-    <p>
-      通过项目的
-      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/README.md">README</a> 文档和
-      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/CHANGELOG.md">CHANGELOG</a> 文档
-      查看完整的更新日志。（中文）
-    </p>
-
-    <br>
-    <hr>
-    <br>
-
     <p>
       See the whole changelog at the
       <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/README.md">README</a> and
       <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/CHANGELOG.md">CHANGELOG</a>
       document of this project. (Simple Chinese)
+    </p>
+
+    <br>
+
+    <p>
+      通过项目的
+      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/README.md">README</a> 文档和
+      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/CHANGELOG.md">CHANGELOG</a> 文档
+      查看完整的更新日志。（中文）
     </p>
     ]]></change-notes>
 

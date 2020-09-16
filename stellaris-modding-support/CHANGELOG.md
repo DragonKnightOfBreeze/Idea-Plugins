@@ -172,6 +172,7 @@
 
 ### 2.5
 
+* [ ] 更新项目文档
 * [ ] Schema：解决jar包中的指向其他schema文件的`$ref`属性不能正确工作的bug
 * [ ] Schema：为脚本文件提供较为完善的Schema文件
 * [ ] 仅当找到descriptor.mod文件时，才将所在目录中你的yml文件和txt文件识别为本地化文件和脚本文件
