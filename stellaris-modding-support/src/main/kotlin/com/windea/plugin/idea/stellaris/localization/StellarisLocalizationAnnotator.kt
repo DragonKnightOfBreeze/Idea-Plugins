@@ -15,7 +15,7 @@ import com.windea.plugin.idea.stellaris.localization.psi.*
 class StellarisLocalizationAnnotator : Annotator, DumbAware {
 	class ColorGutterIconRenderer(
 		private val color: StellarisColor
-	):GutterIconRenderer(),DumbAware{
+	) : GutterIconRenderer(), DumbAware {
 		override fun getIcon() = color.gutterIcon
 
 		override fun isNavigateAction() = true
@@ -30,51 +30,61 @@ class StellarisLocalizationAnnotator : Annotator, DumbAware {
 			//如果有无法解析的枚举项，则报错
 			is StellarisLocalizationLocale -> {
 				if(element.locale == null) {
-					val localeId = element.name?:return
-					holder.newAnnotation(WARNING, message("stellaris.localization.annotator.unsupportedLocale",localeId))
+					val localeId = element.name ?: return
+					holder.newAnnotation(WARNING, message("stellaris.localization.annotator.unsupportedLocale", localeId))
 						.withFix(ChangeLocaleIntention.instance)
 						.create()
 				}
 			}
 			is StellarisLocalizationSerialNumber -> {
 				if(element.serialNumber == null) {
-					val serialNumberId = element.name?:return
-					holder.newAnnotation(WARNING, message("stellaris.localization.annotator.unsupportedSerialNumber",serialNumberId))
+					val serialNumberId = element.name ?: return
+					holder.newAnnotation(WARNING, message("stellaris.localization.annotator.unsupportedSerialNumber", serialNumberId))
 						.withFix(ChangeSerialNumberIntention.instance)
 						.create()
 				}
 			}
 			//如果是颜色文本，则为颜色代码文本加粗，并加上对应的颜色
 			is StellarisLocalizationColorfulText -> {
-				val colorId = element.name?:return
+				val colorId = element.name ?: return
 				if(element.color == null) {
-					holder.newAnnotation(WARNING, message("stellaris.localization.annotator.unsupportedColor",colorId))
+					holder.newAnnotation(WARNING, message("stellaris.localization.annotator.unsupportedColor", colorId))
 						.withFix(ChangeColorIntention.instance)
 						.create()
 				} else {
-					val attributesKey = StellarisLocalizationAttributesKeys.COLOR_ID_KEYS[colorId] ?: return
-					holder.newSilentAnnotation(INFORMATION)
-						//.gutterIconRenderer(ColorGutterIconRenderer(element.color!!))
-						.range(element.nameIdentifier!!).textAttributes(attributesKey)
-						.create()
+					annotateColor(colorId, holder, element)
+				}
+			}
+			else -> {
+				//如果是属性引用参数，且长度为1，则认为是颜色码，则加粗，并加上对应的颜色
+				if(element.elementType == StellarisLocalizationTypes.PROPERTY_REFERENCE_PARAMETER && element.textLength == 1) {
+					val colorId = element.text
+					val color = StellarisColor.map[colorId]
+					if(color == null) {
+						holder.newAnnotation(WARNING, message("stellaris.localization.annotator.unsupportedColor", colorId))
+							.withFix(ChangeColorIntention.instance)
+							.create()
+					} else {
+						annotateColorForPropertyReferenceParameter(colorId, holder, element)
+					}
 				}
 			}
 		}
-		//如果是属性引用参数，且长度为1，则认为是颜色码，则加粗，并加上对应的颜色
-		if(element.elementType == StellarisLocalizationTypes.PROPERTY_REFERENCE_PARAMETER && element.textLength == 1){
-			val colorId = element.text
-			val color = StellarisColor.map[colorId]
-			if(color == null){
-				holder.newAnnotation(WARNING, message("stellaris.localization.annotator.unsupportedColor",colorId))
-					.withFix(ChangeColorIntention.instance)
-					.create()
-			}else{
-				val attributesKey = StellarisLocalizationAttributesKeys.COLOR_ID_KEYS[colorId] ?: return
-				holder.newSilentAnnotation(INFORMATION)
-					//.gutterIconRenderer(ColorGutterIconRenderer(element.color!!))
-					.range(element).textAttributes(attributesKey)
-					.create()
-			}
-		}
+	}
+
+	private fun annotateColor(colorId: String, holder: AnnotationHolder, element: StellarisLocalizationColorfulText) {
+		val attributesKey = StellarisLocalizationAttributesKeys.COLOR_ID_KEYS[colorId] ?: return
+		holder.newSilentAnnotation(INFORMATION)
+			//.gutterIconRenderer(ColorGutterIconRenderer(element.color!!))
+			.range(element.nameIdentifier!!).textAttributes(attributesKey)
+			.create()
+	}
+
+	private fun annotateColorForPropertyReferenceParameter(colorId: String, holder: AnnotationHolder, element: PsiElement) {
+		val attributesKey = StellarisLocalizationAttributesKeys.COLOR_ID_KEYS[colorId] ?: return
+		holder.newSilentAnnotation(INFORMATION)
+			//.gutterIconRenderer(ColorGutterIconRenderer(element.color!!))
+			.range(element).textAttributes(attributesKey)
+			.create()
 	}
 }

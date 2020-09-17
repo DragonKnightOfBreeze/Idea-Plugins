@@ -35,8 +35,6 @@ object StellarisLocalizationAttributesKeys {
 			"${message("stellaris.localization.syntax.colorId")}_${value.key}",
 			COLOR_ID_KEY.defaultAttributes.clone().apply {
 				foregroundColor = value.color
-				//effectColor = value.color
-				//effectType = EffectType.BOLD_LINE_UNDERSCORE
 				fontType = Font.BOLD
 			}
 		)

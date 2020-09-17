@@ -7,7 +7,9 @@
 
   <description><![CDATA[
     <p>Starbound Text support.</p>
-    <p>This plugin is developed to help maintaining and updating <a href="https://github.com/ProjectSky/FrackinUniverse-sChinese-Project">Frackin Universe Simple Chinese Project</a>。</p>
+    <p>This plugin is developed to help maintaining and updating
+      <a href="https://github.com/ProjectSky/FrackinUniverse-sChinese-Project">Frackin Universe Simple Chinese Project</a>。
+    </p>
     <p>Example: <code>This is some ^red;red^reset; text.</code></p>
     <p>
       Welcome to have a look at
@@ -18,7 +20,8 @@
     <br>
 
     <p>Starbound文本支持。</p>
-    <p>编写这个插件是为了便于维护和更新<a href="https://github.com/ProjectSky/FrackinUniverse-sChinese-Project">Frackin Universe汉化项目</a>。</p>
+    <p>编写这个插件是为了便于维护和更新<a href="https://github.com/ProjectSky/FrackinUniverse-sChinese-Project">Frackin Universe汉化项目</a>。
+    </p>
     <p>示例：<code>This is some ^red;red^reset; text.</code></p>
     <p>
       欢迎查看
@@ -69,7 +72,10 @@
       language="Starbound Text"
       implementationClass="com.windea.plugin.idea.sbtext.codeInsight.SbTextCompletionContributor"/>
 
-    <colorProvider
-      implementation="com.windea.plugin.idea.sbtext.SbTextColorProvider"/>
+    <annotator
+      language="Starbound Text"
+      implementationClass="com.windea.plugin.idea.sbtext.SbTextAnnotator"/>
+    <!--不启用：可能一行中显示了太多的颜色图标-->
+    <!--<colorProvider implementation="com.windea.plugin.idea.sbtext.SbTextColorProvider"/>-->
   </extensions>
 </idea-plugin>
