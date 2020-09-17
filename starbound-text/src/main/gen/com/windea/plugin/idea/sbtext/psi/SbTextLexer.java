@@ -171,11 +171,11 @@ public class SbTextLexer implements FlexLexer {
   private static final int [] ZZ_ACTION = zzUnpackAction();
 
   private static final String ZZ_ACTION_PACKED_0 =
-    "\3\0\1\1\1\2\1\3\1\2\2\4\1\5\1\6"+
-    "\1\7\3\4\1\10";
+    "\3\0\1\1\1\2\1\3\1\2\1\4\1\5\1\6"+
+    "\1\7\5\0\1\10";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[16];
+    int [] result = new int[17];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -200,11 +200,12 @@ public class SbTextLexer implements FlexLexer {
   private static final int [] ZZ_ROWMAP = zzUnpackRowMap();
 
   private static final String ZZ_ROWMAP_PACKED_0 =
-    "\0\0\0\14\0\30\0\44\0\60\0\74\0\74\0\110"+
-    "\0\124\0\74\0\74\0\74\0\140\0\154\0\170\0\110";
+    "\0\0\0\14\0\30\0\44\0\60\0\74\0\110\0\124"+
+    "\0\110\0\110\0\110\0\140\0\154\0\170\0\204\0\220"+
+    "\0\110";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[16];
+    int [] result = new int[17];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -228,17 +229,14 @@ public class SbTextLexer implements FlexLexer {
 
   private static final String ZZ_TRANS_PACKED_0 =
     "\2\4\1\5\3\4\1\6\5\4\1\7\1\10\2\7"+
-    "\1\10\2\7\1\11\3\10\14\7\1\12\2\4\1\0"+
-    "\3\4\1\0\5\4\3\13\2\14\1\0\1\13\1\14"+
-    "\2\13\1\14\1\13\15\0\1\10\2\0\1\10\2\0"+
-    "\4\10\2\0\1\10\2\0\1\10\2\0\1\10\1\15"+
-    "\2\10\2\0\1\10\2\0\1\10\2\0\2\10\1\16"+
-    "\1\10\2\0\1\10\2\0\1\10\2\0\1\10\1\17"+
-    "\2\10\2\0\1\10\2\0\1\10\2\0\3\10\1\20"+
-    "\1\0";
+    "\1\10\2\7\4\10\14\7\1\11\2\4\1\0\3\4"+
+    "\1\0\5\4\3\12\2\13\1\0\1\12\1\13\2\12"+
+    "\1\13\1\12\7\0\1\14\21\0\1\10\2\0\1\10"+
+    "\2\0\4\10\11\0\1\15\14\0\1\16\12\0\1\17"+
+    "\15\0\1\20\14\0\1\21";
 
   private static int [] zzUnpackTrans() {
-    int [] result = new int[132];
+    int [] result = new int[156];
     int offset = 0;
     offset = zzUnpackTrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -276,10 +274,10 @@ public class SbTextLexer implements FlexLexer {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\3\0\2\1\2\11\2\1\3\11\4\1";
+    "\3\0\3\1\1\11\1\1\3\11\5\0\1\11";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[16];
+    int [] result = new int[17];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -615,7 +613,7 @@ public class SbTextLexer implements FlexLexer {
             // fall through
           case 15: break;
           case 8: 
-            { yybegin(WAITING_COLOR_MARKER_END);return COLOR_RESET;
+            { return COLOR_RESET_MARKER_TOKEN;
             } 
             // fall through
           case 16: break;

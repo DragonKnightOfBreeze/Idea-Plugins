@@ -20,8 +20,8 @@ class SbTextSyntaxHighlighter: SyntaxHighlighterBase(){
 
 	override fun getTokenHighlights(tokenType: IElementType?): Array<TextAttributesKey> {
 		return when(tokenType){
-			COLOR_MARKER_START, COLOR_MARKER_END -> MARKER_KEYS
-			COLOR_CODE, COLOR_RESET -> COLOR_CODE_KEYS
+			COLOR_MARKER_START, COLOR_MARKER_END, COLOR_RESET_MARKER_TOKEN -> MARKER_KEYS
+			COLOR_CODE -> COLOR_CODE_KEYS
 			TEXT_TOKEN -> TEXT_KEYS
 			VALID_ESCAPE_TOKEN -> VALID_ESCAPE_KEYS
 			INVALID_ESCAPE_TOKEN -> INVALID_ESCAPE_KEYS

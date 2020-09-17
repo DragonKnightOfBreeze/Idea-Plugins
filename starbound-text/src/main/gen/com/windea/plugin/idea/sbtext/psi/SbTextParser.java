@@ -49,20 +49,19 @@ public class SbTextParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // COLOR_MARKER_START COLOR_RESET COLOR_MARKER_END
+  // COLOR_RESET_MARKER_TOKEN
   public static boolean color_reset_marker(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "color_reset_marker")) return false;
-    if (!nextTokenIs(b, COLOR_MARKER_START)) return false;
-    boolean r, p;
-    Marker m = enter_section_(b, l, _NONE_, COLOR_RESET_MARKER, null);
-    r = consumeTokens(b, 1, COLOR_MARKER_START, COLOR_RESET, COLOR_MARKER_END);
-    p = r; // pin = 1
-    exit_section_(b, l, m, r, p, null);
-    return r || p;
+    if (!nextTokenIs(b, COLOR_RESET_MARKER_TOKEN)) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeToken(b, COLOR_RESET_MARKER_TOKEN);
+    exit_section_(b, m, COLOR_RESET_MARKER, r);
+    return r;
   }
 
   /* ********************************************************** */
-  // color_marker rich_text [color_reset_marker]
+  // color_marker rich_text color_reset_marker?
   public static boolean colorful_text(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "colorful_text")) return false;
     if (!nextTokenIs(b, COLOR_MARKER_START)) return false;
@@ -76,7 +75,7 @@ public class SbTextParser implements PsiParser, LightPsiParser {
     return r || p;
   }
 
-  // [color_reset_marker]
+  // color_reset_marker?
   private static boolean colorful_text_2(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "colorful_text_2")) return false;
     color_reset_marker(b, l + 1);

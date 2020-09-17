@@ -28,13 +28,13 @@ TEXT_TOKEN=[^\^\\]+
 %%
 
 <YYINITIAL> {
+  "^reset;"                   {return COLOR_RESET_MARKER_TOKEN;}
   "^"                         { yybegin(WAITING_COLOR_MARKER); return COLOR_MARKER_START; }
   {VALID_ESCAPE_TOKEN}        { return VALID_ESCAPE_TOKEN; }
   {INVALID_ESCAPE_TOKEN}      { return INVALID_ESCAPE_TOKEN; }
   {TEXT_TOKEN}                { return TEXT_TOKEN; }
 }
 <WAITING_COLOR_MARKER>{
-  "reset"                     { yybegin(WAITING_COLOR_MARKER_END);return COLOR_RESET; }
   {COLOR_CODE}                { yybegin(WAITING_COLOR_MARKER_END); return COLOR_CODE; }
 }
 <WAITING_COLOR_MARKER_END>{

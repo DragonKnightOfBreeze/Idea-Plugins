@@ -18,7 +18,7 @@ public interface SbTextTypes {
   IElementType COLOR_CODE = new SbTextTokenType("COLOR_CODE");
   IElementType COLOR_MARKER_END = new SbTextTokenType(";");
   IElementType COLOR_MARKER_START = new SbTextTokenType("^");
-  IElementType COLOR_RESET = new SbTextTokenType("reset");
+  IElementType COLOR_RESET_MARKER_TOKEN = new SbTextTokenType("^reset;");
   IElementType INVALID_ESCAPE_TOKEN = new SbTextTokenType("INVALID_ESCAPE_TOKEN");
   IElementType TEXT_TOKEN = new SbTextTokenType("TEXT_TOKEN");
   IElementType VALID_ESCAPE_TOKEN = new SbTextTokenType("VALID_ESCAPE_TOKEN");

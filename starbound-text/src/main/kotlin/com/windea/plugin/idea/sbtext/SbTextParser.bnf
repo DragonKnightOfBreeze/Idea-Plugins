@@ -13,8 +13,8 @@
 	tokens=[
     COLOR_MARKER_START='^'
     COLOR_CODE='regexp:[\w#]+'
-    COLOR_RESET='reset'
     COLOR_MARKER_END=';'
+    COLOR_RESET_MARKER_TOKEN='^reset;'
     VALID_ESCAPE_TOKEN="regexp:\\['\"rnt]"
     INVALID_ESCAPE_TOKEN='regexp:\\.'
     TEXT_TOKEN='regexp:[^\^\\]+'
@@ -23,7 +23,7 @@
 
 root ::= rich_text *
 rich_text ::= colorful_text | escape | string
-colorful_text ::=  color_marker rich_text [color_reset_marker] {
+colorful_text ::=  color_marker rich_text color_reset_marker? {
   pin=1
   mixin="com.windea.plugin.idea.sbtext.psi.impl.SbTextNamedElementImpl"
   implements="com.windea.plugin.idea.sbtext.psi.SbTextNamedElement"
@@ -32,8 +32,6 @@ colorful_text ::=  color_marker rich_text [color_reset_marker] {
 color_marker ::= COLOR_MARKER_START COLOR_CODE COLOR_MARKER_END {
   pin=1
 }
-color_reset_marker ::= COLOR_MARKER_START COLOR_RESET COLOR_MARKER_END {
-  pin=1
-}
+color_reset_marker ::= COLOR_RESET_MARKER_TOKEN
 escape ::= VALID_ESCAPE_TOKEN | INVALID_ESCAPE_TOKEN
 string ::= TEXT_TOKEN
