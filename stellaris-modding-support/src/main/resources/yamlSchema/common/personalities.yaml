@@ -1,0 +1,11 @@
+definitions:
+  # AI个性
+  personality:
+    type: object
+    properties:
+      aggressiveness:
+        $ref: "../core.yaml#/definitions/float"
+
+type: object
+additionalProperties:
+  $ref: "#/definitions/personality"

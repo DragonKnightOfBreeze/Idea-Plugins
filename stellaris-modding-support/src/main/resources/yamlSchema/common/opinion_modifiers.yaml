@@ -1,0 +1,13 @@
+definitions:
+  # 评价修饰符
+  opinion_modifier:
+    type: object
+    properties:
+      trigger:
+        $ref: "../core.yaml#/definitions/triggers"
+      opinion:
+        $ref: "../core.yaml#/definitions/modifier_chance"
+
+type: object
+additionalProperties:
+  $ref: "#/definitions/opinion_modifier"
