@@ -17,9 +17,7 @@ class StellarisScriptFoldingBuilder : FoldingBuilder, DumbAware {
 		return when(node.elementType){
 			COMMENT -> "#..."
 			BLOCK -> "{...}"
-			//ARRAY -> "{...}"
-			//OBJECT -> "{...}"
-			VARIABLE_DEFINITION -> "@..."
+			//VARIABLE_DEFINITION -> "@..."
 			else -> "<folded block>" //不应该出现这种情况
 		}
 	}
