@@ -17,7 +17,7 @@ class StellarisLocalizationFoldingBuilder :FoldingBuilder,DumbAware{
 		return when(node.elementType){
 			ROOT_COMMENT -> "#..."
 			COMMENT -> "#..."
-			else -> foldedBlock //不应该出现这种情况
+			else -> "<folded block>" //不应该出现这种情况
 		}
 	}
 

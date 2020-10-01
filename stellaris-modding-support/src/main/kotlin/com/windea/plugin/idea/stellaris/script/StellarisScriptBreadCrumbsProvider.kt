@@ -3,7 +3,6 @@ package com.windea.plugin.idea.stellaris.script
 import com.intellij.lang.*
 import com.intellij.psi.*
 import com.intellij.ui.breadcrumbs.*
-import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.script.psi.*
 
 class StellarisScriptBreadCrumbsProvider :BreadcrumbsProvider{
@@ -22,8 +21,8 @@ class StellarisScriptBreadCrumbsProvider :BreadcrumbsProvider{
 			is StellarisScriptBoolean -> element.value
 			is StellarisScriptNumber -> element.value
 			is StellarisScriptString -> element.value
-			else -> anonymousElement
-		} ?: anonymousElement
+			else -> "<anonymous element>"
+		} ?: "<anonymous element>"
 	}
 
 	override fun acceptElement(element: PsiElement): Boolean {

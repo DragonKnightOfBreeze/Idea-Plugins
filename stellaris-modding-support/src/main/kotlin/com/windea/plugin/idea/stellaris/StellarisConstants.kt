@@ -31,10 +31,6 @@ val stellarisScriptDummyText = "example.txt".toClassPathResource()?.readText().o
 val stellarisScriptVariableRegex = "@[a-zA-Z0-9_-]+".toRegex()
 val stellarisScriptPropertyRegex = "[a-z0-9_-]+".toRegex()
 
-const val fatalError = "<fatal error>"
-const val foldedBlock = "<folded block>"
-const val anonymousElement = "<anonymous element>"
-
 //0xef 0xbb 0xbf
 val utf8Bom = byteArrayOf(0xef.toByte(), 0xbb.toByte(), 0xbf.toByte())
 

@@ -3,7 +3,6 @@ package com.windea.plugin.idea.stellaris.localization
 import com.intellij.lang.*
 import com.intellij.psi.*
 import com.intellij.ui.breadcrumbs.*
-import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
 
 class StellarisLocalizationBreadCrumbsProvider :BreadcrumbsProvider{
@@ -19,7 +18,7 @@ class StellarisLocalizationBreadCrumbsProvider :BreadcrumbsProvider{
 		return when(element){
 			is StellarisLocalizationProperty -> element.name
 			else -> null
-		} ?: anonymousElement
+		} ?: "<anonymous element>"
 	}
 
 	override fun acceptElement(element: PsiElement): Boolean {

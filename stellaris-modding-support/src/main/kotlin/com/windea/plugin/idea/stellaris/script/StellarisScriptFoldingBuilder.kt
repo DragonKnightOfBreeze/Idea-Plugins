@@ -20,7 +20,7 @@ class StellarisScriptFoldingBuilder : FoldingBuilder, DumbAware {
 			//ARRAY -> "{...}"
 			//OBJECT -> "{...}"
 			VARIABLE_DEFINITION -> "@..."
-			else -> foldedBlock //不应该出现这种情况
+			else -> "<folded block>" //不应该出现这种情况
 		}
 	}
 
@@ -39,7 +39,6 @@ class StellarisScriptFoldingBuilder : FoldingBuilder, DumbAware {
 		var endOffset: Int
 		when(node.elementType) {
 			BLOCK -> {
-			//ARRAY,OBJECT -> {
 				if(spanMultipleLines(node, document)) {
 					descriptors.add(FoldingDescriptor(node, node.textRange))
 				}

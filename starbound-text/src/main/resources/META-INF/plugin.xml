@@ -74,6 +74,9 @@
     <completion.contributor
       language="Starbound Text"
       implementationClass="com.windea.plugin.idea.sbtext.codeInsight.SbTextCompletionContributor"/>
+    <lang.foldingBuilder
+      language="Starbound Text"
+      implementationClass="com.windea.plugin.idea.sbtext.SbTextFoldingBuilder"/>
 
     <annotator
       language="Starbound Text"
