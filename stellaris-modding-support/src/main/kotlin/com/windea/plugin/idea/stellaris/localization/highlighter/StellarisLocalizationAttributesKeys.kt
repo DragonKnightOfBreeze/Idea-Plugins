@@ -1,5 +1,3 @@
-@file:Suppress("DEPRECATION")
-
 package com.windea.plugin.idea.stellaris.localization.highlighter
 
 import com.intellij.openapi.editor.DefaultLanguageHighlighterColors.*
@@ -9,10 +7,9 @@ import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.StellarisBundle.message
 import java.awt.*
 
+@Suppress("DEPRECATION")
 object StellarisLocalizationAttributesKeys {
-	private val ICON = IDENTIFIER.defaultAttributes.clone().apply { foregroundColor = Color(0x5C8AE6) }
-	private val SERIAL_NUMBER_ID = IDENTIFIER.defaultAttributes.clone().apply { fontType = Font.BOLD }
-	private val COLOR_ID = IDENTIFIER.defaultAttributes.clone().apply { fontType = Font.BOLD }
+	//private val ICON = IDENTIFIER.defaultAttributes.clone().apply { foregroundColor = Color(0x5C8AE6) }
 
 	@JvmField val COLON_KEY = createTextAttributesKey(message("stellaris.localization.syntax.colon"), OPERATION_SIGN)
 	@JvmField val NUMBER_KEY = createTextAttributesKey(message("stellaris.localization.syntax.number"), NUMBER)
@@ -23,20 +20,17 @@ object StellarisLocalizationAttributesKeys {
 	@JvmField val MARKER_KEY = createTextAttributesKey(message("stellaris.localization.syntax.marker"), KEYWORD)
 	@JvmField val PROPERTY_REFERENCE_PARAMETER_KEY = createTextAttributesKey(message("stellaris.localization.syntax.propertyReferenceParameter"), IDENTIFIER)
 	@JvmField val CODE_KEY = createTextAttributesKey(message("stellaris.localization.syntax.code"), IDENTIFIER)
-	@JvmField val ICON_KEY = createTextAttributesKey(message("stellaris.localization.syntax.icon"), ICON)
-	@JvmField val SERIAL_NUMBER_ID_KEY = createTextAttributesKey(message("stellaris.localization.syntax.serialNumberId"), SERIAL_NUMBER_ID)
-	@JvmField val COLOR_ID_KEY = createTextAttributesKey(message("stellaris.localization.syntax.colorId"), COLOR_ID)
+	@JvmField val ICON_KEY = createTextAttributesKey(message("stellaris.localization.syntax.icon"), IDENTIFIER)
+	@JvmField val SERIAL_NUMBER_ID_KEY = createTextAttributesKey(message("stellaris.localization.syntax.serialNumberId"), IDENTIFIER)
+	@JvmField val COLOR_ID_KEY = createTextAttributesKey(message("stellaris.localization.syntax.colorId"), IDENTIFIER)
 	@JvmField val VALID_ESCAPE_KEY = createTextAttributesKey(message("stellaris.localization.syntax.validEscape"), VALID_STRING_ESCAPE)
 	@JvmField val INVALID_ESCAPE_KEY = createTextAttributesKey(message("stellaris.localization.syntax.invalidEscape"), INVALID_STRING_ESCAPE)
 	@JvmField val BAD_CHARACTER_KEY = createTextAttributesKey(message("stellaris.localization.syntax.badCharacter"), BAD_CHARACTER)
 
 	@JvmField val COLOR_ID_KEYS = StellarisColor.map.mapValues { (_, value) ->
-		createTextAttributesKey(
-			"${message("stellaris.localization.syntax.colorId")}_${value.key}",
-			COLOR_ID_KEY.defaultAttributes.clone().apply {
-				foregroundColor = value.color
-				fontType = Font.BOLD
-			}
-		)
+		val attributes = IDENTIFIER.defaultAttributes.clone().apply {
+			foregroundColor = value.color
+		}
+		createTextAttributesKey("${message("stellaris.localization.syntax.colorId")}_${value.key}", attributes)
 	}
 }

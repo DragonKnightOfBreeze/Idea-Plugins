@@ -4,6 +4,9 @@ import com.intellij.lang.*
 import com.intellij.lang.folding.*
 import com.intellij.openapi.editor.*
 import com.intellij.openapi.project.*
+import com.intellij.openapi.util.*
+import com.intellij.psi.*
+import com.intellij.psi.util.*
 import com.windea.plugin.idea.sbtext.psi.*
 import com.windea.plugin.idea.sbtext.psi.SbTextTypes.*
 

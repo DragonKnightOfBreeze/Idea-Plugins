@@ -4,9 +4,8 @@ import com.intellij.lang.annotation.*
 import com.intellij.lang.annotation.HighlightSeverity.*
 import com.intellij.openapi.project.*
 import com.intellij.psi.*
-import com.intellij.psi.util.*
 import com.windea.plugin.idea.sbtext.SbTextBundle.message
-import com.windea.plugin.idea.sbtext.highlighter.SbTextAttributesKeys.COLOR_KEYS
+import com.windea.plugin.idea.sbtext.highlighter.SbTextAttributesKeys.COLORFUL_TEXT_KEYS
 import com.windea.plugin.idea.sbtext.psi.*
 
 class SbTextAnnotator : Annotator, DumbAware {
@@ -24,7 +23,7 @@ class SbTextAnnotator : Annotator, DumbAware {
 	}
 
 	private fun annotateColor(colorId: String, holder: AnnotationHolder, element: SbTextColorfulText) {
-		val attributesKey = COLOR_KEYS[colorId] ?: return
+		val attributesKey = COLORFUL_TEXT_KEYS[colorId] ?: return
 		//val strings = element.collectDescendantsOfType<SbTextString>()
 		//for(string in strings) {
 		//	//高亮所有的颜色文本

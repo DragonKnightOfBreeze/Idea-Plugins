@@ -293,6 +293,9 @@
       language="Stellaris Script"
       implementationClass="com.windea.plugin.idea.stellaris.script.StellarisScriptAnnotator"/>
 
+    <additionalTextAttributes scheme="Default" file="colorSchemes/StellarisLocalizationDefault.xml"/>
+    <additionalTextAttributes scheme="Darcula" file="colorSchemes/StellarisLocalizationDarcula.xml"/>
+
     <localInspection
       language="Stellaris Script"
       shortName="StellarisScriptDuplicateVariableDefinitions" bundle="messages.StellarisBundle"
