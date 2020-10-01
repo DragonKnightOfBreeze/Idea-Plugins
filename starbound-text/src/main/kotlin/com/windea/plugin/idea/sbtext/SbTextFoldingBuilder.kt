@@ -15,8 +15,8 @@ class SbTextFoldingBuilder : FoldingBuilder, DumbAware {
 	override fun buildFoldRegions(node: ASTNode, document: Document): Array<FoldingDescriptor> {
 		val result = mutableListOf<FoldingDescriptor>()
 		val elements = node.psi.collectDescendantsOfType<SbTextColorfulText>()
-		val foldingGroup = FoldingGroup.newGroup("COLORFUL_TEXT")
 		for(element in elements) {
+			val foldingGroup = FoldingGroup.newGroup("COLORFUL_TEXT")
 			element.colorMarker.let { result += FoldingDescriptor(it.node, it.textRange,foldingGroup) }
 			element.colorResetMarker?.let { result += FoldingDescriptor(it.node, it.textRange,foldingGroup) }
 		}
