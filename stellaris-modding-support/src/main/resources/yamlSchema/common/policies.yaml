@@ -1,0 +1,31 @@
+definitions:
+  # 政策
+  policy:
+    type: object
+    properties:
+      potential:
+        $ref: "../core.yaml#/definitions/triggers"
+      allow:
+        $ref: "../core.yaml#/definitions/triggers"
+      option:
+        type: object
+        properties:
+          name:
+            $ref: "../core.yaml#/definitions/loc_reference"
+          icon:
+            $ref: "../core.yaml#/definitions/gfx_reference"
+          potential:
+            $ref: "../core.yaml#/definitions/triggers"
+          policy_flags:
+            type: array
+            items:
+              $type: policy_flags
+          modifier:
+            $ref: "../core.yaml#/definitions/modifiers"
+          ai_weight:
+            $ref: "../core.yaml#/definitions/weight_modifier"
+          multiple: true
+
+type: object
+additionalProperties:
+  $ref: "#/definitions/policy"

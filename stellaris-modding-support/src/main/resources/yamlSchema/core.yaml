@@ -7,7 +7,6 @@ definitions:
     default: 0.0
   boolean:
     enum: [yes, no]
-
   color_type:
     type: string
 

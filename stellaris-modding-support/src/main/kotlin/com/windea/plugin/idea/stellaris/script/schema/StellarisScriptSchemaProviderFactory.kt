@@ -26,16 +26,21 @@ class StellarisScriptSchemaProviderFactory : JsonSchemaProviderFactory {
 	private fun addProviders(file: VirtualFile, providers: MutableList<JsonSchemaFileProvider>, pathPrefix: String = "") {
 		file.children.forEach {
 			when {
+				//如果是目录，则递归
 				it.isDirectory -> {
-					addProviders(it, providers, "$pathPrefix/${it.name}")
+					val path = "$pathPrefix/${it.name}"
+					addProviders(it, providers, path)
 				}
+				//如果是描述符文件
 				it.nameWithoutExtension == "descriptor" -> {
 					providers += StellarisScriptSchemaProvider("descriptor.mod", false, it)
 				}
+				//如果是json schema文件，需要添加provider，并且将短名称中的"."替换成"/"
 				//TODO 等待Schema文件编写完毕
-				//it.extension == "json" -> {
-				//	providers += StellarisScriptSchemaProvider("$pathPrefix/${it.nameWithoutExtension}".removePrefix("/"), true, it)
-				//}
+				it.extension == "json" -> {
+					val path = "$pathPrefix/${it.nameWithoutExtension.replace('.','/')}".removePrefix("/")
+					providers += StellarisScriptSchemaProvider(path, true, it)
+				}
 			}
 		}
 	}

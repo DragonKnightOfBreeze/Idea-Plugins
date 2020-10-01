@@ -5,6 +5,82 @@ definitions:
     properties:
       aggressiveness:
         $ref: "../core.yaml#/definitions/float"
+      trade_willingness:
+        $ref: "../core.yaml#/definitions/float"
+      bravery:
+        $ref: "../core.yaml#/definitions/float"
+      combat_bravery:
+        $ref: "../core.yaml#/definitions/float"
+      military_spending:
+        $ref: "../core.yaml#/definitions/float"
+      colony_spending:
+        $ref: "../core.yaml#/definitions/float"
+      federation_acceptance:
+        $ref: "../core.yaml#/definitions/int"
+      nap_acceptance:
+        $ref: "../core.yaml#/definitions/int"
+      commercial_pact_acceptance:
+        $ref: "../core.yaml#/definitions/int"
+      defensive_pact_acceptance:
+        $ref: "../core.yaml#/definitions/int"
+      migration_pact_acceptance:
+        $ref: "../core.yaml#/definitions/int"
+      advanced_start_chance:
+        $ref: "../core.yaml#/definitions/int"
+      weapon_preferences:
+        $type: weapon_type
+      armor_ratio:
+        $ref: "../core.yaml#/definitions/float"
+      shields_ratio:
+        $ref: "../core.yaml#/definitions/float"
+      hull_ratio:
+        $ref: "../core.yaml#/definitions/float"
+      threat_modifier:
+        $ref: "../core.yaml#/definitions/float"
+      threat_others_modifier:
+        $ref: "../core.yaml#/definitions/float"
+      friction_modifier:
+        $ref: "../core.yaml#/definitions/float"
+      claims_modifier:
+        $ref: "../core.yaml#/definitions/float"
+      behaviour:
+        type: object
+        properties:
+          conqueror:
+            $ref: "../core.yaml#/definitions/boolean"
+          subjugator:
+            $ref: "../core.yaml#/definitions/boolean"
+          liberator:
+            $ref: "../core.yaml#/definitions/boolean"
+          opportunist:
+            $ref: "../core.yaml#/definitions/boolean"
+          slaver:
+            $ref: "../core.yaml#/definitions/boolean"
+          uplifter:
+            $ref: "../core.yaml#/definitions/boolean"
+          purger:
+            $ref: "../core.yaml#/definitions/boolean"
+          displacer:
+            $ref: "../core.yaml#/definitions/boolean"
+          infiltrator:
+            $ref: "../core.yaml#/definitions/boolean"
+          dominator:
+            $ref: "../core.yaml#/definitions/boolean"
+          robot_exploiter:
+            $ref: "../core.yaml#/definitions/boolean"
+          robot_liberator:
+            $ref: "../core.yaml#/definitions/boolean"
+          propagator:
+            $ref: "../core.yaml#/definitions/boolean"
+          multispecies:
+            $ref: "../core.yaml#/definitions/boolean"
+          crisis_fighter:
+            $ref: "../core.yaml#/definitions/boolean"
+
+      allow:
+        $ref: "../core.yaml#/definitions/triggers"
+      weight_modifier:
+        $ref: "../core.yaml#/definitions/weight_modifier"
 
 type: object
 additionalProperties:
