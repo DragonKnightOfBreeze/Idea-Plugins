@@ -39,9 +39,9 @@ public class SbTextColorfulTextImpl extends SbTextNamedElementImpl implements Sb
   }
 
   @Override
-  @Nullable
-  public SbTextRichText getRichText() {
-    return findChildByClass(SbTextRichText.class);
+  @NotNull
+  public List<SbTextRichText> getRichTextList() {
+    return PsiTreeUtil.getChildrenOfTypeAsList(this, SbTextRichText.class);
   }
 
   @Override
