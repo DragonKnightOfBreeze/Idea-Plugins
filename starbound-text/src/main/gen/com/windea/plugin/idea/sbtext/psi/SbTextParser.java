@@ -61,7 +61,7 @@ public class SbTextParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // color_marker string color_reset_marker?
+  // color_marker string? color_reset_marker?
   public static boolean colorful_text(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "colorful_text")) return false;
     if (!nextTokenIs(b, COLOR_MARKER_START)) return false;
@@ -69,10 +69,17 @@ public class SbTextParser implements PsiParser, LightPsiParser {
     Marker m = enter_section_(b, l, _NONE_, COLORFUL_TEXT, null);
     r = color_marker(b, l + 1);
     p = r; // pin = 1
-    r = r && report_error_(b, string(b, l + 1));
+    r = r && report_error_(b, colorful_text_1(b, l + 1));
     r = p && colorful_text_2(b, l + 1) && r;
     exit_section_(b, l, m, r, p, null);
     return r || p;
+  }
+
+  // string?
+  private static boolean colorful_text_1(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "colorful_text_1")) return false;
+    string(b, l + 1);
+    return true;
   }
 
   // color_reset_marker?

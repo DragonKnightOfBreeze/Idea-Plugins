@@ -13,7 +13,7 @@ object SbTextAttributesKeys {
 	@JvmField val MARKER_KEY = createTextAttributesKey(message("sbText.syntax.marker"), KEYWORD)
 	@JvmField val COLOR_CODE_KEY = createTextAttributesKey(message("sbText.syntax.colorCode"), KEYWORD)
 	@JvmField val TEXT_KEY = createTextAttributesKey(message("sbText.syntax.text"),TEXT)
-	@JvmField val COLORFUL_TEXT_KEYS = StarboundColor.map.mapValues { (_, value) ->
+	@JvmField val COLORFUL_TEXT_KEYS = StarboundColor.map.mapValuesTo(mutableMapOf()) { (_, value) ->
 		val attributes = TEXT.defaultAttributes.clone().apply{
 			foregroundColor=value.color
 		}
@@ -22,4 +22,11 @@ object SbTextAttributesKeys {
 	@JvmField val VALID_ESCAPE_KEY = createTextAttributesKey(message("sbText.syntax.validEscape"), VALID_STRING_ESCAPE)
 	@JvmField val INVALID_ESCAPE_KEY = createTextAttributesKey(message("sbText.syntax.invalidEscape"), INVALID_STRING_ESCAPE)
 	@JvmField val BAD_CHARACTER_KEY = createTextAttributesKey(message("sbText.syntax.badCharacter"), BAD_CHARACTER)
+
+	fun createColorfulTextKey(colorId:String,color:Color):TextAttributesKey{
+		val attributes = TEXT.defaultAttributes.clone().apply{
+			foregroundColor=color
+		}
+		return createTextAttributesKey("${message("sbText.syntax.colorfulText")}_${colorId.toUpperCase()}", attributes)
+	}
 }

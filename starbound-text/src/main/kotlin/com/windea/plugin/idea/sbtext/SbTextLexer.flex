@@ -21,7 +21,7 @@ import static com.windea.plugin.idea.sbtext.psi.SbTextTypes.*;
 %state WAITING_COLOR_MARKER_END
 
 COLOR_CODE=[\w#]+
-VALID_ESCAPE_TOKEN=\\['\"rnt]
+VALID_ESCAPE_TOKEN=\\['\"rnt\\]
 INVALID_ESCAPE_TOKEN=\\.
 TEXT_TOKEN=[^\^\\]+
 

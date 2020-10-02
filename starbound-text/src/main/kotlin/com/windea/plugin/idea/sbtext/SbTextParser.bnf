@@ -15,7 +15,7 @@
     COLOR_CODE='regexp:[\w#]+'
     COLOR_MARKER_END=';'
     COLOR_RESET_MARKER_TOKEN='^reset;'
-    VALID_ESCAPE_TOKEN="regexp:\\['\"rnt]"
+    VALID_ESCAPE_TOKEN="regexp:\\['\"rnt\\]"
     INVALID_ESCAPE_TOKEN='regexp:\\.'
     TEXT_TOKEN='regexp:[^\^\\]+'
 	]

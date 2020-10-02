@@ -35,6 +35,8 @@ object SbTextPsiImplUtil {
 			colorCode == null ->  null
 			colorCode.startsWith("#") -> colorCode.drop(1).toIntOrNull(16)?.let { Color(it) }
 			else -> StarboundColor.map[colorCode]?.color
+		}.also{
+			println(it)
 		}
 	}
 

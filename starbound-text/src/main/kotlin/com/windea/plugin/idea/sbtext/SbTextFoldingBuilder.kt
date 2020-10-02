@@ -28,6 +28,6 @@ class SbTextFoldingBuilder : FoldingBuilder, DumbAware {
 	}
 
 	override fun isCollapsedByDefault(node: ASTNode): Boolean {
-		return true
+		return false
 	}
 }
