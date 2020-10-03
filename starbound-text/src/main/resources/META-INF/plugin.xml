@@ -26,6 +26,13 @@
       <a href="https://github.com/ProjectSky/FrackinUniverse-sChinese-Project">Frackin Universe汉化项目</a>
       。
     </p>
+    <p>主要功能：</p>
+    <li>
+      <ol>语法解析。</ol>
+      <ol>对颜色标记的代码高亮和代码提示。</ol>
+      <ol>对彩色文本进行对应颜色的代码高亮。</ol>
+      <ol>提供快速插入彩色文本的动态模版，在正确的位置输入<code>color</code>即可看到，也可以用于包围文本。</ol>
+    </li>
     <p>
       欢迎查看
       <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/tree/master/bbcode">本项目</a>以及
@@ -77,6 +84,9 @@
     <lang.foldingBuilder
       language="Starbound Text"
       implementationClass="com.windea.plugin.idea.sbtext.SbTextFoldingBuilder"/>
+
+    <liveTemplateContext implementation="com.windea.plugin.idea.sbtext.SbTextTemplateContext"/>
+    <defaultLiveTemplates file="/liveTemplates/Starbound Text.xml"/>
 
     <annotator
       language="Starbound Text"

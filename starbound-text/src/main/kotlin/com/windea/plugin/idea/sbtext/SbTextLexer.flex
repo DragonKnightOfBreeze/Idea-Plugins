@@ -34,9 +34,10 @@ TEXT_TOKEN=[^\^\\]+
   {VALID_ESCAPE_TOKEN}        { return VALID_ESCAPE_TOKEN; }
   {INVALID_ESCAPE_TOKEN}      { return INVALID_ESCAPE_TOKEN; }
   {TEXT_TOKEN}                { return TEXT_TOKEN; }
+  "^" {return TEXT_TOKEN;}
 }
 <WAITING_COLOR_MARKER_START>{
-  "^reset;"                   {return COLOR_RESET_MARKER_TOKEN;}
+  "^reset;"                   {yybegin(YYINITIAL); return COLOR_RESET_MARKER_TOKEN;}
   "^"                         { yybegin(WAITING_COLOR_CODE); return COLOR_MARKER_START; }
 }
 <WAITING_COLOR_CODE>{

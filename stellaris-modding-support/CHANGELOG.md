@@ -175,15 +175,7 @@
 * [ ] 更新项目文档
 * [ ] Schema：解决jar包中的指向其他schema文件的`$ref`属性不能正确工作的bug
 * [ ] Schema：为脚本文件提供较为完善的Schema文件
-* [ ] 仅当找到descriptor.mod文件时，才将所在目录中你的yml文件和txt文件识别为本地化文件和脚本文件
-
-# TODO
-
-* [ ] 格式化：本地化文件中，语言区域之后，除了非行尾注释以外，属性也要缩进
-* [ ] 意向：scriptUnquotedString，引号括起
-* [ ] 意向：scriptString，移除包围的引号（如果移除引号后是合法的scriptUnquotedString）
-* [ ] 更多的引用类型：event_id，gfx_reference，path
-* [ ] 为脚本文件编写基础的Json Schema
-* [ ] 根据脚本文件的位置和后缀名，为其应用对应的Json Schema
-* [ ] 一个本地化文件实际上可以包含多个语言区域+下面的属性，当文件名中存在语言区域时要匹配
-* [ ] 通过网络爬虫爬取<https://stellaris.paradoxwikis.com/>中的相关内容，以生成更完善的schema（不适合，部分条目不匹配）
+* [ ] ［搁置］本地化文件：对彩色文本进行对应颜色的高亮，而非对颜色码
+* [ ] ［搁置］仅当找到descriptor.mod文件时，才将所在目录中你的yml文件和txt文件识别为本地化文件和脚本文件
+* [ ] ［搁置］更多的引用类型：event_id，gfx_reference，path
+* [ ] ［搁置］一个本地化文件实际上可以包含多个语言区域+下面的属性，当文件名中存在语言区域时要匹配

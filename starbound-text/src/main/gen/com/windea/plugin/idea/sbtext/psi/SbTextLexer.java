@@ -172,7 +172,7 @@ public class SbTextLexer implements FlexLexer {
   private static final int [] ZZ_ACTION = zzUnpackAction();
 
   private static final String ZZ_ACTION_PACKED_0 =
-    "\4\0\1\1\3\2\1\3\1\4\1\5\1\6\1\7"+
+    "\4\0\2\1\2\2\1\3\1\4\1\5\1\6\1\7"+
     "\1\10\5\0\1\11";
 
   private static int [] zzUnpackAction() {
@@ -620,7 +620,7 @@ public class SbTextLexer implements FlexLexer {
             // fall through
           case 17: break;
           case 9: 
-            { return COLOR_RESET_MARKER_TOKEN;
+            { yybegin(YYINITIAL); return COLOR_RESET_MARKER_TOKEN;
             } 
             // fall through
           case 18: break;
