@@ -10,7 +10,7 @@ class StellarisScriptSchemaProviderFactory : JsonSchemaProviderFactory {
 		val providers = mutableListOf<JsonSchemaFileProvider>()
 
 		//实际上读取的是jar中的文件
-		val schemaUrl = "jsonSchema".toClassPathResource()
+		val schemaUrl = "schema".toClassPathResource()
 		if(schemaUrl != null) {
 			//替换成标准的路径
 			val schemaPath = schemaUrl.path.replace("%20", " ").removePrefix("file:/").removeSuffix("/")

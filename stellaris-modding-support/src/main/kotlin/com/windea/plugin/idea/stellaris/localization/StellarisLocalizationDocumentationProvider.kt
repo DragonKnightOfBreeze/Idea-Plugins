@@ -30,7 +30,8 @@ class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider
 			element is StellarisLocalizationProperty -> {
 				buildString {
 					append(DocumentationMarkup.DEFINITION_START)
-					append("${getLocationText(element)}<br><b>${element.name}</b>: ${element.value.truncate(60)}")
+					append(getLocationText(element))
+					append("<br><b>",element.name,"</b>: ",element.value.truncate(80-(element.name?.length?:0)))
 					append(DocumentationMarkup.DEFINITION_END)
 
 					val textAttributesKey = StellarisLocalizationAttributesKeys.COMMENT_KEY

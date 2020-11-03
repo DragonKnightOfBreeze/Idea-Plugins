@@ -10,6 +10,7 @@ import com.intellij.openapi.editor.*
 import com.intellij.openapi.editor.colors.*
 import com.intellij.openapi.fileTypes.*
 import com.intellij.openapi.project.*
+import com.intellij.openapi.vfs.*
 import com.intellij.psi.*
 import com.intellij.psi.search.*
 import com.intellij.psi.search.GlobalSearchScope.*
@@ -228,6 +229,7 @@ fun selectElement(editor: Editor, element: PsiElement?) {
 	val range = element?.textRange ?: return
 	editor.selectionModel.setSelection(range.startOffset, range.endOffset)
 }
+
 //endregion
 
 //TODO 使用CachedValue以提高性能

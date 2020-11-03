@@ -2,6 +2,7 @@ package com.windea.plugin.idea.stellaris
 
 import com.intellij.icons.*
 import com.intellij.openapi.project.*
+import com.intellij.openapi.util.*
 import com.intellij.util.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
 import java.util.concurrent.*
@@ -35,25 +36,23 @@ val stellarisScriptPropertyRegex = "[a-z0-9_-]+".toRegex()
 val utf8Bom = byteArrayOf(0xef.toByte(), 0xbb.toByte(), 0xbf.toByte())
 
 const val stellarisBundleName = "messages.StellarisBundle"
-
-const val descriptorFileName = "descriptor.mod"
 //endregion
 
 //region Resources
-val stellarisLocalizationFileIcon =AllIcons.FileTypes.Yaml
+val stellarisLocalizationFileIcon = IconLoader.findIcon("/icons/stellaris_localization.png")
 val stellarisLocalizationLocaleIcon = AllIcons.FileTypes.Properties
 val stellarisLocalizationPropertyIcon = AllIcons.Nodes.PropertyRead
 
-val stellarisScriptFileIcon = AllIcons.FileTypes.Text
+val stellarisScriptFileIcon = IconLoader.findIcon("/icons/stellaris_script.png")
 val stellarisScriptVariableIcon = AllIcons.Nodes.Variable
 val stellarisScriptPropertyIcon = AllIcons.Nodes.Property
 val stellarisScriptItemIcon = AllIcons.Nodes.Constant
 
 val localizationPropertyGutterIcon = IconUtil.toSize(stellarisLocalizationPropertyIcon, 12, 12)
 val scriptPropertyGutterIcon = IconUtil.toSize(stellarisScriptPropertyIcon, 12, 12)
-val eventIdGutterIcon = IconUtil.toSize(AllIcons.Nodes.Protected,12,12)
-val gfxKeyGutterIcon = IconUtil.toSize(AllIcons.Nodes.Related,12,12)
-val assetKeyGutterIcon = IconUtil.toSize(AllIcons.Nodes.Related,12,12)
+val eventIdGutterIcon = IconUtil.toSize(AllIcons.Nodes.Protected, 12, 12)
+val gfxKeyGutterIcon = IconUtil.toSize(AllIcons.Nodes.Related, 12, 12)
+val assetKeyGutterIcon = IconUtil.toSize(AllIcons.Nodes.Related, 12, 12)
 //endregion
 
 //region Caches

@@ -19,9 +19,9 @@ fun main() {
 				val data = yamlMapper.readValue(yaml, Any::class.java)
 				val json = jsonMapper.writeValueAsString(data)
 					.replace(".yaml",".json")
-				File("$jsonSchemaPath//${it.nameWithoutExtension}.yaml").writeText(json)
+				File(it.path.replace("\\test","\\main").replace(".yaml",".json")).writeText(json)
 			} else {
-				it.copyTo(File(it.path.replace("yamlSchema", "jsonSchema")), true)
+				it.copyTo(File(it.path.replace("\\test", "\\main")), true)
 			}
 		}
 	}
