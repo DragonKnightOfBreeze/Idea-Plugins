@@ -27,8 +27,7 @@ import java.util.*
 //region Stdlib
 fun Boolean.toInt() = if(this) 1 else 0
 
-
-val workDirectory = File("")
+val workDirectory: File = File("").absoluteFile
 
 private val classPathLocationClass = StellarisBundle.javaClass
 
@@ -131,11 +130,10 @@ fun ASTNode.nodesNotWhiteSpace(): List<ASTNode> {
 }
 
 /**查找当前项目中指定语言文件类型和作用域的Psi文件。*/
-@Suppress("UNCHECKED_CAST")
-fun <T : PsiFile> Project.findFiles(type: LanguageFileType, globalSearchScope: GlobalSearchScope = projectScope(this)): Sequence<T> {
+inline fun <reified T : PsiFile> Project.findFiles(type: LanguageFileType, globalSearchScope: GlobalSearchScope = projectScope(this)): Sequence<T> {
 	return FileTypeIndex.getFiles(type, globalSearchScope).asSequence().mapNotNull {
 		PsiManager.getInstance(this).findFile(it)
-	} as Sequence<T>
+	}.filterIsInstance<T>()
 }
 //endregion
 

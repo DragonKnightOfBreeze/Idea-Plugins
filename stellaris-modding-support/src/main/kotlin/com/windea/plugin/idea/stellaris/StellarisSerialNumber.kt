@@ -15,6 +15,7 @@ enum class StellarisSerialNumber(
 	val popupText = "'$key' - $description"
 
 	companion object{
+		val values = values()
 		val map = values().associateBy { it.key }
 		val keys = values().mapArray { it.key }
 	}

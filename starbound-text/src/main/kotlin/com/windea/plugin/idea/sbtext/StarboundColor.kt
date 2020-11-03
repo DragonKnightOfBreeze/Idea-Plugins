@@ -31,7 +31,8 @@ enum class StarboundColor(
 	Black("black",Color.BLACK),
 	CornFlowerBlue("cornflowerblue",Color(0x6495ed)),
 	Shadow("shadow",Color.DARK_GRAY), //认为如此
-	Gray("gray",Color.GRAY);
+	Gray("gray",Color.GRAY),
+	Grey("grey",Color.GRAY);
 
 	val icon = ColorIcon(16, color)
 	val gutterIcon = ColorIcon(12, color)

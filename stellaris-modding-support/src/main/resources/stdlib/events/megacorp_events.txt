@@ -1,0 +1,361 @@
+############################
+#
+# Megacorp Events
+#
+# Written by Maximilian Olbers
+#
+############################
+
+namespace = mega
+
+# Colonized Consecrated World
+planet_event = {
+	id = mega.110
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_planet_flag = consecrated@space_owner
+	}
+
+	immediate = {
+		switch = {
+			trigger = has_modifier
+			consecrated_quality_4 = {
+				remove_modifier = consecrated_quality_4
+				space_owner = {
+					change_variable = {
+						which = num_consecrated_worlds
+						value = -4
+					}
+				}
+			}
+			consecrated_quality_3 = {
+				remove_modifier = consecrated_quality_3
+				space_owner = {
+					change_variable = {
+						which = num_consecrated_worlds
+						value = -3
+					}
+				}
+			}
+			consecrated_quality_2 = {
+				remove_modifier = consecrated_quality_2
+				space_owner = {
+					change_variable = {
+						which = num_consecrated_worlds
+						value = -2
+					}
+				}
+			}
+			consecrated_quality_1 = {
+				remove_modifier = consecrated_quality_1
+				space_owner = {
+					change_variable = {
+						which = num_consecrated_worlds
+						value = -1
+					}
+				}
+			}
+		}
+		space_owner = {
+			recalculate_consecrated_world_modifier = yes
+		}
+	}
+}
+
+# Lost Consecrated World
+# on_system_lost
+# From = system
+# FromFrom = country (new owner)
+# This = country (previous owner), if one exists -- otherwise don't/won't/can't fire)
+country_event = {
+	id = mega.100
+	title = mega.100.name
+	desc = mega.100.desc
+	picture = GFX_evt_ruined_system
+	show_sound = event_planetary_riot
+	location = from
+
+	is_triggered_only = yes
+
+	trigger = {
+		exists = root
+		is_country_type = default
+		has_ascension_perk = ap_consecrated_worlds
+		from = {
+			any_system_planet = {
+				has_planet_flag = consecrated@root
+			}
+		}
+	}
+
+	immediate = {
+		while = {
+			count = 3
+			from = {
+				random_system_planet = {
+					limit = { has_planet_flag = consecrated@root }
+					remove_planet_flag = consecrated@root
+					switch = {
+						trigger = has_modifier
+						consecrated_quality_4 = {
+							remove_modifier = consecrated_quality_3
+							root = {
+								change_variable = {
+									which = num_consecrated_worlds
+									value = -4
+								}
+							}
+						}
+						consecrated_quality_3 = {
+							remove_modifier = consecrated_quality_3
+							root = {
+								change_variable = {
+									which = num_consecrated_worlds
+									value = -3
+								}
+							}
+						}
+						consecrated_quality_2 = {
+							remove_modifier = consecrated_quality_2
+							root = {
+								change_variable = {
+									which = num_consecrated_worlds
+									value = -2
+								}
+							}
+						}
+						consecrated_quality_1 = {
+							remove_modifier = consecrated_quality_1
+							root = {
+								change_variable = {
+									which = num_consecrated_worlds
+									value = -1
+								}
+							}
+						}
+					}
+					root = {
+						recalculate_consecrated_world_modifier = yes
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = UNFORTUNATE
+		hidden_effect = {
+			if = {
+				limit = { has_modifier = consecrated_worlds_mourning }
+				remove_modifier = consecrated_worlds_mourning
+			}
+			add_modifier = {
+				modifier = consecrated_worlds_mourning
+				days = 1800
+			}
+			tooltip = {
+				add_modifier = {
+					modifier = consecrated_worlds_mourning
+					days = 1800
+				}
+			}
+		}
+	}
+}
+
+# Ecumenopolis complete
+planet_event = {
+	id = mega.200
+	title = mega.200.name
+	desc = mega.200.desc
+	picture = GFX_evt_city_planet
+	show_sound = event_cityscape
+	location = root
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_planet_class = pc_city
+	}
+
+	option = {
+		name = mega.200.a
+	}
+}
+
+# Ecumenopolis complete (Relic World)
+planet_event = {
+	id = mega.201
+	title = mega.200.name
+	desc = mega.201.desc
+	picture = GFX_evt_city_planet
+	show_sound = event_cityscape
+	location = root
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_planet_class = pc_city
+	}
+
+	option = {
+		name = mega.200.a
+	}
+}
+
+#country_event = {
+#	id = mega.1000
+#	title = mega.1000.name
+#	desc = mega.1000.desc
+#	picture = GFX_evt_matter_decompressor
+#	show_sound = event_mystic_reveal
+#	location = from
+#	
+#	is_triggered_only = yes
+#
+#	option = {
+#		name = mega.1000.a.mater
+#		trigger = {
+#			OR = {
+#				has_ethic = ethic_materialist
+#				has_ethic = ethic_fanatic_materialist
+#			}
+#		}
+#	}
+#
+#	option = {
+#		name = EXCELLENT
+#		trigger = {
+#			NOR = {
+#				has_ethic = ethic_materialist
+#				has_ethic = ethic_fanatic_materialist
+#			}
+#		}
+#	}
+#}
+#
+#country_event = {
+#	id = mega.1100
+#	title = mega.1100.name
+#	desc = mega.1100.desc
+#	picture = GFX_evt_strategic_coordination_center
+#	show_sound = event_mystic_reveal
+#	location = from
+#	
+#	is_triggered_only = yes
+#
+#	option = {
+#		name = EXCELLENT
+#		custom_tooltip = mega.1100.a.tooltip
+#	}
+#}
+
+# Remove Martial Law and invalid ongoing political Decisions based on Empire type
+planet_event = {
+	id = mega.205
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			AND = { #Either we're a Gestalt w ongoing non-Gestalt political Decisions
+				from = { is_gestalt = yes }
+				OR = {
+					has_modifier = martial_law
+					has_modifier = planet_population_control
+					has_modifier = planet_robot_assembly_control
+					has_modifier = planet_population_expelled
+				}
+			}
+			AND = { #Or vice versa
+				from = { is_regular_empire = yes }
+				OR = {
+					has_modifier = compliance_protocols
+					has_modifier = hunter_killer_drones
+					has_modifier = planet_population_control_gestalt
+				}
+			}
+			AND = { #Or a MI with ongoing Hive political Decision
+				from = { is_machine_empire = yes }
+				has_modifier = hunter_killer_drones
+			}
+			AND = { #Or vice versa
+				from = { is_hive_empire = yes }
+				has_modifier = compliance_protocols
+			}
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				from = { is_gestalt = yes }
+				OR = {
+					has_modifier = martial_law
+					has_modifier = planet_population_control
+					has_modifier = planet_robot_assembly_control
+					has_modifier = planet_population_expelled
+				}
+			}
+			if = {
+				limit = { has_modifier = martial_law }
+				remove_modifier = martial_law
+			}
+			if = {
+				limit = { has_modifier = planet_population_control }
+				remove_modifier = planet_population_control
+			}
+			if = {
+				limit = { has_modifier = planet_robot_assembly_control }
+				remove_modifier = planet_robot_assembly_control
+			}
+			if = {
+				limit = { has_modifier = planet_population_expelled }
+				remove_modifier = planet_population_expelled
+			}
+		}
+		else_if = {
+			limit = {
+				from = { is_regular_empire = yes }
+				OR = {
+					has_modifier = compliance_protocols
+					has_modifier = hunter_killer_drones
+					has_modifier = planet_population_control_gestalt
+				}
+			}
+			if = {
+				limit = { has_modifier = compliance_protocols }
+				remove_modifier = compliance_protocols
+			}
+			if = {
+				limit = { has_modifier = hunter_killer_drones }
+				remove_modifier = hunter_killer_drones
+			}
+			if = {
+				limit = { has_modifier = planet_population_control_gestalt }
+				remove_modifier = planet_population_control_gestalt
+			}
+		}
+		else_if = {
+			limit = {
+				from = { is_machine_empire = yes }
+				has_modifier = hunter_killer_drones
+			}
+			remove_modifier = hunter_killer_drones
+		}
+		else_if = {
+			limit = {
+				from = { is_hive_empire = yes }
+				has_modifier = compliance_protocols
+			}
+			remove_modifier = compliance_protocols
+		}
+		else = {
+			#nada
+		}
+	}
+}

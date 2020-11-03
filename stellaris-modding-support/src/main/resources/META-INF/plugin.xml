@@ -31,13 +31,14 @@
       so that this plugin maybe have some <i>syntax compatibility problems</i> and <i>reference problems</i>.
     </p>
     <p>
-      Please note that this plugin will register all .txt files as Stellaris Script File, and register all .yml files as Stellaris Localization File.
-      So it is recommended to disable this plugin when you do not need it.
+      Please note that you should provide the descriptor file aka <code>descriptor.mod</code>,
+      this plugin will only recognize script / localization files under a directory,
+      which has a descriptor file in it.
     </p>
     <P>
-      You can also write Stellaris mods by VSCode IDE with CWTTools plugin.
-      But please note that, IDEA is undoubtedly more powful than VSCode,
-      meaning that this plugin may support some advance features that CWTTools will never provide.
+      You can also write Stellaris mods by VSCode IDE with CWTools plugin,
+      but please note that IDEA is undoubtedly more powerful than VSCode.
+      which means that this plugin may support some advance features that CWTTools will never provide.
     </P>
     <p>
       This plugin is still in developing,
@@ -76,11 +77,11 @@
       因此这个插件仍然可能存在一些<i>语法解析兼容性问题</i>以及<i>引用问题</i>。
     </p>
     <p>
-      请注意，这个插件会将所有.txt文件识别为Stellaris的脚本文件，将所有.yml文件识别为Stellaris的本地化文件。
-      因此建议在不需要使用到这个插件时禁用它。
+      请注意，你需要提供描述符文件即<code>descriptor.mod</code>，
+      这个插件仅会识别描述符文件所在目录下（及其子目录）的脚本文件和本地化文件。
     </p>
     <P>
-      你也可以使用VSCode IDE并配合CWTTools插件来进行Stellaris模组编程。
+      你也可以使用VSCode IDE并配合CWTools插件来进行Stellaris模组编程。
       但请注意，IDEA相比VSCode功能无疑更加强大，
       这意味着这个插件未来可能会提供一些CWTTools所不可能支持的高级功能。
     </P>
@@ -125,11 +126,13 @@
       serviceImplementation="com.windea.plugin.idea.stellaris.settings.StellarisSettingsState"/>
     <!--endregion-->
 
-    <!--region Stellaris Localization-->
+    <!--region Stellaris Localization Language-->
     <fileType
-      name="Stellaris Localization File"
+      name="Stellaris Localization File" order="first"
       implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationFileType"
       fieldName="INSTANCE" language="Stellaris Localization" extensions="yml"/>
+    <lang.substitutor language="Stellaris Localization" order="first"
+                      implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationLanguageSubstitutor"/>
     <lang.parserDefinition
       language="Stellaris Localization"
       implementationClass="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationParserDefinition"/>
@@ -222,10 +225,12 @@
       implementationClass="com.windea.plugin.idea.stellaris.localization.inspections.InvalidFileEncodingInspection"/>
     <!--endregion-->
 
-    <!--region Stellaris Script-->
-    <fileType name="Stellaris Script File"
+    <!--region Stellaris Script Language-->
+    <fileType name="Stellaris Script File" order="first"
               implementationClass="com.windea.plugin.idea.stellaris.script.StellarisScriptFileType"
               fieldName="INSTANCE" language="Stellaris Script" extensions="txt;mod;gfx;gui;asset"/>
+    <lang.substitutor language="Stellaris Script" order="first"
+                      implementationClass="com.windea.plugin.idea.stellaris.script.StellarisScriptLanguageSubstitutor"/>
     <lang.parserDefinition
       language="Stellaris Script"
       implementationClass="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptParserDefinition"/>

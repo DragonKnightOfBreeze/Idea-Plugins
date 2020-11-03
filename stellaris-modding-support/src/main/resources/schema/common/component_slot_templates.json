@@ -1,0 +1,37 @@
+{
+  "definitions" : {
+    "component_slot_template" : {
+      "type" : "object",
+      "properties" : {
+        "size" : {
+          "$ref" : "../core.json#/definitions/component_size"
+        },
+        "component" : {
+          "$ref" : "../core.json#/definitions/component_type"
+        },
+        "is_fixed" : {
+          "$ref" : "../core.json#/definitions/boolean",
+          "optional" : true
+        },
+        "entities" : {
+          "type" : "object",
+          "properties" : {
+            "weapon_type_kinetic" : {
+              "$ref" : "../core.json#/definitions/entity"
+            },
+            "weapon_type_energy" : {
+              "$ref" : "../core.json#/definitions/entity"
+            },
+            "weapon_type_explosive" : {
+              "$ref" : "../core.json#/definitions/entity"
+            }
+          }
+        }
+      }
+    }
+  },
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/component_slot_template"
+  }
+}

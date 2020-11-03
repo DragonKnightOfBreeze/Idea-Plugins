@@ -1,0 +1,31 @@
+{
+  "definitions" : {
+    "federation_law" : {
+      "type" : "object",
+      "properties" : {
+        "display_level" : {
+          "$ref" : "../core.json#/definitions/int"
+        },
+        "unlocks_centralization" : {
+          "$ref" : "../core.json#/definitions/int"
+        },
+        "cohesion_growth" : {
+          "$ref" : "../core.json#/definitions/int"
+        },
+        "allow" : {
+          "$ref" : "../core.json#/definitions/effects"
+        },
+        "on_enact" : {
+          "$ref" : "../core.json#/definitions/effects"
+        },
+        "ai_weight" : {
+          "$ref" : "../core.json#/definitions/weight_modifier"
+        }
+      }
+    }
+  },
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/federation_law"
+  }
+}

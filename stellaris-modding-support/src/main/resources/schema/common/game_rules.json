@@ -1,0 +1,12 @@
+{
+  "definitions" : {
+    "game_rule" : {
+      "type" : "object",
+      "$ref" : "../core.json#/definitions/effects"
+    }
+  },
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/game_rule"
+  }
+}

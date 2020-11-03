@@ -8,9 +8,10 @@ fun main() {
 
 	val yamlMapper = YAMLMapper()
 
-	val path = "D:\\My Documents\\My Projects\\Managed\\Idea-Plugins\\stellaris-modding-support\\src\\main\\resources\\yamlSchema"
+	val yamlSchemaPath = "stellaris-modding-support\\src\\test\\resources\\schema"
+	val jsonSchemaPath = "stellaris-modding-support\\src\\main\\resources\\schema"
 
-	File(path).walk().forEach {
+	File(yamlSchemaPath).walk().forEach {
 		runCatching {
 			if(it.isFile && it.extension == "yaml") {
 				//snakeYaml将yes/no识别为布尔值，因此这里需要特殊处理
@@ -18,7 +19,7 @@ fun main() {
 				val data = yamlMapper.readValue(yaml, Any::class.java)
 				val json = jsonMapper.writeValueAsString(data)
 					.replace(".yaml",".json")
-				File(it.path.replace("yamlSchema", "jsonSchema").replace(".yaml", ".json")).writeText(json)
+				File("$jsonSchemaPath//${it.nameWithoutExtension}.yaml").writeText(json)
 			} else {
 				it.copyTo(File(it.path.replace("yamlSchema", "jsonSchema")), true)
 			}

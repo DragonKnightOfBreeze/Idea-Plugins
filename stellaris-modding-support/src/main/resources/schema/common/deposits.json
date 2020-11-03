@@ -1,0 +1,46 @@
+{
+  "definitions" : {
+    "deposit" : {
+      "type" : "object",
+      "properties" : {
+        "is_null" : {
+          "$ref" : "../core.json#/definitions/boolean"
+        },
+        "time" : {
+          "$ref" : "../core.json#/definitions/int"
+        },
+        "is_for_colonizeable" : {
+          "$ref" : "../core.json#/definitions/boolean"
+        },
+        "category" : {
+          "$type" : "deposit_category"
+        },
+        "resources" : {
+          "$ref" : "../core.json#/definitions/economy_unit"
+        },
+        "potential" : {
+          "$ref" : "../core.json#/definitions/triggers"
+        },
+        "plant_modifier" : {
+          "$ref" : "../core.json#/definitions/modifier"
+        },
+        "drop_weight" : {
+          "$ref" : "../core.json#/definitions/weight_modifier"
+        },
+        "ai_weight" : {
+          "$ref" : "../core.json#/definitions/weight_modifier"
+        },
+        "prerequisites" : {
+          "type" : "array",
+          "items" : {
+            "$type" : "tech"
+          }
+        }
+      }
+    }
+  },
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/deposit"
+  }
+}

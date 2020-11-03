@@ -1,0 +1,52 @@
+{
+  "definitions" : {
+    "district" : {
+      "type" : "object",
+      "properties" : {
+        "base_buildtime" : {
+          "$ref" : "../core.json#/definitions/int"
+        },
+        "is_capped_by_modifier" : {
+          "$ref" : "../core.json#/definitions/boolean"
+        },
+        "show_on_uncolonized" : {
+          "$ref" : "../core.json#/definitions/triggers"
+        },
+        "potential" : {
+          "$ref" : "../core.json#/definitions/triggers"
+        },
+        "allow" : {
+          "$ref" : "../core.json#/definitions/triggers"
+        },
+        "conversion_ratio" : {
+          "$ref" : "../core.json#/definitions/float"
+        },
+        "convert_to" : {
+          "type" : "array",
+          "items" : {
+            "$type" : "district"
+          }
+        },
+        "resources" : {
+          "$ref" : "../core.json#/definitions/economy_unit"
+        },
+        "planet_modifier" : {
+          "$ref" : "../core.json#/definitions/modifier"
+        },
+        "triggered_plant_modifier" : {
+          "$ref" : "../core.json#/definitions/triggered_modifier"
+        },
+        "ai_weight" : {
+          "$ref" : "../core.json#/definitions/weight_modifier"
+        },
+        "modifier" : {
+          "$ref" : "../core.json#/definitions/modifier"
+        }
+      }
+    }
+  },
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/district"
+  }
+}

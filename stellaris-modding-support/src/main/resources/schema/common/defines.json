@@ -1,0 +1,12 @@
+{
+  "definitions" : {
+    "define" : {
+      "type" : "object",
+      "additionalProperties" : true
+    }
+  },
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/define"
+  }
+}

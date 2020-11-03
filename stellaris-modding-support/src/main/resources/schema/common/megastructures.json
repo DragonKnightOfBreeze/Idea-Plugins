@@ -1,0 +1,91 @@
+{
+  "definitions" : {
+    "megastructure" : {
+      "type" : "object",
+      "properties" : {
+        "entity" : {
+          "$type" : "entity"
+        },
+        "construction_entity" : {
+          "$type" : "entity"
+        },
+        "portrait" : {
+          "$ref" : "../core.json#/definitions/gfx_reference"
+        },
+        "place_entity_on_planet_plane" : {
+          "$ref" : "../core.json#/definitions/boolean"
+        },
+        "entity_offset" : {
+          "$ref" : "../core.json#/definitions/vector2"
+        },
+        "upgrade_desc" : {
+          "type" : "string",
+          "enum" : [ "default", "hide" ]
+        },
+        "upgrade_from" : {
+          "type" : "array",
+          "items" : {
+            "$type" : "megastructure"
+          }
+        },
+        "prerequisites" : {
+          "type" : "array",
+          "items" : {
+            "$type" : "tech"
+          }
+        },
+        "potential" : {
+          "$ref" : "../core.json#/definitions/triggers"
+        },
+        "possible" : {
+          "$ref" : "../core.json#/definitions/triggers"
+        },
+        "build_time" : {
+          "$ref" : "../core.json#/definitions/int"
+        },
+        "build_cost" : {
+          "$ref" : "../core.json#/definitions/resources_item"
+        },
+        "monthly_production" : {
+          "$ref" : "../core.json#/definitions/resources_item"
+        },
+        "maintenance" : {
+          "$ref" : "../core.json#/definitions/resources_item"
+        },
+        "country_modifier" : {
+          "$ref" : "../core.json#/definitions/modifier"
+        },
+        "placement_rules" : {
+          "type" : "object",
+          "properties" : {
+            "planet_possible" : {
+              "$ref" : "../core.json#/definitions/triggers"
+            }
+          }
+        },
+        "on_build_start" : {
+          "$ref" : "../core.json#/definitions/effects"
+        },
+        "on_build_cancel" : {
+          "$ref" : "../core.json#/definitions/effects"
+        },
+        "on_build_complete" : {
+          "$ref" : "../core.json#/definitions/effects"
+        },
+        "ai_weight" : {
+          "$ref" : "../core.json#/definitions/weight_modifier"
+        },
+        "resources" : {
+          "$ref" : "../core.json#/definitions/economy_unit"
+        },
+        "construction_blocked_by_others" : {
+          "$ref" : "../core.json#/definitions/boolean"
+        }
+      }
+    }
+  },
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/megastructure"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "definitions" : {
+    "on_action" : {
+      "type" : "object",
+      "properties" : {
+        "events" : {
+          "type" : "array",
+          "items" : {
+            "$type" : "event.id"
+          }
+        }
+      }
+    }
+  },
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/on_action"
+  }
+}

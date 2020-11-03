@@ -1,0 +1,59 @@
+{
+  "definitions" : {
+    "pop_category" : {
+      "type" : "object",
+      "properties" : {
+        "rank" : {
+          "$ref" : "../core.json#/definitions/int"
+        },
+        "clothes_texture_index" : {
+          "$ref" : "../core.json#/definitions/int"
+        },
+        "change_job_threshold" : {
+          "$ref" : "../core.json#/definitions/float"
+        },
+        "keep_from_former_job" : {
+          "$ref" : "../core.json#/definitions/boolean"
+        },
+        "demotion_time" : {
+          "$ref" : "../core.json#/definitions/int"
+        },
+        "should_apply_unemployment_penalties" : {
+          "$ref" : "../core.json#/definitions/triggers"
+        },
+        "unemployment_penalties" : {
+          "$ref" : "../core.json#/definitions/modifiers"
+        },
+        "unemployment_resources" : {
+          "$ref" : "../core.json#/definitions/economy_unit"
+        },
+        "triggered_pop_modifier" : {
+          "$ref" : "../core.json#/definitions/modifiers"
+        },
+        "weight" : {
+          "$ref" : "../core.json#/definitions/weight_modifier"
+        },
+        "pop_modifier" : {
+          "$ref" : "../core.json#/definitions/modifiers"
+        },
+        "allow_resettlement" : {
+          "$ref" : "../core.json#/definitions/triggers"
+        },
+        "resettlement_cost" : {
+          "$ref" : "../core.json#/definitions/resources_item"
+        },
+        "triggered_planet_modifier" : {
+          "$ref" : "../core.json#/definitions/modifiers",
+          "multiple" : true
+        },
+        "resources" : {
+          "$ref" : "../core.json#/definitions/economy_unit"
+        }
+      }
+    }
+  },
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/pop_category"
+  }
+}

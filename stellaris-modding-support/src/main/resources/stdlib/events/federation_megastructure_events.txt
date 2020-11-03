@@ -1,0 +1,148 @@
+################ Federations Megastructure  ################# 
+
+
+namespace = feda
+
+# Matter decompresser Notification
+country_event = {
+	id = "feda.1"
+	title = "feda.1.name"
+	desc = feda.1.desc
+	show_sound = event_mystic_reveal
+	picture = GFX_evt_megashipyard 
+	is_triggered_only = yes
+	location = FROM
+
+	option = {
+		name = EXCELLENT
+	}
+}
+
+
+country_event = {
+	id = "feda.2"
+	title = "feda.2.name"
+	desc = feda.2.desc
+	show_sound = event_mystic_reveal
+	picture = GFX_evt_megashipyard 
+	is_triggered_only = yes
+	location = FROM
+
+	option = {
+		name = EXCELLENT
+	}
+}
+
+country_event = {
+	id = "feda.3"
+	title = "feda.3.name"
+	desc = feda.3.desc
+	show_sound = event_mystic_reveal
+	picture = GFX_evt_megashipyard
+	is_triggered_only = yes
+	location = FROM
+
+	option = {
+		name = EXCELLENT
+	}
+}
+
+#country_event = {
+#	id = "feda.4"
+#	title = "feda.4.name"
+#	desc = feda.4.desc
+#	show_sound = event_mystic_reveal
+#	picture = GFX_evt_megashipyard 
+#	is_triggered_only = yes
+#	location = FROM
+#
+#	option = {
+#		name = EXCELLENT
+#	}
+#}
+
+
+### Ruined Megastructures
+
+# Ruined Mega Shipyard
+ship_event = {
+	id = feda.5
+	title = "feda.5.name"
+	desc = {
+		trigger = { 
+			NOT = { owner = { has_technology = tech_mega_engineering } }
+		}
+		text = feda.5.a.desc
+	}
+	desc = {
+		trigger = { 
+			owner = { has_technology = tech_mega_engineering }
+		}
+		text = feda.5.b.desc
+	}
+	picture = GFX_evt_space_debris
+	show_sound = event_radio_chatter
+	location = FROM
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		FROM = {
+			has_star_flag = ruined_mega_shipyard_system
+			any_system_megastructure = { is_megastructure_type = mega_shipyard_ruined }
+		}
+	}
+	
+	immediate = {
+		FROM = { save_event_target_as = mega_shipyard_system }
+	}		
+	
+	option = {
+		name = "feda.5.a" 
+		trigger = {
+			owner = {
+				any_owned_megastructure = {
+					OR = {
+						is_megastructure_type = mega_shipyard_0 
+						is_megastructure_type = mega_shipyard_1
+						is_megastructure_type = mega_shipyard_2
+						is_megastructure_type = mega_shipyard_3
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = FASCINATING
+		trigger = {
+			NOT = {
+				owner = {
+					any_owned_megastructure = {
+						OR = {
+							is_megastructure_type = mega_shipyard_0 
+							is_megastructure_type = mega_shipyard_1
+							is_megastructure_type = mega_shipyard_2
+							is_megastructure_type = mega_shipyard_3
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+# Ruined Mega Shipyard Restored
+country_event = {
+	id = feda.6
+	title = "feda.6.name"
+	desc = "feda.6.desc"
+	picture = GFX_evt_megashipyard
+	show_sound = event_dyson_sphere_build_complete
+	location = FROM
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+	}
+}

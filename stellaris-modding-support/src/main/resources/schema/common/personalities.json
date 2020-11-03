@@ -1,0 +1,129 @@
+{
+  "definitions" : {
+    "personality" : {
+      "type" : "object",
+      "properties" : {
+        "aggressiveness" : {
+          "$ref" : "../core.json#/definitions/float"
+        },
+        "trade_willingness" : {
+          "$ref" : "../core.json#/definitions/float"
+        },
+        "bravery" : {
+          "$ref" : "../core.json#/definitions/float"
+        },
+        "combat_bravery" : {
+          "$ref" : "../core.json#/definitions/float"
+        },
+        "military_spending" : {
+          "$ref" : "../core.json#/definitions/float"
+        },
+        "colony_spending" : {
+          "$ref" : "../core.json#/definitions/float"
+        },
+        "federation_acceptance" : {
+          "$ref" : "../core.json#/definitions/int"
+        },
+        "nap_acceptance" : {
+          "$ref" : "../core.json#/definitions/int"
+        },
+        "commercial_pact_acceptance" : {
+          "$ref" : "../core.json#/definitions/int"
+        },
+        "defensive_pact_acceptance" : {
+          "$ref" : "../core.json#/definitions/int"
+        },
+        "migration_pact_acceptance" : {
+          "$ref" : "../core.json#/definitions/int"
+        },
+        "advanced_start_chance" : {
+          "$ref" : "../core.json#/definitions/int"
+        },
+        "weapon_preferences" : {
+          "$type" : "weapon_type"
+        },
+        "armor_ratio" : {
+          "$ref" : "../core.json#/definitions/float"
+        },
+        "shields_ratio" : {
+          "$ref" : "../core.json#/definitions/float"
+        },
+        "hull_ratio" : {
+          "$ref" : "../core.json#/definitions/float"
+        },
+        "threat_modifier" : {
+          "$ref" : "../core.json#/definitions/float"
+        },
+        "threat_others_modifier" : {
+          "$ref" : "../core.json#/definitions/float"
+        },
+        "friction_modifier" : {
+          "$ref" : "../core.json#/definitions/float"
+        },
+        "claims_modifier" : {
+          "$ref" : "../core.json#/definitions/float"
+        },
+        "behaviour" : {
+          "type" : "object",
+          "properties" : {
+            "conqueror" : {
+              "$ref" : "../core.json#/definitions/boolean"
+            },
+            "subjugator" : {
+              "$ref" : "../core.json#/definitions/boolean"
+            },
+            "liberator" : {
+              "$ref" : "../core.json#/definitions/boolean"
+            },
+            "opportunist" : {
+              "$ref" : "../core.json#/definitions/boolean"
+            },
+            "slaver" : {
+              "$ref" : "../core.json#/definitions/boolean"
+            },
+            "uplifter" : {
+              "$ref" : "../core.json#/definitions/boolean"
+            },
+            "purger" : {
+              "$ref" : "../core.json#/definitions/boolean"
+            },
+            "displacer" : {
+              "$ref" : "../core.json#/definitions/boolean"
+            },
+            "infiltrator" : {
+              "$ref" : "../core.json#/definitions/boolean"
+            },
+            "dominator" : {
+              "$ref" : "../core.json#/definitions/boolean"
+            },
+            "robot_exploiter" : {
+              "$ref" : "../core.json#/definitions/boolean"
+            },
+            "robot_liberator" : {
+              "$ref" : "../core.json#/definitions/boolean"
+            },
+            "propagator" : {
+              "$ref" : "../core.json#/definitions/boolean"
+            },
+            "multispecies" : {
+              "$ref" : "../core.json#/definitions/boolean"
+            },
+            "crisis_fighter" : {
+              "$ref" : "../core.json#/definitions/boolean"
+            }
+          }
+        },
+        "allow" : {
+          "$ref" : "../core.json#/definitions/triggers"
+        },
+        "weight_modifier" : {
+          "$ref" : "../core.json#/definitions/weight_modifier"
+        }
+      }
+    }
+  },
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/personality"
+  }
+}

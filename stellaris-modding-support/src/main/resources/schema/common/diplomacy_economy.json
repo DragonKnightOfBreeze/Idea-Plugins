@@ -1,0 +1,25 @@
+{
+  "definitions" : {
+    "diplomacy_economy" : {
+      "type" : "object",
+      "propertyNames" : {
+        "$type" : "diplomacy"
+      },
+      "additionalProperties" : {
+        "type" : "object",
+        "properties" : {
+          "trigger" : {
+            "$ref" : "../core.json#/definitions/triggers"
+          },
+          "resources" : {
+            "$ref" : "../core.json#/definitions/economy_unit"
+          }
+        }
+      }
+    }
+  },
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/diplomacy_economy"
+  }
+}

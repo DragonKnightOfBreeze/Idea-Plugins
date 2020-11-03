@@ -1,0 +1,87 @@
+{
+  "definitions" : {
+    "plant_class" : {
+      "type" : "object",
+      "properties" : {
+        "entity" : {
+          "$ref" : "#/definitions/entity"
+        },
+        "icon_frame" : {
+          "$ref" : "../core.json#/definitions/int"
+        },
+        "entity_scale" : {
+          "$ref" : "../core.json#/definitions/int"
+        },
+        "atmosphere_color" : {
+          "$ref" : "../core.json#/definitions/color_type"
+        },
+        "atmosphere_intensity" : {
+          "$ref" : "../core.json#/definitions/float"
+        },
+        "atmosphere_width" : {
+          "$ref" : "../core.json#/definitions/float"
+        },
+        "min_distance_from_sun" : {
+          "$ref" : "../core.json#/definitions/int"
+        },
+        "max_distance_from_sun" : {
+          "$ref" : "../core.json#/definitions/int"
+        },
+        "spawn_odds" : {
+          "$ref" : "../core.json#/definitions/int"
+        },
+        "city_color_lut" : {
+          "$ref" : "../core.json#/definitions/game_path"
+        },
+        "extra_orbit_size" : {
+          "$ref" : "../core.json#/definitions/int"
+        },
+        "extra_planet_count" : {
+          "$ref" : "../core.json#/definitions/int"
+        },
+        "can_be_moon" : {
+          "$ref" : "../core.json#/definitions/boolean"
+        },
+        "chance_of_ring" : {
+          "$ref" : "../core.json#/definitions/float"
+        },
+        "planet_size" : {
+          "$ref" : "../core.json#/definitions/int_range"
+        },
+        "moon_size" : {
+          "$ref" : "../core.json#/definitions/int_range"
+        },
+        "production_spawn_chance" : {
+          "$ref" : "../core.json#/definitions/float"
+        },
+        "colonizable" : {
+          "$ref" : "../core.json#/definitions/boolean"
+        },
+        "district_set" : {
+          "$ref" : "#/definitions/district_set"
+        },
+        "uses_alternative_skies_for_moons" : {
+          "$ref" : "../core.json#/definitions/boolean"
+        },
+        "modifier" : {
+          "$ref" : "../core.json#/definitions/modifiers"
+        }
+      }
+    },
+    "entity" : {
+      "type" : "string"
+    },
+    "climate" : {
+      "type" : "string",
+      "enum" : [ "dry", "wet", "cold" ]
+    },
+    "district_set" : {
+      "type" : "string",
+      "enum" : [ "standard", "hive_world", "machine_world" ]
+    }
+  },
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/plant_class"
+  }
+}

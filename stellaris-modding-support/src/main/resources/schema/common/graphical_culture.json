@@ -1,0 +1,72 @@
+{
+  "definitions" : {
+    "graphical_culture" : {
+      "type" : "object",
+      "properties" : {
+        "randomized" : {
+          "$ref" : "../core.json#/definitions/triggers"
+        },
+        "selectable" : {
+          "$ref" : "../core.json#/definitions/triggers"
+        },
+        "ship_color" : {
+          "$ref" : "../core.json#/definitions/boolean"
+        },
+        "fallback" : {
+          "$type" : "graphical_culture"
+        },
+        "ship_light" : {
+          "$ref" : "#/definitions/ship_lighting"
+        }
+      }
+    },
+    "ship_lighting" : {
+      "type" : "object",
+      "properties" : {
+        "cam_light_1_dir" : {
+          "$ref" : "../core.json#/definitions/color"
+        },
+        "cam_light_2_dir" : {
+          "$ref" : "../core.json#/definitions/color"
+        },
+        "cam_light_3_dir" : {
+          "$ref" : "../core.json#/definitions/color"
+        },
+        "intensity_near" : {
+          "$ref" : "../core.json#/definitions/float"
+        },
+        "intensity_far" : {
+          "$ref" : "../core.json#/definitions/float"
+        },
+        "near_value" : {
+          "$ref" : "../core.json#/definitions/int"
+        },
+        "far_value" : {
+          "$ref" : "../core.json#/definitions/int"
+        },
+        "rim_start_near" : {
+          "$ref" : "../core.json#/definitions/float"
+        },
+        "rim_stop_near" : {
+          "$ref" : "../core.json#/definitions/float"
+        },
+        "rim_start_far" : {
+          "$ref" : "../core.json#/definitions/float"
+        },
+        "rim_stop_far" : {
+          "$ref" : "../core.json#/definitions/float"
+        },
+        "ambient_near" : {
+          "$ref" : "../core.json#/definitions/float"
+        },
+        "ambient_far" : {
+          "$ref" : "../core.json#/definitions/float"
+        }
+      }
+    }
+  },
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/graphical_culture"
+  }
+}

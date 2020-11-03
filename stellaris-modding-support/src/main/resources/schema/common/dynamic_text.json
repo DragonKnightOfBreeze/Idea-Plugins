@@ -1,0 +1,49 @@
+{
+  "definitions" : {
+    "dynamic_text" : {
+      "type" : "object",
+      "properties" : {
+        "mandatory" : {
+          "type" : "array",
+          "items" : {
+            "$type" : "mandatory_tag"
+          }
+        },
+        "relevant" : {
+          "type" : "array",
+          "items" : {
+            "$type" : "relevant_tag"
+          }
+        },
+        "add" : {
+          "type" : "array",
+          "items" : {
+            "$type" : "relevant_tag"
+          }
+        },
+        "blocked" : {
+          "type" : "array",
+          "items" : {
+            "$type" : "blocked_tag"
+          }
+        },
+        "next_mandatory" : {
+          "type" : "array",
+          "items" : {
+            "$type" : "next_mandatory_tag"
+          }
+        },
+        "texts" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "../core.json#/definitions/loc_reference"
+          }
+        }
+      }
+    }
+  },
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/dynamic_text"
+  }
+}

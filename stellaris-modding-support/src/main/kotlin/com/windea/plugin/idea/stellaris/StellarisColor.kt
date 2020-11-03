@@ -36,6 +36,7 @@ enum class StellarisColor(
 	fun formatRemain(text: String) = "£${key}$text"
 
 	companion object {
+		val values = values()
 		val map = values().associateBy { it.key }
 		val keys = values().mapArray { it.key }
 	}

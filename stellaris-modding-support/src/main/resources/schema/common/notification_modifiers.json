@@ -1,0 +1,16 @@
+{
+  "definitions" : {
+    "notification_modifier" : {
+      "type" : "object",
+      "properties" : {
+        "icon" : {
+          "$ref" : "../core.json#/definitions/game_path"
+        }
+      }
+    }
+  },
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/notification_modifier"
+  }
+}

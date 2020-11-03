@@ -1,0 +1,89 @@
+{
+  "definitions" : {
+    "authority" : {
+      "type" : "object",
+      "properties" : {
+        "icon" : {
+          "$ref" : "../core.json#/definitions/game_path"
+        },
+        "election_term_years" : {
+          "$ref" : "../core.json#/definitions/boolean"
+        },
+        "election_type" : {
+          "$ref" : "#/definitions/election_type"
+        },
+        "re_election_allowed" : {
+          "$ref" : "../core.json#/definitions/boolean"
+        },
+        "can_have_emergency_elections" : {
+          "$ref" : "../core.json#/definitions/boolean"
+        },
+        "emergency_election_cost" : {
+          "$ref" : "../core.json#/definitions/int"
+        },
+        "max_election_candidates" : {
+          "$ref" : "../core.json#/definitions/int"
+        },
+        "has_heir" : {
+          "$ref" : "../core.json#/definitions/boolean"
+        },
+        "has_agendas" : {
+          "$ref" : "../core.json#/definitions/boolean"
+        },
+        "uses_mandates" : {
+          "$ref" : "../core.json#/definitions/boolean"
+        },
+        "has_factions" : {
+          "$ref" : "../core.json#/definitions/boolean"
+        },
+        "can_reform" : {
+          "$ref" : "../core.json#/definitions/boolean"
+        },
+        "localization_postfix" : {
+          "$ref" : "../core.json#/definitions/loc_reference"
+        },
+        "valid_for_released_vassal" : {
+          "$ref" : "../core.json#/definitions/boolean"
+        },
+        "playable" : {
+          "$ref" : "../core.json#/definitions/triggers"
+        },
+        "possible" : {
+          "$ref" : "../core.json#/definitions/triggers"
+        },
+        "potential" : {
+          "$ref" : "../core.json#/definitions/triggers"
+        },
+        "random_weight" : {
+          "$ref" : "../core.json#/definitions/weight_modifier"
+        },
+        "traits" : {
+          "type" : "object",
+          "properties" : {
+            "trait" : {
+              "$type" : "trait",
+              "multiple" : true
+            }
+          }
+        },
+        "country_modifier" : {
+          "$ref" : "../core.json#/definitions/modifier"
+        },
+        "tags" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "../core.json#/definitions/loc_reference"
+          }
+        }
+      }
+    },
+    "election_type" : {
+      "type" : "string",
+      "enum" : [ "democratic", "oligarchic" ]
+    }
+  },
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/authority"
+  }
+}
