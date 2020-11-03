@@ -1,0 +1,1131 @@
+#########################################
+#
+# Henrik's Test Events
+#
+#########################################
+
+namespace = henrik
+planet_event = {
+    id = henrik.31
+    hide_window = yes
+
+    trigger = { always = no }
+
+    immediate = {
+        set_planet_size = 20
+    }
+}
+
+planet_event = {
+    id = henrik.32
+    hide_window = yes
+
+    trigger = { always = no }
+
+    immediate = {
+       add_planet_devastation = 1
+    }
+}
+
+planet_event = {
+    id = henrik.33
+    hide_window = yes
+
+    trigger = { always = no }
+
+    immediate = {
+       add_planet_devastation = -100
+    }
+}
+
+planet_event = {
+	id = henrik.1
+	hide_window = yes
+
+	trigger = { always = no }
+	
+	immediate = {
+		set_deposit = random
+	}
+}
+
+#event = {
+#	id = henrik.11
+#	hide_window = yes
+#
+#	trigger = { always = no }
+#	
+#	immediate = {
+#		random_country = {
+#			weights = {
+#				base = 1
+#				modifier = {
+#					is_ai = no
+#					add = 5
+#				}
+#			}
+#			add_resource = { influence = 5 }
+#		}
+#	}
+#}
+
+#########################################
+#
+# Miranda's Test Events
+#
+#########################################
+
+# Spawning the hatchling
+planet_event = {
+	id = henrik.25
+	hide_window = yes
+
+	trigger = { always = no }
+
+	immediate = {
+		save_event_target_as = hatchling_egg
+		set_planet_entity = {
+			entity = "infected_planet_01_stage_3_entity"
+		}
+
+		if = {
+			limit = {
+				exists = owner
+			}
+			owner = {
+				save_global_event_target_as = egg_owner
+			}
+		}
+		change_pc = pc_egg_cracked
+		destroy_colony = yes
+		clear_deposits = yes
+		add_deposit = d_society_4
+		add_deposit = d_society_4
+		add_deposit = d_society_4
+		add_deposit = d_society_4
+		add_deposit = d_society_4
+
+		remove_modifier = seismological_phenomena_2
+		solar_system = {
+			random_system_planet = {
+				limit = { is_star = no }
+				save_event_target_as = new_location
+			}
+		}
+		create_country = {
+			name = "NAME_Voidspawn"
+			type = guardian_hatchling
+			flag = {
+				icon = {
+					category = "spherical"
+					file = "flag_spherical_6.dds"
+				}
+				background = {
+					category = "backgrounds"
+					file = "00_solid.dds"
+				}
+				# TODO FLAG
+				colors = {
+					"red"
+					"red"
+					"null"
+					"null"
+				}
+			}
+			effect = {
+				if = {
+					limit = {
+						NOT = {
+							has_modifier = hatchling_power
+						}
+					}
+					add_modifier = {
+						modifier = hatchling_power
+						days = -1
+					}
+				}
+				save_global_event_target_as = hatchling_country
+				set_country_flag = hatchling_country
+				if = {
+					limit = {
+						exists = event_target:egg_owner
+					}
+					event_target:egg_owner = {
+						establish_communications_no_message = event_target:hatchling_country
+					}
+				}
+				else_if = {
+					limit = {
+						root = {
+							solar_system = {
+								has_owner = yes
+							}
+						}
+					}
+					root.solar_system.owner = { 
+						establish_communications_no_message = event_target:hatchling_country 
+					}
+				}
+				create_fleet = {
+					name = "NAME_Voidspawn"
+					settings = {
+						spawn_debris = no
+						is_boss = yes
+					}
+					effect = {
+						set_owner = event_target:hatchling_country
+						create_ship = {
+							#name = "NAME_Voidspawn"
+							#design = "NAME_Voidspawn"
+							name = NAME_Nanite_Dragon
+							design = NAME_Nanite_Dragon
+							effect = {
+								set_ship_flag = hatchling_ship
+								save_global_event_target_as = hatchling
+								set_disabled = yes
+							}
+						}
+						save_global_event_target_as = hatchling_fleet
+						set_location = {
+							target = event_target:hatchling_egg
+							distance = 0
+							angle = 90
+							direction = in_system
+						}
+						set_fleet_stance = aggressive
+						set_aggro_range_measure_from = self #or return_point
+						set_aggro_range = 300
+						auto_move_to_planet = {
+							target = event_target:new_location
+							clear_auto_move_on_arrival = no	# distar.5008 sets a new auto move target
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				exists = event_target:egg_owner
+			}
+			event_target:egg_owner = { 
+				country_event = { id = distar.5007 } 
+			} # Triggers Notification
+		}
+		else_if = {
+			limit = {
+				solar_system = {
+					has_owner = yes
+				}
+			}
+			solar_system = { owner = { country_event = { id = distar.5007 } } } # Triggers Notification
+		}
+	}
+}
+
+planet_event = {
+	id = henrik.30
+	hide_window = yes
+
+	trigger = { always = no }
+
+	immediate = {
+		set_planet_size = 20
+		change_pc = pc_shattered
+		create_ambient_object = {
+			type = dreadnought_object
+			entity_face_object = root
+		}
+		last_created_ambient_object = {
+			set_location = {
+				target = root
+				distance = -1
+				#angle = 90
+				#direction = in_system
+			}
+		}
+	}
+}
+
+country_event = {
+	id = henrik.40
+	hide_window = yes
+
+	trigger = { always = no }
+
+	immediate = {
+		capital_scope = {
+			create_fleet = {
+				name = "NAME_Raiding_Fleet"
+				effect = {
+					set_owner = root
+					while = {
+						count = 24
+						create_ship = {
+							name = random
+							design = "NAME_Outrider"
+							prefix = no
+							graphical_culture = "pirate_01"
+						}
+					}
+					while = {
+						count = 14
+						create_ship = {
+							name = random
+							design = "NAME_Lancer"
+							prefix = no
+							graphical_culture = "pirate_01"
+						}
+					}
+					while = {
+						count = 4
+						create_ship = {
+							name = random
+							design = "NAME_Void_Champion"
+							prefix = no
+							graphical_culture = "pirate_01"
+						}
+					}
+					set_location = prev
+				}
+			}
+		}
+	}
+}
+
+# on_crossing_border test
+#fleet_event = {
+#	id = henrik.45
+#	hide_window = yes
+#	is_triggered_only = yes
+#
+#	trigger = { owner = { is_ai = no } }
+#
+#	immediate = {
+#		if = {
+#			limit = {
+#				from = { exists = space_owner }
+#				fromfrom = { NOT = { exists = space_owner } }
+#			}
+#			set_name = "Exited Borders"
+#		}
+#		else_if = {
+#			limit = {
+#				from = { NOT = { exists = space_owner } }
+#				fromfrom = { exists = space_owner }
+#			}
+#			set_name = "Entered Borders"
+#		}
+#		else_if = {
+#			limit = {
+#				from = { exists = space_owner }
+#				fromfrom = { exists = space_owner }
+#			}
+#			set_name = "Crossed Borders"
+#		}
+#		else = {
+#			set_name = "Error'd!"
+#		}
+#	}
+#}
+
+country_event = {
+	id = henrik.50
+	hide_window = yes
+
+	trigger = { always = no }
+
+	immediate = {
+		capital_scope = {
+			create_fleet = {
+				name = this
+				effect = {
+					set_owner = root
+					while = {
+						count = 24
+						create_ship = {
+							name = root
+							design = "NAME_Outrider"
+							prefix = no
+							graphical_culture = "pirate_01"
+						}
+					}
+					while = {
+						count = 14
+						create_ship = {
+							name = root
+							design = "NAME_Lancer"
+							prefix = no
+							graphical_culture = "pirate_01"
+						}
+					}
+					while = {
+						count = 4
+						create_ship = {
+							name = root
+							design = "NAME_Void_Champion"
+							prefix = no
+							graphical_culture = "pirate_01"
+						}
+					}
+					set_location = prev
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = henrik.54
+	title = PROJECT_COMPLETE
+	desc = {
+		trigger = {
+			hidden:owner = {
+				switch = {
+					trigger = has_country_flag
+					flag1 = { text = "flag1" }
+					flag2 = {
+						if = {
+							limit = { has_country_flag = flag3 }
+							text = "flag 2 and 3"
+						}
+						else = { text = "else only 2" }
+					}
+					default = { text = noflag }
+				}
+			}
+		}
+	}
+	picture = GFX_evt_star_yellow
+	show_sound = event_solar_fusion
+
+	trigger = { always = no }
+
+	option = {
+		name = "add_remove_flag1"
+		if = {
+			limit = { NOT = { has_country_flag = flag1 } }
+			set_country_flag = flag1
+		}
+		else = {
+			remove_country_flag = flag1
+		}
+	}
+
+	option = {
+		name = "add_remove_flag2"
+		if = {
+			limit = { NOT = { has_country_flag = flag2 } }
+			set_country_flag = flag2
+		}
+		else = {
+			remove_country_flag = flag2
+		}
+	}
+
+	option = {
+		name = "add_remove_flag3"
+		if = {
+			limit = { NOT = { has_country_flag = flag3 } }
+			set_country_flag = flag3
+		}
+		else = {
+			remove_country_flag = flag3
+		}
+	}
+}
+
+country_event = {
+	id = henrik.55
+	title = PROJECT_COMPLETE
+	desc = PROJECT_COMPLETE
+	picture = GFX_evt_star_yellow
+	show_sound = event_solar_fusion
+
+	trigger = { always = no }
+
+	option = {
+		name = nomad.511.d
+		allow = {
+			count_owned_pops = {
+				limit = { always = yes }
+				count < 3
+				count > 3
+			}
+		}
+	}
+
+	option = {
+		name = LESS_THAN
+		allow = {
+			count_owned_pops = {
+				limit = { always = yes }
+				count < 3
+			}
+		}
+	}
+
+	option = {
+		name = VALUE_GREATER_THAN
+		allow = {
+			count_owned_pops = {
+				limit = { always = yes }
+				count > 3
+			}
+		}
+	}
+}
+
+#country_event = {
+#	id = henrik.100
+#	hide_window = yes
+#
+#	trigger = {
+#		is_country_type = default
+#		NOT = { has_country_flag = observe_test }
+#	}
+#		
+#	mean_time_to_happen = {
+#		months = 1
+#	}
+#
+#	immediate = {
+#		set_country_flag = observe_test
+#		observer_event = { id = henrik.101 }
+#	}
+#}
+#
+#observer_event = {
+#	id = henrik.101
+#	title = "TEST"
+#	desc = "THIS IS AN OBSERVER EVENT"
+#
+#	is_triggered_only = yes
+#
+#	option = {
+#		name = OK
+#	}
+#}
+
+country_event = {
+	id = henrik.102
+	hide_window = yes
+
+	trigger = { always = no }
+
+	immediate = {
+		add_modifier = {
+			modifier = strategic_coordination_center_modifier
+			days = -1
+		}
+	}
+}
+
+country_event = {
+	id = henrik.103
+	hide_window = yes
+
+	trigger = { always = no }
+
+	immediate = {
+		random_list = {
+			1 = { give_technology = { tech = tech_akx_worm_1 } }
+			1 = { give_technology = { tech = tech_akx_worm_2 } }
+		}
+	}
+}
+
+country_event = {
+	id = henrik.104
+	hide_window = yes
+
+	trigger = { always = no }
+
+	immediate = {
+		set_global_flag = galactic_market_founded
+		country_event = { id = henrik.106 days = 2 }
+	}
+}
+
+country_event = {
+	id = henrik.106
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = has_market_access
+		enable_galactic_market = yes
+		enable_on_market = energy
+		enable_on_market = minerals
+		enable_on_market = food
+		enable_on_market = consumer_goods
+		enable_on_market = alloys
+		add_modifier = {
+			modifier = galactic_market_founder
+			days = -1
+		}
+		set_market_leader = yes # Update who owns the market station
+
+		capital_scope.star = {
+			create_ambient_object = {
+				type = galactic_market_station
+				location = this
+			}
+			last_created_ambient_object = {
+				save_global_event_target_as = galactic_market_station
+				set_ambient_object_flag = galactic_market_station_flag
+				set_location = {
+					target = root.capital_scope.star
+					angle = random
+					distance = 40
+				}
+			}
+		}
+		every_playable_country = {
+			limit = {
+				has_communications = root
+				NOT = { is_same_value = root }
+				is_homicidal = no
+			}
+			country_event = { id = action.101 }
+		}
+	}
+}
+
+country_event = {
+	id = henrik.105
+	hide_window = yes
+
+	trigger = { always = no }
+
+	immediate = {
+		set_country_flag = has_market_access
+		enable_galactic_market = yes
+	}
+}
+
+country_event = {
+	id = henrik.107
+	hide_window = yes
+
+	trigger = { always = no }
+
+	immediate = {
+		capital_scope = {
+			save_global_event_target_as = market_founder_planet
+		}
+	}
+}
+
+country_event = {
+	id = henrik.108
+	hide_window = yes
+	trigger = { always = no }
+
+	immediate = {
+		random_playable_country = {
+			limit = {
+				NOT = { is_same_value = root }
+			}
+			every_owned_pop = {
+				pop_event = { id = refugees.4 }
+			}
+		}
+	}
+}
+
+country_event = {
+	id = henrik.109
+	hide_window = yes
+	trigger = { always = no }
+
+	immediate = {
+		every_owned_pop = {
+			pop_event = { id = refugees.4 }
+		}
+	}
+}
+
+planet_event = {
+	id = henrik.110
+	hide_window = yes
+
+	trigger = {
+		always = no
+	}
+
+	immediate = {
+		random_country = {
+			limit = { is_country_type = ai_empire }
+			root = { set_controller = prev }
+		}
+		#set_planet_flag = event_purge
+		#every_owned_pop = {
+		#	set_pop_flag = event_purge
+		#	unemploy_pop = yes
+		#}
+		#check_planet_employment = yes
+		#every_owned_pop = {
+		#	unemploy_pop = yes
+		#	clear_pop_category = yes
+		#	set_purge_type = {
+		#		type = purge_matrix
+		#		cooldown = yes
+		#	}
+		#}
+	}
+}
+
+planet_event = {
+	id = henrik.111
+	hide_window = yes
+
+	trigger = { always = no }
+
+	immediate = {
+		add_modifier = {
+			modifier = chthonian_planet
+			days = -1
+		}
+	}
+}
+
+planet_event = {
+	id = henrik.112
+	hide_window = yes
+
+	trigger = {
+		always = no
+	}
+
+	immediate = {
+		random_playable_country = {
+			limit = { is_ai = no }
+			root = { set_controller = prev }
+		}
+		#set_planet_flag = event_purge
+		#every_owned_pop = {
+		#	remove_pop_flag = event_purge
+		#	unemploy_pop = yes
+		#}
+		#check_planet_employment = yes
+		#every_owned_pop = {
+		#	unemploy_pop = yes
+		#	clear_pop_category = yes
+		#	set_purge_type = {
+		#		type = purge_matrix
+		#		cooldown = yes
+		#	}
+		#}
+	}
+}
+
+planet_event = {
+	id = henrik.113
+	hide_window = yes
+
+	trigger = {
+		always = no
+	}
+
+	immediate = {
+		every_owned_pop = {
+			unemploy_pop = yes
+			clear_pop_category = yes
+		}
+	}
+}
+
+# Add Archaeology Site
+planet_event = {
+	id = henrik.120
+	hide_window = yes
+
+	trigger = {
+		always = no
+	}
+
+	immediate = {
+		create_archaeological_site = site_hunting_ground
+	}
+}
+
+# System Effects
+planet_event = {
+	id = henrik.150
+	hide_window = yes
+
+	trigger = {
+		always = no
+	}
+
+	immediate = {
+		star = {
+			create_ambient_object = {
+				type = "space_storm_1"
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 0
+					angle = random
+				}
+			}
+		}
+	}
+}
+
+namespace = daniel
+# Add Archaeology Site
+planet_event = {
+	id = daniel.1
+	hide_window = yes
+
+	trigger = {
+		always = no
+	}
+
+	immediate = {
+		create_archaeological_site = site_hidden_lab_a
+	}
+}
+
+ship_event = {
+	id = henrik.1337
+	hide_window = yes
+
+	trigger = {
+		always = no
+	}
+
+	immediate = {
+		leader = {
+			add_timed_trait = { trait = leader_trait_stubborn years = 1 }
+		}
+	}
+}
+
+namespace = gwenael
+country_event = {
+	id = gwenael.3
+	hide_window = yes
+	trigger = {
+		always = no
+	}
+
+	immediate = {
+		if = {
+			limit = { galaxy_size = medium }
+			add_resource = { minerals = 1000 }
+		}
+	}
+}
+
+# Some federation events
+namespace = ilya
+
+country_event = {
+	id = ilya.1
+	hide_window = yes
+	trigger = { always = no }
+	
+	immediate = {
+		federation = {
+			set_federation_law = fleet_contribution_high
+			set_federation_law = succession_type_rotation
+			set_federation_law = succession_term_years_10
+			set_federation_law = federation_build_fleets_only_leader
+		}
+	}
+}
+
+# Add country to galactic_community
+namespace = zack
+country_event = {
+	id = zack.1
+	hide_window = yes
+
+	trigger = { always = no }
+
+	immediate = {
+		add_to_galactic_community = yes
+	}
+}
+
+country_event = {
+	id = zack.2
+	hide_window = yes
+	
+	trigger = { always = no }
+
+	immediate = {
+		add_modifier = {
+			modifier = empire_size_mods
+			days = -1
+		}
+	}
+}
+
+country_event = {
+	id = zack.3
+	hide_window = yes
+	
+	trigger = { always = no }
+
+	immediate = {
+		every_country = {
+			add_to_galactic_community = yes
+		}
+	}
+}
+
+country_event = {
+	id = zack.4
+	hide_window = yes
+
+	trigger = { always = no }
+	
+	immediate = {
+		every_playable_country = {
+			if = {
+				limit = { root = { has_established_contact = prev } }
+				root = {
+					add_favors = {
+						target = prev
+						value = 8 
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = zack.5
+	hide_window = yes
+
+	trigger = { always = no }
+	
+	immediate = {
+		set_council_size = 3
+	}
+}
+
+country_event = {
+	id = zack.6
+	hide_window = yes
+
+	trigger = { always = no }
+	
+	immediate = {
+		increase_council_size = yes
+	}
+}
+
+country_event = {
+	id = zack.7
+	hide_window = yes
+
+	trigger = { always = no }
+	
+	immediate = {
+		decrease_council_size = yes
+	}
+}
+
+country_event = {
+	id = zack.8
+	hide_window = yes
+
+	trigger = { always = no }
+	
+	immediate = {
+		pass_resolution = "resolution_greatergood_five_year_plans"
+	}
+}
+
+country_event = {
+	id = zack.9
+	hide_window = yes
+
+	trigger = { always = no }
+	
+	immediate = {
+		set_council_size = 0
+	}
+}
+
+#########################################
+#
+# Gemma's Test Events
+#
+#########################################
+
+namespace = gemma
+
+# country_event = {
+# 	id = gemma.1
+# 	title = "federations3.2001.name"
+# 	desc = {
+# 		text = "gemma.test.1"
+# 		trigger = {
+# 			check_variable = {
+# 				which = gemma_var1
+# 				value < gemma_var2
+# 			}
+# 		}
+# 	}
+# 	desc = {
+# 		text = "gemma.test.2"
+# 		trigger = {
+# 			check_variable = {
+# 				which = gemma_var1
+# 				value > gemma_var2
+# 			}
+# 		}
+# 	}
+# 	picture = GFX_evt_resource_cache
+# 	show_sound = event_dig_site
+# 	is_triggered_only = yes
+
+# 	trigger = { always = no }
+	
+# 	immediate = {
+# 		set_variable = {
+# 			which = gemma_var1
+# 			value = 1
+# 		}
+# 		set_variable = {
+# 			which = gemma_var2
+# 			value = 2
+# 		}
+# 	}
+
+# 	option = {
+# 		name = OK
+# 		change_variable = {
+# 			which = gemma_var1
+# 			value = 2
+# 		}
+# 		country_event = { id = gemma.2 days = 1 }
+# 	}
+# 	option = {
+# 		name = NOTIME
+# 		country_event = { id = gemma.2 days = 1 }
+# 	}
+# }
+
+# country_event = {
+# 	id = gemma.2
+# 	title = "federations3.2001.name"
+# 	desc = {
+# 		text = "gemma.test.1"
+# 		trigger = {
+# 			check_variable = {
+# 				which = gemma_var1
+# 				value < gemma_var2
+# 			}
+# 		}
+# 	}
+# 	desc = {
+# 		text = "gemma.test.2"
+# 		trigger = {
+# 			check_variable = {
+# 				which = gemma_var1
+# 				value > gemma_var2
+# 			}
+# 		}
+# 	}
+# 	picture = GFX_evt_resource_cache
+# 	show_sound = event_dig_site
+# 	is_triggered_only = yes
+
+# 	option = {
+# 		name = OK
+# 	}
+# }
+
+# country_event = {
+# 	id = gemma.3
+# 	hide_window = yes
+# 	is_triggered_only = yes
+
+# 	trigger = { always = no }
+
+# 	immediate = {
+# 		federation = {
+# 			every_member = {
+# 				random_system_within_border = {
+# 					random_system_planet = {
+# 						limit = {
+# 							NOR = {
+# 								is_star = yes
+# 								is_capital = yes
+# 								exists = archaeological_site
+# 								is_planet_class = pc_ringworld_habitable
+# 								is_planet_class = pc_cybrex
+# 								is_planet_class = pc_habitat
+# 							}
+# 						}
+# 						save_event_target_as = gemmatest_world
+# 					}
+# 				}
+# 				country_event = { id = gemma.5 days = 0 } #Initial test, to set/check the current empire's event target
+# 				country_event = { id = gemma.6 days = 20 } #Delayed test, to ensure that the other members' event targets are different and valid
+# 			}
+# 		}
+# 	}
+# }
+
+# planet_event = {
+# 	id = gemma.4
+# 	hide_window = yes
+# 	is_triggered_only = yes
+
+# 	trigger = { always = no }
+
+# 	immediate = {
+# 		random_system_within_border = {
+# 			random_system_planet = {
+# 				limit = {
+# 					NOR = {
+# 						is_star = yes
+# 						is_capital = yes
+#						is_asteroid = yes
+# 						exists = archaeological_site
+# 						is_planet_class = pc_ringworld_habitable
+# 						is_planet_class = pc_cybrex
+# 						is_planet_class = pc_habitat
+# 					}
+# 				}
+# 				save_event_target_as = gemmatest_world
+# 			}
+# 		}
+# 		country_event = { id = gemma.5 days = 0 }
+# 	}
+# }
+
+# country_event = {
+# 	id = gemma.5
+# 	title = "gemma.5.name" #"TEST"
+# 	desc = "gemma.5.desc" #"[gemmatest_world.GetName] is the planet you are assigned."
+# 	is_triggered_only = yes
+# 	location = event_target:gemmatest_world
+
+# 	option = {
+# 		name = OK
+# 	}
+# }
+
+# country_event = {
+# 	id = gemma.6
+# 	title = "gemma.5.name" #"TEST"
+# 	desc = "gemma.5.desc" #"[gemmatest_world.GetName] is the planet you are assigned."
+# 	is_triggered_only = yes
+# 	location = event_target:gemmatest_world
+
+# 	option = {
+# 		name = OK
+# 	}
+# }

@@ -61,6 +61,7 @@ class StellarisScriptAnnotator : Annotator ,DumbAware{
 		override fun hashCode() = name.hashCode()
 	}
 
+	@Suppress("ComponentNotRegistered")
 	class NavigateAction(
 		private val title:String,
 		private vararg val elements: NavigatablePsiElement

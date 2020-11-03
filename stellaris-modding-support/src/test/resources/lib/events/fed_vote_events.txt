@@ -1,0 +1,37 @@
+namespace = fedvote
+
+#On succeed vote
+country_event = {
+	id = fedvote.1
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		federation = {
+			
+		}
+	}
+}
+
+#On failed vote
+country_event = {
+	id = fedvote.2
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		federation = {
+			if {
+				limit = {
+					has_federation_setting = failed_vote_half_price
+				}
+				add_cohesion = -5
+			}
+			else = {
+				add_cohesion = -10
+			}
+		}
+	}
+}

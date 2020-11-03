@@ -1,0 +1,21 @@
+spriteTypes = {
+	corneredTileSpriteType = {
+		name = "GFX_market_trade_resource_box"
+		texturefile = "gfx/interface/market/market_trade_resource_box.dds"
+	}
+
+	spriteType = {
+ 		name = "GFX_striped"
+ 		texturefile = "gfx/interface/main/striped_bg.png"
+ 	}
+
+ 	spriteType = {
+ 		name = "GFX_line_horizontal"
+ 		textureFile = "gfx/interface/market/line_235.dds"
+ 	}
+
+ 	spriteType = {
+		name = "GFX_market_info_box"
+		texturefile = "gfx/interface/market/market_box.dds"
+	}
+}

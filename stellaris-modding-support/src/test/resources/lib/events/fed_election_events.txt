@@ -1,0 +1,2733 @@
+################################
+#
+# Federation Succession Events
+#
+# Written by Henrik Thyrwall
+#
+###############################
+
+namespace = fedel
+
+### Arena Combat
+
+# Arena Combat (HIDDEN)
+country_event = {
+	id = fedel.1
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		federation = { 
+			has_federation_law = challenge_type_arena_combat
+			NOT = { has_federation_flag = arena_combat_underway }
+		}
+	}
+
+	immediate = {
+		save_event_target_as = fed_leader
+		federation = {
+			set_federation_flag = arena_combat_underway
+			save_event_target_as = federation
+			every_member = {
+				country_event = { id = fedel.2 }
+			}
+		}
+		country_event = { id = fedel.5 days = 30 }
+	}
+}
+
+# Arena Combat
+country_event = {
+	id = fedel.2
+	title = fedel.2.name
+	desc = {
+		trigger = {
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+			exists = leader
+		}
+		text = "fedel.2.desc"
+	}
+	desc = {
+		trigger = {
+			NOR = { 
+				has_ethic = ethic_gestalt_consciousness
+				exists = leader
+			}
+		}
+		text = "fedel.2.noleader.desc"
+	}
+	desc = {
+		trigger = {
+			has_ethic = ethic_gestalt_consciousness
+		}
+		text = "fedel.2.gestalt.desc"
+	}
+	picture = GFX_evt_arena
+	show_sound = event_cityscape
+
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					has_ethic = ethic_gestalt_consciousness
+					NOT = { exists = leader }
+				}
+			}
+			set_country_flag = arena_combat_not_participating
+		}
+	}
+
+	option = {
+		name = fedel.2.a
+		trigger = {
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+		}
+		custom_tooltip = arena_combat_begin
+	}
+	option = {
+		name = fedel.2.b
+		trigger = {
+			has_ethic = ethic_gestalt_consciousness
+		}
+		custom_tooltip = arena_combat_begin
+	}
+}
+
+# Determine Winner
+country_event = {
+	id = fedel.5
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		federation = {
+			every_member = {
+				limit = {
+					exists = leader
+					NOT = { has_ethic = ethic_gestalt_consciousness }
+				}
+				leader = {
+					set_variable = { which = leader_ability value = 0 }
+
+					### LEADER TRAITS ###
+
+					### Generic Traits
+					if = { 
+						limit = { has_trait = leader_trait_adaptable }
+						change_variable = { which = leader_ability value = 3 }
+					}
+					if = { 
+						limit = { has_trait = leader_trait_stubborn }
+						change_variable = { which = leader_ability value = 1 }
+					}
+					if = { 
+						limit = { has_trait = leader_trait_resilient }
+						change_variable = { which = leader_ability value = 5 }
+					}
+					if = { 
+						limit = { has_trait = leader_trait_substance_abuser }
+						subtract_variable = { which = leader_ability value = 5 }
+					}
+					if = { 
+						limit = { has_trait = leader_trait_eager }
+						change_variable = { which = leader_ability value = 1 }
+					}
+
+
+					### General Traits
+					if = { 
+						limit = { has_trait = leader_trait_restrained }
+						change_variable = { which = leader_ability value = 3 }
+					}
+					if = { 
+						limit = { has_trait = leader_trait_charismatic }
+						change_variable = { which = leader_ability value = 3 }
+					}
+					if = { 
+						limit = { has_trait = leader_trait_butcher }
+						change_variable = { which = leader_ability value = 10 }
+					}
+					if = { 
+						limit = { has_trait = leader_trait_glory_seeker }
+						change_variable = { which = leader_ability value = 8 }
+					}
+					if = { 
+						limit = { has_trait = leader_trait_armchair_commander }
+						change_variable = { which = leader_ability value = 3 }
+					}
+					if = { 
+						limit = { has_trait = leader_trait_army_logistician }
+						change_variable = { which = leader_ability value = 3 }
+					}
+
+
+					### Admiral
+					if = { 
+						limit = { has_trait = leader_trait_trickster }
+						change_variable = { which = leader_ability value = 3 }
+					}
+					if = { 
+						limit = { has_trait = leader_trait_aggressive }
+						change_variable = { which = leader_ability value = 2 }
+					}
+					if = { 
+						limit = { has_trait = leader_trait_lethargic }
+						subtract_variable = { which = leader_ability value = 3 }
+					}
+
+
+					### Governor
+					if = { 
+						limit = { has_trait = leader_trait_army_veteran }
+						change_variable = { which = leader_ability value = 3 }
+					}
+					if = { 
+						limit = { has_trait = leader_trait_retired_fleet_officer }
+						change_variable = { which = leader_ability value = 2 }
+					}
+					if = { 
+						limit = { has_trait = leader_trait_intellectual }
+						subtract_variable = { which = leader_ability value = 10 }
+					}
+					if = { 
+						limit = { has_trait = leader_trait_bureaucrat }
+						subtract_variable = { which = leader_ability value = 10 }
+					}
+
+
+					### Mercenary Warrior
+					if = { 
+						limit = { has_trait = leader_trait_mercenary_warrior }
+						change_variable = { which = leader_ability value = 10 }
+					}
+					if = { 
+						limit = { has_trait = leader_trait_general_mercenary_warrior }
+						change_variable = { which = leader_ability value = 15 }
+					}
+
+
+
+					### Psionic
+					if = { 
+						limit = { has_ruler_trait = leader_trait_ruler_psionic }
+						change_variable = { which = leader_ability value = 25 }
+					}
+
+
+					### Cyborg
+					if = { 
+						limit = { has_ruler_trait = leader_trait_ruler_cyborg }
+						change_variable = { which = leader_ability value = 15 }
+					}
+
+
+					### Synthetic
+					if = { 
+						limit = { has_ruler_trait = leader_trait_ruler_synthetic }
+						change_variable = { which = leader_ability value = 20 }
+					}
+
+
+					### Chosen
+					if = { 
+						limit = { has_ruler_trait = leader_trait_ruler_chosen }
+						change_variable = { which = leader_ability value = 500 }
+					}
+
+
+					### SPECIES TRAITS ###
+					if = { 
+						limit = { 
+							species = { has_trait = trait_lithoid }
+						}
+						change_variable = { which = leader_ability value = 5 }
+					}
+					if = { 
+						limit = { 
+							species = { has_trait = trait_talented }
+						}
+						change_variable = { which = leader_ability value = 2 }
+					}
+					if = { 
+						limit = { 
+							species = { has_trait = trait_quick_learners }
+						}
+						change_variable = { which = leader_ability value = 2 }
+					}
+					if = { 
+						limit = { 
+							species = { has_trait = trait_slow_learners }
+						}
+						subtract_variable = { which = leader_ability value = 2 }
+					}
+					if = { 
+						limit = { 
+							species = { has_trait = trait_very_strong }
+						}
+						change_variable = { which = leader_ability value = 15 }
+					}
+					if = { 
+						limit = { 
+							species = { has_trait = trait_strong }
+						}
+						change_variable = { which = leader_ability value = 10 }
+					}
+					if = { 
+						limit = { 
+							species = { has_trait = trait_weak }
+						}
+						subtract_variable = { which = leader_ability value = 10 }
+					}
+					if = { 
+						limit = { 
+							species = { has_trait = trait_resilient }
+						}
+						change_variable = { which = leader_ability value = 6 }
+					}
+					if = { 
+						limit = { 
+							species = { has_trait = trait_robust }
+						}
+						change_variable = { which = leader_ability value = 6 }
+					}
+					if = { 
+						limit = { 
+							species = { has_trait = trait_survivor }
+						}
+						change_variable = { which = leader_ability value = 3 }
+					}
+
+
+					### OTHER ###
+
+
+					### Warrior Culture
+					if = { 
+						limit = { 
+							prev = { has_civic = civic_warrior_culture }
+						}
+						change_variable = { which = leader_ability value = 20 }
+					}
+
+
+					### Citizen Service
+					if = { 
+						limit = { 
+							prev = { has_civic = civic_citizen_service }
+						}
+						change_variable = { which = leader_ability value = 6 }
+					}
+
+
+					### Fanatic Militarist
+					if = { 
+						limit = { 
+							prev = { has_ethic = ethic_fanatic_militarist }
+						}
+						change_variable = { which = leader_ability value = 10 }
+					}
+
+
+					### Militarist
+					if = { 
+						limit = { 
+							prev = { has_ethic = ethic_militarist }
+						}
+						change_variable = { which = leader_ability value = 5 }
+					}
+
+
+					### Fanatic Pacifist
+					if = { 
+						limit = { 
+							prev = { has_ethic = ethic_fanatic_pacifist }
+						}
+						subtract_variable = { which = leader_ability value = 10 }
+					}
+
+
+					### Pacifist
+					if = { 
+						limit = { 
+							prev = { has_ethic = ethic_pacifist }
+						}
+						subtract_variable = { which = leader_ability value = 5 }
+					}
+				}
+			}
+
+			random_member = {
+				limit = {
+					exists = leader
+					NOT = { has_ethic = ethic_gestalt_consciousness }
+				}
+				weights = {
+					base = 40
+					modifier = {
+						add = 500
+						leader = {
+							check_variable = {
+								which = leader_ability
+								value >= 500
+							}
+						}
+					}
+					modifier = {
+						add = 60
+						leader = {
+							check_variable = {
+								which = leader_ability
+								value >= 60
+							}
+							check_variable = {
+								which = leader_ability
+								value < 500
+							}
+						}
+					}
+					modifier = {
+						add = 40
+						leader = {
+							check_variable = {
+								which = leader_ability
+								value >= 40
+							}
+							check_variable = {
+								which = leader_ability
+								value < 60
+							}
+						}
+					}
+					modifier = {
+						add = 25
+						leader = {
+							check_variable = {
+								which = leader_ability
+								value >= 25
+							}
+							check_variable = {
+								which = leader_ability
+								value < 40
+							}
+						}
+					}
+					modifier = {
+						add = 20
+						leader = {
+							check_variable = {
+								which = leader_ability
+								value >= 20
+							}
+							check_variable = {
+								which = leader_ability
+								value < 25
+							}
+						}
+					}
+					modifier = {
+						add = 15
+						leader = {
+							check_variable = {
+								which = leader_ability
+								value >= 15
+							}
+							check_variable = {
+								which = leader_ability
+								value < 20
+							}
+						}
+					}
+					modifier = {
+						add = 10
+						leader = {
+							check_variable = {
+								which = leader_ability
+								value >= 10
+							}
+							check_variable = {
+								which = leader_ability
+								value < 15
+							}
+						}
+					}
+					modifier = {
+						add = 8
+						leader = {
+							check_variable = {
+								which = leader_ability
+								value = 8
+							}
+						}
+					}
+					modifier = {
+						add = 7
+						leader = {
+							check_variable = {
+								which = leader_ability
+								value = 7
+							}
+						}
+					}
+					modifier = {
+						add = 6
+						leader = {
+							check_variable = {
+								which = leader_ability
+								value = 6
+							}
+						}
+					}
+					modifier = {
+						add = 5
+						leader = {
+							check_variable = {
+								which = leader_ability
+								value = 5
+							}
+						}
+					}
+					modifier = {
+						add = 4
+						leader = {
+							check_variable = {
+								which = leader_ability
+								value = 4
+							}
+						}
+					}
+					modifier = {
+						add = 3
+						leader = {
+							check_variable = {
+								which = leader_ability
+								value = 3
+							}
+						}
+					}
+					modifier = {
+						add = 2
+						leader = {
+							check_variable = {
+								which = leader_ability
+								value = 2
+							}
+						}
+					}
+					modifier = {
+						add = 1
+						leader = {
+							check_variable = {
+								which = leader_ability
+								value = 1
+							}
+						}
+					}
+					modifier = {
+						add = -1
+						leader = {
+							check_variable = {
+								which = leader_ability
+								value = -1
+							}
+						}
+					}
+					modifier = {
+						add = -2
+						leader = {
+							check_variable = {
+								which = leader_ability
+								value = -2
+							}
+						}
+					}
+					modifier = {
+						add = -3
+						leader = {
+							check_variable = {
+								which = leader_ability
+								value = -3
+							}
+						}
+					}
+					modifier = {
+						add = -4
+						leader = {
+							check_variable = {
+								which = leader_ability
+								value = -4
+							}
+						}
+					}
+					modifier = {
+						add = -5
+						leader = {
+							check_variable = {
+								which = leader_ability
+								value = -5
+							}
+						}
+					}
+					modifier = {
+						add = -6
+						leader = {
+							check_variable = {
+								which = leader_ability
+								value = -6
+							}
+						}
+					}
+					modifier = {
+						add = -7
+						leader = {
+							check_variable = {
+								which = leader_ability
+								value = -7
+							}
+						}
+					}
+					modifier = {
+						add = -8
+						leader = {
+							check_variable = {
+								which = leader_ability
+								value = -8
+							}
+						}
+					}
+					modifier = {
+						add = -10
+						leader = {
+							check_variable = {
+								which = leader_ability
+								value <= -10
+							}
+							check_variable = {
+								which = leader_ability
+								value > -14
+							}
+						}
+					}
+					modifier = {
+						add = -14
+						leader = {
+							check_variable = {
+								which = leader_ability
+								value <= -14
+							}
+							check_variable = {
+								which = leader_ability
+								value > -18
+							}
+						}
+					}
+					modifier = {
+						add = -18
+						leader = {
+							check_variable = {
+								which = leader_ability
+								value <= -18
+							}
+						}
+					}
+				}
+				leader = { save_event_target_as = winning_leader }
+				save_event_target_as = winning_country
+				# Winning Event
+				country_event = { id = fedel.10 }
+				federation = {
+					every_member = {
+						limit = {
+							NOR = { 
+								is_same_value = prevprev
+								has_country_flag = arena_combat_not_participating
+							}
+						}
+						# Losing Event
+						country_event = { id = fedel.15 }
+					}
+					every_member = {
+						limit = { has_country_flag = arena_combat_not_participating }
+						country_event = { id = fedel.16 }
+					}
+				}
+			}
+		}
+	}
+}
+
+# Winner
+country_event = {
+	id = fedel.10
+	title = fedel.10.name
+	desc = {
+		trigger = {
+			leader = {
+				NOR = {
+					has_ruler_trait = leader_trait_ruler_psionic
+					has_ruler_trait = leader_trait_ruler_synthetic
+					has_ruler_trait = leader_trait_ruler_chosen
+					has_ruler_trait = leader_trait_ruler_cyborg
+				}
+				check_variable = {
+					which = leader_ability
+					value < 1
+				}
+			}
+		}
+		text = "fedel.10.1.desc"
+	}
+	desc = {
+		trigger = {
+			leader = {
+				NOR = {
+					has_ruler_trait = leader_trait_ruler_psionic
+					has_ruler_trait = leader_trait_ruler_synthetic
+					has_ruler_trait = leader_trait_ruler_chosen
+					has_ruler_trait = leader_trait_ruler_cyborg
+				}
+				check_variable = {
+					which = leader_ability
+					value < 1
+				}
+			}
+		}
+		text = "fedel.10.2.desc"
+	}
+	desc = {
+		trigger = {
+			leader = {
+				NOR = {
+					has_ruler_trait = leader_trait_ruler_psionic
+					has_ruler_trait = leader_trait_ruler_synthetic
+					has_ruler_trait = leader_trait_ruler_chosen
+					has_ruler_trait = leader_trait_ruler_cyborg
+				}
+				check_variable = {
+					which = leader_ability
+					value > 0
+				}
+				check_variable = {
+					which = leader_ability
+					value < 20
+				}
+			}
+		}
+		text = "fedel.10.3.desc"
+	}
+	desc = {
+		trigger = {
+			leader = {
+				NOR = {
+					has_ruler_trait = leader_trait_ruler_psionic
+					has_ruler_trait = leader_trait_ruler_synthetic
+					has_ruler_trait = leader_trait_ruler_chosen
+					has_ruler_trait = leader_trait_ruler_cyborg
+				}
+				check_variable = {
+					which = leader_ability
+					value > 19
+				}
+			}
+		}
+		text = "fedel.10.5.desc"
+	}
+	desc = {
+		trigger = {
+			leader = { has_ruler_trait = leader_trait_ruler_chosen }
+			NOT = {
+				federation = {
+					any_member = {
+						NOT = { is_same_value = root }
+						leader = { has_ruler_trait = leader_trait_ruler_chosen }
+					}
+				}
+			}
+		}
+		text = "fedel.10.6.desc"
+	}
+	desc = {
+		trigger = {
+			leader = { has_ruler_trait = leader_trait_ruler_chosen }
+			federation = {
+				any_member = {
+					NOT = { is_same_value = root }
+					leader = { 
+						has_ruler_trait = leader_trait_ruler_chosen
+						prev = {
+							federation = {
+								NOT = {
+									any_member = {
+										leader = { has_ruler_trait = leader_trait_ruler_chosen }
+										NOR = {
+											is_same_value = root
+											is_same_value = prevprev
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		text = "fedel.10.7.desc"
+	}
+	desc = {
+		trigger = {
+			leader = { has_ruler_trait = leader_trait_ruler_chosen }
+			federation = {
+				any_member = {
+					NOT = { is_same_value = root }
+					leader = { 
+						has_ruler_trait = leader_trait_ruler_chosen
+						prev = {
+							federation = {
+								any_member = {
+									leader = { has_ruler_trait = leader_trait_ruler_chosen }
+									NOR = {
+										is_same_value = root
+										is_same_value = prevprev
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		text = "fedel.10.8.desc"
+	}
+	desc = {
+		trigger = {
+			leader = { 
+				has_ruler_trait = leader_trait_ruler_psionic
+				NOT = { has_ruler_trait = leader_trait_ruler_chosen }
+			}
+		}
+		text = "fedel.10.9.desc"
+	}
+	desc = {
+		trigger = {
+			leader = { 
+				has_ruler_trait = leader_trait_ruler_cyborg
+				NOT = { has_ruler_trait = leader_trait_ruler_chosen }
+			}
+		}
+		text = "fedel.10.10.desc"
+	}
+	desc = {
+		trigger = {
+			leader = { 
+				has_ruler_trait = leader_trait_ruler_synthetic
+				NOT = { has_ruler_trait = leader_trait_ruler_chosen }
+			}
+		}
+		text = "fedel.10.11.desc"
+	}
+	picture = GFX_evt_gladiators
+	show_sound = event_trap_spikes
+
+	is_triggered_only = yes
+
+	immediate = {
+		leader = { save_event_target_as = ruler }
+
+		if = {
+			limit = {
+				federation = {
+					any_member = {
+						NOT = { is_same_value = root }
+						leader = { 
+							has_ruler_trait = leader_trait_ruler_chosen
+							prev = {
+								federation = {
+									NOT = {
+										any_member = {
+											leader = { has_ruler_trait = leader_trait_ruler_chosen }
+											NOR = {
+												is_same_value = root
+												is_same_value = prevprev
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			federation = {
+				random_member = {
+					limit = {
+						NOT = { is_same_value = root }
+						leader = { has_ruler_trait = leader_trait_ruler_chosen }
+					}
+					save_event_target_as = rival_chosen_country
+					leader = { save_event_target_as = rival_chosen_leader }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = fedel.10.a
+		custom_tooltip = tooltip_arena_won
+		hidden_effect = {
+			set_federation_leader = root
+			federation = { remove_federation_flag = arena_combat_underway }
+		}
+	}
+}
+
+# Loser
+country_event = {
+	id = fedel.15
+	title = fedel.15.name
+	desc = {
+		trigger = {
+			leader = {
+				NOR = {
+					has_ruler_trait = leader_trait_ruler_psionic
+					has_ruler_trait = leader_trait_ruler_synthetic
+					event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_chosen }
+				}
+				check_variable = {
+					which = leader_ability
+					value < 1
+				}
+			}
+		}
+		text = "fedel.15.1.desc"
+	}
+	desc = {
+		trigger = {
+			leader = {
+				NOR = {
+					has_ruler_trait = leader_trait_ruler_psionic
+					has_ruler_trait = leader_trait_ruler_synthetic
+					event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_chosen }
+				}
+				check_variable = {
+					which = leader_ability
+					value < 1
+				}
+			}
+		}
+		text = "fedel.15.2.desc"
+	}
+	desc = {
+		trigger = {
+			leader = {
+				NOR = {
+					has_ruler_trait = leader_trait_ruler_psionic
+					has_ruler_trait = leader_trait_ruler_synthetic
+					event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_chosen }
+				}
+				check_variable = {
+					which = leader_ability
+					value > 0
+				}
+				check_variable = {
+					which = leader_ability
+					value < 20
+				}
+			}
+		}
+		text = "fedel.15.3.desc"
+	}
+	desc = {
+		trigger = {
+			leader = {
+				NOR = {
+					has_ruler_trait = leader_trait_ruler_psionic
+					has_ruler_trait = leader_trait_ruler_synthetic
+					event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_chosen }
+				}
+				check_variable = {
+					which = leader_ability
+					value > 19
+				}
+			}
+		}
+		text = "fedel.15.4.desc"
+	}
+	desc = {
+		trigger = {
+			event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_chosen }
+		}
+		text = "fedel.15.5.desc"
+	}
+	desc = {
+		trigger = {
+			leader = {
+				NOT = { has_ruler_trait = leader_trait_ruler_chosen }
+			}
+			event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_chosen }
+			federation = {
+				any_member = {
+					leader = {
+						has_ruler_trait = leader_trait_ruler_chosen
+						NOT = { is_same_value = event_target:winning_leader }
+					}
+				}
+			}
+		}
+		text = "fedel.15.6.desc"
+	}
+	desc = {
+		trigger = {
+			leader = { has_ruler_trait = leader_trait_ruler_chosen }
+			event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_chosen }
+		}
+		text = "fedel.15.7.desc"
+	}
+	desc = {
+		trigger = {
+			leader = { has_ruler_trait = leader_trait_ruler_chosen }
+			event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_chosen }
+			federation = {
+				any_member = {
+					leader = {
+						has_ruler_trait = leader_trait_ruler_chosen
+						NOR = { 
+							is_same_value = event_target:winning_leader
+							is_same_value = event_target:ruler
+						}
+					}
+				}
+			}
+		}
+		text = "fedel.15.8.desc"
+	}
+	desc = {
+		trigger = {
+			leader = { has_ruler_trait = leader_trait_ruler_synthetic }
+			NOT = { 
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_chosen } 
+			}
+		}
+		text = "fedel.15.9.desc"
+	}
+	desc = {
+		trigger = {
+			leader = { has_ruler_trait = leader_trait_ruler_psionic }
+			NOT = { 
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_chosen } 
+			}
+		}
+		text = "fedel.15.10.desc"
+	}
+	picture = GFX_evt_gladiators
+	show_sound = event_trap_spikes
+
+	is_triggered_only = yes
+
+	immediate = {
+		leader = {
+			save_event_target_as = ruler
+			kill_leader = { show_notification = no }
+		}
+	}
+
+	option = {
+		name = fedel.15.a
+		custom_tooltip = tooltip_arena_lost
+		hidden_effect = {
+			country_event = { id = fedel.16 }
+		}
+	}
+}
+
+# Winner Announced
+country_event = {
+	id = fedel.16
+	title = fedel.16.name
+	diplomatic_title = BLANK_STRING
+	desc = {
+		trigger = {
+			NOR = {
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_chosen }
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_synthetic }
+			}
+			event_target:winning_leader = {
+				check_variable = {
+					which = leader_ability
+					value < 1
+				}
+			}
+		}
+		text = "fedel.16.1.desc"
+	}
+	desc = {
+		trigger = {
+			NOR = {
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_chosen }
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_synthetic }
+			}
+			event_target:winning_leader = {
+				check_variable = {
+					which = leader_ability
+					value < 1
+				}
+			}
+		}
+		text = "fedel.16.2.desc"
+	}
+	desc = {
+		trigger = {
+			NOR = {
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_chosen }
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_synthetic }
+			}
+			event_target:winning_leader = {
+				check_variable = {
+					which = leader_ability
+					value < 1
+				}
+			}
+		}
+		text = "fedel.16.3.desc"
+	}
+	desc = {
+		trigger = {
+			NOR = {
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_chosen }
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_synthetic }
+			}
+			event_target:winning_leader = {
+				check_variable = {
+					which = leader_ability
+					value < 1
+				}
+			}
+		}
+		text = "fedel.16.4.desc"
+	}
+	desc = {
+		trigger = {
+			NOR = {
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_chosen }
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_synthetic }
+			}
+			event_target:winning_leader = {
+				check_variable = {
+					which = leader_ability
+					value < 1
+				}
+			}
+		}
+		text = "fedel.16.5.desc"
+	}
+	desc = {
+		trigger = {
+			NOR = {
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_chosen }
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_synthetic }
+			}
+			event_target:winning_leader = {
+				check_variable = {
+					which = leader_ability
+					value < 1
+				}
+			}
+		}
+		text = "fedel.16.6.desc"
+	}
+	desc = {
+		trigger = {
+			NOR = {
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_chosen }
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_synthetic }
+			}
+			event_target:winning_leader = {
+				check_variable = {
+					which = leader_ability
+					value < 1
+				}
+			}
+		}
+		text = "fedel.16.7.desc"
+	}
+	desc = {
+		trigger = {
+			NOR = {
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_chosen }
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_synthetic }
+			}
+			event_target:winning_leader = {
+				check_variable = {
+					which = leader_ability
+					value < 1
+				}
+			}
+		}
+		text = "fedel.16.8.desc"
+	}
+
+	desc = {
+		trigger = {
+			NOR = {
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_chosen }
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_synthetic }
+			}
+			event_target:winning_leader = {
+				check_variable = {
+					which = leader_ability
+					value > 0
+				}
+				check_variable = {
+					which = leader_ability
+					value < 20
+				}
+			}
+		}
+		text = "fedel.16.9.desc"
+	}
+	desc = {
+		trigger = {
+			NOR = {
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_chosen }
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_synthetic }
+			}
+			event_target:winning_leader = {
+				check_variable = {
+					which = leader_ability
+					value > 0
+				}
+				check_variable = {
+					which = leader_ability
+					value < 20
+				}
+			}
+		}
+		text = "fedel.16.10.desc"
+	}
+	desc = {
+		trigger = {
+			NOR = {
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_chosen }
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_synthetic }
+			}
+			event_target:winning_leader = {
+				check_variable = {
+					which = leader_ability
+					value > 0
+				}
+				check_variable = {
+					which = leader_ability
+					value < 20
+				}
+			}
+		}
+		text = "fedel.16.11.desc"
+	}
+	desc = {
+		trigger = {
+			NOR = {
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_chosen }
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_synthetic }
+			}
+			event_target:winning_leader = {
+				check_variable = {
+					which = leader_ability
+					value > 0
+				}
+				check_variable = {
+					which = leader_ability
+					value < 20
+				}
+			}
+		}
+		text = "fedel.16.12.desc"
+	}
+	desc = {
+		trigger = {
+			NOR = {
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_chosen }
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_synthetic }
+			}
+			event_target:winning_leader = {
+				check_variable = {
+					which = leader_ability
+					value > 0
+				}
+				check_variable = {
+					which = leader_ability
+					value < 20
+				}
+			}
+		}
+		text = "fedel.16.13.desc"
+	}
+	desc = {
+		trigger = {
+			NOR = {
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_chosen }
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_synthetic }
+			}
+			event_target:winning_leader = {
+				check_variable = {
+					which = leader_ability
+					value > 0
+				}
+				check_variable = {
+					which = leader_ability
+					value < 20
+				}
+			}
+		}
+		text = "fedel.16.14.desc"
+	}
+	desc = {
+		trigger = {
+			NOR = {
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_chosen }
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_synthetic }
+			}
+			event_target:winning_leader = {
+				check_variable = {
+					which = leader_ability
+					value > 0
+				}
+				check_variable = {
+					which = leader_ability
+					value < 20
+				}
+			}
+		}
+		text = "fedel.16.15.desc"
+	}
+	desc = {
+		trigger = {
+			NOR = {
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_chosen }
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_synthetic }
+			}
+			event_target:winning_leader = {
+				check_variable = {
+					which = leader_ability
+					value > 0
+				}
+				check_variable = {
+					which = leader_ability
+					value < 20
+				}
+			}
+		}
+		text = "fedel.16.16.desc"
+	}
+	desc = {
+		trigger = {
+			event_target:winning_leader = {
+				species = { has_trait = trait_repugnant }
+			}
+		}
+		text = "fedel.16.17.desc"
+	}
+	desc = {
+		trigger = {
+			NOR = {
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_chosen }
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_synthetic }
+			}
+			event_target:winning_leader = {
+				check_variable = {
+					which = leader_ability
+					value > 0
+				}
+				check_variable = {
+					which = leader_ability
+					value < 20
+				}
+			}
+		}
+		text = "fedel.16.18.desc"
+	}
+	desc = {
+		trigger = {
+			NOR = {
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_chosen }
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_synthetic }
+			}
+			event_target:winning_leader = {
+				check_variable = {
+					which = leader_ability
+					value > 0
+				}
+				check_variable = {
+					which = leader_ability
+					value < 20
+				}
+			}
+		}
+		text = "fedel.16.19.desc"
+	}
+	desc = {
+		trigger = {
+			NOR = {
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_chosen }
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_synthetic }
+			}
+			event_target:winning_leader = {
+				check_variable = {
+					which = leader_ability
+					value > 0
+				}
+				check_variable = {
+					which = leader_ability
+					value < 20
+				}
+			}
+		}
+		text = "fedel.16.20.desc"
+	}
+	desc = {
+		trigger = {
+			NOR = {
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_chosen }
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_synthetic }
+			}
+			event_target:winning_leader = {
+				check_variable = {
+					which = leader_ability
+					value > 19
+				}
+			}
+		}
+		text = "fedel.16.21.desc"
+	}
+	desc = {
+		trigger = {
+			NOR = {
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_chosen }
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_synthetic }
+			}
+			event_target:winning_leader = {
+				check_variable = {
+					which = leader_ability
+					value > 19
+				}
+			}
+		}
+		text = "fedel.16.22.desc"
+	}
+	desc = {
+		trigger = {
+			NOR = {
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_chosen }
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_synthetic }
+			}
+			event_target:winning_leader = {
+				check_variable = {
+					which = leader_ability
+					value > 19
+				}
+			}
+		}
+		text = "fedel.16.23.desc"
+	}
+	desc = {
+		trigger = {
+			NOR = {
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_chosen }
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_synthetic }
+			}
+			event_target:winning_leader = {
+				check_variable = {
+					which = leader_ability
+					value > 19
+				}
+			}
+		}
+		text = "fedel.16.24.desc"
+	}
+	desc = {
+		trigger = {
+			NOR = {
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_chosen }
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_synthetic }
+			}
+			event_target:winning_leader = {
+				check_variable = {
+					which = leader_ability
+					value > 19
+				}
+			}
+		}
+		text = "fedel.16.25.desc"
+	}
+	desc = {
+		trigger = {
+			NOR = {
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_chosen }
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_synthetic }
+			}
+			event_target:winning_leader = {
+				check_variable = {
+					which = leader_ability
+					value > 19
+				}
+			}
+		}
+		text = "fedel.16.26.desc"
+	}
+	desc = {
+		trigger = {
+			NOR = {
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_chosen }
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_synthetic }
+			}
+			event_target:winning_leader = {
+				check_variable = {
+					which = leader_ability
+					value > 19
+				}
+			}
+		}
+		text = "fedel.16.27.desc"
+	}
+	desc = {
+		trigger = {
+			NOR = {
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_chosen }
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_synthetic }
+			}
+			event_target:winning_leader = {
+				check_variable = {
+					which = leader_ability
+					value > 19
+				}
+			}
+		}
+		text = "fedel.16.28.desc"
+	}
+	desc = {
+		trigger = {
+			NOR = {
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_chosen }
+				event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_synthetic }
+			}
+			event_target:winning_leader = {
+				check_variable = {
+					which = leader_ability
+					value > 19
+				}
+			}
+		}
+		text = "fedel.16.29.desc"
+	}
+	desc = {
+		trigger = {
+			event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_psionic }
+		}
+		text = "fedel.16.30.desc"
+	}
+	desc = {
+		trigger = {
+			event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_psionic }
+		}
+		text = "fedel.16.31.desc"
+	}
+	desc = {
+		trigger = {
+			event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_psionic }
+		}
+		text = "fedel.16.32.desc"
+	}
+	desc = {
+		trigger = {
+			event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_cyborg }
+		}
+		text = "fedel.16.33.desc"
+	}
+	desc = {
+		trigger = {
+			event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_cyborg }
+		}
+		text = "fedel.16.34.desc"
+	}
+	desc = {
+		trigger = {
+			event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_cyborg }
+		}
+		text = "fedel.16.35.desc"
+	}
+	desc = {
+		trigger = {
+			event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_synthetic }
+		}
+		text = "fedel.16.36.desc"
+	}
+	desc = {
+		trigger = {
+			event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_synthetic }
+		}
+		text = "fedel.16.37.desc"
+	}
+	desc = {
+		trigger = {
+			event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_synthetic }
+		}
+		text = "fedel.16.38.desc"
+	}
+	desc = {
+		trigger = {
+			event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_chosen }
+		}
+		text = "fedel.16.39.desc"
+	}
+	desc = {
+		trigger = {
+			event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_chosen }
+		}
+		text = "fedel.16.40.desc"
+	}
+	desc = {
+		trigger = {
+			event_target:winning_leader = { has_ruler_trait = leader_trait_ruler_chosen }
+		}
+		text = "fedel.16.41.desc"
+	}
+
+
+	diplomatic = yes
+
+	is_triggered_only = yes
+
+	picture_event_data = {
+		portrait = event_target:winning_country
+		planet_background = event_target:winning_country
+		graphical_culture = event_target:winning_country
+		city_level = event_target:winning_country
+		room = event_target:winning_country
+	}
+
+	option = {
+		name = fedel.16.a
+	}
+}
+
+### Psionic Battle
+
+# Psionic Battle (HIDDEN)
+country_event = {
+	id = fedel.500
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		federation = { 
+			has_federation_law = challenge_type_psionic_battle
+			NOT = { has_federation_flag = psionic_battle_underway }
+		}
+	}
+
+	immediate = {
+		save_event_target_as = fed_leader
+		federation = {
+			set_federation_flag = psionic_battle_underway
+			save_event_target_as = federation
+			every_member = {
+				country_event = { id = fedel.501 }
+			}
+		}
+		country_event = { id = fedel.505 days = 60 }
+	}
+}
+
+# Psionic Battle
+country_event = {
+	id = fedel.501
+	title = fedel.501.name
+	desc = {
+		trigger = {
+			NOT = { has_country_flag = no_psi_battle }
+		}
+		text = "fedel.501.1.desc"
+	}
+	desc = {
+		trigger = {
+			has_country_flag = no_psi_battle
+		}
+		text = "fedel.501.2.desc"
+	}
+	desc = {
+		trigger = {
+			NOT = { has_country_flag = no_psi_battle }
+			resource_stockpile_compare = {
+				resource = sr_zro
+				value < 100
+			}
+		}
+		text = "fedel.501.3.desc"
+	}
+	picture = GFX_evt_conclave
+	show_sound = event_whispering
+
+	is_triggered_only = yes
+
+	abort_trigger = { #incidentally, abort_effect also exists
+		has_country_flag = psi_battle_timer_over
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				NOR = {
+					any_owned_pop = { has_trait = trait_latent_psionic }
+					any_owned_pop = { has_trait = trait_psionic }
+				}
+			}
+			set_country_flag = no_psi_battle
+		}
+		else = {
+			set_country_flag = psi_battle
+		}
+	}
+
+	option = {
+		name = fedel.501.a
+		trigger = {
+			NOT = { has_country_flag = no_psi_battle }
+			resource_stockpile_compare = {
+				resource = sr_zro
+				value >= 100
+			}
+
+		}
+		add_resource = {
+			sr_zro = -100
+		}
+		hidden_effect = { set_country_flag = small_zro_offering }
+		custom_tooltip = psionic_battle_begin
+	}
+	option = {
+		name = fedel.501.b
+		trigger = {
+			NOT = { has_country_flag = no_psi_battle }
+			resource_stockpile_compare = {
+				resource = sr_zro
+				value >= 500
+			}
+
+		}
+		add_resource = {
+			sr_zro = -500
+		}
+		hidden_effect = { set_country_flag = medium_zro_offering }
+		custom_tooltip = psionic_battle_begin
+	}
+	option = {
+		name = fedel.501.c
+		trigger = {
+			NOT = { has_country_flag = no_psi_battle }
+			resource_stockpile_compare = {
+				resource = sr_zro
+				value >= 1000
+			}
+
+		}
+		add_resource = {
+			sr_zro = -1000
+		}
+		hidden_effect = { set_country_flag = large_zro_offering }
+		custom_tooltip = psionic_battle_begin
+	}
+	option = {
+		name = fedel.501.d
+		trigger = {
+			NOT = { has_country_flag = no_psi_battle }
+		}
+		custom_tooltip = psionic_battle_begin
+	}
+	option = {
+		name = fedel.501.e
+		trigger = {
+			has_country_flag = no_psi_battle
+		}
+		custom_tooltip = psionic_battle_begin
+	}
+}
+
+# Determine Winner
+country_event = {
+	id = fedel.505
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		federation = {
+			every_member = {
+				set_timed_country_flag = {
+					flag = psi_battle_timer_over
+					days = 5
+				}
+				limit = {
+					NOT = { has_ethic = ethic_gestalt_consciousness }
+				}
+				set_variable = { which = psionic_ability value = 0 }
+				every_owned_pop = {
+					limit = { has_trait = trait_latent_psionic }
+					prev = {
+						change_variable = { which = psionic_ability value = 1 }
+					}
+				}
+				every_owned_pop = {
+					limit = { has_trait = trait_psionic }
+					prev = {
+						change_variable = { which = psionic_ability value = 3 }
+					}
+				}
+				every_owned_pop = {
+					limit = { has_job = telepath }
+					prev = {
+						change_variable = { which = psionic_ability value = 10 }
+					}
+				}
+				if = {
+					limit = { has_country_flag = small_zro_offering }
+					change_variable = { which = psionic_ability value = 40 }
+					remove_country_flag = small_zro_offering
+				}
+				if = {
+					limit = { has_country_flag = medium_zro_offering }
+					change_variable = { which = psionic_ability value = 60 }
+					remove_country_flag = medium_zro_offering
+				}
+				if = {
+					limit = { has_country_flag = large_zro_offering }
+					change_variable = { which = psionic_ability value = 80 }
+					remove_country_flag = large_zro_offering
+				}
+			}
+			random_member = {
+				limit = {
+					NOT = { has_country_flag = no_psi_battle }
+				}
+				weights = {
+					base = 40
+					modifier = {
+						add = 40
+						check_variable = {
+							which = psionic_ability
+							value >= 1
+						}
+					}
+					modifier = {
+						add = 40
+						check_variable = {
+							which = psionic_ability
+							value >= 21
+						}
+					}
+					modifier = {
+						add = 40
+						check_variable = {
+							which = psionic_ability
+							value >= 41
+						}
+					}
+					modifier = {
+						add = 40
+						check_variable = {
+							which = psionic_ability
+							value >= 61
+						}
+					}
+					modifier = {
+						add = 40
+						check_variable = {
+							which = psionic_ability
+							value >= 81
+						}
+					}
+					modifier = {
+						add = 40
+						check_variable = {
+							which = psionic_ability
+							value >= 101
+						}
+					}
+					modifier = {
+						add = 40
+						check_variable = {
+							which = psionic_ability
+							value >= 121
+						}
+					}
+					modifier = {
+						add = 40
+						check_variable = {
+							which = psionic_ability
+							value >= 141
+						}
+					}
+					modifier = {
+						add = 40
+						check_variable = {
+							which = psionic_ability
+							value >= 161
+						}
+					}
+					modifier = {
+						add = 40
+						check_variable = {
+							which = psionic_ability
+							value >= 181
+						}
+					}
+					modifier = {
+						add = 40
+						check_variable = {
+							which = psionic_ability
+							value >= 201
+						}
+					}
+					modifier = {
+						add = 40
+						check_variable = {
+							which = psionic_ability
+							value >= 221
+						}
+					}
+					modifier = {
+						add = 40
+						check_variable = {
+							which = psionic_ability
+							value >= 241
+						}
+					}
+					modifier = {
+						add = 40
+						check_variable = {
+							which = psionic_ability
+							value >= 261
+						}
+					}
+					modifier = {
+						add = 40
+						check_variable = {
+							which = psionic_ability
+							value >= 281
+						}
+					}
+					modifier = {
+						add = 40
+						check_variable = {
+							which = psionic_ability
+							value >= 301
+						}
+					}
+					modifier = {
+						add = 40
+						check_variable = {
+							which = psionic_ability
+							value >= 321
+						}
+					}
+					modifier = {
+						add = 40
+						check_variable = {
+							which = psionic_ability
+							value >= 341
+						}
+					}
+					modifier = {
+						add = 40
+						check_variable = {
+							which = psionic_ability
+							value >= 361
+						}
+					}
+					modifier = {
+						add = 40
+						check_variable = {
+							which = psionic_ability
+							value >= 381
+						}
+					}
+					modifier = {
+						add = 200
+						check_variable = {
+							which = psionic_ability
+							value >= 400
+						}
+					}
+				}
+				save_event_target_as = winning_country
+				# Winning Event
+				country_event = { id = fedel.510 }
+				federation = {
+					every_member = {
+						limit = {
+							NOT = { is_same_value = prevprev }
+						}
+						# Losing Event
+						country_event = { id = fedel.515 }
+					}
+				}
+			}
+		}
+	}
+}
+
+# Winner
+country_event = {
+	id = fedel.510
+	title = fedel.510.name
+	desc = {
+		trigger = {
+			check_variable = {
+				which = psionic_ability
+				value <= 300
+			}
+			federation = {
+				any_member = {
+					NOT = { is_same_value = root }
+					has_country_flag = psi_battle
+				}
+			}
+		}
+		text = "fedel.510.1.desc"
+	}
+	desc = {
+		trigger = {
+			check_variable = {
+				which = psionic_ability
+				value >= 301
+			}
+			federation = {
+				any_member = {
+					NOT = { is_same_value = root }
+					has_country_flag = psi_battle
+				}
+			}
+		}
+		text = "fedel.510.2.desc"
+	}
+	desc = {
+		trigger = {
+			NOT = {
+				federation = {
+					any_member = {
+						NOT = { is_same_value = root }
+						has_country_flag = psi_battle
+					}
+				}
+			}
+		}
+		text = "fedel.510.3.desc"
+	}
+	picture = GFX_evt_psionic_battle
+	show_sound = event_cityscape
+
+	is_triggered_only = yes
+
+	option = {
+		name = fedel.510.a
+		set_federation_leader = root
+		federation = { remove_federation_flag = psionic_battle_underway }
+	}
+}
+
+# Not Winner
+country_event = {
+	id = fedel.515
+	title = fedel.515.name
+	desc = {
+		trigger = {
+			has_country_flag = psi_battle
+			check_variable = {
+				which = psionic_ability
+				value <= 100
+			}
+		}
+		text = "fedel.515.1.desc"
+	}
+	desc = {
+		trigger = {
+			check_variable = {
+				which = psionic_ability
+				value >= 101
+			}
+		}
+		text = "fedel.515.2.desc"
+	}
+	desc = {
+		trigger = {
+			has_country_flag = no_psi_battle
+			federation = {
+				any_member = {
+					has_country_flag = psi_battle
+					NOT = { is_same_value = event_target:winning_country }
+				}
+			}
+		}
+		text = "fedel.515.3.desc"
+	}
+	desc = {
+		trigger = {
+			has_country_flag = no_psi_battle
+			NOT = {
+				federation = {
+					any_member = {
+						has_country_flag = psi_battle
+						NOT = { is_same_value = event_target:winning_country }
+					}
+				}
+			}
+		}
+		text = "fedel.515.4.desc"
+	}
+	picture = GFX_evt_psionic_battle
+	show_sound = event_screams
+
+	is_triggered_only = yes
+
+	after = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = no_psi_battle }
+				remove_country_flag = no_psi_battle
+			}
+			if = {
+				limit = { has_country_flag = psi_battle }
+				remove_country_flag = psi_battle
+			}
+		}
+	}
+
+	option = {
+		name = fedel.515.a
+		custom_tooltip = psionic_battle_outcome
+	}
+}
+
+#################################################
+#
+# Federation Succession Challenge: Thesis Defense
+# Written by Gemma Thomson
+#
+#################################################
+
+### Thesis Defense
+
+# Thesis (leader, HIDDEN)
+country_event = {
+	id = fedel.1500
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		federation = { 
+			has_federation_law = challenge_type_thesis
+			NOT = { has_federation_flag = thesis_underway }
+		}
+	}
+
+	immediate = {
+		federation = {
+			set_federation_flag = thesis_underway
+			every_member = {
+                thesis_disband = yes #Clears flags from leaders from last time
+				country_event = { id = fedel.1501 } #Announce thesis defense
+                set_variable = { #Ensure the thesis team is empty
+                    which = thesis_assemble
+                    value = 0
+                }
+			}
+		}
+        country_event = { id = fedel.1505 days = 60 } #Determine winner
+	}
+}
+
+# Announce thesis defense (every member)
+country_event = {
+	id = fedel.1501
+	title = fedel.1501.name
+	desc = "fedel.1501.desc"
+	picture = GFX_evt_arguing_senate
+	show_sound = event_factions
+	is_triggered_only = yes
+
+    option = {
+        name = "fedel.1501.a"
+        custom_tooltip = "tooltip_thesis_begin"
+    }
+}
+
+# Determine winner (leader, HIDDEN)
+country_event = {
+    id = fedel.1505
+    hide_window = yes
+    is_triggered_only = yes
+
+    immediate = {
+        federation = {
+            every_member = {
+                limit = { exists = leader } #Automatic fail if there's no leader
+                #Grab top researchers
+                random_owned_leader = {
+                    limit = {
+                        NOT = { has_leader_flag = thesis_team }
+                        is_researching_area = engineering
+                    }
+                    set_leader_flag = thesis_team
+                    prev = {
+                        change_variable = { which = thesis_assemble value = 1 }
+                    }
+                }
+                random_owned_leader = {
+                    limit = {
+                        NOT = { has_leader_flag = thesis_team }
+                        is_researching_area = physics
+                    }
+                    set_leader_flag = thesis_team
+                    prev = {
+                        change_variable = { which = thesis_assemble value = 1 }
+                    }
+                }
+                random_owned_leader = {
+                    limit = {
+                        NOT = { has_leader_flag = thesis_team }
+                        is_researching_area = society
+                    }
+                    set_leader_flag = thesis_team
+                    prev = {
+                        change_variable = { which = thesis_assemble value = 1 }
+                    }
+                }
+                #Bring the pool of thesis scientists up to 5
+                while = {
+                    limit = {
+                        check_variable = {
+                            which = thesis_assemble
+                            value < 6
+                        }
+                    }
+                    random_owned_leader = {
+                        limit = {
+                            NOT = { has_leader_flag = thesis_team }
+                            leader_class = scientist
+                        }
+                        set_leader_flag = thesis_team
+                        prev = {
+                            change_variable = {
+                                which = thesis_assemble
+                                value = 1
+                            }
+                        }
+                    }
+                }
+            }
+            #Calculate winner
+            random_member = {
+                limit = {
+                    exists = leader
+                    #Automatic fail if the member country hasn't enough scientists:
+                    check_variable = {
+                        which = thesis_assemble
+                        value > 2
+                    }
+                }
+                weights = {
+                    base = 20
+                    modifier = { #Too many Carefrees
+                        add = -10
+                        count_recruited_leader = {
+                            limit = {
+								has_leader_flag = thesis_team 
+								has_ruler_trait = leader_trait_carefree
+                            }
+                            count > 1
+                        }
+                    }
+                    modifier = { #Curator
+                        add = 10
+                        any_owned_leader = {
+                            has_leader_flag = thesis_team
+                            has_ruler_trait = leader_trait_curator
+                        }
+                    }
+                    modifier = { #Custom AI Assistant
+                        add = 10
+                        any_owned_leader = {
+                            has_leader_flag = thesis_team
+                            has_ruler_trait = leader_trait_custom_AI_assistant
+                        }
+                    }
+                    modifier = { #Maniacal
+                        add = 10
+                        any_owned_leader = {
+                            has_leader_flag = thesis_team
+                            has_ruler_trait = leader_trait_maniacal
+                        }
+                    }
+                    modifier = { #Too many Maniacals
+                        add = -20
+                        count_recruited_leader = {
+                            limit = {
+								has_leader_flag = thesis_team 
+								has_ruler_trait = leader_trait_maniacal
+                            }
+                            count > 1
+                        }
+                    }
+                    modifier = { #Meticulous
+                        add = 10
+                        any_owned_leader = {
+                            has_leader_flag = thesis_team
+                            has_ruler_trait = leader_trait_meticulous
+                        }
+                    }
+                    modifier = { #Paranoid
+                        add = -5
+                        any_owned_leader = {
+                            has_leader_flag = thesis_team
+                            has_ruler_trait = leader_trait_paranoid
+                        }
+                    }
+                    modifier = { #Sapient AI Assistant
+                        add = 20
+                        any_owned_leader = {
+                            has_leader_flag = thesis_team
+                            has_ruler_trait = leader_trait_sapient_AI_assistant
+                        }
+                    }
+                    modifier = { #Spark of Genius
+                        add = 20
+                        any_owned_leader = {
+                            has_leader_flag = thesis_team
+                            has_ruler_trait = leader_trait_spark_of_genius
+                        }
+                    }
+                    modifier = { #Towel
+                        add = 9 #Plural Z alpha
+                        any_owned_leader = {
+                            has_leader_flag = thesis_team
+                            has_ruler_trait = leader_trait_towel
+                        }
+                    }
+                    modifier = { #Statecraft expert
+                        add = 10
+                        any_owned_leader = {
+                            has_leader_flag = thesis_team
+                            has_ruler_trait = leader_trait_expertise_statecraft
+                        }
+                    }
+                    modifier = { #Area experts
+                        add = 5
+                        count_recruited_leader = {
+                            limit = {
+								has_leader_flag = thesis_team
+								is_specialist_researcher = yes
+                            }
+                            count > 1
+                        }
+                    }
+                    modifier = { #Too many area experts
+                        add = -10
+                        count_recruited_leader = {
+                            limit = {
+								has_leader_flag = thesis_team
+								is_specialist_researcher = yes
+                            }
+                            count > 1
+                        }
+                    }
+                    modifier = { #Chosen
+                        add = 15
+                        any_owned_leader = {
+                            has_leader_flag = thesis_team
+                            has_ruler_trait = leader_trait_scientist_chosen
+                        }
+                    }
+                    modifier = { #Cyborg
+                        add = 10
+                        any_owned_leader = {
+                            has_leader_flag = thesis_team
+                            has_ruler_trait = leader_trait_scientist_cyborg
+                        }
+                    }
+                    modifier = { #Erudite
+                        add = 15
+                        any_owned_leader = {
+                            has_leader_flag = thesis_team
+                            has_ruler_trait = leader_trait_scientist_erudite
+                        }
+                    }
+                    modifier = { #Psionic
+                        add = 10
+                        any_owned_leader = {
+                            has_leader_flag = thesis_team
+                            has_ruler_trait = leader_trait_scientist_psionic
+                        }
+                    }
+                    modifier = { #Synthetic
+                        add = 5
+                        any_owned_leader = {
+                            has_leader_flag = thesis_team
+                            has_ruler_trait = leader_trait_scientist_synthetic
+                        }
+                    }
+                    modifier = { #Chosen
+                        add = 15
+                        any_owned_leader = {
+                            has_leader_flag = thesis_team
+                            has_ruler_trait = leader_trait_scientist_chosen
+                        }
+                    }
+
+                    #Scientist traits
+                    modifier = { #Adaptable
+                        add = 10
+                        any_owned_leader = {
+                            has_leader_flag = thesis_team
+                            has_ruler_trait = leader_trait_adaptable
+                        }
+                    }
+                    modifier = { #Eager
+                        add = 5
+                        any_owned_leader = {
+                            has_leader_flag = thesis_team
+                            has_ruler_trait = leader_trait_eager
+                        }
+                    }
+                    modifier = { #Stubborn
+                        add = -5
+                        any_owned_leader = {
+                            has_leader_flag = thesis_team
+                            has_ruler_trait = leader_trait_stubborn
+                        }
+                    }
+                    modifier = { #Substance abuser
+                        add = 10
+                        any_owned_leader = {
+                            has_leader_flag = thesis_team
+                            has_ruler_trait = leader_trait_substance_abuser
+                        }
+                    }
+                    modifier = { #Too many Substance Abusers
+                        add = -20
+                        count_recruited_leader = {
+                            limit = {
+								has_leader_flag = thesis_team 
+								has_ruler_trait = leader_trait_substance_abuser
+                            }
+                            count > 1
+                        }
+                    }
+
+                    #Ruler traits
+                    modifier = {
+                        add = -20
+                        count_recruited_leader = {
+                            limit = {
+								has_leader_flag = thesis_team 
+								has_ruler_trait = leader_trait_substance_abuser
+                            }
+                            count > 1
+                        }
+                    }
+
+					#Empire tech level
+					modifier = {
+						add = 30
+						NOT = {
+							federation = {
+								any_member = {
+									NOT = { is_same_value = prevprev }
+									relative_power = {
+										who = prevprev
+										category = technology
+										value > equivalent
+									}
+								}
+							}
+						}
+					}
+                }
+                save_event_target_as = winning_thesis
+            }
+			#Set thesis topic
+			event_target:winning_thesis = {
+				if = {
+					limit = {
+						OR = {
+							is_authoritarian = yes
+							is_egalitarian = yes
+						}
+					}
+					random_list = {
+						1 = { set_country_flag = thesis_xcratic1 }
+						1 = { set_country_flag = thesis_xcratic2 }
+						1 = { set_country_flag = thesis_xcratic3 }
+						1 = { set_country_flag = thesis_xcratic4 }
+						1 = { set_country_flag = thesis_xcratic5 }
+						1 = { set_country_flag = thesis_xcratic6 }
+						1 = { set_country_flag = thesis_xcratic7 }
+						1 = { set_country_flag = thesis_xcratic8 }
+					}
+				}
+				if = {
+					limit = {
+						OR = {
+							is_materialist = yes
+							is_spiritualist = yes
+						}
+					}
+					random_list = {
+						1 = { set_country_flag = thesis_souls1 }
+						1 = { set_country_flag = thesis_souls2 }
+						1 = { set_country_flag = thesis_souls3 }
+						1 = { set_country_flag = thesis_souls4 }
+						1 = { set_country_flag = thesis_souls5 }
+						1 = { set_country_flag = thesis_souls6 }
+						1 = { set_country_flag = thesis_souls7 }
+						1 = { set_country_flag = thesis_souls8 }
+					}
+				}
+				if = {
+					limit = {
+						OR = {
+							is_pacifist = yes
+							is_militarist = yes
+						}
+					}
+					random_list = {
+						1 = { set_country_flag = thesis_war1 }
+						1 = { set_country_flag = thesis_war2 }
+						1 = { set_country_flag = thesis_war3 }
+						1 = { set_country_flag = thesis_war4 }
+						1 = { set_country_flag = thesis_war5 }
+						1 = { set_country_flag = thesis_war6 }
+						1 = { set_country_flag = thesis_war7 }
+						1 = { set_country_flag = thesis_war8 }
+					}
+				}
+				if = {
+					limit = {
+						OR = {
+							is_xenophile = yes
+							is_xenophobe = yes
+						}
+					}
+					random_list = {
+						1 = { set_country_flag = thesis_xenos1 }
+						1 = { set_country_flag = thesis_xenos2 }
+						1 = { set_country_flag = thesis_xenos3 }
+						1 = { set_country_flag = thesis_xenos4 }
+						1 = { set_country_flag = thesis_xenos5 }
+						1 = { set_country_flag = thesis_xenos6 }
+						1 = { set_country_flag = thesis_xenos7 }
+						1 = { set_country_flag = thesis_xenos8 }
+					}
+				}
+				if = {
+					limit = { is_machine_empire = yes }
+					random_list = {
+						1 = { set_country_flag = thesis_machine1 }
+						1 = { set_country_flag = thesis_machine2 }
+						1 = { set_country_flag = thesis_machine3 }
+						1 = { set_country_flag = thesis_machine4 }
+						1 = { set_country_flag = thesis_machine5 }
+					}
+				}
+				if = {
+					limit = { is_hive_empire = yes }
+					random_list = {
+						1 = { set_country_flag = thesis_hive1 }
+						1 = { set_country_flag = thesis_hive2 }
+						1 = { set_country_flag = thesis_hive3 }
+						1 = { set_country_flag = thesis_hive4 }
+						1 = { set_country_flag = thesis_hive5 }
+					}
+				}
+				if = {
+					limit = { is_megacorp = yes }
+					random_list = {
+						1 = { set_country_flag = thesis_megacorp1 }
+						1 = { set_country_flag = thesis_megacorp2 }
+						1 = { set_country_flag = thesis_megacorp3 }
+						1 = { set_country_flag = thesis_megacorp4 }
+						1 = { set_country_flag = thesis_megacorp5 }
+					}
+				}
+			}
+            every_member = {
+                country_event = { id = fedel.1506 } #Announce winner
+            }
+        }
+    }
+
+    after = {
+        country_event = { id = fedel.1510 days = 1 } #Tidy up
+    }
+}
+
+# Announce winner (every fed member)
+country_event = {
+    id = fedel.1506
+	title = "fedel.1506.name"
+    desc = { #For those empires with insufficient researchers
+        trigger = {
+            NOT = { event_target:winning_thesis = { is_same_value = root } }
+            check_variable = {
+                which = thesis_assemble
+                value < 3
+            }
+        }
+        text = "fedel.1506.insufficient.desc"
+    }
+	desc = {
+        trigger = {
+            event_target:winning_thesis = { is_same_value = root }
+            is_autocracy = no
+            check_variable = {
+                which = thesis_assemble
+                value > 2
+            }
+        }
+        text = "fedel.1506.win.desc"
+    }
+	desc = {
+        trigger = {
+            event_target:winning_thesis = { is_same_value = root }
+            is_autocracy = no
+            check_variable = {
+                which = thesis_assemble
+                value > 2
+            }
+        }
+        text = "fedel.1506.win.autocracy.desc"
+    }
+	desc = {
+        trigger = {
+            event_target:winning_thesis = { is_same_value = root }
+            is_gestalt = yes
+            check_variable = {
+                which = thesis_assemble
+                value > 2
+            }
+        }
+        text = "fedel.1506.win.gestalt.desc"
+    }
+	desc = {
+        trigger = {
+            NOT = { event_target:winning_thesis = { is_same_value = root } }
+            is_gestalt = no
+            check_variable = {
+                which = thesis_assemble
+                value > 2
+            }
+        }
+        text = "fedel.1506.fail.desc"
+    }
+	desc = {
+        trigger = {
+            NOT = { event_target:winning_thesis = { is_same_value = root } }
+            is_gestalt = yes
+            check_variable = {
+                which = thesis_assemble
+                value > 2
+            }
+        }
+        text = "fedel.1506.fail.gestalt.desc"
+    }
+	picture = GFX_evt_announcement
+	show_sound = event_announcement
+    is_triggered_only = yes
+
+    option = {
+        trigger = {
+            event_target:winning_thesis = {
+                is_same_value = root
+            }
+        }
+        name = EXCELLENT
+        custom_tooltip = "tooltip_thesis_won"
+    }
+    option = {
+        trigger = {
+            event_target:winning_thesis = {
+                NOT = {
+                    is_same_value = root
+                }
+            }
+        }
+        name = CURSES
+        custom_tooltip = "tooltip_thesis_lost"
+    }
+}
+
+# Tidy up (leader, HIDDEN)
+country_event = {
+    id = fedel.1510
+    hide_window = yes
+    is_triggered_only = yes
+
+    immediate = {
+        set_federation_leader = event_target:winning_thesis
+        federation = {
+            remove_federation_flag = thesis_underway
+            every_member = {
+                country_event = { id = fedel.1511 }
+            }
+        }
+        event_target:winning_thesis = {
+            remove_country_flag = thesis_xcratic1
+            remove_country_flag = thesis_xcratic2
+            remove_country_flag = thesis_xcratic3
+            remove_country_flag = thesis_xcratic4
+            remove_country_flag = thesis_xcratic5
+            remove_country_flag = thesis_souls1
+            remove_country_flag = thesis_souls2
+            remove_country_flag = thesis_souls3
+            remove_country_flag = thesis_souls4
+            remove_country_flag = thesis_souls5
+            remove_country_flag = thesis_war1
+            remove_country_flag = thesis_war2
+            remove_country_flag = thesis_war3
+            remove_country_flag = thesis_war4
+            remove_country_flag = thesis_war5
+            remove_country_flag = thesis_xenos1
+            remove_country_flag = thesis_xenos2
+            remove_country_flag = thesis_xenos3
+            remove_country_flag = thesis_xenos4
+            remove_country_flag = thesis_xenos5
+            remove_country_flag = thesis_machine1
+            remove_country_flag = thesis_machine2
+            remove_country_flag = thesis_machine3
+            remove_country_flag = thesis_machine4
+            remove_country_flag = thesis_machine5
+            remove_country_flag = thesis_hive1
+            remove_country_flag = thesis_hive2
+            remove_country_flag = thesis_hive3
+            remove_country_flag = thesis_hive4
+            remove_country_flag = thesis_hive5
+            remove_country_flag = thesis_megacorp1
+            remove_country_flag = thesis_megacorp2
+            remove_country_flag = thesis_megacorp3
+            remove_country_flag = thesis_megacorp4
+            remove_country_flag = thesis_megacorp5
+        }
+    }
+}
+
+# Tidy up (every fed member)
+country_event = {
+    id = fedel.1511
+    hide_window = yes
+    is_triggered_only = yes
+
+    immediate = {
+        thesis_disband = yes  #Clears flags from leaders from last time
+        remove_country_flag = thesis_insufficient
+    }
+}

@@ -1,0 +1,10 @@
+sectors_research_group = {
+	resources = {
+		physics_research 
+		society_research
+		engineering_research
+	}
+	localization = {
+		"RESOURCE_GROUP_BALANCE_ONLY" = default
+	}
+}

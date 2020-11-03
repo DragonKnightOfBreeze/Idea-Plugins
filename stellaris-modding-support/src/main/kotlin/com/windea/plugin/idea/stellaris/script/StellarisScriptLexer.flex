@@ -48,9 +48,9 @@ EOL=\s*\R
 WHITE_SPACE=\s+
 SPACE=[ \t]+
 
-IS_PROEPRTY=[^\"@\r\n][^\r\n]*[=><]
+IS_PROEPRTY=[a-zA-Z0-9_\-:]+[ *][=><]
 
-COMMENT =#[^\r\n]*
+COMMENT=#[^\r\n]*
 END_OF_LINE_COMMENT=#[^\r\n]*
 VARIABLE_NAME_ID=@[a-zA-Z0-9_\-]+
 PROPERTY_KEY_ID=[a-zA-Z0-9_\-:]+
