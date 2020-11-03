@@ -215,7 +215,7 @@
       language="Stellaris Localization"
       shortName="StellarisLocalizationDuplicatePropertyKeys" bundle="messages.StellarisBundle"
       groupKey="stellaris.localization.inspection" key="stellaris.localization.inspection.duplicatePropertyKeys"
-      enabledByDefault="true" level="WARNING"
+      enabledByDefault="true" level="ERROR"
       implementationClass="com.windea.plugin.idea.stellaris.localization.inspections.DuplicatePropertyKeysInspection"/>
     <localInspection
       language="Stellaris Localization"
@@ -305,7 +305,7 @@
       shortName="StellarisScriptDuplicateVariableDefinitions" bundle="messages.StellarisBundle"
       groupKey="stellaris.script.inspection"
       key="stellaris.script.inspection.duplicateVariableDefinitions"
-      enabledByDefault="true" level="WARNING"
+      enabledByDefault="true" level="ERROR"
       implementationClass="com.windea.plugin.idea.stellaris.script.inspections.DuplicateVariableDefinitionsInspection"/>
     <localInspection
       language="Stellaris Script"
@@ -328,6 +328,9 @@
       implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptJsonLikePsiWalkerFactory"/>
     <!--<documentationProvider
       implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaDocumentationProvider"/>-->
+
+    <additionalTextAttributes scheme="Default" file="colorSchemes/StellarisScriptDefault.xml"/>
+    <additionalTextAttributes scheme="Darcula" file="colorSchemes/StellarisScriptDarcula.xml"/>
 
     <localInspection
       language="Stellaris Script"

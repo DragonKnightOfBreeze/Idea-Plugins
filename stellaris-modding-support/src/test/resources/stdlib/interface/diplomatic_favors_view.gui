@@ -1,0 +1,211 @@
+guiTypes = {
+	containerWindowType = {
+		name = "diplomatic_favors_view"
+		size = { width = 350 height = 480 }
+		position = { x = -80 y = -330 }
+		moveable = yes
+		orientation = center
+
+		background = {
+			name = "background"
+			spriteType = "GFX_tile_outliner_bg_solid"
+		}
+
+		instantTextBoxType = {
+			name = "diplomatic_favors_header"
+			font = "malgun_goth_24"
+			position = { x = 20 y = 10 }
+			text = "DIPLOMATIC_FAVORS"
+			maxWidth = 200
+			maxHeight = 200
+			fixedSize = yes
+			format = left
+		}
+
+		## Top buttons
+		buttonType = {
+			name = "close"
+			quadTextureSprite = "GFX_close_button_galaxy"
+			position = { x= -45 y = 16  }
+			Orientation = "UPPER_RIGHT"
+			shortcut = "ESCAPE"
+			pdx_tooltip = "CLOSE_TITLE"
+			clicksound = "back_click"
+		}
+
+		buttonType = {
+			name = "favors_sort"
+			position = { x = 3 y = 50  }
+			spriteType = "GFX_button_150_24"
+			buttonText = "TRADE_CATEGORY_FAVORS"
+			pdx_tooltip = "SORT_BY_FAVORS"
+			font = "cg_16b"
+		}
+
+		buttonType = {
+			name = "diplo_weight_sort"
+			position = { x = 159 y = 50  }
+			spriteType = "GFX_button_164_24"
+			buttonText = "diplomatic_weight"
+			pdx_tooltip = "SORT_BY_DIPLO_WEIGHT"
+			font = "cg_16b"
+		}
+
+		## Main content
+		containerWindowType = {
+			name = "grid_content"
+			size = { width = 330 height = 270 }
+			position = { x = 10 y = 90 }
+			margin = { 
+						top = 13 
+						bottom = 10
+					}
+			verticalScrollbar = "right_vertical_slider_s"
+
+			background = {
+				name = "background"
+				spriteType = "GFX_tiles_frame_light"
+			}
+
+			gridBoxType = {
+				name = "country_favor_grid"
+				position = { x = 4 y = 0 }
+				size = { width = 310 height = 250 }
+				slotsize = {
+					width = 300
+					height = 46
+				}
+				max_slots_horizontal = 1
+			}
+		}
+
+		## Voting
+		containerWindowType = {
+			name = "voting_content"
+			size = { width = 320 height = 60 }
+			position = { x = 15 y = 363 }
+
+			background = {
+				name = "background"
+				spriteType = "GFX_tiles_dark_area_cut_8"
+			}
+
+			iconType = {
+				name = "voting_balance"
+				quadTextureSprite = "GFX_vote_balance_progressbar"
+				position = { x = 15 y = 35 }
+			}
+
+			instantTextBoxType = {
+				name = "total_power"
+				font = "cg_16b"
+				position = { x = 10 y = 12 }
+				maxWidth = 300
+				maxHeight = 20
+				format = center
+			}
+		}
+
+		## Bottom buttons
+		buttonType = {
+			name = "call_in_favors"
+			font = "cg_16b"
+			spriteType = "GFX_standard_button_230_34_button"
+			position = { x = -120 y = -58 }
+			oversound = mouse_over
+			clicksound = confirm_click
+			orientation = center_down
+		}
+
+		instantTextBoxType = {
+			name = "call_in_favors_summary"
+			font = "cg_16b"
+			position = { x = -100 y = 204 }
+			text = "DIPLOMATIC_FAVORS_VIEW_CALL_IN_FAVOR"
+			maxWidth = 210
+			maxHeight = 20
+			orientation = center
+			format = center
+			alwaysTransparent = yes
+		}
+	}
+
+	## Grid items
+	containerWindowType = {
+		name = "country_favor_grid_entry"
+		size = {
+			width = 308
+			height = 42
+		}
+
+		background = {
+			name = "bg"
+			quadTextureSprite = "GFX_tiles_dark_area_cut_8"
+			clicksound = "outliner_click_tab"
+		}
+
+		buttonType = {
+			name = "flag"
+			quadTextureSprite = "GFX_empire_flag_32"
+			position = { x = 10 y = 5  }
+		}
+
+		instantTextBoxType = {
+			name = "num_favors"
+			font = "cg_16b"
+			position = { x = 45 y = 12 }
+			text = "1/3"
+			maxWidth = 50
+			maxHeight = 20
+			format = center
+		}
+
+		instantTextBoxType = {
+			name = "num_favors_used"
+			font = "cg_16b"
+			position = { x = 90 y = 12 }
+			text = "(2)"
+			maxWidth = 50
+			maxHeight = 20
+			format = right
+		}
+
+		containerWindowType = {
+			name = "diplo_weight"
+			size = { width = 150 height = 34 }
+			position = { x = 150 y = 4 }
+
+			background = {
+				name = "bg"
+				quadTextureSprite = "GFX_tiles_dark_area_cut_8"
+				clicksound = "outliner_click_tab"
+			}
+
+			instantTextBoxType = {
+				name = "diplo_weight_buff"
+				font = "cg_16b"
+				position = { x = 15 y = 8 }
+				maxWidth = 80
+				maxHeight = 20
+				text = "(+200)"
+				format = right
+			}
+
+			buttonType = {
+				name = "decrease"
+				quadTextureSprite = "GFX_topbar_date_minus"
+				position = { x = 100 y = 7 }
+				pdx_tooltip = "DECREASE_FAVOR_TOOLTIP"
+				clicksound = decrement_click
+			}
+
+			buttonType = {
+				name = "increase"
+				quadTextureSprite = "GFX_topbar_date_plus"
+				position = { x = 121 y = 7  }
+				pdx_tooltip = "INCREASE_FAVOR_TOOLTIP"
+				clicksound = increment_click
+			}
+		}
+	}
+}

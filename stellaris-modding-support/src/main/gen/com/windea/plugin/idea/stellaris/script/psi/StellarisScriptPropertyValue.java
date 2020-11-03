@@ -14,6 +14,9 @@ public interface StellarisScriptPropertyValue extends PsiElement {
   StellarisScriptBoolean getBoolean();
 
   @Nullable
+  StellarisScriptColor getColor();
+
+  @Nullable
   StellarisScriptNumber getNumber();
 
   @Nullable

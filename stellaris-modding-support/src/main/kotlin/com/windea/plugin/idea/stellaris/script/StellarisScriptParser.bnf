@@ -66,8 +66,7 @@ property ::= property_key property_separator property_value {
 }
 property_key ::= PROPERTY_KEY_ID
 property_separator ::= "=" | "<" | ">" | "<=" | ">="
-property_value ::= variable_reference | boolean | number | string | block
-//property_value ::= boolean | number | variable_reference | string | array | object
+property_value ::= variable_reference | boolean | number | string | color | block
 
 block ::= "{" block_item * "}" {
   pin=1

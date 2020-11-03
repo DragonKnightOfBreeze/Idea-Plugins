@@ -40,6 +40,12 @@ public class StellarisScriptPropertyValueImpl extends ASTWrapperPsiElement imple
 
   @Override
   @Nullable
+  public StellarisScriptColor getColor() {
+    return findChildByClass(StellarisScriptColor.class);
+  }
+
+  @Override
+  @Nullable
   public StellarisScriptNumber getNumber() {
     return findChildByClass(StellarisScriptNumber.class);
   }

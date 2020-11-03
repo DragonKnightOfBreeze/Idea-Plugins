@@ -96,5 +96,5 @@ species = {
 	rgb { 255 201 208 }		# Light pink
 	rgb { 241 64 87 }		# Hot pink
 	rgb { 191 114 124 }		# Old pink
-	rgb { 204 0 0 }
+	hsv { 204 0 0 }
 }

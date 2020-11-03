@@ -1,0 +1,291 @@
+spriteTypes = {
+
+	### DLCs ###
+
+	spriteType = {
+		name = "GFX_necroidsspeciespack"
+		texturefile = "gfx/interface/icons/dlc/necroids_species_pack.dds"
+		noOfFrames = 1
+	}
+
+	spriteType = {
+		name = "GFX_necroidsspeciespack_big"
+		texturefile = "gfx/interface/icons/dlc/necroids_species_pack_big.dds"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_necroidsspeciespack_small"
+		texturefile = "gfx/interface/icons/dlc/necroids_species_pack_small.dds"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_federations"
+		texturefile = "gfx/interface/icons/dlc/federations.dds"
+		noOfFrames = 1
+	}
+
+	spriteType = {
+		name = "GFX_federations_big"
+		texturefile = "gfx/interface/icons/dlc/federations_big.dds"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_federations_small"
+		texturefile = "gfx/interface/icons/dlc/federations_small.dds"
+		noOfFrames = 2
+	}
+	
+	spriteType = {
+		name = "GFX_lithoidsspeciespack"
+		texturefile = "gfx/interface/icons/dlc/lithoids.dds"
+		noOfFrames = 1
+	}
+
+	spriteType = {
+		name = "GFX_lithoidsspeciespack_big"
+		texturefile = "gfx/interface/icons/dlc/lithoids_species_pack_big.dds"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_lithoidsspeciespack_small"
+		texturefile = "gfx/interface/icons/dlc/lithoids_species_pack_small.dds"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_ancientrelicsstorypack"
+		texturefile = "gfx/interface/icons/dlc/ancient_relics.dds"
+		noOfFrames = 1
+	}
+
+	spriteType = {
+		name = "GFX_ancientrelicsstorypack_big"
+		texturefile = "gfx/interface/icons/dlc/ancient_relics_big.dds"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_ancientrelicsstorypack_small"
+		texturefile = "gfx/interface/icons/dlc/ancient_relics_small.dds"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_megacorp"
+		texturefile = "gfx/interface/icons/dlc/megacorp.dds"
+		noOfFrames = 1
+	}
+
+	spriteType = {
+		name = "GFX_megacorp_big"
+		texturefile = "gfx/interface/icons/dlc/megacorp_big.dds"
+		noOfFrames = 2
+	}
+	
+	spriteType = {
+		name = "GFX_megacorp_small"
+		texturefile = "gfx/interface/icons/dlc/megacorp_small.dds"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_apocalypse"
+		texturefile = "gfx/interface/icons/dlc/apocalypse.dds"
+		noOfFrames = 1
+	}
+	
+	spriteType = {
+		name = "GFX_apocalypse_big"
+		texturefile = "gfx/interface/icons/dlc/apocalypse_big.dds"
+		noOfFrames = 2
+	}
+	
+	spriteType = {
+		name = "GFX_apocalypse_small"
+		texturefile = "gfx/interface/icons/dlc/apocalypse_small.dds"
+		noOfFrames = 2
+	}
+	
+	spriteType = {
+		name = "GFX_leviathansstorypack"
+		texturefile = "gfx/interface/icons/dlc/leviathans_story_pack.dds"
+		noOfFrames = 1
+	}
+
+	spriteType = {
+		name = "GFX_leviathansstorypack_big"
+		texturefile = "gfx/interface/icons/dlc/leviathans_big.dds"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_leviathansstorypack_small"
+		texturefile = "gfx/interface/icons/dlc/leviathans_small.dds"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_utopia"
+		texturefile = "gfx/interface/icons/dlc/utopia.dds"
+		noOfFrames = 1
+	}
+
+	spriteType = {
+		name = "GFX_utopia_big"
+		texturefile = "gfx/interface/icons/dlc/utopia_big.dds"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_utopia_small"
+		texturefile = "gfx/interface/icons/dlc/utopia_small.dds"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_syntheticdawnstorypack"
+		texturefile = "gfx/interface/icons/dlc/synthetic_dawn.dds" 
+		noOfFrames = 1
+	}
+
+	spriteType = {
+		name = "GFX_syntheticdawnstorypack_big"
+		texturefile = "gfx/interface/icons/dlc/synthetic_dawn_big.dds" 
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_syntheticdawnstorypack_small"
+		texturefile = "gfx/interface/icons/dlc/synthetic_dawn_small.dds" 
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_distantstarsstorypack"
+		texturefile = "gfx/interface/icons/dlc/distant_stars.dds"
+		noOfFrames = 1
+	}
+
+	spriteType = {
+		name = "GFX_distantstarsstorypack_big"
+		texturefile = "gfx/interface/icons/dlc/distant_stars_big.dds"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_distantstarsstorypack_small"
+		texturefile = "gfx/interface/icons/dlc/distant_stars_small.dds"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_plantoidspeciespack_big"
+		texturefile = "gfx/interface/icons/dlc/plantoids_species_pack_big.dds"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_plantoidspeciespack_small"
+		texturefile = "gfx/interface/icons/dlc/plantoids_species_pack_small.dds"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_humanoidsspeciespack_big"
+		texturefile = "gfx/interface/icons/dlc/humanoid_species_pack_big.dds"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_humanoidsspeciespack_small"
+		texturefile = "gfx/interface/icons/dlc/humanoid_species_pack_small.dds"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_completesoundtrack_big"
+		texturefile = "gfx/interface/icons/dlc/complete_soundtrack_big.dds"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_completesoundtrack_small"
+		texturefile = "gfx/interface/icons/dlc/complete_soundtrack_small.dds"
+		noOfFrames = 2
+	}
+	
+	spriteType = {
+		name = "GFX_anniversary_big"
+		texturefile = "gfx/interface/icons/dlc/anniversary_portraits_big.dds"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_anniversary_small"
+		texturefile = "gfx/interface/icons/dlc/anniversary_portraits_small.dds"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_expansionframe_big"
+		texturefile = "gfx/interface/icons/dlc/expansion_frame_big.dds"
+		noOfFrames = 2
+	}
+	
+	spriteType = {
+		name = "GFX_expansionframe_small"
+		texturefile = "gfx/interface/icons/dlc/expansion_frame_small.dds"
+		noOfFrames = 2
+	}
+	
+	spriteType = {
+		name = "GFX_packframe_big"
+		texturefile = "gfx/interface/icons/dlc/pack_frame_big.dds"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_packframe_small"
+		texturefile = "gfx/interface/icons/dlc/pack_frame_small.dds"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_silver_underlay"
+		texturefile = "gfx/interface/icons/dlc/silver_underlay.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_green_underlay"
+		texturefile = "gfx/interface/icons/dlc/green_underlay.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_green_underlay_horizontal"
+		texturefile = "gfx/interface/icons/dlc/green_underlay_horizontal.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_green_underlay_horizontal_HL"
+		texturefile = "gfx/interface/icons/dlc/green_underlay_horizontal_HL.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_silver_underlay_horizontal"
+		texturefile = "gfx/interface/icons/dlc/silver_underlay_horizontal.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_silver_underlay_horizontal_HL"
+		texturefile = "gfx/interface/icons/dlc/silver_underlay_horizontal_HL.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_black_bg_tile"
+		texturefile = "gfx/interface/icons/black_bg_tile.dds"
+	}
+}

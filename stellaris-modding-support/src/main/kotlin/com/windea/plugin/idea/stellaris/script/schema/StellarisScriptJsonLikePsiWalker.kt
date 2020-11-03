@@ -56,6 +56,11 @@ object StellarisScriptJsonLikePsiWalker : JsonLikePsiWalker {
 		return element is StellarisScriptProperty
 	}
 
+	//用于验证的Json字符串带双引号
+	override fun getNodeTextForValidation(element: PsiElement?): String {
+		return element?.text?.quote()?:""
+	}
+
 	override fun getRoots(file: PsiFile): MutableCollection<PsiElement> {
 		val root =  PsiTreeUtil.findChildOfType(file,StellarisScriptPropertyValue::class.java)
 		return ContainerUtil.createMaybeSingletonList(root)

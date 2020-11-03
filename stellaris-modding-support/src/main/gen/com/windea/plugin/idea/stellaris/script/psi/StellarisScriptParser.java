@@ -166,7 +166,7 @@ public class StellarisScriptParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // variable_reference | boolean | number | string | block
+  // variable_reference | boolean | number | string | color | block
   public static boolean property_value(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "property_value")) return false;
     boolean r;
@@ -175,6 +175,7 @@ public class StellarisScriptParser implements PsiParser, LightPsiParser {
     if (!r) r = boolean_$(b, l + 1);
     if (!r) r = number(b, l + 1);
     if (!r) r = string(b, l + 1);
+    if (!r) r = color(b, l + 1);
     if (!r) r = block(b, l + 1);
     exit_section_(b, l, m, r, false, null);
     return r;

@@ -142,6 +142,7 @@ UNQUOTED_STRING=[^@\s\[\]\{\}=\"][^\s\[\]\{\}=\"]*
   {SPACE} { return WHITE_SPACE; }
   {END_OF_LINE_COMMENT} {  return END_OF_LINE_COMMENT; }
   {VARIABLE_REFERENCE_ID} {yybegin(WAITING_PROPERTY_EOL); return VARIABLE_REFERENCE_ID;}
+  {COLOR_TOKEN} {yybegin(WAITING_PROPERTY_EOL); return COLOR_TOKEN;}
   {BOOLEAN} { yybegin(WAITING_PROPERTY_EOL); return BOOLEAN_TOKEN; }
   {NUMBER} { yybegin(WAITING_PROPERTY_EOL); return NUMBER_TOKEN; }
   {STRING} { yybegin(WAITING_PROPERTY_EOL); return STRING_TOKEN; }
@@ -156,6 +157,7 @@ UNQUOTED_STRING=[^@\s\[\]\{\}=\"][^\s\[\]\{\}=\"]*
   //可以在同一行
   //在这里根据后面是否有"="判断是否是property
   {IS_PROEPRTY} {yypushback(yylength()); yybegin(WAITING_PROPERTY);}
+  {COLOR_TOKEN} {yybegin(WAITING_PROPERTY_EOL); return COLOR_TOKEN;}
   {BOOLEAN} { return BOOLEAN_TOKEN; }
   {NUMBER} { return NUMBER_TOKEN; }
   {STRING} { return STRING_TOKEN;}

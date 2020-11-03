@@ -1,0 +1,744 @@
+guiTypes = {
+
+	@SOURCE_W = 483
+	@SOURCE_H = 50
+	
+	@TARGET_W = 1140
+	@TARGET_H = 55
+
+	containerWindowType = {
+		name = "expansion_planner_dropdown_entry"
+		size = { width = 186 height = 40 }
+
+		background = {
+			name = "hitbox"
+			spriteType = "GFX_invisible"
+		}
+
+		buttonType = {
+			name = "bg"
+			spriteType = "GFX_tiles_dark_area_cut_8"
+			orientation = center
+			size = { x = 185 y = 38 }
+			position = { x = -93 y = -19 }
+			alwaysTransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "text"
+			font = "cg_16b"
+			maxWidth = 180
+			maxHeight = 40
+			position = { x = 0 y = 0 }
+			format = center
+			vertical_alignment = center
+			alwaysTransparent = yes
+			fixedSize = yes
+			text = ""
+		}
+	}
+
+	### EXPANSION TARGET ENTRY ###
+
+	containerWindowType = {
+		name = "planet_modifier_entry"
+		size = { width = 48 height = 48 }
+
+		iconType = {
+			name = "icon"
+			spriteType = "GFX_modifier_pm_unknown"
+			scale = 0.8
+		}
+
+		iconType = {
+			name = "icon_frame"
+			spriteType = "GFX_modifier_frames"
+			scale = 0.8
+			frame = 1
+			alwaystransparent = yes
+		}
+	}
+
+	containerWindowType = {
+		name = "expansion_target_entry"
+		size = { width = @TARGET_W height = 54 }
+
+		buttonType = {
+			name = "background"
+			spriteType = "GFX_button_1134_50_animated"
+			size = { x = 1134 y = 50 }
+			position = { x = -7 y = -7 }
+		}
+		
+		buttonType = {
+			name = "zoom_to_planet"
+			spriteType = "GFX_fleetview_focus"
+			position = { x = 9 y = 11 }
+			pdx_tooltip = "FOCUS_ON_PLANET"
+		}
+
+		iconType = {
+			name = "planet_class_icon"
+			position = { x = 48 y = 11 }
+			spriteType = "GFX_planet_type"
+			frame = 1
+			scale = 1.0
+			pdx_tooltip = "FOCUS_ON_PLANET"
+		}
+
+		iconType = {
+			name = "has_expansion_entry"
+			position = { x = 73 y = 8 }
+			spriteType = "GFX_has_expansion_entry"
+			pdx_tooltip = "EXPANSION_PLANNER_HAS_EXPANSION_ENTRY"
+		}
+
+		instantTextBoxType = {
+			name = "habitability_amount"
+			font = "cg_16b"
+			position = { x = 82 y = 23 }
+			maxWidth = 60
+			maxHeight = 20
+			format = center
+			text_color_code = "E"
+		}
+		
+		instantTextBoxType = {
+			name = "planet_name"
+			font = "cg_16b"
+			text = "Blareogle System"
+			position = { x = 145 y = 13 }
+			maxWidth = 270
+			maxHeight = 20
+			format = left
+			fixedSize = yes
+			alwaysTransparent = yes
+		}
+		
+		# Deposits summary
+		containerWindowType = {
+			name = "rare_deposits_window"
+			size = { width = 100 height = 48 }
+			position = { x = 335 y = 8 }
+
+			iconType = {
+				name = "rare_deposit_button"
+				quadTextureSprite = "GFX_deposit_unknown"
+				position = { x=4 y= 2 }
+				scale = 0.55
+			}			
+
+			iconType = {
+				name = "rare_deposit_frame"
+				spriteType = "GFX_planet_background_frame_rare"
+				position = { x=4 y= 1 }
+				scale = 0.56
+				alwaysTransparent = yes
+			}	
+			
+			instantTextBoxType = {
+				name = "rare_deposit_num"
+				font = "malgun_goth_24"
+				position = { x = 47 y = 18 }
+				text = "0"
+				maxWidth = 50
+				maxHeight = 50
+				fixedSize = yes
+				format = left
+				orientation = upper_left
+				alwaysTransparent = yes
+			}					
+		}
+		
+		instantTextBoxType = {
+			name = "planet_class"
+			font = "cg_16b"
+			text = "Arid"
+			position = { x = 145 y = 33 }
+			maxWidth = 170
+			maxHeight = 20
+			text_color_code = "E"
+			format = left
+			alwaysTransparent = yes
+		}
+
+		iconType = {
+			name = "planet_size_icon"
+			spriteType = "GFX_planet_view_planet"
+			position = { x = 430 y = 10 }
+			alwaysTransparent = yes
+		}
+		
+		instantTextBoxType = {
+			name = "planet_size_amount"
+			font = "cg_16b"
+			text = "25"
+			position = { x = 418 y = 33 }
+			maxWidth = 50
+			maxHeight = 20
+			format = center
+			alwaysTransparent = yes
+		}
+		
+		iconType = {
+			name = "distance_icon"
+			spriteType = "GFX_empire_capital"
+			position = { x = 509 y = 10 }
+			alwaysTransparent = yes
+			scale = 0.66
+		}
+		
+		instantTextBoxType = {
+			name = "expansion_distance"
+			font = "cg_16b"
+			text = "131"
+			position = { x = 495 y = 33 }
+			maxWidth = 50
+			maxHeight = 20
+			format = center
+			alwaysTransparent = yes
+		}
+		
+		@resource_y = 18
+		
+		gridBoxType = {
+			size = { width = 65 height = 45 }
+			name = "district0"
+			position = { x = 563 y = 9 }
+			slotSize = { width = 15 height = 15 }
+			max_slots_horizontal = 5
+			max_slots_vertical = 3
+			format = "UPPER_LEFT"
+			add_horizontal = yes
+		}
+		
+		gridBoxType = {
+			size = { width = 65 height = 45 }
+			name = "district1"
+			position = { x = 661 y = 9 }
+			slotSize = { width = 15 height = 15 }
+			max_slots_horizontal = 5
+			max_slots_vertical = 3
+			format = "UPPER_LEFT"
+			add_horizontal = yes
+		}
+		
+		gridBoxType = {
+			size = { width = 65 height = 45 }
+			name = "district2"
+			position = { x = 759 y = 9 }
+			slotSize = { width = 15 height = 15 }
+			max_slots_horizontal = 5
+			max_slots_vertical = 3
+			format = "UPPER_LEFT"
+			add_horizontal = yes
+		}
+		
+		
+		### PLANET MODIFIERS
+
+		overlappingElementsBoxType = {
+			name = "modifiers"
+			position = { x = 857 y = 6 }
+			size = { x = 150 y = 48 }
+			format = center
+			#orientation = upper_left
+		}
+
+		iconType = {
+			name = "has_intel_hostile"
+			position = { x = 1040 y = 14 }
+			spriteType = "GFX_hostile_intel_icon"
+		}
+
+		iconType = {
+			name = "has_anomaly"
+			position = { x = 1040 y = 14 }
+			spriteType = "GFX_hostile_intel_icon"
+		}
+
+		buttonType = {
+			name = "cancel_colonize_button"
+			spriteType = "GFX_close_button_planet"
+			position = { x = -45 y = 11 }
+			orientation = "UPPER_RIGHT"
+			oversound = mouse_over
+		}
+	}
+
+	### TILE RESOURCE ###
+
+	containerWindowType = {
+		name = "expansion_planner_surface_resource_entry"
+		size = { width = 32 height = 20 }
+
+		iconType = {
+			name = "icon"
+			spriteType = "GFX_resource"
+			position = { x = 0 y = 2 }
+		}
+
+		instantTextBoxType = {
+			name = "amount"
+			font = "cg_16b"
+			text = "0"
+			position = { x = 20 y = 3 }
+			maxWidth = 20
+			maxHeight = 20
+			fixedSize = yes
+			format = left
+		}
+	}
+
+	### EXPANSION PLANNER VIEW ###
+
+	containerWindowType = {
+		name = "expansion_planner_view"
+		size = { width = 1182 height = 595 }
+		show_position = { x = 35 y = 40 }
+		hide_position = { x = -1272 y = 40 }
+		animation_time = 200
+		animation_type = decelerated
+		clipping = no
+		show_sound = "interface"
+
+		background = {
+			name = "bg"
+			spriteType = "GFX_tile_large_bg"
+		}
+
+		### WINDOW HEADER ###
+
+		buttonType = {
+			name = "close"
+			spriteType = "GFX_close_button"
+			position = { x = -45 y = 16 }
+			orientation = "UPPER_RIGHT"
+			shortcut = "ESCAPE"
+			pdx_tooltip = "CLOSE_TITLE"
+			clicksound = "back_click"
+		}
+
+		iconType = {
+			name = "hex_bg"
+			spriteType = "GFX_hex_bg"
+			position = { x = 5 y = -12 }
+			alwaysTransparent = yes
+		}
+
+		iconType = {
+			name = "title_line"
+			quadTextureSprite = "GFX_line_long"
+			position = { x = 6 y = 22 }
+		}
+
+		instantTextBoxType = {
+			name = "title"
+			font = "malgun_goth_24"
+			text = "topbar_button_expansion_planner_name"
+			position = { x = 35 y = 5 }
+			maxWidth = 1000
+			maxHeight = 20
+			fixedSize = yes
+			alwaysTransparent = yes
+		}
+
+		### LIST COLONY SHIP TARGETS ###
+
+		# Entry shows planet class, habitability, name, tile size, expansion distance, resources, modifiers, risks.
+
+		instantTextBoxType = {
+			name = "expansion_target_title"
+			font = "malgun_goth_24"
+			text = "topbar_button_expansion_planner_name"
+			position = { x = 20 y = 50 }
+			maxWidth = 1000
+			maxHeight = 20
+			fixedSize = yes
+			alwaysTransparent = yes
+			text = "EXPANSION_PLANNER_COLONY_SHIP_TARGET"
+		}
+
+		containerWindowType = {
+			name = "expansion_target"
+			size = { width = @TARGET_W height = 0 }
+			position = { x = 0 y = 83 }
+			clipping = no
+			
+			@sort_button_height = 3
+			@sort_icon_height = 16
+
+			buttonType={
+				name = "class"
+				font = "cg_16b"
+				spriteType = "GFX_button_95_24"
+				buttonText = "PLANETVIEW_PLANET_CLASS"
+				position = { x = 0 y = @sort_button_height }
+				orientation = UPPER_LEFT
+				pdx_tooltip = "EXPANSION_PLANNER_SORT_CLASS"
+				oversound = mouse_over
+			}
+			
+			buttonType={
+				name = "habitability"
+				font = "cg_16b"
+				spriteType = "GFX_button_35_24"
+				buttonText = ""
+				position = { x = 98 y = @sort_button_height }
+				orientation = UPPER_LEFT
+				pdx_tooltip = "EXPANSION_PLANNER_SORT_HABITABILITY"
+				oversound = mouse_over
+			}
+			
+			iconType = {
+				name = "habitability_icon"
+				spriteType = "GFX_mod_habitability"
+				position = { x = 112 y = 12 }
+				alwaysTransparent = yes
+			}
+			
+			buttonType={
+				name = "name"
+				font = "cg_16b"
+				spriteType = "GFX_standard_button_190_24"
+				buttonText = "NAME"
+				position = { x = 136 y = 10 }
+				orientation = UPPER_LEFT
+				pdx_tooltip = "EXPANSION_PLANNER_SORT_NAME"
+				#format = left
+				oversound = mouse_over
+			}
+			
+			buttonType={
+				name = "features"
+				font = "cg_16b"
+				spriteType = "GFX_button_75_24"
+				buttonText = "FEATURES"
+				position = { x = 329 y = @sort_button_height }
+				orientation = UPPER_LEFT
+				pdx_tooltip = "EXPANSION_PLANNER_SORT_FEATURES"
+				oversound = mouse_over
+			}
+			
+			buttonType={
+				name = "size"
+				font = "cg_16b"
+				spriteType = "GFX_button_75_24"
+				buttonText = "SIZE"
+				position = { x = 407 y = @sort_button_height }
+				orientation = UPPER_LEFT
+				pdx_tooltip = "EXPANSION_PLANNER_SORT_SIZE"
+				oversound = mouse_over
+			}
+			
+			buttonType={
+				name = "distance"
+				font = "cg_16b"
+				spriteType = "GFX_button_75_24"
+				buttonText = "DISTANCE"
+				position = { x = 485 y = @sort_button_height }
+				orientation = UPPER_LEFT
+				pdx_tooltip = "EXPANSION_PLANNER_SORT_DISTANCE"
+				oversound = mouse_over
+			}
+			
+			buttonType = {
+				name = "district0"
+				spriteType = "GFX_button_95_24"
+				position = { x=563 y=@sort_button_height }
+				orientation = UPPER_LEFT
+				oversound = mouse_over
+			}	
+
+			iconType = {
+				name = "district0_icon"
+				spriteType = "GFX_district_mining"
+				position = { x = 611 y = @sort_icon_height }
+				scale = 0.30
+				pdx_tooltip = "EXPANSION_PLANNER_SORT_FOOD"
+				alwaysTransparent = yes
+			}
+			
+			buttonType = {
+				name = "district1"
+				spriteType = "GFX_button_95_24"
+				position = { x=661 y=@sort_button_height }
+				orientation = UPPER_LEFT
+				oversound = mouse_over
+			}	
+
+			iconType = {
+				name = "district1_icon"
+				spriteType = "GFX_district_farming"
+				position = { x = 709 y = @sort_icon_height }
+				scale = 0.30
+				pdx_tooltip = "EXPANSION_PLANNER_SORT_FOOD"
+				alwaysTransparent = yes
+			}
+			
+			buttonType = {
+				name = "district2"
+				spriteType = "GFX_button_95_24"
+				position = { x=759 y=@sort_button_height }
+				orientation = UPPER_LEFT
+				oversound = mouse_over
+			}	
+
+			iconType = {
+				name = "district2_icon"
+				spriteType = "GFX_district_generator"
+				position = { x = 807 y = @sort_icon_height }
+				scale = 0.30
+				pdx_tooltip = "EXPANSION_PLANNER_SORT_FOOD"
+				alwaysTransparent = yes
+			}
+
+			buttonType={
+				name = "sort_modifiers"
+				font = "cg_16b"
+				spriteType = "GFX_button_150_24"
+				buttonText = "MODIFIERS"
+				position = { x = 857 y = @sort_button_height }
+				orientation = UPPER_LEFT
+				pdx_tooltip = "EXPANSION_PLANNER_SORT_MODIFIERS"
+			}
+			
+			buttonType={
+				name = "sort_status"
+				font = "cg_16b"
+				spriteType = "GFX_button_116_24"
+				buttonText = "STATUS"
+				position = { x = 1010 y = @sort_button_height }
+				orientation = UPPER_LEFT
+				pdx_tooltip = "EXPANSION_PLANNER_SORT_STATUS"
+			}
+
+			buttonType = {
+				name = "list_bg"
+				spriteType = "GFX_tiles_dark_area_cut_8"
+				size = { x = 1160 y = 451 }
+				position = { x = 11 y = 50 }
+				alwaysTransparent = yes
+			}
+
+			smoothListboxType = {
+				name = "list"
+				size = { x = @TARGET_W y = 444 }
+				position = { x = 14 y = 53 }
+				scrollbartype = "standardlistbox_slider"
+			}
+		}
+
+		### FILTER COLONY SHIP TARGETS ###
+		# BEWARE DO THIS AFTER LISTING EXPANSION TARGETS SO FILTER GUI ENDS UP ON TOP
+
+		containerWindowType = {
+			name = "expansion_target_filters"
+			size = { width = @TARGET_W height = 0 }
+			position = { x = 312 y = 28 }
+
+			### TEXT INPUT FILTER ###
+			
+			#editBoxType = { 
+			#	name = "filter_text"
+			#	instantTextBoxType = no
+			#	size = { x = 400 y = 35 }
+			#	position = { x = 858 y = 16 }
+			#	borderSize = { x = 8 y = 1 }
+			#	font = "cg_16b"
+			#	textureFile = "gfx/interface/tiles/small_tiles_dialog2.dds"
+			#}
+
+			### CHECKBOX IS SURVEYED ###
+
+			containerWindowType = {
+				name = "filter_is_surveyed"
+				position = { x = 5 y = 20 }
+
+				checkboxType = {
+					name = "checked"
+					spriteType = "GFX_checkbox_20_20_01"
+					pdx_tooltip = "EXPANSION_PLANNER_IS_SURVEYED_DESC"
+				}
+
+				instantTextBoxType = {
+					name = "title"
+					font = "cg_16b"
+					maxWidth = 120
+					maxHeight = 30
+					position = { x = 35 y = 0 }
+					vertical_alignment = center
+					text_color_code = "E"
+					text = "EXPANSION_PLANNER_IS_SURVEYED"
+					pdx_tooltip = "EXPANSION_PLANNER_IS_SURVEYED_DESC"
+				}
+			}
+
+			### CHECKBOX IS COLONIZABLE ###
+
+			containerWindowType = {
+				name = "filter_is_colonizable"
+				position = { x = 155 y = 20 }
+
+				checkboxType = {
+					name = "checked"
+					spriteType = "GFX_checkbox_20_20_01"
+					pdx_tooltip = "EXPANSION_PLANNER_IS_COLONIZABLE_DESC"
+				}
+
+				instantTextBoxType = {
+					name = "title"
+					font = "cg_16b"
+					maxWidth = 120
+					maxHeight = 30
+					position = { x = 35 y = 0 }
+					vertical_alignment = center
+					text_color_code = "E"
+					text = "EXPANSION_PLANNER_IS_COLONIZABLE"
+					pdx_tooltip = "EXPANSION_PLANNER_IS_COLONIZABLE_DESC"
+				}
+			}
+
+			### DROPDOWN HABITABILITY ###
+
+			dropDownBoxType = {
+				name = "filter_habitability"
+				position = { x = 315 y = 15 }
+				size = { width = 202 height = 38 }
+
+				buttonType = {
+					name = "bg"
+					spriteType = "GFX_tiles_dark_area_cut_8"
+					size = { x = 195 y = 30 }
+					position = { x = 4 y = 4 }
+					pdx_tooltip = "EXPANSION_PLANNER_FILTER_HABITABILITY_DESC"
+					no_clicksound = yes
+				}
+				
+				instantTextBoxType = {
+					name = "selected"
+					font = "cg_16b"
+					maxWidth = 200
+					maxHeight = 39
+					format = center
+					vertical_alignment = center
+					alwaystransparent = yes
+				}
+				
+				expandButton = {
+					name = "expand_button"
+					position = { x = 200 y = 0 }
+					spriteType = "GFX_button_down_arrow"
+					#pdx_tooltip = "topbar_button_dropdown_instant"
+					#pdx_tooltip_delayed = "topbar_button_dropdown_delayed"
+					clicksound = interface
+					oversound = mouse_over
+					pdx_tooltip = "EXPANSION_PLANNER_FILTER_HABITABILITY_DESC"
+				}
+				
+				expandedWindow = {
+					name = "expanded_window"
+					position = { x = 3 y = -300 }
+					hide_position = { x = 3 y = -300 }
+					show_position = { x = 3 y = 40 }
+					show_animation_type = decelerated
+					hide_animation_type = accelerated
+					animation_time = 200
+					size = { width = 195 height = 250 }
+					#verticalScrollbar = "right_vertical_slider"
+					
+					background = {
+						name = "bg"
+						spriteType = "GFX_subwindow_tile_plain_solid"
+					}
+					
+					gridBoxType = {
+						name = "gridbox"
+						format = "UPPER_LEFT"
+						position = { x = 5 y = 5 }
+						size = { width = 190 height = 0 }
+						slotsize = { width = 290 height = 40 }
+						max_slots_horizontal = 1
+					}
+				}
+			}
+
+			### DROPDOWN SPECIES ###
+
+			dropDownBoxType = {
+				name = "filter_species"
+				position = { x = 560 y = 15 }
+				size = { width = 202 height = 38 }
+
+				buttonType = {
+					name = "bg"
+					spriteType = "GFX_tiles_dark_area_cut_8"
+					size = { x = 195 y = 30 }
+					position = { x = 4 y = 4 }
+					pdx_tooltip = "EXPANSION_PLANNER_FILTER_SPECIES_DESC"
+					no_clicksound = yes
+				}
+
+				instantTextBoxType = {
+					name = "selected"
+					font = "cg_16b"
+					maxWidth = 200
+					maxHeight = 39
+					format = center
+					vertical_alignment = center
+					alwaystransparent = yes
+				}
+				
+				expandButton = {
+					name = "expand_button"
+					position = { x = 200 y = 0 }
+					spriteType = "GFX_button_down_arrow"
+					#pdx_tooltip = "topbar_button_dropdown_instant"
+					#pdx_tooltip_delayed = "topbar_button_dropdown_delayed"
+					clicksound = interface
+					oversound = mouse_over
+					pdx_tooltip = "EXPANSION_PLANNER_FILTER_SPECIES_DESC"
+				}
+				
+				expandedWindow = {
+					name = "expanded_window"
+					position = { x = 3 y = -300 }
+					hide_position = { x = 3 y = -300 }
+					show_position = { x = 3 y = 40 }
+					show_animation_type = decelerated
+					hide_animation_type = accelerated
+					animation_time = 200
+					size = { width = 195 height = 250 }
+					verticalScrollbar = "right_vertical_slider"
+					
+					background = {
+						name = "bg"
+						spriteType = "GFX_subwindow_tile_plain_solid"
+					}
+					
+					gridBoxType = {
+						name = "gridbox"
+						format = "UPPER_LEFT"
+						position = { x = 5 y = 5 }
+						size = { width = 190 height = 0 }
+						slotsize = { width = 290 height = 40 }
+						max_slots_horizontal = 1
+					}
+				}
+			}
+		}
+	}
+
+
+
+
+
+	### LIST COLONIST VARIATIONS ###
+
+	# Entry shows pop portrait, name, planet preference, traits, etc. Same as before.
+
+
+	### PLANET TILE SELECTION ###
+
+	# Planet view style tile layout.
+}

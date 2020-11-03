@@ -1,0 +1,2627 @@
+#Stellaris: Necroids 游戏团队
+--------
+##EVP 创意总监
+
+Johan Andersson
+
+##游戏总监
+
+Daniel Moregård
+
+##制作人
+
+Aziz Faghihinejad
+
+##设计师
+
+Stephen Muray
+
+##技术首席
+
+Gwenael Tranvouez
+Rickard Lagerbäck
+
+##程序
+
+Gustav Palmqvist
+Ilya Nikitin
+Lorenzo Berni
+Mathieu Ropert
+Ulrika Uddeborg
+
+##辅助程序
+Pierre du Plessis
+
+##内容设计首席
+
+Henrik Thyrwall
+
+##内容设计
+
+Douglas Furen
+Gemma Thomson
+Pierre du Plessis
+
+##用户体验设计
+
+Doyle Merlin Daigle II
+
+##本地化经理
+
+Sara Wendel-Örtqvist
+
+##艺术与音声部门总监
+
+Adrian Banninga
+
+##艺术总监
+
+Fredrik Toll
+
+##艺术制作人
+
+Anton Wittberg Letoff
+Melinda Esponda Díaz
+
+##艺术首席
+
+Simon Gunnarsson
+
+##概念艺术
+
+Ahmed Albastaki
+Mattias Larsson
+Ylva Ljungqvist
+Ecbel Oueslati
+
+##平面艺术
+
+Ylva Ljungqvist
+
+##立体艺术
+
+Johan Lundqvist
+
+##动画
+
+Fabian Soon
+Niklas Tammpere
+
+##视觉特效
+
+Erik Forsström
+
+##音声总监
+
+Björn Iversen
+
+##音效设计师
+
+Franco Freda
+Gustav Landerholm
+
+##外部合作伙伴
+
+##艺术
+
+N-iX Game & VR Studio
+Ringtail Studios
+
+##音声
+
+##录音工作室
+
+Punch & Roll Studio
+
+##Necroid 旁白
+
+Kate Fleetwood
+
+##嵌入式质量保障
+
+Byron Aytoun
+Erik Elgerot
+Eva Mayer
+Markus Veit
+
+##质量保障团队首席 - 中央
+
+Filippa Gannholm Kirsten
+
+##项目协调人
+
+Joseph Gardener
+
+##QLOC
+
+## 质量保障团队组长
+
+Adam Nowicki
+
+## 专门化测试员
+
+Marek Bombala
+Maciej Gutkowski
+Damian Szokalski
+
+##质量保障测试（辅助）
+
+Ewa Angielska
+Sofiane Boukoffa
+Joanna Kucharzyk
+Jacek Mroczek
+Piotr Mugerman
+Bartlomiej Mycyk
+Piotr Pieniak
+Lukasz Rembisz
+Mateusz Soja
+Damian Szokalski
+
+##Keywords Studios Katowice
+
+##功能性质量保障项目经理
+
+Marcin Jankowski
+
+##功能性质量保障助理首席
+
+Marcin Sebesta
+
+##功能性质量保障资深测试员
+
+Michal Sosnowski
+
+##功能性质量保障测试员
+
+Mikolaj Bizacki
+Jacek Brzozowski
+Leszek Jaworek
+Tomasz Setlak
+Stanislaw Skalski
+Michal Szczudlo
+Michal Wylag
+
+##Beta 测试员
+
+Francesco Teruzzi
+Josh "Mordaith" Smith
+Maik "Malthus" Wrba
+Marc Schmelzer
+Matthew Walsh
+Michael De Bona
+Maik "Malthus" Wrba
+Nina Chance
+
+##产品经理
+
+Simon Stackmann
+
+##产品营销经理
+
+Pontus Rundqvist
+
+##绩效营销经理
+
+Michiel Van Loo
+
+##营销创意总监
+
+Axel Ullberger
+
+##营销创意制作人
+
+Oskar Petrén
+
+##自动化营销专家
+
+Johanna Kasurinen
+
+##商业经理
+
+Viktor Stadler
+
+##贸易营销经理
+
+Jackson Downing
+
+##数据科学家
+
+Stephen White
+
+##用户研究
+
+Yinyi Luo
+
+##社区经理
+
+Ann-Charlotte Mörk
+
+##社区大使
+
+Graeme Crawford
+Matthew Freake
+
+##客户支持
+
+Christian Arvidsson
+Debbie Lane
+
+##直播内容
+
+Jimmy Tisell
+Anders Carlsson
+
+##首席“双关”工作人员
+
+Rikard The Pun-isher
+
+##抱枕协调人
+
+Mercedes Romero
+
+#Stellaris: Federations 游戏团队
+--------
+##EVP 创意总监
+
+Johan Andersson
+
+##游戏总监
+
+Daniel Moregård
+
+##制作人
+
+Aziz Faghihinejad
+Jamie Wood
+
+##设计师
+
+Stephen Muray
+
+##技术首席
+
+Gwenael Tranvouez
+Rickard Lagerbäck
+
+##程序
+
+Carl Carenvall
+Emelie Nordstrand Lindgren
+Gustav Palmqvist
+Ilya Nikitin
+Lorenzo Berni
+Mathieu Ropert
+Ulrika Uddeborg
+Zack Holmgren
+
+##内容设计首席
+
+Henrik Thyrwall
+
+##内容设计
+
+David Ballantyne
+Douglas Furen
+Gemma Thomson
+Miranda van den Brink
+Pierre du Plessis
+
+##用户体验设计
+
+Doyle Merlin Daigle II
+
+##本地化经理
+
+Sara Wendel-Örtqvist
+
+##艺术与音声部门总监
+
+Adrian Banninga
+
+##艺术总监
+
+Fredrik Toll
+
+##艺术制作人
+
+Melinda Esponda Diaz
+Philipp Glietsch
+
+##艺术首席
+
+Simon Gunnarsson
+
+##概念艺术
+
+Mattias Larsson
+Ecbel Oueslati
+
+##平面艺术
+
+Ahmed Albastaki
+Ylva Ljungqvist
+
+##立体艺术
+
+Johan Lundqvist
+
+##动画 & 特效
+
+Erik Forsström
+Fabian Soon
+Niklas Tammpere
+
+##辅助艺术
+
+N-iX Game & VR Studio
+
+##音声总监
+
+Björn Iversen
+
+##资深音效设计师
+
+Franco Freda
+
+##作曲
+
+Meyer
+
+##VIR 配音
+
+Kola Krauze
+
+##嵌入式质量保障
+
+Erik Elgerot
+Eva Mayer
+Markus Veit
+
+##质量保障团队首席 - 中央
+
+Filippa Gannholm Kirsten
+
+##项目协调人
+
+William Riggott
+Anna Johansson
+Joseph Gardener
+Nicholas Meredith
+Paul Depre
+
+##质量保障测试
+
+Joseph Gardener
+
+##QLOC
+
+##质量保障团队组长
+
+Adam Nowicki
+Kamil Uszynski
+
+##质量保障测试员（专门化）
+
+Maciej Gutkowski
+Stanislaw Szczerbik
+Marek Bombala
+
+##质量保障测试（辅助）
+
+Ewa Angielska
+Sofiane Boukoffa
+Joanna Kucharzyk
+Jacek Mroczek
+Piotr Mugerman
+Bartlomiej Mycyk
+Piotr Pieniak
+Lukasz Rembisz
+Mateusz Soja
+Damian Szokalski
+
+##Keywords Studios Katowice
+
+##功能性质量保障项目经理
+
+Marcin Jankowski
+
+##资深功能性质量保障测试员
+
+Marcin Sebesta
+Grzegorz Dabrowski
+
+##功能性质量保障测试员
+
+Adam Bialecki
+Mikolaj Bizacki
+Jacek Brzozowski
+Dawid Kolaczuch
+Martyna Sliwa
+Tamara Dybala
+Dawid Fulczyk
+Wojciech Lukesz
+Artur Marcinkowski
+Patryk Peikert
+Adrian Piotrowski
+Ewa Popowicz
+Natalia Poreba
+Olivier Purak
+Konrad Ruminski
+Adam Staron
+Michal Stokowski
+Antoni Student
+Maciej Stelmaszyk
+Michal Zawolek
+
+##Beta 测试员
+
+George Bancroft
+Thomas Boby
+Nina Chance
+Philip Curtis
+Michael De Bona
+Lukasz Delra
+Sergey Demidov
+Harel Eilam
+Patrick France
+Brian Haddad
+Mikael Hagman
+Musa von Homeyer
+Paul Howell
+Rajeev D. Majumdar
+Anton Panas
+Woosuk Park
+Marc Schmelzer
+Dylan Skoda
+Francesco Teruzzi
+Andrew Vawter
+Matthew Walsh
+Maik Wrba
+Djordje Zivanovic
+
+##产品经理
+
+Simon Stackmann
+
+##产品营销经理
+
+Pontus Rundqvist
+
+##绩效营销经理
+
+Michiel Van Loo
+
+##营销创意总监
+
+Steven Wells
+
+##营销创意制作人
+
+Marcus Herbertsson
+
+##自动化营销专家
+
+Alexander Nordkvist
+Johanna Kasurinen
+
+##商业经理
+
+Viktor Stadler
+
+##贸易营销经理
+
+Jackson Downing
+
+##数据科学家
+
+Kayle Sneed
+
+##用户研究
+
+Hanna Löhman
+Yinyi Luo
+
+##社区开发者
+
+Dale Emasiri
+
+##社区经理
+
+Ann-Charlotte Mörk
+
+##社区大使
+
+Graeme Crawford
+Krzysztof "Harlot" Biernat
+Matthew Freake
+
+##客户支持
+
+Christian Arvidsson
+Debbie Lane
+
+##直播内容
+
+Jimmy Tisell
+Anders Carlsson
+
+##首席“双关”工作人员
+
+Rikard The Pun-isher
+
+##抱枕协调人
+
+Mercedes Romero
+
+
+#Stellaris: Lithoids 游戏团队
+--------
+##EVP 创意总监
+
+Johan Andersson
+
+##游戏总监
+
+Daniel Moregård
+
+##制作人
+
+Aziz Faghihinejad
+Jamie Wood
+
+##设计师
+
+Stephen Muray
+
+##技术首席
+
+Gwenael Tranvouez
+
+##程序
+
+Carl Carenvall
+Zack Holmgren
+Emelie Nordstrand Lindgren
+Ilya Nikitin
+Gustav Palmqvist
+
+##内容设计首席
+
+Henrik Thyrwall
+
+##内容设计
+
+David Ballantyne
+Miranda van den Brink
+Douglas Furen
+Dee Majek
+Gemma Thomson
+
+##用户体验设计
+
+Doyle Merlin Daigle II
+
+##本地化经理
+
+Sara Wendel-Örtqvist
+
+##艺术经理
+
+Adrian Banninga
+
+##艺术总监
+
+Fredrik Toll
+
+##艺术制作人
+
+Melinda Esponda Diaz
+Philipp Glietsch
+
+##平面艺术
+
+Simon Gunnarsson
+Mattias Larsson
+Ylva Ljungqvist
+Ecbel Oueslati
+
+##立体艺术
+
+Johan Lundqvist
+
+##辅助艺术
+
+N-iX
+
+##动画 & 特效
+
+Erik Forsström
+Fabian Soon
+Niklas Tammpere
+
+##验证经理
+
+Andreas Renström
+
+##质量保障经理
+
+Felix Gladitz
+Tegan Harris
+
+##质量保障团队首席 - 中央
+
+Filippa Gannholm Kirsten
+
+##嵌入式质量保障
+
+Eva Mayer
+Markus Veit
+
+##项目协调人
+
+Anna Johansson
+Nicholas Meredith
+
+##质量保障测试
+
+Paul Depre
+Joseph Gardener
+Jesper Norberg
+William Riggott
+
+##QLOC 质量保障项目经理
+
+Maciej Grabowski
+
+## QLOC 质量保障团队组长
+
+Adam Nowicki
+
+## QLOC 质量保障测试员（专门化）
+
+Maciej Gutkowski
+Stanislaw Szczerbik
+
+## QLOC 质量保障测试员（辅助）
+
+Bartlomiej Beton
+Arash Golzad
+Bartlomiej Mycyk
+Mateusz Soja
+Piotr Spychala
+Lukasz Rembisz
+  
+##音声总监
+
+Björn Iversen
+
+##资深音效设计师
+
+Franco Freda
+
+##作曲
+
+Meyer
+
+##VIR 配音
+
+Kola Krauze
+
+##Beta 测试员
+
+George Bancroft
+Thomas Boby
+Nina Chance
+Philip Curtis
+Michael De Bona
+Lukasz Delra
+Sergey Demidov
+Harel Eilam
+Patrick France
+Mikael Hagman
+Musa von Homeyer
+Paul Howell
+Rajeev D. Majumdar
+Anton Panas
+Woosuk Park
+Marc Schmelzer
+Dylan Skoda
+Francesco Teruzzi
+Andrew Vawter
+Matthew Walsh
+Maik Wrba
+Djordje Zivanovic
+
+##产品经理
+
+Simon Stackmann
+
+##产品营销经理
+
+Pontus Rundqvist
+
+##绩效营销经理
+
+Rania Samara
+
+##营销创意总监
+
+Steven Wells
+
+##自动化营销专家
+
+Alexander Nordkvist
+
+##商业经理
+
+Viktor Stadler
+
+##数据科学家
+
+Kayle Sneed
+
+##用户研究
+
+Henrik Edlund
+Hanna Löhman
+
+##社区开发者
+
+Dale Emasiri
+
+##客户支持
+
+Christian Arvidsson
+Debbie Lane
+
+##首席“双关”工作人员
+
+Rikard The Pun-isher
+
+##抱枕协调人
+
+Mercedes Romero
+
+
+#Stellaris: Ancient Relics 游戏团队
+--------
+##EVP 创意总监
+
+Johan Andersson
+
+##游戏总监
+
+Daniel Moregård
+
+##制作人
+
+Aziz Faghihinejad
+Jamie Wood
+
+##设计师
+
+Mikael Andersson
+Stephen Muray
+Markus Veit
+
+##技术首席
+
+Gwenael Tranvouez
+
+##程序
+
+Carl Carenvall
+Zack Holmgren
+Emelie Nordstrand Lindgren
+Ilya Nikitin
+Gustav Palmqvist
+Evan Wu
+
+##内容设计首席
+
+Henrik Thyrwall
+
+##内容设计
+
+David Ballantyne
+Miranda van den Brink
+Douglas Furen
+Dee Majek
+Maximilian Olbers
+Rufus Tronde
+
+##辅助写作
+
+Jamie Wood
+
+##用户体验设计
+
+Doyle Merlin Daigle II
+
+##本地化经理
+
+Sara Wendel-Örtqvist
+
+##艺术经理
+
+Adrian Banninga
+
+##艺术总监
+
+Fredrik Toll
+
+##艺术制作人
+
+Philipp Glietsch
+
+##平面艺术
+
+Simon Gunnarsson
+Ylva Ljungqvist
+
+##立体艺术
+
+Johan Lundqvist
+
+##辅助艺术
+
+N-iX
+
+##动画 & 特效
+
+Ylva Ljungqvist
+
+##验证经理
+
+Andreas Renström
+
+##质量保障经理
+
+Felix Gladitz
+Tegan Harris
+
+##质量保障团队首席 - 中央
+
+Filippa Gannholm Kirsten
+
+##嵌入式质量保障
+
+Eva Mayer
+Markus Veit
+
+##项目协调人
+
+Anna Johansson
+William Riggott
+
+##质量保障测试
+
+Ewan Cowhig Croft
+Paul Depre
+Joseph Gardener
+Anna Johansson
+Jesper Norberg
+Nicholas Meredith
+William Riggott
+
+##QLOC 质量保障项目经理
+
+Maciej Grabowski
+
+## QLOC 质量保障团队组长
+
+Justyna Janicka
+Marcin Jankowski
+Grzegorz Niedziela
+
+## QLOC 质量保障测试员（专门化）
+
+Maciej Gutkowski
+Olga Kowaluk
+Jedrzej Korpak
+
+## QLOC 质量保障测试员（辅助）
+
+Jozef Brzostek
+Bartlomiej Hajdyla
+Piotr Jedut
+Grzegorz Lewinski
+Tomasz Lisek
+Rafal Mucha
+Piotr Mugerman
+Bartlomiej Mycyk
+Maciej Osica
+Angela Pellegrino
+Lukasz Rembisz
+Alex Schuncke
+Michal Siwiecki
+Jan Starosz
+Maksymilian Szczepanczyk
+Stanislaw Szczerbik
+Gabriel Urban
+Bartlomiej Wyciszkiewicz
+  
+##音声总监
+
+Björn Iversen
+
+##资深音效设计师
+
+Franco Freda
+
+##作曲
+
+Meyer
+
+##VIR 配音
+
+Kola Krauze
+
+##Beta 测试员
+
+George Bancroft
+Philip Curtis
+Lukasz Delra
+Sergey Demidov
+Harel Eilam
+Mikael Hagman
+Musa von Homeyer
+Paul Howell
+Rajeev D. Majumdar
+Anton Panas
+Marc Schmelzer
+Dylan Skoda
+Francesco Teruzzi
+Matthew Walsh
+Maik Wrba
+Djordje Zivanovic
+
+特别感谢 Glavius 对 AI 方面的贡献
+
+##产品拥有人
+
+Bevan Davies
+
+##产品营销经理
+
+Sebastian Forsström
+Pontus Rundqvist
+
+##伙伴账户经理
+
+Fang Chen
+
+##分析
+
+Kayle Sneed
+
+##用户研究
+
+Henrik Edlund
+Hanna Löhman
+Jean-Luc Potte
+
+##社区经理
+
+Dale Emasiri
+
+##首席“双关”工作人员
+
+Rikard The Pun-isher
+
+##抱枕协调人
+
+Mercedes Romero
+
+
+#Stellaris: MegaCorp 游戏团队
+--------
+##EVP 创意总监
+
+Johan Andersson
+
+##游戏总监
+
+Martin Anward
+
+##制作人
+
+Aziz Faghihinejad
+Jamie Wood
+
+##设计师
+
+Martin Anward
+Daniel Moregård
+Markus Veit
+
+##技术首席
+
+Gwenael Tranvouez
+
+##程序
+
+Carl Carenvall
+Zack Holmgren
+Emelie Nordstrand Lindgren
+Ilya Nikitin
+Gustav Palmqvist
+Lysann Schlegel
+Magne Skjæran
+
+##内容设计
+
+David Ballantyne
+Miranda van den Brink
+Dee Majek
+Maximilian Olbers
+Henrik Thyrwall
+
+##用户体验设计
+
+Tomas Friberg
+
+##本地化经理
+
+Sara Wendel-Örtqvist
+
+##艺术经理
+
+Adrian Banninga
+
+##艺术总监
+
+Fredrik Toll
+
+##平面艺术
+
+Simon Gunnarsson
+Ylva Ljungqvist
+
+##立体艺术
+
+Johan Lundqvist
+
+##辅助艺术
+
+Mattias Larsson
+Flavio Verna
+N-iX
+
+##动画 & 特效
+
+Niklas Tammpere
+
+##质量保障经理
+
+Felix Gladitz
+
+##质量保障团队首席 - 中央
+
+Filippa Gannholm Kirsten
+
+##嵌入式质量保障
+
+Eva Mayer
+Markus Veit
+
+##质量保障测试
+
+Ewan Cowhig Croft
+Joseph Gardener
+Markus Grebe
+Tegan Harris
+Anna Johansson
+Jesper Norberg
+William Riggott
+Albin Wallin
+Andreas Witzén
+
+##QLOC 质量保障项目经理
+
+Maciej Grabowski
+
+## QLOC 质量保障团队组长
+
+Justyna Janicka
+Marcin Jankowski
+Grzegorz Niedziela
+
+## QLOC 质量保障测试员（专门化）
+
+Maciej Gutkowski
+Jedrzej Korpak
+Olga Kowaluk
+
+## QLOC 质量保障测试员（辅助）
+
+Ewa Angielska
+Maciej Bartnik
+Sofiane Boukoffa
+Piotr Jedut
+Joanna Kucharzyk
+Grzegorz Lewinski
+Tomasz Lisek
+Mateusz Marczak
+Piotr Mugerman
+Bartlomiej Mycyk
+Jan Nowakowski
+Angela Pellegrino
+Tomasz Prusicki
+Michal Siwiecki
+Jan Starosz
+Maksymilian Szczepanczyk
+Stanislaw Szczerbik
+Gabriel Urban
+
+##音声总监
+
+Björn Iversen
+
+##资深音效设计师
+
+Franco Freda
+
+##音效设计师
+
+David Schlein-Andersen
+
+##作曲
+
+Meyer
+
+##录音工作室
+
+SIDE UK
+
+##旁白项目经理
+
+Craig Holanhan
+
+##旁白总监
+
+Kate Saxon
+
+##工人
+
+Kola Krauze
+
+##圆滑的企业
+
+Christina Cole
+
+##冷酷无情的集团
+
+Eric Meyers
+
+##VIR 配音
+
+Kola Krauze
+
+##Beta 测试员
+
+George Bancroft
+Philip Curtis
+Lukasz Delra
+Harel Eilam
+Mikael Hagman
+Musa von Homeyer
+Paul Howell
+Rajeev D. Majumdar
+Anton Panas
+Marc Schmelzer
+Dylan Skoda
+Francesco Teruzzi
+Matthew Walsh
+Djordje Zivanovic
+
+##产品拥有人
+
+Bevan Davies
+
+##产品营销经理
+
+Sebastian Forsström
+
+##伙伴账户经理
+
+Fang Chen
+
+##分析
+
+Kayle Sneed
+
+##用户研究
+
+Henrik Edlund
+Hanna Löhman
+Jean-Luc Potte
+
+##社区经理
+
+Dale Emasiri
+
+##首席“双关”工作人员
+
+Rikard The Pun-isher
+
+##抱枕协调人
+
+Mercedes Romero
+
+
+#Stellaris: Distant Stars 游戏团队
+--------
+##EVP 创意总监
+
+Johan Andersson
+
+##游戏总监
+
+Martin Anward
+
+##项目组长
+
+Aziz Faghihinejad
+Jamie Wood
+
+##设计师
+
+Martin Anward
+Daniel Moregård
+
+##技术首席
+
+Gwenael Tranvouez
+
+##程序
+
+Carl Carenvall
+Hampus Liljekvist
+Emelie Nordstrand Lindgren
+Ilya Nikitin
+Gustav Palmqvist
+Lysann Schlegel
+
+##内容设计
+
+Miranda van den Brink
+Linus Dilén
+Henrik Eklund
+Dee Majek
+Maximilian Olbers
+
+##用户体验设计
+
+Tomas Friberg
+
+##本地化经理
+
+Sara Wendel-Örtqvist
+
+##艺术经理
+
+Adrian Banninga
+
+##艺术总监
+
+Fredrik Toll
+
+##平面艺术
+
+Simon Gunnarsson
+Ylva Ljungqvist
+
+##立体艺术
+
+Johan Lundqvist
+
+##辅助艺术
+
+Emma Jonsson
+N-iX
+
+##动画 & 特效
+
+Niklas Tammpere
+
+##质量保障经理
+
+Felix Gladitz
+
+##质量保障团队首席 - 中央
+
+Filippa Gannholm
+
+##嵌入式质量保障
+
+Sebastian Borg
+Aziz Faghihinejad
+Eva Mayer
+Markus Veit
+
+##社区质量保障
+
+Carsten 't Mannetje
+
+##质量保障测试
+
+Linus Dilén
+Joshua Evans
+Joseph Gardener
+Markus Grebe
+Tegan Harris
+Eva Mayer
+Jesper Norberg
+William Riggott
+Daniel Sjöberg
+Daniel Teige
+Albin Wallin
+
+##QLOC 质量保障项目经理
+
+Maciej Grabowski
+
+## QLOC 质量保障团队组长
+
+Karolina Jagnyziak
+Marcin Jankowski
+
+## QLOC 质量保障测试员（核心）
+
+Bartosz Maciejewski
+Oskar Nowak
+Uros Rudolf
+Jan Starosz
+Maksymilian Szczepanczyk
+Gabriel Urban
+
+## QLOC 质量保障测试员（辅助）
+
+Abel Perez Abalde
+Sofiane Boukoffa
+Filip Gutowski
+Tomasz Lisek
+Jakub Potapczyk
+Michal Wagrocki
+
+##音声总监
+
+Björn Iversen
+
+##资深音效设计师
+
+Franco Freda
+
+##作曲
+
+Meyer
+
+##VIR 配音
+
+Kola Krauze
+
+##Beta 测试员
+
+George Bancroft
+Philip Curtis
+Lukasz Delra
+Harel Eilam
+Mikael Hagman
+Musa von Homeyer
+Paul Howell
+Rajeev D. Majumdar
+Anton Panas
+Marc Schmelzer
+Dylan Skoda
+Francesco Teruzzi
+Matthew Walsh
+Djordje Zivanovic
+
+##首席“双关”工作人员
+
+Rikard The Pun-isher
+
+##抱枕协调人
+
+Mercedes Romero
+
+
+#Stellaris: Apocalypse 游戏团队
+--------
+##EVP 创意总监
+
+Johan Andersson
+
+##游戏总监
+
+Martin Anward
+
+##项目组长
+
+Jamie Wood
+
+##设计师
+
+Martin Anward
+Daniel Moregård
+
+##技术首席
+
+Gwenael Tranvouez
+
+##程序
+
+Carl Carenvall
+Daniel Eriksson
+Hampus Liljekvist
+Emelie Nordstrand Lindgren
+Gustav Palmqvist
+Lysann Schlegel
+
+##内容设计
+
+Miranda van den Brink
+Henrik Eklund
+Dee Majek
+Maximilian Olbers
+
+##用户体验设计
+
+Tomas Friberg
+
+##本地化经理
+
+Sara Wendel-Örtqvist
+
+##艺术协调人
+
+Pernilla Sparrhult
+
+##艺术经理
+
+Adrian Banninga
+
+##艺术总监
+
+Fredrik Toll
+
+##平面艺术
+
+Simon Gunnarsson
+Pontus Olofsson
+
+##立体艺术
+
+Joacim Carlberg
+Johan Lundqvist
+
+##辅助艺术
+
+Helena Kasper
+Timor Khanagov
+Ylva Ljungqvist
+N-iX
+Room 8 Studio
+
+##动画 & 特效
+
+Niklas Tammpere
+
+##质量保障经理
+
+Felix Gladitz
+
+##质量保障团队首席 - 中央
+
+Filippa Gannholm
+
+##嵌入式质量保障
+
+Sebastian Borg
+Aziz Faghihinejad
+Markus Veit
+
+##社区质量保障
+
+Carsten 't Mannetje
+
+##质量保障测试
+
+Matthew Frary
+Joseph Gardener
+Markus Grebe
+Tegan Harris
+Eva Mayer
+Jesper Norberg
+William Riggott
+Daniel Sjöberg
+Albin Wallin
+
+## QLOC 质量保障团队组长
+
+Karolina Jagnyziak
+Marcin Jankowski
+
+## QLOC 质量保障测试员（核心）
+
+Bartosz Maciejewski
+Oskar Nowak
+Uros Rudolf
+Jan Starosz
+Maksymilian Szczepanczyk
+Gabriel Urban
+
+## QLOC 质量保障测试员（辅助）
+
+Abel Perez Abalde
+Sofiane Boukoffa
+Michal Wagrocki
+
+##音声总监
+
+Björn Iversen
+
+##资深音效设计师
+
+Franco Freda
+
+#音效设计
+
+David Schlein-Andersen
+
+##作曲
+
+Andreas Waldetoft
+
+##VIR 配音
+
+Kola Krauze
+
+##Beta 测试员
+
+George Bancroft
+Lukasz Delra
+Mikael Hagman
+Paul Howell
+Rajeev D. Majumdar
+Anton Panas
+Dylan Skoda
+Francesco Teruzzi
+Matthew Walsh
+Djordje Zivanovic
+
+##首席“双关”工作人员
+
+Rikard The Pun-isher
+
+
+#Stellaris: Humanoids Species Pack 游戏团队
+--------
+##EVP 创意总监
+
+Johan Andersson
+
+##游戏总监
+
+Martin Anward
+
+##项目组长
+
+Kristian Laustsen
+Jamie Wood
+
+##设计师
+
+Martin Anward
+Daniel Moregård
+
+##技术首席
+
+Gwenael Tranvouez
+
+##程序
+
+Hampus Liljekvist
+Emelie Nordstrand Lindgren
+Gustav Palmqvist
+Lysann Schlegel
+
+##辅助程序
+
+Mikael Berg
+Hans Rönnbäck
+
+##内容设计
+
+Miranda van den Brink
+Henrik Eklund
+Dee Majek
+Maximilian Olbers
+
+##用户体验设计
+
+Tomas Friberg
+
+##本地化经理
+
+Sara Wendel-Örtqvist
+
+##艺术协调人
+
+Pernilla Sparrhult
+
+##艺术总监
+
+Fredrik Toll
+
+##平面艺术
+
+Simon Gunnarsson
+Pontus Olofsson
+
+##立体艺术
+
+Joacim Carlberg
+Johan Lundqvist
+
+##辅助艺术
+
+Timor Khanagov
+N-iX
+
+##动画 & 特效
+
+Niklas Tammpere
+
+##质量保障经理
+
+Filippa Gannholm
+Felix Gladitz
+
+##嵌入式质量保障
+
+Sebastian Borg
+Aziz Faghihinejad
+Markus Veit
+
+##社区质量保障
+
+Carsten 't Mannetje
+
+##质量保障测试
+
+Sebastian Borg
+Matthew Frary
+Markus Grebe
+Tegan Harris
+Eva Mayer
+Jesper Norberg
+Daniel Sjöberg
+Albin Wallin
+
+##辅助质量保障 - QLOC
+
+团队组长 - Marcin Jankowski
+Bartosz Maciejewski
+Oskar Nowak
+Uros Rudolf
+Jan Starosz
+Maksymilian Szczepanczyk
+Gabriel Urban
+
+##音声总监
+
+Björn Iversen
+
+##作曲
+
+Andreas Waldetoft
+
+##混音艺术家
+
+Meyer
+
+##录音工作室
+
+Red Pipe Studios
+
+##音效工程师
+
+Robert Eklund
+
+##替代 VIR 配音演员
+
+外交官 - Bernadette O'Neill
+士兵 - Talya Pulver-Lindqvist
+技术官僚 - Alan Adler
+
+##Beta 测试员
+
+George Bancroft
+Lukasz Delra
+Mikael Hagman
+Paul Howell
+Rajeev D. Majumdar
+Anton Panas
+Dylan Skoda
+Francesco Teruzzi
+Matthew Walsh
+Djordje Zivanovic
+
+##首席“双关”工作人员
+
+Rikard The Pun-isher
+
+
+#Stellaris: Synthetic Dawn 游戏团队
+--------
+##EVP 创意总监
+
+Johan Andersson
+
+##游戏总监
+
+Martin Anward
+
+##项目组长
+
+Kristian Laustsen
+Jamie Wood
+
+##设计师
+
+Martin Anward
+Daniel Moregård
+
+##程序
+
+Daniel Eriksson
+Hampus Liljekvist
+Gustav Palmqvist
+Lysann Schlegel
+Gwenael Tranvouez
+
+##辅助程序
+
+Mikael Berg
+Hans Rönnbäck
+
+##内容设计
+
+Miranda van den Brink
+Henrik Eklund
+Dee Majek
+Maximilian Olbers
+
+##用户体验设计
+
+Tomas Friberg
+
+##本地化经理
+
+Sara Wendel-Örtqvist
+
+##艺术协调人
+
+Pernilla Sparrhult
+
+##艺术总监
+
+Fredrik Toll
+
+##平面艺术
+
+Simon Gunnarsson
+Pontus Olofsson
+
+##立体艺术
+
+Joacim Carlberg
+Helena Kasper
+Johan Lundqvist
+
+##辅助艺术
+
+Timor Khanagov
+Room 8 Studio
+
+##动画 & 特效
+
+Niklas Tammpere
+
+##质量保障经理
+
+Filippa Gannholm
+Felix Gladitz
+
+##嵌入式质量保障
+
+Sebastian Borg
+Aziz Faghihinejad
+Markus Veit
+
+##社区质量保障
+
+Carsten 't Mannetje
+
+##质量保障测试
+
+Sebastian Borg
+Matthew Frary
+Markus Grebe
+Tegan Harris
+Eva Mayer
+Jesper Norberg
+Daniel Sjöberg
+Albin Wallin
+
+##音声总监
+
+Björn Iversen
+
+##作曲
+
+Andreas Waldetoft
+
+##辅助音效设计
+
+David Schlein-Andersen
+
+##录音工作室
+
+Red Pipe Studios
+
+##音效工程师
+
+Kim Creutzer
+
+##替代 VIR 配音演员
+
+威权主义 VIR - Antony Hartley
+平等主义 VIR - David Bradish
+蜂巢思维 VIR - The Paradox Hive Mind
+军国主义 VIR - Bernadette O'Neill
+和平主义 VIR - Jessica Calmhede
+唯心主义 VIR - Erika Moldenhauer
+亲外主义 VIR - Noha Mousbah
+排外主义 VIR - John Power
+唯物主义 VIR - Josh Lenn
+机械智能 VIR - Bryan McAllister
+
+##Beta 测试员
+
+George Bancroft
+Lukasz Delra
+Mikael Hagman
+Paul Howell
+Rajeev D. Majumdar
+Anton Panas
+Dylan Skoda
+Francesco Teruzzi
+Matthew Walsh
+Djordje Zivanovic
+
+##首席“双关”工作人员
+
+Rikard The Pun-isher
+
+
+#Stellaris: Utopia 游戏团队
+--------
+##EVP 创意总监
+Johan Andersson
+
+##游戏总监
+Martin Anward
+
+##项目组长
+Rikard Åslund
+Jamie Wood
+
+##设计师
+Martin Anward
+Daniel Moregård
+
+##程序
+Mehrnaz Amanat Bari
+Daniel Eriksson
+Hampus Liljekvist
+Gustav Palmqvist
+Lysann Schlegel
+
+##辅助程序
+Rikard Åslund
+Alexander Ivannikov
+
+##内容设计
+Henrik Eklund
+Drikus Kuiper
+Maximilian Olbers
+Miranda van den Brink
+
+##本地化经理
+Sara Wendel-Örtqvist
+
+##艺术协调人
+Pernilla Sparrhult
+
+##艺术总监
+Fredrik Toll
+
+##平面艺术
+Simon Gunnarsson
+Pontus Olofsson
+
+##立体艺术
+Joacim Carlberg
+Helena Kasper
+Johan Lundqvist
+
+##辅助艺术
+Kentaro Kanamoto
+Room 8 Studio
+
+##动画 & 特效
+Niklas Tammpere
+
+##质量保障经理
+Filippa Gannholm
+Felix Gladitz
+
+##嵌入式质量保障
+Aziz Faghihinejad
+Markus Veit
+Leo Larsson
+Peter Skager
+
+##社区质量保障
+Carsten 't Mannetje
+
+##质量保障测试
+Niall Bird
+Sebastian Borg
+Markus Grebe
+Katya Magnusson
+Daniel Moore
+Jesper Norberg
+Daniel Sjöberg
+Emil Tisander
+Albin Wallin
+
+##音声总监
+Björn Iversen
+
+##作曲
+Andreas Waldetoft
+
+##辅助音效设计
+David Schlein-Andersen
+
+##Beta 测试员
+George Bancroft
+Lukasz Delra
+Mikael Hagman
+Paul Howell
+Rajeev D. Majumdar
+Anton Panas
+Dylan Skoda
+Francesco Teruzzi
+Matthew Walsh
+Djordje Zivanovic
+
+
+# Stellaris: Leviathans / Horizon Signal 游戏团队
+--------
+##EVP 创意总监
+Johan Andersson
+
+##游戏总监
+Martin Anward
+
+##项目组长
+Rikard Åslund
+
+##设计师
+Martin Anward
+Daniel Moregård
+
+##辅助设计
+Henrik Fåhraeus
+
+##客座作家
+Alexis Kennedy （视界信号）
+
+##程序
+Daniel Eriksson
+Alexander Ivannikov
+Mehrnaz Amanat Bari
+Joakim Bennedich
+Hampus Liljekvist
+
+##内容设计
+Maximilian Olbers
+Niclas Karlsson
+Rufus Tronde
+Henrik Eklund
+Miranda van den Brink
+
+##本地化经理
+Sara Wendel-Örtqvist
+
+##用户 Mod 协调人
+Joel Hansson
+Niklas Strid
+
+##艺术协调人
+Pernilla Sparrhult
+
+##艺术总监
+Fredrik Toll
+
+##平面美工
+Simon Gunnarsson
+Jonas Jakobsson
+Frida Eriksson
+
+##立体美工
+Helena Kasper
+Joacim Carlberg
+Johan Lundqvist
+
+##动画 & 特效
+Niklas Tammpere
+
+##概念美工
+Ylva Ljungqvist
+
+##质量保障经理
+Mario Lasan
+
+##嵌入式质量保障
+Aziz Faghihinejad
+Leo Larsson
+
+##社区质量保障
+Carsten 't Mannetje
+
+##质量保障测试
+Albin Wallin
+Arthur Bialecki
+Carmille Gidfors
+Daniel Sjöberg
+Jesper Norberg
+Malin Jakobsson
+Markus Grebe
+Olga Koter
+Patric Lindbergh
+Peter Skager
+Sebastian Borg
+
+##音声总监
+Björn Iversen
+
+##作曲
+Andreas Waldetoft
+
+##辅助音效设计
+David Schlein-Andersen
+
+##Beta 测试员
+Mark Charters
+Lukasz Damentko
+Dylan Anthony Skoda
+Cathrine Zangerl
+Michael Aaron Hoselton
+Jeroen Elfrink
+Christopher Kenneth O'Keefe
+Kamil Kowalczyk
+Erik Brian Olmstead
+Them Bo Bojesen Jensen
+Peter Deadman
+Richard Williams
+David Lockwood
+Edward Earl Chaney II
+Pablo Agustín Eralio
+Mitchell Alexander Cumming
+
+
+#Paradox Stellaris 游戏团队
+--------
+##EVP 创意总监
+Johan Andersson
+
+##游戏总监
+Henrik Fåhraeus
+
+##项目组长
+Rikard Åslund
+
+##制作人
+Anna Norrevik
+
+##设计师
+Henrik Fåhraeus
+Joakim Andreasson
+Daniel Moregård
+
+##辅助设计师
+Johan Andersson
+
+##程序
+Daniel Eriksson
+Alexander Ivannikov
+Mehrnaz Amanat Bari
+Rikard Åslund
+Joakim Bennedich
+
+##辅助程序
+Johan Lerström
+Jonas Wickerström
+Martin Anward
+Mohammed Al-Sader
+Niklas Strid
+
+##内容设计首席
+Henrik Eklund
+
+##内容设计
+Maximilian Olbers
+Niclas Karlsson
+David Ballantyne
+Rufus Tronde
+
+##艺术总监
+Fredrik Toll
+
+##平面美工
+Aline Gladh
+Simon Gunnarsson
+Jonas Jakobsson
+Jenny Holmer
+
+##概念美工
+Erik Nilsson
+
+##封面美工
+Aline Gladh
+
+##辅助平面美工
+Frida Eriksson
+Anton Hultdin
+Johan Lundqvist
+Pontus Olofsson
+Timor Khanagov
+Carlos Lundhall
+
+##立体美工
+Joakim Larsen
+Markus Krantz
+Viktor Nyström
+Magnus Nyström
+Maxemilian Roberts
+Robin Skog
+Helena Kasper
+Staffan Norling
+Marcus Persson
+Fredrik Toll
+
+##动画师
+Niklas Tammpere
+Nancy Lai
+
+##辅助动画师
+Patrick Kling
+
+##嵌入式质量保障
+Olga Koter
+Aziz Faghihinejad
+Leo Larsson
+Karim Muammar
+
+##质量保障
+Peter Skager
+Daniel Sjöberg
+Daniel Olsson
+Patric Lindbergh
+Malin Jakobsson
+Rufus Magnusson
+Carsten t'Mannetje
+
+##辅助质量保障
+Alexander Lundström
+
+##音声总监
+Björn Iversen
+
+##作曲
+Andreas Waldetoft
+
+##配音演员
+Kola Krauze
+
+##辅助音效设计师
+Martin Skogehall
+
+##界面设计师
+Daniel Moregård
+
+##指南
+Troy Goodfellow
+
+
+#Paradox Development Studio
+--------
+##EVP 工作室
+Mattias Lilja
+
+##开发副总裁
+Thomas Johansson
+
+##执行制作人
+Linda Kiby
+
+##制作人
+Anna Norrevik
+
+##制作人/编辑/本地化助理经理
+Sara Wendel-Örtqvist
+
+##DLC 经理
+Pernilla Sparrhult
+
+##Wiki 创建者和智库人员
+Magne Skjæran
+
+##技术脚本
+Niklas Strid
+Joel Hansson
+
+##技术总监
+Fredrik Zetterman
+
+##动作引擎首席
+John Wordsworth
+
+##程序经理
+Olof Björk
+
+##引擎程序
+Marcus Beausang
+John Wordsworth
+Rickard Nyberg
+
+##架构工程师
+Per Hasselström
+
+##工具程序
+Johan Yngman
+
+##立体艺术经理
+Fredrik Toll
+
+##平面艺术经理
+Pontus Olofsson
+
+##脚本经理
+Tobias Bodlund
+
+##质量保障经理
+Mario Lasan
+
+##质量保障
+Filippa Gannholm
+Zeke Lugmair
+Jake Leiper-Ritchie
+Jesper Norberg
+Alexander Oltner
+Emil Tisander
+
+##社区经理
+Björn Blomberg
+
+##引擎团队
+John Wordsworth
+Marcus Beausang
+Per Hasselström
+Johan Yngman
+Richard Nyberg
+
+##内容设计
+Jakob Have
+Marcus Olsen
+Henrik Lohmander
+Mathilda Bjarnehed
+Camilla Isaksson
+Petter Vilberg
+
+##程序
+Henrik Hansson
+Jimmy Rönn
+Ilya Nikitin
+Igor Aleksandrowicz
+Gwenael Tranvouez
+Gustav Palmqvist
+Tomasz Kowalczyk
+Carl Carenvall
+Martin Hesselborn
+Rickard Lagerbäck
+Petter Hansson
+
+##美工
+Staffan Norling
+Mats Virtanen 
+Bjarne Hallberg
+
+##设计师
+Chris King
+Dan Lind
+
+##项目组长
+Anna Norrevik
+Martin Anward
+
+
+#Paradox Stellaris 团队
+--------
+##品牌管理
+Tomas Härenstam
+
+##营销
+Steven K Wells
+
+##社区
+Graham Murphy
+Björn Blomberg
+
+##销售
+Daniel Lagergren
+Fang Chen
+
+质量保障项目协调人
+Niklas Ivarsson
+Malin Furöstam
+
+
+#Paradox Interactive
+--------
+#管理 
+ 
+##首席执行官
+Fredrik Wester
+
+##首席财务官
+Andras Vajlok
+
+##首席运营官
+Susana Meza Graham
+
+##首席隐私官
+Johan Sjöberg
+
+##首席信息官 
+John Hargelid
+
+##Paradox Studio Group 经理
+Mattias Lilja
+
+##产品副总裁
+Shams Jorjani
+
+##首席营销官
+Daniela Sjunnesson
+生产团队
+
+##生产经理
+Jörgen Björklund
+
+##资深制作人
+Andreas Renström
+Florian Schwarzer
+Joe Fricano
+
+##制作人
+Staffan Berglén
+Patrick Berglind
+Kandra Dahlgren
+Robin Cederholm
+
+##制作人助理
+Angelica Uhlan
+Peter Cornelius
+Niklas Lundström
+
+
+#游戏用户研究团队
+--------
+##用户研究经理
+Karl Leino
+
+##用户研究
+Tobias Viklund
+Jean-Luc Potte
+Henrik Edlund
+Johan Dorell
+
+##用户研究助理
+Anna Ström
+
+#质量保障团队 
+
+##资深质量保障经理
+Artur Foxander
+
+##质量保障经理
+Loke Norman
+
+##质量保障专家
+Felix Gladitz
+Niklas Ivarsson
+Andrei Zainea
+
+##质量保障测试
+Pontus Anehäll
+Emil Andersson
+Bengin Bayrak
+Erik Elgerot
+Malin Furöstam
+Victor Järnberg
+Kimberly Stinson
+Daniel Teige
+
+
+#品牌管理团队
+--------
+##品牌经理
+Marco Behrmann
+Stefan Eld
+Tomas Härenstam
+Jakob Munthe
+
+##流程经理
+Martin Park
+
+##助理获取
+Nils Brolin
+
+#营销 & 销售
+
+##首席营销官
+Daniela Sjunnesson
+
+##营销副总裁
+Petra Takeva
+
+##营销创意总监 
+Steven K Wells
+
+##预告片 & 视频制作人
+Marcus Herbertsson
+
+##流式制作人
+Anders Carlsson
+ 
+##活动组织经理
+Veronica Gunlycke
+ 
+##资深社区经理
+Malin Söderberg
+
+##社区开发者
+Zeke Lugmair
+
+##论坛与支持经理
+Christian Arvidsson
+ 
+##线上营销经理
+Mats Wall
+
+##前端开发者
+Alberto Blázquez
+
+##邮件营销经理
+Andreas Nyberg
+
+##客户获取经理
+Mi Ahnhem Thomsen
+
+##图像制作人 
+Max Collin
+Adam Skarin
+
+##销售经理
+Filip Sirc
+Fang Chen
+
+##直销开发者 
+Daniel Lagergren
+
+
+#技术，分析 & 开发
+--------
+##技术总监
+Christian Westman
+
+##Sr 后台开发者
+Anders Törlind
+
+##后台开发者
+Alexander Altanis
+Mikael Berg
+
+##网页开发者
+Johan Li
+
+##分析团队
+Magnus Eriksson
+Niklas Nordansjö
+
+##信息技术经理
+Henrik Hjelm
+
+##信息技术人员
+Johannes Ek
+Richard Lindkvist
+
+
+#法务
+--------
+##资深法务咨询
+Juliette Auverny-Bennetot
+
+##法务咨询
+Andreas Ruthberg-Sällquist
+
+##律师助理
+Emilia Oscarsson
+
+
+#特别鸣谢
+--------
+Matthijs Hoving 
+
+
+##外部合作伙伴
+--------
+##本地化
+西班牙语 - QLOC
+法语 - S&H Entertainment Localization
+德语 - S&H Entertainment Localization
+波兰语 - QLOC
+俄语 - The Most Games
+葡萄牙语（拉美） - S&H Entertainment Localization
+
+##Beta 测试员
+Markus Grebe
+Lukasz Damentko
+Magne Skjæran
+Kamil Kowalczyk
+Michael Aaron Hoselton
+Peter Deadman
+Dylan Anthony Skoda
+Christopher Kenneth O'Keefe
+Cathrine Zangerl
+Jeroen Elfrink
+Erik Brian Olmstead
+Them Bo Bojesen Jensen
+Tomasz Wieczorek
+Mark Charters
+Samuel Frederick Allessandro Marrello
+Isaac Lamb
+Christian Borrelli
+Fabian Schneider
+
+##录音工作室
+Cineast Dub AB
+
+
+--------
+
+
+特别鸣谢我们的论坛成员，
+合作伙伴和支持者，
+他们对我们的成功至关重要。
+
+
+
+FORZA DJURGÅR'N!
