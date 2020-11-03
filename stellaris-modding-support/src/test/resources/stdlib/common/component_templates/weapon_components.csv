@@ -1,5 +1,5 @@
-# Lines starting with ”#” will be treated as comments.;;;;;;;;;;;;;;;;;;;;;;
-# This file can be reloaded with the ”reload stats” console command;;;;;;;;;;;;;;;;;;;;;;
+# Lines starting with ï¿½#ï¿½ will be treated as comments.;;;;;;;;;;;;;;;;;;;;;;
+# This file can be reloaded with the ï¿½reload statsï¿½ console command;;;;;;;;;;;;;;;;;;;;;;
 #;;;;;;;;;;;;;;;;missile weapons only;;;;;;
 #;;;;;;;%of dmg that will;;%of dmg that will;;100;50;;;;minimum speed;;;;;;
 #;;;;;%bonus dmg;%bonus dmg;go through shields;%bonus dmg;go through armor;;;;;;;of missiles;;;;;;
