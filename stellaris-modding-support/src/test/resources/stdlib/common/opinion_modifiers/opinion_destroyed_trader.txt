@@ -1,0 +1,9 @@
+opinion_destroyed_trader = {
+	opinion = {
+		base = -15
+	}
+
+	decay = {
+		base = 2
+	}
+}

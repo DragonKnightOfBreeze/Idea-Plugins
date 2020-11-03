@@ -1,0 +1,9 @@
+opinion_special_ops_vs_us = {
+	opinion = {
+		base = -30
+	}
+
+	decay = {
+		base = 1
+	}
+}

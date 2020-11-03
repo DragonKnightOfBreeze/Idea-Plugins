@@ -1,0 +1,7 @@
+tissue_growth_stimulants = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_high_gravity.dds"
+	icon_frame = 1
+	pop_growth_speed = 0.10
+	pop_happiness = -0.10
+	planet_stability_add = -5
+}

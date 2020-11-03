@@ -1,0 +1,21 @@
+titanic_guardian_army = {
+	defensive = yes
+	damage = 2.0
+	health = 8.0
+	morale = 3.0
+	morale_damage = 2.0
+	time = 5
+	icon_frame = 8
+	has_species = no
+
+	resources = {
+		category = armies
+		upkeep = {
+			energy = 1
+		}
+	}
+
+	potential = {
+		always = no
+	}
+}

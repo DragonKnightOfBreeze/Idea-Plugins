@@ -1,0 +1,37 @@
+spawn_irassian_anomaly = {
+	random_system_within_border = {
+		limit = {
+			has_star_flag = precursor_4
+			any_system_planet = {
+				uninhabitable_regular_planet = yes
+				NOT = { has_planet_flag = precursor_world }
+				has_owner = no
+				has_anomaly = no
+				is_surveyed = {
+					who = root
+					status = yes
+				}
+			}
+		}
+		random_system_planet = {
+			limit = {
+				uninhabitable_regular_planet = yes
+				NOT = { has_planet_flag = precursor_world }
+				has_owner = no
+				has_anomaly = no
+				is_surveyed = {
+					who = root
+					status = yes
+				}
+			}
+			save_event_target_as = precursor_planet
+			set_planet_flag = precursor_world
+			enable_special_project = {
+				name = "IRASSIAN_ARTIFACT_FOUND"
+				location = this
+				owner = root
+			}
+		}
+	}
+	set_country_flag = ongoing_precursor_artifact
+}

@@ -1,0 +1,3 @@
+unity_reduction_observation_47 = {
+	country_unity_produces_mult = -0.10
+}

@@ -1,0 +1,7 @@
+on_blocker_cleared = {
+	events = {
+		tutorial.16
+		tutorial.160
+		ancrel.4030
+	}
+}

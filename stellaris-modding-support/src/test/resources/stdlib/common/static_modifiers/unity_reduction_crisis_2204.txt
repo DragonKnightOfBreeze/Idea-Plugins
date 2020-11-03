@@ -1,0 +1,3 @@
+unity_reduction_crisis_2204 = {
+	country_unity_produces_mult = -0.10
+}

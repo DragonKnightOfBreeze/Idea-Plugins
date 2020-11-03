@@ -1,0 +1,26 @@
+achievement_survey = {
+	id = 10
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		has_surveyed_class = pc_desert
+		has_surveyed_class = pc_tropical
+		has_surveyed_class = pc_arid
+		has_surveyed_class = pc_continental
+		has_surveyed_class = pc_ocean
+		has_surveyed_class = pc_tundra
+		has_surveyed_class = pc_arctic
+		has_surveyed_class = pc_alpine
+		has_surveyed_class = pc_savannah
+		has_surveyed_class = pc_gas_giant
+		has_surveyed_class = pc_asteroid
+		has_surveyed_class = pc_molten
+		has_surveyed_class = pc_barren
+		has_surveyed_class = pc_barren_cold
+		has_surveyed_class = pc_toxic
+		has_surveyed_class = pc_frozen
+	}
+}

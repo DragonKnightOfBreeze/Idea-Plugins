@@ -1,0 +1,8 @@
+allows_alien_leaders = {
+	any_owned_planet ={
+		any_owned_pop = {
+			NOT = { is_same_species = root }
+			has_citizenship_rights = yes
+		}
+	}
+}

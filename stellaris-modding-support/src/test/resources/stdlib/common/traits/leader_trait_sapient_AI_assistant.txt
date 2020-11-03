@@ -1,0 +1,30 @@
+leader_trait_sapient_AI_assistant = {
+	cost = 1
+	modification = no
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_sapient_AI_assistant.dds"
+	modifier = {
+		all_technology_research_speed = 0.1
+		science_ship_survey_speed = 0.2
+		ship_anomaly_research_speed_mult = 0.3
+	}
+	leader_potential_add = {
+		NOT = { from = { has_authority = "auth_hive_mind" } }
+		NOT = { from = { has_authority = "auth_machine_intelligence" } }
+		NOT = { from = { has_policy_flag = ai_outlawed } }
+	}
+	leader_trait = { scientist }
+	leader_class = { scientist }
+	prerequisites = { tech_sapient_ai }
+	opposites = { "leader_trait_custom_AI_assistant" }
+
+	ai_categories = {
+		survey
+		physics
+		society
+		engineering
+	}
+
+	ai_weight = {
+		weight = 300
+	}
+}

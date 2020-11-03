@@ -1,0 +1,112 @@
+decision_boost_market_nomination = {
+	owned_planets_only = yes
+	resources = {
+		category = decisions
+		cost = {
+			energy = 2000
+			influence = 300
+		}
+	}
+
+	potential = {
+		has_global_flag = ongoing_market_nomination
+		#from = { has_communications = event_target:50percentcomms } # should include self
+		from = { has_country_flag = market_nomination_eligible }
+		OR = {
+			has_modifier = market_nominee_level_1
+			has_modifier = market_nominee_level_2
+			has_modifier = market_nominee_level_3
+			has_modifier = market_nominee_level_4 # maxed out and boosted once
+			has_modifier = market_nominee_level_5 # maxed out and boosted twice
+		}
+	}
+
+	allow = {
+		custom_tooltip = {
+			fail_text = max_boosted
+			NOT = { has_planet_flag = boosted_twice }
+		}
+	}
+
+	effect = {
+		custom_tooltip = decision_boost_market_nomination_effects
+		hidden_effect = {
+			# boost counter
+			if = {
+				limit = { has_planet_flag = boosted_once }
+				set_planet_flag = boosted_twice
+			}
+			else = {
+				set_planet_flag = boosted_once
+			}
+			# boost rating
+			if = {
+				limit = { has_modifier = market_nominee_level_1 }
+				remove_modifier = market_nominee_level_1
+				add_modifier = {
+					modifier = market_nominee_level_2
+					days = -1
+				}
+			}
+			else_if = {
+				limit = { has_modifier = market_nominee_level_2 }
+				remove_modifier = market_nominee_level_2
+				add_modifier = {
+					modifier = market_nominee_level_3
+					days = -1
+				}
+			}
+			else_if = {
+				limit = { has_modifier = market_nominee_level_3 }
+				remove_modifier = market_nominee_level_3
+				add_modifier = {
+					modifier = market_nominee_level_4
+					days = -1
+				}
+			}
+			else_if = {
+				limit = { has_modifier = market_nominee_level_4 }
+				remove_modifier = market_nominee_level_4
+				add_modifier = {
+					modifier = market_nominee_level_5
+					days = -1
+				}
+			}
+			from = {
+				change_variable = {
+					which = market_rating
+					value = 1
+				}
+			}
+		}
+	}
+
+	ai_weight = {
+		weight = 10
+		modifier = {
+			factor = 0
+			num_pops < 20
+		}
+		modifier = {
+			factor = 1.5
+			from = {
+				resource_stockpile_compare = {
+					resource = energy
+					value > 11000
+				}
+				resource_stockpile_compare = {
+					resource = influence
+					value > 350
+				}
+			}
+		}
+		modifier = {
+			factor = 0.8
+			from = { is_xenophobe = yes }
+		}
+		modifier = {
+			factor = 2
+			from = { has_authority = auth_corporate }
+		}
+	}
+}

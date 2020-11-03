@@ -1,0 +1,6 @@
+resolution_greatergood_greater_than_ourselves = {
+	show_only_custom_tooltip = no
+	custom_tooltip = resolution_greatergood_greater_than_ourselves_tooltip
+	diplo_weight_pops_mult = 0.2
+	pop_cat_worker_political_power = 0.25
+}

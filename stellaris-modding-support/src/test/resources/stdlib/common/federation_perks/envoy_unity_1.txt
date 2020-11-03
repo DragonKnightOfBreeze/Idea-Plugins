@@ -1,0 +1,9 @@
+envoy_unity_1 = {
+	members_modifier = {
+		description = envoy_unity_1_effect
+	}
+	envoy_modifier = {
+		description = envoy_unity_1_effect
+		country_base_unity_produces_add = 1
+	}
+}

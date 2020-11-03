@@ -1,0 +1,28 @@
+site_ruins_of_shallash_random_events = {
+	random_list = {
+		10 = { site_guardian_droids_trap = yes }
+		10 = { fleet_event = { id = ancrel.8040 } }
+		10 = { fleet_event = { id = ancrel.8055 } }
+		10 = { fleet_event = { id = ancrel.8070 } }
+		2 = { fleet_event = { id = ancrel.8075 } }
+		10 = { fleet_event = { id = ancrel.8080 } }
+		10 = { fleet_event = { id = ancrel.8100 } }
+		10 = { fleet_event = { id = ancrel.8110 } }
+		10 = {
+			modifier = {
+				factor = 0
+				OR = {
+					from.planet = {
+						NOT = { is_planet_class = pc_nuked }
+					}
+					leader.species = {
+						has_trait = trait_pc_nuked_preference
+					}
+					owner = { is_machine_empire = yes }
+				}
+			}
+			fleet_event = { id = federations2.701 }
+		}
+		40 = { fleet_event = { id = federations2.702 } }
+	}
+}

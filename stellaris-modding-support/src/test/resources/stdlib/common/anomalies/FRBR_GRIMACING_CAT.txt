@@ -1,0 +1,16 @@
+FRBR_GRIMACING_CAT = {
+	desc = "FRBR_GRIMACING_DESC"
+	picture = "GFX_evt_warm_barren"
+	level = 5
+	
+	spawn_chance = {
+		modifier = {
+			add = 3
+			is_planet_class = pc_barren
+			planet_size < 26
+			planet_size > 9
+		}
+	}
+	
+	on_success = anomaly.230
+}

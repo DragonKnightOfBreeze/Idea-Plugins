@@ -1,0 +1,4 @@
+market_nominee_level_1 = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_planet_from_space.dds"
+	icon_frame = 1
+}

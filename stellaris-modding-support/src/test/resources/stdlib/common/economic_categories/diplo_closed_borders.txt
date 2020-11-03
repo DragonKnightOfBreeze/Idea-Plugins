@@ -1,0 +1,3 @@
+diplo_closed_borders = {
+	parent = diplomacy
+}

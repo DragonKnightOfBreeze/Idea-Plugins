@@ -1,0 +1,43 @@
+drone_overdrive = {
+	length = @EdictPerpetual
+	icon = "GFX_edict_type_policy"
+	edict_cap_usage = 1
+
+	resources = {
+		category = edicts
+		cost = { #Activation Cost
+			trigger = {
+				NOT = { has_edict = drone_overdrive }			
+			}
+			influence = 200
+		}
+		cost = { #Deactivation Cost
+			trigger = {
+				has_edict = drone_overdrive
+			}
+			influence = 100
+		}
+	}
+
+	modifier = {
+		planet_jobs_simple_drone_produces_mult = 0.10
+		pop_amenities_usage_no_happiness_mult = 0.10
+	}
+
+	potential = {
+		is_gestalt = yes
+		has_swapped_tradition = tr_domination_drone_network
+	}
+
+	ai_weight = {
+		weight = @EdictHighPrio
+		modifier = {
+			factor = 1.5
+			has_ethic = ethic_authoritarian
+		}
+		modifier = {
+			factor = 2
+			has_ethic = ethic_fanatic_authoritarian
+		}
+	}
+}

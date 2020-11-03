@@ -1,0 +1,9 @@
+opinion_subject_broke_free = {
+	opinion = {
+		base = -50
+	}
+
+	decay = {
+		base = 2
+	}
+}

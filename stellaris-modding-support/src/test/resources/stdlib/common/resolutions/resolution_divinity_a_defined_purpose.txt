@@ -1,0 +1,116 @@
+resolution_divinity_a_defined_purpose = {
+	icon = "GFX_resolution_robots_bad"
+
+	potential = {
+		has_federations_dlc = yes
+	}
+
+	resources = {
+		category = resolutions
+		cost = {
+			influence = @resolution_cost_t5
+		}
+	}
+	target = no
+	level = 5
+
+	modifier = {
+		resolution_divinity_comfort_the_fallen = 1
+		resolution_divinity_tithe_on_the_soulless = 1
+		resolution_divinity_right_to_work = 1
+		resolution_divinity_silence_the_soulless = 1
+		resolution_divinity_a_defined_purpose = 1
+	}
+
+	effect = {
+		custom_tooltip = resolution_divinity_a_defined_purpose_effect
+		hidden_effect = {
+			set_timed_country_flag = { flag = galactic_community_resolution_passed_divinity days = @resolution_flag_timer }
+			add_modifier = {
+				modifier = resolution_passed_diplomatic_weight
+				days = 2200
+			}
+			every_playable_country = {
+				limit = {
+					is_galactic_community_member = yes
+					in_breach_of = resolution_divinity_a_defined_purpose
+				}
+				country_event = { id = federations.10340 }
+			}
+		}
+	}
+
+	fail_effects = {
+		hidden_effect = {
+			set_timed_country_flag = { flag = galactic_community_resolution_failed_divinity days = @resolution_flag_timer }
+			add_modifier = {
+				modifier = resolution_failed_diplomatic_weight
+				days = 2200
+			}
+		}
+	}
+
+	allow = {
+		is_active_resolution = "resolution_divinity_silence_the_soulless"
+	}
+
+	breach = {
+		OR = {
+			AND = {
+				is_machine_empire = no
+				has_policy_flag = ai_full_rights
+			}
+			AND = {
+				is_machine_empire = yes
+				NOT = { has_valid_civic = civic_machine_servitor }
+			}
+		}
+
+	}
+
+	ai_weight = {
+		weight = @resolution_weight_disliked
+
+		modifier = {
+			factor = 0.5
+			has_ai_personality_behaviour = robot_exploiter
+			NOT = { has_valid_civic = civic_machine_servitor }
+		}
+
+		modifier = {
+			factor = 0.25
+			has_ai_personality_behaviour = robot_liberator
+			NOT = { has_valid_civic = civic_machine_servitor }
+		}
+
+		modifier = {
+			factor = 0.8
+			is_gestalt = yes
+			NOT = { has_valid_civic = civic_machine_servitor }
+		}
+
+		modifier = {
+			factor = 0
+			is_synthetic_empire = yes
+			NOT = { has_valid_civic = civic_machine_servitor }
+		}
+
+		modifier = {
+			factor = 1.2
+			NOR = {
+				has_ai_personality_behaviour = robot_exploiter
+				has_ai_personality_behaviour = robot_liberator
+			}
+		}
+
+		modifier = {
+			factor = 1.5
+			is_spiritualist = yes
+		}
+
+		modifier = {
+			factor = 100
+			has_valid_civic = civic_machine_servitor
+		}
+	}
+}

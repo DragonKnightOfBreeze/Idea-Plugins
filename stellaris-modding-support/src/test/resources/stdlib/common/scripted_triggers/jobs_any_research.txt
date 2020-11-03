@@ -1,0 +1,14 @@
+jobs_any_research = {
+	planet = {
+		any_owned_pop = {
+			OR = {
+				has_job = head_researcher
+				has_job = researcher
+				has_job = brain_drone
+				has_job = calculator
+				has_job = dimensional_portal_researcher
+				has_job = dimensional_portal_researcher_gestalt
+			}
+		}
+	}
+}

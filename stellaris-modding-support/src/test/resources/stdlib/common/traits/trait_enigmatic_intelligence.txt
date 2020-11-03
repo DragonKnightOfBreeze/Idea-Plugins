@@ -1,0 +1,14 @@
+trait_enigmatic_intelligence = {
+	cost = 0
+	initial = no
+	randomized = no
+	modification = no
+	improves_leaders = yes
+	advanced_trait = yes
+	opposites = { "trait_nerve_stapled" "trait_erudite" "trait_slow_learners" }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	modifier = {
+		planet_researchers_produces_mult = 0.1
+		species_leader_exp_gain = 0.25
+	}
+}

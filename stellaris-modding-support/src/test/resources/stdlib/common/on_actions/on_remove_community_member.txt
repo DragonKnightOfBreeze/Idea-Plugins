@@ -1,0 +1,6 @@
+on_remove_community_member = {
+	events = {
+		galcom.61
+		galcom.62
+	}
+}

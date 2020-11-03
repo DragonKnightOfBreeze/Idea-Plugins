@@ -1,0 +1,14 @@
+achievement_enlightened_times = {
+	id = 49
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		OR = {
+			has_country_flag = uplifted_stone
+			has_country_flag = uplifted_bronze
+		}
+	}
+}

@@ -1,0 +1,32 @@
+moon_cat = {
+	picture = "GFX_evt_ship_in_orbit"
+	level = 3
+	max_once_global = yes
+
+	spawn_chance = {
+		modifier = {
+			add = 3
+			has_distar = yes
+			is_moon = yes
+			habitable_planet = no
+			NOR = {
+				has_deposit_for = shipclass_research_station
+				has_deposit_for = shipclass_mining_station
+			}
+			solar_system = {
+				any_system_planet = {
+					habitable_planet = yes
+					has_moon = yes
+					any_moon = {
+						is_same_value = prevprevprev
+					}
+				}
+			}
+		}
+	}
+	on_success = {
+		1 = { 
+			anomaly_event = distar.2025
+		}
+	}
+}

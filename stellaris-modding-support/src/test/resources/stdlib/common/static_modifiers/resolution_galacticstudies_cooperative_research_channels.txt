@@ -1,0 +1,5 @@
+resolution_galacticstudies_cooperative_research_channels = {
+	diplo_weight_technology_mult = 0.2
+	station_researchers_produces_mult = 0.1
+	starbases_upkeep_mult = 0.05
+}

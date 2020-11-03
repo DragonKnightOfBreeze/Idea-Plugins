@@ -1,0 +1,23 @@
+sphere = {
+	is_space_object = yes
+	graphical_culture = { "techno" }
+	max_speed = @speed_very_slow
+	acceleration = 0.3
+	rotation_speed = 1.00
+	collision_radius = @titan_collision_radius
+	modifier = {
+		ship_evasion_add = 35
+		ship_armor_add = 20000
+	}
+	max_hitpoints = 50000
+	combat_size_multiplier = 50
+	size_multiplier = 32
+	fleet_slot_size = 8
+	section_slots = { "mid" = { locator = "part1" } }
+	num_target_locators = 0
+	is_space_station = no
+	icon_frame = 7
+	
+	class = shipclass_military
+	is_designable = no
+}

@@ -1,0 +1,8 @@
+planet_buildings = {
+	parent = planet_structures
+
+	generate_mult_modifiers = {
+		cost
+		upkeep
+	}
+}

@@ -1,0 +1,11 @@
+achievement_queening = {
+	id = 22
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		has_country_flag = queen_captured
+	}
+}

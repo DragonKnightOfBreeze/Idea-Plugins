@@ -1,0 +1,24 @@
+minerals_expenditure_colonies_lithoid_expand = {
+	resource = minerals
+	type = expenditure
+	category = colonies
+
+	potential = {
+		is_machine_empire = no
+		is_lithoid_empire = yes
+		ai_colonize_plans > 0
+		has_resource = { type = minerals amount > 400 }
+		has_monthly_income = {
+			resource = minerals
+			value > 0
+		}
+	}
+
+	fraction = {
+		weight = 0.5
+	}
+
+	static_max = {
+		base = 550
+	}
+}

@@ -1,0 +1,12 @@
+leader_trait_hive_affinity = {
+	cost = 1
+	modification = no
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_fist.dds"
+	modifier = {
+		ship_fire_rate_mult = 0.2
+	}
+	leader_trait = { admiral }
+	leader_class = { admiral }
+	initial = no
+	randomized = no
+}

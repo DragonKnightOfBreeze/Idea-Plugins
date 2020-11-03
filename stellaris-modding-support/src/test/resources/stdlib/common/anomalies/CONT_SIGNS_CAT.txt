@@ -1,0 +1,18 @@
+CONT_SIGNS_CAT = {
+	desc = "CONT_SIGNS_DESC"
+	picture = "GFX_evt_alien_city"
+	level = 4
+	
+	spawn_chance = {
+		modifier = {
+			add = 3
+			OR = {
+				is_planet_class = pc_continental
+				is_planet_class = pc_tropical
+				is_planet_class = pc_tundra
+			}
+		}
+	}
+	
+	on_success = anomaly.255
+}

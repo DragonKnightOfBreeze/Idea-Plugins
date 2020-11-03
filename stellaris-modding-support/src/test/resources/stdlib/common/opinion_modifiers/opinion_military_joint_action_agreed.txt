@@ -1,0 +1,9 @@
+opinion_military_joint_action_agreed = {
+	opinion = {
+		base = 50
+	}
+
+	decay = {
+		base = 3
+	}
+}

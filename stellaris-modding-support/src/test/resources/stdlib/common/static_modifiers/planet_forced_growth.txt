@@ -1,0 +1,3 @@
+planet_forced_growth = {
+	pop_growth_speed = -0.2
+}

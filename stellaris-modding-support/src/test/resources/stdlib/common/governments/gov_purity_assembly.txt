@@ -1,0 +1,15 @@
+gov_purity_assembly = {
+	ruler_title = RT_PRIME_JUSTICIAR
+	ruler_title_female = RT_PRIME_JUSTICIAR_FEMALE
+	
+	should_force_rename = yes
+
+	possible = {
+		has_authority = auth_democratic
+		has_valid_civic = civic_fanatic_purifiers
+	}
+
+	weight = {
+		base = 2000
+	}
+}

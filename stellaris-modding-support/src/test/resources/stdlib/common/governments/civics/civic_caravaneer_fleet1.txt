@@ -1,0 +1,10 @@
+civic_caravaneer_fleet1 = {
+	modification = no
+	icon = "gfx/interface/icons/governments/civics/civic_caravaneer_fleet1.dds"
+	potential = {
+		country_type = { value = caravaneer_fleet }
+		ethics = { NOT = { value = ethic_gestalt_consciousness } }
+	}
+	random_weight = { base = 5 }
+	modifier = { }
+}

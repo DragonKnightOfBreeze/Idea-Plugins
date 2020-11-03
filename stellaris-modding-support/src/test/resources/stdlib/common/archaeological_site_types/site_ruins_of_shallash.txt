@@ -1,0 +1,47 @@
+site_ruins_of_shallash = {
+	desc = "site_ruined_starsystem_intro"
+	picture = GFX_evt_tomb_world
+	stages = 4
+	weight = 0 #set via initialiser
+	allow = {
+		exists = leader
+		leader = { leader_class = scientist }
+	}
+	visible = {
+		default_site_visible_trigger = yes
+	}
+
+	on_visible = {
+    	country_event = { id = story.5 days = 30 }
+	}
+
+	stage = {
+		difficulty = 1
+		icon = GFX_archaeology_runes_E1
+		event = federations2.2
+	}
+
+	stage = {
+		difficulty = 2
+		icon = GFX_archaeology_runes_E2
+		event = federations2.3
+	}
+
+	stage = {
+		difficulty = 3
+		icon = GFX_archaeology_runes_E3
+		event = federations2.4
+	}
+
+	stage = {
+		difficulty = 4
+		icon = GFX_archaeology_runes_E4
+		event = federations2.5
+	}
+
+	on_roll_failed = {
+		from = {
+			standard_archaeological_site_on_roll_failed = { RANDOM_EVENTS = site_ruins_of_shallash_random_events }
+		}
+	}
+}

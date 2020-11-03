@@ -1,0 +1,12 @@
+resolution_category_space_fauna_tiyanki = {
+	group = environment_technology
+	icon = "GFX_resolution_tiyanki_preservation"
+	resolution_types = {
+		"resolution_repeal_tiyanki_pest_control"
+		"resolution_repeal_tiyanki_conservation_act"
+		"resolution_repeal_amoeba_conservation_act"
+		"resolution_tiyanki_pest_control"
+		"resolution_tiyanki_conservation_act"
+		"resolution_amoeba_conservation_act"
+	}
+}

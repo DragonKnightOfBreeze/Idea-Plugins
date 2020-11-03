@@ -1,0 +1,51 @@
+tech_galactic_ambitions = {
+	cost = @tier2cost2
+	area = society
+	category = { new_worlds }
+	tier = 2
+	weight = @tier2weight2
+
+	modifier = {
+		country_starbase_capacity_add = 2
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 2
+			num_communications > 2
+		}
+		modifier = {
+			factor = 2
+			num_communications > 3
+		}
+		modifier = {
+			factor = 2
+			num_communications > 4
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_new_worlds"
+			}
+		}
+		modifier = {
+			factor = 0
+			num_communications < 1
+		}
+	}
+
+	ai_weight = {
+		modifier = {
+			factor = 2
+			is_militarist = yes
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_new_worlds"
+			}
+		}
+	}
+}

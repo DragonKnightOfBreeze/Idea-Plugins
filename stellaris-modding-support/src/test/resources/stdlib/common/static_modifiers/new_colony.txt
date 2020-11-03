@@ -1,0 +1,3 @@
+new_colony = {
+	planet_immigration_pull_add = 100
+}

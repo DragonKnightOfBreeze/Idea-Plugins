@@ -1,0 +1,52 @@
+tech_combat_computers_1 = {
+	area = physics
+	tier = 1
+	cost = @tier1cost3
+	category = { computing }
+	ai_update_type = military
+	prerequisites = { "tech_administrative_ai" }
+	weight = @tier1weight3
+
+	# unlocks aggressive / defensive combat computers
+
+	weight_modifier = {
+		modifier = {
+			factor = 2
+			has_technology = tech_destroyers
+		}
+		modifier = {
+			factor = 2
+			has_technology = tech_cruisers
+		}
+		modifier = {
+			factor = 2
+			has_technology = tech_battleships
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_computing"
+			}
+		}
+	}
+
+	prereqfor_desc = {
+		hide_prereq_for_desc = component
+		custom = {
+			title = "TECH_UNLOCK_COMBAT_COMPUTERS_1_TITLE"
+			desc = "TECH_UNLOCK_COMBAT_COMPUTERS_1_DESC"
+		}
+	}
+
+	ai_weight = {
+		weight = 3
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_computing"
+			}
+		}
+	}
+}

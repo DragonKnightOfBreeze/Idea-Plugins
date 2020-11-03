@@ -1,0 +1,79 @@
+trappist_initializer = {
+	name = "NAME_Trappist"
+	class = "sc_m"
+	usage = misc_system_init
+	usage_odds = 2000000
+	max_instances = 1
+	scaled_spawn_chance = 10
+	
+	planet = {
+		class = "pc_m_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 20
+		has_ring = no
+	}
+	
+	# Trappist-1b
+	planet = {
+		class = "pc_molten"
+		orbit_distance = 20
+		orbit_angle = 15
+		size = 16
+		has_ring = no
+	}
+	
+	# Trappist-1c
+	planet = {
+		class = "pc_barren"
+		orbit_distance = 16
+		orbit_angle = 85
+		size = 16
+		has_ring = no
+	}
+
+	# Trappist-1d
+	planet = {
+		class = "pc_toxic"
+		orbit_distance = 16
+		orbit_angle = 110
+		size = 12
+		has_ring = no
+	}
+
+	# Trappist-1e
+	planet = {
+		class = "pc_desert"
+		orbit_distance = 16
+		orbit_angle = 125
+		size = 14
+		has_ring = no
+	}
+
+	# Trappist-1f
+	planet = {
+		class = "pc_continental"
+		orbit_distance = 16
+		orbit_angle = 65
+		size = 16
+		has_ring = no
+	}
+
+	# Trappist-1g
+	planet = {
+		class = "pc_arctic"
+		orbit_distance = 16
+		orbit_angle = -130
+		size = 18
+		has_ring = no
+	}
+
+	# Trappist-1h
+	planet = {
+		class = "pc_frozen"
+		orbit_distance = 16
+		orbit_angle = 245
+		size = 12
+		has_ring = no
+	}
+}

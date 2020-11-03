@@ -1,0 +1,26 @@
+d_volatile_motes_2 = {
+	station = shipclass_mining_station
+	is_for_colonizeable = no
+	
+	resources = { 
+		category = orbital_mining_deposits
+		produces = {
+			volatile_motes = 2
+		}
+	}	
+	
+	potential = {
+		OR = {			
+			is_planet_class = pc_molten
+			is_planet_class = pc_asteroid
+		}
+	}
+	
+	drop_weight = {
+		weight = 0.5
+		modifier = {
+			factor = 1.5
+			is_inside_nebula = yes
+		}
+	}
+}

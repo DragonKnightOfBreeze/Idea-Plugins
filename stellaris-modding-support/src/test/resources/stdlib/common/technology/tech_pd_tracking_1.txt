@@ -1,0 +1,7 @@
+tech_pd_tracking_1 = {
+	area = physics
+	tier = 0
+	category = { computing }		
+	ai_update_type = military
+	start_tech = yes
+}

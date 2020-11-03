@@ -1,0 +1,27 @@
+d_portal_research_zone_gestalt = { #this is a bit redundant now that triggered jobs work
+	is_for_colonizeable = yes
+	category = deposit_cat_rare
+	
+	icon = d_quarantine_zone
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = no }
+		}
+		job_dimensional_portal_researcher_add = 1
+		job_dimensional_portal_researcher_per_pop = 0.025 # 1 per 40
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		job_dimensional_portal_researcher_gestalt_add = 1
+		job_dimensional_portal_researcher_gestalt_per_pop = 0.025 # 1 per 40
+	}
+	
+	drop_weight = {
+		weight = 0
+	}
+}

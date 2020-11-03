@@ -1,0 +1,4 @@
+planet_sanctuary_exhibits = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_museum.dds"
+	planet_bio_trophies_produces_mult = 0.10
+}

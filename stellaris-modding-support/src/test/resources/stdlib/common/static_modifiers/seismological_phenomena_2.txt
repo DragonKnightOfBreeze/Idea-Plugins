@@ -1,0 +1,8 @@
+seismological_phenomena_2 = {
+	pop_environment_tolerance = -0.20
+	pop_happiness = -0.15
+	pop_growth_speed = -0.20
+	planet_jobs_society_research_produces_mult = 0.20
+	icon = "gfx/interface/icons/planet_modifiers/pm_seismological_disturbances.dds"
+	icon_frame = 1
+}

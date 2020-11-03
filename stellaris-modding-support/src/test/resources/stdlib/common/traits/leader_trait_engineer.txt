@@ -1,0 +1,12 @@
+leader_trait_engineer = {
+	cost = 1
+	modification = no
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_engineer.dds"
+	modifier = {
+		ship_hull_regen_add_perc = 0.5
+		ship_armor_regen_add_perc = 0.5
+	}
+	leader_trait = { admiral }
+	leader_class = { admiral }
+	prerequisites = { tech_doctrine_fleet_size_3 }
+}

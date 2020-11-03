@@ -1,0 +1,15 @@
+gov_custodian_matrix = {
+	ruler_title = RT_CUSTODIAN
+	ruler_title_female = RT_CUSTODIAN
+	
+	should_force_rename = yes
+
+	possible = {
+		has_valid_civic = civic_machine_remnants
+		has_valid_civic = civic_custodian_directives
+	}
+
+	weight = {
+		base = 100000
+	}
+}

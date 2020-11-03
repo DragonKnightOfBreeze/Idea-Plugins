@@ -1,0 +1,49 @@
+tech_archeology_lab = {
+	area = physics
+	category = { computing }
+	tier = 2
+	cost = @tier2cost1
+	is_reverse_engineerable = no
+	is_rare = yes
+	weight = @tier2weight1
+
+	modifier = {
+		ship_anomaly_generation_chance_mult = 0.10
+		ship_anomaly_research_speed_mult = 0.25
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 0.50
+			has_modifier = "curator_insight"
+		}
+		modifier = {
+			factor = 3
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_curator"
+			}
+		}
+		modifier = {
+			factor = 0
+			NOR = {
+				research_leader = {
+					area = physics
+					has_trait = "leader_trait_curator"
+				}
+				has_modifier = "curator_insight"
+			}
+		}
+	}
+
+	prereqfor_desc = {
+		component = {
+			title = "TECH_UNLOCK_CURATOR_LAB_2_TITLE"
+			desc = "TECH_UNLOCK_CURATOR_LAB_2_DESC"
+		}
+	}
+
+	potential = {
+		has_ancrel = no
+	}
+}

@@ -1,0 +1,3 @@
+dead_creatures = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_wasteland.dds"
+}

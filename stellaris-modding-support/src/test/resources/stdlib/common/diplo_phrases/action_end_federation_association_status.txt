@@ -1,0 +1,111 @@
+action_end_federation_association_status = {
+	select = {
+		01_END_FEDERATION_ASSOCIATION_STATUS_SELECT = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					has_authority = auth_corporate
+				}
+			}
+		}
+	}
+	propose = {
+		01_END_FEDERATION_ASSOCIATION_STATUS_PROPOSE = {
+			trigger = {
+				from = {
+					NOR = {
+						has_authority = auth_machine_intelligence
+						has_authority = auth_corporate
+					}
+				}
+			}
+		}
+	}
+	accept = {
+		01_END_FEDERATION_ASSOCIATION_STATUS_ACCEPT = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					has_authority = auth_corporate
+				}
+			}
+		}
+	}
+	select = {
+		MECH_END_FEDERATION_ASSOCIATION_STATUS_SELECT = {
+			trigger = {
+				has_authority = auth_machine_intelligence
+			}
+		}
+	}
+	propose = {
+		MECH_END_FEDERATION_ASSOCIATION_STATUS_PROPOSE = {
+			trigger = {
+				from = {
+					has_authority = auth_machine_intelligence
+				}
+			}
+		}
+	}
+	accept = {
+		MECH_END_FEDERATION_ASSOCIATION_STATUS_ACCEPT = {
+			trigger = {
+				has_authority = auth_machine_intelligence
+			}
+		}
+	}
+	# Ketlings
+	select = {
+		KET_END_FEDERATION_ASSOCIATION_STATUS_SELECT = {
+			weight = { weight = 100000 }
+			trigger = {
+				exists = event_target:ratling_country
+				is_same_empire = event_target:ratling_country
+			}
+		}
+	}
+	propose = {
+		KET_END_FEDERATION_ASSOCIATION_STATUS_PROPOSE = {
+			weight = { weight = 100000 }
+			trigger = {
+				exists = event_target:ratling_country
+				FROM = {
+					is_same_empire = event_target:ratling_country
+				}
+			}
+		}
+	}
+	accept = {
+		KET_END_FEDERATION_ASSOCIATION_STATUS_ACCEPT = {
+			weight = { weight = 100000 }
+			trigger = {
+				exists = event_target:ratling_country
+				is_same_empire = event_target:ratling_country
+			}
+		}
+	}
+	# Corporate
+	select = {
+		CORP_END_FEDERATION_ASSOCIATION_STATUS_SELECT_01 = {
+			trigger = {
+				has_authority = auth_corporate
+			}
+		}
+	}
+	propose = {
+		CORP_END_FEDERATION_ASSOCIATION_STATUS_PROPOSE_01 = {
+			trigger = {
+				FROM = {
+					has_authority = auth_corporate
+				}
+			}
+		}
+	}
+	accept = {
+		CORP_END_FEDERATION_ASSOCIATION_STATUS_ACCEPT_01 = {
+			trigger = {
+				has_authority = auth_corporate
+			}
+		}
+	}
+}

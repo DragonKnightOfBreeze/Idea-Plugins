@@ -1,0 +1,4 @@
+vluur_storm = {
+	ship_speed_reduction = 0.5
+	ship_fire_rate_mult = -0.15
+}

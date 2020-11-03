@@ -1,0 +1,31 @@
+PROJ_MOON_CAT = {
+	desc = "PROJ_MOON_DESC"
+	picture = "GFX_evt_asteroid_approaching_planet"
+	level = 3
+	
+	spawn_chance = {
+		modifier = {
+			add = 3
+			NOT = {
+				is_star = no
+				is_planet_class = pc_gas_giant
+			}
+			OR = {
+				is_planet_class = pc_toxic
+				is_planet_class = pc_barren
+				is_planet_class = pc_frozen
+				is_planet_class = pc_molten
+			}
+			has_moon = yes
+			num_moons < 2
+			any_moon = {
+				is_planet_class = pc_toxic
+				is_planet_class = pc_barren
+				is_planet_class = pc_frozen
+				is_planet_class = pc_molten
+			}
+		}
+	}
+
+	on_success = anomaly.190
+}

@@ -1,0 +1,13 @@
+living_metal_expenditure_upgrade = {
+	resource = sr_living_metal 
+	type = expenditure
+	category = ship_upgrades
+	
+	potential = {
+		always = yes
+	}
+	
+	fraction = {
+		base = 0.1
+	}
+}

@@ -1,0 +1,118 @@
+asteroid_system = {
+	class = "rl_standard_stars"
+
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 100
+	}
+
+	usage = misc_system_init
+	usage_odds = {
+		base = 4
+		modifier = {
+			factor = 0
+			has_distar = no
+		}
+		modifier = {
+	        factor = 0
+	        has_star_flag = empire_cluster
+	    }
+	}
+
+	max_instances = 1
+	scaled_spawn_chance = 8
+
+	flags = { asteroid_system }
+
+	planet = {
+		count = 1
+		class = star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = { min = 20 max = 30 }
+		has_ring = no
+	}
+	planet = {
+		class = "pc_barren"
+		orbit_distance = 30
+		orbit_angle = 60
+		size = 13
+		has_ring = no	
+	}
+	
+	planet = {
+		class = "pc_asteroid"
+		orbit_distance = 70
+		orbit_angle = -220
+		size = 5
+		has_ring = no
+		init_effect = {
+			set_deposit = d_minerals_4
+		}
+	}
+	
+	planet = {
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = -87
+		size = 5
+		has_ring = no
+	}
+	
+	planet = {
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = 285
+		size = 5
+		has_ring = no
+		init_effect = {
+			set_deposit = d_minerals_4
+		}
+	}
+
+	planet = {
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = 220
+		size = 5
+		has_ring = no
+		init_effect = {
+			set_deposit = d_minerals_4
+		}
+	}
+	
+	planet = {
+		class = "pc_asteroid"
+		orbit_distance = 5
+		orbit_angle = -80
+		size = 5
+		has_ring = no
+	}
+	
+	planet = {
+		class = "pc_frozen"
+		orbit_distance = 40
+		orbit_angle = -160
+		size = { min = 10 max = 20}
+		has_ring = no
+		change_orbit = 6
+		
+		moon = {
+			class = "pc_frozen"
+			size = 6
+			orbit_distance = 2.5
+			orbit_angle = 10
+			has_ring = no
+		}
+		moon = {
+			class = "pc_frozen"
+			size = 9
+			orbit_distance = 2.5
+			orbit_angle = 80
+			has_ring = no
+		}
+		init_effect = {
+			set_deposit = d_energy_3
+		}
+	}	
+}

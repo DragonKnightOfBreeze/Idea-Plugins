@@ -1,0 +1,5 @@
+forest_fire = {
+	planet_jobs_food_produces_mult = -0.2
+	icon = "gfx/interface/icons/planet_modifiers/pm_wasteland.dds"
+	icon_frame = 3
+}

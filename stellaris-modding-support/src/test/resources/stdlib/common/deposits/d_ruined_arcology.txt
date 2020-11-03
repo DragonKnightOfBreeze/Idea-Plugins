@@ -1,0 +1,72 @@
+d_ruined_arcology = {
+	time = 365
+	icon = d_city_ruins
+
+	is_for_colonizeable = yes
+	category = deposit_cat_blockers
+
+	potential = { always = no }
+
+	planet_modifier = {
+		planet_max_districts_add = -1
+	}
+
+	resources = {
+		category = deposit_blockers
+		cost = {
+			energy = 750
+			minerals = 250
+		}
+	}
+
+	on_cleared = {
+		if = {
+			limit = {
+				exists = owner
+				owner = {
+					has_ancrel = yes
+				}
+			}
+
+			custom_tooltip = minor_artifacts_found
+			random_list = {
+				33 = {
+					owner = { add_resource = { minor_artifacts = 1 } }
+				}
+				33 = {
+					owner = { add_resource = { minor_artifacts = 3 } }
+				}
+				33 = {
+					owner = { add_resource = { minor_artifacts = 5 } }
+				}
+			}
+
+			if = {
+				limit = {
+					owner = {
+						NOT = { has_country_flag = league_world_found }
+					}
+					planet = { has_modifier = first_league_homeworld }
+				}
+				hidden_effect = {
+					owner = {
+						set_country_flag = league_world_found
+					}
+				}
+				custom_tooltip = league_artifact_research_unlocked
+			}
+		}
+		if = {
+			limit = {
+				owner = { has_origin = origin_remnants }
+				is_capital = yes
+			}
+			custom_tooltip = rediscover_tech
+			hidden_effect = {
+				owner = {
+					country_event = { id = origin.3100 }
+				}
+			}
+		}
+	}
+}

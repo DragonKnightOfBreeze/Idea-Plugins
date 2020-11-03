@@ -1,0 +1,6 @@
+has_gw_ring_world = {
+	OR = {
+		has_ascension_perk = ap_galactic_wonders_utopia
+		has_ascension_perk = ap_galactic_wonders_utopia_and_megacorp
+	}
+}

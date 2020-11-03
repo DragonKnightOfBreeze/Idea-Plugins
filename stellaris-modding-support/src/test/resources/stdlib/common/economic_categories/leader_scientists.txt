@@ -1,0 +1,3 @@
+leader_scientists = {
+	parent = leaders
+}

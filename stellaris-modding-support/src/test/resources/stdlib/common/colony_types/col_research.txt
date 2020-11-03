@@ -1,0 +1,88 @@
+col_research = {
+	icon = 8
+
+	potential = {
+		exists = owner
+		NOR = {
+			uses_district_set = city_world
+			uses_district_set = ring_world
+			uses_district_set = habitat
+		}
+		is_special_colony_type = no
+	}
+
+	planet_modifier = {
+		planet_building_research_lab_1_build_speed_mult = 0.25
+		planet_researchers_upkeep_mult = -0.2
+
+	}
+
+	weight_modifier = {
+		modifier = {
+			add = 1
+			OR = {
+				AND = {
+					num_free_districts = { type = district_city value >= @free_districts_high_threshold }
+					num_free_districts = { type = district_mining value <= @free_districts_verylow_threshold }
+					num_free_districts = { type = district_farming value <= @free_districts_verylow_threshold }
+					num_free_districts = { type = district_generator value <= @free_districts_verylow_threshold }
+				}
+				AND = {
+					num_free_districts = { type = district_hive value >= @free_districts_high_threshold }
+					num_free_districts = { type = district_mining value <= @free_districts_verylow_threshold }
+					num_free_districts = { type = district_farming value <= @free_districts_verylow_threshold }
+					num_free_districts = { type = district_generator value <= @free_districts_verylow_threshold }
+				}
+				AND = {
+					num_free_districts = { type = district_nexus value >= @free_districts_high_threshold }
+					num_free_districts = { type = district_mining value <= @free_districts_verylow_threshold }
+					num_free_districts = { type = district_farming value <= @free_districts_verylow_threshold }
+					num_free_districts = { type = district_generator value <= @free_districts_verylow_threshold }
+				}
+			}
+		}
+		modifier = {
+			add = 5
+			has_designation = col_research
+		}
+		modifier = {
+			add = 5
+			OR = {
+				has_modifier = wild_storms
+				has_modifier = titanic_life
+				has_modifier = atmospheric_hallucinogen
+				has_modifier = dangerous_wildlife
+				has_modifier = unstable_tectonics
+				has_deposit = d_central_spire
+			}
+		}
+		modifier = {
+			add = 2
+			num_buildings = { type = building_research_lab_1 value >= 2 }
+		}
+		modifier = {
+			add = 3
+			num_buildings = { type = building_research_lab_1 value >= 3 }
+		}
+		modifier = {
+			add = 4
+			num_buildings = { type = building_research_lab_1 value >= 4 }
+		}
+		modifier = {
+			add = 5
+			num_buildings = { type = building_research_lab_1 value >= 5 }
+		}
+		modifier = {
+			add = 4
+			num_buildings = { type = building_research_lab_2 value >= 1 }
+		}
+		modifier = {
+			add = 5
+			num_buildings = { type = building_research_lab_2 value >= 2 }
+		}
+		modifier = {
+			add = 10
+			num_buildings = { type = building_research_lab_3 value >= 1 }
+		}
+	}
+}

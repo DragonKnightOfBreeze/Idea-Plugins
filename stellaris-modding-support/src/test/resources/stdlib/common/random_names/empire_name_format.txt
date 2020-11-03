@@ -1,0 +1,12 @@
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 100
+			is_country_type = enclave
+			has_government = gov_artist_enclave
+		}
+	}
+	format = "format.artist.1"
+	noun = "<artist_names>"
+}

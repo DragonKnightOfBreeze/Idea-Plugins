@@ -1,0 +1,16 @@
+d_mutation_vats = {
+	is_for_colonizeable = yes
+	icon = d_metal_boneyard
+	category = deposit_cat_rare
+
+	potential = { always = no }
+	
+	resources = {
+		category = planet_deposits
+		produces = {
+			society_research = 12
+			exotic_gases = 1
+		}
+	}
+
+}

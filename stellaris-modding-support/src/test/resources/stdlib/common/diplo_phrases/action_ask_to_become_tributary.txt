@@ -1,0 +1,193 @@
+action_ask_to_become_tributary = {
+	consider = {
+		FALLEN_MACHINE_EMPIRE_CONSIDER = {
+			trigger = {
+				is_fallen_machine_empire = yes
+			}
+		}
+		01_CONSIDER = {
+			trigger = {
+				NOR = {
+					has_ethic = ethic_gestalt_consciousness
+					has_authority = auth_corporate
+				}
+			}
+		}
+		HM_CONSIDER_01 = {
+			trigger = {
+				OR = {
+					has_ai_personality = hive_mind
+					has_ai_personality = devouring_swarm
+				}
+			}
+		}
+		S_CONSIDER_01 = {
+			weight = { weight = 50 }
+			trigger = {
+				OR = {
+					has_ai_personality = servitors
+					has_ai_personality = assimilators
+					has_ai_personality = exterminators
+				}
+			}
+		}
+		A_CONSIDER_01 = {
+			weight = { weight = 50 }
+			trigger = {
+				has_ai_personality = assimilators
+			}
+		}
+		MECH_CONSIDER_01 = {
+			trigger = {
+				has_authority = auth_machine_intelligence
+			}
+		}
+		ORG_TO_MECH_CONSIDER_01 = {
+			weight = { weight = 50 }
+			trigger = {
+				NOT = { has_authority = auth_machine_intelligence }
+				FROM = {
+					OR = {
+						has_authority = auth_machine_intelligence
+						is_species_class = ROBOT
+					}
+				}
+			}
+		}
+		# Ketlings
+		KET_CONSIDER_01 = {
+			weight = { weight = 100000 }
+			trigger = {
+				exists = event_target:ratling_country
+				is_same_empire = event_target:ratling_country
+			}
+		}
+		# Corporate
+		CORP_CONSIDER_01 = {
+			trigger = {
+				has_authority = auth_corporate
+			}
+		}
+	}
+	select = {
+		01_ASK_BECOME_TRIBUTARY_SELECT = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					has_authority = auth_corporate
+				}
+			}
+		}
+	}
+	propose = {
+		01_ASK_BECOME_TRIBUTARY_PROPOSE = {
+			trigger = {
+				from = {
+					NOR = {
+						has_authority = auth_machine_intelligence
+						has_authority = auth_corporate
+					}
+				}
+			}
+		}
+	}
+	accept = {
+		01_ASK_BECOME_TRIBUTARY_ACCEPT = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					has_authority = auth_corporate
+				}
+			}
+		}
+	}
+	refuse = {
+		01_ASK_BECOME_TRIBUTARY_REFUSE = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					has_authority = auth_corporate
+				}
+			}
+		}
+	}
+	select = {
+		MECH_ASK_BECOME_TRIBUTARY_SELECT = {
+			trigger = {
+				has_authority = auth_machine_intelligence
+			}
+		}
+	}
+	propose = {
+		MECH_ASK_BECOME_TRIBUTARY_PROPOSE = {
+			trigger = {
+				from = {
+					has_authority = auth_machine_intelligence
+				}
+			}
+		}
+	}
+	accept = {
+		MECH_ASK_BECOME_TRIBUTARY_ACCEPT = {
+			trigger = {
+				has_authority = auth_machine_intelligence
+			}
+		}
+	}
+	refuse = {
+		MECH_ASK_BECOME_TRIBUTARY_REFUSE = {
+			trigger = {
+				has_authority = auth_machine_intelligence
+			}
+		}
+	}
+	# Ketlings
+	select = {
+		KET_ASK_BECOME_TRIBUTARY_SELECT = {
+			weight = { weight = 100000 }
+			trigger = {
+				exists = event_target:ratling_country
+				is_same_empire = event_target:ratling_country
+			}
+		}
+	}
+	propose = {
+		KET_ASK_BECOME_TRIBUTARY_PROPOSE = {
+			weight = { weight = 100000 }
+			trigger = {
+				exists = event_target:ratling_country
+				FROM = {
+					is_same_empire = event_target:ratling_country
+				}
+			}
+		}
+	}
+	accept = {
+		KET_ASK_BECOME_TRIBUTARY_ACCEPT = {
+			weight = { weight = 100000 }
+			trigger = {
+				exists = event_target:ratling_country
+				is_same_empire = event_target:ratling_country
+			}
+		}
+	}
+	refuse = {
+		KET_ASK_BECOME_TRIBUTARY_REFUSE = {
+			weight = { weight = 100000 }
+			trigger = {
+				exists = event_target:ratling_country
+				is_same_empire = event_target:ratling_country
+			}
+		}
+	}
+	# Corporate
+	propose = {
+		CORP_ASK_BECOME_TRIBUTARY_PROPOSE_01 = {
+			trigger = {
+				FROM = {
+					has_authority = auth_corporate
+				}
+			}
+		}
+	}
+}

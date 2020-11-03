@@ -1,0 +1,115 @@
+create_late_primitive_empire = {
+	create_country = {
+		name = random
+		authority = random
+		civics = {
+			civic = civic_increasing_urbanization
+			civic = civic_atmospheric_pollution
+		}
+		species = last_created
+		ethos = random
+		flag = {
+			icon = {
+				category = "spherical"
+				file = "flag_spherical_22.dds"
+			}
+			background= {
+				category = "backgrounds"
+				file = "new_dawn.dds"
+			}
+			colors={
+				"turquoise"
+				"green"
+				"null"
+				"null"
+			}
+		}
+		origin = "origin_enlightened" # Should only be visible if they become spacefaring
+		type = primitive
+	}
+	last_created_country = {
+		set_graphical_culture = industrial_01
+		random_list = {
+			25 = {
+				set_country_flag = industrial_age 
+				set_primitive_age = industrial_age
+				change_country_flag = {
+					icon = {
+						category = "special"
+						file = "primitive.dds"
+					}
+					background= {
+						category = "backgrounds"
+						file = "new_dawn.dds"
+					}
+					colors={
+						"beige"
+						"yellow"
+						"null"
+						"null"
+					}
+				}
+			}
+			25 = { 
+				set_country_flag = machine_age
+				set_primitive_age = machine_age
+				change_country_flag = {
+					icon = {
+						category = "special"
+						file = "primitive.dds"
+					}
+					background= {
+						category = "backgrounds"
+						file = "new_dawn.dds"
+					}
+					colors={
+						"yellow"
+						"orange"
+						"null"
+						"null"
+					}
+				}
+			}
+			25 = { 
+				set_country_flag = atomic_age 
+				set_primitive_age = atomic_age
+				change_country_flag = {
+					icon = {
+						category = "special"
+						file = "primitive.dds"
+					}
+					background= {
+						category = "backgrounds"
+						file = "new_dawn.dds"
+					}
+					colors={
+						"beige"
+						"brown"
+						"null"
+						"null"
+					}
+				}
+			}
+			25 = { 
+				set_country_flag = early_space_age 
+				set_primitive_age = early_space_age
+				change_country_flag = {
+					icon = {
+						category = "special"
+						file = "primitive.dds"
+					}
+					background= {
+						category = "backgrounds"
+						file = "new_dawn.dds"
+					}
+					colors={
+						"grey"
+						"dark_grey"
+						"null"
+						"null"
+					}
+				}
+			}
+		}
+	}	
+}

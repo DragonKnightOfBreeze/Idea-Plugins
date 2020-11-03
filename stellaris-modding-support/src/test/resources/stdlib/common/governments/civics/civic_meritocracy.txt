@@ -1,0 +1,20 @@
+civic_meritocracy = {
+	potential = {
+		ethics = { NOT = { value = ethic_gestalt_consciousness } }
+		authority = { NOT = { value = auth_corporate } }
+	}
+	possible = {
+		authority = {
+			OR = {
+				text = civic_tooltip_dem_oli
+				value = auth_democratic
+				value = auth_oligarchic
+			}
+		}
+	}
+	random_weight = { base = 5 }
+	modifier = {
+		leader_skill_levels = 1
+		planet_jobs_specialist_produces_mult = 0.10
+	}
+}

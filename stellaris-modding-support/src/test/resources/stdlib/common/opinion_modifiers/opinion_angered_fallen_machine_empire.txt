@@ -1,0 +1,11 @@
+opinion_angered_fallen_machine_empire = {
+	opinion = {
+		base = -100
+	}
+
+	min = -100
+
+	decay = {
+		base = 10
+	}
+}

@@ -1,0 +1,6 @@
+create_contingency_starbase = {
+	create_starbase = {
+		size = starbase_ai
+		owner = event_target:AI_crisis
+	}
+}

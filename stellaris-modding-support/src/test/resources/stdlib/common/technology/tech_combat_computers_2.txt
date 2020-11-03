@@ -1,0 +1,39 @@
+tech_combat_computers_2 = {
+	area = physics
+	tier = 3
+	cost = @tier3cost1
+	category = { computing }
+	ai_update_type = military
+	prerequisites = { "tech_combat_computers_1" "tech_self_aware_logic" }
+	weight = @tier3weight1
+
+	# unlocks additional combat computers
+
+	weight_modifier = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_computing"
+			}
+		}
+	}
+
+	prereqfor_desc = {
+		hide_prereq_for_desc = component
+		custom = {
+			title = "TECH_UNLOCK_COMBAT_COMPUTERS_2_TITLE"
+			desc = "TECH_UNLOCK_COMBAT_COMPUTERS_2_DESC"
+		}
+	}
+
+	ai_weight = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_computing"
+			}
+		}
+	}
+}

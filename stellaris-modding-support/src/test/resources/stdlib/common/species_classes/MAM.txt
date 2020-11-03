@@ -1,0 +1,53 @@
+MAM = {
+	archetype = BIOLOGICAL
+
+	possible = { authority = { NOT = { value = auth_machine_intelligence text = SPECIES_CLASS_MUST_NOT_USE_MACHINE_INTELLIGENCE } } }
+
+	portraits = {
+		"mam5"
+		"mam13"
+		"mam10"
+		"mam14"
+		"mam4"
+		"mam9"
+		"mam11"
+		"mam6"
+		"mam3"
+		"mam12"
+		"mam7"
+		"mam15"
+		"mam2"
+		"mam8"
+		"mam1"
+		"mam16"
+		"mam_rat"
+	}
+
+	custom_portraits = {#add additional portraits when customizing species
+		randomized = {
+			OR = {
+				host_has_dlc = "Creatures of the Void Portrait Pack"
+				host_has_dlc = "Anniversary Portraits"
+			}
+		}
+		playable = {
+			OR = {
+				local_has_dlc = "Creatures of the Void Portrait Pack"
+				local_has_dlc = "Anniversary Portraits"
+			}
+		}
+		portraits = {
+			"mam17"
+		}
+	}
+
+	# These should not be used for randomly generated species
+	non_randomized_portraits = {
+        "mam_rat"
+    }
+
+	graphical_culture = mammalian_01
+	move_pop_sound_effect = "moving_pop_confirmation"
+
+	resources = {}
+}

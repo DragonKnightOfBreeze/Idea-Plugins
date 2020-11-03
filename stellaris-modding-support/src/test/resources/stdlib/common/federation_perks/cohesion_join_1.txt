@@ -1,0 +1,6 @@
+cohesion_join_1 = {
+	federation_modifier = {
+		description = cohesion_join_1_effect
+		federation_join_malus_mult = -0.5
+	}
+}

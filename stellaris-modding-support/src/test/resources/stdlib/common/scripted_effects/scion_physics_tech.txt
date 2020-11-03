@@ -1,0 +1,32 @@
+scion_physics_tech = {
+	if = {
+		limit = { 
+			NOT = { has_technology = tech_space_science_2 }
+		}
+		give_technology = { tech = tech_space_science_2 }
+	}
+	else_if = {
+		limit = { 
+			NOT = { has_technology = tech_self_aware_logic }
+		}
+		give_technology = { tech = tech_self_aware_logic }
+	}
+	else_if = {
+		limit = { 
+			NOT = { has_technology = tech_antimatter_power }
+		}
+		give_technology = { tech = tech_antimatter_power }
+	}
+	else_if = {
+		limit = { 
+			NOT = { has_technology = tech_combat_computers_autonomous }
+		}
+		give_technology = { tech = tech_combat_computers_autonomous }
+	}
+	else_if = {
+		limit = { 
+			NOT = { has_technology = tech_jump_drive_1 }
+		}
+		give_technology = { tech = tech_jump_drive_1 }
+	}
+}

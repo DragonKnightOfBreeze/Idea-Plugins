@@ -1,0 +1,25 @@
+col_ring_trade = {
+	icon = 1
+
+	potential = {
+		uses_district_set = ring_world
+		exists = owner
+		owner = { is_gestalt = no }
+	}
+
+	planet_modifier = {
+		trade_value_mult = 0.2
+	}
+
+	weight_modifier = {
+		modifier = {
+			add = 100
+			has_designation = col_ring_trade
+		}
+		modifier = {
+			add = 200
+			is_capital = no
+			num_districts = { type = district_rw_commercial value >= 1 }
+		}
+	}
+}

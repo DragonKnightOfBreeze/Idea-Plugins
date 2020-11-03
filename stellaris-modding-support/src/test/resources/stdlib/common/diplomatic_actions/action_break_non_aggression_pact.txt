@@ -1,0 +1,7 @@
+action_break_non_aggression_pact = {
+	icon = "GFX_diplomacy_status_non_aggression_pact"
+	auto_accepted = yes
+	should_notify_all_communications = yes
+	should_show_auto_accept_message_recipient = yes
+	action_type = negative
+}

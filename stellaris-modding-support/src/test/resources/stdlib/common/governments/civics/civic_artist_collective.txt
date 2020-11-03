@@ -1,0 +1,10 @@
+civic_artist_collective = {
+	modification = no
+	icon = "gfx/interface/icons/governments/civics/civic_inwards_perfection.dds"
+	potential = {
+		country_type = { value = enclave }
+		ethics = { NOT = { value = ethic_gestalt_consciousness } }
+	}
+	random_weight = { base = 5 }
+	modifier = { }
+}

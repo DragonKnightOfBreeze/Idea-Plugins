@@ -1,0 +1,13 @@
+﻿Greetings!
+
+Stellaris has been updated!
+
+There is now a Galactic Community which can be formed once enough empires have established communications with each other. You will be able to use your diplomatic clout to pass resolutions that may aid your cause or to weaken your enemies.
+
+Federations have been reworked, and can now level up and unlock new perks. You will need to maintain your Federation's Cohesion in order to gain experience.
+
+Envoys have been introduced to the game, and they allow you to perform certain diplomatic actions such as Improve Relations. Envoys can also be assigned to your Federation in order to improve Cohesion, or to the Galactic Community in order to increase your diplomatic clout.
+
+---
+
+Saved games from previous versions may not be compatible with version 2.6. If you wish to continue your old save in version 2.5.1, follow the forum link below and read the thread "How to revert Stellaris to a previous version."

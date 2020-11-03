@@ -1,0 +1,9 @@
+rogue_scientist_1_chain = {
+	picture = GFX_evt_ship_in_orbit
+	icon = "gfx/interface/icons/situation_log/situation_log_main_quest.dds"
+	counter = {
+		likely_locations_searched = {
+			max = 3
+		}
+	}
+}

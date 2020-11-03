@@ -1,0 +1,47 @@
+military_station_small = {
+	max_speed = 6
+	rotation_speed = 10
+	acceleration = 10
+	max_hitpoints = 1000
+	modifier = {
+		ship_evasion_mult = -1
+		ships_upkeep_mult = -0.25
+		ship_piracy_suppression_add = 2
+	}
+	ship_modifier = {
+		ship_weapon_range_mult = 0.20
+	}
+	combat_size_multiplier = 2
+	size_multiplier = 1
+	fleet_slot_size = 2
+	section_slots = {
+		"west" = { locator = "part1" }
+		"east" = { locator = "part2" }
+	}
+	is_designable = yes
+	uses_name_prefix = no
+	takes_name_from_ship_design = yes
+	num_target_locators = 0
+	is_space_station = yes
+	base_buildtime = 120
+
+	enable_default_design = yes	#if yes, countries will have an auto-generated design at start
+	prerequisites = { "tech_space_defense_station_1" }
+	class = shipclass_military_station
+	construction_type = starbase_defenses
+
+	required_component_set = "power_core"
+	required_component_set = "sensor_components"
+	required_component_set = "combat_computers"
+
+	build_block_radius = @build_block_radius_military
+
+	potential_construction = {
+		is_scope_type = starbase
+		has_starbase_size >= starbase_outpost
+	}
+
+	resources = {
+		category = ships
+	}
+}

@@ -1,0 +1,52 @@
+give_fe_tech = {
+	if = {
+		limit = {
+			NOT = { has_technology = tech_mine_living_metal }
+		}
+		give_technology = { tech = tech_mine_living_metal }
+		break = yes
+	}
+	if = {
+		limit = {
+			NOT = { has_technology = tech_mine_dark_matter }
+		}
+		give_technology = { tech = tech_mine_dark_matter }
+		break = yes
+	}
+	if = {
+		limit = {
+			NOT = { has_technology = tech_ship_armor_5 }
+		}
+		give_technology = { tech = tech_ship_armor_5 }
+		break = yes
+	}
+	if = {
+		limit = {
+			NOT = { has_technology = tech_antimatter_power }
+		}
+		give_technology = { tech = tech_antimatter_power }
+		break = yes
+	}
+	if = {
+		limit = {
+			NOT = { has_technology = tech_zero_point_power }
+		}
+		give_technology = { tech = tech_zero_point_power }
+		break = yes
+	}
+	if = {
+		limit = {
+			NOT = { has_technology = tech_climate_restoration }
+		}
+		give_technology = { tech = tech_climate_restoration }
+		break = yes
+	}
+	if = {
+		limit = {
+			NOT = { has_technology = tech_nutrient_replication }
+		}
+		give_technology = { tech = tech_nutrient_replication }
+		break = yes
+	}
+	give_technology = { tech = tech_repeatable_improved_tile_energy_output }
+}

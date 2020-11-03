@@ -1,0 +1,3 @@
+ageless = {
+	leader_age = 15
+}

@@ -1,0 +1,5 @@
+holy_player_planet = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_consecrated_worlds.dds"
+	icon_frame = 1
+	# doesn't do anything
+}

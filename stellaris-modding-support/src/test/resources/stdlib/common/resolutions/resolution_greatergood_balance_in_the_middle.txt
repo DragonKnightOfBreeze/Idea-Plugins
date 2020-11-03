@@ -1,0 +1,177 @@
+resolution_greatergood_balance_in_the_middle = {
+	icon = "GFX_resolution_greater_good"
+
+	potential = {
+		has_federations_dlc = yes
+	}
+
+	resources = {
+		category = resolutions
+		cost = {
+			influence = @resolution_cost_t4
+		}
+	}
+	target = no
+	level = 4
+
+	modifier = {
+		resolution_greatergood_workers_rights = 1
+		resolution_greatergood_five_year_plans = 1
+		resolution_greatergood_greater_than_ourselves = 1
+		resolution_greatergood_balance_in_the_middle = 1
+	}
+
+	effect = {
+		custom_tooltip = resolution_greatergood_balance_in_the_middle_tooltip
+		hidden_effect = {
+			set_timed_country_flag = { flag = galactic_community_resolution_passed_greatergood days = @resolution_flag_timer }
+			add_modifier = {
+				modifier = resolution_passed_diplomatic_weight
+				days = 2200
+			}
+			every_playable_country = {
+				limit = {
+					is_galactic_community_member = yes
+
+					OR = {
+						any_owned_species = {
+							is_sapient = yes
+							has_citizenship_type = { type = citizenship_slavery country = prev }
+						}
+						AND = {
+							is_gestalt = no
+							any_owned_species = {
+								is_sapient = yes
+								OR = {
+									has_living_standard = { type = living_standard_subsistence country = prev }
+									has_living_standard = { type = living_standard_stratified country = prev }
+									has_living_standard = { type = living_standard_normal country = prev }
+									has_living_standard = { type = living_standard_academic_privilege country = prev }
+								}
+							}
+						}
+					}
+				}
+				country_event = { id = federations.10220 }
+			}
+		}
+	}
+
+	fail_effects = {
+		hidden_effect = {
+			set_timed_country_flag = { flag = galactic_community_resolution_failed_greatergood days = @resolution_flag_timer }
+			add_modifier = {
+				modifier = resolution_failed_diplomatic_weight
+				days = 2200
+			}
+		}
+	}
+
+	allow = {
+		is_active_resolution = "resolution_greatergood_greater_than_ourselves"
+	}
+
+	breach = {
+		OR = {
+			has_valid_civic = civic_indentured_assets
+			has_valid_civic = civic_slaver_guilds
+			any_owned_species = {
+				is_sapient = yes
+				has_citizenship_type = { type = citizenship_slavery country = prev }
+			}
+			AND = {
+				is_gestalt = no
+				any_owned_species = {
+					is_sapient = yes
+					OR = {
+						has_living_standard = { type = living_standard_subsistence country = prev }
+						has_living_standard = { type = living_standard_stratified country = prev }
+						has_living_standard = { type = living_standard_normal country = prev }
+						has_living_standard = { type = living_standard_academic_privilege country = prev }
+					}
+				}
+			}
+		}
+	}
+
+	ai_weight = {
+		weight = @resolution_weight_unpopular
+
+		modifier = {
+			factor = 1.2
+			is_egalitarian = yes
+		}
+
+		modifier = {
+			factor = 0.75
+			is_authoritarian = yes
+		}
+
+		modifier = {
+			factor = 0
+			in_breach_of = resolution_greatergood_balance_in_the_middle
+		}
+
+		modifier = {
+			factor = 0.5
+			is_megacorp = yes
+		}
+
+		modifier = {
+			factor = 1.2
+			has_ethic = ethic_fanatic_egalitarian
+		}
+
+		modifier = {
+			factor = 2
+			OR = {
+				has_valid_civic = civic_shared_burden
+				has_valid_civic = civic_machine_servitor
+			}
+		}
+
+		modifier = {
+			factor = 0.6
+			OR = {
+				is_authoritarian = yes
+				is_gestalt = yes
+			}
+		}
+
+		modifier = {
+			factor = 0
+			OR = {
+				has_valid_civic = civic_slaver_guilds
+				has_valid_civic = civic_indentured_assets
+				is_slaver = yes
+				any_owned_species = {
+					is_sapient = yes
+					OR = {
+						has_living_standard = { type = living_standard_subsistence country = prev }
+						has_living_standard = { type = living_standard_stratified country = prev }
+						has_living_standard = { type = living_standard_normal country = prev }
+						has_living_standard = { type = living_standard_academic_privilege country = prev }
+					}
+				}
+			}
+		}
+
+		modifier = {
+			factor = 1.2
+			OR = {
+				has_valid_civic = civic_agrarian_idyll
+				has_valid_civic = civic_free_haven
+				has_valid_civic = civic_idealistic_foundation
+				has_valid_civic = civic_inwards_perfection
+			}
+		}
+
+		modifier = {
+			factor = 0.8
+			OR = {
+				has_valid_civic = civic_aristocratic_elite
+				has_valid_civic = civic_police_state
+			}
+		}
+	}
+}

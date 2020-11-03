@@ -1,0 +1,17 @@
+BAR_COLONY_CAT = {
+	desc = "BAR_COLONY_DESC"
+	picture = "GFX_evt_warm_barren"
+	level = 6
+	
+	spawn_chance = {
+		modifier = {
+			add = 3
+			is_planet_class = pc_barren
+		}
+	}
+	
+	on_success = {
+		1 = anomaly.285
+		1 = anomaly.3015
+	}
+}

@@ -1,0 +1,87 @@
+living_planet_system = {
+	class = "sc_a"
+
+	usage = misc_system_init
+	usage_odds = {
+		base = 90000
+		modifier = {
+			factor = 0
+			has_distar = no
+		}
+		modifier = {
+			factor = 0
+			is_fe_cluster = yes
+		}
+		modifier = {
+            factor = 0
+            has_star_flag = empire_cluster
+        }
+	}
+	scaled_spawn_chance = 8
+	max_instances = 1
+
+	flags = { living_planet_system }
+
+	planet = {
+		count = 1
+		class = star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = { min = 20 max = 30 }
+		has_ring = no
+	}
+
+	change_orbit = 45
+
+	planet = {
+		count = { min = 1 max = 3 }
+		class = "rl_unhabitable_planets"
+		orbit_distance = 20
+		orbit_angle = { min = 90 max = 270 }
+		size = { min = 8 max = 15 }
+		
+		change_orbit = @base_moon_distance
+		
+		moon = {
+			count = { min = 0 max = 1 }
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 5
+		}
+	}
+
+	planet = {
+		class = "pc_ocean"
+		orbit_distance = 40
+		orbit_angle = { min = 90 max = 270 }
+		size = 24
+		has_ring = yes
+		anomaly = DISTAR_LIVING_CAT
+
+		init_effect = {
+			set_planet_flag = living_planet
+			add_modifier = { modifier = living_sea years = -1 }
+			prevent_anomaly = yes
+			clear_blockers = yes
+			add_deposit = d_betharian_deposit
+		}
+	}
+
+	change_orbit = 20
+
+	planet = {
+		count = { min = 1 max = 2 }
+		orbit_distance = 60
+		class = pc_gas_giant
+		orbit_angle = { min = 90 max = 270 }
+		size = 25
+		
+		change_orbit = @base_moon_distance
+		
+		moon = {
+			count = { min = 1 max = 4 }
+			size = { min = 8 max = 20 }
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 6
+		}
+	}
+}

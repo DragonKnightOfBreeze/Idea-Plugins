@@ -1,12 +1,13 @@
-﻿### Mammalian 4
-### Created by Henrik Thyrwall
-
 MAM4 = {
+
 	category = "Mammalian"
+	
+	language = "l_simp_chinese"
+
 	ship_names = {
 
 		generic = {
-			"Kha Thannatis" "Kha Bonntis" "Kha Rabtis" "Kha Muntis" "Kha Surtis" "Kha Bentis" "Kha Juntis" "Kha Buvinis"  "Kha Erantis" "Kha Arannis" "Kha Rhentis" "Kha Vaknis" "Kha Tibaris" "Kha Evendis" "Kha Uribis" "Kha Furanis" "Kha Ridanis" "Kha Seranis" "Kha Deranis" "Kha Dihanis" "Kha Rylanis" "Kha Rubis" "Kha Itnis" "Kha Yranis" "An Vebis" "An Turakis" "An Bevakis" "An Noranis" "An Syrutis" "An Vakiris" "An Cithanis" "An Brokunis" "An Oboris" "An Hirekulis" "An Giranis" "An Gursakis" "An Gavanonis" "An Garallis" "An Ubanis" "An Kharakis" "An Felgiris" "An Stupanis" "An Jiranis" "An Jaburis" "An Jirigalis" "An Ditiris" "An Navidis" "Dar Epiris" "Dar Hitiris" "Dar Lydiris" "Dar Torobanis" "Dar Isklanduris" "Dar Iberinnis" "Dar Tygharis" "Dar Tolvonis" "Dar Kermisaris"  "Dar Sotoris" "Dar Kabolis" "Dar Filiris" "Dar Epesuris" "Dar Evtidanis" "Dar Mysaris" "Dar Majedonis"
+			"可汗萨提斯" "可汗波提斯" "可汗拉提斯" "可汗姆提斯" "可汗苏提斯" "可汗本提斯" "可汗朱提嘶" "可汗布尼斯"  "可汗阿提斯" "可汗阿尼斯" "可汗莱茵提斯" "可汗瓦克尼斯" "可汗提巴里斯" "可汗埃文蒂斯" "可汗乌比斯" "可汗弗朗尼斯" "可汗瑞达尼斯" "可汗塞伦斯" "可汗得拉尼斯" "可汗迪尼斯" "可汗拉兰尼斯" "可汗卢比斯" "可汗提尼斯" "可汗尤尼斯" "安维比斯" "安图拉斯" "安贝维斯" "安诺拉尼斯" "安苏鲁提斯" "安瓦利斯" "安萨尼斯" "安布朗库尼斯" "安奥里斯" "安海尔库里斯" "安吉朗尼斯" "安古萨克斯" "安加瓦诺斯" "安格拉尼斯" "安乌巴尼斯" "安卡拉克斯" "安菲格里斯" "安斯坦帕斯" "安吉尼斯" "安加布利斯" "安吉利斯" "安狄忒斯" "安纳瓦迪斯" "达恩利斯" "达希特里斯" "达里迪斯" "达巴尼斯" "达艾萨克尼斯" "达艾伯尼斯" "达塔哈尼斯" "达托罗万斯" "达科米萨里斯"  "达索托里斯" "达卡波利斯" "达费力瑞斯" "达恩苏里斯" "达艾提丹利斯" "达马萨利斯" "达马杰尼斯"
 		}
 
 		corvette = {
@@ -49,83 +50,83 @@ MAM4 = {
 	fleet_names = {
 		random_names = {
 		}
-		sequential_name = "%O% Star Order"
+		sequential_name = "%O% 行星秩序"
 	}
 		
 	army_names = {
 
 		machine_defense = {
-			sequential_name = "%O% Defensive Column"
+			sequential_name = "%O% 防御纵队"
 		}
 		
 		machine_assault_1 = {
-			sequential_name = "%O% Invader Column"
+			sequential_name = "%O% 入侵纵队"
 		}
 		
 		machine_assault_2 = {
-			sequential_name = "%O% Invader Column"
+			sequential_name = "%O% 入侵纵队"
 		}
 		
 		machine_assault_3 = {
-			sequential_name = "%O% Invader Column"
+			sequential_name = "%O% 入侵纵队"
 		}
 
 		defense_army = {
-			sequential_name = "%O% Defensive Column"
+			sequential_name = "%O% 防御纵队"
 		}
 			
 		assault_army = {
-			sequential_name = "%O% Invader Column"
+			sequential_name = "%O% 入侵纵队"
 		}
 		
 		slave_army = {
-			sequential_name = "%O% Correctional Column"
+			sequential_name = "%O% 罪罚纵队"
 		}
-		
+
 		undead_army = {
-			sequential_name = "%O% Dread Column"
+			sequential_name = "%O%恐惧纵队"
 		}
 
 		clone_army = { 
-			sequential_name = "Molded Troops %R%"
+			sequential_name = "模板军队 %R%"
 		}
 		
 		robotic_army = {
-			sequential_name = "Robotic Infantry %R%"
+			sequential_name = "机械步兵 %R%"
 		}
 
 		robotic_defense_army = {
-			sequential_name = "Robotic Protectors %R%"
+			sequential_name = "机械保卫者 %R%"
 		}
 		
 		psionic_army = { 
-			sequential_name = "Psionic Infantry %R%"
+			sequential_name = "精神步兵 %R%"
 		}
 		
 		xenomorph_army = {
-			sequential_name = "Xenomorph Hive %R%"
+			sequential_name = "异型部队 %R%"
 		}
 		
 		gene_warrior_army = {
-			sequential_name = "%O% Modified Troopers"
+			sequential_name = "%O% 改良部队"
 		}
 
 		occupation_army = {
-			sequential_name = "%O% Occupation Column"
+			sequential_name = "%O% 驻防纵队"
 		}
 
 		robotic_occupation_army = {
-			sequential_name = "%O% Robotic Occupiers"
+			sequential_name = "%O% 机械驻防者"
 		}
 
 		primitive_army = {
-			sequential_name = "Primitive Army %C%"
+			sequential_name = "原始军队 %C%"
 		}
 		industrial_army = {
-			sequential_name = "Industrial Army %C%"
+			sequential_name = "工业军队 %C%"
 		}
 		postatomic_army = {
-			sequential_name = "Post-Atomic Army %C%"
+			sequential_name = "后原子军 %C%"
 		}
 	}
 
@@ -133,7 +134,7 @@ MAM4 = {
 
 		generic = {
 			names = {
-				"Vatnik Colony" "Srakir Colony" "Bossnikar Colony" "Elbekann Colony" "Pugrannon Colony" "Delnik Colony" "Tyrkab Colony" "Uranna Colony" "Etris Colony" "Kelnik Colony" "Kurbidanna Colony" "Falnik Colony" "Suprag Colony" "New Selestaris" "New Ovkir" "New Turbak" "New Palob" "New Rioradin" "New Bhertag" "Siskvi Mandate" "Helkiran Mandate" "Enthras Mandate" "Ephiri Mandate" "Pharus Mandate" "Posranu Mandate"
+				"瓦特尼克殖民地" "斯拉克殖民地" "波斯尼卡殖民地" "恩波坎殖民地" "普拉农殖民地" "德尼克殖民地" "特卡布殖民地" "乌娜殖民地" "恩提斯殖民地" "科尼可殖民地" "科布当纳殖民地" "法拉尼克殖民地" "苏拉格殖民地" "新塞拉塔里斯" "新奥克尔" "新图巴克" "新珀拉" "新里奥拉丁" "新伯塔克" "西斯科领地" "海尔奇郎领地" "恩瑟拉斯领地" "恩菲里领地" "斐卢斯领地" "波苏努领地"
 			}
 		}
 		
@@ -192,24 +193,24 @@ MAM4 = {
 			
 			# Always combined with a second name
 			first_names = {
-				"Sagu," "Thub," "Sene," "Migg," "Bora," "Jagg," "Imat," "Matu," "Sebu," "Enim," "Jaka," "Veti," "Kori," "Ekir," "Satu," "Pock," "Murk," "Velk," "Mirk," "Tabu," "Srak," "Mubi," "Itha," "Utha," "Vurp," "Utra," "Baga," "Bick," "Bock," "Nock," "Letu," "Larb," "Tabo," "Tibb," "Terk," "Jurk," "Jark," "Vinn," "Derk," "Dack," "Debe," "Saka," "Polt," "Nagg," "Korb," "Kald," "Tigg," "Otra," "Udil," "Adel," "Amik," "Brok," "Anak," "Kild," "Trag," "Vaki," "Ukna," "Abil," "Inki," "Idel," "Inck," "Brok," "Milv," "Makn," "Reti," "Rakn," "Roba," "Skeg," "Fald," "Feti," "Fori," "Fura," "Sagg," "Ster," "Noga," "Kreb," "Tagg," "Tigg," "Muri," "Utin," "Ulba," "Siga," "Larg," "Gori," "Gabb," "Gitu," "Gack," "Goll,"
+				"萨古," "苏布," "塞尼," "米格," "波拉," "吉格," "弋玛特," "马图," "塞布," "埃尼姆," "加卡," "瓦提," "克里," "艾克尔," "撒图," "帕克," "穆克," "瓦尔克," "米克," "塔布," "萨拉克," "姆比," "伊萨," "乌瑟," "维普," "乌塔拉," "巴卡," "比克," "伯克," "诺克," "乐途," "拉布," "塔伯," "提比," "特克," "容克," "雅克," "韦恩," "邓肯," "达克," "黛比," "萨卡," "波特," "纳格," "科布," "卡德," "提格," "奥特拉," "乌迪尔," "阿黛尔," "艾米可," "布洛克," "阿纳克," "卡里德," "塔拉戈," "瓦奇," "乌坎那," "阿比尔," "印奇," "埃德尔," "印克," "布洛克," "弥尔夫," "马克," "里提," "拉昆," "罗巴," "斯科格," "法拉德," "非提," "弗里," "弗拉," "萨格," "斯特," "诺加," "克利布," "塔格," "提格," "穆里," "乌丁," "乌尔巴," "希加," "拉格," "格里," "加布," "吉图," "贾克," "戈尔,"
 			}
 			
 			# Always combined with a first name
 			second_names_male = {
-				"son of Sagu" "son of Thub" "son of Sene" "son of Migg" "son of Bora" "son of Jagg" "son of Imat" "son of Matu" "son of Sebu" "son of Enim" "son of Jaka" "son of Veti" "son of Kori" "son of Ekir" "son of Satu" "son of Pock" "son of Murk" "son of Velk" "son of Mirk" "son of Tabu" "son of Srak" "son of Mubi" "son of Itha" "son of Utha" "son of Vurp" "son of Utra" "son of Baga" "son of Bick" "son of Bock" "son of Nock" "son of Letu" "son of Larb" "son of Tabi" "son of Tibb" "son of Terk" "son of Jurk" "son of Jark" "son of Vinn" "son of Derk" "son of Dack" "son of Debe" "son of Saka" "son of Polt" "son of Nagg" "son of Korb" "son of Kald" "son of Tigg" "son of Otra" "son of Udil" "son of Adel" "son of Amik" "son of Brok" "son of Anak" "son of Kild" "son of Trag" "son of Vaki" "son of Ukna" "son of Abil" "son of Inki" "son of Idel" "son of Inck" "son of Brok" "son of Milv" "son of Makn" "son of Reti" "son of Rakn" "son of Roba" "son of Skeg" "son of Fald" "son of Feti" "son of Fori" "son of Fura" "son of Sagg" "son of Ster" "son of Noga" "son of Kreb" "son of Tagg" "son of Tigg" "son of Muri" "son of Utin" "son of Ulba" "son of Siga" "son of Larg" "son of Gori" "son of Gabb" "son of Gitu" "son of Gack" "son of Goll"
+				"萨古之子" "苏布之子" "塞尼之子" "米格之子" "波拉之子" "吉格之子" "弋玛特之子" "马图之子" "塞布之子" "埃尼姆之子" "加卡之子" "瓦提之子" "克里之子" "艾克尔之子" "撒图之子" "帕克之子" "穆克之子" "瓦尔克之子" "米克之子" "塔布之子" "萨拉克之子" "姆比之子" "伊萨之子" "乌瑟之子" "维普之子" "乌塔拉之子" "巴卡之子" "比克之子" "伯克之子" "诺克之子" "乐途之子" "拉布之子" "塔伯之子" "提比之子" "特克之子" "容克之子" "雅克之子" "韦恩之子" "邓肯之子" "达克之子" "黛比之子" "萨卡之子" "波特之子" "纳格之子" "科布之子" "卡德之子" "提格之子" "奥特拉之子" "乌迪尔之子" "阿黛尔之子" "艾米可之子" "布洛克之子" "阿纳克之子" "卡里德之子" "塔拉戈之子" "瓦奇之子" "乌坎那之子" "阿比尔之子" "印奇之子" "埃德尔之子" "印克之子" "布洛克之子" "弥尔夫之子" "马克之子" "里提之子" "拉昆之子" "罗巴之子" "斯科格之子" "法拉德之子" "非提之子" "弗里之子" "弗拉之子" "萨格之子" "斯特之子" "诺加之子" "克利布之子" "塔格之子" "提格之子" "穆里之子" "乌丁之子" "乌尔巴之子" "希加之子" "拉格之子" "格里之子" "加布之子" "吉图之子" "贾克之子" "戈尔之子"
 			}
 
 			second_names_female = {
-				"daughter of Sagu" "daughter of Thub" "daughter of Sene" "daughter of Migg" "daughter of Bora" "daughter of Jagg" "daughter of Imat" "daughter of Matu" "daughter of Sebu" "daughter of Enim" "daughter of Jaka" "daughter of Veti" "daughter of Kori" "daughter of Ekir" "daughter of Satu" "daughter of Pock" "daughter of Murk" "daughter of Velk" "daughter of Mirk" "daughter of Tabu" "daughter of Srak" "daughter of Mubi" "daughter of Itha" "daughter of Utha" "daughter of Vurp" "daughter of Utra" "daughter of Baga" "daughter of Bick" "daughter of Bock" "daughter of Nock" "daughter of Letu" "daughter of Larb" "daughter of Tabi" "daughter of Tibb" "daughter of Terk" "daughter of Jurk" "daughter of Jark" "daughter of Vinn" "daughter of Derk" "daughter of Dack" "daughter of Debe" "daughter of Saka" "daughter of Polt" "daughter of Nagg" "daughter of Korb" "daughter of Kald" "daughter of Tigg" "daughter of Otra" "daughter of Udil" "daughter of Adel" "daughter of Amik" "daughter of Brok" "daughter of Anak" "daughter of Kild" "daughter of Trag" "daughter of Vaki" "daughter of Ukna" "daughter of Abil" "daughter of Inki" "daughter of Idel" "daughter of Inck" "daughter of Brok" "daughter of Milv" "daughter of Makn" "daughter of Reti" "daughter of Rakn" "daughter of Roba" "daughter of Skeg" "daughter of Fald" "daughter of Feti" "daughter of Fori" "daughter of Fura" "daughter of Sagg" "daughter of Ster" "daughter of Noga" "daughter of Kreb" "daughter of Tagg" "daughter of Tigg" "daughter of Muri" "daughter of Utin" "daughter of Ulba" "daughter of Siga" "daughter of Larg" "daughter of Gori" "daughter of Gabb" "daughter of Gitu" "daughter of Gack" "daughter of Goll"
+				"萨古之女" "苏布之女" "塞尼之女" "米格之女" "波拉之女" "吉格之女" "弋玛特之女" "马图之女" "塞布之女" "埃尼姆之女" "加卡之女" "瓦提之女" "克里之女" "艾克尔之女" "撒图之女" "帕克之女" "穆克之女" "瓦尔克之女" "米克之女" "塔布之女" "萨拉克之女" "姆比之女" "伊萨之女" "乌瑟之女" "维普之女" "乌塔拉之女" "巴卡之女" "比克之女" "伯克之女" "诺克之女" "乐途之女" "拉布之女" "塔伯之女" "提比之女" "特克之女" "容克之女" "雅克之女" "韦恩之女" "邓肯之女" "达克之女" "黛比之女" "萨卡之女" "波特之女" "纳格之女" "科布之女" "卡德之女" "提格之女" "奥特拉之女" "乌迪尔之女" "阿黛尔之女" "艾米可之女" "布洛克之女" "阿纳克之女" "卡里德之女" "塔拉戈之女" "瓦奇之女" "乌坎那之女" "阿比尔之女" "印奇之女" "埃德尔之女" "印克之女" "布洛克之女" "弥尔夫之女" "马克之女" "里提之女" "拉昆之女" "罗巴之女" "斯科格之女" "法拉德之女" "非提之女" "弗里之女" "弗拉之女" "萨格之女" "斯特之女" "诺加之女" "克利布之女" "塔格之女" "提格之女" "穆里之女" "乌丁之女" "乌尔巴之女" "希加之女" "拉格之女" "格里之女" "加布之女" "吉图之女" "贾克之女" "戈尔之女"
 			}
 			
 			regnal_first_names = {
-				Sagu Thub Sene Migg Bora Jagg Imat
+				萨古 苏布 塞尼 米格 波拉 吉格 弋玛特
 			}
 			
 			regnal_second_names = {
-				"scion of Urug"
+				"乌拉格继承人"
 			}
 		}
 	}

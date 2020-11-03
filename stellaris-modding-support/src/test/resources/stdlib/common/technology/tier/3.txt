@@ -1,0 +1,3 @@
+3 = { # Tier 3
+	previously_unlocked = 6
+}

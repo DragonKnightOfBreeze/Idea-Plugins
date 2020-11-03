@@ -1,0 +1,5 @@
+enclave_trade_5_mut = {
+	icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+	monthly_trades_rare_crystals_produces_add = 5
+	monthly_trades_energy_produces_add = -50
+}

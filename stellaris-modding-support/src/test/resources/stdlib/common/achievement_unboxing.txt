@@ -1,0 +1,11 @@
+achievement_unboxing = {
+	id = 48
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		has_country_flag = shielded_world_opened
+	}
+}

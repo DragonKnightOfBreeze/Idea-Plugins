@@ -1,0 +1,5 @@
+brainslug_woes_phobe = {
+	planet_stability_add = -40
+	icon = "gfx/interface/icons/planet_modifiers/pm_unrest.dds"
+	icon_frame = 3
+}

@@ -1,0 +1,34 @@
+pm_carbon_world = {
+	spawn_chance = {
+		modifier = {
+			factor = 4
+			has_planet_modifier = "pm_high_gravity"
+			OR = {
+				is_planet_class = pc_barren
+				is_planet_class = pc_barren_cold
+			}
+		}
+		modifier = {
+			add = 10
+			is_planet_class = "pc_barren"
+		}
+		modifier = {
+			add = 10
+			is_planet_class = "pc_barren_cold"
+		}
+		modifier = {
+			factor = 0
+			has_planet_modifier = "pm_carbon_world"
+		}
+		modifier = {
+			factor = 0
+			has_planet_modifier = "pm_mineral_poor"
+		}
+		modifier = {
+			factor = 0
+			num_modifiers > 1
+		}
+	}
+	
+	modifier = "carbon_world"
+}

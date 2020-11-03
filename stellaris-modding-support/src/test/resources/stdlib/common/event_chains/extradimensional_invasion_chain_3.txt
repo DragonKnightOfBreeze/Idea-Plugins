@@ -1,0 +1,16 @@
+extradimensional_invasion_chain_3 = {
+	icon = "gfx/interface/icons/situation_log/situation_log_main_quest.dds"
+	picture = GFX_evt_wormhole
+	counter = {
+		dimensional_anchors_3 = {
+		}
+		extradimensional_kills_us_3 = {
+		}
+		extradimensional_kills_others_3 = {
+		}
+		extradimensional_victims_3 = {
+		}
+		extradimensional_planets_3 = {
+		}
+	}
+}

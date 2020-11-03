@@ -1,0 +1,61 @@
+succession_term_years_10 = {
+	potential = { always = yes }
+	allow = {
+		custom_tooltip = {
+			NOT = {
+				AND = {
+					NOT = { has_federation_law = succession_term_years_10 }
+					has_modifier = federation_law_category_succession_term_cooldown
+					has_any_federation_law_in_category = law_category_succession_term
+				}
+			}
+		}
+		custom_tooltip = {
+			fail_text = cannot_change_succession_term_during_war
+			NAND = {
+				NOT = { has_federation_law = succession_term_years_10 }
+				any_member = { is_at_war = yes }
+				has_any_federation_law_in_category = law_category_succession_term
+			}
+		}
+	}
+	on_enact = {
+		set_federation_succession_term = years_10
+		if = {
+			limit = { has_federation_flag = enable_federation_cooldowns }
+			add_modifier = {
+				modifier = federation_law_category_succession_term_cooldown
+				days = @cooldown
+			}
+		}
+	}
+
+	ai_weight = {
+		base = 0
+		
+		#Default support
+		modifier = {
+			desc = federation_acceptance_generally_positive
+			add = 41
+		}
+		
+		#Behaviour-specific
+		modifier = {
+			desc = federation_acceptance_president
+			add = -100
+			is_federation_leader = yes
+			federation = {
+				has_federation_law = succession_term_status_change
+				has_federation_law = succession_type_strongest
+			}
+		}
+		modifier = {
+			desc = federation_acceptance_generally_positive
+			add = 10
+			is_federation_leader = no
+			federation = {
+				has_federation_law = succession_term_status_change
+			}
+		}
+	}
+}

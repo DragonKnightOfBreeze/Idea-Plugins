@@ -1,0 +1,6 @@
+mineral_purification_plant_upkeep_affordable = {
+	has_monthly_income = {
+		resource = energy
+		value > 1
+	}
+}

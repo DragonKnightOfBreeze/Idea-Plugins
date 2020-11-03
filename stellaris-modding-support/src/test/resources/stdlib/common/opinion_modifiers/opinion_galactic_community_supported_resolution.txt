@@ -1,0 +1,11 @@
+opinion_galactic_community_supported_resolution = {
+	opinion = {
+		base = 10
+	}
+
+	accumulative = yes
+
+	decay = {
+		base = 1
+	}
+}

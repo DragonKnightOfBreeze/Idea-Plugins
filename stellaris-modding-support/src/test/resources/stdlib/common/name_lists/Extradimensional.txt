@@ -1,26 +1,19 @@
-﻿### Extradimensional Invaders
 Extradimensional = {
 	selectable = { always = no }
 	randomized = no
+	
+	language = "l_simp_chinese"
 	
 	### SHIPS
 
 	ship_names = {
 	
 		generic = {
-			"Extradimensional Invader"
+			"外延进攻者"
 		}
 		
 		construction_ship_ed = {
-			"Void Shaper"
-		}
-
-		starbase_exd = {
-			"Dimensional Anchor"
-		}
-
-		starbase_exd_0 = {
-			"Void Lair"
+			"虚空制造船"
 		}
 		
 		mining_station = { }
@@ -32,7 +25,7 @@ Extradimensional = {
 	}
 
 	fleet_names = {
-		sequential_name = "Extradimensional Armada %C%"
+		sequential_name = "外伸臂 %CC%"
 	}
 
 	### CHARACTERS
@@ -41,9 +34,9 @@ Extradimensional = {
 		default = {
 		
 			full_names = {
-				XUGAN XIKAZ ULTAX PIRAX XATOR ZADISH ZOPAX XERATOR MITOZ ZEKAN RATEX ZIIR ZUBOL ZATAK
-				GIRAX TYROX BARAX IRAX XAKAN RIPLAX KAGARUX ZURPAK ZEKOL RAKUX PYXOK XUUR KABUX XIOR XAKAAN
-				XURUBAR ZAAX MIBUX MATIX GAAR ZOX REXOM LARUX LUUX LIZAX RALUB RAZIX MAPAX GOPAX OXAZ
+				乌奎姆 埃吉克罗 奎鲁姆 普格罗 米施格瑞尔 舒布罗 西德库 胡里德赫 格洛哈 哈马鲁德 奥乐图尔 图诺格 里奎路德 容拉德 容特格 容哈摩尼 哥罗德逊 维鲁古拉克 普格里斯 埃古罗蒂
+				福特曼 嘉德纳尔 加略特 盖茨 加菲尔德 加百利 丹尼尔斯 达令 伊斯特布鲁克 埃德沃德 艾德艾尔斯坦 艾利亚特 埃默森 艾瑞克森
+				许甘 希卡兹 乌拉塔克斯 皮拉克丝 克托 扎迪施 佐帕克斯 科瑞托 米托兹 泽坎 罗特克斯 齐拉 祖波尔 扎塔克
 			}
 			
 		}

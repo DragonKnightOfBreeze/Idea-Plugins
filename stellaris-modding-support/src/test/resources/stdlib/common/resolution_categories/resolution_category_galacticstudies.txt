@@ -1,0 +1,17 @@
+resolution_category_galacticstudies = {
+	group = environment_technology
+	icon = "GFX_resolution_galactic_studies"
+
+	resolution_types = {
+		"resolution_galacticstudies_repeal_1"
+		"resolution_galacticstudies_repeal_2"
+		"resolution_galacticstudies_repeal_3"
+		"resolution_galacticstudies_repeal_4"
+		"resolution_galacticstudies_repeal_5"
+		"resolution_galacticstudies_cooperative_research_channels"
+		"resolution_galacticstudies_astral_studies_network"
+		"resolution_galacticstudies_advanced_xenostudies"
+		"resolution_galacticstudies_ethical_guideline_refactoring"
+		"resolution_galacticstudies_extradimensional_experimentation"
+	}
+}

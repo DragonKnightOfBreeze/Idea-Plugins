@@ -1,0 +1,5 @@
+ship_rank_elite = {
+	ship_weapon_damage = 0.4
+	ship_hull_mult = 0.10
+	ship_evasion_mult = 0.10
+}

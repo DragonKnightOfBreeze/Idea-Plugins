@@ -1,0 +1,3 @@
+planet_entertainers = {
+	parent = planet_jobs
+}

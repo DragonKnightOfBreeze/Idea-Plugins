@@ -1,0 +1,46 @@
+r_severed_head = {
+	activation_duration = @triumph_duration
+	portrait = "GFX_relic_severed_head"
+	sound = "relic_activation_head_of_zarqlan"
+
+	resources = {
+		category = relics
+		# Activation cost
+		cost = {
+			influence = @activation_cost
+		}
+	}
+
+	ai_weight = {
+		weight = 100
+	}
+
+	triggered_country_modifier = {
+		potential = {
+			always = yes
+		}
+		pop_ethic_spiritualist_attraction_mult = 0.40
+	}
+
+	score = 200
+
+	active_effect = {
+		custom_tooltip = relic_summon_pilgrims
+		custom_tooltip = relic_triumph_cooldown
+		hidden_effect = {
+			add_modifier = {
+				modifier = "relic_activation_cooldown"
+				days = @triumph_duration
+			}
+			country_event = { id = ancrel.6131 }
+		}
+	}
+
+	# Possible check for activation
+	possible = {
+		custom_tooltip = {
+			fail_text = "requires_relic_no_cooldown"
+			NOT = { has_modifier = relic_activation_cooldown }
+		}
+	}
+}

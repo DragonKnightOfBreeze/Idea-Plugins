@@ -1,0 +1,10 @@
+law_category_centralization = {
+	centralization = yes
+	laws = {
+		centralization_minimal
+		centralization_low
+		centralization_medium
+		centralization_high
+		centralization_very_high
+	}
+}

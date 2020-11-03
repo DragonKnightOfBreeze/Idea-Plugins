@@ -1,0 +1,3 @@
+proclaim_religious_finding = {
+	pop_ethic_spiritualist_attraction_mult = 0.50
+}

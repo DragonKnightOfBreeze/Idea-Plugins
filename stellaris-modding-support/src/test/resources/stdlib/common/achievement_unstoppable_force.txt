@@ -1,0 +1,11 @@
+achievement_unstoppable_force = {
+	id = 108
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		has_country_flag = juggernaut_constructed
+	}
+}

@@ -1,0 +1,11 @@
+law_category_build_fleets = {
+	potential = {
+		NOT = {
+			has_federation_law = fleet_contribution_none
+		}
+	}
+	laws = {
+		federation_build_fleets_everyone
+		federation_build_fleets_only_leader
+	}
+}

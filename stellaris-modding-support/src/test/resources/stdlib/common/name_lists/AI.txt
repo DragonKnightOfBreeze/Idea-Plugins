@@ -1,16 +1,41 @@
-﻿### AI NATION
 AI = {
 	selectable = { always = no }
 	randomized = no
 	
 	### SHIPS
 
+	language = "l_simp_chinese"
+	
 	ship_names = {
 	
 		
 
 		generic = {
-			"Sub-Unit A-001" "Sub-Unit A-002" "Sub-Unit A-003" "Sub-Unit A-004" "Sub-Unit A-005" "Sub-Unit A-006" "Sub-Unit A-007" "Sub-Unit A-008" "Sub-Unit A-009" "Sub-Unit A-010" "Sub-Unit A-011" "Sub-Unit A-012" "Sub-Unit A-013" "Sub-Unit A-014" "Sub-Unit A-015" "Sub-Unit A-016" "Sub-Unit A-017" "Sub-Unit A-018" "Sub-Unit A-019" "Sub-Unit A-020" "Sub-Unit A-021" "Sub-Unit A-022" "Sub-Unit A-023" "Sub-Unit A-024" "Sub-Unit A-025" "Sub-Unit A-026" "Sub-Unit A-027" "Sub-Unit A-028" "Sub-Unit A-029" "Sub-Unit A-030" "Sub-Unit A-031" "Sub-Unit A-032" "Sub-Unit A-033" "Sub-Unit A-034" "Sub-Unit A-035" "Sub-Unit A-036" "Sub-Unit A-037" "Sub-Unit A-038" "Sub-Unit A-039" "Sub-Unit A-040" "Sub-Unit A-041" "Sub-Unit A-042" "Sub-Unit A-043" "Sub-Unit A-044" "Sub-Unit A-045" "Sub-Unit A-046" "Sub-Unit A-047" "Sub-Unit A-048" "Sub-Unit A-049" "Sub-Unit A-050" "Sub-Unit A-051" "Sub-Unit A-052" "Sub-Unit A-053" "Sub-Unit A-054" "Sub-Unit A-055" "Sub-Unit A-056" "Sub-Unit A-057" "Sub-Unit A-058" "Sub-Unit A-059" "Sub-Unit A-060" "Sub-Unit A-061" "Sub-Unit A-062" "Sub-Unit A-063" "Sub-Unit A-064" "Sub-Unit A-065" "Sub-Unit A-066" "Sub-Unit A-067" "Sub-Unit A-068" "Sub-Unit A-069" "Sub-Unit A-070" "Sub-Unit A-071" "Sub-Unit A-072" "Sub-Unit A-073" "Sub-Unit A-074" "Sub-Unit A-075" "Sub-Unit A-076" "Sub-Unit A-077" "Sub-Unit A-078" "Sub-Unit A-079" "Sub-Unit A-080" "Sub-Unit A-081" "Sub-Unit A-082" "Sub-Unit A-083" "Sub-Unit A-084" "Sub-Unit A-085" "Sub-Unit A-086" "Sub-Unit A-087" "Sub-Unit A-088" "Sub-Unit A-089" "Sub-Unit A-090" "Sub-Unit A-091" "Sub-Unit A-092" "Sub-Unit A-093" "Sub-Unit A-094" "Sub-Unit A-095" "Sub-Unit A-096" "Sub-Unit A-097" "Sub-Unit A-098" "Sub-Unit A-099" "Sub-Unit A-100" "Sub-Unit A-101" "Sub-Unit A-102" "Sub-Unit A-103" "Sub-Unit A-104" "Sub-Unit A-105" "Sub-Unit A-106" "Sub-Unit A-107" "Sub-Unit A-108" "Sub-Unit A-109" "Sub-Unit A-110" "Sub-Unit A-111" "Sub-Unit A-112" "Sub-Unit A-113" "Sub-Unit A-114" "Sub-Unit A-115" "Sub-Unit A-116" "Sub-Unit A-117" "Sub-Unit A-118" "Sub-Unit A-119" "Sub-Unit A-120" "Sub-Unit A-121" "Sub-Unit A-122" "Sub-Unit A-123" "Sub-Unit A-124" "Sub-Unit A-125" "Sub-Unit A-126" "Sub-Unit A-127" "Sub-Unit A-128" "Sub-Unit A-129" "Sub-Unit A-130" "Sub-Unit A-131" "Sub-Unit A-132" "Sub-Unit A-133" "Sub-Unit A-134" "Sub-Unit A-135" "Sub-Unit A-136" "Sub-Unit A-137" "Sub-Unit A-138" "Sub-Unit A-139" "Sub-Unit A-140" "Sub-Unit A-141" "Sub-Unit A-142" "Sub-Unit A-143" "Sub-Unit A-144" "Sub-Unit A-145" "Sub-Unit A-146" "Sub-Unit A-147" "Sub-Unit A-148" "Sub-Unit A-149" "Sub-Unit A-150" "Sub-Unit A-151" "Sub-Unit A-152" "Sub-Unit A-153" "Sub-Unit A-154" "Sub-Unit A-155" "Sub-Unit A-156" "Sub-Unit A-157" "Sub-Unit A-158" "Sub-Unit A-159" "Sub-Unit A-160" "Sub-Unit A-161" "Sub-Unit A-162" "Sub-Unit A-163" "Sub-Unit A-164" "Sub-Unit A-165" "Sub-Unit A-166" "Sub-Unit A-167" "Sub-Unit A-168" "Sub-Unit A-169" "Sub-Unit A-170" "Sub-Unit A-171" "Sub-Unit A-172" "Sub-Unit A-173" "Sub-Unit A-174" "Sub-Unit A-175" "Sub-Unit A-176" "Sub-Unit A-177" "Sub-Unit A-178" "Sub-Unit A-179" "Sub-Unit A-180" "Sub-Unit A-181" "Sub-Unit A-182" "Sub-Unit A-183" "Sub-Unit A-184" "Sub-Unit A-185" "Sub-Unit A-186" "Sub-Unit A-187" "Sub-Unit A-188" "Sub-Unit A-189" "Sub-Unit A-190" "Sub-Unit A-191" "Sub-Unit A-192" "Sub-Unit A-193" "Sub-Unit A-194" "Sub-Unit A-195" "Sub-Unit A-196" "Sub-Unit A-197" "Sub-Unit A-198" "Sub-Unit A-199" "Sub-Unit A-200" "Sub-Unit A-201" "Sub-Unit A-202" "Sub-Unit A-203" "Sub-Unit A-204" "Sub-Unit A-205" "Sub-Unit A-206" "Sub-Unit A-207" "Sub-Unit A-208" "Sub-Unit A-209" "Sub-Unit A-210" "Sub-Unit A-211" "Sub-Unit A-212" "Sub-Unit A-213" "Sub-Unit A-214" "Sub-Unit A-215" "Sub-Unit A-216" "Sub-Unit A-217" "Sub-Unit A-218" "Sub-Unit A-219" "Sub-Unit A-220" "Sub-Unit A-221" "Sub-Unit A-222" "Sub-Unit A-223" "Sub-Unit A-224" "Sub-Unit A-225" "Sub-Unit A-226" "Sub-Unit A-227" "Sub-Unit A-228" "Sub-Unit A-229" "Sub-Unit A-230" "Sub-Unit A-231" "Sub-Unit A-232" "Sub-Unit A-233" "Sub-Unit A-234" "Sub-Unit A-235" "Sub-Unit A-236" "Sub-Unit A-237" "Sub-Unit A-238" "Sub-Unit A-239" "Sub-Unit A-240" "Sub-Unit A-241" "Sub-Unit A-242" "Sub-Unit A-243" "Sub-Unit A-244" "Sub-Unit A-245" "Sub-Unit A-246" "Sub-Unit A-247" "Sub-Unit A-248" "Sub-Unit A-249" "Sub-Unit A-250" "Sub-Unit A-251" "Sub-Unit A-252" "Sub-Unit A-253" "Sub-Unit A-254" "Sub-Unit A-255" "Sub-Unit A-256" "Sub-Unit A-257" "Sub-Unit A-258" "Sub-Unit A-259" "Sub-Unit A-260" "Sub-Unit A-261" "Sub-Unit A-262" "Sub-Unit A-263" "Sub-Unit A-264" "Sub-Unit A-265" "Sub-Unit A-266" "Sub-Unit A-267" "Sub-Unit A-268" "Sub-Unit A-269" "Sub-Unit A-270" "Sub-Unit A-271" "Sub-Unit A-272" "Sub-Unit A-273" "Sub-Unit A-274" "Sub-Unit A-275" "Sub-Unit A-276" "Sub-Unit A-277" "Sub-Unit A-278" "Sub-Unit A-279" "Sub-Unit A-280" "Sub-Unit A-281" "Sub-Unit A-282" "Sub-Unit A-283" "Sub-Unit A-284" "Sub-Unit A-285" "Sub-Unit A-286" "Sub-Unit A-287" "Sub-Unit A-288" "Sub-Unit A-289" "Sub-Unit A-290" "Sub-Unit A-291" "Sub-Unit A-292" "Sub-Unit A-293" "Sub-Unit A-294" "Sub-Unit A-295" "Sub-Unit A-296" "Sub-Unit A-297" "Sub-Unit A-298" "Sub-Unit A-299" "Sub-Unit A-300"
+			"次级单位 A-001" "次级单位 A-002" "次级单位 A-003" "次级单位 A-004" "次级单位 A-005" "次级单位 A-006" "次级单位 A-007" "次级单位 A-008" "次级单位 A-009" "次级单位 A-010" "次级单位 A-011" "次级单位 A-012"
+			"次级单位 A-013" "次级单位 A-014" "次级单位 A-015" "次级单位 A-016" "次级单位 A-017" "次级单位 A-018" "次级单位 A-019" "次级单位 A-020" "次级单位 A-021" "次级单位 A-022" "次级单位 A-023" "次级单位 A-024"
+			"次级单位 A-025" "次级单位 A-026" "次级单位 A-027" "次级单位 A-028" "次级单位 A-029" "次级单位 A-030" "次级单位 A-031" "次级单位 A-032" "次级单位 A-033" "次级单位 A-034" "次级单位 A-035" "次级单位 A-036"
+			"次级单位 A-037" "次级单位 A-038" "次级单位 A-039" "次级单位 A-040" "次级单位 A-041" "次级单位 A-042" "次级单位 A-043" "次级单位 A-044" "次级单位 A-045" "次级单位 A-046" "次级单位 A-047" "次级单位 A-048"
+			"次级单位 A-049" "次级单位 A-050" "次级单位 A-051" "次级单位 A-052" "次级单位 A-053" "次级单位 A-054" "次级单位 A-055" "次级单位 A-056" "次级单位 A-057" "次级单位 A-058" "次级单位 A-059" "次级单位 A-060"
+			"次级单位 A-061" "次级单位 A-062" "次级单位 A-063" "次级单位 A-064" "次级单位 A-065" "次级单位 A-066" "次级单位 A-067" "次级单位 A-068" "次级单位 A-069" "次级单位 A-070" "次级单位 A-071" "次级单位 A-072"
+			"次级单位 A-073" "次级单位 A-074" "次级单位 A-075" "次级单位 A-076" "次级单位 A-077" "次级单位 A-078" "次级单位 A-079" "次级单位 A-080" "次级单位 A-081" "次级单位 A-082" "次级单位 A-083" "次级单位 A-084"
+			"次级单位 A-085" "次级单位 A-086" "次级单位 A-087" "次级单位 A-088" "次级单位 A-089" "次级单位 A-090" "次级单位 A-091" "次级单位 A-092" "次级单位 A-093" "次级单位 A-094" "次级单位 A-095" "次级单位 A-096"
+			"次级单位 A-097" "次级单位 A-098" "次级单位 A-099" "次级单位 A-100" "次级单位 A-101" "次级单位 A-102" "次级单位 A-103" "次级单位 A-104" "次级单位 A-105" "次级单位 A-106" "次级单位 A-107" "次级单位 A-108"
+			"次级单位 A-109" "次级单位 A-110" "次级单位 A-111" "次级单位 A-112" "次级单位 A-113" "次级单位 A-114" "次级单位 A-115" "次级单位 A-116" "次级单位 A-117" "次级单位 A-118" "次级单位 A-119" "次级单位 A-120"
+			"次级单位 A-121" "次级单位 A-122" "次级单位 A-123" "次级单位 A-124" "次级单位 A-125" "次级单位 A-126" "次级单位 A-127" "次级单位 A-128" "次级单位 A-129" "次级单位 A-130" "次级单位 A-131" "次级单位 A-132"
+			"次级单位 A-133" "次级单位 A-134" "次级单位 A-135" "次级单位 A-136" "次级单位 A-137" "次级单位 A-138" "次级单位 A-139" "次级单位 A-140" "次级单位 A-141" "次级单位 A-142" "次级单位 A-143" "次级单位 A-144"
+			"次级单位 A-145" "次级单位 A-146" "次级单位 A-147" "次级单位 A-148" "次级单位 A-149" "次级单位 A-150" "次级单位 A-151" "次级单位 A-152" "次级单位 A-153" "次级单位 A-154" "次级单位 A-155" "次级单位 A-156"
+			"次级单位 A-157" "次级单位 A-158" "次级单位 A-159" "次级单位 A-160" "次级单位 A-161" "次级单位 A-162" "次级单位 A-163" "次级单位 A-164" "次级单位 A-165" "次级单位 A-166" "次级单位 A-167" "次级单位 A-168"
+			"次级单位 A-169" "次级单位 A-170" "次级单位 A-171" "次级单位 A-172" "次级单位 A-173" "次级单位 A-174" "次级单位 A-175" "次级单位 A-176" "次级单位 A-177" "次级单位 A-178" "次级单位 A-179" "次级单位 A-180"
+			"次级单位 A-181" "次级单位 A-182" "次级单位 A-183" "次级单位 A-184" "次级单位 A-185" "次级单位 A-186" "次级单位 A-187" "次级单位 A-188" "次级单位 A-189" "次级单位 A-190" "次级单位 A-191" "次级单位 A-192"
+			"次级单位 A-193" "次级单位 A-194" "次级单位 A-195" "次级单位 A-196" "次级单位 A-197" "次级单位 A-198" "次级单位 A-199" "次级单位 A-200" "次级单位 A-201" "次级单位 A-202" "次级单位 A-203" "次级单位 A-204"
+			"次级单位 A-205" "次级单位 A-206" "次级单位 A-207" "次级单位 A-208" "次级单位 A-209" "次级单位 A-210" "次级单位 A-211" "次级单位 A-212" "次级单位 A-213" "次级单位 A-214" "次级单位 A-215" "次级单位 A-216"
+			"次级单位 A-217" "次级单位 A-218" "次级单位 A-219" "次级单位 A-220" "次级单位 A-221" "次级单位 A-222" "次级单位 A-223" "次级单位 A-224" "次级单位 A-225" "次级单位 A-226" "次级单位 A-227" "次级单位 A-228"
+			"次级单位 A-229" "次级单位 A-230" "次级单位 A-231" "次级单位 A-232" "次级单位 A-233" "次级单位 A-234" "次级单位 A-235" "次级单位 A-236" "次级单位 A-237" "次级单位 A-238" "次级单位 A-239" "次级单位 A-240" 
+			"次级单位 A-241" "次级单位 A-242" "次级单位 A-243" "次级单位 A-244" "次级单位 A-245" "次级单位 A-246" "次级单位 A-247" "次级单位 A-248" "次级单位 A-249" "次级单位 A-250" "次级单位 A-251" "次级单位 A-252" 
+			"次级单位 A-253" "次级单位 A-254" "次级单位 A-255" "次级单位 A-256" "次级单位 A-257" "次级单位 A-258" "次级单位 A-259" "次级单位 A-260" "次级单位 A-261" "次级单位 A-262" "次级单位 A-263" "次级单位 A-264" 
+			"次级单位 A-265" "次级单位 A-266" "次级单位 A-267" "次级单位 A-268" "次级单位 A-269" "次级单位 A-270" "次级单位 A-271" "次级单位 A-272" "次级单位 A-273" "次级单位 A-274" "次级单位 A-275" "次级单位 A-276" 
+			"次级单位 A-277" "次级单位 A-278" "次级单位 A-279" "次级单位 A-280" "次级单位 A-281" "次级单位 A-282" "次级单位 A-283" "次级单位 A-284" "次级单位 A-285" "次级单位 A-286" "次级单位 A-287" "次级单位 A-288"
+			"次级单位 A-289" "次级单位 A-290" "次级单位 A-291" "次级单位 A-292" "次级单位 A-293" "次级单位 A-294" "次级单位 A-295" "次级单位 A-296" "次级单位 A-297" "次级单位 A-298" "次级单位 A-299" "次级单位 A-300"
 		}
 
 		large_ship_ai = {
@@ -20,30 +45,15 @@ AI = {
 		}
 		
 		constructor = {
-			"Utility Unit 1X-5"
+			"实用单位 1X-5"
 		}
 		
 		mining_station = { }
 		research_station = { }
 		observation_station = { }
-		starbase_outpost = {
-			sequential_name = "%O% Starbase"
-		}
-		starbase_starport = {
-			sequential_name = "%O% Starbase"
-		}
-		starbase_starhold = {
-			sequential_name = "%O% Starbase"
-		}
-		starbase_starfortress = {
-			sequential_name = "%O% Starbase"
-		}
-		starbase_citadel = {
-			sequential_name = "%O% Starbase"
-		}
 		
 		transport = {
-			"Transport Unit D-56-1"
+			"运输单位 D-56-1"
 		}
 		
 		military_station_small = {}
@@ -52,18 +62,8 @@ AI = {
 	}
 
 	fleet_names = {
-		sequential_name = "Autonomous Cluster %CCC%"
+		sequential_name = "自主群 %CCC%"
 	}
-
-	army_names = {
-		robotic_army = {
-			sequential_name = "%O% Sterilization Cluster"
-		}
-		robotic_defense_army = {
-			sequential_name = "%O% Defense Cluster"
-		}
-	}
-		
 
 	### PLANETS
 
@@ -71,8 +71,8 @@ AI = {
 
 		generic = {
 			names = {
-				"Node LF-54-9" "XR-29" "D3-72" "Hub 79-F" "Installation R-941" "XTR-12" "Conduit LT5-9" "Grid W-1-7" "Node O-155" "Node 245-L"
-				"Junction Y-42" "Junction NE-X-39" "Junction ML-9383" "Hub S-12" 
+				"诺德 LF-54-9" "XR-29" "D3-72" "哈勃 79-F" "英斯托 R-941" "XTR-12" "康杜特 LT5-9" "方阵 W-1-7" "诺德 O-155" "诺德 245-L"
+				"接线 Y-42" "接线 NE-X-39" "接线 ML-9383" "哈勃 S-12" 
 			}
 		}
 		
@@ -129,7 +129,10 @@ AI = {
 
 		default = {
 			full_names = {
-				"Fleet Array MZ-34" "Fleet Array P2-XR0" "Fleet Array 19-G" "Fleet Array Q-12" "Fleet Array XI-130" "Fleet Array V13" "Fleet Array 44/1" "Fleet Array LFA-5" "Fleet Array 15/57" "Fleet Array J-14" "Fleet Array OR-004" "Fleet Array KT-5" "Fleet Array 0009-X" "Fleet Array Alpha-2" "Fleet Array 388-F" "Fleet Array M8-4" "Fleet Array 54.2" "Fleet Array 54.1" "Fleet Array 48B" "Fleet Array XR-2" "Fleet Array FR-9" "Fleet Array VK-12" "Fleet Array HK-48" "Fleet Array L8P9" "Fleet Array IX-1442" "Fleet Array U-89" "Fleet Array PDX-1" "Fleet Array S09-B" "Fleet Array S0B" "Fleet Array M1D" "Fleet Array F-19" "Fleet Array TLY-68" "Fleet Array 14/2" "Fleet Array BX-4" "Fleet Array Kappa 5" "Fleet Array Sigma" "Fleet Array YT-8" "Fleet Array M4-L" "Fleet Array 38-38" "Fleet Array 8-99"
+				"单位MZ-34" "单位P2-XR0" "单位19-G" "单位Q-12" "单位XI-130" "单位V13" "单位44/1" "单位LFA-5" "单位15/57" "单位J-14"
+				"单位OR-004" "单位KT-5" "单位0009-X" "单位-2" "单位388-F" "单位M8-4" "单位54.2" "单位54.1" "单位48B" "单位XR-2"
+				"单位FR-9" "单位VK-12" "单位HK-48" "单位L8P9" "单位IX-1442" "单位U-89" "单位PDX-1" "单位S09-B" "单位S0B" "单位M1D"
+				"单位F-19" "单位TLY-68" "单位14/2" "单位BX-4" "单位堪帕5" "单位西格玛" "单位YT-8" "单位M4-L" "单位38-38" "单位8-99"
 			}
 			
 			first_names = {

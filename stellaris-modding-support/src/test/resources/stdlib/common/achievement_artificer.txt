@@ -1,0 +1,11 @@
+achievement_artificer = {
+	id = 96
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		has_resource = { type = minor_artifacts amount >= 100 }
+	}
+}

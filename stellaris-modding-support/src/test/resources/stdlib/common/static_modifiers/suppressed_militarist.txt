@@ -1,0 +1,4 @@
+suppressed_militarist = {
+	pop_ethic_militarist_attraction_mult = -0.75
+	country_base_influence_produces_add = -1
+}

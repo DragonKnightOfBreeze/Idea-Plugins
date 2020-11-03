@@ -1,0 +1,8 @@
+districts_good_food = {
+	planet = {
+		OR = {
+			has_modifier = lush_planet
+			has_planet_flag = buildings_good_food
+		}
+	}
+}

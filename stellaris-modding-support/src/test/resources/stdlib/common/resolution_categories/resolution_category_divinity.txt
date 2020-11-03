@@ -1,0 +1,17 @@
+resolution_category_divinity = {
+	group = environment_technology
+	icon = "GFX_resolution_robots_bad"
+
+	resolution_types = {
+		"resolution_divinity_repeal_1"
+		"resolution_divinity_repeal_2"
+		"resolution_divinity_repeal_3"
+		"resolution_divinity_repeal_4"
+		"resolution_divinity_repeal_5"
+		"resolution_divinity_comfort_the_fallen"
+		"resolution_divinity_tithe_on_the_soulless"
+		"resolution_divinity_right_to_work"
+		"resolution_divinity_silence_the_soulless"
+		"resolution_divinity_a_defined_purpose"
+	}
+}

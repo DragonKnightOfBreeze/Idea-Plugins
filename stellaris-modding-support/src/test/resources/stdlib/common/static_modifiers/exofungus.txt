@@ -1,0 +1,7 @@
+exofungus = {
+	planet_building_build_speed_mult = -0.20
+	pop_environment_tolerance = -0.10
+	planet_jobs_society_research_produces_mult = 0.33
+	icon = "gfx/interface/icons/planet_modifiers/pm_unstable_tectonics.dds"
+	icon_frame = 3
+}

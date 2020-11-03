@@ -1,0 +1,22 @@
+building_great_pyramid = {
+	base_buildtime = @b2_time
+	can_build = no
+	can_demolish = yes
+	can_be_ruined = no
+	can_be_disabled = no
+
+	potential = {
+		NOT = { has_modifier = slave_colony }
+	}
+
+	planet_modifier = {
+	}
+
+	resources = {
+		category = planet_buildings
+		produces = {
+			food = 2
+			society_research = 2
+		}
+	}
+}

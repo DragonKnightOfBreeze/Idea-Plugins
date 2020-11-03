@@ -1,0 +1,45 @@
+building_fe_dome = {
+	base_buildtime = @b2_time
+	can_build = yes
+	icon = building_paradise_dome
+	
+	potential = {
+		custom_tooltip = {
+			exists = owner
+			OR = {
+				owner = { is_fallen_empire = yes }
+				owner = {
+					check_variable = { which = skydome_build_count value >= 1 }
+				}
+			}
+			fail_text = "ancrel.10004.failtext"
+		}
+	}
+	
+	planet_modifier = {
+		planet_housing_add = 20
+		planet_amenities_add = 20
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b2_minerals
+		}
+		upkeep = {
+			energy = 10
+		}
+	}
+
+	on_queued = {
+		owner = {
+			subtract_variable = { which = skydome_build_count value = 1 }
+		}
+	}
+
+	on_unqueued = {
+		owner = {
+			change_variable = { which = skydome_build_count value = 1 }
+		}
+	}
+}

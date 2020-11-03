@@ -1,0 +1,20 @@
+civic_diplomatic_corps = {
+	playable = { host_has_dlc = "Federations" }
+	potential = {
+		ethics = { NOT = { value = ethic_gestalt_consciousness } }
+		authority = { NOT = { value = auth_corporate } }
+	}
+	possible = {
+		civics = {
+			NOR = {
+				value = civic_fanatic_purifiers
+				value = civic_inwards_perfection
+			}
+		}
+	}
+
+	modifier = {
+		envoys_add = 2
+		diplo_weight_mult = 0.1
+	}
+}

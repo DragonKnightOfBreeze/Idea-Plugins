@@ -1,0 +1,3 @@
+artifact_find_peaceful_application_amenities_hivemind = {
+	pop_amenities_usage_mult = -0.05
+}

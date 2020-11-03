@@ -1,0 +1,16 @@
+DISTAR_ICE_CAT = {
+	desc = "DISTAR_ICE_CAT_DESC"
+	picture = "GFX_evt_ship_in_orbit"
+	level = 1
+	
+	spawn_chance = {
+		modifier = {
+			add = 1
+			has_distar = yes
+			is_planet_class = pc_frozen
+			NOT = { has_deposit_for = shipclass_mining_station }
+		}
+	}
+	
+	on_success = distar.110
+}

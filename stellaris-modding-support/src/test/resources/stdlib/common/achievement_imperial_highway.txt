@@ -1,0 +1,11 @@
+achievement_imperial_highway = {
+	id = 76
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		num_owned_active_gateways > 3
+	}
+}

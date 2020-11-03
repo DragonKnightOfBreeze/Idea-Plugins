@@ -1,0 +1,11 @@
+opinion_liberated_us = {
+	opinion = {
+		base = 200
+	}
+
+	accumulative = yes
+
+	decay = {
+		base = 2
+	}
+}

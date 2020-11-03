@@ -1,0 +1,5 @@
+gas_rich_planet_fo_realz = {
+	planet_jobs_energy_produces_mult = 0.5
+	icon = "gfx/interface/icons/planet_modifiers/pm_atmospheric_aphrodisiac.dds"
+	icon_frame = 1
+}

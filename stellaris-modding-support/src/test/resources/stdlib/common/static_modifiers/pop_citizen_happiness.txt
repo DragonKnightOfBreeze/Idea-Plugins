@@ -1,0 +1,3 @@
+pop_citizen_happiness = {
+	pop_happiness = 1.0
+}

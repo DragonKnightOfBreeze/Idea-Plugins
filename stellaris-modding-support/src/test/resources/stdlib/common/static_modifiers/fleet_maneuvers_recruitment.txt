@@ -1,0 +1,6 @@
+fleet_maneuvers_recruitment = {
+	icon = "gfx/interface/icons/modifiers/mod_pop_war_happiness.dds"
+	icon_frame = 1
+	ships_upkeep_mult = -0.2
+	starbase_shipyard_build_speed_mult = 0.2
+}

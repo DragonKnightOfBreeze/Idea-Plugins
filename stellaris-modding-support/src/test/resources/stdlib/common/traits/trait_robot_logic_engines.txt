@@ -1,0 +1,23 @@
+trait_robot_logic_engines = {
+	cost = 2
+
+	allowed_archetypes = { ROBOT MACHINE }
+
+	# Synth and Machine only
+	species_potential_add = {
+		exists = from
+		from = {
+			OR = {
+				has_authority = auth_machine_intelligence
+				has_technology = tech_synthetic_workers
+			}
+			NOT = { has_policy_flag = ai_outlawed }
+		}
+	}
+
+	modifier = {
+		planet_jobs_society_research_produces_mult = 0.10
+		planet_jobs_physics_research_produces_mult = 0.10
+		planet_jobs_engineering_research_produces_mult = 0.10
+	}
+}

@@ -1,0 +1,11 @@
+think_tank_ruined = {
+	entity = "think_tank_destroyed_01_entity"
+	portrait = "GFX_megastructure_construction_background"
+
+	place_entity_on_planet_plane = no
+	entity_offset = { x = @entity_x y = @entity_y }
+
+	potential = {
+		always = no
+	}
+}

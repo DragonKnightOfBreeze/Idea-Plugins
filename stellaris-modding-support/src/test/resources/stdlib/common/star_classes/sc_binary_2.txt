@@ -1,0 +1,30 @@
+sc_binary_2 = { # X-ray Binary Star System 2: Blue star around a Neutron
+    class             = b_star
+    icon              = e_binary_star
+    planet            = {
+                        key = pc_b_star
+                        class = b_star
+                    }
+    planet            = {
+                        key = pc_neutron_star
+                        class = neutron_star
+                    }
+    spawn_odds         = 5
+    num_planets     = { min = 4 max = 10 }
+
+    pc_desert       = { spawn_odds = 0 }
+    pc_tropical     = { spawn_odds = 0 }
+    pc_arid         = { spawn_odds = 0 }
+    pc_continental  = { spawn_odds = 0 }
+    pc_ocean        = { spawn_odds = 0 }
+    pc_tundra       = { spawn_odds = 0 }
+    pc_arctic       = { spawn_odds = 0 }
+    pc_gaia         = { spawn_odds = 0 }
+    pc_alpine       = { spawn_odds = 0 }
+    pc_savannah     = { spawn_odds = 0 }
+	
+	is_environmental_hazard = yes
+	modifier = {
+		ship_speed_reduction = 0.5 # Be careful about using this modifier outside of star classes, it can throw off the ETA for ships
+	}
+}

@@ -1,0 +1,11 @@
+create_primitive_species = {
+	create_species = {
+		name = random
+		class = random_non_machine
+		portrait = random
+		homeworld = THIS
+		traits = {
+			trait = random_traits
+		}
+	}
+}

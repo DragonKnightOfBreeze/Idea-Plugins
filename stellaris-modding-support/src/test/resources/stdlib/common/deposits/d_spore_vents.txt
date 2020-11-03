@@ -1,0 +1,30 @@
+d_spore_vents = {
+	is_for_colonizeable = yes
+	category = deposit_cat_rare
+
+	icon = d_gaseous_eruption
+
+	# For ordinary Empires
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = no }
+		}
+		job_gas_plant_engineer_add = 2
+		job_gas_plant_engineer_per_pop = 0.05 # 1 per 20
+	}
+
+	# For Gestalt Empires
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		job_gas_plant_engineer_gestalt_add = 2
+		job_gas_plant_engineer_gestalt_per_pop = 0.05 # 1 per 20
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}

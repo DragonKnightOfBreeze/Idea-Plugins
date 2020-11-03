@@ -1,0 +1,4 @@
+sacrifice_togetherness_1 = {
+    country_unity_produces_mult = 0.06
+    icon = "gfx/interface/icons/modifiers/mod_resource_unity_mult.dds"
+}

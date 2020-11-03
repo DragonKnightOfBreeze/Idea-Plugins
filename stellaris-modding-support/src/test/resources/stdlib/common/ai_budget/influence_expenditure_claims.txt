@@ -1,0 +1,19 @@
+influence_expenditure_claims = {
+	resource = influence 
+	type = expenditure
+	category = claims
+	
+	potential = {
+		NOT = {
+			OR = {
+  	 			has_ethic = ethic_fanatic_pacifist
+   				has_ethic = ethic_pacifist
+    		}	
+		}
+		has_potential_claims = yes
+	}
+	
+	fraction = {
+		weight = 0.15
+	}
+}

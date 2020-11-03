@@ -1,0 +1,144 @@
+fen_habbanis_system = {
+	name = "NAME_Fen_Habbanis"
+	class = "sc_g"
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 85
+	}
+	flags = { fen_habbanis precursor_system }
+	
+	planet = {
+		name = "NAME_Fen_Habbanis"
+		class = "pc_g_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 30
+		has_ring = no
+	}
+	
+	planet = {
+		name = "NAME_Fen_Habbanis_I"
+		class = "pc_molten"
+		orbit_distance = 40
+		orbit_angle = 40
+		size = 15
+		has_ring = no
+	}
+	
+	planet = {
+		name = "NAME_Fen_Habbanis_II"
+		class = "pc_molten"
+		orbit_distance = 20
+		orbit_angle = 110
+		size = 10
+		has_ring = no
+	}
+	
+	planet = {
+		class = "pc_asteroid"
+		orbit_distance = 25
+		orbit_angle = -210
+		size = 5
+		has_ring = no
+
+		init_effect = {
+			prevent_anomaly = yes
+			add_modifier = {
+				modifier = "first_league_minerals"
+				days = -1
+			}
+			set_deposit = d_minerals_10
+		}
+	}
+	
+	planet = {
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = -95
+		size = 5
+		has_ring = no
+	}
+	
+	planet = {
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = 285
+		size = 5
+		has_ring = no
+	}
+	
+	planet = {
+		name = "NAME_Fen_Habbanis_III"
+		class = "pc_relic"
+		orbit_distance = 40
+		orbit_angle = 190
+		size = 25
+		has_ring = no
+		#anomaly = "FEN_HABBANIS"
+		flags = { first_league_homeworld }
+
+		init_effect = {
+			prevent_anomaly = yes
+			add_modifier = {
+				modifier = "first_league_homeworld"
+				days = -1
+			}
+			
+			clear_deposits = yes
+			
+			add_deposit = d_ruined_arcology
+			add_deposit = d_ruined_arcology
+			add_deposit = d_ruined_arcology
+			add_deposit = d_ruined_arcology
+			add_deposit = d_ruined_arcology
+			
+			add_deposit = d_ruined_arcology
+			add_deposit = d_ruined_arcology # 7 total
+
+			add_deposit = d_relic_dense_ruins
+			add_deposit = d_collapsed_spire
+			add_deposit = d_massive_crevice
+			add_deposit = d_shattered_solar_array
+			add_deposit = d_flooded_reactor_pits
+			add_deposit = d_crumbling_mining_tunnels
+			add_deposit = d_relic_metal_boneyard
+		}
+	}
+	
+	planet = {
+		name = "NAME_Fen_Habbanis_IV"
+		class = "pc_toxic"
+		orbit_distance = 25
+		orbit_angle = 195
+		size = 20
+		has_ring = no
+	}
+	
+	planet = {
+		name = "NAME_Fen_Habbanis_V"
+		class = "pc_barren"
+		orbit_distance = 20
+		orbit_angle = 290
+		size = 20
+		has_ring = no
+	}
+	
+	planet = {
+		name = "NAME_Fen_Habbanis_VI"
+		class = "pc_gas_giant"
+		orbit_distance = 30
+		orbit_angle = -160
+		size = 35
+		has_ring = no
+
+		init_effect = {
+			prevent_anomaly = yes
+			add_modifier = {
+				modifier = "first_league_energy"
+				days = -1
+			}
+
+			set_deposit = d_energy_10
+		}
+	}	
+}

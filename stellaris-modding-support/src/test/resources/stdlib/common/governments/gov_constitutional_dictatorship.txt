@@ -1,0 +1,12 @@
+gov_constitutional_dictatorship = {
+	ruler_title = RT_EXECUTOR
+	ruler_title_female = RT_EXECUTOR_FEMALE
+
+	possible = {
+		has_authority = auth_dictatorial
+	}
+
+	weight = {
+		base = 1
+	}
+}

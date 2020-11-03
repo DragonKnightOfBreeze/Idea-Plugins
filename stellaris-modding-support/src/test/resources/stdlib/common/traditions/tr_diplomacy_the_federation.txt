@@ -1,0 +1,83 @@
+tr_diplomacy_the_federation = {
+
+	#unlocks federation mechanic
+	modifier = {
+		envoys_add = 1
+	}
+
+	tradition_swap = {
+		name = tr_adaptability_dietary_enrichment
+		inherit_effects = no
+		inherit_icon = no
+		inherit_name = no
+		trigger = {
+			OR = {
+				has_valid_civic = civic_fanatic_purifiers
+				has_valid_civic = civic_inwards_perfection
+				has_valid_civic = civic_hive_devouring_swarm
+
+				# Barbaric Despoilers can create Martial Alliances and Hegemonies if they have the Federations DLC
+				AND = {
+					has_valid_civic = civic_barbaric_despoilers
+					has_federations_dlc = no
+				}
+#				has_origin = origin_necrophage #necrophage federations, why not I guess :D
+			}
+			is_lithoid_empire = no
+		}
+		modifier = {
+			country_food_produces_mult = 0.10
+		}
+		weight = {
+			factor = 1
+		}
+	}
+
+	tradition_swap = {
+		name = tr_adaptability_recycling
+		inherit_effects = no
+		inherit_icon = no
+		inherit_name = no
+		trigger = {
+			OR = {
+				has_valid_civic = civic_fanatic_purifiers
+				has_valid_civic = civic_inwards_perfection
+				has_valid_civic = civic_hive_devouring_swarm
+
+				# Barbaric Despoilers can create Martial Alliances and Hegemonies if they have the Federations DLC
+				AND = {
+					has_valid_civic = civic_barbaric_despoilers
+					has_federations_dlc = no
+				}
+#				has_origin = origin_necrophage #necrophage federations, why not I guess :D
+			}
+			is_lithoid_empire = yes
+		}
+		modifier = {
+			planet_building_refund_mult = 0.15
+		}
+		weight = {
+			factor = 1
+		}
+	}
+
+	tradition_swap = {
+		name = tr_versatility_universal_compatibility
+		inherit_effects = no
+		inherit_icon = no
+		inherit_name = no
+		trigger = {
+			is_machine_empire = yes
+		}
+		modifier = {
+			country_synthetic_trust_cap_add = 50
+		}
+		weight = {
+			factor = 1
+		}
+	}
+
+	ai_weight = {
+		factor = 1000
+	}
+}

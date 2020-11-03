@@ -1,0 +1,253 @@
+ART = {
+	screk = {
+		language = "l_simp_chinese"
+		name = 席勒克
+		plural = 席勒克恩
+		home_planet = 席勒克恩
+		home_system = 巴克特利
+		name_list = "ART3"
+	}
+
+	xanyr = {
+		language = "l_simp_chinese"
+		name = 扎恩雅
+		plural = 扎恩雅
+		home_planet = 扎纳
+		home_system = 普德普
+		name_list = "ART3"
+	}
+	
+	zaacplot = {
+		language = "l_simp_chinese"
+		name = 扎克普洛特
+		plural = 扎克普洛特安
+		home_planet = 扎克
+		home_system = 俄拉斯阿尼尔
+		name_list = "ART3"
+	}
+
+	vurxac = {
+		language = "l_simp_chinese"
+		name = 维尔萨克
+		plural = 维尔萨克恩
+		home_planet = 维尔萨卡
+		home_system = "维尔维"
+		name_list = "ART3"
+	}
+
+	opalglec = {
+		language = "l_simp_chinese"
+		name = 欧帕拉克
+		plural = 欧帕拉克
+		home_planet = 欧帕拉格
+		home_system = 加卡嘎
+		name_list = "ART3"
+	}
+
+	valurt = {
+		language = "l_simp_chinese"
+		name = 瓦鲁特
+		plural = 瓦鲁特
+		home_planet = 瓦鲁
+		home_system = 洛克拉尔
+		name_list = "ART3"
+	}
+
+	natfankan = {
+		language = "l_simp_chinese"
+		name = 纳特凡卡
+		plural = 纳特凡卡
+		home_planet = 凡卡
+		home_system = "纳特·凡卡·迪"
+		name_list = "ART3"
+	}
+
+	husko = {
+		language = "l_simp_chinese"
+		name = 哈斯克
+		plural = 哈斯克
+		home_planet = 虎龙
+		home_system = 康格拉姆
+		name_list = "ART3"
+	}
+
+	zaxxoid = {
+		language = "l_simp_chinese"
+		name = 扎克欧伊德
+		plural = 扎克欧伊德
+		home_planet = 扎欧克斯
+		home_system = 欧克奥克斯
+		name_list = "ART3"
+	}
+	
+	dabbax = {
+		language = "l_simp_chinese"
+		name = 戴巴克斯
+		plural = 戴巴克仙
+		home_planet = "戴巴纳仙"
+		home_system = 普尔克兰
+		name_list = "ART3"
+	}
+	
+	zemmerpuk = {
+		language = "l_simp_chinese"
+		name = 泽姆尔普克
+		plural = 泽姆尔普坎
+		home_planet = "泽姆·欧普克"
+		home_system = 扎卡托利亚
+		name_list = "ART3"
+	}
+
+	trakpocian = {
+		language = "l_simp_chinese"
+		name = 特拉克普仙
+		plural = 特拉克普仙
+		home_planet = 特拉克
+		home_system = 普西甘克拉卡
+		name_list = "ART3"
+	}
+	
+	ytrellan = {
+		language = "l_simp_chinese"
+		name = 伊特瑞兰
+		plural = 伊特瑞兰
+		home_planet = 伊特拉
+		home_system = 马克欧努克
+		name_list = "ART3"
+	}
+	
+	savixqast = {
+		language = "l_simp_chinese"
+		name = 萨维克魁斯特
+		plural = 萨维克魁斯特
+		home_planet = "萨维克"
+		home_system = 魁斯特利亚尼
+		name_list = "ART3"
+	}
+	
+	qopinjaxi = {
+		language = "l_simp_chinese"
+		name = 奎品贾克希
+		plural = 奎品贾克希
+		home_planet = 奎普贾克希
+		home_system = 贾克希欧莫克
+		name_list = "ART3"
+	}
+	
+	najklax = {
+		language = "l_simp_chinese"
+		name = 纳克拉夏
+		plural = 纳克拉夏
+		home_planet = 纳克拉夏
+		home_system = 鲁加斯图克
+		name_list = "ART3"
+	}
+	
+	sakyt = {
+		language = "l_simp_chinese"
+		name = 萨凯特
+		plural = 萨凯特恩
+		home_planet = "萨凯特·乌克斯"
+		home_system = 胡法克斯
+		name_list = "ART3"
+	}
+	
+	backatta = {
+		language = "l_simp_chinese"
+		name = 巴卡塔
+		plural = 巴卡塔恩
+		home_planet = 巴卡塔
+		home_system = "巴·格拉克斯"
+		name_list = "ART3"
+	}
+	
+	xaplo = {
+		language = "l_simp_chinese"
+		name = 夏普洛
+		plural = 夏普洛恩
+		home_planet = 夏普洛
+		home_system = 夏普洛纽斯
+		name_list = "ART3"
+	}
+	
+	uindar = {
+		language = "l_simp_chinese"
+		name = 乌因达尔
+		plural = 乌因达尔
+		home_planet = 乌因达尔亚
+		home_system = 雅达雅克萨
+		name_list = "ART3"
+	}
+	
+	eruxo = {
+		language = "l_simp_chinese"
+		name = 欧罗科索
+		plural = 欧罗科索安
+		home_planet = "欧罗科索主星"
+		home_system = 奥普利麦克斯
+		name_list = "ART3"
+	}
+	
+	spuxulac = {
+		language = "l_simp_chinese"
+		name = 思普库拉克
+		plural = 思普库拉克
+		home_planet = "雄伟思普库拉克"
+		home_system = 哈夏卡
+		name_list = "ART3"
+	}
+	
+	multyx = {
+		language = "l_simp_chinese"
+		name = 穆尔缇可
+		plural = 穆尔缇可
+		home_planet = 穆尔缇可
+		home_system = 尼尔帕科索
+		name_list = "ART3"
+	}
+	
+	cilxtac = {
+		language = "l_simp_chinese"
+		name = 希克塔克
+		plural = 希特塔克恩
+		home_planet = "希特卡主星"
+		home_system = 维德兰克斯
+		name_list = "ART3"
+	}
+	
+	ztrakpor = {
+		language = "l_simp_chinese"
+		name = 卓博尔
+		plural = 卓博尔兰
+		home_planet = 卓博尔
+		home_system = 卓博尔
+		name_list = "ART3"
+	}
+	
+	tchaaskeran = {
+		language = "l_simp_chinese"
+		name = 茶斯克兰
+		plural = 茶斯克兰
+		home_planet = 茶博尔
+		home_system = 茶博尔-科尔斯
+		name_list = "ART3"
+	}
+	
+	yaxkalock = {
+		language = "l_simp_chinese"
+		name = 雅克卡洛克
+		plural = 雅克卡洛克
+		home_planet = 茶博尔
+		home_system = 茶博尔
+		name_list = "ART3"
+	}
+	
+	vunokon = {
+		language = "l_simp_chinese"
+		name = 温欧康
+		plural = 温欧康
+		home_planet = 多拉伊普
+		home_system = 多拉伊普卡米纳
+		name_list = "ART3"
+	}
+}

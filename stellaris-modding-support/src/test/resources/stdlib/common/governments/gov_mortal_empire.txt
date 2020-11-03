@@ -1,0 +1,15 @@
+gov_mortal_empire = {
+	ruler_title = RT_DEATH_MONARCH
+	ruler_title_female = RT_DEATH_MONARCH_FEMALE
+	
+	should_force_rename = yes
+
+	possible = {
+		has_authority = auth_imperial
+		has_valid_civic = civic_death_cult
+	}
+
+	weight = {
+		base = 10000
+	}
+}

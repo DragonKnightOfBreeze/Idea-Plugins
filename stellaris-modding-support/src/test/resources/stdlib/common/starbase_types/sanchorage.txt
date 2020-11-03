@@ -1,0 +1,106 @@
+sanchorage = {
+	potential = {
+		has_starbase_size > starbase_outpost
+		count_starbase_modules = {
+			type = anchorage
+			count > 0
+		}
+	}
+
+	weight_modifier = {
+		base = 100	
+		modifier = {
+			add = 100
+			count_starbase_modules = {
+				type = anchorage
+				count > 1
+			}
+		}		
+		modifier = {
+			add = 100
+			count_starbase_modules = {
+				type = anchorage
+				count > 2
+			}
+		}
+		modifier = {
+			add = 100
+			count_starbase_modules = {
+				type = anchorage
+				count > 3
+			}
+		}
+		modifier = {
+			add = 100
+			count_starbase_modules = {
+				type = anchorage
+				count > 4
+			}
+		}	
+		modifier = {
+			add = 100
+			count_starbase_modules = {
+				type = anchorage
+				count > 5
+			}
+		}
+	}
+
+	ai_design = {
+		min = {
+			base = 0
+			factor = 0
+		}
+		
+		ratio = {
+			base = 0.45
+			modifier = {
+				add = 0.05
+				exists = owner
+				owner = {
+					has_ethic = ethic_militarist
+				}
+			}
+			modifier = {
+				add = 0.02
+				exists = owner
+				owner = {
+					has_ethic = ethic_fanatic_militarist
+				}
+			}
+		}
+
+		# token followed by priority
+		buildings = {
+			crew_quarters = {
+				base = 1.00
+			}
+			
+			fleet_academy = {
+				base = 0.05
+			}
+
+			naval_logistics_office = {
+				base = 0.05
+			}
+
+			curator_think_tank = {
+				base = 0.03
+			}
+
+			art_college = {
+				base = 0.03
+			}
+		}
+		
+		modules = {
+			anchorage = {
+				base = 1.00
+			}
+
+			hangar_bay = {
+				base = 0.60
+			}
+		}
+	}
+}

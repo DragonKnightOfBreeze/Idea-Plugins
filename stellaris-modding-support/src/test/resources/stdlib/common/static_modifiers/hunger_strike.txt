@@ -1,0 +1,3 @@
+hunger_strike = {
+	planet_jobs_minerals_produces_mult = -0.4
+}

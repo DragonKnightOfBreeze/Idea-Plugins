@@ -1,0 +1,7 @@
+mineral_poor = {
+	planet_jobs_minerals_produces_mult = -0.25
+	district_mining_max = -3
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_mineral_poor.dds"
+	icon_frame = 3
+}

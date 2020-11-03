@@ -1,0 +1,13 @@
+is_valid_target_fe_cleanse_holy_worlds = {
+	NOT = { has_relic = r_severed_head }
+	OR = {
+		any_owned_planet = {
+			has_modifier = "holy_planet"
+		}
+		any_subject = {
+			any_owned_planet = {
+				has_modifier = "holy_planet"
+			}
+		}
+	}
+}

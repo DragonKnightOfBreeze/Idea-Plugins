@@ -1,0 +1,26 @@
+grand_fleet = {
+	length = @ambitionDuration
+	icon = "GFX_edict_type_time"
+
+	is_ambition = yes 		# Costs Unity scaled to tradition cost
+	resources = {
+		category = edicts
+	}
+
+	modifier = {
+		country_naval_cap_mult = 0.20
+		ships_upkeep_mult = -0.20
+	}
+
+	potential = {
+		has_technology = tech_ascension_theory
+	}
+
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = 1
+			is_at_war = yes
+		}
+	}
+}

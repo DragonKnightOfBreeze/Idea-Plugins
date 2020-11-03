@@ -1,0 +1,17 @@
+origin_khan_successor = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origins_khan_successor.dds"
+
+	playable = {
+		always = no # Non-player origin
+	}
+
+	possible = {
+	}
+
+	description = origin_no_effect
+
+	random_weight = {
+		base = 0
+	}
+}

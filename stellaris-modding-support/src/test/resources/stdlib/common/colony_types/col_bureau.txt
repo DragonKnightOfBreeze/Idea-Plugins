@@ -1,0 +1,58 @@
+col_bureau = {
+	icon = 28
+
+	potential = {
+		exists = owner
+		owner = { is_regular_empire = yes }
+		NOT = {
+			uses_district_set = hive_world
+		}
+		is_special_colony_type = no
+	}
+	planet_modifier = {
+		custom_tooltip = col_bureaucracy_custom
+		planet_bureaucrats_upkeep_mult = -0.10
+		pop_ethics_shift_speed_mult = -0.20
+	}
+
+	weight_modifier = {
+		base = 10
+		modifier = {
+			add = 5
+			owner = { empire_sprawl_over_cap > 20 }
+		}
+		modifier = {
+			add = 5
+			has_designation = col_bureau
+		}
+		modifier = {
+			add = 3
+			num_buildings = { type = building_bureaucratic_1 value >= 2 }
+		}
+		modifier = {
+			add = 4
+			num_buildings = { type = building_bureaucratic_1 value >= 3 }
+		}
+		modifier = {
+			add = 5
+			num_buildings = { type = building_bureaucratic_1 value >= 4 }
+		}
+		modifier = {
+			add = 6
+			num_buildings = { type = building_bureaucratic_1 value >= 5 }
+		}
+		modifier = {
+			add = 5
+			num_buildings = { type = building_bureaucratic_2 value >= 1 }
+		}
+		modifier = {
+			add = 6
+			num_buildings = { type = building_bureaucratic_2 value >= 2 }
+		}
+		modifier = {
+			factor = 0
+			num_buildings = { type = building_bureaucratic_1 value = 0 }
+			num_buildings = { type = building_bureaucratic_2 value = 0 }
+		}
+	}
+}

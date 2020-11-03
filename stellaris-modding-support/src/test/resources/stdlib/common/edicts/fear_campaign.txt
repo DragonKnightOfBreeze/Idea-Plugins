@@ -1,0 +1,29 @@
+fear_campaign = {
+	length = @campaignDuration
+	icon = "GFX_edict_type_time"
+	resources = {
+		category = campaigns
+		cost = {
+			energy = @campaignCost
+		}
+	}
+
+	modifier = {
+		country_unity_produces_mult = 0.10
+		pop_ethic_xenophobe_attraction_mult = 0.25
+	}
+
+	potential = {
+		is_xenophobe = yes
+		has_comms_with_alien_civilization = yes
+		has_technology = tech_planetary_unification
+	}
+
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = @EdictLowPrio
+			has_resource = { type = energy amount > 5000 }
+		}
+	}
+}

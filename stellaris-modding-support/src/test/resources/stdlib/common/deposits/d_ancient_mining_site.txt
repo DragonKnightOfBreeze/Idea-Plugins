@@ -1,0 +1,14 @@
+d_ancient_mining_site = {
+	is_for_colonizeable = yes
+	category = deposit_cat_rare
+	
+	icon = d_building_complex
+	
+	planet_modifier = {
+		district_mining_max = 5
+	}
+	
+	drop_weight = {
+		weight = 0
+	}
+}

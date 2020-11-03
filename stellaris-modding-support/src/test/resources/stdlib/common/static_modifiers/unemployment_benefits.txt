@@ -1,0 +1,5 @@
+unemployment_benefits = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_resources.dds"
+	icon_frame = 2
+	planet_pops_unemployed_consumer_goods_upkeep_add = 2
+}

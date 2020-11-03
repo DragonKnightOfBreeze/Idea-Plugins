@@ -1,0 +1,41 @@
+oracle_digsite = {
+	desc = oracle_digsite_desc
+	picture = GFX_evt_crashed_station
+	stages = 4
+	max_instances = 1
+	weight = 0
+	allow = {
+		is_ship_class = shipclass_science_ship
+		exists = leader
+	}
+	visible = {
+		default_site_visible_trigger = yes
+	}
+	on_visible = {
+    	country_event = { id = story.5 days = 30 }
+	}
+	stage = {
+		difficulty = 1
+		event = ancrel.4032
+		icon = GFX_archaeology_runes_B1
+	}
+	stage = {
+		difficulty = 2
+		event = ancrel.4033
+		icon = GFX_archaeology_runes_B2
+	}
+	stage = {
+		difficulty = 2
+		event = ancrel.4034
+		icon = GFX_archaeology_runes_B3
+	}
+	stage = {
+		difficulty = 6
+		event = ancrel.4035
+		icon = GFX_archaeology_runes_B4
+	}
+
+	on_roll_failed = {
+		from = { standard_archaeological_site_on_roll_failed = { RANDOM_EVENTS = all_random_events } }
+	}
+}

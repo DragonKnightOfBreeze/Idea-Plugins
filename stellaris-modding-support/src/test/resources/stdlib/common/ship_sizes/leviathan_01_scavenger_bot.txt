@@ -1,0 +1,23 @@
+leviathan_01_scavenger_bot = {
+	graphical_culture = no
+	can_be_inspected = no
+	max_speed = @speed_very_slow
+	acceleration = 0.3
+	rotation_speed = 0.05
+	collision_radius = 7
+	modifier = {
+		ships_upkeep_mult = -1
+		ship_shield_add = 50000
+		ship_armor_add = 50000
+	}
+	max_hitpoints = 100000
+	size_multiplier = 32
+	fleet_slot_size = 4
+	section_slots = { "mid" = { locator = "part1" } "bot_1" = { locator = "bot_1" } "bot_2" = { locator = "bot_2" } "bot_3" = { locator = "bot_3" } }
+	num_target_locators = 0
+	is_space_station = no
+	icon_frame = 7
+	
+	class = shipclass_military
+	is_designable = no
+}

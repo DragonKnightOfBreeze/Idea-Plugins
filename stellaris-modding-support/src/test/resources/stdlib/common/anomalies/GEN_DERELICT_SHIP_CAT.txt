@@ -1,0 +1,23 @@
+GEN_DERELICT_SHIP_CAT = {
+	desc = "GEN_DERELICT_SHIP_DESC"
+	picture = "GFX_evt_ship_in_orbit"
+	level = 2
+	
+	spawn_chance = {
+		modifier = {
+			add = 3
+			OR = {
+				is_planet_class = pc_tundra
+				is_planet_class = pc_barren_cold
+			}
+		}
+		modifier = {
+			factor = 0
+			from.owner = {
+				has_authority = auth_machine_intelligence
+			}
+		}
+	}
+	
+	on_success = anomaly.4010
+}

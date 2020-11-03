@@ -1,0 +1,62 @@
+yondar = {
+	name = "yondar"
+	adjective = "PRESCRIPTED_adjective_yondar"
+	spawn_enabled = yes # yes / no / always
+	
+	species = {
+		class = "AVI"
+		portrait = "avi10"
+		name = "PRESCRIPTED_species_name_yondar"
+		plural = "PRESCRIPTED_species_plural_yondar"
+		adjective = "PRESCRIPTED_species_adjective_yondar"
+		name_list = "AVI1"
+		trait = "trait_conformists"
+		trait = "trait_natural_physicists"
+		trait = "trait_slow_learners"
+	}
+	
+	ship_prefix = "PRESCRIPTED_ship_prefix_yondar"
+	
+	planet_name = "PRESCRIPTED_planet_name_yondar"
+	planet_class = "pc_alpine"
+	system_name = "PRESCRIPTED_system_name_yondar"
+	
+	room = "personality_evangelizing_zealots_room" 
+	
+	authority = "auth_imperial"
+	civics = { "civic_imperial_cult" "civic_aristocratic_elite" }
+	government = gov_divine_empire
+	origin = "origin_default"
+
+	ethic = "ethic_authoritarian"
+	ethic = "ethic_fanatic_spiritualist"
+	
+	graphical_culture = "avian_01"
+	city_graphical_culture = "avian_01"
+	
+	empire_flag = {
+		icon= {
+			category = "zoological"
+			file = "flag_zoological_6.dds"
+		}
+		background= {
+			category = "backgrounds"
+			file = "stripes.dds"
+		}
+		colors={
+			"blue"
+			"dark_blue"
+			"null"
+			"null"
+		}
+	}
+	
+	ruler = {
+		name = "PRESCRIPTED_ruler_name_yondar"
+		gender = male
+		portrait = "avi10"
+		texture = 1
+		clothes = 3
+		leader_class = ruler
+	}
+}

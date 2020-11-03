@@ -1,0 +1,6 @@
+dportal_trade_normal = {
+	#planet_jobs_trade_value_produces_mult = 0.5 #Trade is actually added to the portal researcher job
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_resources.dds"
+	icon_frame = 1
+}

@@ -1,0 +1,19 @@
+GAS_ZRO_ICE_CAT = {
+	desc = "GAS_ZRO_ICE_DESC"
+	picture = "GFX_evt_gas_giant"
+	level = 6
+	
+	spawn_chance = {
+		modifier = {
+			add = 3
+			is_planet_class = pc_gas_giant
+			FROM = {
+				owner = {
+					has_technology = tech_mine_zro
+				}
+			}
+		}
+	}
+	
+	on_success = anomaly.150
+}

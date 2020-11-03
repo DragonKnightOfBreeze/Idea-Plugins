@@ -1,0 +1,16 @@
+trait_quarrelsome = {
+	cost = -1
+	potential_crossbreeding_chance = 1.0
+	opposites = { "trait_traditional" }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	modifier = {
+		planet_jobs_unity_produces_mult = -0.1
+	}
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0
+			years_passed > 5
+		}
+	}
+}

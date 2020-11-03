@@ -1,0 +1,45 @@
+tech_experimental_subspace_navigation = {
+	area = physics
+	cost = @tier2cost3
+	category = { field_manipulation }
+	tier = 2
+	is_rare = yes
+	prerequisites = { tech_sensors_2 }
+	weight = @tier2weight2
+
+	feature_flags = { experimental_subspace_navigation }
+	
+	weight_modifier = {
+		factor = 0.50
+		modifier = {
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
+		}
+		modifier = {
+			factor = @federation_perk_factor
+			has_federation = yes
+			federation = {
+				has_federation_perk = rare_tech_boost
+				any_member = { has_technology = tech_experimental_subspace_navigation }
+			}
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_field_manipulation"
+			}
+		}
+	}
+
+	ai_weight = {
+		factor = 4 #FTL techs are good
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_field_manipulation"
+			}
+		}
+	}
+}

@@ -1,0 +1,10 @@
+trait_nomadic = {
+	cost = 1
+	potential_crossbreeding_chance = 1.0
+	opposites = { "trait_sedentary" }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	modifier = {
+		pop_growth_from_immigration = 0.15
+		pop_resettlement_cost_mult = -0.25
+	}
+}

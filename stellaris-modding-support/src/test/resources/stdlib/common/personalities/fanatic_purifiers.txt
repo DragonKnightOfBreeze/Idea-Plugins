@@ -1,0 +1,62 @@
+fanatic_purifiers = {
+	aggressiveness = 2.0
+	trade_willingness = 0.5
+	bravery = 1.0
+	combat_bravery = 1.25
+
+	military_spending = 1.2
+	colony_spending = 1.2
+
+	federation_acceptance = -1000
+	migration_pact_acceptance = -1000
+
+	advanced_start_chance = 100
+
+	weapon_preferences = weapon_type_kinetic
+	armor_ratio = 0.4
+	shields_ratio = 0.5
+	hull_ratio = 0.1
+
+	threat_modifier = 0
+	threat_others_modifier = 0
+	friction_modifier = 0
+	claims_modifier = 0
+
+	behaviour = {
+		conqueror = yes
+		subjugator = no
+		liberator = no
+		opportunist = yes
+		slaver = yes
+		uplifter = no
+		purger = yes
+		displacer = no
+		dominator = yes
+		infiltrator = no
+		robot_exploiter = yes
+		robot_liberator = no
+		propagator = no
+		multispecies = no #lol
+		crisis_fighter = no
+		attack_neutrals = yes
+	}
+
+	allow = {
+		is_country_type = default
+		OR = {
+			AND = {
+				NOT = { host_has_dlc = "Utopia" }  
+				has_ethic = "ethic_militarist"
+				has_ethic = "ethic_fanatic_xenophobe"				
+			}
+			AND = {
+				host_has_dlc = "Utopia"
+				has_valid_civic = "civic_fanatic_purifiers"
+			}
+		}
+	}
+
+	weight_modifier = {
+		weight = 1000
+	}
+}

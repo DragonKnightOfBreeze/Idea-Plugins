@@ -1,0 +1,20 @@
+galactic_focus_crisis_prethoryn = {
+	icon = "GFX_galactic_focus_threat_to_galaxy"
+
+	effect = {
+		add_resource = { influence = 100 }
+		country_event = { id = crisis.211 }
+	}
+
+	potential = {
+		has_global_flag = galactic_focus_crisis_prethoryn
+		NOT = { has_global_flag = prethoryn_invasion_defeated }
+	}
+
+	trigger = {
+		custom_tooltip = {
+			fail_text = "galactic_focus_crisis_prethoryn"
+			has_global_flag = prethoryn_invasion_defeated
+		}
+	}
+}

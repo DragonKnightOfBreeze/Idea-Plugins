@@ -1,0 +1,4 @@
+leylines_mod_lagom = {
+	country_society_research_produces_mult = 0.02
+	country_food_produces_mult = 0.03
+}

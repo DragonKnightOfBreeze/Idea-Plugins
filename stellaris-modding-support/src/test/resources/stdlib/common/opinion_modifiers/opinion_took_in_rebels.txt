@@ -1,0 +1,8 @@
+opinion_took_in_rebels = {
+	opinion = {
+		base = -30
+	}
+	decay = {
+		base = 1
+	}
+}

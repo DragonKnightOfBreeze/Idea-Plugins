@@ -1,0 +1,5 @@
+on_ship_order = {
+	events = {
+		tutorial.500
+	}
+}

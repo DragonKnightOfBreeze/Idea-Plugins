@@ -1,0 +1,71 @@
+hegemonic_imperialists = {
+	aggressiveness = 1.5
+	trade_willingness = 0.8
+	bravery = 1.0
+	combat_bravery = 1.0
+
+	military_spending = 1.1
+	colony_spending = 1.0
+
+	federation_acceptance = 0 #-20
+	nap_acceptance = -10
+	commercial_pact_acceptance = -10
+	research_agreement_acceptance = -10
+	defensive_pact_acceptance = 10
+	migration_pact_acceptance = -50
+
+	advanced_start_chance = 50
+
+	weapon_preferences = weapon_type_energy
+	armor_ratio = 0.5
+	shields_ratio = 0.5
+	hull_ratio = 0.0
+
+	threat_modifier = 1.0
+	threat_others_modifier = 0.66
+	friction_modifier = 1.5
+	claims_modifier = 1.5
+
+	behaviour = {
+		conqueror = yes
+		subjugator = yes
+		liberator = no
+		opportunist = yes
+		slaver = yes
+		uplifter = no
+		purger = no
+		displacer = no
+		dominator = yes
+		infiltrator = no
+		robot_exploiter = yes
+		robot_liberator = no
+		propagator = no
+		multispecies = no
+		crisis_fighter = yes
+	}
+
+
+	allow = {
+		is_country_type = default
+		NOT = {
+			has_ethic = "ethic_pacifist"
+			has_ethic = "ethic_fanatic_pacifist"
+		}
+		OR = {
+			has_ethic = "ethic_militarist"
+			has_ethic = "ethic_fanatic_militarist"
+			has_ethic = "ethic_authoritarian"
+			has_ethic = "ethic_fanatic_authoritarian"
+			has_ethic = "ethic_xenophobe"
+			has_ethic = "ethic_fanatic_xenophobe"
+		}
+	}
+
+	weight_modifier = {
+		weight = 5 # very common, so lower weight
+		modifier = {
+			weight = 1000
+			has_civic = civic_barbaric_despoilers
+		}
+	}
+}

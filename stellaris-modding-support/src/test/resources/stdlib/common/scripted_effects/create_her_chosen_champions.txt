@@ -1,0 +1,29 @@
+create_her_chosen_champions = {
+	while = {
+		count = 16
+		create_ship = {
+			name = random
+			design = "NAME_Outrider"
+			prefix = no
+			graphical_culture = "pirate_01"
+		}
+	}
+	while = {
+		count = 8
+		create_ship = {
+			name = random
+			design = "NAME_Lancer"
+			prefix = no
+			graphical_culture = "pirate_01"
+		}
+	}
+	while = {
+		count = 6
+		create_ship = {
+			name = random
+			design = "NAME_Void_Champion"
+			prefix = no
+			graphical_culture = "pirate_01"
+		}
+	}
+}

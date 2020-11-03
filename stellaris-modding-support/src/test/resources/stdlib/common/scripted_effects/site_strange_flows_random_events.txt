@@ -1,0 +1,6 @@
+site_strange_flows_random_events = {
+	random_list = {
+		10 = { fleet_event = { id = ancrel.8055} }
+		10 = { fleet_event = { id = ancrel.8070} }
+	}
+}

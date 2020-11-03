@@ -1,0 +1,68 @@
+hazbuzan = {
+	name = "hazbuzan"
+	adjective = "PRESCRIPTED_adjective_hazbuzan"
+	spawn_enabled = yes # yes / no / always
+	ignore_portrait_duplication = yes
+	
+	playable = has_megacorp
+	
+	ship_prefix = "PRESCRIPTED_ship_prefix_hazbuzan"
+	
+	species = {
+		class = "REP"
+		portrait= "rep11"
+		name = "PRESCRIPTED_species_name_hazbuzan"
+		plural = "PRESCRIPTED_species_plural_hazbuzan"
+		adjective = "PRESCRIPTED_species_adjective_hazbuzan"
+		name_list = "REP3"
+		trait = "trait_ingenious"
+		trait = "trait_thrifty"
+		trait = "trait_deviants"
+		trait = "trait_quarrelsome"
+	}
+	
+	room = "personality_ruthless_capitalists_room"
+	
+	ethic = ethic_fanatic_militarist
+	ethic = ethic_spiritualist
+	authority = "auth_corporate"
+	government = "gov_criminal_syndicate"
+	civics = { "civic_criminal_heritage" "civic_franchising" }
+	origin = "origin_default"
+	
+	planet_name = "PRESCRIPTED_planet_name_hazbuzan"
+	planet_class = "pc_savannah"
+	system_name = "PRESCRIPTED_system_name_hazbuzan"
+	initializer = ""
+
+	graphical_culture = "reptilian_01"
+	city_graphical_culture = "reptilian_01"
+
+	empire_flag = {
+		icon = {
+			category = "corporate"
+			file = "corporate_03.dds"
+		}
+		background = {
+			category = "backgrounds"
+			file = "circle.dds"
+		}
+		colors = {
+			"yellow"
+			"black"
+			"null"
+			"null"
+		}
+	}	
+	
+	ruler = {
+		name = "PRESCRIPTED_ruler_name_hazbuzan"
+		gender = female
+		portrait = "rep11"
+		texture = 5
+		clothes = 1
+		ruler_title = "PRESCRIPTED_ruler_title_hazbuzan"
+		ruler_title_female = "PRESCRIPTED_ruler_title_hazbuzan_female"
+		leader_class = ruler
+	}
+}

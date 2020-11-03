@@ -1,0 +1,8 @@
+starbase_level_outpost = {
+	ship_size = starbase_outpost
+	next_level = starbase_level_starport
+	show_in_outliner = no
+	display_map_icon = no
+	level_weight = 0	
+	ai_weight = { weight = 1 }	
+}

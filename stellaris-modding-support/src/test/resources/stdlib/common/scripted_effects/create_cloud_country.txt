@@ -1,0 +1,38 @@
+create_cloud_country = {
+	if = {
+		limit = { NOT = { exists = event_target:cloud_country } }
+		create_country = {
+			name = "NAME_Enigmatic_Energy"
+			type = cloud
+			flag = {
+				icon = {
+					category = "zoological"
+					file = "flag_zoological_1.dds"
+				}
+				background= {
+					category = "backgrounds"
+					file = "00_solid.dds"
+				}
+				colors={
+					"black"
+					"black"
+					"null"
+					"null"
+				}
+			}
+			effect = {
+				save_global_event_target_as = cloud_country
+				add_modifier = {
+					modifier = cloud_power
+					days = -1
+				}
+				every_country = {
+					limit = {
+						has_country_flag = established_comms_with_clouds
+					}
+					establish_communications_no_message = prev
+				}
+			}
+		}
+	}
+}

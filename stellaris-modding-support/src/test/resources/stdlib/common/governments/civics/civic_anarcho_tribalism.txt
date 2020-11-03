@@ -1,0 +1,9 @@
+civic_anarcho_tribalism = {
+	modification = no
+	icon = "gfx/interface/icons/governments/civics/civic_warrior_culture.dds"
+	potential = {
+		country_type = { value = dormant_marauders }
+	}
+	random_weight = { base = 5 }
+	modifier = { }
+}

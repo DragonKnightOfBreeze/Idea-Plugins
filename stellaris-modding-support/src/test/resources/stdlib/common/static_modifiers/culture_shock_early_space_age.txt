@@ -1,0 +1,8 @@
+culture_shock_early_space_age = {
+	pop_happiness = -0.10
+	planet_jobs_minerals_produces_mult = -0.10
+	planet_jobs_energy_produces_mult = -0.10
+	planet_jobs_engineering_research_produces_mult = -0.20
+	planet_jobs_physics_research_produces_mult = -0.20
+	planet_jobs_society_research_produces_mult = -0.20
+}

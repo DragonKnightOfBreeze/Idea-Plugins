@@ -1,0 +1,59 @@
+think_tank_restored = {
+	entity = "thinktank_phase_03_entity"
+	construction_entity = "thinktank_phase_03_entity"
+	portrait = "GFX_megastructure_think_tank_background"
+	place_entity_on_planet_plane = no
+	entity_offset = { x = @entity_x y = @entity_y }
+	build_time = 4800
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 15000
+		}
+
+		upkeep = {
+			energy = 75
+		}
+
+		produces = {
+			society_research = @stage_3_research_bonus
+			engineering_research = @stage_3_research_bonus
+			physics_research = @stage_3_research_bonus
+		}
+	}
+
+	upgrade_from = {
+		think_tank_ruined
+	}	
+
+	possible = {
+		from = { has_technology = tech_mega_engineering }	
+	}
+	
+	country_modifier = {
+		all_technology_research_speed = 0.15
+	}
+
+	on_build_start = {
+		fromfrom = {
+			set_graphical_culture = root.from
+		}
+	}
+
+	on_build_complete = {
+		every_system_ambient_object = {
+			limit = {
+				OR = {
+					is_ambient_object_type = large_debris_object
+					is_ambient_object_type = medium_debris_01_object
+					is_ambient_object_type = medium_debris_02_object
+				}
+			}
+			destroy_ambient_object = this
+		}
+		from = {
+			set_country_flag = has_built_or_repaired_megastructure
+			country_event = { id = utopia.2013 }
+		}
+	}
+}

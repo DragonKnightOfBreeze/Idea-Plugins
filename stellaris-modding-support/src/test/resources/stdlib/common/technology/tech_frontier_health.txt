@@ -1,0 +1,27 @@
+tech_frontier_health = {
+	cost = @tier1cost2
+	area = society
+	tier = 1
+	category = { biology }
+	prerequisites = { "tech_genome_mapping" "tech_colonization_1" }
+	weight = @tier1weight2
+
+	potential = {
+		is_gestalt = no
+	}
+
+	weight_modifier = {
+		factor = 2
+		modifier = {
+			factor = 1.25
+			has_tradition = tr_harmony_adopt
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_biology"
+			}
+		}
+	}
+}

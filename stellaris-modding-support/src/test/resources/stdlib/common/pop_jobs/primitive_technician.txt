@@ -1,0 +1,35 @@
+primitive_technician = {
+	category = worker
+	is_capped_by_modifier = yes
+	building_icon = building_primitive_power_plant
+	icon = technician
+	clothes_texture_index = 2
+
+	possible_pre_triggers = {
+		has_owner = yes
+	}
+
+	possible = {
+		owner = {
+			is_primitive = yes
+			OR = {
+				has_country_flag = steam_age
+				has_country_flag = machine_age
+				has_country_flag = industrial_age
+				has_country_flag = atomic_age
+				has_country_flag = early_space_age
+			}
+		}
+	}
+
+	resources = {
+		category = planet_technician
+		produces = {
+			energy = 1
+		}
+	}
+
+	weight = {
+		weight = 2
+	}
+}

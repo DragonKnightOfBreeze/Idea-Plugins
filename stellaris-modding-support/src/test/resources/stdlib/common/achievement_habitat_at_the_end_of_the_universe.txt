@@ -1,0 +1,17 @@
+achievement_habitat_at_the_end_of_the_universe = {
+	id = 63
+
+	possible = {
+		is_ironman = yes
+		host_has_dlc = "Utopia"
+	}
+
+	happened = {
+		any_owned_planet = {
+			is_planet_class = pc_habitat
+			solar_system = {
+				is_star_class = sc_black_hole
+			}
+		}
+	}
+}

@@ -1,0 +1,4 @@
+alien_infection = {
+	pop_happiness = -0.2
+	pop_environment_tolerance = -0.2
+}

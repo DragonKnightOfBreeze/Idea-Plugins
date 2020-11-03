@@ -1,0 +1,60 @@
+shipyard = {
+	icon = "GFX_starbase_shipyard"
+	section = "ASSEMBLYYARD_STARBASE_SECTION"
+	construction_days = 180
+	initial = yes
+
+	resources = {
+		category = starbase_modules
+		cost = {
+			alloys = 50
+		}
+
+		upkeep = {
+			energy = 1
+		}
+	}
+
+	station_modifier = {
+		starbase_shipyard_capacity_add = 1
+	}
+
+	ai_build_at_chokepoint = no
+	ai_build_outside_chokepoint = yes
+	ai_weight = {
+		weight = 20
+		modifier = {
+			factor = 3
+			OR = {
+				AND = {
+					has_starbase_module = shipyard
+					count_starbase_modules = {
+						count < 3
+						type = shipyard
+					}
+				}
+				owner = {
+					count_owned_starbase = {
+						count >= 10
+					}
+					count_owned_starbase = {
+						count < 2
+						limit = { has_starbase_module = shipyard }
+					}
+				}
+			}
+		}
+		
+		# We want to build shipyard if no shipyards present
+		modifier = {
+			factor = 1000
+			owner = {
+				NOT = { 
+					any_owned_starbase = { 
+						has_starbase_module = shipyard 
+					}
+				}	
+			}
+		}
+	}
+}

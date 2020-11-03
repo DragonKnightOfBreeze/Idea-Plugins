@@ -1,0 +1,27 @@
+dyson_sphere_1 = {
+	entity = "dyson_sphere_phase_01_entity"
+	construction_entity = "dyson_sphere_frame_entity"
+	portrait = "GFX_megastructure_construction_background"
+	build_time = 3600
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 10000
+		}
+	}
+
+	upgrade_from = {
+		dyson_sphere_0
+	}
+
+	prerequisites = { "tech_dyson_sphere" }
+
+	on_build_complete = {
+		every_system_planet = {
+			limit = {
+				has_modifier = terraforming_candidate
+			}
+			remove_modifier = terraforming_candidate
+		}
+	}
+}

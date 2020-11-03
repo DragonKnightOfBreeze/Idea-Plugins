@@ -1,0 +1,3 @@
+ship_survey_boost = {
+	science_ship_survey_speed = 0.15
+}

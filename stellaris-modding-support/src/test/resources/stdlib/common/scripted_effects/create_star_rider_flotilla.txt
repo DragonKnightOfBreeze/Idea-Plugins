@@ -1,0 +1,29 @@
+create_star_rider_flotilla = {
+	while = {
+		count = 12
+		create_ship = {
+			name = random
+			prefix = no
+			design = "NAME_Outrider"
+			graphical_culture = "pirate_01"
+		}
+	}
+	while = {
+		count = 6
+		create_ship = {
+			name = random
+			prefix = no
+			design = "NAME_Lancer"
+			graphical_culture = "pirate_01"
+		}
+	}
+	while = {
+		count = 4
+		create_ship = {
+			name = random
+			prefix = no
+			design = "NAME_Void_Champion"
+			graphical_culture = "pirate_01"
+		}
+	}
+}

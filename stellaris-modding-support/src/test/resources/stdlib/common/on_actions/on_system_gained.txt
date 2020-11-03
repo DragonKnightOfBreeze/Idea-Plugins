@@ -1,0 +1,6 @@
+on_system_gained = {
+	events = {
+		galactic_features.298 # Shielded World (Fallen Empire)
+		action.200	# recalc strategic war data
+	}
+}

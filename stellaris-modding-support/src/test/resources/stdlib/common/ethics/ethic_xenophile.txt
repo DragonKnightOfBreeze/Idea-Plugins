@@ -1,0 +1,325 @@
+ethic_xenophile = {
+	cost = 1
+	category = "xen"
+	category_value = 3
+
+	category_opposite = yes
+
+	fanatic_variant = ethic_fanatic_xenophile
+
+	tags = {
+		ETHIC_IMPROVED_DIPLOMACY
+		ETHIC_ALWAYS_REFUGEES
+		ETHIC_DISALLOWS_SLAVERY
+		ETHIC_DISALLOWS_DISPLACE
+	}
+
+	country_modifier = {
+		trade_value_mult = 0.10
+		envoys_add = 1
+	}
+
+	random_weight = {
+		value = 66
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_XENOPHILE_POS
+		trigger = {
+			OR = {
+				has_ethic = ethic_xenophile
+				has_ethic = ethic_fanatic_xenophile
+			}
+		}
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_FACTION_POS
+		trigger = {
+			NOR = {
+				has_ethic = ethic_xenophile
+				has_ethic = ethic_fanatic_xenophile
+			}
+			has_faction = xenoist
+		}
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_RULER_FACTION_POS
+		trigger = {
+			exists = ruler
+			ruler = { leader_of_faction = xenoist }
+		}
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_FREE_XENOS_POS
+		trigger = {
+			any_owned_planet = {
+				any_owned_pop = {
+					not = { is_same_species = root }
+					is_enslaved = no
+					is_being_purged = no
+					is_sapient = yes
+					is_robot_pop = no
+					NOT = { has_trait = trait_syncretic_proles }
+				}
+			}
+		}
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_XENO_DIPLOMACY_POS
+		trigger = {
+			any_relation = {
+				NOT = { is_same_species = root }
+				OR = {
+					is_in_federation_with = root
+					has_defensive_pact = root
+					has_commercial_pact = root
+				}
+			}
+		}
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_MIGRATION_TREATIES_POS
+		trigger = {
+			any_relation = {
+				is_subject = no
+				has_migration_access = root
+				NOT = { is_same_species = root }
+			}
+		}
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_CHARISMATIC_POS
+		trigger = {
+			any_owned_planet = {
+				any_owned_pop = {
+					NOT = { has_trait = "trait_charismatic" }
+					is_non_sapient_robot = no
+				}
+				any_owned_species = {
+					has_trait = "trait_charismatic"
+				}
+			}
+		}
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_FANATIC_PURIFIERS_NEG
+		trigger = {
+			has_valid_civic = civic_fanatic_purifiers
+		}
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_INWARDS_PERFECTION_NEG
+		trigger = {
+			has_valid_civic = civic_inwards_perfection
+		}
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_ENSLAVEMENT_OF_SPECIES_NEG
+		trigger = {
+			any_relation = {
+				NOT = { is_same_species = root }
+				any_enslaved_species = {
+					is_robotic = no
+					is_same_species = root
+				}
+			}
+		}
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_PURGING_OF_SPECIES_NEG
+		trigger = {
+			any_relation = {
+				has_opinion_modifier = {
+					who = root
+					modifier = opinion_genocidal_our_species
+				}
+			}
+		}
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_NECROPHAGE_NEG
+		trigger = {
+			has_origin = origin_necrophage
+			has_trait = trait_necrophage
+		}
+	}
+
+	country_attraction = {
+		value = 1
+		modifier = {
+			factor = 0
+			NOR = {
+				is_country_type = default
+				has_ethic = ethic_xenophile
+				has_ethic = ethic_fanatic_xenophile
+				AND = {
+					is_country_type = primitive
+					capital_scope = {
+						has_observation_outpost = yes
+						observation_outpost = {
+							has_mission = native_indoctrination
+						}
+						observation_outpost_owner = {
+							OR = {
+								has_ethic = ethic_fanatic_xenophile
+								has_ethic = ethic_xenophile
+							}
+						}
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 2
+			NOR = {
+				has_ethic = ethic_xenophile
+				has_ethic = ethic_fanatic_xenophile
+			}
+			has_faction = xenoist
+		}
+		modifier = {
+			factor = 1.5
+			is_country_type = default
+			exists = ruler
+			ruler = { leader_of_faction = xenoist }
+		}
+		modifier = {
+			factor = 2
+			has_ethic = ethic_xenophile
+		}
+		modifier = {
+			factor = 3
+			has_ethic = ethic_fanatic_xenophile
+		}
+		modifier = {
+			factor = 0.5
+			has_valid_civic = civic_inwards_perfection
+		}
+		modifier = {
+			factor = 0.33
+			has_valid_civic = civic_fanatic_purifiers
+		}
+		modifier = {
+			factor = 1.5
+			is_country_type = default
+			allows_alien_leaders = yes
+		}
+		modifier = {
+			factor = 1.5
+			any_relation = {
+				NOT = { is_same_species = root }
+				is_subject = no
+				has_migration_access = root
+			}
+		}
+		modifier = {
+			factor = 1.33
+			any_relation = {
+				NOT = { is_same_species = root }
+				OR = {
+					is_in_federation_with = root
+					has_defensive_pact = root
+					has_commercial_pact = root
+				}
+			}
+		}
+		modifier = {
+			factor = 0.25
+			is_same_species = root
+			any_relation = {
+				has_opinion_modifier = {
+					who = root
+					modifier = opinion_genocidal_our_species
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			is_same_species = root
+			any_relation = {
+				NOT = { is_same_species = root }
+				any_enslaved_species = {
+					is_robotic = no
+					is_same_species = root
+				}
+			}
+		}
+		# Effects of indoctrination mission
+		modifier = {
+			factor = 20
+			is_country_type = primitive
+			capital_scope = {
+				has_observation_outpost = yes
+				observation_outpost = {
+					has_mission = native_indoctrination
+				}
+				observation_outpost_owner = { has_ethic = ethic_fanatic_xenophile }
+			}
+		}
+		modifier = {
+			factor = 10
+			is_country_type = primitive
+			capital_scope = {
+				has_observation_outpost = yes
+				observation_outpost = {
+					has_mission = native_indoctrination
+				}
+				observation_outpost_owner = { has_ethic = ethic_xenophile }
+			}
+		}
+	}
+
+	# from = planet
+	pop_attraction = {
+		value = 1
+
+		modifier = {
+			factor = 0
+			has_trait = trait_hive_mind
+		}
+		modifier = {
+			factor = 2
+			not = { is_same_species = root }
+			has_citizenship_rights = no
+			is_enslaved = no
+		}
+		modifier = {
+			factor = 2.0
+			is_enslaved = no
+			fromfrom = {
+				any_owned_pop = {
+					not = { is_same_species = root }
+					is_enslaved = no
+					is_being_purged = no
+					is_sapient = yes
+					is_robot_pop = no
+					NOT = { has_trait = trait_syncretic_proles }
+				}
+			}
+		}
+		modifier = {
+			factor = 1.5
+			from = {
+				any_owned_species = {
+					NOT = { is_same_species = root }
+					has_trait = "trait_charismatic"
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			has_trait = trait_necrophage
+		}
+	}
+}

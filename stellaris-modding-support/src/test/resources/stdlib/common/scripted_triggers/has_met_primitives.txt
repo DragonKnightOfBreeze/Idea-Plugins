@@ -1,0 +1,9 @@
+has_met_primitives = {
+	OR = {
+		has_country_flag = encountered_first_primitive
+		any_relation = {
+			has_communications = root
+			is_country_type = primitive
+		}
+	}
+}

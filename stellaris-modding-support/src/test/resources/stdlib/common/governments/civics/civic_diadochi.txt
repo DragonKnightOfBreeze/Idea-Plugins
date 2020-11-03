@@ -1,0 +1,14 @@
+civic_diadochi = {
+	modification = no
+	icon = "gfx/interface/icons/governments/civics/civic_warrior_culture.dds"
+	description = origin_no_effect
+	potential = {
+		origin = {
+			value = origin_khan_successor
+		}
+	}
+	random_weight = { base = 0 }
+	modifier = {
+		country_naval_cap_mult = 0.15
+	}
+}

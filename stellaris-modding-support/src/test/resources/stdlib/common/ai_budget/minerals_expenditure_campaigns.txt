@@ -1,0 +1,14 @@
+minerals_expenditure_campaigns = {
+	resource = minerals
+	type = expenditure
+	category = campaigns
+
+	potential = {
+		is_hive_empire = yes
+		is_lithoid_empire = yes
+	}
+
+	fraction = {
+		weight = 0.10
+	}
+}

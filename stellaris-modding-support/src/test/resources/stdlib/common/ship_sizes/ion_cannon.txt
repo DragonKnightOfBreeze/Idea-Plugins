@@ -1,0 +1,48 @@
+ion_cannon = {
+	max_speed = 6
+	rotation_speed = 10
+	acceleration = 10
+	max_hitpoints = 10000
+	modifier = {
+		ship_evasion_mult = -1
+	}
+	ship_modifier = {
+		ship_weapon_range_mult = 0.20
+	}
+	size_multiplier = 8
+	fleet_slot_size = 8
+	combat_size_multiplier = 8
+	section_slots = { "ship" = { locator = "part1" } }
+	is_designable = yes
+	components_add_to_cost = no
+	uses_name_prefix = no
+	takes_name_from_ship_design = yes
+	num_target_locators = 0
+	is_space_station = yes
+	base_buildtime = 1080
+	auto_upgrade = no
+	
+	enable_default_design = yes	#if yes, countries will have an auto-generated design at start
+	prerequisites = { "tech_titans" }
+	class = shipclass_military_station
+	ship_class_icon_frame = 26
+	construction_type = starbase_defenses
+	required_component_set = "power_core"
+	required_component_set = "sensor_components"
+	required_component_set = "combat_computers"
+
+	potential_construction = {
+		is_scope_type = starbase
+	}
+
+	possible_construction = {
+		has_starbase_size >= starbase_citadel
+	}
+
+	resources = {
+		category = starbase_stations
+		cost = {
+			alloys = 2000
+		}
+	}
+}

@@ -1,0 +1,7 @@
+opinion_inactive_in_war = {
+	opinion = {
+		base = -20
+	}
+
+	months = 12
+}

@@ -1,0 +1,14 @@
+gov_sacrificial_megachurch = {
+	ruler_title = RT_GRAVE_ADMINISTRATOR
+	
+	should_force_rename = yes
+
+	possible = {
+		has_valid_civic = civic_death_cult_corporate
+		has_valid_civic = civic_gospel_of_the_masses
+	}
+
+	weight = {
+		base = 10000
+	}
+}

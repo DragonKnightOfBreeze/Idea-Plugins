@@ -1,0 +1,27 @@
+create_lesser_messenger = {
+	custom_tooltip = get_messenger
+	hidden_effect = {
+		owner = {
+			create_fleet = {
+				name = "NAME_Lesser_Messenger"
+				settings = {
+					spawn_debris = no
+				}
+				effect = {
+					set_owner = prev
+					create_ship_design = {
+						design = "NAME_Lessenger"
+					}
+					create_ship = {
+						name = "NAME_Lesser_Messenger"
+						design = last_created_design
+						prefix = no
+						upgradable = no
+					}
+					set_location = fromfrom.planet
+					set_lessenger_damage = yes
+				}
+			}
+		}
+	}
+}

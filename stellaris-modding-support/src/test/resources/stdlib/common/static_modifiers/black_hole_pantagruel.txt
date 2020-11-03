@@ -1,0 +1,4 @@
+black_hole_pantagruel = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_assist_research.dds"
+	icon_frame = 1
+}

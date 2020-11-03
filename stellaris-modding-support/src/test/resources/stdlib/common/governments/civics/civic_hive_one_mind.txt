@@ -1,0 +1,8 @@
+civic_hive_one_mind = {
+	potential = { authority = { value = auth_hive_mind } }
+	description = "civic_hive_one_mind_effects"
+	random_weight = { base = 5 }
+	modifier = {
+		country_unity_produces_mult = 0.15
+	}
+}

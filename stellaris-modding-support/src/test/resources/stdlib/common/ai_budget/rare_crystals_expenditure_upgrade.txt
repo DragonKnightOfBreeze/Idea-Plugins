@@ -1,0 +1,13 @@
+rare_crystals_expenditure_upgrade = {
+	resource = rare_crystals 
+	type = expenditure
+	category = ship_upgrades
+	
+	potential = {
+		always = yes
+	}
+	
+	fraction = {
+		base = 0.1
+	}
+}

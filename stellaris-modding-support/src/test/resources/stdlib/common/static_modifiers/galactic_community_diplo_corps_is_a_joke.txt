@@ -1,0 +1,3 @@
+galactic_community_diplo_corps_is_a_joke = {
+	diplo_weight_mult = -0.1
+}

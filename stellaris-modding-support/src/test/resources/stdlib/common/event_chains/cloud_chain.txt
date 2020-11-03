@@ -1,0 +1,9 @@
+cloud_chain = {
+	picture = GFX_evt_black_hole
+	icon = "gfx/interface/icons/situation_log/situation_log_quest.dds"
+	counter = {
+		clouds_watched = {
+			max = 5
+		}
+	}
+}

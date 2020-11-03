@@ -1,0 +1,11 @@
+auth_ancient_machine_intelligence = {
+	has_heir = no
+	election_type = none
+	can_reform = no
+
+	valid_for_released_vassal = no
+
+	icon = "gfx/interface/icons/governments/authorities/auth_hive_mind.dds"
+
+	potential = { country_type = { value = ai_empire } }
+}

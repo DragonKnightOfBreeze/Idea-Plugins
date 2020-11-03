@@ -1,0 +1,6 @@
+federation_fleet_size_3 = {
+	members_modifier = {
+		description = federation_fleet_size_effect
+		federation_naval_cap_contribution_mult = 0.25
+	}
+}

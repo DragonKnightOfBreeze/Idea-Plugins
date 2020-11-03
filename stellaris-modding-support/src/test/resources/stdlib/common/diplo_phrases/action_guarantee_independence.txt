@@ -1,0 +1,115 @@
+action_guarantee_independence = {
+	select = {
+		01_GUARANTEE_SELECT = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					has_authority = auth_corporate
+				}
+			}
+		}
+	}
+
+	propose = {
+		01_GUARANTEE_PROPOSE = {
+			trigger = {
+				from = {
+					NOR = {
+						has_authority = auth_machine_intelligence
+						has_authority = auth_corporate
+					}
+				}
+			}
+		}
+	}
+
+	accept = {
+		01_GUARANTEE_ACCEPT = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					has_authority = auth_corporate
+				}
+			}
+		}
+	}
+
+	select = {
+		MECH_GUARANTEE_SELECT = {
+			trigger = {
+				has_authority = auth_machine_intelligence
+			}
+		}
+	}
+
+	propose = {
+		MECH_GUARANTEE_PROPOSE = {
+			trigger = {
+				from = {
+					has_authority = auth_machine_intelligence
+				}
+			}
+		}
+	}
+
+	accept = {
+		MECH_GUARANTEE_ACCEPT = {
+			trigger = {
+				has_authority = auth_machine_intelligence
+			}
+		}
+	}
+
+	# Ketlings
+	select = {
+		KET_GUARANTEE_SELECT = {
+			weight = { weight = 100000 }
+			trigger = {
+				is_same_empire = event_target:ratling_country
+			}
+		}
+	}
+	propose = {
+		KET_GUARANTEE_PROPOSE = {
+			weight = { weight = 100000 }
+			trigger = {
+				FROM = {
+					is_same_empire = event_target:ratling_country
+				}
+			}
+		}
+	}
+	accept = {
+		KET_GUARANTEE_ACCEPT = {
+			weight = { weight = 100000 }
+			trigger = {
+				is_same_empire = event_target:ratling_country
+			}
+		}
+	}
+
+	# Corporate
+	select = {
+		CORP_GUARANTEE_SELECT_01 = {
+			trigger = {
+				has_authority = auth_corporate
+			}
+		}
+	}
+	propose = {
+		CORP_GUARANTEE_PROPOSE_01 = {
+			trigger = {
+				from = {
+					has_authority = auth_corporate
+				}
+			}
+		}
+	}
+	accept = {
+		CORP_GUARANTEE_ACCEPT_01 = {
+			trigger = {
+				has_authority = auth_corporate
+			}
+		}
+	}
+}

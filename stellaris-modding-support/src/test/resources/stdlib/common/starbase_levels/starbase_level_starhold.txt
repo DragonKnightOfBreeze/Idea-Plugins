@@ -1,0 +1,7 @@
+starbase_level_starhold = {
+	ship_size = starbase_starhold
+	next_level = starbase_level_starfortress
+	level_weight = 2
+	ai_weight = { weight = 3 }
+	potential_home_base = yes
+}

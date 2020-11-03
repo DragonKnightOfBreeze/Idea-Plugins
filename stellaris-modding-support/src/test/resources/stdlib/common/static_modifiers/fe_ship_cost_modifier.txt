@@ -1,0 +1,4 @@
+fe_ship_cost_modifier = {
+	ships_upkeep_mult = -0.5
+	starbase_shipyard_build_cost_mult = -0.5
+}

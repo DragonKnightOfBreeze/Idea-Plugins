@@ -1,0 +1,4 @@
+technosphere_power = {
+	ship_weapon_damage = 1.5
+	ship_shield_mult = 5
+}

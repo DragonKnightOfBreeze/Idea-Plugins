@@ -1,0 +1,9 @@
+opinion_envoy_insult_laughed_at = {
+	opinion = {
+		base = 25
+	}
+
+	decay = {
+		base = 1
+	}
+}

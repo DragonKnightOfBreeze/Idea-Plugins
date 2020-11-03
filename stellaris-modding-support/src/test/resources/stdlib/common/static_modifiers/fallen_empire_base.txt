@@ -1,0 +1,7 @@
+fallen_empire_base = {
+	starbases_upkeep_mult = -0.5
+	ships_upkeep_mult = -0.5
+	country_naval_cap_add = 100
+	country_resource_max_add = 100000
+	country_occupation_armies_add = 3 #this brings the number up to 8
+}

@@ -1,0 +1,13 @@
+rare_crystals_expenditure_trade = {
+	resource = rare_crystals 
+	type = expenditure
+	category = trade
+	
+	potential = {
+		always = yes
+	}
+	
+	fraction = {
+		weight = 0.1
+	}	
+}

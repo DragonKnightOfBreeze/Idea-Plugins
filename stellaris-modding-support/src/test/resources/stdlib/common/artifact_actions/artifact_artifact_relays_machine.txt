@@ -1,0 +1,21 @@
+artifact_artifact_relays_machine = {
+	resources = {
+		category = artifact_actions
+		cost = {
+			minor_artifacts = @minor_artifact_decision_cost
+		}
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+
+	potential = { is_machine_empire = yes }
+	
+	allow = {
+		custom_tooltip = {
+			fail_text = "artifact_artifact_relays_machine_effect"
+			always = no
+		}
+	}
+}

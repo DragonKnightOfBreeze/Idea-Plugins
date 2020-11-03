@@ -1,0 +1,13 @@
+planet_is_hostile_or_crisis = {
+	exists = owner
+	owner = {
+		OR = {
+			is_at_war_with = from.owner
+			is_country_type = swarm
+			is_country_type = extradimensional
+			is_country_type = extradimensional_2
+			is_country_type = extradimensional_3
+			is_country_type = ai_empire
+		}
+	}
+}

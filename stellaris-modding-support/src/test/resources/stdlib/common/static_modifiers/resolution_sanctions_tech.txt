@@ -1,0 +1,4 @@
+resolution_sanctions_tech = {
+	all_technology_research_speed = -0.05
+	diplo_weight_technology_mult = -0.2
+}

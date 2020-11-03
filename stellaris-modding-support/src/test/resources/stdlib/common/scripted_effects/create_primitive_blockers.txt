@@ -1,0 +1,4 @@
+create_primitive_blockers = {
+	add_deposit = d_decrepit_dwellings
+	add_deposit = d_failing_infrastructure		
+}

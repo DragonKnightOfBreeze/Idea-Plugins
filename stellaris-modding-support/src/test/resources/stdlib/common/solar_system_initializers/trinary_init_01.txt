@@ -1,0 +1,49 @@
+trinary_init_01 = {
+    class = "rl_trinary_stars"
+    
+    usage = misc_system_init
+    usage_odds = 3
+
+    planet = {
+        count = 1
+        class = star
+        orbit_distance = 25
+        orbit_angle = 0
+        size = { min = 25 max = 30 }
+        has_ring = no
+    }
+
+    planet = {
+        count = 1
+        class = star
+        orbit_distance = { min = 0 max = 20 }
+        orbit_angle = 120
+        size = { min = 25 max = 30 }
+        has_ring = no
+    }
+
+    planet = {
+        count = 1
+        class = star
+        orbit_distance = { min = 0 max = 20 }
+        orbit_angle = 120
+        size = { min = 25 max = 30 }
+        has_ring = no
+    }
+
+    change_orbit = 45
+    
+    planet = {
+        count = { min = 2 max = 10 }
+        orbit_distance = 20
+        orbit_angle = { min = 90 max = 270 }
+        
+        change_orbit = @base_moon_distance
+        
+        moon = {
+            count = { min = 0 max = 1 }
+            orbit_angle = { min = 90 max = 270 }
+            orbit_distance = 5
+        }
+    }
+}

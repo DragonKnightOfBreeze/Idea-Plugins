@@ -1,0 +1,16 @@
+federation_name_parts_list = {
+	key = "hegemony_federation_names_2_2"
+	parts = {
+		"Order" = 1
+		"Hegemony" = 1
+		"Hierarchy" = 1
+		"Domain" = 1
+		"Dominion" = 1
+		"Sphere" = 1
+		"Authority" = 1
+		"Pact" = 1
+		"Bloc" = 1
+		"Coalition" = 1
+		"League" = 1
+	}
+}

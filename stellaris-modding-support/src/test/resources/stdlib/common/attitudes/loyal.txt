@@ -1,0 +1,8 @@
+loyal = {
+	type = loyal
+	behaviour = {
+		trade = yes
+		alliance = yes
+		coexist = yes		
+	}
+}

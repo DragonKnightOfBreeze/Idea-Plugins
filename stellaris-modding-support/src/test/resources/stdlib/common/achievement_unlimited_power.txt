@@ -1,0 +1,11 @@
+achievement_unlimited_power = {
+	id = 104
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		has_country_flag = unlimited_power_achievement
+	}
+}

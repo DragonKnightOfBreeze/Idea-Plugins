@@ -1,0 +1,65 @@
+yuht_4_cat = {
+	desc = "yuht_habitable_category_desc"
+	picture = "GFX_evt_ship_in_orbit"
+	level = @precursor_medium
+	
+	spawn_chance = {
+		modifier = {
+			add = 10
+			NOT = {
+				has_planet_flag = precursor_world
+			}
+			habitable_planet = yes
+			solar_system = {
+				has_star_flag = precursor_2
+			}
+			FROM = {
+				owner = {
+					is_ai = no
+					NOT = {
+						has_country_flag = yuht_4
+					}
+					has_country_flag = yuht_intro
+					has_event_chain = yuht_chain
+				}
+			}
+		}
+	}
+
+	on_spawn = {
+		set_planet_flag = precursor_world
+		FROM = {
+			owner = {
+				set_country_flag = yuht_4
+			}
+		}
+	}
+	
+	on_success = precursor.520
+	
+	#on_fail = {
+	#	1 = {
+	#		ship_event = anomaly_failure.34
+	#	}
+	#}
+	#on_critical_fail = {
+	#	1 = {
+	#		ship_event = anomaly_failure.1400
+	#	}
+	#	1 = {
+	#		ship_event = anomaly_failure.1401
+	#	}
+	#	1 = {
+	#		ship_event = anomaly_failure.1402
+	#	}
+	#	1 = {
+	#		ship_event = anomaly_failure.1403
+	#	}
+	#	1 = {
+	#		ship_event = anomaly_failure.1404
+	#	}
+	#	1 = {
+	#		ship_event = anomaly_failure.1405
+	#	}
+	#}
+}

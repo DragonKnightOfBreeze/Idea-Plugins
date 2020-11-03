@@ -1,0 +1,24 @@
+add_non_aligned_league_opinions = {
+	add_opinion_modifier = { who = prev modifier = opinion_non_aligned_league }
+	prev = { add_opinion_modifier = { who = prev modifier = opinion_non_aligned_league } }
+	every_country = {
+		limit = {
+			is_in_federation_with = prevprev
+			NOT = {
+				has_opinion_modifier = {
+					who = prev
+					modifier = opinion_non_aligned_league
+				}
+			}
+		}
+		add_opinion_modifier = { who = prev modifier = opinion_non_aligned_league }
+		prev = { add_opinion_modifier = { who = prev modifier = opinion_non_aligned_league } }
+	}
+	every_country = {
+		limit = {
+			is_country_type = awakened_fallen_empire
+		}
+		add_opinion_modifier = { who = prev modifier = opinion_non_aligned_league_fe }
+		prev = { add_opinion_modifier = { who = prev modifier = opinion_non_aligned_league_fe } }
+	}
+}

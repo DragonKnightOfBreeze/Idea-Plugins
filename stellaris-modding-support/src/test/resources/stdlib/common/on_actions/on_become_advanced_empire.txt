@@ -1,0 +1,5 @@
+on_become_advanced_empire = {
+	events = {
+		game_start.6
+	}
+}

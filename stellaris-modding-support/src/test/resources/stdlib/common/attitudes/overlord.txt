@@ -1,0 +1,6 @@
+overlord = {
+	type = overlord
+	behaviour = {
+		trade = yes
+	}
+}

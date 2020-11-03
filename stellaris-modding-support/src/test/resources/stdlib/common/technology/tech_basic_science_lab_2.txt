@@ -1,0 +1,38 @@
+tech_basic_science_lab_2 = {
+	area = physics
+	category = { computing }
+	tier = 1
+	cost = @tier1cost3
+	prerequisites = { "tech_basic_science_lab_1" }
+	weight = @tier1weight3
+
+	# unlocks upgraded labs
+
+	weight_modifier = {
+		modifier = {
+			factor = 0
+			NOR = {
+				has_technology = tech_mine_exotic_gases
+				has_technology = tech_exotic_gases
+				has_country_flag = has_market_access
+			}
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_computing"
+			}
+		}
+	}
+
+	ai_weight = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_computing"
+			}
+		}
+	}
+}

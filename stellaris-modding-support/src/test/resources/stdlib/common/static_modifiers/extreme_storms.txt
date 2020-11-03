@@ -1,0 +1,3 @@
+extreme_storms = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_wild_storms.dds"
+}

@@ -1,0 +1,80 @@
+succession_type_strongest = {
+	potential = { NOT = { has_federation_type = hegemony_federation } }
+	allow = { 
+		custom_tooltip = {
+			NOT = {
+				AND = {
+					NOT = { has_federation_law = succession_type_strongest }
+					has_modifier = federation_law_category_succession_type_cooldown
+					has_any_federation_law_in_category = law_category_succession_type
+				}
+			}
+		}
+		custom_tooltip = {
+			fail_text = cannot_change_succession_type_during_war
+			NAND = {
+				NOT = { has_federation_law = succession_type_strongest }
+				any_member = { is_at_war = yes }
+				has_any_federation_law_in_category = law_category_succession_type
+			}
+		}
+	}
+	required_centralization = {
+		base = 4
+	}
+	cohesion_growth = -1.00
+	on_enact = {
+		if = {
+			limit = { has_federation_flag = enable_federation_cooldowns }
+			add_modifier = {
+				modifier = federation_law_category_succession_type_cooldown
+				days = @cooldown
+			}
+		}
+		if = {
+			limit = { has_federation_type = default_federation }
+			set_federation_law = succession_power_diplomatic_weight
+		}
+		if = {
+			limit = { has_federation_type = trade_federation }
+			set_federation_law = succession_power_economy
+		}
+		if = {
+			limit = { has_federation_type = research_federation }
+			set_federation_law = succession_power_tech
+		}
+		if = {
+			limit = { has_federation_type = military_federation }
+			set_federation_law = succession_power_fleet
+		}
+		add_cohesion = -5
+	}
+
+	ai_weight = {
+		base = 0
+		
+		modifier = {
+			desc = federation_acceptance_generally_positive
+			add = 1
+		}
+		
+		#Behaviour-specific
+		modifier = {
+			desc = federation_acceptance_subject
+			add = 10
+			is_subject = yes
+			is_federation_leader = no
+		}
+		modifier = {
+			desc = federation_acceptance_ruthless_capitalists
+			add = 50
+			has_ai_personality = ruthless_capitalists
+		}
+		modifier = {
+			desc = federation_acceptance_president
+			add = 100
+			is_federation_leader = yes
+			federation = { has_federation_law = succession_type_strongest }
+		}
+	}
+}

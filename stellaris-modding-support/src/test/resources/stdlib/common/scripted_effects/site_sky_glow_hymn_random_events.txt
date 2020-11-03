@@ -1,0 +1,12 @@
+site_sky_glow_hymn_random_events = {
+	random_list = {
+		10 = { fleet_event = { id = ancrel.8040} }
+		10 = { fleet_event = { id = ancrel.8045} }
+		10 = { fleet_event = { id = ancrel.8080} }
+		10 = { fleet_event = { id = ancrel.8090} }
+		10 = { fleet_event = { id = ancrel.8091} }
+		10 = { fleet_event = { id = ancrel.8092} }
+		10 = { fleet_event = { id = ancrel.8093} }
+		10 = { fleet_event = { id = ancrel.8110} }
+	}
+}

@@ -1,0 +1,160 @@
+building_galactic_memorial_1 = {
+	base_buildtime = @b1_time
+	category = unity
+
+	potential = {
+		exists = owner
+		building_basic_income_check = yes
+		NOT = { has_modifier = slave_colony }
+		owner = {
+			OR = {
+				has_valid_civic = civic_memorialist
+				has_valid_civic = civic_hive_memorialist
+				has_valid_civic = civic_machine_memorialist
+			}
+			NOT = {
+				OR = {
+					is_megacorp = yes
+					has_valid_civic = civic_fanatic_purifiers
+					has_valid_civic = civic_hive_devouring_swarm
+					has_valid_civic = civic_machine_assimilator
+					has_valid_civic = civic_machine_terminator
+				}
+			}
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			has_modifier = slave_colony
+			owner = {
+				OR = {
+					is_megacorp = yes
+					has_valid_civic = civic_fanatic_purifiers
+					has_valid_civic = civic_hive_devouring_swarm
+					has_valid_civic = civic_machine_assimilator
+					has_valid_civic = civic_machine_terminator
+					NOT = {
+						OR = {
+							has_valid_civic = civic_memorialist
+							has_valid_civic = civic_hive_memorialist
+							has_valid_civic = civic_machine_memorialist
+						}
+					}
+				}
+			}
+		}
+	}
+
+	convert_to = {
+		building_temple
+		building_sacrificial_temple_1
+		building_hive_node
+		building_simulation_1
+		building_corporate_monument
+		building_autochthon_monument
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b1_minerals
+		}
+		upkeep = {
+			minerals = @b1_upkeep
+		}
+	}
+
+	planet_modifier = {
+		planet_stability_add = 5
+	}
+
+	#Jobs
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = no }
+		}
+		job_death_chronicler_add = @b1_jobs
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		job_chronicle_drone_add = @b1_jobs
+	}
+
+	#Tomb/Relic worlds
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = no }
+			OR = {
+				is_planet_class = pc_nuked
+				is_planet_class = pc_relic
+			}
+		}
+		pop_government_ethic_attraction = 0.20
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+			OR = {
+				is_planet_class = pc_nuked
+				is_planet_class = pc_relic
+			}
+		}
+		planet_crime_no_happiness_add = -20
+	}
+
+	upgrades = {
+		building_galactic_memorial_2
+	}
+
+	show_tech_unlock_if = { }
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = no }
+		}
+		text = "job_death_chronicler_effect_desc"
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = "job_chronicle_drone_effect_desc"
+	}
+
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = 5
+			NOR = {
+				has_building = building_autochthon_monument
+				has_building = building_heritage_site
+				has_building = building_hypercomms_forum
+				has_building = building_galactic_memorial_1
+			}
+			owner = {
+				OR = {
+					is_spiritualist = yes
+					is_pacifist = yes
+					has_valid_civic = civic_death_cult
+					has_valid_civic = civic_warrior_culture
+					has_valid_civic = civic_hive_empath
+					has_valid_civic = civic_machine_servitor
+				}
+				has_monthly_income = {
+					resource = consumer_goods
+					value > 10
+				}
+			}
+		}
+	}
+}

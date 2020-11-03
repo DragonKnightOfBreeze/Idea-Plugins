@@ -1,0 +1,13 @@
+zro_expenditure_ships = {
+	resource = sr_zro
+	type = expenditure
+	category = ships
+	
+	potential = {
+		always = yes
+	}
+	
+	fraction = {
+		weight = 0.1
+	}	
+}

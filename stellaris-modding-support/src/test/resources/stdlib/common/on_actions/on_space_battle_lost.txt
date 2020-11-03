@@ -1,0 +1,4 @@
+on_space_battle_lost = {
+	events = {
+	}
+}

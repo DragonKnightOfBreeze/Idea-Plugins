@@ -1,0 +1,52 @@
+spy_orb_restored = {
+	entity = "spyorb_phase_04_entity"
+	construction_entity = "spyorb_phase_04_construction_entity"
+	portrait = "GFX_megastructure_spy_orb_background"
+	place_entity_on_planet_plane = no
+	entity_offset = { x = @entity_x y = @entity_y }
+	build_time = 4800
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 15000
+		}
+
+		upkeep = {
+			energy = 100
+		}
+	}
+	
+	upgrade_from = {
+		spy_orb_ruined
+	}
+
+	possible = {
+		from = { 
+			has_technology = tech_mega_engineering
+		}
+	}
+
+	on_build_start = {
+		fromfrom = {
+			set_graphical_culture = root.from
+		}
+	}
+
+	on_build_complete = {
+		every_system_ambient_object = {
+			limit = {
+				OR = {
+					is_ambient_object_type = large_debris_object
+					is_ambient_object_type = medium_debris_01_object
+					is_ambient_object_type = medium_debris_02_object
+					is_ambient_object_type = small_debris_object
+				}
+			}
+			destroy_ambient_object = this
+		}
+		from = {
+			set_country_flag = has_built_or_repaired_megastructure
+			country_event = { id = utopia.2015 }
+		}
+	}
+}

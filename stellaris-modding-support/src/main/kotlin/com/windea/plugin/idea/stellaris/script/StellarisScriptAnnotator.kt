@@ -15,6 +15,7 @@ import com.intellij.util.ui.*
 import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.StellarisBundle.message
 import com.windea.plugin.idea.stellaris.localization.psi.*
+import com.windea.plugin.idea.stellaris.script.highlighter.*
 import com.windea.plugin.idea.stellaris.script.psi.*
 import java.awt.*
 import java.awt.event.*
@@ -101,15 +102,15 @@ class StellarisScriptAnnotator : Annotator ,DumbAware{
 					reference.resolveAsLocalizationProperty -> {
 						val properties = resolves.mapArray {it.element as StellarisLocalizationProperty}
 						holder.newSilentAnnotation(INFORMATION)
+							.textAttributes(StellarisScriptAttributesKeys.LOCALIZATION_PROPERTY_REFERENCE_KEY)
 							.gutterIconRenderer(LocalizationPropertyGutterIconRenderer(name,*properties))
-							//.textAttributes(StellarisLocalizationAttributesKeys.PROPERTY_KEY_KEY)
 							.create()
 					}
 					else -> {
 						val properties = resolves.mapArray {it.element as StellarisScriptProperty}
 						holder.newSilentAnnotation(INFORMATION)
+							.textAttributes(StellarisScriptAttributesKeys.SCRIPT_PROPERTY_REFERENCE_KEY)
 							.gutterIconRenderer(ScriptPropertyGutterIconRenderer(name,*properties))
-							//.textAttributes(StellarisScriptAttributesKeys.PROPERTY_KEY_KEY)
 							.create()
 					}
 				}

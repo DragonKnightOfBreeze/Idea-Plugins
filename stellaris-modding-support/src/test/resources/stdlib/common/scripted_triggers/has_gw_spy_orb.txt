@@ -1,0 +1,3 @@
+has_gw_spy_orb = {
+	has_technology = tech_sentry_array
+}

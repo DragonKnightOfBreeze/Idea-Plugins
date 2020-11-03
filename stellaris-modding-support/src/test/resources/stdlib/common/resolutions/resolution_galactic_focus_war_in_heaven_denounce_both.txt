@@ -1,0 +1,86 @@
+resolution_galactic_focus_war_in_heaven_denounce_both = {
+	icon = "GFX_resolution_emergency_measure"
+
+	resources = {
+		category = resolutions
+		cost = {
+			influence = @resolution_cost_t1
+		}
+	}
+	target = no
+
+	triggered_modifier = {
+		potential = {
+			has_global_flag = war_in_heaven_ongoing
+			OR = {
+				NOT = { exists = overlord }
+				overlord = {
+					NOR = {
+						is_same_value = event_target:FirstSleeper
+						is_same_value = event_target:SecondSleeper
+					}
+				}
+			}
+		}
+		modifier = {
+			damage_vs_country_type_awakened_fallen_empire_mult = 0.25
+		}
+	}
+
+	effect = {
+		custom_tooltip = resolution_galactic_focus_war_in_heaven_denounce_both_success
+
+		hidden_effect = {
+			set_global_flag = galactic_focus_war_in_heaven
+			set_global_flag = galactic_community_resolution_passed
+			set_timed_country_flag = { flag = galactic_community_resolution_passed_general days = @resolution_flag_timer }
+			add_modifier = {
+				modifier = resolution_passed_diplomatic_weight
+				days = 2200
+			}
+		}
+	}
+
+	fail_effects = {
+		hidden_effect = {
+			set_timed_country_flag = { flag = galactic_community_resolution_failed_general days = @resolution_flag_timer }
+			add_modifier = {
+				modifier = resolution_failed_diplomatic_weight
+				days = 2200
+			}
+		}
+	}
+
+	potential = {
+		has_global_flag = war_in_heaven_ongoing
+		NOT = { has_global_flag = galactic_focus_war_in_heaven }
+		exists = event_target:FirstSleeper
+		exists = event_target:SecondSleeper
+	}
+
+	active = { # Resolution only in effect while this trigger is met
+		has_global_flag = war_in_heaven_ongoing
+	}
+
+	breach = {
+		has_global_flag = war_in_heaven_ongoing
+		exists = overlord
+		OR = {
+			has_overlord = event_target:FirstSleeper
+			has_overlord = event_target:SecondSleeper
+		}
+	}
+
+	ai_weight = {
+		base = @resolution_weight_normal
+
+		modifier = {
+			factor = 0
+			exists = overlord
+			OR = {
+				has_overlord = event_target:FirstSleeper
+				has_overlord = event_target:SecondSleeper
+			}
+		}
+	}
+}

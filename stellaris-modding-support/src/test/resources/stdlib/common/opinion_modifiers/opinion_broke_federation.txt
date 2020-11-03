@@ -1,0 +1,11 @@
+opinion_broke_federation = {
+	opinion = {
+		base = -200
+	}
+
+	accumulative = yes
+
+	decay = {
+		base = 2
+	}
+}

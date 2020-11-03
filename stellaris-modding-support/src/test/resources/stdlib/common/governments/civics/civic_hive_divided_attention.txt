@@ -1,0 +1,7 @@
+civic_hive_divided_attention = {
+	potential = { authority = { value = auth_hive_mind } }
+	random_weight = { base = 5 }
+	modifier = {
+		country_admin_cap_mult = 0.10
+	}
+}

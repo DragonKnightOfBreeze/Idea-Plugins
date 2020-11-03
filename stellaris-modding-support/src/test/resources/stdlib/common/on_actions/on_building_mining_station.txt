@@ -1,0 +1,10 @@
+on_building_mining_station = {
+	events = {
+		mandate.110
+		tutorial.10
+		tutorial.1000
+		tutorial.56
+		pirate.3
+		leviathans.3200
+	}
+}

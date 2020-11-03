@@ -1,0 +1,50 @@
+add_leader_traits_after_modification = {
+	if = {
+		limit = {
+			species = {
+				has_trait = trait_erudite
+			}
+		}
+		if = {
+			limit = {
+				leader_class = admiral
+				NOT = { has_trait = leader_trait_admiral_erudite }
+			}
+			add_trait = leader_trait_admiral_erudite
+			add_ruler_trait = leader_trait_ruler_erudite
+		}
+		if = {
+			limit = {
+				leader_class = general
+				NOT = { has_trait = leader_trait_general_erudite }
+			}
+			add_trait = leader_trait_general_erudite
+			add_ruler_trait = leader_trait_ruler_erudite
+		}
+		if = {
+			limit = {
+				leader_class = governor
+				NOT = { has_trait = leader_trait_governor_erudite }
+			}
+			add_trait = leader_trait_governor_erudite
+			add_ruler_trait = leader_trait_ruler_erudite
+		}
+		if = {
+			limit = {
+				leader_class = scientist
+				NOT = { has_trait = leader_trait_scientist_erudite }
+			}
+			add_trait = leader_trait_scientist_erudite
+			add_ruler_trait = leader_trait_ruler_erudite
+		}
+		if = {
+			limit = {
+				leader_class = ruler
+				NOT = { has_trait = leader_trait_ruler_erudite }
+			}
+			add_trait = leader_trait_ruler_erudite
+			add_ruler_trait = leader_trait_ruler_erudite
+
+		}
+	}
+}

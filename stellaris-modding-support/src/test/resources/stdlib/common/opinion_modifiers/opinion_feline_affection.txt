@@ -1,0 +1,9 @@
+opinion_feline_affection = {
+	opinion = {
+		base = 25
+	}
+
+	decay = {
+		base = 1
+	}
+}

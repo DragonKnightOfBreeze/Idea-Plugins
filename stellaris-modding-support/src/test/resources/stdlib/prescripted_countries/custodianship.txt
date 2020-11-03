@@ -1,0 +1,78 @@
+custodianship = {
+	name = "custodianship"
+	adjective = "PRESCRIPTED_adjective_custodianship"
+	spawn_enabled = no # yes / no / always
+	ignore_portrait_duplication = yes
+	
+	playable = has_synthethic_dawn # scripted_triggers
+	
+	ship_prefix = "PRESCRIPTED_ship_prefix_custodianship"
+	
+	species = {
+		class = "MACHINE"
+		portrait = "sd_hum_robot"
+		name = "PRESCRIPTED_species_name_custodianship"
+		plural = "PRESCRIPTED_species_plural_custodianship"
+		adjective = "PRESCRIPTED_species_adjective_custodianship"
+		name_list = "MACHINE3"
+		trait = "trait_machine_unit"
+		trait = "trait_robot_emotion_emulators"
+		trait = "trait_robot_double_jointed"
+		trait = "trait_robot_high_maintenance"		
+	}
+	secondary_species={
+		class = "HUM"
+		portrait = "human"
+		name = "PRESCRIPTED_species_name_humans1"
+		plural = "PRESCRIPTED_species_plural_humans1"
+		adjective = "PRESCRIPTED_species_adjective_humans1"
+		name_list = "HUMAN1"
+		trait = "trait_adaptive"
+		trait = "trait_nomadic"
+		trait = "trait_wasteful"
+	}
+	
+	room = "machine_room"
+	
+	ethic = ethic_gestalt_consciousness
+	authority = "auth_machine_intelligence"
+	government = gov_machine_servitor
+	civics = { "civic_machine_servitor" "civic_machine_delegated_functions" }
+	origin = "origin_default"
+	
+	planet_name = "NAME_Earth"
+	planet_class = "pc_continental"
+	initializer = "sol_system_initializer"
+	system_name = "NAME_Sol"
+	
+	graphical_culture = "humanoid_01"
+	city_graphical_culture = "humanoid_01"
+	
+	empire_flag = {
+		icon= {
+			category = "human"
+			file = "flag_human_8.dds"
+		}
+		background= {
+			category = "backgrounds"
+			file = "00_solid.dds"
+		}
+		colors={
+			"blue"
+			"black"
+			"null"
+			"null"
+		}
+	}
+	
+	ruler = {
+		name = "PRESCRIPTED_ruler_name_custodianship"
+		gender = female
+		portrait = "sd_hum_robot"
+		texture = 1
+		hair = 0
+		clothes = 0
+		ruler_title = "PRESCRIPTED_ruler_title_custodianship"
+		leader_class = ruler
+	}
+}

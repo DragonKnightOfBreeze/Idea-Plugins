@@ -1,0 +1,3 @@
+ring_world_halted = {
+	icon = "gfx/interface/icons/modifiers/mod_planet_clear_blocker_time_mult.dds"
+}

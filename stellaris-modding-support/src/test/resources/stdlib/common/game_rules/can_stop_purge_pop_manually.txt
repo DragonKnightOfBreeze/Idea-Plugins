@@ -1,0 +1,6 @@
+can_stop_purge_pop_manually = {
+	custom_tooltip = {
+		fail_text = "ENTIRE_SPECIES_BEING_PURGED"
+		NOT = { has_citizenship_type = { type = citizenship_purge } }
+	}
+}

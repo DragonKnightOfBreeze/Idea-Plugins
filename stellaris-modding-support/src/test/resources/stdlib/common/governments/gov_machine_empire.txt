@@ -1,0 +1,13 @@
+gov_machine_empire = {
+	ruler_title = RT_CPU
+	
+	should_force_rename = yes
+
+	possible = {
+		has_authority = auth_machine_intelligence
+	}
+
+	weight = {
+		base = 5
+	}
+}

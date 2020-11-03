@@ -1,0 +1,3 @@
+atmospheric_ecosystem = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_atmospheric_hallucinogen.dds"
+}

@@ -1,0 +1,19 @@
+cb_hegemon = {
+	show_in_diplomacy = yes
+	show_notification = yes
+	potential = {
+		has_federation = yes
+		is_federation_leader = yes
+		federation = {
+			has_federation_type = hegemony_federation
+			has_federation_perk = president_hegemony_cb_1
+		}
+	}
+	is_valid = {
+		from = {
+			is_country_type = default
+			NOT = { is_in_federation_with = from }
+		}
+		has_total_war_cb = no
+	}
+}

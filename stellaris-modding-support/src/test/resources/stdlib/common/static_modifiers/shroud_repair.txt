@@ -1,0 +1,4 @@
+shroud_repair = {
+	ship_hull_regen_add_perc = 0.5
+	ship_armor_regen_add_perc = 0.5
+}

@@ -1,0 +1,7 @@
+action_break_research_agreement = {
+	icon = "GFX_diplomacy_status_research_agreement"
+	auto_accepted = yes
+	should_notify_all_communications = yes
+	should_show_auto_accept_message_recipient = yes
+	action_type = negative
+}

@@ -1,0 +1,30 @@
+d_cave_shroom_veins = {
+	is_for_colonizeable = yes
+	category = deposit_cat_rare
+
+	icon = d_fungal_caves
+
+	# For ordinary Empires
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = no }
+		}
+		job_cave_cleaner_add = 3
+		job_cave_cleaner_per_pop = 0.05 # 1 per 20
+	}
+
+	# For Gestalt Empires
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		job_cave_cleaner_gestalt_add = 3
+		job_cave_cleaner_gestalt_per_pop = 0.05 # 1 per 20
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}

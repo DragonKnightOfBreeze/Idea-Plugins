@@ -1,0 +1,6 @@
+superflare_struck = {
+	pop_environment_tolerance = -0.10
+	planet_jobs_energy_produces_mult = -0.15
+	icon = "gfx/interface/icons/planet_modifiers/pm_irradiated.dds"
+	icon_frame = 3
+}

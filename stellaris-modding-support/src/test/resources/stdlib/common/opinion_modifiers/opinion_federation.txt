@@ -1,0 +1,5 @@
+opinion_federation = {
+	opinion = {
+		base = 50
+	}
+}

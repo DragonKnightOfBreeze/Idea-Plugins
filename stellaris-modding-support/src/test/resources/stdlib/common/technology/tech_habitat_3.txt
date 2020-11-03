@@ -1,0 +1,56 @@
+tech_habitat_3 = {
+	cost = @tier5cost2
+	area = engineering
+	category = { voidcraft }
+	tier = 4
+	prerequisites = { "tech_habitat_2" "tech_starbase_5" }
+	weight = @tier4weight3
+	is_rare = yes
+
+	potential = {
+		OR = {
+			has_origin = origin_void_dwellers
+			host_has_dlc = "Utopia"
+		}
+	}
+
+	prereqfor_desc = {
+		ship = {
+			title = "allow_habitat_2_upgrade"
+			desc = "tech_habitat_3_effect"
+		}
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 0
+			NOT = {
+				any_owned_planet = {
+					is_planet_class = pc_habitat
+				}
+			}
+		}
+		modifier = {
+			factor = 10
+			has_origin = origin_void_dwellers
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_voidcraft"
+			}
+		}
+	}
+
+	ai_weight = {
+		factor = 1
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_voidcraft"
+			}
+		}
+	}
+}

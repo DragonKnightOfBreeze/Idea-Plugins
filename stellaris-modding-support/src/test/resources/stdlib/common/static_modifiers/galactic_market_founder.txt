@@ -1,0 +1,3 @@
+galactic_market_founder = {
+	country_trade_fee = -0.1
+}

@@ -1,0 +1,3 @@
+are_rebels_hostile = {
+	is_country_type = rebel	#Rebels change country type after taking their initial planet (action.30)
+}

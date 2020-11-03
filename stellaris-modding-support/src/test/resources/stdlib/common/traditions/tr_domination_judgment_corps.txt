@@ -1,0 +1,62 @@
+tr_domination_judgment_corps = {
+
+	# effect implemented in jobs file
+
+	tradition_swap = {
+		name = tr_domination_trust_officers
+		inherit_effects = yes
+		inherit_icon = yes
+		inherit_name = no
+		trigger = {
+			is_regular_empire = yes
+			OR = {
+				is_egalitarian = yes
+				AND = {
+					is_authoritarian = no
+					is_xenophobe = no
+				}
+			}
+		}
+		weight = {
+			factor = 1
+		}
+	}
+
+	# effect implemented in jobs file
+
+	tradition_swap = {
+		name = tr_domination_deviancy_protocols
+		inherit_effects = no
+		inherit_icon = no
+		inherit_name = no
+		trigger = {
+			is_machine_empire = yes
+		}
+		modifier = {
+			planet_crime_no_happiness_add = -10
+		}
+		weight = {
+			factor = 1
+		}
+	}
+
+	tradition_swap = {
+		name = tr_domination_divergence_supression
+		inherit_effects = no
+		inherit_icon = no
+		inherit_name = no
+		trigger = {
+			is_hive_empire = yes
+		}
+		modifier = {
+			planet_crime_no_happiness_add = -10
+		}
+		weight = {
+			factor = 1
+		}
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}

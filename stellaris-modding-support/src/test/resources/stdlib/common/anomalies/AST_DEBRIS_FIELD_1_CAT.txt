@@ -1,0 +1,100 @@
+AST_DEBRIS_FIELD_1_CAT = {
+	desc = "AST_DEBRIS_FIELD_1_DESC"
+	picture = "GFX_evt_ruined_system"
+	level = 3
+	
+	spawn_chance = {
+		modifier = {
+			add = 3
+			is_asteroid = yes
+			OR = {
+				any_system = {
+					OR = {
+						has_star_flag = com_sol
+						has_star_flag = nuked_sol
+					}
+				}
+				any_country = {
+					OR = {
+						has_country_flag = human_1
+						has_country_flag = humans_early_space_age
+					}
+				}
+			}
+			FROM = {
+				owner = {
+					NOR = {
+						has_country_flag = found_voyager
+						has_country_flag = found_pioneer
+					}
+				}
+			}
+		}
+	}
+	
+	on_success = {
+		0 = {
+			modifier = {
+				add = 1
+				any_system = {
+					OR = {
+						has_star_flag = com_sol
+						has_star_flag = nuked_sol
+					}
+				}
+				any_country = {
+					is_country_type = primitive
+					has_country_flag = humans_early_space_age
+				}
+				owner = {
+					NOR = {
+						species_portrait = human
+						has_country_flag = human_1
+						has_country_flag = human_2
+						has_country_flag = found_pioneer
+						has_country_flag = found_voyager
+					}
+				}
+			}
+			anomaly_event = anomaly.95
+		}
+		0 = {
+			modifier = {
+				add = 1
+				owner = {
+					OR = {
+						has_country_flag = human_1
+						has_country_flag = human_2
+						species_portrait = human
+					}
+					NOT = {
+						has_country_flag = found_pioneer
+					}
+				}
+			}
+			anomaly_event = anomaly.100
+		}
+		0 = {
+			modifier = {
+				add = 1
+				any_system = {
+					OR = {
+						has_star_flag = com_sol
+						has_star_flag = nuked_sol
+					}
+				}
+				owner = {
+					NOR = {
+						species_portrait = human
+						has_country_flag = human_1
+						has_country_flag = human_2
+						has_country_flag = found_pioneer
+						has_country_flag = found_voyager
+					}
+				}
+			}
+			anomaly_event = anomaly.105
+		}
+		1 = anomaly.3040
+	}
+}

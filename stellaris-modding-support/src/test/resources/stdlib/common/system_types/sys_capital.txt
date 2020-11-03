@@ -1,0 +1,13 @@
+sys_capital = {
+	potential = {
+		exists = owner
+		any_system_planet = {
+			is_owned_by = root.owner
+			is_capital = yes
+		}
+	}
+
+	weight_modifier = {
+		base = 1000
+	}
+}

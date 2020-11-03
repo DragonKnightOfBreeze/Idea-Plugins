@@ -1,0 +1,234 @@
+fallen_3 = {
+	usage = fallen_empire_init
+	class = "rl_standard_stars"
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 50
+	}
+
+	planet = {
+		count = 1
+		class = star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = { min = 20 max = 30 }
+		has_ring = no
+	}
+
+	change_orbit = 50
+
+	planet = {
+		count = { min = 1 max = 3 }
+		class = pc_asteroid
+		orbit_distance = 0
+		orbit_angle = { min = 40 max = 100 }
+	}
+
+	planet = {
+		name = "NAME_Sky_Father"
+		class = "pc_gas_giant"
+		orbit_distance = 60
+		orbit_angle = 200
+		size = 30
+		has_ring = no
+
+		change_orbit = @base_moon_distance
+
+		moon = {
+			name = "NAME_Cradle"
+			class = "pc_gaia"
+			size = 20
+			orbit_distance = 5
+			orbit_angle = 20
+			deposit_blockers = none
+			modifiers = none
+
+			init_effect = {
+
+				create_cluster = {
+					id = fe3_cluster
+					radius = 120
+					center = this.solar_system
+				}
+
+				set_planet_flag = fallen_empire_world
+				prevent_anomaly = yes
+				set_owner = root
+				set_controller = root
+				set_capital = yes
+
+				add_building = building_ancient_palace
+				add_building = building_fe_dome
+				add_building = building_fe_dome
+				add_building = building_fe_stronghold
+				add_building = building_fe_stronghold
+				add_building = building_affluence_center
+				add_building = building_affluence_center
+				add_building = building_nourishment_center
+				add_building = building_class_4_singularity
+				add_building = building_class_4_singularity
+				add_building = building_class_4_singularity
+				add_building = building_dimensional_fabricator
+				add_building = building_dimensional_fabricator
+				add_building = building_nano_forge
+				add_building = building_nano_forge
+				add_building = building_nano_forge
+				while = {
+					count = 20
+					add_district = district_city
+				}
+				while = {
+					count = 52
+					create_pop = {
+						species = owner_main_species
+					}
+				}
+				root = {
+					set_policy = {
+						policy = artificial_intelligence_policy
+						option = ai_outlawed
+						cooldown = no
+					}
+					set_policy = {
+						policy = robot_pop_policy
+						option = robot_pops_allowed
+						cooldown = no
+					}
+				}
+				root = { create_fe_servant_robots = yes }
+				last_created_species = { save_event_target_as = fe_servants }
+				while = {
+					count = 52
+					create_pop = {
+						species = event_target:fe_servants
+					}
+				}
+				create_fallen_empire_starting_navy = yes
+				
+				while = {
+					count = 20
+					create_army = {
+						name = random
+						owner = root
+						species = root
+						type = "gene_warrior_army"
+					}
+				}
+			}
+		}
+
+		moon = {
+			name = "NAME_Sister"
+			class = "pc_broken"
+			size = 13
+			orbit_distance = 5
+			orbit_angle = 50
+
+			init_effect = { prevent_anomaly = yes }
+		}
+
+		moon = {
+			name = "NAME_Brother"
+			class = "pc_gaia"
+			size = 10
+			orbit_distance = 8
+			orbit_angle = 10
+			deposit_blockers = none
+			modifiers = none
+
+			init_effect = {
+				set_planet_flag = fallen_empire_world
+				prevent_anomaly = yes
+				set_owner = root
+				set_controller = root			
+			
+				add_building = building_ancient_palace
+				add_building = building_fe_stronghold
+				add_building = building_fe_dome
+				add_building = building_dimensional_fabricator
+				add_building = building_dimensional_fabricator
+				add_building = building_nano_forge
+				add_building = building_nano_forge
+				add_building = building_nano_forge
+				while = {
+					count = 10
+					add_district = district_city
+				}
+				while = {
+					count = 18
+					create_pop = {
+						species = owner_main_species
+					}
+				}
+				while = {
+					count = 18
+					create_pop = {
+						species = event_target:fe_servants
+					}
+				}
+			}
+		}
+
+		moon = {
+			name = "NAME_Mother"
+			class = "pc_gaia"
+			size = 12
+			orbit_distance = 5
+			orbit_angle = 190
+			deposit_blockers = none
+			modifiers = none
+
+			init_effect = {
+				set_planet_flag = fallen_empire_world
+				prevent_anomaly = yes
+				set_owner = root
+				set_controller = root			
+			
+				add_building = building_ancient_palace
+				add_building = building_fe_stronghold
+				add_building = building_fe_dome
+				add_building = building_fe_dome
+				add_building = building_class_4_singularity
+				add_building = building_class_4_singularity
+				add_building = building_affluence_center
+				add_building = building_affluence_center
+				add_building = building_affluence_center
+				add_building = building_nourishment_center
+				add_building = building_nourishment_center
+				while = {
+					count = 12
+					add_district = district_city
+				}
+				while = {
+					count = 27
+					create_pop = {
+						species = owner_main_species
+					}
+				}
+				while = {
+					count = 27
+					create_pop = {
+						species = event_target:fe_servants
+					}
+				}
+			}
+		}
+	}
+
+	neighbor_system = {
+		distance = { min = 0 max = 50 }
+		initializer = "fallen_xeno_zoo"
+	}
+	neighbor_system = {
+		distance = { min = 0 max = 50 }
+		initializer = "fallen_orbitals_1"
+	}
+	neighbor_system = {
+		distance = { min = 0 max = 50 }
+		initializer = "fallen_orbitals_2"
+	}
+
+	init_effect = {
+		create_fe_home_citadel = yes
+	}
+}

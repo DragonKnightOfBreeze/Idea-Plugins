@@ -1,0 +1,5 @@
+extra_envoy_1 = {
+	leader_modifier = {
+		envoys_add = 1
+	}
+}

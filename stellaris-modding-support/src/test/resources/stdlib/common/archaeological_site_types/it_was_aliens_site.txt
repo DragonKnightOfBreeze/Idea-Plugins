@@ -1,0 +1,45 @@
+it_was_aliens_site = {
+	desc = it_was_aliens_site_desc
+	picture = GFX_evt_dead_city
+	stages = 3
+	max_instances = 1
+	allow = {
+		is_ship_class = shipclass_science_ship
+		exists = leader
+	}
+	visible = {
+		default_site_visible_trigger = yes
+	}
+	on_visible = {
+		country_event = { id = story.5 days = 30 }
+	}
+	
+	weight = {
+    base = 60
+		modifier = {
+			factor = 0
+			habitable_planet = no
+		}
+	}
+	stage = {
+		difficulty = 4
+		icon = GFX_archaeology_runes_C4
+		event = ancrel.104
+	}
+	stage = {
+		difficulty = 4
+		icon = GFX_archaeology_runes_C5
+		event = ancrel.105
+	}
+	stage = {
+		difficulty = 6
+		icon = GFX_archaeology_runes_C6
+		event = ancrel.106
+	}
+
+	on_roll_failed = {
+		from = {
+			standard_archaeological_site_on_roll_failed = { RANDOM_EVENTS = all_random_events }
+		}
+	}
+}

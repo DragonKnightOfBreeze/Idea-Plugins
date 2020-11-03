@@ -1,0 +1,10 @@
+war_name_parts_list = {
+	key = "independence_war_names"
+	parts = {
+		"Independence_War" = 1
+		"War_of_Independence" = 1
+		"War_of_Liberation" = 1
+		"Freedom_Struggle" = 1
+		"Secessionist_War" = 1
+	}
+}

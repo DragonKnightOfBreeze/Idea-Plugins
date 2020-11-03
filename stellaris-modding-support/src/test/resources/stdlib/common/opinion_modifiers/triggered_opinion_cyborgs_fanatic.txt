@@ -1,0 +1,14 @@
+triggered_opinion_cyborgs_fanatic = {
+	trigger = {
+		has_ethic = ethic_fanatic_spiritualist
+		is_cyborg_empire = no
+		is_mechanical_empire = no
+		FROM = {
+			is_cyborg_empire = yes
+		}
+	}
+
+	opinion = {
+		base = -40
+	}
+}

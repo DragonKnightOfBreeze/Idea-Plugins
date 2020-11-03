@@ -1,0 +1,12 @@
+col_infested = {
+	icon = 17
+
+	potential = {
+		exists = owner
+		owner = { is_country_type = swarm }
+	}
+
+	weight_modifier = {
+		base = 1000
+	}
+}

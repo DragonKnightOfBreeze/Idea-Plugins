@@ -1,0 +1,11 @@
+achievement_what_was_will_be = {
+	id = 55
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		has_country_flag = worm_awaited
+	}
+}

@@ -1,0 +1,4 @@
+ancient_factory = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_factory.dds"
+	icon_frame = 2
+}

@@ -1,0 +1,32 @@
+scion_engineering_tech = {
+	if = {
+		limit = { 
+			NOT = { has_technology = tech_alloys_1 }
+		}
+		give_technology = { tech = tech_alloys_1 }
+	}
+	else_if = {
+		limit = { 
+			NOT = { has_technology = tech_mineral_purification_2 }
+		}
+		give_technology = { tech = tech_mineral_purification_2 }
+	}
+	else_if = {
+		limit = { 
+			NOT = { has_technology = tech_space_defense_station_improvement }
+		}
+		give_technology = { tech = tech_space_defense_station_improvement }
+	}
+	else_if = {
+		limit = { 
+			NOT = { has_technology = tech_battleships }
+		}
+		give_technology = { tech = tech_battleships }
+	}
+	else_if = {
+		limit = { 
+			NOT = { has_technology = tech_battleship_hull_2 }
+		}
+		give_technology = { tech = tech_battleship_hull_2 }
+	}
+}

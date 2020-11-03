@@ -1,0 +1,13 @@
+gov_military_order = {
+	ruler_title = RT_GRAND_MASTER
+	
+	should_force_rename = yes
+
+	possible = {
+		has_valid_civic = civic_military_order
+	}
+
+	weight = {
+		base = 100000
+	}
+}

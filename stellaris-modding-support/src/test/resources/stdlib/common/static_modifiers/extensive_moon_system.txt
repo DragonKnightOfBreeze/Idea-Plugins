@@ -1,0 +1,7 @@
+extensive_moon_system = {
+	planet_jobs_minerals_produces_mult = 0.10
+	district_mining_max = 2
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_extensive_moon_system.dds"
+	icon_frame = 1
+}

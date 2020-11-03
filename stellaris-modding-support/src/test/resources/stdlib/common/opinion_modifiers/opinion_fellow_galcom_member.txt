@@ -1,0 +1,5 @@
+opinion_fellow_galcom_member = {
+	opinion = {
+		base = 10
+	}
+}

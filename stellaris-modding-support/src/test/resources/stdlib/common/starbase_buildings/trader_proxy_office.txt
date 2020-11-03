@@ -1,0 +1,95 @@
+trader_proxy_office = {
+	icon = "GFX_starbase_offworld_trading_company"
+	construction_days = 360
+
+
+	potential = {
+		exists = owner
+		owner = {
+			is_homicidal = no
+			is_gestalt = no
+			has_country_flag = has_market_access
+		}
+		solar_system = {
+			any_fleet_in_system = {
+				has_fleet_flag = trader_enclave_station
+			}
+		}
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "requires_starport"
+			has_starbase_size >= starbase_starport
+		}
+		NOT = { has_starbase_building = trader_proxy_office }
+
+		custom_tooltip = {
+			fail_text = "requires_trade_enclave"
+			solar_system = {
+				OR = {
+					any_system_planet = {
+						exists = owner
+						owner = { is_country_type = default }
+					}
+					AND = {
+						has_star_flag = enclave
+						any_fleet_in_system = {
+							exists = owner
+							owner = {
+								has_country_flag = trader_enclave_country
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 100
+		}
+	}
+
+	country_modifier = {
+		country_trade_fee = -0.05
+	}
+
+	triggered_station_modifier = {
+		potential = {
+			hidden_trigger = { exists = this }
+
+			exists = owner
+			owner = {
+				is_galactic_community_member = yes
+			}
+			OR = {
+				is_active_resolution = "resolution_galacticstudies_advanced_xenostudies"
+				is_active_resolution = "resolution_galacticstudies_ethical_guideline_refactoring"
+				is_active_resolution = "resolution_galacticstudies_extradimensional_experimentation"
+			}
+		}
+
+		trade_value_add = 5
+	}
+
+	ai_build_at_chokepoint = no
+	ai_build_outside_chokepoint = yes
+	ai_weight = {
+		weight = 200
+		modifier = {
+			factor = 0
+			OR = {
+				solar_system = { NOT = { has_star_flag = guardians_traders_system } }
+				has_starbase_building = trader_proxy_office
+				solar_system = {
+					any_fleet_in_system = {
+						has_fleet_flag = trader_enclave_station
+					}
+				}
+			}
+		}
+	}
+}

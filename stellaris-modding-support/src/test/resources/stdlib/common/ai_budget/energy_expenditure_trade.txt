@@ -1,0 +1,16 @@
+energy_expenditure_trade = {
+	resource = energy 
+	type = expenditure
+	category = trade
+	
+	potential = {
+		has_resource = { 
+			type = energy 
+			amount > 500
+		}
+	}
+	
+	fraction = {
+		weight = 0.5
+	}
+}

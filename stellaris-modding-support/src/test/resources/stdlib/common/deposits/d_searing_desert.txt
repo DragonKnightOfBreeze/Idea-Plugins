@@ -1,0 +1,34 @@
+d_searing_desert = {
+	is_for_colonizeable = yes
+	use_for_min_max_adjustments = yes
+
+	category = deposit_cat_energy
+
+	use_weights_for_terraforming_swap_types = yes
+	should_swap_deposit_on_terraforming = yes
+	terraforming_swap_types = {
+		d_frozen_gas_lake
+		d_rushing_waterfalls
+	}
+
+	planet_modifier = {
+		district_generator_max = 2
+	}
+
+	potential = {
+		OR = {
+			is_planet_class = pc_gaia
+			is_planet_class = pc_nuked
+			is_planet_class = pc_relic
+			is_dry = yes
+		}
+	}
+
+	drop_weight = {
+		weight = @med
+		modifier = {
+			factor = @planet_type_bonus
+			is_dry = yes
+		}
+	}
+}

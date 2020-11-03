@@ -1,0 +1,4 @@
+artifact_find_peaceful_application_leader_improvement_machine = {
+	species_leader_exp_gain = 0.10
+	leaders_upkeep_mult = -0.10
+}

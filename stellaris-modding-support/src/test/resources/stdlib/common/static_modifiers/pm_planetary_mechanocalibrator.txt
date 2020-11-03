@@ -1,0 +1,5 @@
+pm_planetary_mechanocalibrator = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_engineering_research.dds"
+	icon_frame = 1
+	planet_jobs_energy_produces_mult = 0.10
+}

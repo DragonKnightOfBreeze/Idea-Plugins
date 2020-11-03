@@ -1,0 +1,4 @@
+can_force_grow_on_planet = {
+	exists = owner
+	owner = { NOT = { has_policy_flag = population_controls_not_allowed } }
+}

@@ -1,0 +1,11 @@
+opinion_accepted_fallen_empire_demand = {
+	opinion = {
+		base = 25
+	}
+
+	max = 100
+
+	decay = {
+		base = 1
+	}
+}

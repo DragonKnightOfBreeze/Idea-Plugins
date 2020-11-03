@@ -1,0 +1,69 @@
+covert_infiltration = {
+	icon = "GFX_fleet_task_covert_infiltration_action"
+	small_icon = 4
+
+	resources = {
+		category = station_observer_missions
+		upkeep = {
+			society_research = @enlighten_soc_cost
+			energy = @enlighten_nrg_cost
+		}
+		produces = {
+			trigger = {
+				owner = {
+					is_galactic_community_member = yes
+				}
+
+				OR = {
+					is_active_resolution = "resolution_commerce_underdeveloped_system_utilization"
+					is_active_resolution = "resolution_commerce_holistic_asset_coordination"
+					is_active_resolution = "resolution_commerce_profit_maximization_engines"
+				}
+			}
+			consumer_goods = 4
+		}
+	}
+
+	monthly_progress = 0.02
+	completion_event = observation.3009
+
+	potential = {
+		NOT = { has_valid_civic = civic_inwards_perfection }
+	}
+
+	valid = {
+		has_technology = tech_gene_tailoring
+		OR = {
+			has_policy_flag = interference_active
+			has_policy_flag = interference_full
+		}
+		FROM = {
+			exists = owner
+			owner = {
+				OR = {
+					has_country_flag = industrial_age
+					has_country_flag = machine_age
+					has_country_flag = atomic_age
+					has_country_flag = early_space_age
+				}
+			}
+		}
+		NOR = {
+			has_valid_civic = civic_fanatic_purifiers
+			has_valid_civic = civic_hive_devouring_swarm
+			has_valid_civic = civic_machine_terminator
+		}
+	}
+
+	ai_weight = {
+		weight = 10
+		modifier = {
+			factor = 0
+			NOT = { has_ai_personality_behaviour = infiltrator }
+		}
+		modifier = {
+			factor = 0
+			resource_stockpile_compare = { resource = energy value < 1000 }
+		}
+	}
+}

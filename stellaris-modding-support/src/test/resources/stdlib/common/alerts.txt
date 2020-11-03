@@ -1,12 +1,3 @@
-icon = {
-	HIGH = "GFX_alerticon_banner_high"
-	MEDIUM = "GFX_alerticon_banner_med"
-	LOW = "GFX_alerticon_banner_low"
-}
-
-# category can be HIGH, MEDIUM, LOW, DISABLED
-# Alerts automatically use the frame number, for the order of the alerts below
-
 alerts = {
 	alert_negative_income = {
 		category = MEDIUM

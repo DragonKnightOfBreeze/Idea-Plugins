@@ -1,0 +1,85 @@
+resolution_galacticreforms_enable_council_veto = {
+	icon = "GFX_resolution_remove_council_member"
+
+	resources = {
+		category = resolutions
+		cost = {
+			influence = @resolution_cost_t2
+		}
+	}
+	target = no
+
+	effect = {
+		set_council_veto = yes
+		set_global_flag = galactic_council_veto
+
+		hidden_effect = {
+			set_timed_country_flag = { flag = galactic_community_resolution_passed_general days = @resolution_flag_timer }
+			add_modifier = {
+				modifier = resolution_passed_diplomatic_weight
+				days = 2200
+			}
+		}
+	}
+
+	fail_effects = {
+		hidden_effect = {
+			set_timed_country_flag = { flag = galactic_community_resolution_failed_general days = @resolution_flag_timer }
+			add_modifier = {
+				modifier = resolution_failed_diplomatic_weight
+				days = 2200
+			}
+		}
+	}
+
+	potential = {
+		has_federations_dlc = yes
+		has_global_flag = galactic_council_formed
+		NOT = { has_global_flag = galactic_council_veto }
+	}
+
+	ai_weight = {
+		weight = @resolution_weight_normal
+
+		modifier = {
+			factor = 1.5
+			OR = {
+				has_civic = civic_diplomatic_corps
+				has_civic = civic_public_relations_specialists
+				has_civic = civic_hive_empath
+				has_civic = civic_machine_servitor
+			}
+		}
+
+		modifier = {
+			factor = 1.2
+			is_authoritarian = yes
+		}
+
+		modifier = {
+			factor = 2
+			OR = {
+				is_part_of_galactic_council = yes
+				AND = {
+					is_subject = yes
+					overlord = {
+						opinion_level = { who = prev level >= neutral }
+						is_part_of_galactic_council = yes
+					}
+				}
+			}
+		}
+
+		modifier = {
+			factor = 0.8
+			galactic_community_rank > 5
+			NAND = {
+				is_subject = yes
+				overlord = {
+					opinion_level = { who = prev level >= neutral }
+					is_part_of_galactic_council = yes
+				}
+			}
+		}
+	}
+}

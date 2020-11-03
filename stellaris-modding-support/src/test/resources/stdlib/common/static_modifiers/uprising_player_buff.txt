@@ -1,0 +1,3 @@
+uprising_player_buff = {
+	country_naval_cap_mult = 10
+}

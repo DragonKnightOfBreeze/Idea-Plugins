@@ -1,0 +1,12 @@
+gov_plutocratic_oligarchy = {
+	ruler_title = RT_HIGH_COMMISSIONER
+	ruler_title_female = RT_HIGH_COMMISSIONER_FEMALE
+
+	possible = {
+		has_authority = auth_oligarchic
+	}
+
+	weight = {
+		base = 1
+	}
+}

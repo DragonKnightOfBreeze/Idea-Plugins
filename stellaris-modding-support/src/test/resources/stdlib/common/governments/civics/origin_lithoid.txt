@@ -1,0 +1,26 @@
+origin_lithoid = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origins_lithoid.dds"
+	picture = GFX_origin_calamitous
+	max_once_global = yes
+
+	playable = {
+		host_has_dlc = "Lithoids Species Pack"
+	}
+
+	possible = {
+		species = {
+			value = LITHOID
+		}
+	}
+
+	description = "origin_tooltip_lithoid_effects"
+	flags = { custom_start_screen }
+
+	traits = {
+	}
+
+	random_weight = {
+		base = 5
+	}
+}

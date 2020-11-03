@@ -1,0 +1,10 @@
+triggered_servitors_negative_opinion_of_exterminators = {
+	trigger = {
+		is_country_type = default
+		has_civic = civic_machine_servitor
+		FROM = { has_civic = civic_machine_terminator }
+	}
+	opinion = {
+		base = -1000
+	}
+}

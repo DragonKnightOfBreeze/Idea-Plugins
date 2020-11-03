@@ -1,0 +1,11 @@
+irradiated_planet = {
+	pop_environment_tolerance = -0.10
+	biological_pop_happiness = -0.20
+	lithoid_pop_happiness = -0.20
+	planet_jobs_food_produces_mult = -0.50
+	district_farming_max = -6
+	district_mining_max = 2
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_irradiated.dds"
+	icon_frame = 3
+}

@@ -1,0 +1,22 @@
+sentinel_station = {
+	is_space_object = yes
+	entity = enclave_station_entity
+	graphical_culture = no
+	max_speed = 0.0
+	acceleration = 0.0
+	rotation_speed = 0.10
+	modifier = {
+		ship_evasion_mult = -1
+		ships_upkeep_mult = -0.25
+	}
+	max_hitpoints = 20000
+	size_multiplier = 8
+	fleet_slot_size = 4
+	section_slots = { "mid" = { locator = "station" } }
+	num_target_locators = 0
+	is_space_station = yes
+	build_block_radius = @build_block_radius_civilian
+	
+	class = shipclass_military_station
+	is_designable = no
+}

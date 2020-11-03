@@ -1,0 +1,16 @@
+swarm_army = {
+	damage = 2.0
+	morale_damage = 2.0
+	health = 2.0
+	has_morale = no
+	time = 180
+	icon_frame = 8
+	has_species = no
+
+	potential = {
+		exists = owner
+		owner = {
+			is_country_type = "swarm"
+		}
+	}
+}

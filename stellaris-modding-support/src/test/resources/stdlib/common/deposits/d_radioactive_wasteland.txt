@@ -1,0 +1,34 @@
+d_radioactive_wasteland = {
+	time = 270
+
+	is_for_colonizeable = yes
+	category = deposit_cat_blockers
+
+	all_blocker_swap_types = yes
+
+	potential = {
+		is_planet_class = pc_nuked
+	}
+
+	planet_modifier = {
+		planet_max_districts_add = -1
+	}
+
+	resources = {
+		category = deposit_blockers
+		cost = {
+			energy = 800
+		}
+	}
+
+	drop_weight = {
+		weight = @blocker_high
+		modifier = {
+			factor = 0
+			num_free_districts = {
+				type = district_city
+				value < 2
+			}
+		}
+	}
+}

@@ -1,0 +1,7 @@
+use_robot_portrait_sd_mam_robot = {
+	host_has_dlc = "Synthetic Dawn Story Pack"
+	OR = {
+		is_species_class = MAM
+		species_portrait = sd_mam_robot
+	}
+}

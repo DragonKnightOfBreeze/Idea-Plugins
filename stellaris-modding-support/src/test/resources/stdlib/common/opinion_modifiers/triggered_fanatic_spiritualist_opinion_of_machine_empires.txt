@@ -1,0 +1,18 @@
+triggered_fanatic_spiritualist_opinion_of_machine_empires = {
+	trigger = {
+		is_country_type = default
+		has_ethic = ethic_fanatic_spiritualist
+		is_mechanical_empire = no
+		is_cyborg_empire = no
+		FROM = {
+			has_authority = auth_machine_intelligence
+			NOR = {
+				has_civic = civic_machine_terminator
+				has_civic = civic_machine_assimilator
+			}
+		}
+	}
+	opinion = {
+		base = -60
+	}
+}

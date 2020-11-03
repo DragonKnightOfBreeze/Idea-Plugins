@@ -1,0 +1,15 @@
+gov_awakened_ascendancy = {
+	ruler_title = RT_EMPEROR
+	ruler_title_female = RT_EMPRESS
+	
+	should_force_rename = yes
+
+	possible = {
+		has_valid_civic = civic_revanchist_fervor
+		has_valid_civic = civic_ancient_caches_of_technology
+	}
+
+	weight = {
+		base = 100000
+	}
+}

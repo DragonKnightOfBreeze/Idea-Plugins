@@ -1,0 +1,6 @@
+planet_livestock = {
+	parent = planet_jobs
+	generate_add_modifiers = {
+		produces
+	}
+}

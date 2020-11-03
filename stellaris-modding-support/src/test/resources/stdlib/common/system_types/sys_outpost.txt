@@ -1,0 +1,5 @@
+sys_outpost = {
+	potential = {
+		exists = owner
+	}
+}

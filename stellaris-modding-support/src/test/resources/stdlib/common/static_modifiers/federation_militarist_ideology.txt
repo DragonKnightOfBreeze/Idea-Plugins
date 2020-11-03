@@ -1,0 +1,3 @@
+federation_militarist_ideology = {
+	pop_ethic_militarist_attraction_mult = 0.35
+}

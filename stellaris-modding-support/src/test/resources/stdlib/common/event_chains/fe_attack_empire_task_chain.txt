@@ -1,0 +1,10 @@
+fe_attack_empire_task_chain = {
+	picture = GFX_evt_fallen_empire
+	icon = "gfx/interface/icons/situation_log/situation_log_quest.dds"	
+	
+	counter = {
+		empires_attacked = {
+			max = 1
+		}
+	}
+}

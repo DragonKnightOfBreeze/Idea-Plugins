@@ -1,0 +1,20 @@
+incr_physicslump3_var = {
+	if = {
+		limit = {
+			check_variable = {
+				which = aianom_physics_lump3
+				value < 1
+			}
+		}
+		set_variable = {
+			which = aianom_physics_lump3
+			value = 1
+		}
+	}
+	else = {
+		change_variable = {
+			which = aianom_physics_lump3
+			value = 1
+		}
+	}
+}

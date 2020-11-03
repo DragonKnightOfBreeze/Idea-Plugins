@@ -1,0 +1,4 @@
+on_pop_emancipated = {
+	events = {
+	}
+}

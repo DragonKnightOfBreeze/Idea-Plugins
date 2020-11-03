@@ -1,0 +1,14 @@
+achievement_to_the_next_level = {
+	id = 106
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		has_federation = yes
+		federation = {
+			federation_level > 1
+		}
+	}
+}

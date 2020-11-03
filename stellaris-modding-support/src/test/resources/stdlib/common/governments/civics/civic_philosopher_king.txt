@@ -1,0 +1,20 @@
+civic_philosopher_king = {
+	description = "civic_tooltip_philosopher_king_effects"
+	potential = {
+		ethics = { NOT = { value = ethic_gestalt_consciousness } }
+		authority = { NOT = { value = auth_corporate } }
+	}
+	possible = {
+		authority = {
+			OR = {
+				text = civic_tooltip_dic_imp
+				value = auth_dictatorial
+				value = auth_imperial
+			}
+		}
+	}
+	random_weight = { base = 5 }
+	modifier = {
+		ruler_skill_levels = 2
+	}
+}

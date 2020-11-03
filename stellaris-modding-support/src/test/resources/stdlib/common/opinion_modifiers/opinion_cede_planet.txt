@@ -1,0 +1,11 @@
+opinion_cede_planet = {
+	opinion = {
+		base = -30
+	}
+
+	accumulative = yes
+
+	decay = {
+		base = 5
+	}
+}

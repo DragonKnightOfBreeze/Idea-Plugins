@@ -1,0 +1,16 @@
+opinion_crime_corp_branch_offices = {
+	min = -200
+	block_triggered = yes # stops modifier from automatically triggering when trigger evaluates to true
+
+	trigger = {
+		is_gestalt = no
+		is_megacorp = no
+		FROM = {
+			is_criminal_syndicate = yes
+		}
+	}
+
+	opinion = {
+		base = -10
+	}
+}

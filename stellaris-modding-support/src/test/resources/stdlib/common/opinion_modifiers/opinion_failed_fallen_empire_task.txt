@@ -1,0 +1,11 @@
+opinion_failed_fallen_empire_task = {
+	opinion = {
+		base = -50
+	}
+
+	min = -50
+
+	decay = {
+		base = 1
+	}
+}

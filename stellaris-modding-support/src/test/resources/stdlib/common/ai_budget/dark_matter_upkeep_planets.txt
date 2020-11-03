@@ -1,0 +1,13 @@
+dark_matter_upkeep_planets = {
+	resource = sr_dark_matter 
+	type = upkeep
+	category = planets
+	
+	potential = {
+		always = yes
+	}
+	
+	fraction = {
+		weight = 0.9
+	}	
+}

@@ -1,0 +1,73 @@
+col_ecu_foundry = {
+	icon = 5
+
+	potential = {
+		uses_district_set = city_world
+	}
+
+
+	planet_modifier = {
+		planet_building_foundry_1_build_speed_mult = 0.25
+		planet_district_arcology_arms_industry_build_speed_mult = 0.25
+		planet_metallurgists_upkeep_mult = -0.2
+	}
+
+	weight_modifier = {
+		base = 10
+		modifier = {
+			add = 5
+			owner = { has_monthly_income = { resource = alloys value < 100 } }
+		}
+		modifier = {
+			add = 5
+			has_designation = col_ecu_foundry
+		}
+		modifier = {
+			add = 3
+			num_districts = { type = district_arcology_arms_industry value >= 2 }
+		}
+		modifier = {
+			add = 5
+			num_districts = { type = district_arcology_arms_industry value >= 3 }
+		}
+		modifier = {
+			add = 2
+			num_buildings = { type = building_foundry_1 value >= 2 }
+		}
+		modifier = {
+			add = 3
+			num_buildings = { type = building_foundry_1 value >= 3 }
+		}
+		modifier = {
+			add = 4
+			num_buildings = { type = building_foundry_1 value >= 4 }
+		}
+		modifier = {
+			add = 5
+			num_buildings = { type = building_foundry_1 value >= 5 }
+		}
+		modifier = {
+			add = 4
+			num_buildings = { type = building_foundry_2 value >= 1 }
+		}
+		modifier = {
+			add = 5
+			num_buildings = { type = building_foundry_2 value >= 2 }
+		}
+		modifier = {
+			add = 10
+			num_buildings = { type = building_foundry_3 value >= 1 }
+		}
+		modifier = {
+			add = 10
+			OR = {
+				num_districts = { type = district_arcology_arms_industry value >= 4 }
+				OR = {
+					num_buildings = { type = building_foundry_1 value >= 5 }
+					num_buildings = { type = building_foundry_2 value >= 5 }
+					num_buildings = { type = building_foundry_2 value >= 5 }
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,8 @@
+atmospheric_aphrodisiac = {
+	pop_environment_tolerance = 0.05
+	pop_growth_speed = 0.10
+	pop_government_ethic_attraction = -0.20
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_atmospheric_aphrodisiac.dds"
+	icon_frame = 1
+}

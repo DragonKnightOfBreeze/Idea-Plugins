@@ -1,0 +1,70 @@
+hegemony_join_operation_reward = {
+	federation = {
+		switch = {
+			trigger = has_federation_flag
+			hegemony_joint_operation_complete_success = {
+				if = {
+					limit = {
+						NOT = { federation_level = 5 }
+					}
+					add_federation_experience = 1000
+				}
+				else = {
+					add_cohesion = 100
+				}
+				event_target:federation_leader = {
+					capital_scope = {
+						add_deposit = d_federation_hegemony_monument_2
+						create_ambient_object = {
+							type = federation_hegemony_monument
+							location = this
+							scale = 0.6
+						}
+					}
+				}
+				hidden_effect = { set_federation_flag = had_successful_hegemony_joint_operation }
+			}
+			hegemony_joint_operation_partial_success = {
+				if = {
+					limit = {
+						NOT = { federation_level = 5 }
+					}
+					add_federation_experience = 500
+				}
+				else = {
+					add_cohesion = 50
+				}
+				event_target:federation_leader = {
+					capital_scope = {
+						add_deposit = d_federation_hegemony_monument_1
+						create_ambient_object = {
+							type = federation_hegemony_monument
+							location = this
+							scale = 0.6
+						}
+					}
+				}
+				hidden_effect = { set_federation_flag = had_successful_hegemony_joint_operation }
+			}
+			hegemony_joint_operation_partial_failure = {
+				if = {
+					limit = {
+						NOT = { federation_level = 5 }
+					}
+					add_federation_experience = 250
+				}
+				else = {
+					add_cohesion = 25
+				}
+			}
+			hegemony_joint_operation_complete_failure = {
+				add_cohesion = -50
+				event_target:federation_leader = {
+					add_resource = {
+						influence = -50
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,6 @@
+research_share_3 = {
+	federation_modifier = {
+		description = research_share_1_effect
+		federation_research_sharing_mult = 0.05
+	}
+}

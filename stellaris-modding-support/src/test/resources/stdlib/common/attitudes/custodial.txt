@@ -1,0 +1,8 @@
+custodial = {
+	type = custodial
+	behaviour = {
+		trade = yes
+		alliance = yes
+		coexist = yes
+	}
+}

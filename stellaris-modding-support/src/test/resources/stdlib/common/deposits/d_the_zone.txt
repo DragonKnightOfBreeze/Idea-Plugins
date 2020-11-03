@@ -1,0 +1,51 @@
+d_the_zone = {
+	is_for_colonizeable = yes
+	category = deposit_cat_rare
+	
+	icon = d_levitating_rocks
+
+	resources = {
+		category = planet_deposits
+		produces = {
+			unity = 3
+		}
+	}
+	
+	planet_modifier = {
+		planet_jobs_physics_research_produces_mult = 0.15
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_researcher_add = 2
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		modifier = {
+			job_brain_drone_add = 2
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {	
+			job_calculator_add = 2
+		}
+	}
+	
+	drop_weight = {
+		weight = 0
+	}
+}

@@ -1,0 +1,11 @@
+on_planet_defenders_win = {
+	events = {
+		colony.5
+		colony.56
+		colony.108
+		unrest.161
+		unrest.4235
+		distar.34
+		ancrel.4057
+	}
+}

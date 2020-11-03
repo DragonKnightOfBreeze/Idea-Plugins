@@ -1,0 +1,5 @@
+planet_artifact_relays_machine = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_minor_artifact_decision.dds"
+	custom_tooltip = decision_artifact_relays_machine_effect
+	planet_jobs_simple_drone_produces_mult = 0
+}

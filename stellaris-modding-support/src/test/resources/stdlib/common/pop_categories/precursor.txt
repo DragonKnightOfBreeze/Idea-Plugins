@@ -1,0 +1,122 @@
+precursor = {
+	rank = 3
+	clothes_texture_index = 1
+	change_job_threshold = 2
+
+	demotion_time = 5
+
+	assign_to_pop = {
+		exists = owner
+		owner = {
+			OR = {
+				is_country_type = fallen_empire
+				is_country_type = awakened_fallen_empire
+			}
+		}
+		OR = {
+			is_same_species = owner
+			owner = {
+				is_fallen_empire_spiritualist = yes
+			}
+		}
+	}
+	weight = {
+		weight = 100
+
+		# crisis purge
+		modifier = {
+			factor = 0.01
+			planet.controller = {
+				OR = {
+					is_country_type = swarm
+					is_country_type = ai_empire
+				}
+			}
+		}
+		modifier = {
+			factor = 0.01
+			is_unemployed = yes
+		}
+	}
+
+	pop_modifier = {
+		pop_political_power = 9
+		pop_housing_usage_base = 2
+		pop_amenities_usage_base = 2
+	}
+
+	# scope: pop to be resettled
+	allow_resettlement = {
+		always = yes
+	}
+
+	resettlement_cost = {
+		energy = 100
+	}
+
+	resources = {
+		category = pop_category_precursor
+
+		# Organic Upkeep
+		upkeep = {
+			trigger = {
+				is_organic_species = yes
+				is_lithoid = no
+				exists = owner
+				owner = {
+					is_spiritualist = no
+				}
+			}
+			food = 2.0
+			consumer_goods = 2.0
+		}
+
+		upkeep = {
+			trigger = {
+				is_organic_species = yes
+				is_lithoid = no
+				exists = owner
+				owner = {
+					is_spiritualist = yes
+				}
+			}
+			food = 1.0
+			consumer_goods = 1.0
+		}
+
+		# Lithoid Upkeep
+		upkeep = {
+			trigger = {
+				is_organic_species = yes
+				is_lithoid = yes
+				exists = owner
+				owner = {
+					is_spiritualist = no
+				}
+			}
+			minerals = 2.0
+			consumer_goods = 2.0
+		}
+
+		upkeep = {
+			trigger = {
+				is_organic_species = yes
+				is_lithoid = yes
+				exists = owner
+				owner = {
+					is_spiritualist = yes
+				}
+			}
+			minerals = 1.0
+			consumer_goods = 1.0
+		}
+
+		# Robotic Upkeep
+		upkeep = {
+			trigger = {
+				is_robotic_species = yes
+			}
+			energy = @living_standard_energy_normal
+		}
+	}
+}

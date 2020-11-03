@@ -1,0 +1,70 @@
+resolution_galacticstudies_repeal_4 = {
+	icon = "GFX_repeal_blue"
+
+	resources = {
+		category = resolutions
+		cost = {
+			influence = @resolution_cost_t4
+		}
+	}
+	target = no
+
+	effect = {
+		custom_tooltip = resolution_galacticstudies_repeal_4_effect_success
+
+		hidden_effect = {
+			pass_resolution = "resolution_galacticstudies_advanced_xenostudies"
+			set_timed_country_flag = { flag = galactic_community_resolution_passed_galacticstudies_repeal days = @resolution_flag_timer }
+			add_modifier = {
+				modifier = resolution_passed_diplomatic_weight
+				days = 2200
+			}
+		}
+
+		custom_tooltip = resolution_galacticstudies_advanced_xenostudies_tooltip
+	}
+
+	fail_effects = {
+		hidden_effect = {
+			set_timed_country_flag = { flag = galactic_community_resolution_failed_galacticstudies_repeal days = @resolution_flag_timer }
+			add_modifier = {
+				modifier = resolution_failed_diplomatic_weight
+				days = 2200
+			}
+		}
+	}
+
+	potential = {
+		has_federations_dlc = yes
+		is_active_resolution = "resolution_galacticstudies_ethical_guideline_refactoring"
+	}
+
+	modifier = {
+		resolution_galacticstudies_cooperative_research_channels = 1
+		resolution_galacticstudies_astral_studies_network = 1
+		resolution_galacticstudies_advanced_xenostudies = 1
+	}
+
+	allow = {}
+
+	ai_weight = {
+		weight = @resolution_weight_unpopular
+
+		modifier = {
+			factor = 0
+			is_materialist = yes
+		}
+		modifier = {
+			factor = 1.5
+			is_spiritualist = yes
+		}
+		modifier = {
+			factor = 2
+			is_egalitarian = yes
+		}
+		modifier = {
+			factor = 10
+			in_breach_of = resolution_galacticstudies_ethical_guideline_refactoring
+		}
+	}
+}

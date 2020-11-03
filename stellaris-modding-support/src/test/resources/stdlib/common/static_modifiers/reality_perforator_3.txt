@@ -1,0 +1,3 @@
+reality_perforator_3 = {
+	ship_armor_mult = 0.4
+}

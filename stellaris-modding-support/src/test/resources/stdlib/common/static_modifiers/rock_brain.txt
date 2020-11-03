@@ -1,0 +1,4 @@
+rock_brain = {
+	icon = "gfx/interface/icons/planet_modifiers/capital.dds"
+	icon_frame = 1
+}

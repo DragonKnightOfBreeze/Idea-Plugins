@@ -1,0 +1,3 @@
+federation_pacifist_ideology = {
+	pop_ethic_pacifist_attraction_mult = 0.35
+}

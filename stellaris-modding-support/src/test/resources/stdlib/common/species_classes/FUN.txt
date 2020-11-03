@@ -1,0 +1,55 @@
+FUN = {
+	archetype = BIOLOGICAL
+
+	possible = { authority = { NOT = { value = auth_machine_intelligence text = SPECIES_CLASS_MUST_NOT_USE_MACHINE_INTELLIGENCE } } }
+
+	gender = no
+
+	portraits = {
+		"fun2"
+		"fun4"
+		"fun3"
+		"fun13"
+		"fun12"
+		"fun6"
+		"fun15"
+		"fun7"
+		"fun1"
+		"fun9"
+		"fun11"
+		"fun8"
+		"fun14"
+		"fun10"
+	}
+
+	custom_portraits = {#add additional portraits when customizing species
+		randomized = {
+			OR = {
+				host_has_dlc = "Creatures of the Void Portrait Pack"
+				host_has_dlc = "Anniversary Portraits"
+			}
+		}
+		playable = {
+			OR = {
+				local_has_dlc = "Creatures of the Void Portrait Pack"
+				local_has_dlc = "Anniversary Portraits"
+			}
+		}
+		portraits = {
+			"fun16"
+		}
+	}
+
+	custom_portraits = {#add additional portraits when customizing species
+		randomized = { host_has_dlc = "Leviathans Story Pack" }
+		playable = { local_has_dlc = "Leviathans Story Pack" }
+		portraits = {
+			"fun17"
+		}
+	}
+
+	graphical_culture = fungoid_01
+	move_pop_sound_effect = "fungoid_pops_move"
+
+	resources = {}
+}

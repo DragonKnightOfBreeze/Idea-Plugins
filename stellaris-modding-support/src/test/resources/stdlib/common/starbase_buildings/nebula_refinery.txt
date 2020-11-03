@@ -1,0 +1,43 @@
+nebula_refinery = {
+	icon = "GFX_spaceport_nebula_refinery"
+	construction_days = 360
+
+	potential = {
+		exists = owner
+		owner = { has_technology = tech_space_mining_1 }
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "requires_starport"
+			has_starbase_size >= starbase_starport
+		}
+		custom_tooltip = {
+			fail_text = "requires_nebula"
+			star = { is_inside_nebula = yes }
+		}
+	}
+
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 100
+		}
+
+		produces = {
+			minerals = 6
+		}
+
+		upkeep = {
+			energy = 2
+		}
+	}
+
+	show_in_tech = "tech_space_mining_1"
+
+	ai_build_at_chokepoint = yes
+	ai_build_outside_chokepoint = yes
+	ai_weight = {
+		weight = 150
+	}
+}

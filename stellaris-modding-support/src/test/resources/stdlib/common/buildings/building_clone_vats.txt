@@ -1,0 +1,53 @@
+building_clone_vats = {
+	base_buildtime = @b1_time
+
+	category = government
+
+	base_cap_amount = 1
+
+	potential = {
+		exists = owner
+		owner = { has_ascension_perk = ap_engineered_evolution }
+		NOT = { has_modifier = resort_colony }
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			AND = {
+				owner = { is_ai = yes }
+				planet = {
+					free_district_slots = 0
+					free_building_slots = 0
+				}
+			}
+			NOT = { owner = { has_ascension_perk = ap_engineered_evolution } }
+		}
+	}
+
+	planet_modifier = {
+		pop_growth_speed = 0.33
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 200
+		}
+		upkeep = {
+			energy = 2
+		}
+	}
+
+	ai_weight = {
+		weight = 100
+		modifier = {
+			factor = 0
+			OR = {
+				free_district_slots = 0
+				num_buildings = { type = any value >= 14 }
+				is_planet_class = pc_habitat
+			}
+		}
+	}
+}

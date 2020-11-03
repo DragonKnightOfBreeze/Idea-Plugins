@@ -1,0 +1,4 @@
+ancient_weapon = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_planet_from_space.dds"
+	icon_frame = 2
+}

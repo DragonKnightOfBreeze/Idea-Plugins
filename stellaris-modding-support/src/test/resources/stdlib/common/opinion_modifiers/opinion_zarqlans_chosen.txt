@@ -1,0 +1,5 @@
+opinion_zarqlans_chosen = {
+	opinion = {
+		base = 150
+	}
+}

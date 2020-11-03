@@ -1,0 +1,6 @@
+scared_population = {
+	pop_happiness = -0.15
+	pop_environment_tolerance = -0.15
+	icon = "gfx/interface/icons/planet_modifiers/pm_factory.dds"
+	icon_frame = 3
+}

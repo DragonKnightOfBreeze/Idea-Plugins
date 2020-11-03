@@ -1,0 +1,25 @@
+GEN_PLAYGROUND_CAT = {
+	desc = "GEN_PLAYGROUND_DESC"
+	picture = "GFX_evt_alien_city"
+	level = 3
+	
+	spawn_chance = {
+		modifier = {
+			add = 3
+			is_asteroid = no
+			is_star = no
+			is_ringworld = no
+			NOT = {
+				is_planet_class = pc_gas_giant
+			}
+		}
+		modifier = {
+			factor = 0
+			from.owner = {
+				has_authority = auth_machine_intelligence
+			}
+		}
+	}
+	
+	on_success = anomaly.135
+}

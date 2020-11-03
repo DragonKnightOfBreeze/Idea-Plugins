@@ -1,0 +1,54 @@
+sys_trading_hub_gestalt = {
+	potential = {
+		exists = owner
+		owner = { has_ethic = ethic_gestalt_consciousness }
+		exists = starbase
+		starbase = {
+			has_starbase_size >= starbase_starport
+			count_starbase_modules = {
+				type = trading_hub
+				count > 1
+			}
+		}
+	}
+
+	weight_modifier = {
+		base = 100	
+		modifier = {
+			add = 100
+			starbase = { 
+				count_starbase_modules = {
+					type = trading_hub
+					count > 2
+				} 
+			}
+		}
+		modifier = {
+			add = 100
+			starbase = { 
+				count_starbase_modules = {
+					type = trading_hub
+					count > 2
+				} 
+			}
+		}
+		modifier = {
+			add = 100
+			starbase = { 
+				count_starbase_modules = {
+					type = trading_hub
+					count > 2
+				} 
+			}
+		}
+		modifier = {
+			add = 100
+			starbase = { 
+				count_starbase_modules = {
+					type = trading_hub
+					count > 2
+				} 
+			}
+		}
+	}
+}

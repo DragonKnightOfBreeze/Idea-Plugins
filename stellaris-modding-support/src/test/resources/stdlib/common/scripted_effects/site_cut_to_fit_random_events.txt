@@ -1,0 +1,5 @@
+site_cut_to_fit_random_events = {
+	random_list = {
+		10 = { fleet_event = { id = ancrel.8070} }
+	}
+}

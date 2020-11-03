@@ -1,0 +1,42 @@
+purge_matrix = {
+	token = purge_matrix
+	pop_escape_chance = 0.20
+	
+	pop_modifier = {
+		pop_decline_speed = 3
+		pop_happiness = -10
+	}
+
+	potential = {
+		host_has_dlc = "Synthetic Dawn Story Pack"
+		from = { has_authority = auth_machine_intelligence }
+	}
+
+	allow = {
+		hidden_trigger = { exists = from }
+		custom_tooltip = {
+			fail_text = CANNOT_LIVESTOCK_MATRIX_MACHINES
+			NOR = {
+				has_trait = trait_mechanical
+				has_trait = trait_machine_unit
+			}
+		}
+	}
+
+	ai_will_do = {
+		factor = 50
+		modifier = {
+			factor = 0
+			from = { NOT = { has_valid_civic = "civic_machine_terminator" } }
+		}		
+		modifier = {
+			factor = 0
+			from = {
+				has_valid_ai_personality = yes
+				NOT = {
+					has_ai_personality_behaviour = purger
+				}
+			}
+		}		
+	}
+}

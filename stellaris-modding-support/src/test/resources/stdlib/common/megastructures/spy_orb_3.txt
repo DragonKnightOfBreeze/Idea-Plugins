@@ -1,0 +1,26 @@
+spy_orb_3 = {
+	entity = "spyorb_phase_03_entity"
+	construction_entity = "spyorb_phase_03_construction_entity"
+	portrait = "GFX_megastructure_construction_background"
+	place_entity_on_planet_plane = no
+	entity_offset = { x = @entity_x y = @entity_y }
+	build_time = 1800
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 10000
+		}
+
+		upkeep = {
+			energy = 80
+		}
+	}
+	upgrade_from = {
+		spy_orb_2
+	}
+
+	prerequisites = { "tech_sentry_array" }
+	
+	sensor_range = 60
+	hyperlane_range = 90
+}

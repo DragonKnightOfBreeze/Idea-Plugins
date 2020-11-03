@@ -1,0 +1,7 @@
+planet_districts_hab_mining = {
+	parent = planet_districts
+
+	generate_mult_modifiers = {
+		cost
+	}
+}

@@ -1,0 +1,12 @@
+resolution_category_market = {
+	group = commerce_industry
+	icon = "GFX_resolution_galactic_market"
+
+	resolution_types = {
+		"resolution_galactic_market_ban_sentient_organic_slave_trade"
+		"resolution_galactic_market_repeal_sentient_organic_slave_trade"
+		"resolution_galactic_market_ban_sentient_slave_trade"
+		"resolution_galactic_market_allow_sentient_slave_trade"
+		"resolution_galactic_market_relocate"
+	}
+}

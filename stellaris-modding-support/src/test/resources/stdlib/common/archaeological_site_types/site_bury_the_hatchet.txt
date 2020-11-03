@@ -1,0 +1,44 @@
+site_bury_the_hatchet = {
+	desc = "site_bury_the_hatchet_intro"
+ 	picture = GFX_evt_cold_barren
+ 	stages = 2
+ 	max_instances = 999
+ 	weight = {
+ 		base = 0
+ 	}
+
+ 	allow = {
+ 		exists = leader
+ 		leader = { leader_class = scientist }
+		hidden_trigger = {
+			owner = {
+				has_country_flag = shoulders_origin_@from.planet
+			}
+		}
+ 	}
+
+ 	visible = {
+ 		default_site_visible_trigger = yes
+		owner = {
+			has_country_flag = shoulders_origin_@from.planet
+		}
+ 	}
+ 
+ 	stage = {
+ 		difficulty = -1
+ 		icon = GFX_archaeology_runes_A2 
+ 		event = origin.1410
+ 	}
+ 
+ 	stage = {
+ 		difficulty = 1
+ 		icon = GFX_archaeology_runes_A4
+ 		event = origin.1415
+ 	}
+ 
+ 	on_roll_failed = {
+ 		from = {
+ 			standard_archaeological_site_on_roll_failed = { RANDOM_EVENTS = site_dark_secret_random_events }
+ 		}
+ 	}
+}

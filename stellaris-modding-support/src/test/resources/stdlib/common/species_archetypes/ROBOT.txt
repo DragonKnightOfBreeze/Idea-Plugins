@@ -1,0 +1,4 @@
+ROBOT = {
+	species_trait_points = @robot_trait_points
+	species_max_traits = @robot_max_traits
+}

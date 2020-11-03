@@ -1,0 +1,13 @@
+civic_hive_memorialist = {
+	playable = { host_has_dlc = "Necroids Species Pack" }
+	description = "civic_tooltip_memorialist_gestalt_effects"
+	potential = {
+		authority = { value = auth_hive_mind  }
+	}
+	random_weight = { base = 5 }
+	possible = {
+		civics = {
+			NOT = { value = civic_hive_devouring_swarm } #Includes Terravore
+		}
+	}
+}

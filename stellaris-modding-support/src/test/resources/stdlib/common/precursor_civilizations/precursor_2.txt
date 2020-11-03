@@ -1,0 +1,3 @@
+precursor_2 = {
+	size = 100
+}

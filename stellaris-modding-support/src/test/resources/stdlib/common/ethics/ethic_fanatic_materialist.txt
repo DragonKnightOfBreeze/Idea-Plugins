@@ -1,0 +1,26 @@
+ethic_fanatic_materialist = {
+	cost = 2
+	category = "spi"
+	category_value = 4
+
+	regular_variant = ethic_materialist
+
+	category_opposite = yes
+
+	use_for_pops = no
+
+	tags = {
+		ETHIC_ALLOWS_ACADEMIC_PRIVILEGE
+		ETHIC_DISALLOW_BAN_AI
+		ETHIC_DISALLOW_BAN_ROBOTS
+	}
+
+	country_modifier = {
+		planet_pops_robotics_upkeep_mult = -0.2
+		all_technology_research_speed = 0.10
+	}
+
+	random_weight = {
+		value = 150
+	}
+}

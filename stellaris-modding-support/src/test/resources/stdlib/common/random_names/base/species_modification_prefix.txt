@@ -1,0 +1,9 @@
+species_modification_prefix = { 
+	Neo- 
+	Post- 
+	Super- 
+	Ultra- 
+	Meta- 
+	Trans- 
+	High_ 
+}

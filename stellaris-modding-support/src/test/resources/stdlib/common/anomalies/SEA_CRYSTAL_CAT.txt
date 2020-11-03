@@ -1,0 +1,21 @@
+SEA_CRYSTAL_CAT = {
+    desc = "SEA_CRYSTAL_CAT_DESC"
+    picture = GFX_evt_ship_in_orbit
+    level = 3
+
+    max_once_global = yes
+
+    spawn_chance = {
+        modifier = {
+			add = 2
+			is_planet_class = pc_ocean
+			from.owner = {
+				NOT = {
+					has_ethic = ethic_gestalt_consciousness
+			    }
+            }
+        }
+    }
+
+    on_success = federations3.100
+}

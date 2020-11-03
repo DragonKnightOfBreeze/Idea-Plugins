@@ -1,0 +1,24 @@
+origin_asteroid_category = {
+	desc = "origin_asteroid_category_desc"
+	picture = GFX_evt_mining_station
+	level = 1
+
+	spawn_chance = {		
+		modifier = {
+			add = 3
+			is_asteroid = yes
+		}
+	}
+
+	on_success = {
+		1 = anomaly.1
+		1 = anomaly.15
+		0 = {
+			modifier = {
+				add = @distar_weight
+				has_distar = yes
+			}
+			anomaly_event = distar.225
+		}
+	}
+}

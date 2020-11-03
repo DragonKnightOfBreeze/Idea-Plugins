@@ -1,0 +1,116 @@
+action_demand_dominion = {
+	consider = {
+		FALLEN_MACHINE_EMPIRE_CONSIDER = {
+			trigger = {
+				is_fallen_machine_empire = yes
+			}
+		}
+		01_CONSIDER = {
+			trigger = {
+				NOR = {
+					has_ethic = ethic_gestalt_consciousness
+					has_authority = auth_corporate
+				}
+			}
+		}
+		HM_CONSIDER_01 = {
+			trigger = {
+				OR = {
+					has_ai_personality = hive_mind
+					has_ai_personality = devouring_swarm
+				}
+			}
+		}
+		S_CONSIDER_01 = {
+			weight = { weight = 50 }
+			trigger = {
+				OR = {
+					has_ai_personality = servitors
+					has_ai_personality = assimilators
+					has_ai_personality = exterminators
+				}
+			}
+		}
+		S_CONSIDER_02 = {
+			weight = { weight = 50 }
+			trigger = {
+				OR = {
+					has_ai_personality = servitors
+				}
+			}
+		}
+		A_CONSIDER_01 = {
+			weight = { weight = 50 }
+			trigger = {
+				has_ai_personality = assimilators
+			}
+		}
+		MECH_CONSIDER_01 = {
+			trigger = {
+				has_authority = auth_machine_intelligence
+			}
+		}
+		ORG_TO_MECH_CONSIDER_01 = {
+			weight = { weight = 50 }
+			trigger = {
+				NOT = { has_authority = auth_machine_intelligence }
+				FROM = {
+					OR = {
+						has_authority = auth_machine_intelligence
+						is_species_class = ROBOT
+					}
+				}
+			}
+		}
+		# Ketlings
+		KET_CONSIDER_01 = {
+			weight = { weight = 100000 }
+			trigger = {
+				exists = event_target:ratling_country
+				is_same_empire = event_target:ratling_country
+			}
+		}
+		# Corporate
+		CORP_CONSIDER_01 = {
+			trigger = {
+				has_authority = auth_corporate
+			}
+		}
+	}
+	select = { 01_DEMAND_DOMINION_SELECT = { trigger = { always = yes } } }
+	propose = { 01_DEMAND_DOMINION_PROPOSE = { trigger = { always = yes } } }
+	accept = {
+		01_DEMAND_DOMINION_ACCEPT = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					has_authority = auth_corporate
+				}
+			}
+		}
+	}
+	refuse = {
+		01_DEMAND_DOMINION_REFUSE = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					has_authority = auth_corporate
+				}
+			}
+		}
+	}
+	accept = {
+		MECH_DEMAND_DOMINION_ACCEPT = {
+			trigger = {
+				has_authority = auth_machine_intelligence
+			}
+		}
+	}
+	refuse = {
+		MECH_DEMAND_DOMINION_REFUSE = {
+			trigger = {
+				has_authority = auth_machine_intelligence
+			}
+		}
+	}
+}

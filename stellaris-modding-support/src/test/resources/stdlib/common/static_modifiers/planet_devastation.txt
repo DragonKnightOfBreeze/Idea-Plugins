@@ -1,0 +1,9 @@
+planet_devastation = {
+	planet_housing_mult = -1
+	planet_amenities_mult = -1
+	trade_value_mult = -1
+	planet_jobs_produces_mult = -1
+	planet_jobs_upkeep_mult = -1
+	pop_growth_speed_reduction = 1
+	planet_immigration_pull_mult = -1
+}

@@ -1,0 +1,48 @@
+tr_diplomacy_open_markets = {
+
+	modifier = {
+		trade_value_mult = 0.1
+	}
+
+	tradition_swap = {
+		name = tr_adaptability_environmental_diversification
+		inherit_effects = no
+		inherit_icon = no
+		inherit_name = no
+		trigger = {
+			OR = {
+				has_valid_civic = civic_fanatic_purifiers
+				has_valid_civic = civic_inwards_perfection
+				is_hive_empire = yes
+				has_valid_civic = civic_barbaric_despoilers
+				has_origin = origin_necrophage
+			}
+		}
+		modifier = {
+			pop_environment_tolerance = 0.10
+		}
+		weight = {
+			factor = 1
+		}
+	}
+
+	tradition_swap = {
+		name = tr_versatility_spatial_optimization
+		inherit_effects = no
+		inherit_icon = no
+		inherit_name = no
+		trigger = {
+			is_machine_empire = yes
+		}
+		modifier = {
+			pop_housing_usage_mult = -0.10
+		}
+		weight = {
+			factor = 1
+		}
+	}
+
+	ai_weight = {
+		factor = 5000
+	}
+}

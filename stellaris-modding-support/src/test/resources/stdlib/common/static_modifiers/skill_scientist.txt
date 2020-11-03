@@ -1,0 +1,5 @@
+skill_scientist = {
+	all_technology_research_speed = 0.02
+	science_ship_survey_speed = 0.10
+	ship_archeaological_site_clues_add = 1
+}

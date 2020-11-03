@@ -1,0 +1,6 @@
+on_building_starbase_exd_0 = {
+	events = {
+		crisis.1300
+		crisis.1310
+	}
+}

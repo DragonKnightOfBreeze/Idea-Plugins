@@ -1,0 +1,39 @@
+create_gray_army = {
+	if = {
+		limit = { has_country_flag = gray_governor_active }
+		remove_country_flag = gray_governor_active
+		event_target:gray_governor = {
+			kill_leader = { show_notification = no } 
+		}
+	}
+	if = {
+		limit = { has_country_flag = gray_warship_active }
+		event_target:gray_warship = { save_event_target_as = gray_transport_location }
+	}
+	else = {
+		capital_scope = { save_event_target_as = gray_transport_location }
+	}
+	set_country_flag = gray_army_active
+	create_fleet = {
+		name = "NAME_Gray"
+		effect = {
+			set_owner = root
+			create_army_transport = {
+				ship_name = "NAME_Gray"
+				#graphical_culture = "root"
+				army_name = "NAME_Gray"
+				army_type = "gray_army"
+			}
+			set_location = {
+				target = event_target:gray_transport_location
+				distance = 0
+				angle = random 
+			}
+		}
+	}
+	if = {
+		limit = { has_country_flag = gray_warship_active }
+		remove_country_flag = gray_warship_active
+		event_target:gray_warship = { delete_fleet = this }
+	}
+}

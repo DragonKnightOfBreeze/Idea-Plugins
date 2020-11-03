@@ -1,0 +1,4 @@
+hegemony_joint_project_chain = {
+	icon = "gfx/interface/icons/situation_log/situation_log_federation.dds"
+	picture = GFX_evt_diplomatic_visit
+}

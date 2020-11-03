@@ -1,0 +1,9 @@
+action_end_federation_association_status = {
+	icon = "GFX_diplomacy_status_associate"
+	auto_accepted = yes
+	requires_actor_peace = no
+	requires_recipient_peace = no
+	show_to_alliance_members = yes
+	should_notify_all_communications = yes
+	action_type = negative
+}

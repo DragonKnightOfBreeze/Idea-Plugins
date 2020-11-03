@@ -1,0 +1,93 @@
+artifact_precursor_clue = {
+	resources = {
+		category = artifact_actions
+		cost = {
+			minor_artifacts = 25
+		}
+	}
+	
+	potential = {
+		is_ai = no
+
+		OR = {
+			AND = {
+				has_event_chain = "vultaum_chain"
+				any_system_within_border = { 
+					has_star_flag = precursor_1
+				}
+				NOT = {
+					has_completed_event_chain_counter = {
+						event_chain = vultaum_chain
+						counter = vultaum_artifacts
+					}
+				}
+			}
+			AND = {
+				has_event_chain = "yuht_chain"
+				any_system_within_border = { 
+					has_star_flag = precursor_2
+				}
+				NOT = {
+					has_completed_event_chain_counter = {
+						event_chain = yuht_chain
+						counter = yuht_artifacts
+					}
+				}
+			}
+			AND = { 
+				has_event_chain = "first_league_chain"
+				any_system_within_border = { 
+					has_star_flag = precursor_3
+				}
+				NOT = {
+					has_completed_event_chain_counter = {
+						event_chain = first_league_chain
+						counter = first_league_artifacts
+					}
+				}
+			}
+			AND = {
+				has_event_chain = "irassian_chain"
+				any_system_within_border = { 
+					has_star_flag = precursor_4
+				}
+				NOT = {
+					has_completed_event_chain_counter = {
+						event_chain = irassian_chain
+						counter = irassian_artifacts
+					}
+				}
+			}
+			AND = {
+				has_event_chain = "cybrex_chain"
+				any_system_within_border = { 
+					has_star_flag = precursor_5
+				}
+				NOT = {
+					has_completed_event_chain_counter = {
+						event_chain = cybrex_chain
+						counter = cybrex_artifacts
+					}
+				}
+			}
+		}
+	}
+
+	allow = {
+		NOT = { has_modifier = artifact_precursor_insight_cooldown }
+	}
+
+	effect = {
+		custom_tooltip = artifact_precursor_clue_effect
+
+		hidden_effect = {
+			owner = {
+				country_event = { id = precursor.320 }
+			}
+			add_modifier = {
+				modifier = "artifact_precursor_insight_cooldown"
+				days = 1800
+			}
+		}
+	}
+}

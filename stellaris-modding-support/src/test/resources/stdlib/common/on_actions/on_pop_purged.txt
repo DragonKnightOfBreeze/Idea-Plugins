@@ -1,0 +1,13 @@
+on_pop_purged = {
+	events = {
+		crisis.202
+		crisis.2044
+		# mandate.131
+		action.21 # Opinion effect on other empires
+		utopia.180 # Gain resources for fanatic purifiers civic
+		utopia.181 # Gain resources for devouring swarm
+		syndaw.1330 # Gain resources for exterminators
+		ancrel.4075
+		necroids.5 # Necrophage Purge
+	}
+}

@@ -1,0 +1,261 @@
+create_tiyanki_home_roaming_fleets = {
+	create_fleet = {
+		name = "NAME_Tiyanki_Space_Whale"
+		effect = {
+			set_owner = event_target:tiyanki_garrison_country
+			while = {
+				count = 22
+				create_ship = {
+					design = "NAME_Tiyanki_Hatchling"
+				}
+			}
+			set_location = {
+				target = event_target:giant1
+				distance = 25
+				angle = 94
+			}
+			set_fleet_stance = passive
+			set_aggro_range_measure_from = return_point
+			set_aggro_range = 0
+			queue_actions = {
+				repeat = {
+					find_closest_planet = {
+						trigger = {
+							id = tiyanki.patrol.1
+							has_planet_flag = tiyanki_giant2
+						}
+						found_planet = {
+							move_to = this
+							orbit_planet = this
+						}
+					}
+					find_closest_planet  = {
+						trigger = {
+							id = tiyanki.patrol.2
+							has_planet_flag = tiyanki_giant3
+						}
+						found_planet = {
+							move_to = this
+							orbit_planet = this
+						}
+					}
+					find_closest_planet  = {
+						trigger = {
+							id = tiyanki.patrol.3
+							has_planet_flag = tiyanki_giant4
+						}
+						found_planet = {
+							move_to = this
+							orbit_planet = this
+						}
+					}
+					find_closest_planet  = {
+						trigger = {
+							id = tiyanki.patrol.4
+							has_planet_flag = tiyanki_giant1
+						}
+						found_planet = {
+							move_to = this
+							orbit_planet = this
+						}
+					}
+				}
+			}
+		}
+	}
+
+	create_fleet = {
+		name = "NAME_Tiyanki_Space_Whale"
+		effect = {
+			set_owner = event_target:tiyanki_garrison_country
+			while = {
+				count = 14
+				create_ship = {
+					design = "NAME_Tiyanki_Hatchling"
+				}
+			}
+			set_location = {
+				target = event_target:giant1
+				distance = 25
+				angle = 94
+			}
+			set_fleet_stance = passive
+			set_aggro_range_measure_from = return_point
+			set_aggro_range = 0
+			queue_actions = {
+				repeat = {
+					find_closest_planet = {
+						trigger = {
+							id = tiyanki2.patrol.1
+							has_planet_flag = tiyanki_giant4
+						}
+						found_planet = {
+							move_to = this
+							orbit_planet = this
+						}
+					}
+					find_closest_planet  = {
+						trigger = {
+							id = tiyanki2.patrol.2
+							has_planet_flag = tiyanki_giant3
+						}
+						found_planet = {
+							move_to = this
+							orbit_planet = this
+						}
+					}
+					find_closest_planet  = {
+						trigger = {
+							id = tiyanki2.patrol.3
+							has_planet_flag = tiyanki_giant2
+						}
+						found_planet = {
+							move_to = this
+							orbit_planet = this
+						}
+					}
+					find_closest_planet  = {
+						trigger = {
+							id = tiyanki2.patrol.4
+							has_planet_flag = tiyanki_giant1
+						}
+						found_planet = {
+							move_to = this
+							orbit_planet = this
+						}
+					}
+				}
+			}
+		}
+	}
+
+	create_fleet = {
+		name = "NAME_Tiyanki_Space_Whale"
+		effect = {
+			set_owner = event_target:tiyanki_garrison_country
+			while = {
+				count = 19
+				create_ship = {
+					design = "NAME_Tiyanki_Hatchling"
+				}
+			}
+			set_location = {
+				target = event_target:giant3
+				distance = 25
+				angle = 94
+			}
+			set_fleet_stance = passive
+			set_aggro_range_measure_from = return_point
+			set_aggro_range = 0
+			queue_actions = {
+				repeat = {
+					find_closest_planet = {
+						trigger = {
+							id = tiyanki3.patrol.1
+							has_planet_flag = tiyanki_giant2
+						}
+						found_planet = {
+							move_to = this
+							orbit_planet = this
+						}
+					}
+					find_closest_planet  = {
+						trigger = {
+							id = tiyanki3.patrol.2
+							has_planet_flag = tiyanki_giant1
+						}
+						found_planet = {
+							move_to = this
+							orbit_planet = this
+						}
+					}
+					find_closest_planet  = {
+						trigger = {
+							id = tiyanki3.patrol.3
+							has_planet_flag = tiyanki_giant4
+						}
+						found_planet = {
+							move_to = this
+							orbit_planet = this
+						}
+					}
+					find_closest_planet  = {
+						trigger = {
+							id = tiyanki3.patrol.4
+							has_planet_flag = tiyanki_giant3
+						}
+						found_planet = {
+							move_to = this
+							orbit_planet = this
+						}
+					}
+				}
+			}
+		}
+	}
+
+	create_fleet = {
+		name = "NAME_Tiyanki_Space_Whale"
+		effect = {
+			set_owner = event_target:tiyanki_garrison_country
+			while = {
+				count = 16
+				create_ship = {
+					design = "NAME_Tiyanki_Hatchling"
+				}
+			}
+			set_location = {
+				target = event_target:giant2
+				distance = 25
+				angle = 94
+			}
+			set_fleet_stance = passive
+			set_aggro_range_measure_from = return_point
+			set_aggro_range = 0
+			queue_actions = {
+				repeat = {
+					find_closest_planet = {
+						trigger = {
+							id = tiyanki4.patrol.1
+							has_planet_flag = tiyanki_giant3
+						}
+						found_planet = {
+							move_to = this
+							orbit_planet = this
+						}
+					}
+					find_closest_planet  = {
+						trigger = {
+							id = tiyanki4.patrol.2
+							has_planet_flag = tiyanki_giant4
+						}
+						found_planet = {
+							move_to = this
+							orbit_planet = this
+						}
+					}
+					find_closest_planet  = {
+						trigger = {
+							id = tiyanki4.patrol.3
+							has_planet_flag = tiyanki_giant1
+						}
+						found_planet = {
+							move_to = this
+							orbit_planet = this
+						}
+					}
+					find_closest_planet  = {
+						trigger = {
+							id = tiyanki4.patrol.4
+							has_planet_flag = tiyanki_giant2
+						}
+						found_planet = {
+							move_to = this
+							orbit_planet = this
+						}
+					}
+				}
+			}
+		}
+	}
+}

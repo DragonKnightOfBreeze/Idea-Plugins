@@ -1,0 +1,13 @@
+zro_upkeep_planets = {
+	resource = sr_zro 
+	type = upkeep
+	category = planets
+	
+	potential = {
+		always = yes
+	}
+	
+	fraction = {
+		weight = 0.9
+	}	
+}

@@ -1,0 +1,13 @@
+gov_marauder_clans = {
+	ruler_title = RT_RELUCTANT_EMISSARY
+	
+	should_force_rename = yes
+
+	possible = {
+		has_civic = civic_anarcho_tribalism
+	}
+
+	weight = {
+		base = 100000
+	}
+}

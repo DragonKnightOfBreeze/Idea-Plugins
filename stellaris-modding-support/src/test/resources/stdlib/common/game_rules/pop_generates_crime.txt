@@ -1,0 +1,5 @@
+pop_generates_crime = {
+	is_sapient = yes
+	is_non_sapient_robot = no
+	is_being_assimilated = no
+}

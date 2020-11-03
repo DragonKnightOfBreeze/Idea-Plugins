@@ -1,0 +1,7 @@
+tech_flak_batteries_1 = {
+	area = engineering
+	tier = 0
+	category = { propulsion }
+	ai_update_type = military	
+	start_tech = yes
+}

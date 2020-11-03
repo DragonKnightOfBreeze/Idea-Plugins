@@ -1,0 +1,38 @@
+tech_ftl_inhibitor = {
+	area = physics
+	cost = @tier2cost1
+	tier = 2
+	category = { particles }
+	prerequisites = { "tech_hyper_drive_1" }
+	weight = @tier2weight1
+
+	feature_flags = {
+		planetary_ftl_inhibitor
+	}
+
+	weight_modifier = {
+		factor = 4 #FTL inhibitor is very important
+		modifier = {
+			factor = 1.25
+			has_tradition = tr_supremacy_adopt
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_particles"
+			}
+		}
+	}
+
+	ai_weight = {
+		factor = 4 #FTL inhibitor is really good
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_particles"
+			}
+		}
+	}
+}

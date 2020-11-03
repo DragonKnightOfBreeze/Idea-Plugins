@@ -1,0 +1,56 @@
+site_phoenix_collective = {
+	desc = "site_phoenix_collective_intro"
+	picture = GFX_evt_overgrown_city
+	stages = 4
+	weight = {
+		base = 0
+		modifier = {
+			add = 100
+			uninhabitable_regular_planet = yes
+			has_ancrel = yes
+		}
+	}
+
+	allow = {
+		exists = leader
+		leader = { leader_class = scientist }
+	}
+
+	visible = {
+		default_site_visible_trigger = yes
+	}
+
+	on_visible = {
+    	country_event = { id = story.5 days = 30 }
+	}
+
+	stage = {
+		difficulty = 4
+		icon = GFX_archaeology_runes_E1
+		event = ancrel.9240
+	}
+
+	stage = {
+		difficulty = 4
+		icon = GFX_archaeology_runes_E4
+		event = ancrel.9245
+	}
+
+	stage = {
+		difficulty = 5
+		icon = GFX_archaeology_runes_E6
+		event = ancrel.9250
+	}
+
+	stage = {
+		difficulty = 2
+		icon = GFX_archaeology_runes_E5
+		event = ancrel.9251
+	}
+
+	on_roll_failed = {
+		from = {
+			standard_archaeological_site_on_roll_failed = { RANDOM_EVENTS = site_phoenix_collective_random_events }
+		}
+	}
+}

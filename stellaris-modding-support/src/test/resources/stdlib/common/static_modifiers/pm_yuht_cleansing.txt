@@ -1,0 +1,4 @@
+pm_yuht_cleansing = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_natural_beauty.dds"
+	pop_environment_tolerance = 0.10
+}

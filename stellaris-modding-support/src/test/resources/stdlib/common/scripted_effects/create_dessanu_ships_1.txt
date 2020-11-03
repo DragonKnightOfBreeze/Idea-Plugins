@@ -1,0 +1,13 @@
+create_dessanu_ships_1 = {
+	create_ship = {
+		name = random
+		design = "NAME_Dessanu_Mothership"
+	}
+	while = {
+		count = 5
+		create_ship = {
+			name = random
+			design = "NAME_Dessanu_Interdictor"
+		}
+	}
+}

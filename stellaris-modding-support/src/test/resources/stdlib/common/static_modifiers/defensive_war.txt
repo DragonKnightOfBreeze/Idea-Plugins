@@ -1,0 +1,2 @@
+defensive_war = {
+}

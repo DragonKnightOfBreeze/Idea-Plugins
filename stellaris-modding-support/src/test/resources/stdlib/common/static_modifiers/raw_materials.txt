@@ -1,0 +1,4 @@
+raw_materials = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_asteroid_impacts.dds"
+	icon_frame = 1
+}

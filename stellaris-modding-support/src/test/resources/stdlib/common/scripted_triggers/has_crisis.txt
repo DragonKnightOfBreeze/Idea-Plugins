@@ -1,0 +1,8 @@
+has_crisis = {
+	OR = {
+		has_global_flag = crisis_stage_1
+		has_global_flag = crisis_stage_2
+		has_global_flag = crisis_stage_3
+		has_global_flag = crisis_stage_4
+	}
+}

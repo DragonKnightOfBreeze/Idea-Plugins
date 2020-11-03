@@ -1,6 +1,3 @@
-﻿### Hive Mind 2
-### Created by Douglas Furen
-
 HIVE2 = {
 	category = "Hive Mind"
 	randomized = no

@@ -1,0 +1,105 @@
+building_sacrificial_temple_1 = {
+	base_buildtime = @b1_time
+	add_to_first_building_slot = yes
+
+	category = unity
+
+	potential = {
+		exists = owner
+		building_basic_income_check = yes
+		owner = {
+			is_spiritualist = yes
+			OR = {
+				has_valid_civic = civic_death_cult
+				has_valid_civic = civic_death_cult_corporate
+			}
+		}
+		NOT = { has_modifier = slave_colony }
+		OR = {
+			owner = { is_ai = no }
+			free_building_slots > 0
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = {
+				OR = {
+					is_spiritualist = no
+					NOT = {
+						OR = {
+							has_valid_civic = civic_death_cult
+							has_valid_civic = civic_death_cult_corporate
+						}
+					}
+				}
+			}
+			has_modifier = slave_colony
+		}
+	}
+
+	convert_to = {
+		building_hive_node
+		building_simulation_1
+		building_autochthon_monument
+		building_corporate_monument
+		building_temple
+	}
+
+	planet_modifier = {
+		job_death_priest_add = 1
+		job_mortal_initiate_add = 1
+		pop_ethic_spiritualist_attraction_mult = 0.05
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b1_minerals
+		}
+		upkeep = {
+			energy = @b1_upkeep
+		}
+	}
+
+	upgrades = { building_sacrificial_temple_2 }
+
+	prerequisites = { "tech_cultural_heritage" }
+
+	show_tech_unlock_if = {
+		OR = {
+			has_valid_civic = civic_death_cult
+			has_valid_civic = civic_death_cult_corporate
+		}
+	}
+
+	triggered_desc = { text = job_death_priest_effect_desc }
+
+	ai_weight = {
+		weight = 25
+		modifier = {
+			factor = 0
+			OR = {
+				owner = {
+					has_monthly_income = {
+						resource = consumer_goods
+						value < 8
+					}
+				}
+				count_pops = {
+					limit = { has_citizenship_type = { type = citizenship_full } }
+					count < 25
+				}
+			}
+		}
+		modifier = {
+			factor = 0.1
+			OR = {
+				has_building = building_sacrificial_temple_1
+				has_building = building_sacrificial_temple_2
+				has_building = building_sacrificial_temple_3
+			}
+		}
+	}
+}

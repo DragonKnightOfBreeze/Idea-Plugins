@@ -1,0 +1,3 @@
+embraced_faction_timer = {
+	icon = "gfx/interface/icons/modifiers/mod_pop_government_ethic_attraction.dds"
+}

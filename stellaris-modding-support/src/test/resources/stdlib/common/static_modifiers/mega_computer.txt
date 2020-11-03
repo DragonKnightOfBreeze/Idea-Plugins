@@ -1,0 +1,3 @@
+mega_computer = {
+	country_engineering_research_produces_mult = 0.10
+}

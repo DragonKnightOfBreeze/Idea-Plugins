@@ -1,0 +1,9 @@
+opinion_subject_protection = {
+	opinion = {
+		base = 30
+	}
+
+	decay = {
+		base = 5
+	}
+}

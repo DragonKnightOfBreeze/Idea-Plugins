@@ -1,0 +1,5 @@
+opinion_closed_borders = {
+	opinion = {
+		base = -20
+	}
+}

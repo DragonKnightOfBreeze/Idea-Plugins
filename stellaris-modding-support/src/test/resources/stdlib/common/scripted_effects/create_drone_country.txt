@@ -1,0 +1,43 @@
+create_drone_country = {
+	if = {
+		limit = { NOT = { exists = event_target:drone_country } }
+		create_country = {
+			name = "NAME_Mineral_Extraction_Operation"
+			type = drone
+			flag = {
+				icon = {
+					category = "zoological"
+					file = "flag_zoological_1.dds"
+				}
+				background= {
+					category = "backgrounds"
+					file = "00_solid.dds"
+				}
+				colors={
+					"black"
+					"black"
+					"null"
+					"null"
+				}
+			}
+			effect = {
+				save_global_event_target_as = drone_country
+				set_graphical_culture = ancient_drone_01
+				set_variable = {	# Variable to track number of Ancient Mining Drone Expansion Fleets sent out throughout the game session.
+					which = expansion_fleets_sent_var
+					value = 0
+				}
+				set_variable = {	# Variable to track number of aggressiveAncient Mining Drone Expansion Fleets sent out throughout the game session.
+					which = aggressive_expansion_fleets_sent_var
+					value = 0
+				}
+				every_country = {
+					limit = {
+						has_country_flag = established_comms_with_drones
+					}
+					establish_communications_no_message = prev
+				}
+			}
+		}
+	}
+}

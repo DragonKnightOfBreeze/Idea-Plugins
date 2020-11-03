@@ -1,0 +1,23 @@
+auth_imperial = {
+	has_heir = yes
+
+	has_agendas = yes
+
+	possible = {
+		ethics = {
+			NOR = {
+				value = ethic_gestalt_consciousness
+				value = ethic_egalitarian
+				value = ethic_fanatic_egalitarian
+			}
+		}
+	}
+
+	country_modifier = {
+		country_edict_cap_add = 1
+	}
+
+	tags = {
+		AUTHORITY_HAS_HEIR
+	}
+}

@@ -1,0 +1,4 @@
+sacrifice_harmony_4 = {
+    pop_happiness = 0.4
+    icon = "gfx/interface/icons/modifiers/mod_pop_happiness.dds"
+}

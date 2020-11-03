@@ -1,0 +1,4 @@
+nomad_strength = {
+	ship_weapon_damage = 1.25
+	ship_hull_mult = 1.25
+}

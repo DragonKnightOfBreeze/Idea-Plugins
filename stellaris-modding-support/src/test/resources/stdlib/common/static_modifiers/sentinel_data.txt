@@ -1,0 +1,3 @@
+sentinel_data = {
+	damage_vs_country_type_swarm_mult = 0.2
+}

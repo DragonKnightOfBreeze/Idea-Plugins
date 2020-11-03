@@ -1,0 +1,7 @@
+precursor_zroni_1 = {
+	size = 100
+
+	possible = {
+		has_ancrel = yes
+	}
+}

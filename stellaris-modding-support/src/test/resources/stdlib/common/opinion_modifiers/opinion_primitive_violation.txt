@@ -1,0 +1,45 @@
+opinion_primitive_violation = {
+	opinion = {
+		base = -25
+
+		modifier = {
+			add = -15
+			has_ethic = ethic_xenophile
+		}
+
+		modifier = {
+			add = -25
+			has_ethic = ethic_fanatic_xenophile
+		}
+
+		modifier = {
+			add = -5
+			has_ethic = ethic_pacifist
+		}
+
+		modifier = {
+			add = -10
+			has_ethic = ethic_fanatic_pacifist
+		}
+
+		modifier = {
+			factor = 0
+			OR = {
+				has_ai_personality_behaviour = infiltrator
+				has_ai_personality_behaviour = dominator
+			}
+		}
+
+		modifier = {
+			factor = 0
+			OR = {
+				has_ethic = ethic_xenophobe
+				has_ethic = ethic_fanatic_xenophobe
+			}
+		}
+	}
+
+	decay = {
+		base = 1
+	}
+}

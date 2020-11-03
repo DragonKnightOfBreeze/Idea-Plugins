@@ -1,0 +1,29 @@
+cb_stop_colossus = {
+	show_in_diplomacy = no
+	show_notification = no
+	potential = {
+		is_country_type = default
+		NOT = { is_in_federation_with = from }
+	}
+	is_valid = {
+		has_total_war_cb = no
+		from = { is_country_type = default }
+		NOT = { is_overlord_to = FROM }
+		OR = {
+			is_subject = no
+			overlord = { NOT = { is_same_value = from } }
+		}
+		from = { 
+			any_owned_fleet = { 
+				is_ship_class = shipclass_military_special
+				any_owned_ship = { is_ship_size = colossus } 
+			}
+		}
+		NOT = { 
+			any_owned_fleet = {
+				is_ship_class = shipclass_military_special
+				any_owned_ship = { is_ship_size = colossus } 
+			}
+		}
+	}
+}

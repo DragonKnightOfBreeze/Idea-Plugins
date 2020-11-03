@@ -1,0 +1,18 @@
+triggered_spiritualist_opinion_of_machine_empires = {
+	trigger = {
+		is_country_type = default
+		has_ethic = ethic_spiritualist
+		FROM = {
+			has_authority = auth_machine_intelligence
+			is_mechanical_empire = no
+			is_cyborg_empire = no
+			NOR = {
+				has_civic = civic_machine_terminator
+				has_civic = civic_machine_assimilator
+			}
+		}
+	}
+	opinion = {
+		base = -40
+	}
+}

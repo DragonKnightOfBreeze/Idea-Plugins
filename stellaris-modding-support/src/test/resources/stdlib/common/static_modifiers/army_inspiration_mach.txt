@@ -1,0 +1,4 @@
+army_inspiration_mach = {
+	planet_army_build_speed_mult  = 0.20
+	army_morale = 0.20
+}

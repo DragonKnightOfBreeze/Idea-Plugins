@@ -1,0 +1,44 @@
+resolution_council_denouncement = {
+	icon = "GFX_resolution_purges"
+
+	potential = {
+		has_federations_dlc = yes
+	}
+
+	resources = {
+		category = resolutions
+		cost = {
+			influence = @resolution_cost_t1
+		}
+	}
+
+	target = yes
+	harmful = yes
+	valid_target = {
+		is_country_type = default
+		is_galactic_community_member = yes
+		NOT = { is_same_value = from } # don't denounce yourself.
+		OR = {
+			opinion_level = { who = from level < neutral }
+			from = { is_rival = prev }
+			is_in_breach_of_any = yes
+		}
+	}
+
+	effect = {
+		add_modifier = { modifier = resolution_denounced days = 3600 }
+	}
+
+	potential = {
+		is_galactic_council_established = yes
+		NOT = { has_global_flag = resolution_council_denouncement_abolished }
+	}
+
+	allow = {
+		is_part_of_galactic_council = yes
+	}
+
+	ai_weight = {
+		weight = @resolution_weight_disliked
+	}
+}

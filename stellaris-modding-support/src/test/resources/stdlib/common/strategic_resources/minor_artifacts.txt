@@ -1,0 +1,7 @@
+minor_artifacts = {
+	tradable = no
+	
+	ai_weight = {
+		weight = 1
+	}
+}

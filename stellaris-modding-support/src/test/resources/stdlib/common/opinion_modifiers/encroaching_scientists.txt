@@ -1,0 +1,9 @@
+encroaching_scientists = {
+	opinion = {
+		base = -50
+	}
+
+	decay = {
+		base = 5
+	}
+}

@@ -1,0 +1,37 @@
+tech_powered_exoskeletons = {
+	cost = @tier1cost1
+	area = engineering
+	tier = 1
+	category = { industry }
+	prerequisites = { "tech_basic_industry" }
+	weight = @tier1weight1
+
+	gateway = robotics
+
+	modifier = {
+		army_damage_mult = 0.05
+		planet_jobs_minerals_produces_mult = 0.05
+	}
+
+	weight_modifier = {
+		factor = 1.5
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_industry"
+			}
+		}
+	}
+
+	ai_weight = {
+		factor = 2
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_industry"
+			}
+		}
+	}
+}

@@ -1,0 +1,21 @@
+decision_end_martial_law_machine = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+
+	resources = {
+		category = decisions
+	}
+	
+	potential = {
+		#owner = { is_machine_empire = yes }
+		has_modifier = compliance_protocols
+	}
+	
+	effect = {
+		remove_modifier = compliance_protocols
+	}
+	
+	ai_weight = {
+		weight = 1
+	}
+}

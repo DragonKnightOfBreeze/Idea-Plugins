@@ -1,0 +1,11 @@
+opinion_war_in_heaven_winner = {
+	opinion = {
+		base = 200
+	}
+
+	accumulative = yes
+
+	decay = {
+		base = 5
+	}
+}

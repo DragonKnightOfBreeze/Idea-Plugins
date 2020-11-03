@@ -1,0 +1,35 @@
+baol_digsite_1 = {
+	desc = "baol_digsite_1_desc"
+	picture = GFX_evt_warm_barren
+	stages = 3
+	max_instances = 1
+	weight = 0 #Set by ancrel.2000
+	allow = {
+		exists = leader
+		leader = { leader_class = scientist }
+	}
+	visible = {
+		has_country_flag = baol_intro
+		default_site_visible_trigger = yes
+	}
+	stage = {
+		difficulty = 3
+		icon = GFX_archaeology_runes_B1
+		event = ancrel.2004
+	}
+	stage = {
+		difficulty = 3
+		icon = GFX_archaeology_runes_B2
+		event = ancrel.2005
+	}
+	stage = {
+		difficulty = 3
+		icon = GFX_archaeology_runes_B3
+		event = ancrel.2006
+	}
+	on_roll_failed = {
+		from = {
+			standard_archaeological_site_on_roll_failed = { RANDOM_EVENTS = all_random_events }
+		}
+	}
+}

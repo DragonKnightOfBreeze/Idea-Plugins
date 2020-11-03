@@ -1,0 +1,10 @@
+remove_self_modified = {
+	if = {
+		limit = { has_trait = trait_self_modified }
+		modify_species = {
+			species = this
+			remove_trait = trait_self_modified
+			change_scoped_species = yes
+		}
+	}
+}

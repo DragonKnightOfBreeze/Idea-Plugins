@@ -1,0 +1,3 @@
+is_cyborg_empire = {
+	owner_species = { has_trait = trait_cybernetic }
+}

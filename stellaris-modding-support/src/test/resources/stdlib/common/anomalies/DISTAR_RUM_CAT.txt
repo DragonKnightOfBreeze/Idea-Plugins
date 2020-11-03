@@ -1,0 +1,57 @@
+DISTAR_RUM_CAT = {
+	desc = "DISTAR_RUM_CAT_DESC"
+	picture = "GFX_evt_ship_in_orbit"
+	level = 2
+	
+	spawn_chance = {
+		modifier = {
+			add = 1
+			has_distar = yes
+			is_planet_class = pc_gas_giant
+			is_inside_nebula = yes
+			OR = {
+				from.owner = {
+					NOT = {
+						has_ethic = ethic_gestalt_consciousness
+					}
+				}
+				from.owner = {
+					has_authority = auth_machine_intelligence
+					NOR = {
+						has_civic = civic_machine_terminator
+						has_civic = civic_machine_assimilator
+					}
+					any_neighbor_country = {
+						is_ai = yes
+						is_country_type = default
+						has_communications = from.owner
+						NOR = {
+							has_ethic = ethic_gestalt_consciousness
+							is_at_war_with = from.owner
+							is_same_value = from.owner
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	on_success = {
+		1 = {
+			modifier = {
+				factor = 0
+				owner = { has_authority = auth_machine_intelligence }
+			}
+			anomaly_event = distar.90
+		}
+		0 = {
+			modifier = {
+				add = 1
+				owner = {
+					has_authority = auth_machine_intelligence
+				}
+			}
+			anomaly_event = distar.91
+		}
+	}
+}

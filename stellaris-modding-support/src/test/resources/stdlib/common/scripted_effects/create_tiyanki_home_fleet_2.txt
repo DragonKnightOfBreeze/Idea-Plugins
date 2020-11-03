@@ -1,0 +1,63 @@
+create_tiyanki_home_fleet_2 = {
+	create_fleet = {
+		name = "NAME_Tiyanki_Space_Whale"
+		effect = {
+			set_owner = event_target:tiyanki_garrison_country
+			while = {
+				count = 2
+				create_ship = {
+					design = "NAME_Tiyanki_Cow"
+				}
+			}
+			while = {
+				count = 5
+				create_ship = {
+					design = "NAME_Tiyanki_Bull"
+				}
+			}
+			while = {
+				count = 2
+				create_ship = {
+					design = "NAME_Tiyanki_Hatchling"
+				}
+			}
+			while = {
+				count = 3
+				create_ship = {
+					design = "NAME_Tiyanki_Calf"
+				}
+			}
+			set_location = event_target:giant2
+			set_fleet_stance = passive
+			set_aggro_range_measure_from = return_point
+			set_aggro_range = 0
+		}
+	}
+
+	create_fleet = {
+		name = "NAME_Tiyanki_Space_Whale"
+		effect = {
+			set_owner = event_target:tiyanki_garrison_country
+			while = {
+				count = 2
+				create_ship = {
+					design = "NAME_Tiyanki_Cow"
+				}
+			}
+			while = {
+				count = 4
+				create_ship = {
+					design = "NAME_Tiyanki_Calf"
+				}
+			}
+			set_location = {
+				target = event_target:giant2
+				distance = 12
+				angle = 0
+			}
+			set_fleet_stance = passive
+			set_aggro_range_measure_from = return_point
+			set_aggro_range = 0
+		}
+	}
+}

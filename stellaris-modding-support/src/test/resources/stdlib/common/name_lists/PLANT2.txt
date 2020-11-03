@@ -1,170 +1,159 @@
-﻿### Plantoid 2
-### Created by Maximilian Olbers and Miranda van den Brink
-
 PLANT2 = {	
+	### SHIPS
+	
 	category = "Plantoid"
+
+	language = "l_simp_chinese"
+	
 	ship_names = {
 	
-		generic = {
-		}
+		generic = {}
 	
 		corvette = { 
-			Aurora "Fierce Crenator" Resinous Tuberous "Green Sentinel" "Red Sentinel" "Golden Sentinel" "Green Sentry" "Red Sentry" "Golden Sentry" Skysentry "Green Assault" Starforce Starleaf "Skyleaf" "Starstriker" "Green Striker" "Fern Striker" "Fir Striker" "Twig Striker" Farskies Skyshooter "Green Flash" Dart Rusher Skyrusher Skystriker Starshoot Triffid "Pride of the Forest" "Tenacious Crenator" "Unassailable Crenator" "Magnificent Crenator" "Exalted Crenator" "Exalted Petiole" "Magnificent Petiole" "Tenacious Petiole" "Fierce Petiole" 
+			阿图拉 塔尔提索斯 阿加莎 "圣纳奇布尔" "圣卡斯帕" 特鲁特 "圣霍萨克" 弗莱辛顿 格德伍德 芬卡斯尔 
 		}
 		
 		destroyer = { 
-			"Pride of the Grove" "Pride of the Grasslands" "Pride of the Marshes" Stalker Skystalker "Green Stalker" Starstalker "Green Lightning" "Green Pride" "Pride of the Moors" "Pride of the Glade" "Pride of the Ocean" "Pride of the Valley" "Pride of Yax Imix Che" "Pride of Kalpavriksha" "Pride of Bo" "Pride of Akshayavat" "Pride of Nookomis Giizhig" "Pride of Irminsul" "Pride of Somb" "Pride of Tule" "Pride of Ashvattha" "Pride of Fusang" 
+			"林之傲" "草原之傲" "沼泽之傲" 天潜者 "绿色潜行者" 潜行者 "绿光" "绿之傲" "荒野之傲" "林中空地" "海洋之傲" "峡谷之傲" "亚克西米澈之傲" "卡尔帕瑞沙之傲" "波之傲" "阿卡沙雅瓦特之傲" "努克密斯·季智格之傲" "伊尔迷苏之傲" "苏波之傲" "图莱之傲" "艾史瓦塔之傲" "扶桑之傲" 
 		}
 		
 		cruiser = { 
-			"Protector of the Valleys" "Protector of the Marshes" "Protector of the Forests" "Protector of the Oceans" "Protector of the Rivers" "Protector of the Groves"
+			"峡谷守护者" "沼泽守护者" "森林守护者" "海洋守护者" "河流守护者" "林之守护者"
 		}
 		
 		battleship = { 
-			"Defender of Yggdrasil" "Defender of Yax Imix Che" "Defender of Kalpavriksha" "Defender of Bo" "Defender of Akshayavat" "Defender of Irminsul" "Defender of Somb" "Defender of Tule" "Defender of Ashvattha" "Defender of Fusang"
-		}
-		
-		titan = {
-			"Champion of the Valleys" "Champion of the Marshes" "Champion of the Forests" "Champion of the Oceans" "Champion of the Rivers" "Champion of the Groves"
-		}
-		
-		colossus = {
-			"Nature's Wrath" "Nature's Fury" "Nature's Rage" "Nature's Spite"
+			"世界树守护者" "雅·伊米克斯·彻守护者" "卡帕弗里克沙守护者" "波之守护者" "阿克沙亚瓦特守护者" "伊尔敏苏守护者" "索伯守护者" "图尔守护者" "艾史瓦沙守护者" "夫桑守护者"
 		}
 
+		titan = { 
+			"世界树守护者" "雅·伊米克斯·彻守护者" "卡帕弗里克沙守护者" "波之守护者" "阿克沙亚瓦特守护者" "伊尔敏苏守护者" "索伯守护者" "图尔守护者" "艾史瓦沙守护者" "夫桑守护者"
+		}
+
+		colossus = { 
+			"世界树守护者" "雅·伊米克斯·彻守护者" "卡帕弗里克沙守护者" "波之守护者" "阿克沙亚瓦特守护者" "伊尔敏苏守护者" "索伯守护者" "图尔守护者" "艾史瓦沙守护者" "夫桑守护者"
+		}
+		
 		juggernaut = {
-			"Glorious Copse" "Hardy Copse" "Tenacious Copse" "Valiant Copse" "Vengeful Copse" "Wrathful Copse"
+			"光辉灌木" "坚忍灌木" "强韧灌木" "英勇灌木" "仇怨灌木" "愤怒灌木"
 		}
 		
 		science = { 
-			Leguminant Perennia Pithy Evergreener
+			黎巴嫩  泰尔  安提阿  锡尔河  阿姆河  图兰  阿科恩娜  巴德纳斯  拉扎克  奥尔泰尼亚  贝尔纳斯  阿塔卡马  塔那米
 		}
 		
 		colonizer = { 
-			Twig Undulator Whorler Petiole 
+			末梢 波纹机 锭盘 叶柄
 		}
 
-		sponsored_colonizer = { # needed when there are no generic names
-			Twig Undulator Whorler Petiole 
+		sponsored_colonizer = { 
+			末梢 波纹机 锭盘 叶柄
 		}
 		
 		constructor = { 
-			"Green Crenator" "Rust Crenator" "Golden Crenator"
+			"绿创造者" "褐创造者" "金创造者"
 		}
 
-		transport = {
-			"Green Conveyor" "Rust Conveyor" "Golden Conveyor"
+		transport = { 
+			"运输"
 		}
-		
-		military_station_small = {
-			"Pride of the Tundra" "Pride of the Rivers"
-		}
-		
-		ion_cannon = {
-			"Pride of Yggdrasil"
-		}
-
-		### For Fallen Empires
-		small_ship_fallen_empire = {
-			Aurora "Fierce Crenator" Resinous Tuberous "Green Sentinel" "Red Sentinel" "Golden Sentinel" "Green Sentry" "Red Sentry" "Golden Sentry" Skysentry "Green Assault" Starforce Starleaf "Skyleaf" "Starstriker" "Green Striker" "Fern Striker" "Fir Striker" "Twig Striker" Farskies Skyshooter "Green Flash" Dart Rusher Skyrusher Skystriker Starshoot Triffid "Pride of the Forest" "Tenacious Crenator" "Unassailable Crenator" "Magnificent Crenator" "Exalted Crenator" "Exalted Petiole" "Magnificent Petiole" "Tenacious Petiole" "Fierce Petiole" 
-		}
-		large_ship_fallen_empire = {
-			"Defender of Yggdrasil" "Defender of Yax Imix Che" "Defender of Kalpavriksha" "Defender of Bo" "Defender of Akshayavat" "Defender of Irminsul" "Defender of Somb" "Defender of Tule" "Defender of Ashvattha" "Defender of Fusang"
-		}
-		massive_ship_fallen_empire = {
-			"Champion of the Valleys" "Champion of the Marshes" "Champion of the Forests" "Champion of the Oceans" "Champion of the Rivers" "Champion of the Groves"
-		}
+	
+		military_station_small = { "冻原之傲" "河流之傲" "世界树之傲"}
+	
+		ion_cannon = { "冻原之傲" "河流之傲" "世界树之傲" }
 	}
 	
 	fleet_names = {
 		random_names = {
-			"Blossoming Bouquet" "Flourishing Bouquet" "Vanquishing Bouquet" "Whirling Bouquet" "Burgeoning Bouquet"
+			"开花花束" "繁荣花束" "征服花束" "漩涡花束" "萌发花束"
 		}
-		sequential_name = "%O% Bouquet"
+		sequential_name = "花束﻿ %C%"
 	}
 
+	### ARMIES
 	army_names = {
 
 		machine_defense = {
-			sequential_name = "%O% Protective Stalk"
+			sequential_name = "防护花茎 %C%"
 		}
 		
 		machine_assault_1 = {
-			sequential_name = "%O% Poison Stalk"
+			sequential_name = "剧毒花茎 %C%"
 		}
 		
 		machine_assault_2 = {
-			sequential_name = "%O% Poison Stalk"
+			sequential_name = "剧毒花茎 %C%"
 		}
 		
 		machine_assault_3 = {
-			sequential_name = "%O% Poison Stalk"
+			sequential_name = "剧毒花茎 %C%"
 		}
-
+		
 		defense_army = {
-			sequential_name = "%O% Protective Stalk"
+			sequential_name = "防护花茎 %C%"
 		}
 			
 		assault_army = {
-			sequential_name = "%O% Poison Stalk"
+			sequential_name = "剧毒花茎 %C%"
 		}
 		
 		slave_army = {
-			sequential_name = "%O% Bound Stalk"
-		}
-		
-		undead_army = {
-			sequential_name = "%O% Dread Stalk"
+			sequential_name = "边界花茎﻿ %C%"
 		}
 
+		undead_army = {
+			sequential_name = "%O%恐惧树干"
+		}
+		
 		clone_army = { 
-			sequential_name = "Stalk of Many %R%"
+			sequential_name = "诸茎 %R%"
 		}
 		
 		robotic_army = {
-			sequential_name = "Iron Stalk %R%"
+			sequential_name = "钢铁之茎 %R%"
 		}
 
 		robotic_defense_army = {
-			sequential_name = "Iron Branch %R%"
+			sequential_name = "钢铁之茎 %R%"
 		}
 		
 		psionic_army = { 
-			sequential_name = "%O% Lobed Stalk"
+			sequential_name = "浅裂花茎 %C%"
 		}
 		
 		xenomorph_army = {
-			sequential_name = "%O% Strange Stalk"
+			sequential_name = "奇异花茎 %C%"
 		}
 		
 		gene_warrior_army = {
-			sequential_name = "%O% Hybrid Stalk"
+			sequential_name = "混种花茎 %C%"
 		}
-
 		occupation_army = {
-			sequential_name = "%O% Occupation Stalk"
+			sequential_name = "%O% 加里森波德"
 		}
 
 		robotic_occupation_army = {
-			sequential_name = "%O% Iron Occupation Branch"
+			sequential_name = "%O% 安卓 加里森波德"
 		}
-
 		primitive_army = {
-			sequential_name = "Primitive Army %C%"
+			sequential_name = "原始军队 %C%"
 		}
 		industrial_army = {
-			sequential_name = "Industrial Army %C%"
+			sequential_name = "工业军队 %C%"
 		}
 		postatomic_army = {
-			sequential_name = "Post-Atomic Army %C%"
+			sequential_name = "后原子军 %C%"
 		}
 	}
+
+		
+	
+	### PLANETS
 	
 	planet_names = {
 	
 		generic = {
 			names = {
-				Mosshome Arborealis Herbaceon Horticultured Grasslands Nutfall Shrubbery Trunksite Fernfield Cloverbed Fernutopia Future Bulb Fusang "Star Grove" "New Roots" "Starflower" Verano "New Hope" Fernglade "Tule's Glory" "Yax Imix Che" Kalpavriksha Bo Akshayavat "Nookomis Giizhig" Irminsul Somb Tule Ashvattha Mosslands Paradise "Goldgrass" "Leafy" "Starnut" "Bliss" "Golden Flower" "New Soil" "Leaf's Haven"
+				莫莉 康斯坦斯 珍妮 彭妮 梅丽尔 朱迪 维罗妮卡 阿普欧 西格妮 吉利安 阿诺
 			}
 		}
 		
@@ -214,6 +203,8 @@ PLANT2 = {
 		}
 		
 	}
+	
+	### CHARACTERS
 
 	character_names = {
 		default = {
@@ -223,23 +214,21 @@ PLANT2 = {
 			
 			# Always combined with a second name
 			first_names = {
-				White Grey Black Burgundy Red Blue Indigo Cyan Yellow Orange Ivory Ebony Purple Brown Teal Green Aquamarine Khaki Magenta Gold Silver
-				Bronze Honeydew Lavender Maroon Olive
+				沃德 霍华德 劳埃德 塔纳 尼古拉斯 马修斯 埃里斯 惠尔鑫 惠特克 巴顿 霍金斯 加洛维克 斯佩克特 里弗斯 弗农 尼文
+				布伦达 布里奇特 卡洛琳 卡桑德拉 查莉蒂 塞西莉亚 安妮 克拉丽莎 克里斯特贝尔 谢里尔 辛西娅 凯登思 科黛拉 达芙妮 迪安娜
 			}
 			
 			# Always combined with a first name
 			second_names = {
-				Root Bulb Germination Frond Fruit Needle Nectar Weed Shoot Pod Cone
+				罗德里奥 格拉里格 摩德里格 维拉里格 约里姆 巴里姆 维皮姆
 			}
 
-			use_full_regnal_name = yes
-
 			regnal_first_names = {
-				"Flower of"
+				"花之"
 			}
 			
 			regnal_second_names = {
-				Yggdrasil "Yax Imix Che" Kalpavriksha Bo Akshayavat "Nookomis Giizhig" Irminsul Somb Tule Ashvattha Fusang
+				约姆古约格 约姆法拉汉 约姆齐格德 约姆佩德翁 约姆塔格德 约姆尼罗格 约姆图拉兹 约姆修特尔 约姆休特德 约姆英拉德 约姆鲁格鲁 约姆提奎克 约姆达明特 约姆特拉古德 约姆沃特南 约姆拉斯格 约姆雷姆 约姆纳古德 约姆弗英布 约姆拉苏德 约姆普罗斯 约姆弗利普 约姆普特利格 约姆沙鲁夫 约姆卡纳布 约姆特郎柯德 约姆加法棱 约姆尤德蒙 约姆蒙达 约姆图哈姆 约姆贝英德 约姆提帕许 约姆苏格拉德 约姆费戈弗 约姆布伊朵
 			}
 		}
 	}

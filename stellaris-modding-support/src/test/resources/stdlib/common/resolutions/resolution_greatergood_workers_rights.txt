@@ -1,0 +1,111 @@
+resolution_greatergood_workers_rights = {
+	icon = "GFX_resolution_greater_good"
+
+	resources = {
+		category = resolutions
+		cost = {
+			influence = @resolution_cost_t1
+		}
+	}
+	target = no
+	level = 1
+
+	modifier = {
+		resolution_greatergood_workers_rights = 1
+	}
+
+	effect = {
+		hidden_effect = {
+			set_global_flag = galactic_community_resolution_passed
+			set_timed_country_flag = { flag = galactic_community_resolution_passed_greatergood days = @resolution_flag_timer }
+			add_modifier = {
+				modifier = resolution_passed_diplomatic_weight
+				days = 2200
+			}
+		}
+	}
+
+	fail_effects = {
+		hidden_effect = {
+			set_timed_country_flag = { flag = galactic_community_resolution_failed_greatergood days = @resolution_flag_timer }
+			add_modifier = {
+				modifier = resolution_failed_diplomatic_weight
+				days = 2200
+			}
+		}
+	}
+
+	allow = {
+		custom_tooltip = {
+			fail_text = "resolution_already_active"
+			NOR = {
+				is_active_resolution = "resolution_greatergood_workers_rights"
+				is_active_resolution = "resolution_greatergood_five_year_plans"
+				is_active_resolution = "resolution_greatergood_greater_than_ourselves"
+				is_active_resolution = "resolution_greatergood_balance_in_the_middle"
+				is_active_resolution = "resolution_greatergood_universal_prosperity_mandate"
+			}
+		}
+	}
+
+	ai_weight = {
+		weight = @resolution_weight_loved
+
+		modifier = {
+			factor = 1.2
+			is_egalitarian = yes
+		}
+
+		modifier = {
+			factor = 0.75
+			is_authoritarian = yes
+		}
+
+		modifier = {
+			factor = 0.5
+			is_megacorp = yes
+		}
+
+		modifier = {
+			factor = 1.2
+			has_ethic = ethic_fanatic_egalitarian
+		}
+
+		modifier = {
+			factor = 2
+			OR = {
+				has_valid_civic = civic_shared_burden
+				has_valid_civic = civic_machine_servitor
+			}
+		}
+
+		modifier = {
+			factor = 1.2
+			OR = {
+				has_valid_civic = civic_agrarian_idyll
+				has_valid_civic = civic_free_haven
+				has_valid_civic = civic_idealistic_foundation
+				has_valid_civic = civic_inwards_perfection
+			}
+		}
+
+		modifier = {
+			factor = 0.8
+			OR = {
+				is_gestalt = yes
+				has_valid_civic = civic_aristocratic_elite
+				has_valid_civic = civic_police_state
+			}
+
+		}
+
+		modifier = {
+			factor = 0
+			OR = {
+				has_valid_civic = civic_slaver_guilds
+				has_valid_civic = civic_indentured_assets
+				is_slaver = yes
+			}
+		}
+	}
+}

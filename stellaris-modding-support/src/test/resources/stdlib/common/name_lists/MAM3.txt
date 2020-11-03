@@ -1,26 +1,23 @@
-﻿### Humanoid 1
-### Created by Maximilian Olbers
-
 MAM3 = {
+
 	category = "Mammalian"
+
+	language = "l_simp_chinese"
+	
 	ship_names = {
 
 		generic = {
-			Seper'Elegion Seper'Setnassel Seper'Hundramel Seper'Grenalion Seper'Fundroleth Seper'Sagredioth Seper'Curenrod Seper'Tulethendral Seper'Huvendrog Seper'Vyliged Seper'Tarudog Seper'Calendol Seper'Essunad Seper'Hugaderol Seper'Aldinor Seper'Cerunthon Seper'Massagreth Seper'Tuandok Seper'Nossundem Seper'Duacedron Seper'Karob Seper'Arogo Seper'Vaylor Seper'Tirb Seper'Eskag Seper'Borog Seper'Masol Vuki'Targ Vuki'Boron Vuki'Salpossa Vuki'Patora Vuki'Argas Vuki'Holagor Vuki'Spako Vuki'Raman Vuki'Sotra Vuki'Vado Vuki'Uram Vuki'Elagar Vuki'Ennak Vuki'Tarba Vuki'Irios Vuki'Satrak Vuki'Endur Vuki'Ulator Vuki'Spaddok Vuki'Kitnak Vuki'Pokra Vuki'Higran Vuki'Farab Vuki'Storg
+			斯克鲁玛 帕格鲁 格罗姆 萨格罗 埃斯格 巴格罗什 里格罗 伽马 巴哈格 塔格罗拉 里布罗格 格洛施 施拉格姆 许史克 阿洛里格 阿巴格洛 舒格勒姆 帕拉什 格斯玛 格拉博舒
 		}
 
-		corvette = {
-		}
+		corvette = { }
 		
-		destroyer = {
-		}
+		destroyer = { }
 		
-		cruiser = {
-		}
+		cruiser = { }
 		
-		battleship = {
-		}
-
+		battleship = { }
+		
 		titan = {
 		}
 
@@ -48,166 +45,158 @@ MAM3 = {
 
 	fleet_names = {
 		random_names = {
-			"Assault Corps" "First Order Corps" "Strike Corps" "Stellar Corps" "Exo Corps" "Void Corps" "Aether Corps" "Horizon Corps" "Battle Corps" "Galactic Corps" "Astral Corps"
+			"突击军团" "第一军团" "攻击军团" "星际军团" "外骨骼军团" "虚空军团" "以太军团" "视界军团" "战斗军团" "银河军团" "星界军团"
 		}
-		sequential_name = "%O% Extraorbital Corps"
+		sequential_name = "轨外军团 %C%"
 	}
 	
+	### ARMIES
 	army_names = {
 
 		machine_defense = {
-			sequential_name = "%O% Defense Army"
+			sequential_name = "防御部队 %C%"
 		}
 		
 		machine_assault_1 = {
-			sequential_name = "%O% Assault Army"
+			sequential_name = "突击部队 %C%"
 		}
 		
 		machine_assault_2 = {
-			sequential_name = "%O% Assault Army"
+			sequential_name = "突击部队 %C%"
 		}
 		
 		machine_assault_3 = {
-			sequential_name = "%O% Assault Army"
+			sequential_name = "突击部队 %C%"
 		}
-		
+
 		defense_army = {
-			sequential_name = "%O% Defense Army"
+			sequential_name = "防御部队 %C%"
 		}
 			
 		assault_army = {
-			sequential_name = "%O% Assault Army"
+			sequential_name = "突击部队 %C%"
 		}
 		
 		slave_army = {
-			sequential_name = "%O% Slave Army"
+			sequential_name = "劳力大军 %C%"
 		}
 		
 		clone_army = { 
-			sequential_name = "%O% Clone Division"
+			sequential_name = "克隆师﻿ %C%"
 		}
-		
+
 		undead_army = {
-			sequential_name = "%O% Dread Division"
+			sequential_name = "%O%恐惧师团"
 		}
 
 		robotic_army = {
-			sequential_name = "%O% Robot Division"
+			sequential_name = "机器人师 %C%"
 		}
 
 		robotic_defense_army = {
-			sequential_name = "%O% Robot Garrison"
+			sequential_name = "机器人师 %C%"
 		}
 		
 		psionic_army = { 
-			sequential_name = "%O% Psionic Army"
+			sequential_name = "灵能军队 %C%"
 		}
 		
 		xenomorph_army = {
-			sequential_name = "%O% Xenomorph Division"
+			sequential_name = "异星人师 %C%"
 		}
 		
 		gene_warrior_army = {
-			sequential_name = "%O% Gene-Warrior Division"
+			sequential_name = "基因战士师 %C%"
 		}
-
 		occupation_army = {
-			sequential_name = "%O% Occupation Army"
+			sequential_name = "%O% 加里森波德"
 		}
 
 		robotic_occupation_army = {
-			sequential_name = "%O% Occupation Robot Army"
+			sequential_name = "%O% 安卓 加里森波德"
 		}
-
 		primitive_army = {
-			sequential_name = "Primitive Army %C%"
+			sequential_name = "原始军队 %C%"
 		}
 		industrial_army = {
-			sequential_name = "Industrial Army %C%"
+			sequential_name = "工业军队 %C%"
 		}
 		postatomic_army = {
-			sequential_name = "Post-Atomic Army %C%"
+			sequential_name = "后原子军 %C%"
 		}
 	}
+
+	### PLANETS
 
 	planet_names = {
 
 		generic = {
 			names = {
-				Safalon Lancord Drogena Yoergen Pendalor Tyntregal Camburen Cemlanth Suboramon Cumelod Condeus Genith Belores Agstur Fridgalen Annuend Sadolic Talienoc Angleruth Cranodeth Colbath Sturgos Vagalod Yirka Basturon Penthokka Ibilass Isika Corealla Gisiru Gaborina Avanna Avasur Fridgga Epensur
+				萨尼薇 安雅 阿达哈雅 阿拉德哈 安妮娅 普林卡 迪亚 玛海玛 希梵格
 			}
 		}
 		
 		pc_desert = {
-			names = {
-			}
+			names = { }
 		}
 		
 		pc_tropical = {
-			names = {
-			}
+			names = { }
 		}
 		
 		pc_arid = {
-			names = {
-			}
+			names = { }
 		}
 		
 		pc_continental = {
-			names = {
-			}
+			names = { }
 		}
 		
 		pc_ocean = {
-			names = {
-			}
+			names = { }
 		}
 		
 		pc_tundra = {
-			names = {
-			}
+			names = { }
 		}
 		
 		pc_arctic = {
-			names = {
-			}
+			names = { }
 		}
 
 		pc_savannah = {
-			names = {
-			}
+			names = { }
 		}
 
 		pc_alpine = {
-			names = {
-			}
+			names = { }
 		}
 		
 	}
 
+	### CHARACTERS
+
 	character_names = {
 		default = {
 			# A complete name
-			full_names = {
-			
-			}
+			full_names = { }
 			
 			# Always combined with a second name
 			first_names = {
-				Lifres Gestith Regolid Sacoterum Murgaud Seifeth Gorlife Codrales Suclien Ganarth Thoraul Merould Galedur Sassodem Cluthar Guldorn Yodegud Sassomun Colaut Derom
+				梁 罗 况 路 郑 林 徐 谢 王 祝 杨 毛 神 胡 谭 何 邓 吴 程 高 万 孔 潘 司马 诸葛 欧阳 司徒
 			}
 			
 			# Always combined with a first name
 			second_names = {
-				"cur'Padarn" "cur'Vandom" "cur'Hussel" "cur'Yuhal" "cur'Fargeth" "cur'Yalim" "dol'Fulm" "dol'Luch" "dol'Gath" "dol'Harne" "dol'Gilue" "dol'Thrad" "had'Tond" "had'Sald" "had'Marn" "had'Ugrit" "had'Fuleth" "had'Rolunt" "ov'Dren" "ov'Gut"
+				"科帕丹" "科万多姆" "科赫瑟" "科于哈" "科法格斯" "科雅利姆" "道福尔姆" "道勒奇" "道格希" "道哈那" "道吉鲁" "道萨得" "哈德托德" "哈德索德" "哈德玛恩" "哈德乌格里特" "哈德富勒斯" "哈德罗纳特" "欧德恩" "欧戈特"
 			}
 			
 			regnal_first_names = {
-				Lifres Gestith Regolid Sacoterum Murgaud Seifeth Gorlife Codrales
+				利亚姆  德克  "本杰明爵士"  "杰姆斯爵士"  "沃尔特爵士"  "奈吉尔爵士"  "蒙哥马利爵士"  "道格拉斯爵士"  "安得烈爵士"  万斯  凯尔  切斯特 
 			}
 			
 			regnal_second_names = {
-				cur'Padarn
+				科帕丹
 			}
 		}
 	}

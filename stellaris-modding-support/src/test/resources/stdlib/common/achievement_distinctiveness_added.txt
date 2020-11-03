@@ -1,0 +1,17 @@
+achievement_distinctiveness_added = {
+	id = 67
+
+	possible = {
+		is_ironman = yes
+		host_has_dlc = "Synthetic Dawn Story Pack"
+	}
+
+	happened = {
+		has_authority = auth_machine_intelligence
+		has_civic = civic_machine_assimilator
+		count_species = {
+			limit = { has_trait = trait_cybernetic }
+			count > 4
+		}
+	}
+}

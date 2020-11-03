@@ -1,0 +1,13 @@
+volatile_motes_expenditure_upgrade = {
+	resource = volatile_motes 
+	type = expenditure
+	category = ship_upgrades
+	
+	potential = {
+		always = yes
+	}
+	
+	fraction = {
+		base = 0.1
+	}
+}

@@ -1,0 +1,7 @@
+tech_lasers_1 = {
+	area = physics
+	tier = 0
+	category = { particles }
+	ai_update_type = military
+	start_tech = yes
+}

@@ -1,0 +1,66 @@
+titanic_assault_army = {
+	damage = 3.0
+	health = 5.0
+	morale = 3.0
+	morale_damage = 2.0
+	collateral_damage = 3.0
+	war_exhaustion = 2.0
+	time = 90
+	icon_frame = 8
+	has_species = no
+
+	resources = {
+		category = armies
+		cost = {
+			minerals = 300
+		}
+
+		upkeep = {
+			energy = 1
+		}
+	}
+
+	potential = {
+		custom_tooltip = {
+			text = titanic_troop_limit_tooltip
+			planet = { has_planet_flag = titanic_life_can_build }
+			owner = {
+				has_country_flag = titanic_life_soldiers
+			}
+		}
+	}
+
+	allow = {
+		custom_tooltip = {
+			text = titanic_troop_limit_tooltip
+			planet = { has_planet_flag = titanic_life_can_build }
+			owner = {
+				has_country_flag = titanic_life_soldiers
+				NOT = {
+					 check_variable = {
+						which = "titanic_life_soldier_count"
+						value = 3
+					}
+				}
+			}
+		}
+	}
+
+	on_queued = {
+		owner = {
+			change_variable = {
+				which = "titanic_life_soldier_count"
+				value = 1
+			}
+		}
+	}
+
+	on_unqueued = {
+		owner = {
+			change_variable = {
+				which = "titanic_life_soldier_count"
+				value = -1
+			}
+		}
+	}
+}

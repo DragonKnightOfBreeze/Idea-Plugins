@@ -1,0 +1,25 @@
+DISTAR_MERCURY_CAT = {
+	desc = "DISTAR_MERCURY_CAT_DESC"
+	picture = "GFX_evt_ship_in_orbit"
+	level = 7
+	
+	spawn_chance = {
+		modifier = {
+			add = 0.1
+			has_distar = yes
+			OR = {
+				is_planet_class = "pc_molten"
+				is_planet_class = "pc_barren"
+				is_planet_class = "pc_barren_cold"
+				is_planet_class = "pc_frozen"
+				is_planet_class = "pc_toxic"
+			}
+		}
+	}
+	
+	on_success = {
+		1 = {
+			anomaly_event =	distar.150
+		}
+	}
+}

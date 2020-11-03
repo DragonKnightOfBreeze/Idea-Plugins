@@ -1,0 +1,9 @@
+WORM_CHAIN_1 = {
+	icon = "gfx/interface/icons/situation_log/situation_log_main_quest.dds"
+	picture = GFX_evt_black_hole
+	#counter = {
+	#	test_counter = {
+	#		max = 6
+	#	}
+	#}
+}

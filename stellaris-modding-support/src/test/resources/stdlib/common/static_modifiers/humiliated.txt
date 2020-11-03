@@ -1,0 +1,5 @@
+humiliated = {
+	country_influence_produces_mult = -0.33
+	diplo_weight_mult = -0.25
+	pop_happiness = -0.1
+}

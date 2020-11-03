@@ -1,0 +1,25 @@
+robotic_occupation_army = {
+	defensive = yes
+	occupation = yes
+	damage = 1.00
+	health = 1.25
+	morale_damage = 1.00
+	collateral_damage = 0.0
+	war_exhaustion = 0.0 # No WE from occupation armies
+	has_morale = no
+	icon_frame = 4
+	has_species = yes
+
+	potential = {
+		from = { 
+			has_trait = "trait_mechanical"
+		}
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}
+	}
+
+	allow = {
+		owner = { NOT = { has_policy_flag = robots_outlawed } }
+	}
+}

@@ -1,0 +1,35 @@
+col_habitat_fortress = {
+	icon = 24
+
+	potential = {
+		uses_district_set = habitat
+	}
+	planet_modifier = {
+		planet_buildings_strongholds_cost_mult = -0.30
+		planet_orbital_bombardment_damage = -0.10
+		army_defense_damage_mult = 0.20
+	}
+	weight_modifier = {
+		base = 300
+		modifier = {
+			factor = 3
+			has_designation = col_habitat_fortress
+		}
+		modifier = {
+			factor = 2
+			num_buildings = { type = building_stronghold value >= 3 }
+		}
+		modifier = {
+			factor = 2
+			num_buildings = { type = building_fortress value >= 2 }
+		}
+		modifier = {
+			factor = 3
+			num_buildings = { type = building_stronghold value >= 5 }
+		}
+		modifier = {
+			factor = 3
+			num_buildings = { type = building_fortress value >= 4 }
+		}
+	}
+}

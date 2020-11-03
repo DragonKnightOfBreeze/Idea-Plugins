@@ -1,0 +1,7 @@
+on_modification_complete = {
+	events = {
+		tutorial.65
+		utopia.2508 # Handle leader traits after species modification
+		utopia.6001 # Hive Mind species integration
+	}
+}

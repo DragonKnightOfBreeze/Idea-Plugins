@@ -1,0 +1,58 @@
+league_2_cat = {
+	desc = "league_gasgiant_category_desc"
+	picture = "GFX_evt_microscopic_life"
+	level = @precursor_easy
+	
+	spawn_chance = {
+		modifier = {
+			add = 10
+			NOT = {
+				has_planet_flag = precursor_world
+			}
+			is_planet_class = pc_gas_giant
+			solar_system = {
+				has_star_flag = precursor_3
+			}
+			FROM = {
+				owner = {
+					is_ai = no
+					NOT = {
+						has_country_flag = first_league_2
+					}
+					has_country_flag = first_league_intro
+					has_event_chain = first_league_chain
+				}
+			}
+		}
+	}
+	on_spawn = {
+		set_planet_flag = precursor_world
+		FROM = {
+			owner = {
+				set_country_flag = first_league_2
+			}
+		}
+	}
+	
+	on_success = precursor.1010
+	
+	#on_fail = {
+	#	1 = {
+	#		ship_event = anomaly_failure.35
+	#	}
+	#}
+	#on_critical_fail = {
+	#	1 = {
+	#		ship_event = anomaly_failure.900
+	#	}
+	#	1 = {
+	#		ship_event = anomaly_failure.901
+	#	}
+	#	1 = {
+	#		ship_event = anomaly_failure.902
+	#	}
+	#	1 = {
+	#		ship_event = anomaly_failure.903
+	#	}
+	#}
+}

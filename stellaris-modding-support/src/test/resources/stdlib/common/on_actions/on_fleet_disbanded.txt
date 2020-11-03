@@ -1,0 +1,5 @@
+on_fleet_disbanded = {
+	events = {
+		mandate.3 #removes mandate progress if you disband a related station
+	}
+}

@@ -1,0 +1,5 @@
+empire_size_over_cap = {
+	campaigns_cost_mult = 0.01
+	# leader_upkeep_empire_size_mult = 0.01
+	# leader_cost_empire_size_mult = 0.01
+}

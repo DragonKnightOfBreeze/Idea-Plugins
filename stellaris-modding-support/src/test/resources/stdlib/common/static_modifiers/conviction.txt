@@ -1,0 +1,4 @@
+conviction = {
+	pop_happiness = 0.33
+	planet_jobs_produces_mult = 0.25
+}

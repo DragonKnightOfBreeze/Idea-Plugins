@@ -1,0 +1,105 @@
+intercepting_history_system_initializer_01 = {
+	class = "rl_standard_stars"
+	
+	usage = misc_system_init
+	usage_odds = 0
+	max_instances = 1
+
+	# Star
+	planet = {
+		count = 1
+		class = star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = { min = 20 max = 30 }
+		has_ring = no
+	}
+	
+	change_orbit = 45
+	
+	# Inner misc. planets
+	planet = {
+		count = { min = 1 max = 3 }
+		orbit_distance = 20
+		orbit_angle = { min = 90 max = 270 }
+		
+		change_orbit = @base_moon_distance
+		
+		moon = {
+			count = { min = 0 max = 1 }
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 5
+		}
+	}
+
+	# Abandoned Station planet
+	planet = {
+		count = 1
+		orbit_distance = 20
+		orbit_angle = { min = 90 max = 270 }
+		
+		change_orbit = @base_moon_distance
+
+		init_effect = {
+			create_ambient_object = {
+				type = "large_debris_object"
+				entity_offset = { min = 0 max = 20}
+				entity_offset_height = { min = -0 max = -20 }
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 15
+					angle = random
+				}
+			}
+			create_ambient_object = {
+				type = "abandoned_station_object"
+				entity_offset = { min = 0 max = 20}
+				entity_offset_height = { min = -0 max = -10 }
+				location = this
+			}
+			last_created_ambient_object = {
+				save_global_event_target_as = benefactor_station
+				set_location = {
+					target = prev
+					distance = 30
+					angle = random
+				}
+			}
+			create_ambient_object = {
+				type = "ancient_battlefield_object"
+				entity_offset = { min = 0 max = 20}
+				entity_offset_height = { min = -0 max = -20 }
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 20
+					angle = random
+				}
+			}
+		}
+	}
+
+	# Outer misc. planets
+	planet = {
+		count = { min = 1 max = 3 }
+		orbit_distance = 20
+		orbit_angle = { min = 90 max = 270 }
+		
+		change_orbit = @base_moon_distance
+		
+		moon = {
+			count = { min = 0 max = 2 }
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 5
+		}
+	}
+
+	init_effect = {
+		save_global_event_target_as = benefactors_end_station
+	}
+}

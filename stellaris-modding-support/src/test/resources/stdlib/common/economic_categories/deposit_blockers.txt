@@ -1,0 +1,12 @@
+deposit_blockers = {
+	use_for_ai_budget = yes
+	generate_mult_modifiers = {
+		cost
+	}
+
+	ai_use_parent_for_resources_upkeep = {
+		energy
+	}
+
+	parent = country
+}

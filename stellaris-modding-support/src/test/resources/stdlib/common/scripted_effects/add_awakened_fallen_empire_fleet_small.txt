@@ -1,0 +1,27 @@
+add_awakened_fallen_empire_fleet_small = {
+	country_event = { id = fallen_empires.13 }
+	if = {
+		limit = {
+			any_country = {
+				is_country_type = default
+				OR = {
+					fleet_power > 150000
+					AND = {
+						has_federation = yes
+						federation = {
+							fleet_power > 150000
+						}
+					}
+					AND = {
+						fleet_power > 80000
+						any_country = {
+							has_defensive_pact = prev
+							fleet_power > 80000
+						}
+					}
+				}
+			}
+		}
+		country_event = { id = fallen_empires.13 }
+	}
+}

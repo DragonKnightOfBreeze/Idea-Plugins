@@ -1,0 +1,10 @@
+supercomputer_upkeep_affordable = {
+	has_monthly_income = {
+		resource = energy
+		value > 5
+	}
+	has_monthly_income = {
+		resource = minerals
+		value > 6
+	}
+}

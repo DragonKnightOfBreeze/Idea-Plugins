@@ -1,0 +1,9 @@
+has_active_xuracorp_trade = {
+	OR = {
+		has_modifier = enclave_trade_1_xur
+		has_modifier = enclave_trade_2_xur
+		has_modifier = enclave_trade_3_xur
+		has_modifier = enclave_trade_4_xur
+		has_modifier = enclave_trade_5_xur
+	}
+}

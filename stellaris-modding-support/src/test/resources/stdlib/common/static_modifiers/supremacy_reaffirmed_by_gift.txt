@@ -1,0 +1,4 @@
+supremacy_reaffirmed_by_gift = {
+	country_unity_produces_mult = 0.15
+	pop_citizen_happiness = 0.1
+}

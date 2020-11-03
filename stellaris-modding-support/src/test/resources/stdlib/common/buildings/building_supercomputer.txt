@@ -1,0 +1,109 @@
+building_supercomputer = {
+	base_buildtime = @b2_time
+	base_cap_amount = 1
+	icon = building_institute
+
+	category = research
+
+	potential = {
+		exists = owner
+		owner = { is_gestalt = yes }
+		NOR = {
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+		}
+	}
+
+	allow = {
+		has_major_upgraded_capital = yes
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+			owner = {
+				is_gestalt = no
+				is_regular_empire = no
+			}
+		}
+	}
+
+	convert_to = {
+		building_institute
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b2_minerals
+		}
+		upkeep = {
+			energy = @b2_upkeep
+		}
+	}
+
+	planet_modifier = {
+		planet_researchers_produces_mult = 0.15
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		modifier = {
+			job_brain_drone_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			job_calculator_add = 1
+		}
+	}
+
+	prerequisites = {
+		"tech_global_research_initiative"
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		text = job_brain_drone_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		text = job_calculator_effect_desc
+	}
+
+	show_tech_unlock_if = {
+		is_gestalt = yes
+	}
+
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = 100
+				OR = {
+					has_building = building_research_lab_1
+					has_building = building_research_lab_2
+					has_building = building_research_lab_3
+					has_district = district_hab_science
+					has_district = district_rw_science
+					jobs_any_research = yes
+				}
+			}
+		}
+}

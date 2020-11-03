@@ -1,0 +1,107 @@
+col_refinery = {
+	icon = 7
+
+	potential = {
+		exists = owner
+		NOR = {
+			uses_district_set = city_world
+			uses_district_set = ring_world
+			uses_district_set = habitat
+		}
+		is_special_colony_type = no
+	}
+
+	planet_modifier = {
+		planet_refiners_upkeep_mult = -0.1
+		planet_translucers_upkeep_mult = -0.1
+		planet_chemists_upkeep_mult = -0.1
+		planet_building_refinery_build_speed_mult = 0.25
+		planet_building_chemical_plant_build_speed_mult = 0.25
+		planet_building_crystal_plant_build_speed_mult = 0.25
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_galactic_community_member = yes
+			}
+			OR = {
+				is_active_resolution = "resolution_industry_environmental_ordinance_waivers"
+				is_active_resolution = "resolution_industry_project_cornucopia"
+			}
+		}
+		modifier = {
+			planet_refiners_produces_mult = 0.05
+			planet_translucers_produces_mult = 0.05
+			planet_chemists_produces_mult = 0.05
+		}
+	}
+
+	weight_modifier = {
+		modifier = {
+			add = 1
+			num_free_districts = { type = district_mining value <= @free_districts_low_threshold }
+			num_free_districts = { type = district_farming value <= @free_districts_low_threshold }
+			num_free_districts = { type = district_generator value <= @free_districts_low_threshold }
+			OR = {
+				num_free_districts = { type = district_city value <= @free_districts_medium_threshold }
+				num_free_districts = { type = district_nexus value <= @free_districts_medium_threshold }
+				num_free_districts = { type = district_hive value <= @free_districts_medium_threshold }
+			}
+			OR = {
+				owner = { has_monthly_income = { resource = volatile_motes value < 0 } }
+				owner = { has_monthly_income = { resource = exotic_gases value < 0 } }
+				owner = { has_monthly_income = { resource = rare_crystals value < 0 } }
+			}
+
+		}
+		modifier = {
+			add = 5
+			has_designation = col_refinery
+		}
+		modifier = {
+			add = 2
+			num_buildings = { type = building_refinery value >= 2 }
+		}
+		modifier = {
+			add = 3
+			num_buildings = { type = building_refinery value >= 3 }
+		}
+		modifier = {
+			add = 4
+			num_buildings = { type = building_refinery value >= 4 }
+		}
+		modifier = {
+			add = 2
+			num_buildings = { type = building_crystal_plant value >= 2 }
+		}
+		modifier = {
+			add = 3
+			num_buildings = { type = building_crystal_plant value >= 3 }
+		}
+		modifier = {
+			add = 4
+			num_buildings = { type = building_crystal_plant value >= 4 }
+		}
+		modifier = {
+			add = 2
+			num_buildings = { type = building_chemical_plant value >= 2 }
+		}
+		modifier = {
+			add = 3
+			num_buildings = { type = building_chemical_plant value >= 3 }
+		}
+		modifier = {
+			add = 4
+			num_buildings = { type = building_chemical_plant value >= 4 }
+		}
+		modifier = {
+			add = 10
+				OR = {
+					num_buildings = { type = building_refinery value >= 5 }
+					num_buildings = { type = building_crystal_plant value >= 5 }
+					num_buildings = { type = building_chemical_plant value >= 5 }
+				}
+		}
+	}
+}

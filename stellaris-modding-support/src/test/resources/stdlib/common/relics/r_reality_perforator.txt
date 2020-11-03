@@ -1,0 +1,46 @@
+r_reality_perforator = {
+	activation_duration = @triumph_duration
+	portrait = "GFX_relic_orb_insight"
+	sound = "relic_activation_vultaum_real_perforator"
+
+	resources = {
+		category = relics
+		# Activation cost
+		cost = {
+			influence = @activation_cost
+		}
+	}
+
+	ai_weight = {
+		weight = 100
+	}
+
+	triggered_country_modifier = {
+		potential = {
+			always = yes
+		}
+		pop_amenities_usage_mult = -0.10
+	}
+
+	score = 5000
+
+	active_effect = {
+		custom_tooltip = relic_reality_perforated
+		custom_tooltip = relic_triumph_cooldown
+		hidden_effect = {
+			add_modifier = {
+				modifier = "relic_activation_cooldown"
+				days = @triumph_duration
+			}
+			country_event = { id = precursor.105 }
+		}
+	}
+
+	# Possible check for activation
+	possible = {
+		custom_tooltip = {
+			fail_text = "requires_relic_no_cooldown"
+			NOT = { has_modifier = relic_activation_cooldown }
+		}
+	}
+}

@@ -1,0 +1,45 @@
+mutation_vats = {
+	desc = "mutation_vats_desc"
+	picture = GFX_evt_scanning_remains
+	stages = 3
+	max_instances = 1
+	weight = {
+		base = 0
+		modifier = {
+			add = 100
+			is_planet_class = pc_nuked
+			NOT = { has_planet_flag = ratling_planet }
+			NOT = { has_planet_flag = nuked_planet_anomalies_disabled }
+		}
+	}
+	allow = {
+		exists = leader
+		leader = { leader_class = scientist }
+	}
+	visible = {
+		default_site_visible_trigger = yes
+	}
+	stage = {
+		difficulty = 2
+		icon = GFX_archaeology_runes_A4
+		event = ancrel.2045
+	}
+	stage = {
+		difficulty = 2
+		icon = GFX_archaeology_runes_A5
+		event = ancrel.2046
+	}
+	stage = {
+		difficulty = 3
+		icon = GFX_archaeology_runes_A6
+		event = ancrel.2047
+	}
+
+	# Executes every time the research process doesn't go to another stage
+	# From is the scope of the Archaeology Site itself
+	on_roll_failed = {
+		from = {
+			standard_archaeological_site_on_roll_failed = { RANDOM_EVENTS = all_random_events }
+		}
+	}
+}

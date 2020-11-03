@@ -1,0 +1,2 @@
+army_rank_regular = {
+}

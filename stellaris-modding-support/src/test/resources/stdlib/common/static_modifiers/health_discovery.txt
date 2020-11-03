@@ -1,0 +1,5 @@
+health_discovery = {
+	biological_pop_happiness = 0.1
+	lithoid_pop_happiness = 0.1
+	planet_jobs_society_research_produces_mult = 0.20
+}

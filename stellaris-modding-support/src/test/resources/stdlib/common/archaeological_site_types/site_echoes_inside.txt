@@ -1,0 +1,54 @@
+site_echoes_inside = {
+	desc = "site_echoes_inside_intro"
+	picture = GFX_evt_arid
+	stages = 4
+	weight = {
+		base = 0
+		modifier = {
+			add = 100
+			is_planet_class = pc_barren
+			has_ancrel = yes
+		}
+	}
+	allow = {
+		exists = leader
+		leader = { leader_class = scientist }
+	}
+	visible = {
+		default_site_visible_trigger = yes
+	}
+
+	on_visible = {
+    	country_event = { id = story.5 days = 30 }
+	}
+
+	stage = {
+		difficulty = 2
+		icon = GFX_archaeology_runes_B1
+		event = ancrel.9025
+	}
+
+	stage = {
+		difficulty = 4
+		icon = GFX_archaeology_runes_B2
+		event = ancrel.9030
+	}
+
+	stage = {
+		difficulty = 4
+		icon = GFX_archaeology_runes_B3
+		event = ancrel.9035
+	}
+
+	stage = {
+		difficulty = 3
+		icon = GFX_archaeology_runes_B4
+		event = ancrel.9040
+	}
+
+	on_roll_failed = {
+		from = {
+			standard_archaeological_site_on_roll_failed = { RANDOM_EVENTS = site_echoes_inside_random_events }
+		}
+	} 
+}

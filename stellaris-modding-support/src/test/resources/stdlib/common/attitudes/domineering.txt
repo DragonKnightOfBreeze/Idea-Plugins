@@ -1,0 +1,7 @@
+domineering = {
+	type = domineering
+	behaviour = {
+		attack = yes
+		vassalize = yes
+	}
+}

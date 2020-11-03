@@ -1,0 +1,22 @@
+factory_1_upkeep_affordable = {
+	has_monthly_income = {
+		resource = energy
+		value > 4
+	}
+	OR = {
+		AND = {
+			is_gestalt = yes
+			has_monthly_income = {
+				resource = minerals
+				value > 16
+			}
+		}
+		AND = {
+			is_regular_empire = yes
+			has_monthly_income = {
+				resource = minerals
+				value > 12
+			}
+		}
+	}
+}

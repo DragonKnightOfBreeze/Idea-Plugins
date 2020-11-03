@@ -1,0 +1,4 @@
+ancient_automation = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_robots.dds"
+	icon_frame = 2
+}

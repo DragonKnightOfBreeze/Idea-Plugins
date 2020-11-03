@@ -1,0 +1,9 @@
+opinion_maneuvers_hardline = {
+	opinion = {
+		base = -100
+	}
+
+	decay = {
+		base = 2
+	}
+}

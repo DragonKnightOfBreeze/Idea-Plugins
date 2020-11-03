@@ -1,0 +1,5 @@
+on_purge_begun = {
+	events = {
+		syndaw.1310 # purging a bot can trigger Uprising
+	}
+}

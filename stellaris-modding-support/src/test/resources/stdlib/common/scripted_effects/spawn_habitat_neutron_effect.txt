@@ -1,0 +1,16 @@
+spawn_habitat_neutron_effect = {
+	create_ambient_object = {
+		location = this
+		type = habitat_neutron_object
+		duration = 5
+
+		use_3d_location = yes
+		base_angle_towards = star
+		entity_face_object = star
+
+		entity_offset = { min = 0 max = 0 }
+
+		entity_scale_to_size = yes
+		scale = 0.10
+	}
+}

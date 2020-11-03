@@ -1,0 +1,8 @@
+on_initialize_advanced_colony = {
+	events = {
+		game_start.20	# remove blockers on capital
+		game_start.21	# upgrade colony shelter on additional colonies
+		game_start.22	# set up additional buildings (mines, farms, power plants)
+		game_start.23	# add additional pops
+	}
+}

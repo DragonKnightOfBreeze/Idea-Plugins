@@ -1,0 +1,3 @@
+planet_stability_no_happiness_low = {
+	planet_jobs_produces_mult = -0.5
+}

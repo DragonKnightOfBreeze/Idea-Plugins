@@ -1,0 +1,5 @@
+president_unity_1 = {
+	leader_modifier = {
+		country_unity_produces_mult = 0.10
+	}
+}

@@ -1,0 +1,5 @@
+on_add_community_member = {
+	events = {
+		galcom.60
+	}
+}

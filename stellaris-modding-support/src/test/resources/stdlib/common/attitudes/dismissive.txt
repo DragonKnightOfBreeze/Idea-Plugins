@@ -1,0 +1,5 @@
+dismissive = {
+	type = dismissive
+	behaviour = {
+	}
+}

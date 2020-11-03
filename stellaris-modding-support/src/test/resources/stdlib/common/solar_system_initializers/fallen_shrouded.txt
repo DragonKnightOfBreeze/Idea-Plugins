@@ -1,0 +1,67 @@
+fallen_shrouded = {
+	class = sc_black_hole
+	flags = { fallen_shrouded }
+
+	planet = {
+		count = 1
+		class = star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = { min = 20 max = 30 }
+		has_ring = no
+	}
+
+	change_orbit = 35
+
+	planet = {
+		count = 1
+		orbit_distance = 15
+		class = pc_barren_cold
+		size = 15
+		orbit_angle = { min = 90 max = 270 }
+	}
+
+	planet = {
+		count = 1
+		orbit_distance = 30
+		class = pc_shrouded
+		name = "NAME_Apostasy"
+		orbit_angle = { min = 90 max = 270 }
+		size = 22
+		modifiers = none
+	}
+
+	planet = {
+		count = 1
+		orbit_distance = 40
+		size = 12
+		class = pc_frozen
+		orbit_angle = { min = 90 max = 270 }
+	}
+
+	planet = {
+		count = 1
+		orbit_distance = 25
+		class = pc_frozen
+		orbit_angle = { min = 90 max = 270 }
+		size = 25
+		change_orbit = @base_moon_distance
+
+		moon = {
+			count = 1
+			class = pc_barren_cold
+			size = 7
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 5
+		}
+
+	}
+
+	init_effect = {
+		every_system_planet = {
+			clear_deposits = yes
+		}
+
+		create_fe_outpost = yes
+	}
+}

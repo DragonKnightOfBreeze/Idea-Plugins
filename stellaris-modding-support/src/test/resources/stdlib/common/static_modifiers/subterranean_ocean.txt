@@ -1,0 +1,3 @@
+subterranean_ocean = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_wild_storms.dds"
+}

@@ -1,0 +1,4 @@
+on_planet_attackers_lose = {
+	events = {
+	}
+}

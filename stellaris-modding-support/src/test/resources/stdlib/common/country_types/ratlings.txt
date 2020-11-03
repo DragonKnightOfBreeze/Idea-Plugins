@@ -1,0 +1,25 @@
+ratlings = {
+	share_communications = no
+	observable = no
+	ai = {
+		enabled = no
+		construction = no
+	}
+	faction = {
+		hostile = no
+		primitive = no
+		needs_border_access = no
+		generate_borders = no
+		needs_colony = yes
+	}
+	hide_names_if_no_communication = yes
+
+	modules = {
+		standard_event_module = {}
+		basic_technology_module = {}
+		exclusive_diplomacy_module = {
+			contact_rule = script_only
+		}
+		#exclusive_diplomacy_module = {} # Nothing is allowed, but we need this for relationships.
+	}
+}

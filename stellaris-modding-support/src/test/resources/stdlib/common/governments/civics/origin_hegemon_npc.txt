@@ -1,0 +1,18 @@
+origin_hegemon_npc = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origins_hegemon.dds"
+	picture = GFX_origin_hegemon
+
+	playable = {
+		always = no # Non-player origin
+	}
+
+	possible = {
+	}
+
+	description = origin_tooltip_hegemon_npc_effects
+
+	random_weight = {
+		base = 0
+	}
+}

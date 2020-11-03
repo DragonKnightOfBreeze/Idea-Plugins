@@ -1,0 +1,19 @@
+resolution_category_galacticreforms = {
+	group = politics_culture
+	icon = "GFX_resolution_create_council"
+	resolution_types = {
+		"resolution_galacticreforms_revoke_permanent_seat"
+		"resolution_galacticreforms_abolish_council"
+		"resolution_galacticreforms_council_size_1"
+		"resolution_galacticreforms_council_size_2"
+		"resolution_galacticreforms_council_size_3"
+		"resolution_galacticreforms_council_size_4"
+		"resolution_galacticreforms_council_size_5"
+		"resolution_galacticreforms_disable_council_denouncement"
+		"resolution_galacticreforms_disable_council_veto"
+		"resolution_galacticreforms_permanent_seat"
+		"resolution_galacticreforms_form_council"
+		"resolution_galacticreforms_enable_council_denouncement"
+		"resolution_galacticreforms_enable_council_veto"
+	}
+}

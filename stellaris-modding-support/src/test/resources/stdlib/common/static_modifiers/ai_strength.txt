@@ -1,0 +1,8 @@
+ai_strength = {
+	planet_jobs_minerals_produces_mult = 10
+	planet_jobs_energy_produces_mult = 10
+	planet_jobs_physics_research_produces_mult = 5
+	planet_jobs_society_research_produces_mult = 5
+	planet_jobs_engineering_research_produces_mult = 5
+	country_naval_cap_mult = 1
+}

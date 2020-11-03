@@ -1,0 +1,10 @@
+civic_great_khans_vision = {
+	modification = no
+	icon = "gfx/interface/icons/governments/civics/civic_warrior_culture.dds"
+	description = origin_no_effect
+	potential = {
+		country_type = { value = awakened_marauders }
+	}
+	random_weight = { base = 5 }
+	modifier = { }
+}

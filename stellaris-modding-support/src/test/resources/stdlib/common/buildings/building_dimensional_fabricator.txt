@@ -1,0 +1,62 @@
+building_dimensional_fabricator = {
+	base_buildtime = @b2_time
+	can_build = yes
+	can_demolish = yes
+	icon = building_nanite_transmuter
+	
+	potential = {
+		custom_tooltip = {
+			exists = owner
+			OR = {
+				owner = { is_fallen_empire = yes }
+				owner = {
+					check_variable = { which = dimensional_fabricator_build_count value >= 1 }
+				}
+			}
+			fail_text = "ancrel.10004.failtext"
+		}
+	}
+	
+	planet_modifier = {
+	}
+
+	resources = {
+		category = planet_buildings
+		produces = {
+			minerals = 100
+			rare_crystals = @b3_rare_upkeep
+			exotic_gases = @b3_rare_upkeep
+			volatile_motes = @b3_rare_upkeep			
+		}
+		produces = {
+			trigger = {
+				exists = owner
+				owner = { is_fallen_empire = yes }
+			}
+			sr_zro = 2
+			sr_dark_matter = 2
+			sr_living_metal = 2
+		} 	# Fixed Fallen Empire being unable to build new ships.
+		cost = {
+			minerals = @b3_minerals
+		}
+		upkeep = {
+			energy = 20
+		}
+	}
+
+	on_queued = {
+		owner = {
+			subtract_variable = { which = dimensional_fabricator_build_count value = 1 }
+		}
+	}
+
+	on_unqueued = {
+		owner = {
+			change_variable = { which = dimensional_fabricator_build_count value = 1 }
+		}
+	}
+		
+	upgrades = {
+	}
+}

@@ -1,0 +1,3 @@
+zero_gravity_revelation = {
+	starbase_modules_cost_mult  = -0.1
+}

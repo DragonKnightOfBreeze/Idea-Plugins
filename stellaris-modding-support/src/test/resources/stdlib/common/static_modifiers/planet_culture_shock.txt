@@ -1,0 +1,7 @@
+planet_culture_shock = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_slave_riots.dds"
+	icon_frame = 3
+	planet_jobs_produces_mult = -0.33
+	planet_stability_add = -20
+	species_empire_size_mult = -0.5
+}

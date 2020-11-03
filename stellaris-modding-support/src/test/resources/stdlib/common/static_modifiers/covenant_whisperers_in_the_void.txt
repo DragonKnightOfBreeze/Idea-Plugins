@@ -1,0 +1,4 @@
+covenant_whisperers_in_the_void = {
+	all_technology_research_speed = 0.15
+	country_influence_produces_mult = 0.15
+}

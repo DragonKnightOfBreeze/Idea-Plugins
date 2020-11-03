@@ -1,0 +1,16 @@
+tech_fission_power = {
+	area = physics
+	cost = 0
+	tier = 0
+	start_tech = yes
+	category = { particles }
+	ai_update_type = all
+
+	prereqfor_desc = {
+		hide_prereq_for_desc = component
+		custom = {
+			title = "TECH_UNLOCK_FISSION_POWER_TITLE"
+			desc = "TECH_UNLOCK_FISSION_POWER_DESC"
+		}
+	}
+}

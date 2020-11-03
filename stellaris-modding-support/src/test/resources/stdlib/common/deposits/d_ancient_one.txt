@@ -1,0 +1,20 @@
+d_ancient_one = {
+	is_for_colonizeable = yes
+	category = deposit_cat_rare
+	
+	icon = d_fungal_forest
+	
+	planet_modifier = { 
+	}
+
+	resources = {
+		category = planet_deposits
+		produces = {
+			society_research = 4
+		}
+	}
+	
+	drop_weight = {
+		weight = 0
+	}
+}

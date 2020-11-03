@@ -1,0 +1,9 @@
+mass_extinction_chain = {
+	picture = GFX_evt_galactic_senate
+	icon = "gfx/interface/icons/situation_log/situation_log_main_quest.dds"
+	counter = {
+		massex_analyzed = {
+			max = 5
+		}
+	}
+}

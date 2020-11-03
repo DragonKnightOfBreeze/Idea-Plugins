@@ -1,0 +1,31 @@
+enigmatic_modifier_jobs = { # Only pops with jobs affecting resources without modifiers qualify for enigmatic uplifting negative production modifiers.
+	OR = {
+		has_job = unemployed
+		has_job = researcher
+		has_job = foundry
+		has_job = artisan
+		has_job = culture_worker
+		has_job = chemist
+		has_job = translucer
+		has_job = gas_refiner
+		has_job = technician
+		has_job = miner
+		has_job = crystal_miner
+		has_job = gas_extractor
+		has_job = mote_harvester
+		has_job = brain_drone
+		has_job = calculator
+		has_job = artisan_drone
+		has_job = fabricator
+		has_job = alloy_drone
+		has_job = chemist_drone
+		has_job = translucer_drone
+		has_job = gas_refiner_drone
+		has_job = crystal_mining_drone
+		has_job = mote_harvesting_drone
+		has_job = gas_extraction_drone
+		has_job = mining_drone
+		has_job = agri_drone
+		has_job = technician_drone
+	}
+}

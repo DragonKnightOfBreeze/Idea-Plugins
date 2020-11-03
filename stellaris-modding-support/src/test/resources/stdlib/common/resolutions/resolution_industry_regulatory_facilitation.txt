@@ -1,0 +1,74 @@
+resolution_industry_regulatory_facilitation = {
+	icon = "GFX_resolution_industrial_development"
+
+	resources = {
+		category = resolutions
+		cost = {
+			influence = @resolution_cost_t1
+		}
+	}
+	target = no
+	level = 1
+
+	modifier = {
+		resolution_industry_regulatory_facilitation = 1
+	}
+
+	effect = {
+		hidden_effect = {
+			set_global_flag = galactic_community_resolution_passed
+			set_timed_country_flag = { flag = galactic_community_resolution_passed_industry days = @resolution_flag_timer }
+			add_modifier = {
+				modifier = resolution_passed_diplomatic_weight
+				days = 2200
+			}
+		}
+	}
+
+	fail_effects = {
+		hidden_effect = {
+			set_timed_country_flag = { flag = galactic_community_resolution_failed_industry days = @resolution_flag_timer }
+			add_modifier = {
+				modifier = resolution_failed_diplomatic_weight
+				days = 2200
+			}
+		}
+	}
+
+	allow = {
+		custom_tooltip = {
+			fail_text = "resolution_already_active"
+			NOR = {
+				is_active_resolution = "resolution_industry_regulatory_facilitation"
+				is_active_resolution = "resolution_industry_collective_waste_management"
+				is_active_resolution = "resolution_industry_building_a_better_tomorrow"
+				is_active_resolution = "resolution_industry_environmental_ordinance_waivers"
+				is_active_resolution = "resolution_industry_project_cornucopia"
+			}
+		}
+	}
+
+	ai_weight = {
+		weight = @resolution_weight_loved
+
+		modifier = {
+			factor = 1.2
+			is_authoritarian = yes
+		}
+
+		modifier = {
+			factor = 1.2
+			is_slaver = yes
+		}
+
+		modifier = {
+			factor = 0.5
+			has_valid_civic = civic_environmentalist
+		}
+
+		modifier = {
+			factor = 0.5
+			has_valid_civic = civic_agrarian_idyll
+		}
+	}
+}

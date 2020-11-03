@@ -1,0 +1,9 @@
+opinion_threat = {
+	opinion = {
+		base = -1
+	}
+
+	min = -1000
+
+	unique = yes
+}

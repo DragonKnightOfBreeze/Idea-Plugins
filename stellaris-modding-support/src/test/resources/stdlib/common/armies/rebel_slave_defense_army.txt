@@ -1,0 +1,12 @@
+rebel_slave_defense_army = {
+	defensive = yes
+	time = 60
+	health = 0.80
+	damage = 0.80
+	morale = 1.80
+	icon_frame = 3
+
+	potential = {
+		always = no
+	}
+}

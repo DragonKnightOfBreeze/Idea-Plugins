@@ -1,0 +1,11 @@
+districts_good_energy = {
+	planet = {
+		OR = {
+			has_modifier = hazardous_weather
+			has_modifier = divine_algorithm
+			has_modifier = energy_relic
+			has_modifier = gas_rich_planet_fo_realz
+			has_planet_flag = buildings_good_energy
+		}
+	}
+}

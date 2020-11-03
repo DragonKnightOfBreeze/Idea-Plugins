@@ -1,0 +1,64 @@
+ixidar = {
+	name = "ixidar"
+	adjective = "PRESCRIPTED_adjective_ixidar"
+	spawn_enabled = yes # yes / no / always
+	
+	playable = has_utopia # scripted_triggers
+	
+	species = {
+		class = "ART"
+		portrait = "art12"
+		name = "PRESCRIPTED_species_name_ixidar"
+		plural = "PRESCRIPTED_species_plural_ixidar"
+		adjective = "PRESCRIPTED_species_adjective_ixidar"
+		name_list = "HIVE"
+		trait = "trait_hive_mind"
+		trait = "trait_rapid_breeders"
+		trait = "trait_strong"
+		trait = "trait_fleeting"
+	}
+	
+	ship_prefix = "PRESCRIPTED_ship_prefix_ixidar"
+	
+	planet_name = "PRESCRIPTED_planet_name_ixidar"
+	planet_class = "pc_arctic"
+	system_name = "PRESCRIPTED_system_name_ixidar"
+	
+	room = "personality_hive_mind_room"
+
+	ethic = ethic_gestalt_consciousness
+	authority = "auth_hive_mind"
+	government = gov_hive_mind
+	civics = { "civic_hive_natural_neural_network" "civic_hive_pooled_knowledge" }
+	origin = origin_default
+	
+	graphical_culture = "arthropoid_01"
+	city_graphical_culture = "arthropoid_01"
+	
+	empire_flag = {
+		icon= {
+			category = "ornate"
+			file = "flag_ornate_18.dds"
+		}
+		background= {
+			category = "backgrounds"
+			file = "00_solid.dds"
+		}
+		colors={
+			"dark_grey"
+			"black"
+			"null"
+			"null"
+		}
+	}
+	
+	ruler = {
+		name = "PRESCRIPTED_ruler_name_ixidar"
+		gender = male
+		portrait = "art12"
+		texture = -1
+		clothes = 2
+		ruler_title = "PRESCRIPTED_ruler_title_ixidar"
+		leader_class = ruler
+	}
+}

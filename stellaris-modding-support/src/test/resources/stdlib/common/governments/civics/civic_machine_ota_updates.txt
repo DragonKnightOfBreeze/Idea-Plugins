@@ -1,0 +1,7 @@
+civic_machine_ota_updates = {
+	potential = { authority = { value = auth_machine_intelligence } }
+	random_weight = { base = 5 }
+	modifier = {
+		empire_size_pops_mult = -0.20
+	}
+}

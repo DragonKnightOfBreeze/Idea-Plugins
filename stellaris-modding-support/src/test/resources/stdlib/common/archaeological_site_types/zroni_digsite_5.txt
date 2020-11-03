@@ -1,0 +1,44 @@
+zroni_digsite_5 = {
+	desc = zroni_digsite_5_desc
+	picture = GFX_evt_baol_datacrystals
+	stages = 3
+	max_instances = 1
+	allow = {
+		is_ship_class = shipclass_science_ship
+		exists = leader
+		hidden_trigger = {
+			owner = {
+				has_country_flag = zroni_arc_chain_@from.planet
+			}
+		}
+	}
+	visible = {
+		has_country_flag = zroni_intro
+		default_site_visible_trigger = yes
+		owner = {
+			has_country_flag = zroni_arc_chain_@from.planet
+		}
+	}
+	
+	stage = {
+		difficulty = 4
+		icon = GFX_archaeology_runes_F1
+		event = ancrel.11
+	}
+	stage = {
+		difficulty = 4
+		icon = GFX_archaeology_runes_F2
+		event = ancrel.12
+	}
+	stage = {
+		difficulty = 5
+		icon = GFX_archaeology_runes_F3
+		event = ancrel.13
+	}
+
+	on_roll_failed = {
+		from = {
+			standard_archaeological_site_on_roll_failed = { RANDOM_EVENTS = all_random_events }
+		}
+	}
+}

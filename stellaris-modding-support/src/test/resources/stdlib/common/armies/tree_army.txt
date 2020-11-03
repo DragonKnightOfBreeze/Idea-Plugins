@@ -1,0 +1,13 @@
+tree_army = {
+	defensive = yes
+	damage = 1.0
+	morale_damage = 1.0
+	health = 1.0
+	has_morale = no
+	icon_frame = 8
+	has_species = no
+
+	potential = {
+		always = no
+	}
+}

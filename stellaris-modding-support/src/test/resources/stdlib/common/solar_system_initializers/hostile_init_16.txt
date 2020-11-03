@@ -1,0 +1,162 @@
+hostile_init_16 = {
+	class = "rl_standard_stars"
+	name = "NAME_Tiyana_Vek"
+	
+	usage = misc_system_init
+	usage_odds = 90000
+	max_instances = 1
+
+	flags = { tiyanki_spawn_system }
+	
+	planet = {
+		count = 1
+		class = star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = { min = 20 max = 30 }
+		has_ring = no
+
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			add_deposit = d_physics_6
+			create_country = {
+				name = "NAME_Placid_Leviathans"
+				type = tiyanki_garrison
+				flag = {
+					icon = {
+						category = "zoological"
+						file = "flag_zoological_1.dds"
+					}
+					background= {
+						category = "backgrounds"
+						file = "00_solid.dds"
+					}
+					colors={
+						"black"
+						"black"
+						"null"
+						"null"
+					}
+				}
+				effect = {
+					save_global_event_target_as = tiyanki_garrison_country
+				}
+			}
+			create_ambient_object = {
+				type = "space_storm_2"
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 0
+					angle = random
+				}
+			}
+		}
+	}
+	
+	planet = {
+		class = "pc_gas_giant"
+		name = "NAME_Zathika_Mev"
+		orbit_distance = 45
+		orbit_angle = 35
+		size = 30
+		has_ring = no
+		flags = { tiyanki_giant1 }
+
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			save_event_target_as = giant1
+			add_deposit = d_society_6
+		}
+	}
+
+	planet = {
+		class = "pc_gas_giant"
+		name = "NAME_Surribzha"
+		orbit_distance = 0
+		orbit_angle = 85
+		size = 25
+		has_ring = yes
+		flags = { tiyanki_giant2 }
+
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			save_event_target_as = giant2
+			add_deposit = d_society_6
+		}
+	}
+
+	planet = {
+		class = "pc_gas_giant"
+		name = "NAME_Yllarv"
+		orbit_distance = 0
+		orbit_angle = 95
+		size = 35
+		has_ring = no
+		flags = { tiyanki_giant3 }
+
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			save_event_target_as = giant3
+			add_deposit = d_society_6
+		}
+	}
+
+	planet = {
+		class = "pc_gas_giant"
+		name = "NAME_Khetzhavu"
+		orbit_distance = 0
+		orbit_angle = 90
+		size = 31
+		has_ring = no
+		flags = { tiyanki_giant4 }
+
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			save_event_target_as = giant4
+			add_deposit = d_society_6
+		}
+	}
+
+	planet = {
+		class = "pc_barren_cold"
+		name = "NAME_Dulna"
+		orbit_distance = 135
+		orbit_angle = 145
+		size = 22
+		has_ring = no
+
+		init_effect = {
+			prevent_anomaly = yes
+		}
+	}
+
+	planet = {
+		class = "pc_frozen"
+		name = "NAME_Valzhuva"
+		orbit_distance = 25
+		orbit_angle = 145
+		size = 14
+		has_ring = no
+
+		init_effect = {
+			prevent_anomaly = yes
+		}
+	}
+
+	init_effect = {
+		save_global_event_target_as = tiyanki_spawn_system
+		create_tiyanki_home_fleet_1 = yes
+		create_tiyanki_home_fleet_2 = yes
+		create_tiyanki_home_fleet_3 = yes
+		create_tiyanki_home_fleet_4 = yes
+		create_tiyanki_home_roaming_fleets = yes
+	}
+}

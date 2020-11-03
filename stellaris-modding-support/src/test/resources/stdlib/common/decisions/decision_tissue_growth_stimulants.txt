@@ -1,0 +1,31 @@
+decision_tissue_growth_stimulants = {
+	owned_planets_only = yes
+	sound = event_laboratory_sound
+	icon = decision_resources
+	
+	resources = {
+		category = decisions
+		cost = {
+			energy = 200
+		}
+	}
+	
+	potential = {
+		owner = {
+			is_machine_empire = no
+			has_country_flag = city_of_bones_completed
+		}
+	}
+	
+	allow = {
+		NOT = { has_modifier = tissue_growth_stimulants }
+	}	
+	
+	effect = {
+		add_modifier = { modifier = tissue_growth_stimulants days = 3650 }
+	}
+	
+	ai_weight = {
+		weight = 1
+	}
+}

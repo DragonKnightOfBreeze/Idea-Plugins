@@ -1,0 +1,5 @@
+is_lithoid = {
+	species = {
+		is_archetype = LITHOID
+	}
+}

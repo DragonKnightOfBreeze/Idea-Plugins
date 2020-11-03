@@ -1,0 +1,17 @@
+tech_gargantuan_evolution = {
+	cost = @tier3cost1
+	area = society
+	category = { biology }
+	tier = 1
+	is_rare = yes
+	ai_update_type = all
+	weight = 0
+
+	weight_modifier = {
+		factor = 0
+	}
+
+	modifier = {
+		planet_jobs_energy_produces_mult = 0.05
+	}
+}

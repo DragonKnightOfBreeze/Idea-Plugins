@@ -1,0 +1,13 @@
+trait_self_modified = {
+	cost = 0
+	icon = "gfx/interface/icons/traits/trait_cybernetic.dds"
+
+	initial = no
+	randomized = no
+	modification = no
+
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+
+	modifier = {
+	}
+}

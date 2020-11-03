@@ -1,0 +1,51 @@
+site_robot_debris = {
+	desc = "site_robot_debris_intro"
+	picture = GFX_evt_space_debris
+	stages = 3
+	weight = {
+		base = 0
+		modifier = {
+			add = 100
+			OR = {
+				is_planet_class = pc_asteroid
+				is_planet_class = pc_ice_asteroid
+			}
+			has_ancrel = yes
+		}
+	}
+	allow = {
+		exists = leader
+		leader = { leader_class = scientist }
+	}
+	visible = {
+		default_site_visible_trigger = yes
+	}
+
+	on_visible = {
+		country_event = { id = story.5 days = 30 }
+	}
+
+	stage = {
+		difficulty = 3
+		icon = GFX_archaeology_runes_F1
+		event = ancrel.6250
+	}
+
+	stage = {
+		difficulty = 4
+		icon = GFX_archaeology_runes_F2
+		event = ancrel.6255
+	}
+
+	stage = {
+		difficulty = 5
+		icon = GFX_archaeology_runes_F3
+		event = ancrel.6260
+	}
+
+	on_roll_failed = {
+		from = {
+			standard_archaeological_site_on_roll_failed = { RANDOM_EVENTS = all_random_events }
+		}
+	}
+}

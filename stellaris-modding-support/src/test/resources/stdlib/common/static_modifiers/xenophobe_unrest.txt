@@ -1,0 +1,5 @@
+xenophobe_unrest = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_unknown.dds"
+	icon_frame = 2
+	pop_ethic_xenophobe_attraction_mult = 1
+}

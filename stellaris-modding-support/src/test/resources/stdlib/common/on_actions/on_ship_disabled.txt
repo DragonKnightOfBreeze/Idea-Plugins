@@ -1,0 +1,11 @@
+on_ship_disabled = {
+	events = {
+		country.201
+		country.212
+		country.217
+		country.222
+		leviathans.2100
+		distar.5053
+		pirate.70
+	}
+}

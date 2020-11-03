@@ -1,0 +1,24 @@
+decision_abolish_penal_colony = {
+	owned_planets_only = yes
+	icon = decision_penal_colony
+
+	resources = {
+		category = decisions
+		cost = {
+			influence = 250
+		}
+	}
+
+	potential = {
+		has_modifier = penal_colony
+	}
+
+	effect = {
+		remove_modifier = penal_colony
+		hidden_effect = { validate_planet_buildings_and_districts = yes }
+	}
+
+	ai_weight = {
+		weight = 0
+	}
+}

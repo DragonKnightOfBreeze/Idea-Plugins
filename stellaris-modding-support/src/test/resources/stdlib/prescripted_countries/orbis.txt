@@ -1,0 +1,71 @@
+orbis = {
+	name = "orbis"
+	adjective = "PRESCRIPTED_adjective_orbis"
+	spawn_enabled = yes # yes / no / always
+	ignore_portrait_duplication = yes
+	
+	playable = has_megacorp
+	
+	ship_prefix = "PRESCRIPTED_ship_prefix_kilik"
+	
+	species = {
+		class = "REP"
+		portrait= "rep1"
+		name = "PRESCRIPTED_species_name_orbis"
+		plural = "PRESCRIPTED_species_plural_orbis"
+		adjective = "PRESCRIPTED_species_adjective_orbis"
+		name_list = "REP1"
+		trait = "trait_charismatic"
+		trait = "trait_adaptive"
+		trait = "trait_enduring"
+		trait = "trait_decadent"
+		trait = "trait_slow_breeders"
+	}
+	
+	room = "personality_peaceful_traders_room"
+	
+	ethic = ethic_authoritarian
+	ethic = ethic_xenophile
+	ethic = ethic_materialist
+	flags = { orbis }
+	authority = "auth_corporate"
+	government = "gov_megacorporation"
+	civics = { "civic_brand_loyalty" "civic_media_conglomerate" }
+	origin = "origin_default"
+	
+	planet_name = "PRESCRIPTED_planet_name_orbis"
+	planet_class = "pc_ocean"
+	system_name = "PRESCRIPTED_system_name_orbis"
+	initializer = ""
+
+	graphical_culture = "reptilian_01"
+	city_graphical_culture = "reptilian_01"
+
+	empire_flag = {
+		icon = {
+			category = "corporate"
+			file = "corporate_01.dds"
+		}
+		background = {
+			category = "backgrounds"
+			file = "new_dawn.dds"
+		}
+		colors = {
+			"purple"
+			"light_blue"
+			"null"
+			"null"
+		}
+	}	
+	
+	ruler = {
+		name = "PRESCRIPTED_ruler_name_orbis"
+		gender = male
+		portrait = "rep1"
+		texture = 2
+		clothes = 1
+		ruler_title = "PRESCRIPTED_ruler_title_orbis"
+		ruler_title_female = "PRESCRIPTED_ruler_title_orbis"
+		leader_class = ruler
+	}
+}

@@ -1,0 +1,11 @@
+spy_orb_ruined = {
+	entity = "spy_orb_destroyed_entity"
+	portrait = "GFX_megastructure_construction_background"
+
+	place_entity_on_planet_plane = no
+	entity_offset = { x = @entity_x y = @entity_y }
+
+	potential = {
+		always = no
+	}
+}

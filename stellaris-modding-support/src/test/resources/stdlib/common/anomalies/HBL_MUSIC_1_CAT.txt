@@ -1,0 +1,29 @@
+HBL_MUSIC_1_CAT = {
+	desc = "HBL_MUSIC_1_DESC"
+	picture = "GFX_evt_alien_nature"
+	level = 5
+	
+	spawn_chance = {
+		modifier = {
+			add = 3
+			habitable_planet = yes
+		}
+	}
+	
+	on_success = {
+		0 = {
+			modifier = {
+				add = 1
+				owner = {
+					has_technology = tech_society_1
+					NOT = {
+						has_country_flag = HBL_MUSIC_1_FLAG
+						has_technology = tech_society_2
+					}
+				}
+			}
+			anomaly_event = anomaly.145
+		}
+		1 = anomaly.3080
+	}
+}

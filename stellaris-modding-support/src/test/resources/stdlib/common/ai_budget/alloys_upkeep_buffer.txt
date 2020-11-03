@@ -1,0 +1,13 @@
+alloys_upkeep_buffer = {	# Buffer, will not be spent
+	resource = alloys
+	type = upkeep
+	category = buffer
+
+	potential = {
+		always = yes
+	}
+
+	fraction = {
+		weight = 0.3
+	}
+}

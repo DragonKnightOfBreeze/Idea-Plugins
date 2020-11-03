@@ -1,0 +1,15 @@
+tech_space_exploration = {
+	cost = 0
+	area = engineering
+	start_tech = yes
+	category = { voidcraft }
+	prerequisites = { "tech_basic_science_lab_1" }
+	tier = 0
+
+	prereqfor_desc = {
+		ship = {
+			title = "TECH_UNLOCK_SCIENCE_SHIP_CONSTRUCTION_TITLE"
+			desc = "TECH_UNLOCK_SCIENCE_SHIP_CONSTRUCTION_DESC"
+		}
+	}
+}

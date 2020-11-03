@@ -1,0 +1,35 @@
+d_tropical_island = {
+	is_for_colonizeable = yes
+	use_for_min_max_adjustments = yes
+
+	category = deposit_cat_food
+
+	use_weights_for_terraforming_swap_types = yes
+	should_swap_deposit_on_terraforming = yes
+	terraforming_swap_types = {
+		d_black_soil
+		d_teeming_reef
+		d_marvelous_oasis
+		d_fungal_forest
+	}
+
+	planet_modifier = {
+		district_farming_max = 3
+	}
+
+	potential = {
+		OR = {
+			is_planet_class = pc_arid
+			is_planet_class = pc_desert
+			is_planet_class = pc_tropical
+		}
+	}
+
+	drop_weight = {
+		weight = @low
+		modifier = {
+			factor = @planet_type_bonus
+			is_wet = yes
+		}
+	}
+}

@@ -1,0 +1,39 @@
+breach_fix_resolution_galacticstudies_advanced_xenostudies = {
+	if = {
+		limit = {
+			OR = {
+				is_active_resolution = "resolution_galacticstudies_advanced_xenostudies"
+				is_active_resolution = "resolution_galacticstudies_ethical_guideline_refactoring"
+				is_active_resolution = "resolution_galacticstudies_extradimensional_experimentation"
+			}
+			in_breach_of = resolution_galacticstudies_advanced_xenostudies
+			can_set_ai_policy = yes
+			has_policy_flag = ai_outlawed
+		}
+		set_policy = {
+			policy = artificial_intelligence_policy
+			option = ai_servitude
+			cooldown = yes
+		}
+		custom_tooltip = "federations.10100.change_ai"
+	}
+
+	if = {
+		limit = {
+			OR = {
+				is_active_resolution = "resolution_galacticstudies_advanced_xenostudies"
+				is_active_resolution = "resolution_galacticstudies_ethical_guideline_refactoring"
+				is_active_resolution = "resolution_galacticstudies_extradimensional_experimentation"
+			}
+			in_breach_of = resolution_galacticstudies_advanced_xenostudies
+			has_met_primitives = yes
+			has_policy_flag = interference_passive
+		}
+		set_policy = {
+			policy = interference
+			option = interference_active
+			cooldown = yes
+		}
+		custom_tooltip = "federations.10100.change_interference"
+	}
+}

@@ -1,0 +1,14 @@
+minerals_expenditure_stations_high = {
+	resource = minerals
+	type = expenditure
+	category = stations
+
+	potential = {
+		always = yes
+		resource_stockpile_compare = { resource = minerals value >= 2000 }
+	}
+
+	fraction = {
+		weight = 0.05
+	}
+}

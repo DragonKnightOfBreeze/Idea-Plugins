@@ -1,12 +1,25 @@
-﻿### Arthropoid 1
-### Created by Henrik Thyrwall
-
-ART1 = {
+ART1 = {	
+	### SHIPS
+	
 	category = "Arthropoid"
+
+	language = "l_simp_chinese"
+	
 	ship_names = {
 	
 		generic = {
-			Vul-Tra Zik-Mit Sho-Dan Vid-Tak Kod-Mok Hum-Lat Rik-Hen Utr-Fas Pol-Tup Rom-Mor Irk-Sas Vik-Zul Zar-Pak Cor-Bad Tar-Zim Hur-Zam Vol-Tur Ima-Rug Ult-Amo Ara-Fal Fik-Yma Pok-Zor Rel-Tik Bak-Tas Rem-Suk Ula-Fon Fej-Bon Rak-Tar Mik-Zul Vad-Bak Hen-Tas Mok-Ilm Zuk-Tor San-Tar Imi-Ysk Vid-Hur Ham-Cor Cin-Nic Alk-Tar Zir-Zir Uni-Pok Las-Fik Tir-Fej Mon-Tor Kos-Lar Vim-Der Pot-Aka Taq-Ulu Ben-Bon Ack-Ack Lir-Pak Nur-Ang Dan-Ock Rek-Tir Cul-Cam Ilm-Ata Roj-Bim Dar-Fam Ata-Jol Tim-Tam Oro-Uri Pod-Cat Dir-Pok Dik-Dik Yna-Tor Can-Can Wir-Tra Nid-Elu Vol-Shu Ini-Ris Ath-Rum Pon-Far Rog-Wil Ita-Fon Mik-Jol Hom-Tak Ete-Dar Tar-Kin Tin-Tin Des-Ari Tol-Tum Gar-Gan Mos-Pak Cap-Tyr Ins-Hal Vor-Kot Spi-Kar Kon-Dor Car-Mas Iri-Lar Pur-Tok Che-Kov Rid-Sta Tiz-Val Orn-Dak Zia-Dol Ram-Nid Kar-Kar Ram-Rod Wix-Ald Bol-Bol Ron-Mor Mor-Dor Cha-Cha Cha-Cha Igu-Ana Iga-Tur-Kan Bir-Ing-Los Bav-Orl-Ing Hol-Der-Tan Den-Lan-Lom Dib-Vik-Has Per-Ush-Nad San-Kur-Ini Sin-Ran-Tor Pas-Nal-Vil Rir-Gol-Gib Eri-Gun-Nug Ler-Ini-Tok Was-Gar-Nog Gir-Pan-Pok Yta-Mab-Zor Sal-Dim-Dim Son-Omm-Agi Tur-Tan-Tol Hik-Ton-Dul Puk-Nar-Zin Lis-Ham-Dok Hov-Les-Ram Ima-Hun-Ima Tor-Tor-Dia Wik-Lar-Ish Haj-Ath-Umm Ita-Ita-Dum Sum-Con-Dam Tra-Les-Ete Era-Arm-Erv Vir-Tik-Zol Kur-Zad-Din Mot-Lim-Nog Tur-Fan-Tik Had-Ham-Hir Ini-Ini-Wor Doc-Ram-Bol Vis-Vil-Vik Pof-Hok-Gak Fel-Dar-Ima Fir-Vim-Cot Jan-Tak-Era Jin-Jum-Jan Pij-Jor-Cor Ter-Ras-Nog Hil-Dor-Bit Eti-Del-Ann Odo-Rax-Ari Rim-Ber-Tor Ral-Eth-Ian Oth-For-Das		
+			沃图 利马罗格 乌特阿莫 阿拉法尔 芬克玛 伯克佐 雷提克 巴克塔斯 蕾姆苏克 乌拉冯 斐济班 拉克塔 米克祖尔 瓦德巴克 亨塔斯 莫克伊姆
+			韦弗拉 芬纳 马格诺利 杰尼托 布罗约 罗修特 斯特皮斯 维塔尼克斯 阿拉波罗 拉迪科斯 赞拉波 罗特科斯 阿诺玛 萨洛 梅休斯
+			日夫科夫 卡札科夫 克鲁托福 伊万尼科夫 克鲁索夫 拉里诺夫 马可斯姆斯基 马科夫 奥斯特洛夫斯基 葆拉车夫 里陈可夫 罗曼诺夫
+			巴克斯代尔 波尔克 吉本斯 阿彻 皮克特 休斯顿 惠特菲尔德 皮尔逊 卢卡斯 霍纳 班布里奇 罗林斯 卡西 科克伦 默钱特
+			世界之树 “雅科仕拉米科斯切” 卡帕富力夏 波 阿卡莎瓦特 “努克米斯格扎格” 里明苏尔 苏布 特勒 阿斯瓦特 扶桑
+			提尼布 阿金基德 阿奇罗伊 阿德伊米 瑟奇波 班科尔 纳玛尼 奥卡迪波 伊洛斯 奥容科夫 恰克弗梅里 伊维兰 奥孔容 加巴达摩斯 奥兰里瓦荣
+			奎凡特 克洛腾 卡拉卡特 雷吉德 帕拉迪卡 布卡拉 克伦恩 卡拉特 拉祖卡特 金蒂特 博科特斯 卡拉吉 鲁克 耶多鲁 伊特拉克 斯图克 巴克拉特 柯德卢德 宋迪奎 伊克拉特 提克奎 布托奎 奎达特 萨奎拉特 耶特鲁
+			大卫 洛根 卡特 本杰明 安德鲁 亨利 尼古拉斯 加文 欧文 杰克 怀亚特 韦恩 怀特 查理斯 路易斯 梅里特 厄尔 艾弗雷德 弗农
+			游 永 义 雄 吴
+			古温多林 亨丽埃塔 伊莫金 虹膜 伊梅尔达 杰奎琳 简 珍娜 乔安娜 约瑟芬 朱丽安 凯思琳 基拉  凯利 利亚 洛伊丝
+			迭戈 路易斯 佩德罗 华金 何塞 埃米利奥 爱德华多 亚历杭德罗 卡洛斯 费尔南多 弗朗西斯科 朱利奥 "何塞·安东尼奥" "何塞·曼努埃尔" 胡安
+			欧博朗 安姆布雷尔 阿瑞尔 米兰达 崔顿 普鲁多 查伦	
 		}
 	
 		corvette = {
@@ -20,7 +33,7 @@ ART1 = {
 		
 		battleship = {
 		}
-
+		
 		titan = {
 		}
 
@@ -44,98 +57,81 @@ ART1 = {
 
 		ion_cannon = {
 		}
-	
 	}
 	
 	fleet_names = {
 		random_names = {
-			"Tarkil-Vu Navy Cluster" "Pakkan-Ye Navy Cluster" "Lorgis-Fa Navy Cluster" "Urtaka-Sa Navy Cluster" "Valgar-Je Navy Cluster" "Inilka-Pa Navy Cluster"
+			"塔器武星海舰群" "帕勘叶星海舰群" "洛基法星海舰群" "乌塔卡萨星海舰群" "瓦加也星海舰群"
+			"伊尼尔卡-帕星海舰群"
 		}
-		sequential_name = "%O% Navy Cluster"
+		sequential_name = "星海舰群 %C%"
 	}
 
+
+	###ARMIES
 	army_names = {
 
 		machine_defense = {
-			sequential_name = "%O% Defense Pod"
+			sequential_name = "防御舱 %C%"
 		}
 		
 		machine_assault_1 = {
-			sequential_name = "%O% Assault Pod"
+			sequential_name = "突击舱 %C%"
 		}
 		
 		machine_assault_2 = {
-			sequential_name = "%O% Assault Pod"
+			sequential_name = "突击舱 %C%"
 		}
 		
 		machine_assault_3 = {
-			sequential_name = "%O% Assault Pod"
+			sequential_name = "突击舱 %C%"
+		}
+
+		defense_army = {
+			sequential_name = "防御舱 %C%"
 		}
 	
-		defense_army = {
-			sequential_name = "%O% Defense Pod"
-		}
-			
 		assault_army = {
-			sequential_name = "%O% Assault Pod"
+			sequential_name = "突击舱 %C%"
 		}
 		
 		slave_army = {
-			sequential_name = "%O% Slave Pod"
+			sequential_name = "劳工舱 %C%"
 		}
 		
 		clone_army = {
-			sequential_name = "%O% Clone Pod"
+			sequential_name = "克隆舱﻿ %C%"
 		}
 
 		undead_army = {
-			sequential_name = "%O% Dread Pod"
+			sequential_name = "%O%恐惧荚舱"
 		}
 
 		robotic_army = {
-			sequential_name = "%O% Droid Pod"
-		}
-		
-		robotic_defense_army = {
-			sequential_name = "%O% Droid Defense Pod"
+			sequential_name = "智能人舱 %C%"
 		}
 		
 		psionic_army = {
-			sequential_name = "%O% Psi-Commando Pod"
+			sequential_name = "灵能突击舱 %C%"
 		}
 		
 		xenomorph_army = {
-			sequential_name = "%O% Xenomorph Pod"
+			sequential_name = "异星人舱 %C%"
 		}
 		
 		gene_warrior_army = {
-			sequential_name = "%O% Gene-Commando Pod"
-		}
-
-		occupation_army = {
-			sequential_name = "%O% Garrison Pod"
-		}
-
-		robotic_occupation_army = {
-			sequential_name = "%O% Droid Garrison Pod"
-		}
-
-		primitive_army = {
-			sequential_name = "Primitive Army %C%"
-		}
-		industrial_army = {
-			sequential_name = "Industrial Army %C%"
-		}
-		postatomic_army = {
-			sequential_name = "Post-Atomic Army %C%"
+			sequential_name = "基因突击队舱 %C%"
 		}
 	}
+	
+	### PLANETS
 	
 	planet_names = {
 	
 		generic = {
 			names = {
-				Vord-Ka-Torb Mirg-Vu-Karp Jorg-Se-Krop Reld-Te-Hirk Parg-Ki-Torp Terk-Ba-Pont Virm-Ri-Gand Iram-Je-Otak Larb-Ti-Darm Utam-Ja-Borm Pind-Ra-Vosk Verm-Te-Birg Itil-Sa-Domb Urak-Fe-Tond Urba-Ta-Nack Orol-Ju-Bakk Lirg-Na-Korm Tilk-Ti-Darb Suet-Re-Pold Sisk-In-Atab Taku-Ra-Molk Rima-Su-Kari Posk-Ja-Tori Karm-Ne-Tura
+				沃卡托 米务卡 乔瑟科 雷德特赫克 帕其托 特克巴珀特 沃姆里干德 艾朗叶奥托 拉博提达姆 乌塔亚波姆
+				平德拉沃思克 沃姆特比格 伊特萨道博 乌拉克菲唐德 乌巴塔那科 奥瑞尔尤巴克 里格那科姆 提克提达博 苏特瑞伯德 斯科英阿塔
 			}
 		}
 		
@@ -186,11 +182,13 @@ ART1 = {
 		
 	}
 	
+	### CHARACTERS
+	
 	character_names = {
 		default = {
 			# A complete name
 			full_names = {
-				Vi-Ka Po-To Re-Ma Su-Pe Uk-Ma Il-Si Im-Do Ju-Ta Va-Ra Ul-Ta Ib-Na Ek-Ir Er-Ba Bo-Ki Ri-Gu Ro-Ab Uv-Ko Fa-Ra Ol-So Bo-Gu So-Ka Mi-Ti Va-Ku Ki-Va Si-Na Bo-Ka Po-Ra Na-Sa Ta-Ri Ma-Ku Im-Po Su-Bo Ti-Ra Va-Ri Uk-Ni Er-Ma Ev-Li Ul-Ba Pe-Ti Ja-Ju
+				威利克 里布 阿祖 蒙瓦尔 利兹塔 英普特 科诺瓦 塞托盘尼 “科夫里奥” 格拉布 勒普特 菲利克斯 斐隆 阿祖利 威斯托尼 诺西 米卢斯 克泽普斯 伊德克
 			}
 			
 			# Always combined with a second name
@@ -202,11 +200,11 @@ ART1 = {
 			}
 			
 			regnal_first_names = {
-				Vi-Ka Po-To Re-Ma Su-Pe Uk-Ma Il-Si Im-Do Ju-Ta Va-Ra Ul-Ta
+				威利克 里布 阿祖 蒙瓦尔 利兹塔 英普特 科诺瓦 塞托盘尼
 			}
 			
 			regnal_second_names = {
-				Mok
+				梅扎克
 			}
 		}
 	}

@@ -1,0 +1,3 @@
+has_leviathans = {
+	host_has_dlc = "Leviathans Story Pack"
+}

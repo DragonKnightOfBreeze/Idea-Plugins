@@ -1,0 +1,16 @@
+achievement_omniculture = {
+	id = 46
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		exists = ruler
+		ruler = {
+			NOT = {
+				is_same_species = root
+			}
+		}
+	}
+}

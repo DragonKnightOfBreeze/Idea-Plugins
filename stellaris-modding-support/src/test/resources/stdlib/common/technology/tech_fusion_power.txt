@@ -1,0 +1,45 @@
+tech_fusion_power = {
+	area = physics
+	cost = @tier1cost2
+	tier = 1
+	category = { particles }
+	ai_update_type = all
+	prerequisites = { "tech_fission_power" }
+	weight = @tier1weight2
+
+	gateway = power_generation
+
+	prereqfor_desc = {
+		hide_prereq_for_desc = component
+		custom = {
+			title = "TECH_UNLOCK_FUSION_POWER_TITLE"
+			desc = "TECH_UNLOCK_FUSION_POWER_DESC"
+		}
+	}
+
+	weight_modifier = {
+		factor = 2
+		modifier = {
+			factor = 2
+			has_technology = tech_destroyers
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_particles"
+			}
+		}
+	}
+
+	ai_weight = {
+		factor = 3 #important component
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_particles"
+			}
+		}
+	}
+}

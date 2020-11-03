@@ -1,0 +1,143 @@
+fleet_contribution_medium_martial = {
+	allow = { 
+		custom_tooltip = {
+			NOT = {
+				AND = {
+					NOT = { has_federation_law = fleet_contribution_medium_martial }
+					has_modifier = federation_law_category_fleet_contribution_cooldown
+					has_any_federation_law_in_category = law_category_fleet_contribution
+				}
+			}
+		}
+	}
+	potential = {
+		has_federation_type = military_federation
+	}
+	required_centralization = {
+		base = 2
+	}
+	modifier = 	{
+		description = "fleet_contribution_medium_effect"
+		federation_fleet_contribution_factor = @contribution_medium
+		federation_fleet_cap_add = @fleet_cap_medium
+	}
+	cohesion_growth = -0.50
+	on_enact = {
+		if = {
+			limit = { has_federation_flag = enable_federation_cooldowns }
+			add_modifier = {
+				modifier = federation_law_category_fleet_contribution_cooldown
+				days = @cooldown
+			}
+		}
+		add_cohesion = -5
+		hidden_effect = {
+			if = {
+				limit = {
+					has_federation_flag = no_federation_fleet
+				}
+				remove_federation_flag = no_federation_fleet
+				set_timed_federation_flag = {
+					flag = no_federation_fleet_build_right_cooldown
+					days = 10
+				}
+			}
+		}
+	}
+	
+	ai_weight = {
+		base = 0
+		
+		#Default support
+		modifier = {
+			desc = federation_acceptance_generally_positive
+			add = 26
+		}
+		
+		#Attempt to raise contribution by a step in crisis
+		modifier = {
+			desc = federation_acceptance_crisis
+			add = 15
+			federation = { has_federation_law = fleet_contribution_low_martial }			
+			has_crisis_stage_2 = yes
+		}
+		modifier = {
+			desc = federation_acceptance_crisis
+			add = 25
+			federation = { has_federation_law = fleet_contribution_low_martial }			
+			has_crisis_stage_3 = yes
+		}
+		modifier = {
+			desc = federation_acceptance_crisis
+			add = 100
+			federation = { has_federation_law = fleet_contribution_low_martial }			
+			has_crisis_stage_4 = yes
+		}
+		
+		#Behaviour-specific
+		modifier = {
+			desc = federation_acceptance_president
+			add = 100
+			federation = { has_federation_law = fleet_contribution_low_martial }
+			is_federation_leader = yes
+		}
+		modifier = {
+			desc = federation_acceptance_federation_builders
+			add = 10
+			has_ai_personality = federation_builders
+		}
+		modifier = {
+			desc = federation_acceptance_honorbound_warriors
+			add = 5
+			has_ai_personality = honorbound_warriors
+		}
+		modifier = {
+			desc = federation_acceptance_militarist
+			add = 5
+			is_militarist = yes
+		}
+		modifier = {
+			desc = federation_acceptance_xenophobic_isolationists
+			add = -5
+			has_ai_personality = xenophobic_isolationists
+		}
+		
+		#Attempt to lower contribution by a step when there is bad cohesion
+		modifier = {
+			desc = federation_acceptance_reduce_fleet
+			add = 25
+			is_federation_leader = no
+			federation = {			
+				federation_cohesion < 0
+				has_federation_law = fleet_contribution_high_martial
+			}
+		}
+		modifier = {
+			desc = federation_acceptance_reduce_fleet
+			add = 25
+			is_federation_leader = no
+			federation = {			
+				federation_cohesion < -25
+				has_federation_law = fleet_contribution_high_martial
+			}
+		}
+		modifier = {
+			desc = federation_acceptance_reduce_fleet
+			add = 25
+			is_federation_leader = no
+			federation = {			
+				federation_cohesion < -50
+				has_federation_law = fleet_contribution_high_martial
+			}
+		}
+		modifier = {
+			desc = federation_acceptance_reduce_fleet
+			add = 25
+			is_federation_leader = no
+			federation = {			
+				federation_cohesion < -75
+				has_federation_law = fleet_contribution_high_martial
+			}
+		}
+	}
+}

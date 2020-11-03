@@ -1,0 +1,78 @@
+building_machine_assembly_complex = {
+	base_buildtime = @b3_time
+	can_build = no
+
+	category = pop_assembly
+	
+	potential = {
+		exists = owner
+		owner = { is_machine_empire = yes }
+	}
+	
+	convert_to = {
+		building_robot_assembly_plant
+	}
+	
+	allow = {
+		OR = {
+			owner = { is_ai = no }
+			AND = {
+				num_buildings = { type = any value <= 14 }
+				NOT = { is_planet_class = pc_habitat }
+			}
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			buildings_no_crystals = yes
+			owner = {
+				is_robot_empire = no
+			}
+			AND = {
+				owner = { is_ai = yes }
+				free_jobs < 1
+				OR = {
+					num_buildings = { type = any value = 16 }
+					is_planet_class = pc_habitat
+				}
+			}
+		}
+	}
+	
+	planet_modifier = {
+		job_replicator_add = 3
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b3_minerals
+			rare_crystals = @b3_rare_cost
+		}
+		upkeep = {
+			energy = @b3_upkeep
+			rare_crystals = @b3_rare_upkeep
+		}
+	}
+
+	prerequisites = {
+		tech_mega_assembly
+	}	
+	
+	triggered_desc = {
+		text = job_replicator_effect_desc
+	}	
+	
+	ai_weight = {
+		weight = 50000
+		modifier = {
+			factor = 0
+			OR = {
+				is_planet_class = pc_habitat
+				num_buildings = { type = any value >= 14 }
+			}
+		}
+	}
+}

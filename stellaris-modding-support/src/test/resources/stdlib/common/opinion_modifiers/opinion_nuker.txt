@@ -1,0 +1,33 @@
+opinion_nuker = {
+	opinion = {
+		base = 0
+		modifier = {
+			add = -5
+			NOT = { has_ethic = "ethic_militarist" }
+			NOT = { has_ethic = "ethic_fanatic_militarist" }
+			is_country_type = default
+		}
+		modifier = {
+			add = -5
+			has_ethic = "ethic_pacifist"
+			is_country_type = default
+		}
+		modifier = {
+			add = -10
+			has_ethic = "ethic_fanatic_pacifist"
+			is_country_type = default
+		}
+		modifier = {
+			add = -5
+			has_ai_personality = awakened_fallen_empire_xenophile
+		}
+	}
+
+	min = -100
+
+	accumulative = yes
+
+	decay = {
+		base = 1
+	}
+}

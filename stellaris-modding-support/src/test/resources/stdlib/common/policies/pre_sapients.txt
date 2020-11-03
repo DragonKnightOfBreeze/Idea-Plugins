@@ -1,0 +1,149 @@
+pre_sapients = {
+	potential = {
+		OR = {
+			has_country_flag = found_presapients
+			any_planet_within_border = {
+				any_pop = {
+					is_sapient = no
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "pre_sapients_protect"
+
+		potential = {
+			NOR = {
+				has_valid_civic = civic_machine_terminator
+				has_valid_civic = civic_hive_devouring_swarm
+				has_valid_civic = civic_fanatic_purifiers
+			}
+		}
+
+		on_enabled = {
+			hidden_effect = {
+				set_country_flag = found_presapients
+			}
+		}
+
+		policy_flags = {
+			pre_sapients_protect
+		}
+
+		AI_weight = {
+			factor = 2
+			modifier = {
+				factor = 0
+				NOT = { has_ai_personality_behaviour = multispecies }
+			}
+		}
+	}
+
+	option = {
+		name = "pre_sapients_allow"
+
+		potential = {
+			NOR = {
+				has_valid_civic = civic_machine_terminator
+				has_valid_civic = civic_hive_devouring_swarm
+				has_valid_civic = civic_fanatic_purifiers
+			}
+		}
+
+		on_enabled = {
+			hidden_effect = {
+				set_country_flag = found_presapients
+			}
+		}
+
+		policy_flags = {
+			pre_sapients_allow
+		}
+
+		AI_weight = {
+			factor = 1
+		}
+	}
+
+	option = {
+		name = "pre_sapients_eat"
+
+		potential = {
+			host_has_dlc = "Utopia"
+			is_synthetic_empire = no
+			NOT = {
+				has_valid_civic = civic_fanatic_purifiers
+			}
+		}
+
+		on_enabled = {
+			hidden_effect = {
+				set_country_flag = found_presapients
+			}
+		}
+
+		valid = {
+			NOR = {
+				has_ethic = "ethic_xenophile"
+				has_ethic = "ethic_fanatic_xenophile"
+			}
+		}
+
+		policy_flags = {
+			pre_sapients_eat
+		}
+
+		modifier = {}
+
+		AI_weight = {
+			factor = 10
+			modifier = {
+				factor = 0
+				NOT = { has_authority = auth_hive_mind }
+			}
+		}
+	}
+
+	option = {
+		name = "pre_sapients_purge"
+
+		valid = {
+			NOR = {
+				has_ethic = "ethic_xenophile"
+				has_ethic = "ethic_fanatic_xenophile"
+			}
+		}
+
+		on_enabled = {
+			hidden_effect = {
+				set_country_flag = found_presapients
+			}
+		}
+
+		policy_flags = {
+			pre_sapients_purge
+		}
+
+		modifier = {}
+
+		AI_weight = {
+			factor = 5
+			modifier = {
+				factor = 0
+				is_country_type = default
+				NOR = {
+					has_ethic = "ethic_xenophobe"
+					has_ethic = "ethic_fanatic_xenophobe"
+					AND = {
+						has_authority = auth_machine_intelligence
+						NOR = {
+							has_valid_civic = civic_machine_servitor
+							has_valid_civic = civic_machine_assimilator
+						}
+					}
+				}
+			}
+		}
+	}
+}

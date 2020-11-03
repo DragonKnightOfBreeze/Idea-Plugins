@@ -1,0 +1,14 @@
+AST_GEAR_CAT = {
+	desc = "AST_GEAR_DESC"
+	picture = "GFX_evt_mining_station"
+	level = 6
+	
+	spawn_chance = {
+		modifier = {
+			add = 3
+			is_asteroid = yes
+		}
+	}
+	
+	on_success = anomaly.4065
+}

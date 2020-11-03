@@ -1,0 +1,12 @@
+time_loop_world = {
+	picture = "GFX_evt_ship_in_orbit"
+	level = 4
+	max_once_global = yes
+	
+	spawn_chance = {
+		modifier = {
+			add = 0 # added in system initializer
+		}
+	}
+	on_success = distar.2030
+}

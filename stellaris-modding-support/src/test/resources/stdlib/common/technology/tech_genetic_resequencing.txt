@@ -1,0 +1,25 @@
+tech_genetic_resequencing = {
+	cost = @tier5cost1
+	area = society
+	tier = 5
+	is_rare = yes
+	category = { biology }
+	weight = 0
+
+	gateway = biological
+
+	feature_flags = {
+		advanced_gene_modding
+		add_advanced_traits
+	}
+
+	ai_weight = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_biology"
+			}
+		}
+	}
+}

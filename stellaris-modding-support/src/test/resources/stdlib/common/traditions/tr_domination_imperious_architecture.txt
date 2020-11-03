@@ -1,0 +1,37 @@
+tr_domination_imperious_architecture = {
+
+	# additional housing implemented in building files
+
+	tradition_swap = {
+		name = tr_domination_synaptic_extensions
+		inherit_effects = no
+		inherit_icon = yes
+		inherit_name = no
+		trigger = {
+			is_hive_empire = yes
+		}
+		weight = {
+			factor = 1
+		}
+	}
+
+	tradition_swap = {
+		name = tr_domination_modular_depot
+		inherit_effects = no
+		inherit_icon = yes
+		inherit_name = no
+		trigger = {
+			is_machine_empire = yes
+		}
+		modifier = {
+			empire_size_districts_mult = -0.25
+		}
+		weight = {
+			factor = 1
+		}
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}

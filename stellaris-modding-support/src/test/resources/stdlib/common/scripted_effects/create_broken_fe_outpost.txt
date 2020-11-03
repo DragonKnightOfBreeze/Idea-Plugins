@@ -1,0 +1,91 @@
+create_broken_fe_outpost = {
+	create_ambient_object = {
+		type = broken_holy_world_outpost
+	}
+	last_created_ambient_object = {
+		set_location = {
+			target = prev
+			distance = 10
+		}
+		save_event_target_as = broken_outpost
+	}
+	#create_ambient_object = {
+	#	type = large_debris_object
+	#}
+	#last_created_ambient_object = {
+	#	set_location = {
+	#		target = event_target:broken_outpost
+	#		distance = 0
+	#	}
+	#}
+	create_ambient_object = {
+		type = small_debris_object
+	}
+	last_created_ambient_object = {
+		set_location = {
+			target = event_target:broken_outpost
+			distance = 1
+			angle = 0
+		}
+	}
+	create_ambient_object = {
+		type = small_debris_object
+	}
+	last_created_ambient_object = {
+		set_location = {
+			target = event_target:broken_outpost
+			distance = 1
+			angle = 90
+		}
+	}
+	create_ambient_object = {
+		type = small_debris_object
+	}
+	last_created_ambient_object = {
+		set_location = {
+			target = event_target:broken_outpost
+			distance = 1
+			angle = 180
+		}
+	}
+	create_ambient_object = {
+		type = small_debris_object
+	}
+	last_created_ambient_object = {
+		set_location = {
+			target = event_target:broken_outpost
+			distance = 1
+			angle = 270
+		}
+	}
+	create_ambient_object = {
+		type = medium_debris_02_object
+	}
+	last_created_ambient_object = {
+		set_location = {
+			target = event_target:broken_outpost
+			distance = 3
+			angle = 5
+		}
+	}
+	create_ambient_object = {
+		type = medium_debris_02_object
+	}
+	last_created_ambient_object = {
+		set_location = {
+			target = event_target:broken_outpost
+			distance = 9
+			angle = 120
+		}
+	}
+	create_ambient_object = {
+		type = medium_debris_01_object
+	}
+	last_created_ambient_object = {
+		set_location = {
+			target = event_target:broken_outpost
+			distance = 6
+			angle = 240
+		}
+	}
+}

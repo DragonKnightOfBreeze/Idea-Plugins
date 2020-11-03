@@ -1,0 +1,32 @@
+resolution_galacticreforms_revoke_permanent_seat = {
+	icon = "GFX_resolution_council_member_permanent"
+
+	resources = {
+		category = resolutions
+		cost = {
+			influence = @resolution_cost_t5
+		}
+	}
+
+	target = yes
+	harmful = yes
+	valid_target = {
+		is_country_type = default
+		is_galactic_community_member = yes
+		is_part_of_galactic_council = yes
+		is_permanent_councillor = yes
+	}
+
+	effect = {
+		remove_permanent_councillor = yes
+	}
+
+	potential = {
+		has_federations_dlc = yes
+		is_galactic_council_established = yes
+	}
+
+	ai_weight = {
+		weight = @resolution_weight_disliked
+	}
+}

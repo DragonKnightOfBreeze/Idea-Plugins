@@ -1,0 +1,12 @@
+relic_world_deposits = {
+	reset_planet = yes
+	clear_deposits = yes
+	add_deposit = d_relic_dense_ruins
+	add_deposit = d_collapsed_spire
+	add_deposit = d_massive_crevice
+	add_deposit = d_shattered_solar_array
+	add_deposit = d_flooded_reactor_pits
+	add_deposit = d_crumbling_mining_tunnels
+	add_deposit = d_relic_metal_boneyard
+	prevent_anomaly = yes
+}

@@ -1,0 +1,288 @@
+spriteTypes = {	
+
+	spriteType = {
+		name = "GFX_galactic_community_button"
+		textureFile = "gfx/interface/galacticCommunity/galacticCommunity_mainButton.dds"
+		noOfFrames = 2
+	}
+
+	# Pulse Button
+	SpriteType = {
+		name = "GFX_galactic_community_button_pulse"
+		texturefile = "gfx/interface/galacticCommunity/galacticCommunity_mainButton_single.dds"			
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/galacticCommunity/galacticCommunity_mainButton_mask.dds"				
+			animationtexturefile = "gfx/interface/galacticCommunity/galacticCommunity_mainButton_pulse.dds"	 	# <- the animated file
+			animationrotation = 90.0		# -90 clockwise 90 counterclockwise(by default)
+			animationlooping = yes			# yes or no ;)
+			animationtime = 3				# in seconds
+			animationdelay = 0			# in seconds
+			animationblendmode = "add"       #add, multiply, overlay
+			animationtype = "pulsing"      #scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+		}
+		legacy_lazy_load = no
+	}
+
+	spriteType = {
+		name = "GFX_senate_vote_no_button"
+		textureFile = "gfx/interface/galacticCommunity/senateFloor_voteNo.dds"
+		noOfFrames = 3
+	}
+
+	spriteType = {
+		name = "GFX_senate_vote_yes_button"
+		textureFile = "gfx/interface/galacticCommunity/senateFloor_voteYes.dds"
+		noOfFrames = 3
+	}
+
+	spriteType = {
+		name = "GFX_senate_vote_abstain_button"
+		textureFile = "gfx/interface/galacticCommunity/senateFloor_voteAbstain.dds"
+		noOfFrames = 3
+	}
+
+	spriteType = {
+		name = "GFX_senate_vote_tally_bg"
+		textureFile = "gfx/interface/galacticCommunity/senateFloor_voteTally_bg.dds"
+	}
+
+	spriteType = {
+		name = "GFX_senate_vote_tally_winner"
+		textureFile = "gfx/interface/galacticCommunity/senateFloor_voteTally_winner.dds"
+		noOfFrames = 2
+	}
+
+	progressbarType = {
+		name = "GFX_vote_balance_progressbar"
+		color = { 1.0 1.0 1.0 }
+		colorTwo = { 1.0 1.0 1.0 }
+		textureFile1 = "gfx/interface/galacticCommunity/senateFloor_votingTally_progressBarLarge.dds"
+		textureFile2 = "gfx/interface/galacticCommunity/senateFloor_votingTally_progressBarLarge_bg.dds"
+		size = { x = 286 y = 12 }
+		effectFile = "gfx/FX/progress.lua"
+	}
+
+	## Resolution Group Color Backgrounds -------
+	spriteType = {
+		name = "GFX_resolution_group_dividers"
+		textureFile = "gfx/interface/galacticCommunity/resolution_group_backgrounds.dds"
+		effectFile = "gfx/FX/buttonstate_onlydisable.lua"
+		noOfFrames = 5
+	}
+
+	spriteType = {
+		name = "GFX_resolution_button_group"
+		textureFile = "gfx/interface/galacticCommunity/galacticCommunity_resolutionButton_group_backgrounds.dds"
+		noOfFrames = 5
+	}
+
+	spriteType = {
+		name = "GFX_resolution_senate_group"
+		textureFile = "gfx/interface/galacticCommunity/resolution_current_bg.dds"
+		effectFile = "gfx/FX/buttonstate_onlydisable.lua"
+		noOfFrames = 5
+	}
+	
+	##-----------------------------------------
+	
+	spriteType = {
+		name = "GFX_councilmember_counter"
+		textureFile = "gfx/interface/galacticCommunity/galacticCommunity_council_counter.dds"
+		noOfFrames = 4
+	}
+
+	spriteType = {
+		name = "GFX_councilmember_bg"
+		textureFile = "gfx/interface/galacticCommunity/galacticCommunity_council_bg.dds"
+	}
+
+	spriteType = {
+		name = "GFX_senate_progress_bg"
+		textureFile = "gfx/interface/galacticCommunity/galacticCommunity_senateProgress_box.dds"
+	}
+
+	spriteType = {
+		name = "GFX_galacticcommunity_largeportrait_frame"
+		textureFile = "gfx/interface/galacticCommunity/galacticCommunity_portraitFrame.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_resolution_proposed_supported"
+		textureFile = "gfx/interface/galacticCommunity/galacticCommunity_resolutionButton_proposed_supported.dds"
+	}
+
+	spriteType = {
+		name = "GFX_resolution_proposed_status"
+		textureFile = "gfx/interface/galacticCommunity/galacticCommunity_resolutionButton_proposed_status.dds"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_resolution_proposed_bg"
+		textureFile = "gfx/interface/galacticCommunity/galacticcommunity_resolutionbutton_proposed_status_abstain.dds"
+	}
+
+	spriteType = {
+		name = "GFX_resolution_dropdown_states"
+		textureFile = "gfx/interface/galacticCommunity/resolution_dropdown_options.dds"
+		noOfFrames = 5
+	}
+
+	spriteType = {
+		name = "GFX_resolution_notification"
+		textureFile = "gfx/interface/galacticCommunity/resolution_notification.dds"
+	}
+
+	progressbartype = {
+		name = "GFX_senatefloor_small_bar"
+		color = { 1.0 1.0 1.0 }
+		colortwo = { 1.0 1.0 1.0 }	
+		textureFile1 = "gfx/interface/progressbars/queue_progressbar.dds"
+		textureFile2 = "gfx/interface/progressbars/queue_progressbar_empty.dds"
+		size = { x = 160 y = 8 }
+		effectFile = "gfx/FX/progress_startend.lua"
+	}
+
+	spriteType = {
+		name = "GFX_galactic_community_portrait_bg"
+		textureFile = "gfx/interface/galacticCommunity/galacticCommunity_portrait_bg.dds"
+	}
+
+	spriteType = {
+		name = "GFX_galactic_community_portrait_shadow"
+		textureFile = "gfx/interface/galacticCommunity/galacticCommunity_portrait_shadow.dds"
+	}
+
+	spriteType = {
+		name = "GFX_galactic_community_portrait_bg_council"
+		textureFile = "gfx/interface/galacticCommunity/galacticCommunity_portrait_bgCouncil.dds"
+	}
+	
+
+	spriteType = {
+		name = "GFX_diplomatic_weight_normal"
+		textureFile = "gfx/interface/icons/resources/diplomatic_weight.dds"
+	}
+
+	spriteType = {
+		name = "GFX_diplomatic_weight_large"
+		textureFile = "gfx/interface/icons/resources/diplomatic_weight_large.dds"
+	}
+
+	spriteType = {
+		name = "GFX_unread_bg"
+		textureFile = "gfx/interface/galacticCommunity/galacticCommunity_button_notificationNumber.dds"
+	}
+
+	spriteType = {
+		name = "GFX_galactic_community_stripes"
+		texturefile = "gfx/interface/galacticCommunity/galacticCommunity_stripes.dds"
+		effectFile = "gfx/FX/buttonstate_onlydisable.lua"
+		#noOfFrames = 3			
+		animation = {
+			animationmaskfile = "gfx/interface/galacticCommunity/galacticCommunity_stripes_mask.dds"
+			animationtexturefile = "gfx/interface/diplomacy/diplomacy_texture4.dds"
+			animationrotation = 180.0
+			animationlooping = yes
+			animationtime = 30.0
+			animationdelay = 0.0
+			animationblendmode = "overlay"       #add, multiply, overlay
+			animationtype = "scrolling"      #scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+			#animationframes = { 1 2 3 }
+		}
+	}
+
+	corneredTileSpriteType = {
+		name = "GFX_dark_area_cut_light"
+		texturefile = "gfx/interface/galacticCommunity/dark_area_cut_light.dds"
+		borderSize = { x=4 y=4 }
+		effectFile = "gfx/FX/buttonstate_onlydisable.lua"
+	}
+
+	spriteType = {
+		name = "GFX_abstain"
+		textureFile = "gfx/interface/galacticCommunity/vote_abstain.dds"
+	}
+	spriteType = {
+		name = "GFX_veto"
+		textureFile = "gfx/interface/galacticCommunity/vote_council_veto.dds"
+	}
+	spriteType = {
+		name = "GFX_oppose"
+		textureFile = "gfx/interface/galacticCommunity/vote_oppose.dds"
+	}
+	spriteType = {
+		name = "GFX_support"
+		textureFile = "gfx/interface/galacticCommunity/vote_support.dds"
+	}
+
+	spriteType = {
+		name = "GFX_withdraw"
+		textureFile = "gfx/interface/galacticCommunity/vote_withdraw.dds"
+	}
+
+	spriteType = {
+		name = "GFX_favor"
+		textureFile = "gfx/interface/galacticCommunity/vote_favor.dds"
+	}
+
+	spriteType = {
+		name = "GFX_emergency_measure"
+		textureFile = "gfx/interface/galacticCommunity/vote_emergency_measure.dds`"
+	}
+
+	## ------ SENATE FLOOR BG ------- ##
+
+	spriteType = {
+		name = "GFX_senate_floor_shadow"
+		textureFile = "gfx/interface/galacticCommunity/senateFloor_portrait_shadow.dds"
+	}
+
+	spriteType = {
+		name = "GFX_0_senate_floor_portrait_bg"
+		textureFile = "gfx/interface/galacticCommunity/0_senateFloor_portrait_bg.dds"
+	}
+
+	spriteType = {
+		name = "GFX_1_senate_floor_portrait_bg"
+		textureFile = "gfx/interface/galacticCommunity/1_senateFloor_portrait_bg.dds"
+	}
+
+	spriteType = {
+		name = "GFX_2_senate_floor_portrait_bg"
+		textureFile = "gfx/interface/galacticCommunity/2_senateFloor_portrait_bg.dds"
+	}
+
+	spriteType = {
+		name = "GFX_3_senate_floor_portrait_bg"
+		textureFile = "gfx/interface/galacticCommunity/3_senateFloor_portrait_bg.dds"
+	}
+
+	spriteType = {
+		name = "GFX_4_senate_floor_portrait_bg"
+		textureFile = "gfx/interface/galacticCommunity/4_senateFloor_portrait_bg.dds"
+	}
+
+	spriteType = {
+		name = "GFX_5_senate_floor_portrait_bg"
+		textureFile = "gfx/interface/galacticCommunity/5_senateFloor_portrait_bg.dds"
+	}
+
+	
+	## This is for Policies Tab
+	spriteType = {
+		name = "GFX_in_breach_hex_bg"
+		texturefile = "gfx/interface/galacticCommunity/policies_hex_bg_inBreach.dds"
+	}
+
+	spriteType = {
+		name = "GFX_in_breach_icon"
+		texturefile = "gfx/interface/galacticCommunity/galacticCommunity_inbreach.dds"
+		noOfFrames = 3
+	}
+}

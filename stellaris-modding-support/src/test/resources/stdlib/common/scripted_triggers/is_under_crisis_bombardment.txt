@@ -1,0 +1,9 @@
+is_under_crisis_bombardment = {
+	has_orbital_bombardment = yes
+	any_fleet_in_orbit = {
+		exists = owner
+		owner = {
+			is_crisis_faction = yes
+		}
+	}
+}

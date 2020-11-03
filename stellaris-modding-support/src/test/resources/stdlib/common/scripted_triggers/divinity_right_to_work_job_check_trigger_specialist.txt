@@ -1,0 +1,14 @@
+divinity_right_to_work_job_check_trigger_specialist = {
+	NOT = {
+		planet = {
+			any_owned_pop = {
+				is_unemployed = yes
+				is_robotic_species = no
+				OR = {
+					is_pop_category = specialist
+					is_pop_category = worker
+				}
+			}
+		}
+	}
+}

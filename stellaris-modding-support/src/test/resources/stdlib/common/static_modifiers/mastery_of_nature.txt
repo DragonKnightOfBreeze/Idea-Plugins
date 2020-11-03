@@ -1,0 +1,5 @@
+mastery_of_nature = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_mastery_of_nature.dds"
+	icon_frame = 1
+	planet_max_districts_add = 2
+}

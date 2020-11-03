@@ -1,0 +1,59 @@
+fanatic_befrienders = {
+	aggressiveness = 2.0
+	trade_willingness = 1.0
+	bravery = 1.5
+	combat_bravery = 1.0
+
+	military_spending = 1.2
+	colony_spending = 1.0
+
+	federation_acceptance = 0 #50
+	nap_acceptance = 50
+	commercial_pact_acceptance = 50
+	research_agreement_acceptance = 50
+	defensive_pact_acceptance = 50
+	migration_pact_acceptance = 50
+
+	advanced_start_chance = 25
+
+	weapon_preferences = weapon_type_energy
+	armor_ratio = 0.4
+	shields_ratio = 0.5
+	hull_ratio = 0.1
+
+	threat_modifier = 0.5
+	threat_others_modifier = 0.75
+	friction_modifier = 0
+	claims_modifier = 0.25
+
+	behaviour = {
+		conqueror = yes
+		subjugator = yes
+		liberator = no
+		opportunist = yes
+		slaver = no
+		uplifter = yes
+		purger = no
+		displacer = no
+		dominator = no
+		infiltrator = yes
+		robot_exploiter = no
+		robot_liberator = no
+		propagator = no
+		multispecies = yes
+		crisis_fighter = yes
+	}
+
+	allow = {
+		is_country_type = default
+		has_ethic = "ethic_militarist"
+		has_ethic = "ethic_fanatic_xenophile"
+		has_trait = "trait_repugnant"
+		has_trait = "trait_solitary"
+		has_trait = "trait_venerable"
+	}
+
+	weight_modifier = {
+		weight = 100
+	}
+}

@@ -1,0 +1,54 @@
+site_command_center = {
+	desc = "site_command_center_intro"
+	picture = GFX_evt_barren_dig_site
+	stages = 4
+	weight = {
+		base = 0
+		modifier = {
+			add = 100
+			is_planet_class = pc_asteroid
+			has_ancrel = yes
+		}
+	}
+	allow = {
+		exists = leader
+		leader = { leader_class = scientist }
+	}
+	visible = {
+		default_site_visible_trigger = yes
+	}
+
+	on_visible = {
+		country_event = { id = story.5 days = 30 }
+	}
+
+	stage = {
+		difficulty = 2
+		icon = GFX_archaeology_runes_A1
+		event = ancrel.6005
+	}
+
+	stage = {
+		difficulty = 3
+		icon = GFX_archaeology_runes_A2
+		event = ancrel.6010
+	}
+
+	stage = {
+		difficulty = 3
+		icon = GFX_archaeology_runes_A3
+		event = ancrel.6015
+	}
+
+	stage = {
+		difficulty = 4
+		icon = GFX_archaeology_runes_A4
+		event = ancrel.6020
+	}
+
+	on_roll_failed = {
+		from = {
+			standard_archaeological_site_on_roll_failed = { RANDOM_EVENTS = all_random_events }
+		}
+	}
+}

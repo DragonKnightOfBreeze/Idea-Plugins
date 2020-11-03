@@ -1,0 +1,14 @@
+gov_band_blood = {
+	ruler_title = RT_BLOODLORD
+	
+	should_force_rename = yes
+
+	possible = {
+		has_valid_civic = civic_barbaric_despoilers
+		has_valid_civic = civic_death_cult
+	}
+
+	weight = {
+		base = 20000
+	}
+}

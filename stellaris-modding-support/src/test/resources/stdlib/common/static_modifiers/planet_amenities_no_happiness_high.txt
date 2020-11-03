@@ -1,0 +1,3 @@
+planet_amenities_no_happiness_high = {
+	planet_stability_add = 20
+}

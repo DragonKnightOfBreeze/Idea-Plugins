@@ -1,0 +1,18 @@
+trait_nerve_stapled = {
+	cost = 3
+	potential_crossbreeding_chance = 0.5
+	opposites = { "trait_intelligent" "trait_erudite" "trait_natural_engineers" "trait_natural_physicists" "trait_natural_sociologists" "trait_communal" "trait_solitary" "trait_talented" }
+	initial = no
+	randomized = no
+	advanced_trait = yes
+	forced_happiness = yes
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	modifier = {
+		planet_jobs_produces_mult = 0.05
+		leader_skill_levels = -2
+	}
+	custom_tooltip = TRAIT_NERVE_STAPLED_EFFECT
+	slave_cost = {
+		energy = 150
+	}
+}

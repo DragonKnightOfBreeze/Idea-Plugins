@@ -1,0 +1,4 @@
+consecrated_quality_2 = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_consecrated_worlds.dds"
+	icon_frame = 2
+}

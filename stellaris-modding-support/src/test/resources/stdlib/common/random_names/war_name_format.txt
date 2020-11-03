@@ -1,0 +1,13 @@
+war_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 999
+			using_war_goal = {
+                type = wg_take_galatron
+                owner = attacker
+            }
+		}
+	}
+	format = "<galatron_war_names>"
+}

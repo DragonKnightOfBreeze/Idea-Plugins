@@ -1,0 +1,1485 @@
+action_declare_war = {
+	select = { #DOW_SELECTs are not in use
+		## Hostile 1
+		#01_DOW_SELECT = {
+		#	trigger = {
+		#		NOT = { has_ethic = ethic_gestalt_consciousness }
+		#		NOT = { has_ai_personality = fanatic_purifiers }
+		#		NOT = {
+		#			is_same_species = FROM
+		#			OR = {
+		#				has_ethic = ethic_pacifist
+		#				has_ethic = ethic_fanatic_pacifist
+		#			}
+		#		}
+		#		OR = {
+		#			is_hostile_to = FROM
+		#			is_domineering_to = FROM
+		#			is_unfriendly_to = FROM
+		#		}
+		#	}
+		#}
+		## Hostile 2
+		#02_DOW_SELECT = {
+		#	trigger = {
+		#		NOT = { has_ethic = ethic_gestalt_consciousness }
+		#		NOT = { has_ai_personality = fanatic_purifiers }
+		#		NOT = {
+		#			is_same_species = FROM
+		#			OR = {
+		#				has_ethic = ethic_pacifist
+		#				has_ethic = ethic_fanatic_pacifist
+		#			}
+		#		}
+		#		OR = {
+		#			is_hostile_to = FROM
+		#			is_domineering_to = FROM
+		#			is_unfriendly_to = FROM
+		#		}
+		#	}
+		#}
+		## Hostile 3
+		#03_DOW_SELECT = {
+		#	trigger = {
+		#		NOT = { has_ethic = ethic_gestalt_consciousness }
+		#		NOT = { has_ai_personality = fanatic_purifiers }
+		#		NOT = {
+		#			is_same_species = FROM
+		#			OR = {
+		#				has_ethic = ethic_pacifist
+		#				has_ethic = ethic_fanatic_pacifist
+		#			}
+		#		}
+		#		OR = {
+		#			is_hostile_to = FROM
+		#			is_domineering_to = FROM
+		#			is_unfriendly_to = FROM
+		#		}
+		#	}
+		#}
+		## Neutral 1
+		#04_DOW_SELECT = {
+		#	trigger = {
+		#		NOT = { has_ethic = ethic_gestalt_consciousness }
+		#		NOT = { has_ai_personality = fanatic_purifiers }
+		#		NOT = {
+		#			is_same_species = FROM
+		#			OR = {
+		#				has_ethic = ethic_pacifist
+		#				has_ethic = ethic_fanatic_pacifist
+		#			}
+		#		}
+		#		OR = {
+		#			is_neutral_to = FROM
+		#			is_threatened_to = FROM
+		#		}
+		#	}
+		#}
+		## Neutral 2
+		#05_DOW_SELECT = {
+		#	trigger = {
+		#		NOT = { has_ethic = ethic_gestalt_consciousness }
+		#		NOT = { has_ai_personality = fanatic_purifiers }
+		#		NOT = {
+		#			is_same_species = FROM
+		#			OR = {
+		#				has_ethic = ethic_pacifist
+		#				has_ethic = ethic_fanatic_pacifist
+		#			}
+		#		}
+		#		OR = {
+		#			is_neutral_to = FROM
+		#			is_threatened_to = FROM
+		#		}
+		#	}
+		#}
+		## Neutral 3
+		#06_DOW_SELECT = {
+		#	trigger = {
+		#		NOT = { has_ethic = ethic_gestalt_consciousness }
+		#		NOT = { has_ai_personality = fanatic_purifiers }
+		#		NOT = {
+		#			is_same_species = FROM
+		#			OR = {
+		#				has_ethic = ethic_pacifist
+		#				has_ethic = ethic_fanatic_pacifist
+		#			}
+		#		}
+		#		OR = {
+		#			is_neutral_to = FROM
+		#			is_threatened_to = FROM
+		#		}
+		#	}
+		#}
+		## Friendly 1
+		#07_DOW_SELECT = {
+		#	trigger = {
+		#		NOT = { has_ethic = ethic_gestalt_consciousness }
+		#		NOT = { has_ai_personality = fanatic_purifiers }
+		#		NOT = {
+		#			is_same_species = FROM
+		#			OR = {
+		#				has_ethic = ethic_pacifist
+		#				has_ethic = ethic_fanatic_pacifist
+		#			}
+		#		}
+		#		OR = {
+		#			is_friendly_to = FROM
+		#			is_cordial_to = FROM
+		#			is_protective_to = FROM
+		#		}
+		#	}
+		#}
+		## Friendly 2
+		#08_DOW_SELECT = {
+		#	trigger = {
+		#		NOT = { has_ethic = ethic_gestalt_consciousness }
+		#		NOT = { has_ai_personality = fanatic_purifiers }
+		#		NOT = {
+		#			is_same_species = FROM
+		#			OR = {
+		#				has_ethic = ethic_pacifist
+		#				has_ethic = ethic_fanatic_pacifist
+		#			}
+		#		}
+		#		OR = {
+		#			is_friendly_to = FROM
+		#			is_cordial_to = FROM
+		#			is_protective_to = FROM
+		#		}
+		#	}
+		#}
+		## Friendly 3
+		#09_DOW_SELECT = {
+		#	trigger = {
+		#		NOT = { has_ethic = ethic_gestalt_consciousness }
+		#		NOT = { has_ai_personality = fanatic_purifiers }
+		#		NOT = {
+		#			is_same_species = FROM
+		#			OR = {
+		#				has_ethic = ethic_pacifist
+		#				has_ethic = ethic_fanatic_pacifist
+		#			}
+		#		}
+		#		OR = {
+		#			is_friendly_to = FROM
+		#			is_cordial_to = FROM
+		#			is_protective_to = FROM
+		#		}
+		#	}
+		#}
+		## Hostile Pacifist
+		#10_DOW_SELECT = {
+		#	trigger = {
+		#		NOT = { has_ethic = ethic_gestalt_consciousness }
+		#		NOT = { has_ai_personality = fanatic_purifiers }
+		#		OR = {
+		#			has_ethic = ethic_pacifist
+		#			has_ethic = ethic_fanatic_pacifist
+		#		}
+		#		OR = {
+		#			is_hostile_to = FROM
+		#			is_domineering_to = FROM
+		#			is_unfriendly_to = FROM
+		#		}
+		#	}
+		#}
+		## Neutral Pacifist
+		#11_DOW_SELECT = {
+		#	trigger = {
+		#		NOT = { has_ethic = ethic_gestalt_consciousness }
+		#		NOT = { has_ai_personality = fanatic_purifiers }
+		#		OR = {
+		#			has_ethic = ethic_pacifist
+		#			has_ethic = ethic_fanatic_pacifist
+		#		}
+		#		OR = {
+		#			is_neutral_to = FROM
+		#			is_threatened_to = FROM
+		#		}
+		#	}
+		#}
+		## Friendly Pacifist
+		#12_DOW_SELECT = {
+		#	trigger = {
+		#		NOT = { has_ethic = ethic_gestalt_consciousness }
+		#		NOT = { has_ai_personality = fanatic_purifiers }
+		#		OR = {
+		#			has_ethic = ethic_pacifist
+		#			has_ethic = ethic_fanatic_pacifist
+		#		}
+		#		OR = {
+		#			is_friendly_to = FROM
+		#			is_cordial_to = FROM
+		#			is_protective_to = FROM
+		#		}
+		#	}
+		#}
+		## Hive Mind
+		#HM_DOW_SELECT = {
+		#	trigger = {
+		#		has_ai_personality = hive_mind
+		#	}
+		#}
+		## Devouring Swarm
+		#DS_DOW_SELECT = {
+		#	trigger = {
+		#		has_ai_personality = devouring_swarm
+		#	}
+		#}
+		## Fanatical Purifier
+		#FP_DOW_SELECT = {
+		#	trigger = {
+		#		has_ai_personality = fanatic_purifiers
+		#	}
+		#}
+		## Exterminators
+		#E_DOW_SELECT_01 = {
+		#	trigger = {
+		#		has_ai_personality = exterminators
+		#	}
+		#}
+		## Fallen Empires
+		#01_FALLEN_EMPIRE_DISMISSIVE_DOW_SELECT = {
+		#	trigger = {
+		#		OR = {
+		#			is_dismissive_to = FROM
+		#			is_arrogant_to = FROM
+		#		}
+		#	}
+		#}
+		#01_FALLEN_EMPIRE_PATRONIZING_DOW_SELECT = {
+		#	trigger = {
+		#		NOT = { has_ethic = ethic_gestalt_consciousness }
+		#		OR = {
+		#			is_patronizing_to = FROM
+		#			is_custodial_to = FROM
+		#		}
+		#	}
+		#}
+		#01_FALLEN_EMPIRE_ANGRY_DOW_SELECT = {
+		#	trigger = {
+		#		OR = {
+		#			is_angry_to = FROM
+		#			is_belligerent_to = FROM
+		#			is_imperious_to = FROM
+		#		}
+		#	}
+		#}
+		#
+		## Blorg
+		#01_BLORG_WAR = {
+		#	trigger = {
+		#		has_ai_personality = fanatic_befrienders
+		#	}
+		#	weight = {
+		#		weight = 1000
+		#	}
+		#}
+		#02_BLORG_WAR = {
+		#	trigger = {
+		#		has_ai_personality = fanatic_befrienders
+		#	}
+		#	weight = {
+		#		weight = 1000
+		#	}
+		#}
+		#03_BLORG_WAR = {
+		#	trigger = {
+		#		has_ai_personality = fanatic_befrienders
+		#		FROM = {
+		#			NOT = {
+		#				has_authority = auth_machine_intelligence
+		#				is_species = machine
+		#			}
+		#		}
+		#	}
+		#	weight = {
+		#		weight = 1000
+		#	}
+		#}
+	}
+	propose = {
+		01_FALLEN_MACHINE_EMPIRE_DOW_PROPOSE = {
+			trigger = {
+				FROM = {
+					is_fallen_machine_empire = yes
+					NOT = { has_ai_personality = berserk_fallen_empire_machine }
+				}
+			}
+		}
+		01_BERSERK_MACHINE_EMPIRE_DOW_PROPOSE = {
+			trigger = {
+				FROM = {
+					is_fallen_machine_empire = yes
+					has_ai_personality = berserk_fallen_empire_machine
+				}
+			}
+		}
+		01_DOW_PROPOSE = {
+			trigger = {
+				NOT = { is_same_species_class = FROM }
+				FROM = {
+					is_fallen_machine_empire = no
+					NOR = {
+						has_ethic = ethic_xenophobe
+						has_ethic = ethic_fanatic_xenophobe
+						has_authority = auth_corporate
+					}
+				}
+			}
+		}
+		02_DOW_PROPOSE = {
+			trigger = {
+				is_same_species_class = FROM
+			}
+		}
+		# Xenophobic
+		03_DOW_PROPOSE = {
+			weight = {
+				weight = 5
+			}
+			trigger = {
+				FROM = {
+					is_fallen_machine_empire = no
+					OR = {
+						has_ethic = ethic_xenophobe
+						has_ethic = ethic_fanatic_xenophobe
+					}
+				}
+				NOR = {
+					is_same_species_class = FROM
+					has_authority = auth_machine_intelligence
+					is_species_class = ROBOT
+					has_authority = auth_corporate
+				}
+			}
+		}
+		# Honorbound personality type
+		04_DOW_PROPOSE = {
+			weight = {
+				weight = 5
+			}
+			trigger = {
+				FROM = {
+					has_ai_personality = honorbound_warriors
+					NOT = {
+						OR = {
+							has_ethic = ethic_xenophobe
+							has_ethic = ethic_fanatic_xenophobe
+							has_authority = auth_corporate
+						}
+					}
+				}
+			}
+		}
+		# Ideologue personality type
+		05_DOW_PROPOSE = {
+			weight = {
+				weight = 5
+			}
+			trigger = {
+				FROM = {
+					OR = {
+						has_ai_personality = evangelising_zealots
+						has_ai_personality = democratic_crusaders
+					}
+					NOT = {
+						OR = {
+							has_ethic = ethic_xenophobe
+							has_ethic = ethic_fanatic_xenophobe
+							has_authority = auth_corporate
+						}
+					}
+				}
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+			}
+		}
+		# Hegemon personality type
+		06_DOW_PROPOSE = {
+			weight = {
+				weight = 5
+			}
+			trigger = {
+				FROM = {
+					has_ai_personality = hegemonic_imperialists
+					NOT = {
+						OR = {
+							has_ethic = ethic_xenophobe
+							has_ethic = ethic_fanatic_xenophobe
+							has_authority = auth_corporate
+						}
+					}
+				}
+			}
+		}
+		# Purifier personality type
+		07_DOW_PROPOSE = {
+			weight = {
+				weight = 5
+			}
+			trigger = {
+				FROM = {
+					has_ai_personality = fanatic_purifiers
+				}
+			}
+		}
+		# Explorer personality type
+		08_DOW_PROPOSE = {
+			weight = {
+				weight = 5
+			}
+			trigger = {
+				FROM = {
+					has_ai_personality = erudite_explorers
+					NOT = {
+						OR = {
+							has_ethic = ethic_xenophobe
+							has_ethic = ethic_fanatic_xenophobe
+							has_authority = auth_corporate
+						}
+					}
+				}
+			}
+		}
+		# Hive Mind personality type
+		09_DOW_PROPOSE = {
+			weight = {
+				weight = 5
+			}
+			trigger = {
+				FROM = {
+					has_ai_personality = hive_mind
+				}
+			}
+		}
+		# Machine Intelligence personality type
+		E_DOW_PROPOSE_01 = {
+			weight = { weight = 50 }
+			trigger = {
+				FROM = { has_ai_personality = exterminators }
+				ROOT = {
+					NOT = {
+						is_species_class = ROBOT
+						has_authority = auth_machine_intelligence
+					}
+				}
+			}
+		}
+		E_DOW_PROPOSE_02 = {
+			weight = { weight = 50 }
+			trigger = {
+				FROM = { has_ai_personality = exterminators }
+			}
+		}
+		E_DOW_PROPOSE_03 = {
+			weight = { weight = 10 }
+			trigger = {
+				FROM = { has_ai_personality = exterminators }
+				ROOT = {
+					NOT = {	has_authority = auth_machine_intelligence }
+				}
+			}
+		}
+		E_DOW_PROPOSE_04 = {
+			weight = { weight = 10 }
+			trigger = {
+				FROM = { has_ai_personality = exterminators }
+				ROOT = {
+					OR = {
+						is_species_class = ROBOT
+						has_authority = auth_machine_intelligence
+					}
+				}
+			}
+		}
+		S_DOW_PROPOSE_01 = {
+			weight = { weight = 50 }
+			trigger = {
+				FROM = { has_ai_personality = servitors }
+				ROOT = {
+					NOT = {
+						is_species_class = ROBOT
+						has_authority = auth_machine_intelligence
+					}
+				}
+			}
+		}
+		S_DOW_PROPOSE_02 = {
+			weight = { weight = 50 }
+			trigger = {
+				FROM = { has_ai_personality = servitors }
+				ROOT = {
+					OR = {
+						is_species_class = ROBOT
+						has_authority = auth_machine_intelligence
+					}
+				}
+			}
+		}
+		S_DOW_PROPOSE_03 = {
+			weight = { weight = 50 }
+			trigger = {
+				FROM = { has_ai_personality = servitors }
+				ROOT = {
+					OR = {
+						is_species_class = ROBOT
+						has_authority = auth_machine_intelligence
+					}
+				}
+			}
+		}
+		A_DOW_PROPOSE_01 = {
+			weight = { weight = 50 }
+			trigger = {
+				FROM = { has_ai_personality = assimilators }
+			}
+		}
+		A_DOW_PROPOSE_02 = {
+			weight = { weight = 50 }
+			trigger = {
+				FROM = { has_ai_personality = assimilators }
+				ROOT = {
+					NOT = {
+						is_species_class = ROBOT
+						has_authority = auth_machine_intelligence
+					}
+				}
+			}
+		}
+		A_DOW_PROPOSE_03 = {
+			weight = { weight = 50 }
+			trigger = {
+				FROM = { has_ai_personality = assimilators }
+				ROOT = {
+					NOT = {
+						is_species_class = ROBOT
+						has_authority = auth_machine_intelligence
+					}
+				}
+			}
+		}
+		A_DOW_PROPOSE_04 = {
+			weight = { weight = 50 }
+			trigger = {
+				FROM = { has_ai_personality = assimilators }
+				ROOT = {
+					NOT = {
+						is_species_class = ROBOT
+						has_authority = auth_machine_intelligence
+					}
+				}
+			}
+		}
+		# Gen Machine Empire
+		MECH_DOW_PROPOSE_01 = {
+			trigger = {
+				FROM = {
+					has_authority = auth_machine_intelligence
+					is_fallen_machine_empire = no
+				}
+				NOT = {	has_authority = auth_machine_intelligence }
+			}
+		}
+		MECH_DOW_PROPOSE_02 = {
+			trigger = {
+				FROM = {
+					has_authority = auth_machine_intelligence
+					is_fallen_machine_empire = no
+				}
+			}
+		}
+		MECH_DOW_PROPOSE_03 = {
+			trigger = {
+				FROM = {
+					has_authority = auth_machine_intelligence
+					is_fallen_machine_empire = no
+				}
+			}
+		}
+		MECH_DOW_PROPOSE_04 = {
+			trigger = {
+				FROM = {
+					has_authority = auth_machine_intelligence
+					is_fallen_machine_empire = no
+				}
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_species_class = ROBOT
+				}
+			}
+		}
+		# Organics to Machines
+		ORG_TO_MECH_DOW_PROPOSE_01 = {
+			trigger = {
+				FROM = {
+					NOR = {
+						has_authority = auth_machine_intelligence
+						is_species_class = ROBOT
+					}
+				}
+				has_authority = auth_machine_intelligence
+			}
+			weight = {
+				weight = 20
+			}
+		}
+		ORG_TO_MECH_DOW_PROPOSE_02 = {
+			trigger = {
+				FROM = {
+					NOR = {
+						has_authority = auth_machine_intelligence
+						is_species_class = ROBOT
+					}
+				}
+				has_authority = auth_machine_intelligence
+			}
+			weight = {
+				weight = 20
+			}
+		}
+		ORG_TO_MECH_DOW_PROPOSE_03 = {
+			trigger = {
+				FROM = {
+					NOR = {
+						has_authority = auth_machine_intelligence
+						is_species_class = ROBOT
+					}
+				}
+				OR = {
+					has_authority = auth_machine_intelligence
+					is_species_class = ROBOT
+				}
+			}
+			weight = {
+				weight = 20
+			}
+		}
+
+		# Migrating Flock personality type
+		10_DOW_PROPOSE = {
+			weight = {
+				weight = 5
+			}
+			trigger = {
+				FROM = {
+					has_ai_personality = migrating_flock
+					NOT = {
+						OR = {
+							has_ethic = ethic_xenophobe
+							has_ethic = ethic_fanatic_xenophobe
+							has_authority = auth_corporate
+						}
+					}
+				}
+			}
+		}
+		# Capitalist personality type
+		11_DOW_PROPOSE = {
+			weight = {
+				weight = 5
+			}
+			trigger = {
+				FROM = {
+					has_ai_personality = ruthless_capitalists
+					NOT = {
+						OR = {
+							has_ethic = ethic_xenophobe
+							has_ethic = ethic_fanatic_xenophobe
+							has_authority = auth_corporate
+						}
+					}
+				}
+			}
+		}
+		# Devouring Swarm personality type
+		12_DOW_PROPOSE = {
+			weight = {
+				weight = 5
+			}
+			trigger = {
+				FROM = {
+					has_ai_personality = devouring_swarm
+				}
+				NOT = {
+					has_authority = auth_machine_intelligence
+					is_species_class = ROBOT
+				}
+			}
+		}
+		# Subject
+		01_VASSAL_DOW_PROPOSE = {
+			trigger = {
+				FROM = {
+					exists = overlord
+					overlord = { is_same_value = ROOT }
+				}
+			}
+			weight = {
+				weight = 1000
+			}
+		}
+		# Ketlings
+		KET_DOW_PROPOSE_01 = {
+			weight = { weight = 100000 }
+			trigger = {
+				exists = event_target:ratling_country
+				FROM = {
+					is_same_empire = event_target:ratling_country
+				}
+			}
+		}
+		# Ketlings
+		KET_DOW_PROPOSE_02 = {
+			weight = { weight = 100000 }
+			trigger = {
+				exists = event_target:ratling_country
+				FROM = {
+					is_same_empire = event_target:ratling_country
+				}
+			}
+		}
+		KET_VASSAL_DOW_PROPOSE = {
+			weight = { weight = 100000 }
+			trigger = {
+				exists = event_target:ratling_country
+				FROM = {
+					is_same_empire = event_target:ratling_country
+					exists = overlord
+					overlord = { is_same_value = ROOT }
+				}
+			}
+		}
+		# Corporate
+		CORP_DOW_PROPOSE_01 = {
+			weight = { weight = 3 }
+			trigger = {
+				FROM = {
+					has_authority = auth_corporate
+				}
+			}
+		}
+		CORP_DOW_PROPOSE_02 = {
+			weight = { weight = 3 }
+			trigger = {
+				FROM = {
+					has_authority = auth_corporate
+				}
+			}
+		}
+		CORP_DOW_PROPOSE_03 = {
+			weight = { weight = 3 }
+			trigger = {
+				FROM = {
+					has_authority = auth_corporate
+				}
+			}
+		}
+		CORP_VASSAL_DOW_PROPOSE_01 = {
+			weight = { weight = 3000 }
+			trigger = {
+				FROM = {
+					has_authority = auth_corporate
+					exists = overlord
+					overlord = { is_same_value = ROOT }
+				}
+			}
+		}
+		# To Corporations
+		TO_CORP_DOW_PROPOSE_01 = {
+			weight = { weight = 3 }
+			trigger = {
+				has_authority = auth_corporate
+			}
+		}
+		TO_CORP_DOW_PROPOSE_02 = {
+			weight = { weight = 3 }
+			trigger = {
+				has_authority = auth_corporate
+			}
+		}
+		TO_CORP_DOW_PROPOSE_03 = {
+			weight = { weight = 3 }
+			trigger = {
+				has_authority = auth_corporate
+			}
+		}
+		TO_CORP_DOW_PROPOSE_04 = {
+			weight = { weight = 3 }
+			trigger = {
+				has_authority = auth_corporate
+			}
+		}
+	}
+
+	accept = {
+		01_FALLEN_MACHINE_EMPIRE_DOW_ACCEPT = {
+			trigger = {
+				is_fallen_machine_empire = yes
+				NOT = { has_ai_personality = berserk_fallen_empire_machine }
+			}
+		}
+		01_BERSERK_MACHINE_EMPIRE_DOW_ACCEPT = {
+			trigger = {
+				is_fallen_machine_empire = yes
+				has_ai_personality = berserk_fallen_empire_machine
+			}
+		}
+		# Hostile 1
+		01_DOW_ACCEPT = {
+			trigger = {
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = {
+					is_same_species = FROM
+					OR = {
+						has_ethic = ethic_pacifist
+						has_ethic = ethic_fanatic_pacifist
+					}
+					has_authority = auth_corporate
+				}
+				OR = {
+					is_hostile_to = FROM
+					is_domineering_to = FROM
+					is_unfriendly_to = FROM
+				}
+			}
+		}
+		# Hostile 2
+		02_DOW_ACCEPT = {
+			trigger = {
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = {
+					is_same_species = FROM
+					OR = {
+						has_ethic = ethic_pacifist
+						has_ethic = ethic_fanatic_pacifist
+					}
+					has_authority = auth_corporate
+				}
+				OR = {
+					is_hostile_to = FROM
+					is_domineering_to = FROM
+					is_unfriendly_to = FROM
+				}
+			}
+		}
+		# Hostile 3
+		03_DOW_ACCEPT = {
+			trigger = {
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = {
+					is_same_species = FROM
+					OR = {
+						has_ethic = ethic_pacifist
+						has_ethic = ethic_fanatic_pacifist
+					}
+					has_authority = auth_corporate
+				}
+				OR = {
+					is_hostile_to = FROM
+					is_domineering_to = FROM
+					is_unfriendly_to = FROM
+				}
+			}
+		}
+		# Neutral 1
+		04_DOW_ACCEPT = {
+			trigger = {
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = {
+					is_same_species = FROM
+					OR = {
+						has_ethic = ethic_pacifist
+						has_ethic = ethic_fanatic_pacifist
+					}
+					has_authority = auth_corporate
+				}
+				OR = {
+					is_neutral_to = FROM
+					is_threatened_to = FROM
+				}
+			}
+		}
+		# Neutral 2
+		05_DOW_ACCEPT = {
+			trigger = {
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = {
+					is_same_species = FROM
+					OR = {
+						has_ethic = ethic_pacifist
+						has_ethic = ethic_fanatic_pacifist
+					}
+					has_authority = auth_corporate
+				}
+				OR = {
+					is_neutral_to = FROM
+					is_threatened_to = FROM
+				}
+			}
+		}
+		# Neutral 3
+		06_DOW_ACCEPT = {
+			trigger = {
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = {
+					is_same_species = FROM
+					OR = {
+						has_ethic = ethic_pacifist
+						has_ethic = ethic_fanatic_pacifist
+					}
+					has_authority = auth_corporate
+				}
+				OR = {
+					is_neutral_to = FROM
+					is_threatened_to = FROM
+				}
+			}
+		}
+		# Friendly 1
+		07_DOW_ACCEPT = {
+			trigger = {
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = {
+					is_same_species = FROM
+					OR = {
+						has_ethic = ethic_pacifist
+						has_ethic = ethic_fanatic_pacifist
+					}
+					has_authority = auth_corporate
+				}
+				OR = {
+					is_friendly_to = FROM
+					is_cordial_to = FROM
+					is_protective_to = FROM
+				}
+			}
+		}
+		# Friendly 2
+		08_DOW_ACCEPT = {
+			trigger = {
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = {
+					is_same_species = FROM
+					OR = {
+						has_ethic = ethic_pacifist
+						has_ethic = ethic_fanatic_pacifist
+					}
+					has_authority = auth_corporate
+				}
+				OR = {
+					is_friendly_to = FROM
+					is_cordial_to = FROM
+					is_protective_to = FROM
+				}
+			}
+		}
+		# Friendly 3
+		09_DOW_ACCEPT = {
+			trigger = {
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = {
+					is_same_species = FROM
+					OR = {
+						has_ethic = ethic_pacifist
+						has_ethic = ethic_fanatic_pacifist
+					}
+					has_authority = auth_corporate
+				}
+				OR = {
+					is_friendly_to = FROM
+					is_cordial_to = FROM
+					is_protective_to = FROM
+				}
+			}
+		}
+		# Hostile Pacifist
+		10_DOW_ACCEPT = {
+			trigger = {
+				NOR = {
+					has_ethic = ethic_gestalt_consciousness
+					has_authority = auth_corporate
+				}
+				NOT = { is_same_species = FROM }
+				OR = {
+					has_ethic = ethic_pacifist
+					has_ethic = ethic_fanatic_pacifist
+				}
+				OR = {
+					is_hostile_to = FROM
+					is_domineering_to = FROM
+					is_unfriendly_to = FROM
+				}
+			}
+		}
+		# Neutral Pacifist
+		11_DOW_ACCEPT = {
+			trigger = {
+				NOR = {
+					has_ethic = ethic_gestalt_consciousness
+					has_authority = auth_corporate
+				}
+				NOT = { is_same_species = FROM }
+				OR = {
+					has_ethic = ethic_pacifist
+					has_ethic = ethic_fanatic_pacifist
+				}
+				OR = {
+					is_neutral_to = FROM
+					is_threatened_to = FROM
+				}
+			}
+		}
+		# Friendly Pacifist
+		12_DOW_ACCEPT = {
+			trigger = {
+				NOR = {
+					has_ethic = ethic_gestalt_consciousness
+					has_authority = auth_corporate
+				}
+				NOT = { is_same_species = FROM }
+				OR = {
+					has_ethic = ethic_pacifist
+					has_ethic = ethic_fanatic_pacifist
+				}
+				OR = {
+					is_friendly_to = FROM
+					is_cordial_to = FROM
+					is_protective_to = FROM
+				}
+			}
+		}
+		# Pacifist Same Species
+		13_DOW_ACCEPT = {
+			trigger = {
+				NOR = {
+					has_ethic = ethic_gestalt_consciousness
+					has_authority = auth_corporate
+				}
+				is_same_species = FROM
+				OR = {
+					has_ethic = ethic_pacifist
+					has_ethic = ethic_fanatic_pacifist
+				}
+			}
+		}
+		DS_DOW_ACCEPT = {
+			trigger = {
+				has_ai_personality = devouring_swarm
+				FROM = {
+					NOT = {
+						is_species_class = ROBOT
+						has_authority = auth_machine_intelligence
+					}
+				}
+			}
+		}
+		# Machine Empire DOW on DS
+		DS_MECH_DOW_ACCEPT = {
+			trigger = {
+				has_ai_personality = devouring_swarm
+				FROM = {
+					OR = {
+						is_species_class = ROBOT
+						has_authority = auth_machine_intelligence
+					}
+				}
+			}
+		}
+		HM_DOW_ACCEPT = {
+			trigger = {
+				has_ai_personality = hive_mind
+			}
+		}
+		E_DOW_ACCEPT_01 = {
+			weight = { weight = 50 }
+			trigger = {
+				has_ai_personality = exterminators
+			}
+		}
+		E_DOW_ACCEPT_02 = {
+			weight = { weight = 50 }
+			trigger = {
+				has_ai_personality = exterminators
+			}
+		}
+		E_DOW_ACCEPT_03 = {
+			weight = { weight = 50 }
+			trigger = {
+				has_ai_personality = exterminators
+				FROM = {
+					NOR = {
+						is_species_class = ROBOT
+						has_authority = auth_machine_intelligence
+					}
+				}
+			}
+		}
+		E_DOW_ACCEPT_04 = {
+			weight = { weight = 50 }
+			trigger = {
+				has_ai_personality = exterminators
+				FROM = {
+					NOR = {
+						is_species_class = ROBOT
+						has_authority = auth_machine_intelligence
+					}
+				}
+			}
+		}
+		S_DOW_ACCEPT_01 = {
+			weight = { weight = 50 }
+			trigger = {
+				has_ai_personality = servitors
+			}
+		}
+		S_DOW_ACCEPT_02 = {
+			weight = { weight = 50 }
+			trigger = {
+				has_ai_personality = servitors
+			}
+		}
+		A_DOW_ACCEPT_01 = {
+			weight = { weight = 50 }
+			trigger = {
+				has_ai_personality = assimilators
+			}
+		}
+		A_DOW_ACCEPT_02 = {
+			weight = { weight = 50 }
+			trigger = {
+				has_ai_personality = assimilators
+				FROM = {
+					NOT = {
+						is_species_class = ROBOT
+						has_authority = auth_machine_intelligence
+					}
+				}
+			}
+		}
+		A_DOW_ACCEPT_03 = {
+			weight = { weight = 50 }
+			trigger = {
+				has_ai_personality = assimilators
+				FROM = {
+					NOT = {
+						is_species_class = ROBOT
+						has_authority = auth_machine_intelligence
+					}
+				}
+			}
+		}
+		A_DOW_ACCEPT_04 = {
+			weight = { weight = 50 }
+			trigger = {
+				has_ai_personality = assimilators
+				FROM = {
+					NOT = {
+						is_species_class = ROBOT
+						has_authority = auth_machine_intelligence
+					}
+				}
+			}
+		}
+		# Gen Machine Empire DOWs
+		MECH_DOW_ACCEPT_01 = {
+			trigger = {
+				OR = {
+					is_species_class = ROBOT
+					has_authority = auth_machine_intelligence
+				}
+				is_fallen_machine_empire = no
+			}
+		}
+		MECH_DOW_ACCEPT_02 = {
+			trigger = {
+				OR = {
+					is_species_class = ROBOT
+					has_authority = auth_machine_intelligence
+				}
+				is_fallen_machine_empire = no
+				FROM = {
+					NOR = {
+						is_species_class = ROBOT
+						has_authority = auth_machine_intelligence
+					}
+				}
+			}
+		}
+		MECH_DOW_ACCEPT_03 = {
+			trigger = {
+				OR = {
+					is_species_class = ROBOT
+					has_authority = auth_machine_intelligence
+				}
+				is_fallen_machine_empire = no
+				FROM = {
+					NOR = {
+						is_species_class = ROBOT
+						has_authority = auth_machine_intelligence
+					}
+				}
+			}
+		}
+		MECH_DOW_ACCEPT_04 = {
+			trigger = {
+				OR = {
+					is_species_class = ROBOT
+					has_authority = auth_machine_intelligence
+				}
+				is_fallen_machine_empire = no
+			}
+		}
+		MECH_DOW_ACCEPT_05 = {
+			trigger = {
+				OR = {
+					is_species_class = ROBOT
+					has_authority = auth_machine_intelligence
+				}
+				NOT = { has_ai_personality = servitors }
+				is_fallen_machine_empire = no
+				FROM = {
+					NOR = {
+						is_species_class = ROBOT
+						has_authority = auth_machine_intelligence
+					}
+				}
+			}
+		}
+		MECH_DOW_ACCEPT_06 = {
+			trigger = {
+				OR = {
+					is_species_class = ROBOT
+					has_authority = auth_machine_intelligence
+				}
+				NOT = { has_ai_personality = servitors }
+				is_fallen_machine_empire = no
+				FROM = {
+					NOR = {
+						is_species_class = ROBOT
+						has_authority = auth_machine_intelligence
+					}
+				}
+			}
+		}
+		# Organics to machines phrases
+		ORG_TO_MECH_DOW_ACCEPT_01 = {
+			trigger = {
+				NOR = {
+					is_species_class = ROBOT
+					has_authority = auth_machine_intelligence
+				}
+				FROM = {
+					OR = {
+						is_species_class = ROBOT
+						has_authority = auth_machine_intelligence
+					}
+				}
+			}
+			weight = {
+				weight = 20
+			}
+		}
+		ORG_TO_MECH_DOW_ACCEPT_02 = {
+			trigger = {
+				NOR = {
+					is_species_class = ROBOT
+					has_authority = auth_machine_intelligence
+				}
+				FROM = {
+					OR = {
+						is_species_class = ROBOT
+						has_authority = auth_machine_intelligence
+					}
+				}
+			}
+			weight = {
+				weight = 20
+			}
+		}
+		ORG_TO_MECH_DOW_ACCEPT_03 = {
+			trigger = {
+				NOR = {
+					is_species_class = ROBOT
+					has_authority = auth_machine_intelligence
+				}
+				FROM = {
+					OR = {
+						is_species_class = ROBOT
+						has_authority = auth_machine_intelligence
+					}
+				}
+			}
+			weight = {
+				weight = 20
+			}
+		}
+		ORG_TO_MECH_DOW_ACCEPT_04 = {
+			trigger = {
+				NOR = {
+					is_species_class = ROBOT
+					has_authority = auth_machine_intelligence
+				}
+				FROM = {
+					OR = {
+						is_species_class = ROBOT
+						has_authority = auth_machine_intelligence
+					}
+				}
+			}
+			weight = {
+				weight = 20
+			}
+		}
+		ORG_TO_MECH_DOW_ACCEPT_05 = {
+			trigger = {
+				NOR = {
+					is_species_class = ROBOT
+					has_authority = auth_machine_intelligence
+				}
+				FROM = {
+					OR = {
+						is_species_class = ROBOT
+						has_authority = auth_machine_intelligence
+					}
+				}
+			}
+			weight = {
+				weight = 20
+			}
+		}
+		ORG_TO_MECH_DOW_ACCEPT_06 = {
+			trigger = {
+				NOR = {
+					is_species_class = ROBOT
+					has_authority = auth_machine_intelligence
+				}
+				FROM = {
+					OR = {
+						is_species_class = ROBOT
+						has_authority = auth_machine_intelligence
+					}
+				}
+			}
+			weight = {
+				weight = 20
+			}
+		}
+		ORG_TO_MECH_DOW_ACCEPT_07 = {
+			trigger = {
+				NOR = {
+					is_species_class = ROBOT
+					has_authority = auth_machine_intelligence
+				}
+				FROM = {
+					OR = {
+						is_species_class = ROBOT
+						has_authority = auth_machine_intelligence
+					}
+				}
+			}
+			weight = {
+				weight = 20
+			}
+		}
+		ORG_TO_MECH_DOW_ACCEPT_08 = {
+			trigger = {
+				NOR = {
+					is_species_class = ROBOT
+					has_authority = auth_machine_intelligence
+				}
+				FROM = {
+					OR = {
+						is_species_class = ROBOT
+						has_authority = auth_machine_intelligence
+					}
+				}
+			}
+			weight = {
+				weight = 20
+			}
+		}
+		# Ketlings
+		KET_DOW_ACCEPT = {
+			weight = { weight = 100000 }
+			trigger = {
+				exists = event_target:ratling_country
+				is_same_empire = event_target:ratling_country
+			}
+		}
+		# Corporate
+		CORP_DOW_ACCEPT_01 = {
+			trigger = {
+				has_authority = auth_corporate
+			}
+		}
+		CORP_DOW_ACCEPT_02 = {
+			trigger = {
+				has_authority = auth_corporate
+			}
+		}
+		CORP_DOW_ACCEPT_03 = {
+			trigger = {
+				has_authority = auth_corporate
+			}
+		}
+		# Fallen Empires
+		01_FALLEN_EMPIRE_DISMISSIVE_DOW_ACCEPT = {
+			trigger = {
+				is_dismissive_to = FROM
+			}
+		}
+		01_FALLEN_EMPIRE_PATRONIZING_DOW_ACCEPT = {
+			trigger = {
+				is_patronizing_to = FROM
+				FROM = { NOT = { has_authority = auth_machine_intelligence } }
+			}
+		}
+		FALLEN_EMPIRE_MECH_PATRONIZING_DOW_ACCEPT_01 = {
+			trigger = {
+				is_patronizing_to = FROM
+				FROM = { has_authority = auth_machine_intelligence }
+			}
+		}
+		01_FALLEN_EMPIRE_ANGRY_DOW_ACCEPT = {
+			trigger = {
+				is_angry_to = FROM
+				FROM = { NOT = { has_authority = auth_machine_intelligence } }
+			}
+		}
+		FALLEN_EMPIRE_MECH_ANGRY_DOW_ACCEPT_01 = {
+			trigger = {
+				is_angry_to = FROM
+				FROM = { has_authority = auth_machine_intelligence }
+			}
+		}
+		01_AWAKENED_EMPIRE_DOW_ACCEPT = {
+			trigger = {
+				is_country_type = awakened_fallen_empire
+			}
+		}
+		AWAKENED_EMPIRE_MECH_DOW_ACCEPT_01 = {
+			trigger = {
+				is_country_type = awakened_fallen_empire
+				FROM = { has_authority = auth_machine_intelligence }
+			}
+		}
+	}
+	propose_vote = {
+		01_DOW_VOTE_PROPOSE = {
+			trigger = {
+				from = {
+					NOR = {
+						has_ethic = ethic_gestalt_consciousness
+						has_authority = auth_corporate
+					}
+				}
+			}
+		}
+		HM_DOW_VOTE_PROPOSE = {
+			trigger = {
+				from = { has_ai_personality = hive_mind }
+			}
+		}
+	}
+}

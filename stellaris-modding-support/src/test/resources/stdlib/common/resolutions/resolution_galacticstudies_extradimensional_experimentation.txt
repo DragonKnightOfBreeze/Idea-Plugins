@@ -1,0 +1,67 @@
+resolution_galacticstudies_extradimensional_experimentation = {
+	icon = "GFX_resolution_galactic_studies"
+
+	potential = {
+		has_federations_dlc = yes
+	}
+
+	resources = {
+		category = resolutions
+		cost = {
+			influence = @resolution_cost_t5
+		}
+	}
+	target = no
+	level = 5
+
+	modifier = {
+		resolution_galacticstudies_cooperative_research_channels = 1
+		resolution_galacticstudies_astral_studies_network = 1
+		resolution_galacticstudies_advanced_xenostudies = 1
+		resolution_galacticstudies_ethical_guideline_refactoring = 1
+		resolution_galacticstudies_extradimensional_experimentation = 1
+	}
+
+	effect = {
+		custom_tooltip = resolution_galacticstudies_extradimensional_experimentation_tooltip
+
+		hidden_effect = {
+			set_timed_country_flag = { flag = galactic_community_resolution_passed_galacticstudies days = @resolution_flag_timer }
+			add_modifier = {
+				modifier = resolution_passed_diplomatic_weight
+				days = 2200
+			}
+			every_playable_country = {
+				limit = { is_galactic_community_member = yes }
+				country_event = { id = federations.10020 days = 3 }
+			}
+		}
+	}
+
+	fail_effects = {
+		hidden_effect = {
+			set_timed_country_flag = { flag = galactic_community_resolution_failed_galacticstudies days = @resolution_flag_timer }
+			add_modifier = {
+				modifier = resolution_failed_diplomatic_weight
+				days = 2200
+			}
+		}
+	}
+
+	allow = {
+		is_active_resolution = "resolution_galacticstudies_ethical_guideline_refactoring"
+	}
+
+	ai_weight = {
+		weight = @resolution_weight_disliked
+
+		modifier = {
+			factor = 1.5
+			is_materialist = yes
+		}
+		modifier = {
+			factor = 0.75
+			is_spiritualist = yes
+		}
+	}
+}

@@ -1,0 +1,11 @@
+achievement_victorious = {
+	id = 25
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		won_the_game = yes
+	}
+}

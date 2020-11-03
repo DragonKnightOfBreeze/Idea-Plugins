@@ -1,0 +1,59 @@
+AVI = {
+	archetype = BIOLOGICAL
+
+	possible = { authority = { NOT = { value = auth_machine_intelligence text = SPECIES_CLASS_MUST_NOT_USE_MACHINE_INTELLIGENCE } } }
+
+	portraits = {
+		"avi1"
+		"avi8"
+		"avi13"
+		"avi10"
+		"avi15"
+		"avi4"
+		"avi7"
+		"avi5"
+		"avi9"
+		"avi6"
+		"avi11"
+		"avi3"
+		"avi14"
+		"avi2"
+		"avi12"
+	}
+	custom_portraits = {#add additional portraits when customizing species
+		playable = { logged_in_to_pdx_account = yes }
+		portraits = {
+			"avi16"
+		}
+	}
+
+	custom_portraits = {#add additional portraits when customizing species
+		randomized = {
+			OR = {
+				host_has_dlc = "Creatures of the Void Portrait Pack"
+				host_has_dlc = "Anniversary Portraits"
+			}
+		}
+		playable = {
+			OR = {
+				local_has_dlc = "Creatures of the Void Portrait Pack"
+				local_has_dlc = "Anniversary Portraits"
+			}
+		}
+		portraits = {
+			"avi17"
+		}
+	}
+	custom_portraits = {
+		randomized = { host_has_dlc = "Anniversary Portraits" }
+		playable = { local_has_dlc = "Anniversary Portraits" }
+		portraits = {
+			"avi18"
+		}
+	}
+
+	graphical_culture = avian_01
+	move_pop_sound_effect = "avian_pops_move"
+
+	resources = {}
+}

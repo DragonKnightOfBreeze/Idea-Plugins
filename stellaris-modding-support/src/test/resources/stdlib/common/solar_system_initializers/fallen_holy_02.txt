@@ -1,0 +1,80 @@
+fallen_holy_02 = {
+	class = "rl_standard_stars"
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 95
+	}
+
+	flags = { holy_system_2 }
+
+	planet = {
+		count = 1
+		class = star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = { min = 20 max = 30 }
+		has_ring = no
+	}
+
+	change_orbit = 30
+
+	planet = {
+		count = 2
+		orbit_distance = 20
+		orbit_angle = { min = 90 max = 270 }
+	}
+
+	change_orbit = 25
+
+	planet = {
+		count = { min = 1 max = 4 }
+		class = pc_asteroid
+		orbit_distance = 0
+		orbit_angle = { min = 90 max = 270 }
+	}
+
+	planet = {
+		count = 1
+		orbit_distance = 25
+		class = "pc_gaia"
+		orbit_angle = { min = 90 max = 270 }
+		size = 14
+		name = "NAME_Emerald_Mausoleum"
+		deposit_blockers = none
+		flags = { holy_world_2 }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			add_modifier = {
+				modifier = "holy_planet"
+				days = -1
+			}
+		}
+	}
+
+	planet = {
+		count = { min = 2 max = 5 }
+		orbit_distance = 30
+		orbit_angle = { min = 90 max = 270 }
+
+		change_orbit = @base_moon_distance
+
+		moon = {
+			count = { min = 0 max = 1 }
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 5
+		}
+	}
+
+	init_effect = {
+		random_list = { # 30% chance outpost is "broken"
+			30 = {
+				random_system_planet = {
+					limit = { is_star = yes }
+					create_broken_fe_outpost = yes
+				}
+			}
+			70 = {}
+		}
+	}
+}

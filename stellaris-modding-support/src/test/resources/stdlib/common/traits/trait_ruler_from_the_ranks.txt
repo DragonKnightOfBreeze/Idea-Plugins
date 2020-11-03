@@ -1,0 +1,15 @@
+trait_ruler_from_the_ranks = {
+	cost = 1
+	modification = no
+	icon = "gfx/interface/icons/traits/leader_traits/trait_ruler_from_the_ranks.dds"
+	leader_potential_add = {
+		NOT = { from = { has_ethic = "ethic_gestalt_consciousness" } }
+	}
+	modifier = {
+		army_morale = 0.2
+		army_experience_gain_mult = 0.33
+	}
+	leader_trait = { ruler }
+	leader_class = { ruler }
+	prerequisites = { tech_centralized_command  }
+}

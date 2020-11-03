@@ -1,0 +1,7 @@
+use_robot_portrait_sd_nec_robot = {
+	has_necroids = yes
+	OR = {
+		is_species_class = NECROID
+		species_portrait = nec_machine
+	}
+}

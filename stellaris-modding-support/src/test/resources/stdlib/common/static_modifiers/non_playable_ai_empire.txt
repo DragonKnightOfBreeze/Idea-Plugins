@@ -1,0 +1,2 @@
+non_playable_ai_empire = {
+}

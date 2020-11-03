@@ -1,0 +1,3 @@
+has_utopia = {
+	host_has_dlc = "Utopia"
+}

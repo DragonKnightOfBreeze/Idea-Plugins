@@ -1,0 +1,13 @@
+living_metal_upkeep_planets = {
+	resource = sr_living_metal 
+	type = upkeep
+	category = planets
+	
+	potential = {
+		always = yes
+	}
+	
+	fraction = {
+		weight = 0.9
+	}	
+}

@@ -1,0 +1,12 @@
+on_building_research_station = {
+	events = {
+		mandate.120
+		tutorial.12
+		tutorial.1200
+		tutorial.56
+	}
+	random_events = {
+		100 = 0
+		5 = federations3.2000
+	}
+}

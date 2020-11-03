@@ -1,0 +1,4 @@
+on_building_starbase_exd = {
+	events = {
+	}
+}

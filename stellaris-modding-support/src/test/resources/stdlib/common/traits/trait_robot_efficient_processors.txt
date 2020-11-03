@@ -1,0 +1,9 @@
+trait_robot_efficient_processors = {
+	cost = 3
+
+	allowed_archetypes = { ROBOT MACHINE }
+
+	modifier = {
+		planet_jobs_produces_mult = 0.05
+	}
+}

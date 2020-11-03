@@ -1,0 +1,27 @@
+PRE_ART = {
+	archetype = PRESAPIENT
+
+	playable = { always = no }
+	randomized = no
+
+	portraits = {
+		"pre_art1"
+		"pre_art11"
+		"pre_art12"
+		"pre_art13"
+		"pre_art14"
+		"pre_art15"
+	}
+
+	graphical_culture = arthropoid_01
+	move_pop_sound_effect = "arthopoid_pops_move"
+	uplifted_into = "ART"
+	uplifted_portraits = {
+		"art1"
+		"art11"
+		"art12"
+		"art13"
+		"art14"
+		"art15"
+	}
+}

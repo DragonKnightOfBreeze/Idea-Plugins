@@ -1,0 +1,4 @@
+wasteland_orbital_debris = {
+	planet_buildings_cost_mult = 0.1
+	icon = "gfx/interface/icons/planet_modifiers/pm_asteroid_impacts.dds"
+}

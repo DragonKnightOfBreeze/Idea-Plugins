@@ -1,0 +1,44 @@
+site_popular_rock = {
+	desc = "site_popular_rock_intro"
+	picture = GFX_evt_ice_asteroids
+	stages = 2
+	weight = {
+		base = 0
+		modifier = {
+			add = 100
+			is_planet_class = pc_asteroid
+			has_ancrel = yes
+		}
+	}
+
+	allow = {
+		exists = leader
+		leader = { leader_class = scientist }
+	}
+
+	visible = {
+		default_site_visible_trigger = yes
+	}
+
+	on_visible = {
+    	country_event = { id = story.5 days = 30 }
+	}
+
+	stage = {
+		difficulty = 4
+		icon = GFX_archaeology_runes_D6
+		event = ancrel.9385
+	}
+
+	stage = {
+		difficulty = 3
+		icon = GFX_archaeology_runes_D4
+		event = ancrel.9386
+	}
+
+	on_roll_failed = {
+		from = {
+			standard_archaeological_site_on_roll_failed = { RANDOM_EVENTS = site_popular_rock_random_events }
+		}
+	}
+}

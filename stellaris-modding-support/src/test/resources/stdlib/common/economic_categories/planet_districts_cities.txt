@@ -1,0 +1,7 @@
+planet_districts_cities = {
+	parent = planet_districts
+
+	generate_mult_modifiers = {
+		cost
+	}
+}

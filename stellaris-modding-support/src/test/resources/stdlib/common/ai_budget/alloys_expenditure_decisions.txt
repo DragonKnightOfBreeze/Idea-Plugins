@@ -1,0 +1,32 @@
+alloys_expenditure_decisions = {
+	resource = alloys
+	type = expenditure
+	category = decisions
+	potential = {
+		has_technology = tech_habitat_2
+		any_owned_planet = {
+			is_planet_class = pc_habitat
+			NOT = { has_planet_flag = advanced_habitat_2 }
+		}
+		# only consider these kinds of decisions when "wealthy"
+		has_resource = {
+			type = alloys
+			amount > 5000
+		}
+	}
+	fraction = {
+		weight = 0.20
+	}
+	# based on mastery of nature decision
+	static_max = {
+		base = 2000
+		modifier = {
+			add = 1000
+			has_technology = tech_habitat_3
+			any_owned_planet = {
+				has_planet_flag = advanced_habitat
+				NOT = { has_planet_flag = advanced_habitat_2 }
+			}
+		}
+	}
+}

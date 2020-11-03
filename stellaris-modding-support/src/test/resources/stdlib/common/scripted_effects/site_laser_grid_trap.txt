@@ -1,0 +1,8 @@
+site_laser_grid_trap = {
+	random_list = {
+		5 = { fleet_event = { id = ancrel.8000 } }
+		25 = { fleet_event = { id = ancrel.8001 } }
+		25 = { fleet_event = { id = ancrel.8002 } }
+		25 = { fleet_event = { id = ancrel.8003 } }
+	}
+}

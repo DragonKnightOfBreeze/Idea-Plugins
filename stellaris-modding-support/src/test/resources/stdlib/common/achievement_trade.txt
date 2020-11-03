@@ -1,0 +1,11 @@
+achievement_trade = {
+	id = 20
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		has_country_flag = has_negotiated_trade_deal
+	}
+}

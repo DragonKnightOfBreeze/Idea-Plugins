@@ -1,0 +1,6 @@
+rival = {
+	type = rival
+	behaviour = {
+		weaken = yes
+	}
+}

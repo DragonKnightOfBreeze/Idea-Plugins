@@ -1,0 +1,8 @@
+site_collapsed_roof = {
+	random_list = {
+		5 = { fleet_event = { id = ancrel.8100 } }
+		25 = { fleet_event = { id = ancrel.8101 } }
+		25 = { fleet_event = { id = ancrel.8102 } }
+		25 = { fleet_event = { id = ancrel.8103 } }
+	}
+}

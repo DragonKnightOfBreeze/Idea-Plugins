@@ -1,0 +1,7 @@
+on_system_lost = {
+	events = {
+		mega.100 # Lost Consecrated World
+		action.102 # Move Market Station
+		action.200	# recalc strategic war data
+	}
+}

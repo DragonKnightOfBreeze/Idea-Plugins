@@ -1,0 +1,5 @@
+resolution_greatergood_workers_rights = {
+	diplo_weight_pops_mult = 0.2
+	pop_cat_worker_happiness = 0.05
+	pop_cat_worker_political_power = 0.1
+}

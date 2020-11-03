@@ -1,0 +1,6 @@
+resolution_rulesofwar_last_resort_doctrine = {
+	diplo_weight_naval_mult = -0.2
+	country_war_exhaustion_mult = -0.05
+	starbase_defensive_war_ship_build_speed_mult = 0.25
+	pop_ethic_pacifist_attraction_mult = 0.5
+}

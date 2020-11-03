@@ -1,0 +1,24 @@
+decision_abolish_resort_colony = {
+	owned_planets_only = yes
+	icon = decision_resort_colony
+
+	resources = {
+		category = decisions
+		cost = {
+			influence = 250
+		}
+	}
+
+	potential = {
+		has_modifier = resort_colony
+	}
+
+	effect = {
+		remove_modifier = resort_colony
+		hidden_effect = { validate_planet_buildings_and_districts = yes }
+	}
+
+	ai_weight = {
+		weight = 0
+	}
+}

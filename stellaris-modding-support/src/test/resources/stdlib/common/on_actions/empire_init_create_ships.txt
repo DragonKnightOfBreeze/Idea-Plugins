@@ -1,0 +1,5 @@
+empire_init_create_ships = {
+	events = {
+		game_start.9
+	}
+}

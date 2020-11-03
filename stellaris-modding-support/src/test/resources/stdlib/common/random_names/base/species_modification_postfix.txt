@@ -1,0 +1,7 @@
+species_modification_postfix = { 
+	Superior
+	Variatus
+	Mutatis
+	Clarus
+	Illustratum
+}

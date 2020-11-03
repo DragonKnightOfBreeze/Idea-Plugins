@@ -1,0 +1,13 @@
+sr_dark_matter = {
+	tradable = yes
+	market_amount = 5
+	market_price = 100
+	max = 15000
+
+	prerequisites = { "tech_mine_dark_matter" }
+	visibility_prerequisite = { always = yes }
+	
+	ai_weight = {
+		weight = 100
+	}
+}

@@ -1,0 +1,11 @@
+achievement_star_struck = {
+	id = 74
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		num_starbases > 199
+	}
+}

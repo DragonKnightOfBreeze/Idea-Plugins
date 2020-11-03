@@ -1,0 +1,4 @@
+promoted_xenophobe = {
+	pop_ethic_xenophobe_attraction_mult = 1
+	country_base_influence_produces_add = -2
+}

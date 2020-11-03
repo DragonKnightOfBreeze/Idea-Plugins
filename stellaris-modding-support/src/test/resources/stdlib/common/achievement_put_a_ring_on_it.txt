@@ -1,0 +1,14 @@
+achievement_put_a_ring_on_it = {
+	id = 38
+
+	possible = {
+		is_ironman = yes
+		NOT = { has_origin = origin_shattered_ring }
+	}
+
+	happened = {
+		capital_scope = {
+			is_planet_class = pc_ringworld_habitable
+		}
+	}
+}

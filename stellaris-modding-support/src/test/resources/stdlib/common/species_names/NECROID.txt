@@ -1,0 +1,121 @@
+NECROID = {
+	armonican = {
+		name = Armonican
+		plural = Armonicans
+		home_planet = Aramen
+		home_system = Seyta
+		name_list = "NECROID1"
+	}
+	desstican = {
+		name = Desstican
+		plural = Dessticans
+		home_planet = Breddick
+		home_system = Mack
+		name_list = "NECROID1"
+	}
+	yastun = {
+		name = Yastun
+		plural = Yastuns
+		home_planet = Fleetcairn
+		home_system = Ailsa
+		name_list = "NECROID1"
+	}
+	klenn = {
+		name = Klenn
+		plural = Klenn
+		home_planet = Taviss
+		home_system = Klomebaston
+		name_list = "NECROID1"
+	}
+	darhesh = {
+		name = Dar-Hesh
+		plural = Dar-Hesh
+		home_planet = Heshsey
+		home_system = Brightpool
+		name_list = "NECROID1"
+	}
+	kreshhk = {
+		name = Kreshhk
+		plural = Kreshhk
+		home_planet = Luk'torh
+		home_system = Luk'ateph
+		name_list = "NECROID2"
+	}
+	rallaketh = {
+		name = Rallaketh
+		plural = Rallaketh
+		home_planet = Atem'losun
+		home_system = Tepp'ankh
+		name_list = "NECROID2"
+	}
+	lypian = {
+		name = Lypian
+		plural = Lypians
+		home_planet = Bis'ashet
+		home_system = Netteth
+		name_list = "NECROID2"
+	}
+	sandar = {
+		name = Sandar
+		plural = Sandars
+		home_planet = Sandar'for
+		home_system = Moffeth
+		name_list = "NECROID2"
+	}
+	sorann = {
+		name = Sorann
+		plural = Sorannen
+		home_planet = "Azure Chalice"
+		home_system = "Great Sleeper"
+		name_list = "NECROID3"
+	}
+	azanti = {
+		name = Azanti
+		plural = Azanti
+		home_planet = "Azan's Crucible"
+		home_system = "Euqec's Beacon"
+		name_list = "NECROID3"
+	}
+	thorquell = {
+		name = Thorquell
+		plural = Thorquells
+		home_planet = Axpentl
+		home_system = Abakon
+		name_list = "NECROID3"
+	}
+	maloqui = {
+		name = Maloqui
+		plural = Maloqui
+		home_planet = Prakla
+		home_system = Juiko
+		name_list = "NECROID3"
+	}
+	jhennlot = {
+		name = Jhennlot
+		plural = Jhennlots
+		home_planet = Marbell
+		home_system = "Teary Mote"
+		name_list = "NECROID4"
+	}
+	vhellet = {
+		name = Vhellet
+		plural = Vhellets
+		home_planet = Tanzin
+		home_system = Voidpool
+		name_list = "NECROID4"
+	}
+	mollarnock = {
+		name = Mollarnock
+		plural = Mollarnocks
+		home_planet = "Entropy's Promise"
+		home_system = Nightberth
+		name_list = "NECROID4"
+	}
+	reyenne = {
+		name = Reyenne
+		plural = Reyennes
+		home_planet = Exiter
+		home_system = "Grim Shepherd"
+		name_list = "NECROID4"
+	}
+}

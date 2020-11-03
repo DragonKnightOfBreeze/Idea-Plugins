@@ -1,0 +1,6 @@
+has_full_sensor_range = {
+	OR = {
+		has_megastructure = spy_orb_4
+		has_megastructure = spy_orb_restored
+	}
+}

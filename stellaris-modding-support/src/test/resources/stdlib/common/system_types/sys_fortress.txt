@@ -1,0 +1,207 @@
+sys_fortress = {
+	potential = {
+		exists = owner
+		exists = starbase
+		starbase = {
+			has_starbase_size >= starbase_starport
+			OR = {
+				has_starbase_module = gun_battery
+				has_starbase_module = missile_battery
+				has_starbase_module = hangar_bay
+			}
+		}
+	}
+
+	weight_modifier = {
+		base = 50
+		modifier = {
+			add = -50
+			starbase = { 
+				count_starbase_modules = {
+					type = gun_battery
+					count < 1
+				} 
+			}
+		}	
+		modifier = {
+			add = 50
+			starbase = { 
+				count_starbase_modules = {
+					type = gun_battery
+					count > 0
+				} 
+			}
+		}		
+		modifier = {
+			add = 50
+			starbase = { 
+				count_starbase_modules = {
+					type = gun_battery
+					count > 1
+				} 
+			}
+		}
+		modifier = {
+			add = 50
+			starbase = { 
+				count_starbase_modules = {
+					type = gun_battery
+					count > 2
+				} 
+			}
+		}
+		modifier = {
+			add = 50
+			starbase = { 
+				count_starbase_modules = {
+					type = gun_battery
+					count > 3
+				} 
+			}
+		}	
+		modifier = {
+			add = 50
+			starbase = { 
+				count_starbase_modules = {
+					type = gun_battery
+					count > 4
+				} 
+			}
+		}
+		modifier = {
+			add = 50
+			starbase = { 
+				count_starbase_modules = {
+					type = gun_battery
+					count > 5
+				} 
+			}
+		}
+		modifier = {
+			add = -50
+			starbase = { 
+				count_starbase_modules = {
+					type = missile_battery
+					count < 1
+				} 
+			}
+		}
+		modifier = {
+			add = 50
+			starbase = { 
+				count_starbase_modules = {
+					type = missile_battery
+					count > 0
+				} 
+			}
+		}		
+		modifier = {
+			add = 50
+			starbase = { 
+				count_starbase_modules = {
+					type = missile_battery
+					count > 1
+				} 
+			}
+		}
+		modifier = {
+			add = 50
+			starbase = { 
+				count_starbase_modules = {
+					type = missile_battery
+					count > 2
+				} 
+			}
+		}
+		modifier = {
+			add = 50
+			starbase = { 
+				count_starbase_modules = {
+					type = missile_battery
+					count > 3
+				} 
+			}
+		}	
+		modifier = {
+			add = 50
+			starbase = { 
+				count_starbase_modules = {
+					type = missile_battery
+					count > 4
+				} 
+			}
+		}
+		modifier = {
+			add = 50
+			starbase = { 
+				count_starbase_modules = {
+					type = missile_battery
+					count > 5
+				} 
+			}
+		}
+		modifier = {
+			add = -50
+			starbase = { 
+				count_starbase_modules = {
+					type = hangar_bay
+					count < 1
+				} 
+			}
+		}	
+		modifier = {
+			add = 50
+			starbase = { 
+				count_starbase_modules = {
+					type = hangar_bay
+					count > 0
+				} 
+			}
+		}		
+		modifier = {
+			add = 50
+			starbase = { 
+				count_starbase_modules = {
+					type = hangar_bay
+					count > 1
+				} 
+			}
+		}
+		modifier = {
+			add = 50
+			starbase = { 
+				count_starbase_modules = {
+					type = hangar_bay
+					count > 2
+				} 
+			}
+		}
+		modifier = {
+			add = 50
+			starbase = { 
+				count_starbase_modules = {
+					type = hangar_bay
+					count > 3
+				} 
+			}
+		}	
+		modifier = {
+			add = 50
+			starbase = { 
+				count_starbase_modules = {
+					type = hangar_bay
+					count > 4
+				} 
+			}
+		}
+		modifier = {
+			add = 50
+			starbase = { 
+				count_starbase_modules = {
+					type = hangar_bay
+					count > 5
+				} 
+			}
+		}		
+	}
+}

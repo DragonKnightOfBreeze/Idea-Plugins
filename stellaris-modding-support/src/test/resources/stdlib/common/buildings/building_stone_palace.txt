@@ -1,0 +1,46 @@
+building_stone_palace = {
+	capital = yes
+	can_build = no
+	can_demolish = yes
+	can_be_ruined = no
+
+	potential = {
+		exists = owner
+		owner = {
+			is_primitive = yes
+			OR = {
+				has_country_flag = bronze_age
+				has_country_flag = iron_age
+				has_country_flag = late_medieval_age
+				has_country_flag = renaissance_age
+				has_country_flag = steam_age
+			}
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		owner = {
+			is_primitive = no
+		}
+	}
+
+	convert_to = {
+		building_hive_capital
+		building_machine_capital
+		building_colony_shelter
+	}
+
+	planet_modifier = {
+		job_primitive_noble_add = 1
+		job_primitive_warrior_add = 1
+		job_primitive_researcher_add = 1
+		job_primitive_priest_add = 1
+		planet_housing_add = 3
+		planet_amenities_add = 25
+		planet_crime_add = -10
+	}
+
+	upgrades = {
+	}
+}

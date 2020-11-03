@@ -1,0 +1,150 @@
+distar_pod_system = {
+	class = "sc_binary_7"
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 135
+	}
+	
+	usage = misc_system_init
+	usage_odds = {
+		base = 90000
+		modifier = {
+			factor = 0
+			has_distar = no
+		}
+		modifier = {
+			factor = 0
+			is_fe_cluster = yes
+		}
+		modifier = {
+            factor = 0
+            has_star_flag = empire_cluster
+        }
+	}
+	scaled_spawn_chance = 8
+	max_instances = 1
+
+	flags = { escape_pod_system }
+
+	planet = {
+		count = 1
+		class = star
+		orbit_distance = 25
+		orbit_angle = 30
+		size = { min = 25 max = 30 }
+		has_ring = no
+	}
+
+	planet = {
+		count = 1
+		class = star
+		orbit_distance = 0
+		orbit_angle = 180
+		size = { min = 20 max = 25 }
+		has_ring = no
+	}
+	
+	change_orbit = 30
+	
+	planet = {
+		count = 3
+		class = "rl_unhabitable_planets"
+		orbit_distance = 20
+		orbit_angle = { min = 90 max = 270 }
+	}
+
+	change_orbit = 35
+
+	planet = {
+		count = 2
+		class = "rl_all_normal_planets"
+		orbit_angle = { min = 90 max = 270 }
+		has_ring = yes
+		
+		change_orbit = @base_moon_distance
+
+		moon = {
+			count = { min = 0 max = 1 }
+			class = "rl_unhabitable_planets"
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 5
+		}
+
+	}
+
+	change_orbit = 20
+
+	planet = {
+		count = 1
+		class = "pc_gas_giant"
+		orbit_angle = { min = 90 max = 270 }
+		init_effect = {
+			add_anomaly =  {
+				category = DISTAR_POD_CAT
+			}
+			while = {
+				count = 10
+				create_ambient_object = {
+					type = droppod_01_object
+				}
+				last_created_ambient_object = {
+					set_location = {
+						target = prev
+						distance = 5
+						angle = random
+					}
+				}
+			}
+			while = {
+				count = 10
+				create_ambient_object = {
+					type = droppod_01_object
+				}
+				last_created_ambient_object = {
+					set_location = {
+						target = prev
+						distance = 7
+						angle = random
+					}
+				}
+			}
+			create_ambient_object = {
+				type = droppod_02_object
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 10
+					angle = random
+				}
+				save_global_event_target_as = droppod_tar
+			}
+			while = {
+				count = 20
+				create_ambient_object = {
+					type = droppod_01_object
+				}
+				last_created_ambient_object = {
+					set_location = {
+						target = prev
+						distance = 10
+						angle = random
+					}
+				}
+			}
+			while = {
+				count = 20
+				create_ambient_object = {
+					type = droppod_01_object
+				}
+				last_created_ambient_object = {
+					set_location = {
+						target = prev
+						distance = 15
+						angle = random
+					}
+				}
+			}
+		}
+	}
+}

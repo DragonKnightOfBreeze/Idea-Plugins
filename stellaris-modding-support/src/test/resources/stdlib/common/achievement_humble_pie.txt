@@ -1,0 +1,11 @@
+achievement_humble_pie = {
+	id = 114
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		has_country_flag = humble_pie_achievement
+	}
+}

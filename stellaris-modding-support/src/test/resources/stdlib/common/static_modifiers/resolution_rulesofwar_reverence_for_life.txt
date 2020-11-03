@@ -1,0 +1,4 @@
+resolution_rulesofwar_reverence_for_life = {
+	diplo_weight_naval_mult = -0.2
+	country_war_exhaustion_mult = -0.05
+}

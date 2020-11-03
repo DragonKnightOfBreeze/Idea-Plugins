@@ -1,0 +1,19 @@
+achievement_slave_to_the_system = {
+	id = 39
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		OR = {
+			has_ethic = ethic_authoritarian
+			has_ethic = ethic_fanatic_authoritarian
+		}
+		num_pops > 499
+		count_owned_pops = {
+			limit = { is_enslaved = yes }
+			count > 199
+		}
+	}
+}

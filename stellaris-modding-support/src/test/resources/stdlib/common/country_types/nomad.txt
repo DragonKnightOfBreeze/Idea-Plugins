@@ -1,0 +1,21 @@
+nomad = {
+	show_in_contacts_list = yes
+	observable = no
+	ai = {
+		enabled = no
+	}
+	faction = {
+		hostile = no
+		needs_border_access = no
+		generate_borders = no
+		needs_colony = no
+	}
+
+	custom_diplomacy = yes
+
+	modules = {
+		basic_technology_module = {}
+		standard_event_module = {}
+		exclusive_diplomacy_module = {}
+	}
+}

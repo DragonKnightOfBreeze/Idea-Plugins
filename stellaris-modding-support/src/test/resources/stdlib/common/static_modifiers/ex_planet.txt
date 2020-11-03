@@ -1,0 +1,4 @@
+ex_planet = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_asteroid_belt.dds"
+	icon_frame = 2
+}

@@ -1,0 +1,83 @@
+resolution_rulesofwar_demobilization_initiative = {
+	icon = "GFX_resolution_rules_of_war"
+
+	potential = {
+		has_federations_dlc = yes
+	}
+
+	resources = {
+		category = resolutions
+		cost = {
+			influence = @resolution_cost_t5
+		}
+	}
+	target = no
+	level = 5
+
+	modifier = {
+		resolution_rulesofwar_guardian_angels = 1
+		resolution_rulesofwar_reverence_for_life = 1
+		resolution_rulesofwar_independent_tribunals = 1
+		resolution_rulesofwar_last_resort_doctrine = 1
+		resolution_rulesofwar_demobilization_initiative = 1
+	}
+
+	effect = {
+		custom_tooltip = resolution_rulesofwar_demobilization_initiative_tooltip
+		hidden_effect = {
+			set_timed_country_flag = { flag = galactic_community_resolution_passed_rulesofwar days = @resolution_flag_timer }
+			add_modifier = {
+				modifier = resolution_passed_diplomatic_weight
+				days = 2200
+			}
+			every_playable_country = {
+				limit = {
+					is_galactic_community_member = yes
+					has_policy_flag = economic_policy_military
+				}
+				country_event = { id = federations.10330 }
+			}
+		}
+	}
+
+	fail_effects = {
+		hidden_effect = {
+			set_timed_country_flag = { flag = galactic_community_resolution_failed_rulesofwar days = @resolution_flag_timer }
+			add_modifier = {
+				modifier = resolution_passed_diplomatic_weight
+				days = 2200
+			}
+		}
+	}
+
+	allow = {
+		is_active_resolution = "resolution_rulesofwar_last_resort_doctrine"
+	}
+
+	breach = {
+		has_policy_flag = economic_policy_military
+	}
+
+	ai_weight = {
+		weight = @resolution_weight_disliked
+
+		modifier = {
+			factor = 0
+			OR = {
+				is_militarist = yes
+				has_ai_personality_behaviour = conqueror
+				has_policy_flag = economic_policy_military
+			}
+		}
+
+		modifier = {
+			factor = 0
+			in_breach_of = resolution_rulesofwar_demobilization_initiative
+		}
+
+		modifier = {
+			factor = 2
+			is_pacifist = yes
+		}
+	}
+}

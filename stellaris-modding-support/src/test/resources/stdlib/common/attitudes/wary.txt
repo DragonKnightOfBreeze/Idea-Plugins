@@ -1,0 +1,6 @@
+wary = {
+	type = wary 
+	behaviour = {
+		trade = yes
+	}
+}

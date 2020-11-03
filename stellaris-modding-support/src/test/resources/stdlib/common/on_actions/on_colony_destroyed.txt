@@ -1,0 +1,6 @@
+on_colony_destroyed = {
+	events = {
+		colony.2002
+		origin.3002#ToL Tree death
+	}
+}

@@ -1,0 +1,9 @@
+mandate_peacemaker_chain = {
+	icon = "gfx/interface/icons/situation_log/situation_log_decision.dds"
+	picture = GFX_evt_throne_room
+	counter = {
+		no_engagements = {
+			max = 1
+		}
+	}
+}

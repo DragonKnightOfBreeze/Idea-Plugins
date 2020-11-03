@@ -1,0 +1,27 @@
+gov_holy_tribunal = {
+	ruler_title = RT_HIGH_INQUISITOR
+	ruler_title_female = RT_HIGH_INQUISITOR_FEMALE
+	
+	should_force_rename = yes
+
+	election_candidates = {
+		modifier = {
+			add = 100
+			leader_class = ruler
+		}
+		modifier = {
+			add = 10
+			leader_class = governor
+		}
+	}
+
+	possible = {
+		has_authority = auth_oligarchic
+		has_valid_civic = civic_exalted_priesthood
+		NOT = { has_valid_civic = civic_corporate_dominion }
+	}
+
+	weight = {
+		base = 1000
+	}
+}

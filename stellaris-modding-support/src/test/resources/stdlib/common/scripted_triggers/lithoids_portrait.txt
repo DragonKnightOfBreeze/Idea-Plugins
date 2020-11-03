@@ -1,0 +1,19 @@
+lithoids_portrait = {
+	OR = {
+		species_portrait = lith1
+		species_portrait = lith2
+		species_portrait = lith3
+		species_portrait = lith4
+		species_portrait = lith5
+		species_portrait = lith6
+		species_portrait = lith7
+		species_portrait = lith8
+		species_portrait = lith9
+		species_portrait = lith10
+		species_portrait = lith11
+		species_portrait = lith12
+		species_portrait = lith13
+		species_portrait = lith14
+		species_portrait = lith15
+	}
+}

@@ -1,0 +1,11 @@
+opinion_non_aligned_league_declined = {
+	opinion = {
+		base = -100
+	}
+
+	accumulative = yes
+
+	decay = {
+		base = 1
+	}
+}

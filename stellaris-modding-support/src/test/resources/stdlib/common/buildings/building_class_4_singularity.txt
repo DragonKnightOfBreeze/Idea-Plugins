@@ -1,0 +1,46 @@
+building_class_4_singularity = {
+	base_buildtime = @b2_time
+	can_build = yes
+	can_demolish = yes
+	
+	potential = {
+		custom_tooltip = {
+			exists = owner
+			OR = {
+				owner = { is_fallen_empire = yes }
+				owner = {
+					check_variable = { which = class_4_singularity_build_count value >= 1 }
+				}
+			}
+			fail_text = "ancrel.10004.failtext"
+		}
+	}
+	
+	planet_modifier = {
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b3_minerals
+		}
+		produces = {
+			energy = 250
+		}
+	}
+		
+	upgrades = {
+	}
+
+	on_queued = {
+		owner = {
+			subtract_variable = { which = class_4_singularity_build_count value = 1 }
+		}
+	}
+
+	on_unqueued = {
+		owner = {
+			change_variable = { which = class_4_singularity_build_count value = 1 }
+		}
+	}
+}

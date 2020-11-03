@@ -1,0 +1,12 @@
+triggered_opinion_of_interstellar_assembly_3 = {
+	trigger = {			
+		FROM = {
+			any_owned_megastructure = {
+				is_megastructure_type = interstellar_assembly_3
+			}
+		}
+	}
+	opinion = {
+		base = 30
+	}
+}

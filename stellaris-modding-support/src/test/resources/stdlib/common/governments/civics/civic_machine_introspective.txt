@@ -1,0 +1,7 @@
+civic_machine_introspective = {
+	potential = { authority = { value = auth_machine_intelligence } }
+	random_weight = { base = 5 }
+	modifier = {
+		country_engineering_tech_research_speed = 0.20
+	}
+}

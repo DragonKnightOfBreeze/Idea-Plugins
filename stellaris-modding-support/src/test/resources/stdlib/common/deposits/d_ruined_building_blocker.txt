@@ -1,0 +1,9 @@
+d_ruined_building_blocker = {	#Added via event
+	icon = d_city_ruins
+
+	potential = { always = no }
+	can_be_cleared = { always = no }
+
+	is_for_colonizeable = yes
+	category = deposit_cat_blockers
+}

@@ -1,0 +1,3 @@
+energy_utopia_57 = {
+	country_base_energy_produces_add = 200
+}

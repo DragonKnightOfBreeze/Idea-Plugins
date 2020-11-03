@@ -1,0 +1,5 @@
+enclave_artist_patron = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_planet_surface.dds"
+	icon_frame = 2
+	country_unity_produces_mult = 0.10
+}

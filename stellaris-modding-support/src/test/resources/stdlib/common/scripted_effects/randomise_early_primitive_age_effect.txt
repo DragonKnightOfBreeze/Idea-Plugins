@@ -1,0 +1,10 @@
+randomise_early_primitive_age_effect = {
+	random_list = {
+		1 = { set_primitive_age_effect = { primitive_age = stone_age } }
+		1 = { set_primitive_age_effect = { primitive_age = bronze_age } }
+		1 = { set_primitive_age_effect = { primitive_age = iron_age } }
+		1 = { set_primitive_age_effect = { primitive_age = late_medieval_age } }
+		1 = { set_primitive_age_effect = { primitive_age = renaissance_age } }
+		1 = { set_primitive_age_effect = { primitive_age = steam_age } }
+	}
+}

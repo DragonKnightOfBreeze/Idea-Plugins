@@ -1,0 +1,13 @@
+living_metal_expenditure_trade = {
+	resource = sr_living_metal 
+	type = expenditure
+	category = trade
+	
+	potential = {
+		always = yes
+	}
+	
+	fraction = {
+		weight = 0.1
+	}	
+}

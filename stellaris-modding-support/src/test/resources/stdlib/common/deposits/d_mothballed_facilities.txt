@@ -1,0 +1,24 @@
+d_mothballed_facilities = {
+	icon = d_building_complex
+	
+	potential = { always = no }
+	can_be_cleared = { always = no }
+
+	planet_modifier = { 
+		planet_max_districts_add = -2
+	}
+	
+	on_cleared = {
+		add_deposit = d_worm_mine
+		add_deposit = d_worm_farm
+		add_district = district_mining
+		add_district = district_mining
+		add_district = district_mining
+		add_district = district_farming
+		add_district = district_farming
+		add_district = district_farming
+	}
+	
+	is_for_colonizeable = yes
+	category = deposit_cat_blockers	
+}

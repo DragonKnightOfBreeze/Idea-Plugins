@@ -1,0 +1,13 @@
+tech_enigmatic_encoder = {
+	cost = @guardiantechcost
+	area = physics
+	tier = @guardiantechtier
+	category = { computing }
+	ai_update_type = all
+	weight = 0
+	is_rare = yes
+
+	weight_modifier = {
+		factor = 0
+	}
+}

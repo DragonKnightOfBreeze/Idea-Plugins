@@ -1,0 +1,23 @@
+pc_egg_cracked = {
+	entity = "shattered_infected_planet"
+	entity_scale = @planet_standard_scale
+	icon_frame = 10
+
+	enable_tilt = no
+
+	ringworld = yes
+	
+	atmosphere_color 		= hsv { 0.1 0.4 0.7 }
+	atmosphere_intensity 	= 1.0
+	atmosphere_width 		= 0.5
+
+	spawn_odds = 0
+	
+	extra_orbit_size = 0
+	extra_planet_count = 0
+	
+	planet_size = 20
+	moon_size = { min = 6 max = 10 }
+	
+	colonizable = no
+}

@@ -1,0 +1,8 @@
+ring_world_ruined = {
+	entity = "ringworld_destroyed_entity"
+	portrait = "GFX_megastructure_construction_background"
+
+	potential = {
+		always = no
+	}
+}

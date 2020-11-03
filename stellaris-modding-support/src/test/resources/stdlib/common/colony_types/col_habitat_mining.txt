@@ -1,0 +1,28 @@
+col_habitat_mining = {
+	icon = 23
+
+	potential = {
+		uses_district_set = habitat
+		has_planet_flag = mining_habitat
+	}
+	planet_modifier = {
+		planet_districts_hab_mining_cost_mult = -0.10
+		planet_miners_produces_mult = 0.1
+	}
+
+	weight_modifier = {
+		base = 5000
+		modifier = {
+			factor = 2
+			owner = { has_monthly_income = { resource = minerals value < 0 } }
+		}
+		modifier = {
+			factor = 3
+			has_designation = col_habitat_mining
+		}
+		modifier = {
+			factor = 3
+			num_districts = { type = district_hab_mining value >= 3 }
+		}
+	}
+}

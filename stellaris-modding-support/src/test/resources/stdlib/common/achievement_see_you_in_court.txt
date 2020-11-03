@@ -1,0 +1,19 @@
+achievement_see_you_in_court = {
+	id = 111
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		is_active_resolution = "resolution_sanctions_tech_3"
+		is_active_resolution = "resolution_sanctions_economic_3"
+		is_active_resolution = "resolution_sanctions_military_3"
+		is_active_resolution = "resolution_sanctions_administrative_3"
+		any_country = {
+			is_galactic_community_member = yes
+			is_in_breach_of_any = no
+			has_modifier = resolution_denounced
+		}
+	}
+}

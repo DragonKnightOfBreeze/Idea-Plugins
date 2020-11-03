@@ -1,0 +1,118 @@
+ice_system = {
+	class = sc_m
+
+	asteroid_belt = {
+		type = icy_asteroid_belt
+		radius = 145
+	}
+	asteroid_belt = {
+		type = icy_asteroid_belt
+		radius = 205
+	}
+
+	usage = misc_system_init
+	usage_odds = {
+		base = 90000
+		modifier = {
+			factor = 0
+			has_distar = no
+		}
+		modifier = {
+	        factor = 0
+	        has_star_flag = empire_cluster
+	    }
+	}
+
+	max_instances = 1
+	scaled_spawn_chance = 8	# scales by galaxy size (1000 stars = 10x base)
+
+	flags = { ice_system }
+
+	planet = {
+		count = 1
+		class = star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = { min = 10 max = 18 }
+		has_ring = no
+	}
+
+	change_orbit = 40
+
+	planet = {
+		count = 3
+		class = "pc_frozen"
+		orbit_distance = 25
+		orbit_angle = { min = 0 max = 360 }
+		size = { min = 10 max = 25}
+		has_ring = no
+		change_orbit = 10
+	}
+
+	change_orbit = 30
+
+	planet = {
+		count = { min = 1 max = 2 }
+		class = pc_ice_asteroid
+		orbit_distance = 0
+		orbit_angle = { min = 90 max = 270 }
+	}
+
+	planet = {
+		class = pc_arctic
+		orbit_distance = 30
+		orbit_angle = 80
+		size = 13
+		has_ring = no
+
+		change_orbit = @base_moon_distance
+		
+		moon = {
+			class = "pc_arctic"
+			size = { min = 9 max = 11 }
+			orbit_distance = 2
+			has_ring = no
+		}
+		moon = {
+			class = "pc_frozen"
+			size = 6
+			orbit_distance = 5
+			orbit_angle = { min = 90 max = 270 }
+			has_ring = no
+		}
+	}
+
+	change_orbit = 30
+
+	planet = {
+		count = { min = 1 max = 2 }
+		class = pc_ice_asteroid
+		orbit_distance = 0
+		orbit_angle = { min = 90 max = 270 }
+	}
+	
+	planet = {
+		class = "pc_frozen"
+		orbit_distance = 30
+		orbit_angle = -160
+		size = { min = 10 max = 20}
+		has_ring = no
+		change_orbit = 6
+		
+		moon = {
+			class = "pc_frozen"
+			size = 9
+			orbit_distance = 2.5
+			orbit_angle = 80
+			has_ring = no
+		}
+	}
+	planet = {
+		class = "pc_arctic"
+		orbit_distance = 20
+		orbit_angle = { min = -160 max = 160 }
+		size = { min = 10 max = 20}
+		has_ring = no
+		change_orbit = 6
+	}
+}

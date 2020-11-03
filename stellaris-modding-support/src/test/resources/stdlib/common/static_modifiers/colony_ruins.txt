@@ -1,0 +1,3 @@
+colony_ruins = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_factory.dds"
+}

@@ -1,0 +1,11 @@
+opinion_kept_marauder_planet = {
+	opinion = {
+		base = -20
+	}
+
+	min = -100
+
+	decay = {
+		base = 1
+	}
+}

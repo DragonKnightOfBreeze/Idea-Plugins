@@ -1,0 +1,15 @@
+d_underground_vault_2 = {
+	is_for_colonizeable = yes
+	category = deposit_cat_rare
+	
+	icon = d_bunker_door
+	
+	planet_modifier = {
+		planet_jobs_engineering_research_produces_mult = 0.1
+		district_mining_max = 2
+	}
+	
+	drop_weight = {
+		weight = 0
+	}
+}

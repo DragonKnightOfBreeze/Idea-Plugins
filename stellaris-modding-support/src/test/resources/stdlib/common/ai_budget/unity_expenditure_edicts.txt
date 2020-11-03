@@ -1,0 +1,13 @@
+unity_expenditure_edicts = {
+	resource = unity 
+	type = expenditure
+	category = edicts
+	
+	potential = {
+		has_unlocked_all_traditions = yes
+	}
+	
+	fraction = {
+		weight = 1
+	}	
+}

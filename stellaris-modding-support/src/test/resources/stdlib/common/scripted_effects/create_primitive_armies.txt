@@ -1,0 +1,148 @@
+create_primitive_armies = {
+	last_created_country = {
+		if = {
+			limit = { has_country_flag = stone_age }
+			PREV = {
+				create_army = {
+					name = "NAME_Primitive_Army"
+					owner = last_created
+					species = last_created
+					type = "primitive_army"
+				}
+			}
+			break = yes
+		}					
+		if = {
+			limit = { has_country_flag = bronze_age }
+			PREV = {
+				create_army = {
+					name = "NAME_Primitive_Army"
+					owner = last_created
+					species = last_created
+					type = "primitive_army"
+				}
+			}
+			break = yes
+		}
+		if = {
+			limit = { has_country_flag = iron_age }
+			PREV = {
+				while = {
+					count = 2
+					create_army = {
+						name = "NAME_Primitive_Army"
+						owner = last_created
+						species = last_created
+						type = "primitive_army"
+					}
+				}
+			}
+			break = yes
+		}
+		if = {
+			limit = { has_country_flag = late_medieval_age }
+			PREV = {
+				while = {
+					count = 3
+					create_army = {
+						name = "NAME_Primitive_Army"
+						owner = last_created
+						species = last_created
+						type = "primitive_army"
+					}
+				}
+			}
+			break = yes
+		}
+		if = {
+			limit = { has_country_flag = renaissance_age }
+			PREV = {
+				while = {
+					count = 4
+					create_army = {
+						name = "NAME_Primitive_Army"
+						owner = last_created
+						species = last_created
+						type = "primitive_army"
+					}
+				}
+			}
+			break = yes
+		}
+		if = {
+			limit = { has_country_flag = steam_age }
+			PREV = {
+				while = {
+					count = 3
+					create_army = {
+						name = "NAME_Industrial_Army"
+						owner = last_created
+						species = last_created
+						type = "industrial_army"
+					}
+				}
+			}
+			break = yes
+		}
+		if = {
+			limit = { has_country_flag = machine_age }
+			PREV = {
+				while = {
+					count = 4
+					create_army = {
+						name = "NAME_Industrial_Army"
+						owner = last_created
+						species = last_created
+						type = "industrial_army"
+					}
+				}
+			}
+			break = yes
+		}
+		if = {
+			limit = { has_country_flag = industrial_age }
+			PREV = {
+				while = {
+					count = 5
+					create_army = {
+						name = "NAME_Industrial_Army"
+						owner = last_created
+						species = last_created
+						type = "industrial_army"
+					}
+				}
+			}
+			break = yes
+		}
+		if = {
+			limit = { has_country_flag = atomic_age }
+			PREV = {
+				while = {
+					count = 4
+					create_army = {
+						name = "NAME_Post-Atomic_Army"
+						owner = last_created
+						species = last_created
+						type = "postatomic_army"
+					}
+				}
+			}
+			break = yes
+		}
+		if = {
+			limit = { has_country_flag = early_space_age }
+			PREV = {
+				while = {
+					count = 5
+					create_army = {
+						name = "NAME_Post-Atomic_Army"
+						owner = last_created
+						species = last_created
+						type = "postatomic_army"
+					}
+				}
+			}
+			break = yes
+		}		
+	}
+}

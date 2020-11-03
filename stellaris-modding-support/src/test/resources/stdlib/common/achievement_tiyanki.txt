@@ -1,0 +1,11 @@
+achievement_tiyanki = {
+	id = 83
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		has_country_flag = tiyanki_killed
+	}
+}

@@ -1,0 +1,40 @@
+baol_digsite_2 = {
+	desc = "baol_digsite_2_desc"
+	picture = GFX_evt_asteroid_field
+	stages = 4
+	max_instances = 1
+	weight = 0 #Set by ancrel.2000
+	allow = {
+		exists = leader
+		leader = { leader_class = scientist }
+	}
+	visible = {
+		has_country_flag = baol_intro
+		default_site_visible_trigger = yes
+	}
+	stage = {
+		difficulty = 4
+		icon = GFX_archaeology_runes_B4
+		event = ancrel.2008
+	}
+	stage = {
+		difficulty = 4
+		icon = GFX_archaeology_runes_B5
+		event = ancrel.2009
+	}
+	stage = {
+		difficulty = 4
+		icon = GFX_archaeology_runes_B6
+		event = ancrel.2010
+	}
+	stage = {
+		difficulty = 4
+		icon = GFX_archaeology_runes_B1
+		event = ancrel.2011
+	}
+	on_roll_failed = {
+		from = {
+			standard_archaeological_site_on_roll_failed = { RANDOM_EVENTS = all_random_events }
+		}
+	}
+}

@@ -1,0 +1,36 @@
+sentinels_digsite = {
+	desc = sentinels_digsite_desc
+	picture = GFX_evt_huge_monument
+	stages = 3
+	max_instances = 1
+	weight = 0
+	allow = {
+		is_ship_class = shipclass_science_ship
+		exists = leader
+	}
+	visible = {
+		default_site_visible_trigger = yes
+	}
+	on_visible = {
+    	country_event = { id = story.5 days = 30 }
+	}
+	stage = {
+		difficulty = 2
+		event = ancrel.4052
+		icon = GFX_archaeology_runes_B1
+	}
+	stage = {
+		difficulty = 3
+		event = ancrel.4053
+		icon = GFX_archaeology_runes_B2
+	}
+	stage = {
+		difficulty = 4
+		event = ancrel.4054
+		icon = GFX_archaeology_runes_B3
+	}
+
+	on_roll_failed = {
+		from = { standard_archaeological_site_on_roll_failed = { RANDOM_EVENTS = all_random_events } }
+	}
+}

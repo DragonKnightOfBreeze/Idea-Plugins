@@ -1,0 +1,12 @@
+opinion_from_personality = {
+	opinion = {
+		modifier = {
+			add = -1000
+			has_ai_personality = metalhead
+		}
+		modifier = {
+			add = 100
+			has_ai_personality = fanatic_befrienders
+		}
+	}
+}

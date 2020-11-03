@@ -1,0 +1,25 @@
+alien_racing_ship = {
+	graphical_culture = no
+	max_speed = 200
+	acceleration = 0.4
+	rotation_speed = 0.35
+	modifier = {
+		ship_evasion_add = 25
+		ship_armor_add = 3
+	}
+	max_hitpoints = 300
+	size_multiplier = 1
+	fleet_slot_size = 2
+	section_slots = { "mid" = { locator = "part1" } }
+	num_target_locators = 0
+	is_space_station = no
+	icon_frame = 2
+	
+	is_designable = no
+	is_civilian = yes
+	class = shipclass_science_ship
+	required_component_set = "power_core"
+	required_component_set = "ftl_components"
+	required_component_set = "thruster_components"
+	required_component_set = "sensor_components"
+}

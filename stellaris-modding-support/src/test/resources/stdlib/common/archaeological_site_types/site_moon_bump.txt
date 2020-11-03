@@ -1,0 +1,42 @@
+site_moon_bump = {
+	desc = "site_moon_bump_intro"
+	picture = GFX_evt_relic_world_street
+	stages = 2
+	weight = {
+		base = 0
+		modifier = {
+			add = 100
+			uninhabitable_regular_planet = yes
+			has_ancrel = yes
+		}
+	}
+	allow = {
+		exists = leader
+		leader = { leader_class = scientist }
+	}
+	visible = {
+		default_site_visible_trigger = yes
+	}
+
+	on_visible = {
+    	country_event = { id = story.5 days = 30 }
+	}
+
+	stage = {
+		difficulty = 3
+		icon = GFX_archaeology_runes_A1
+		event = ancrel.9000
+	}
+
+	stage = {
+		difficulty = 4
+		icon = GFX_archaeology_runes_A2
+		event = ancrel.9005
+	}
+
+	on_roll_failed = {
+		from = {
+			standard_archaeological_site_on_roll_failed = { RANDOM_EVENTS = site_moon_bump_random_events }
+		}
+	}
+}

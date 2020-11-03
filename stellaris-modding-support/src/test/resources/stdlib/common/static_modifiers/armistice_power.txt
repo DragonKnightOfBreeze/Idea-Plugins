@@ -1,0 +1,5 @@
+armistice_power = {
+	ship_fire_rate_mult = 1
+	ship_hull_regen_add_perc = 0.5
+	ship_armor_regen_add_perc = 0.5
+}

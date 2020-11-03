@@ -1,0 +1,6 @@
+anticrime_campaign = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_crime.dds"
+	icon_frame = 1
+	show_only_custom_tooltip = no
+	custom_tooltip = anticrime_campaign_tooltip
+}

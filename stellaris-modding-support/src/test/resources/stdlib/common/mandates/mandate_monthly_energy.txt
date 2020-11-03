@@ -1,0 +1,26 @@
+mandate_monthly_energy = {
+	valid = {
+		exists = owner
+		owner = {
+			has_monthly_income = { resource = energy value < 20 }
+		}
+	}
+	parameters = {}
+
+	on_term_started = {
+		owner = {
+			begin_event_chain = {
+				event_chain = "mandate_monthly_energy_chain"
+				target = this
+			}
+		}
+	}
+
+	on_term_ended = {
+		owner = {
+			if = { limit = { is_ai = no } 	log = "mandate_monthly_energy end_of_term fired for player" }
+			if = { limit = { is_ai = yes } 	log = "mandate_monthly_energy end_of_term fired for AI" }
+			country_event = { id = mandate.171 }
+		}
+	}
+}

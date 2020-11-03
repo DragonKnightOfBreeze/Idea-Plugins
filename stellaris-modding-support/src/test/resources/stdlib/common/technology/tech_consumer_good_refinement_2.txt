@@ -1,0 +1,40 @@
+tech_consumer_good_refinement_2 = {
+	cost = @tier3cost1
+	area = physics
+	tier = 4
+	category = { computing }
+	prerequisites = { "tech_luxuries_2" "tech_consumer_good_refinement_1" "tech_self_aware_logic" }
+	weight = @tier4weight1
+
+	modifier = {
+		planet_artisans_produces_mult = 0.10
+	}
+
+	potential = {
+		OR = {
+			is_gestalt = no
+			has_valid_civic = civic_machine_servitor
+		}
+	}
+
+	weight_modifier = {
+		factor = 2
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_computing"
+			}
+		}
+	}
+
+	ai_weight = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_computing"
+			}
+		}
+	}
+}

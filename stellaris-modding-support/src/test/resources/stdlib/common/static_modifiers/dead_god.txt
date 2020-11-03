@@ -1,0 +1,4 @@
+dead_god = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_dead_god.dds"
+	icon_frame = 2
+}

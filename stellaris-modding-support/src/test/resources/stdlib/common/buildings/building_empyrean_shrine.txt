@@ -1,0 +1,32 @@
+building_empyrean_shrine = {
+	base_buildtime = @b2_time
+	can_build = no
+	can_demolish = yes
+	icon = building_citadel_of_faith
+	
+	potential = {
+		exists = owner
+		owner = { is_fallen_empire = yes }
+	}	
+	
+	convert_to = {
+		building_citadel_of_faith
+	}
+	
+	planet_modifier = {
+		job_fe_augur_add = 3
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b3_minerals
+		}	
+		upkeep = {
+			energy = 10
+		}
+	}
+		
+	upgrades = {
+	}
+}

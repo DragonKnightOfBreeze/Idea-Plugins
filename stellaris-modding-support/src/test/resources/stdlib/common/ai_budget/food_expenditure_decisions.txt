@@ -1,0 +1,14 @@
+food_expenditure_decisions = {
+	resource = food
+	type = expenditure
+	category = decisions
+
+	potential = {
+		is_regular_empire = yes # GC's don't get the food boost decision
+		is_lithoid_empire = no
+	}
+
+	fraction = {
+		weight = 0.7
+	}
+}

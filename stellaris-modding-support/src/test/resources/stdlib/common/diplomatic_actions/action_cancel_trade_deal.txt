@@ -1,0 +1,8 @@
+action_cancel_trade_deal = {
+	icon = "GFX_diplomacy_status_trade"
+	requires_recipient_independence = no
+	requires_actor_independence = no
+	is_listed = no
+	auto_accepted = yes
+	action_type = neutral
+}

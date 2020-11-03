@@ -1,0 +1,12 @@
+can_force_decline_on_planet = {
+	owner = { NOT = { has_policy_flag = population_controls_not_allowed } }
+	custom_tooltip = {
+		fail_text = FORCED_DECLINE_ALREADY_PURGING
+		NOT = {
+			any_owned_pop = {
+				has_citizenship_type = { type = citizenship_purge }
+				NOT = { has_purge_type = { country = from type = purge_neutering } }
+			}
+		}
+	}
+}

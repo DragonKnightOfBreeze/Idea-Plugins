@@ -1,0 +1,13 @@
+dark_matter_expenditure_ships = {
+	resource = sr_dark_matter
+	type = expenditure
+	category = ships
+	
+	potential = {
+		always = yes
+	}
+	
+	fraction = {
+		weight = 0.1
+	}	
+}

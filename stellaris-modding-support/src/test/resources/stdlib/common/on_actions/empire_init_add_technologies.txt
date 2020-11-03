@@ -1,0 +1,5 @@
+empire_init_add_technologies = {
+	events = {
+		game_start.8
+	}
+}

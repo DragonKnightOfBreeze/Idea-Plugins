@@ -1,0 +1,3 @@
+elderly_tiyanki_weak_points = {
+	damage_vs_country_type_guardian_elderly_tiyanki_mult = 0.25
+}

@@ -1,0 +1,10 @@
+action_demand_signatory = {
+	icon = "GFX_diplomacy_status_has_vassal"
+	requires_actor_peace = no
+	requires_recipient_peace = yes
+	diplo_view_acceptance_icon = yes
+	should_notify_all_communications = yes
+	requires_recipient_independence = no
+	AI_acceptance_base_value = -50
+	action_type = aggressive
+}

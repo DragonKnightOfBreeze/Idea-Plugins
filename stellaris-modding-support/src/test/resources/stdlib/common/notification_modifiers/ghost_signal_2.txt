@@ -1,0 +1,3 @@
+ghost_signal_2 = {
+	icon = "gfx/interface/icons/modifiers/mod_ghost_signal.dds"
+}

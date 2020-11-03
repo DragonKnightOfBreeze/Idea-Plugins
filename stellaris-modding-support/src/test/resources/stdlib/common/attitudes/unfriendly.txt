@@ -1,0 +1,6 @@
+unfriendly = {
+	type = unfriendly
+	behaviour = {
+		weaken = yes
+	}
+}

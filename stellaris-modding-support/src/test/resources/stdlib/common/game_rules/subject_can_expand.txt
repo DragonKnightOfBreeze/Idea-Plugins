@@ -1,0 +1,3 @@
+subject_can_expand = {
+	root = { has_valid_civic = civic_feudal_realm }
+}

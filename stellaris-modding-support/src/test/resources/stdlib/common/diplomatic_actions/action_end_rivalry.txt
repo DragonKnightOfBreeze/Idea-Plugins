@@ -1,0 +1,26 @@
+action_end_rivalry = {
+	icon = "GFX_diplomacy_status_rivalry"
+	auto_accepted = yes
+	requires_actor_independence = no
+	requires_recipient_independence = no
+	should_show_auto_accept_message_recipient = yes
+	should_notify_all_communications = yes
+	action_type = positive
+
+	potential = {
+		hidden_trigger = {
+			is_fallen_machine_empire = no
+			from = { is_fallen_machine_empire = no }
+		}
+		custom_tooltip = removes_humiliation_cb_originator
+	}
+
+	on_accept = {
+		hidden_effect = {
+			check_casus_belli_valid = {
+				target = from
+				type = cb_humiliation
+			}
+		}
+	}
+}

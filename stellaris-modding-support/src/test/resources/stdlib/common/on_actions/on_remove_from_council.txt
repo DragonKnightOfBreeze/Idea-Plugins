@@ -1,0 +1,2 @@
+on_remove_from_council = {
+}

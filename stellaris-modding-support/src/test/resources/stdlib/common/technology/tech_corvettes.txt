@@ -1,0 +1,15 @@
+tech_corvettes = {
+	cost = 0
+	area = engineering
+	start_tech = yes
+	category = { voidcraft }
+	prerequisites = { "tech_starbase_2" }
+	tier = 0
+
+	prereqfor_desc = {
+		ship = {
+			title = "TECH_UNLOCK_CORVETTE_CONSTRUCTION_TITLE"
+			desc = "TECH_UNLOCK_CORVETTE_CONSTRUCTION_DESC"
+		}
+	}
+}

@@ -1,0 +1,13 @@
+exotic_gases_expenditure_edicts = {
+	resource = exotic_gases 
+	type = expenditure
+	category = edicts
+	
+	potential = {
+		always = yes
+	}
+	
+	fraction = {
+		base = 0.5
+	}
+}

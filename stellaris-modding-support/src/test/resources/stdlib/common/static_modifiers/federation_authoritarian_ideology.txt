@@ -1,0 +1,3 @@
+federation_authoritarian_ideology = {
+	pop_ethic_authoritarian_attraction_mult = 0.35
+}

@@ -1,0 +1,3 @@
+council_member = {
+	diplo_weight_council_mult = 0.20
+}

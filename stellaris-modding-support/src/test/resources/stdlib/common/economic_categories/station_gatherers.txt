@@ -1,0 +1,8 @@
+station_gatherers = {
+	parent = stations
+
+	generate_mult_modifiers = {
+		produces
+		cost
+	}
+}

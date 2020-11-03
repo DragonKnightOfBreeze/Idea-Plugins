@@ -1,0 +1,34 @@
+tech_colossus = {
+	cost = @tier5cost3
+	area = engineering
+	tier = 5
+	is_rare = yes
+	is_reverse_engineerable = no
+	category = { voidcraft }	
+	prerequisites = { "tech_titans" }
+	weight = 0
+	
+	potential = {
+		host_has_dlc = "Apocalypse"
+	}
+
+	prereqfor_desc = {
+		ship = {
+			title = "TECH_UNLOCK_COLOSSUS_CONSTRUCTION_TITLE"
+			desc = "TECH_UNLOCK_COLOSSUS_CONSTRUCTION_DESC"
+		}
+	}
+		
+	## unlock colossi
+	
+	ai_weight = {
+		factor = 1
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_voidcraft"
+			}
+		}
+	}
+}

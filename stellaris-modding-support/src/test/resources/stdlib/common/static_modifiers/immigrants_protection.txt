@@ -1,0 +1,4 @@
+immigrants_protection = {
+	country_influence_produces_mult = 0.25
+	planet_jobs_energy_produces_mult = -0.05
+}

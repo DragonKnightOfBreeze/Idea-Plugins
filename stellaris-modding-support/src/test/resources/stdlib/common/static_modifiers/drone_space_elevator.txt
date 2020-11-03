@@ -1,0 +1,5 @@
+drone_space_elevator = {
+	planet_jobs_minerals_produces_mult = -0.2
+	icon = "gfx/interface/icons/planet_modifiers/pm_unknown.dds"
+	icon_frame = 3
+}

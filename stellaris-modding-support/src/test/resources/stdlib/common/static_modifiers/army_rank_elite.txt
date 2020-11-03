@@ -1,0 +1,5 @@
+army_rank_elite = {
+	army_health = 0.2
+	army_damage_mult = 0.4
+	army_morale = 0.4
+}

@@ -1,0 +1,8 @@
+civic_free_traders = {
+	potential = { authority = { value = auth_corporate } }
+	random_weight = { base = 5 }
+	modifier = {
+		trade_value_mult = 0.10
+		branch_office_value_mult = 0.10
+	}
+}

@@ -1,0 +1,74 @@
+increase_planet_temperature = {
+	if = {
+		limit = { is_planet_class = pc_barren }
+		change_pc = pc_molten
+		reroll_planet = yes
+		clear_blockers = yes
+	}
+	else_if = {
+		limit = { is_planet_class = pc_desert }
+		change_pc = pc_molten
+		reroll_planet = yes
+		clear_blockers = yes
+	}
+	else_if = {
+		limit = { is_planet_class = pc_arid }
+		change_pc = pc_barren
+		reroll_planet = yes
+		clear_blockers = yes
+	}
+	else_if = {
+		limit = { is_planet_class = pc_savannah }
+		change_pc = pc_barren
+		reroll_planet = yes
+		clear_blockers = yes
+	}
+	else_if = {
+		limit = { is_planet_class = pc_ocean }
+		change_pc = pc_desert
+		reroll_planet = yes
+		clear_blockers = yes
+	}
+	else_if = {
+		limit = { is_planet_class = pc_continental }
+		change_pc = pc_arid
+		reroll_planet = yes
+		clear_blockers = yes
+	}
+	else_if = {
+		limit = { is_planet_class = pc_tropical }
+		change_pc = pc_savannah
+		reroll_planet = yes
+		clear_blockers = yes
+	}
+	else_if = {
+		limit = { is_planet_class = pc_arctic }
+		change_pc = pc_ocean
+		reroll_planet = yes
+		clear_blockers = yes
+	}
+	else_if = {
+		limit = { is_planet_class = pc_alpine }
+		change_pc = pc_continental
+		reroll_planet = yes
+		clear_blockers = yes
+	}
+	else_if = {
+		limit = { is_planet_class = pc_tundra }
+		change_pc = pc_tropical
+		reroll_planet = yes
+		clear_blockers = yes
+	}
+	else_if = {
+		limit = { is_planet_class = pc_barren_cold }
+		change_pc = pc_tundra
+		reroll_planet = yes
+		clear_blockers = yes
+	}
+	else_if = {
+		limit = { is_planet_class = pc_frozen }
+		change_pc = pc_arctic
+		reroll_planet = yes
+		clear_blockers = yes
+	}
+}

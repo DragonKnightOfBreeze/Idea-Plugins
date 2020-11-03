@@ -1,0 +1,34 @@
+building_private_shipyards = {
+	base_buildtime = @b1_time
+
+	branch_office_building = yes
+
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			is_criminal_syndicate = no
+			NOT = { is_ai = yes }
+		}
+	}
+
+	planet_modifier = {
+		job_clerk_add = 2
+	}
+
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = 500
+		}
+		produces = {
+			alloys = 3
+		}
+		upkeep = {
+			energy = 2
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+	}
+}

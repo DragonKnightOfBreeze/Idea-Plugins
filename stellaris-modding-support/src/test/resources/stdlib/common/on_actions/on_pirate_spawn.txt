@@ -1,0 +1,5 @@
+on_pirate_spawn = {
+	events = {
+		pirate.49
+	}
+}

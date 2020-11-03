@@ -1,0 +1,19 @@
+on_colonized = {
+	events = {
+		crisis.203
+		anomaly.4171
+		tutorial.27
+		#factions.105 # Colonialists New Colony
+		akx.9499
+		distar.5
+		distar.2599
+		distar.1014
+		distar.72
+		distar.73
+		distar.5000
+		distar.262
+		tutorial.9000
+		origin.3001 #ToL Tree add
+		origin.84
+	}
+}

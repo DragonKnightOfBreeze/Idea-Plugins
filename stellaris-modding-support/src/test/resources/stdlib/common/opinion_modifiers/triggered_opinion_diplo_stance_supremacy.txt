@@ -1,0 +1,17 @@
+triggered_opinion_diplo_stance_supremacy = {
+	trigger = {
+		OR = {
+			is_country_type = default
+			is_country_type = awakened_fallen_empire
+		}
+
+		has_policy_flag = diplo_stance_supremacist
+		FROM = {
+			has_policy_flag = diplo_stance_supremacist
+		}
+	}
+
+	opinion = {
+		base = -100
+	}
+}

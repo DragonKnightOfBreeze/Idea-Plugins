@@ -1,0 +1,11 @@
+achievement_relic_hunter = {
+	id = 98
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		num_owned_relics >= 5
+	}
+}

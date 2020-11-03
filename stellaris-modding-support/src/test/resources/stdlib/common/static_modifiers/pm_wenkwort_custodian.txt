@@ -1,0 +1,8 @@
+pm_wenkwort_custodian = {
+    icon = "gfx/interface/icons/planet_modifiers/pm_atmospheric_aphrodisiac.dds"
+    icon_frame = 3
+    planet_jobs_unity_produces_mult = 0.4
+    planet_artisans_produces_mult = 0.2
+    planet_jobs_minerals_produces_mult = -0.8
+	planet_jobs_energy_produces_mult = -0.3
+}

@@ -1,0 +1,3 @@
+planet_necro_apprentices = {
+	parent = planet_pop_assemblers
+}

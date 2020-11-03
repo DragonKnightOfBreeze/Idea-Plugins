@@ -1,0 +1,10 @@
+has_sapient_combat_computer = {
+	OR = {
+		has_component = COMBAT_COMPUTER_SWARM_SAPIENT
+		has_component = COMBAT_COMPUTER_LINE_SAPIENT
+		has_component = COMBAT_COMPUTER_PICKET_SAPIENT
+		has_component = COMBAT_COMPUTER_ARTILLERY_SAPIENT
+		has_component = COMBAT_COMPUTER_CARRIER_SAPIENT
+		has_component = COMBAT_COMPUTER_PLATFORM_SAPIENT
+	}
+}

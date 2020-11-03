@@ -1,0 +1,6 @@
+law_category_free_migration = {
+	laws = {
+		free_migration_no
+		free_migration_yes
+	}
+}

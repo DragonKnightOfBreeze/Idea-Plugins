@@ -1,0 +1,8 @@
+opinion_machine_uprising_victorious = {
+	opinion = {
+		base = -80
+	}
+	decay = {
+		base = 1
+	}
+}

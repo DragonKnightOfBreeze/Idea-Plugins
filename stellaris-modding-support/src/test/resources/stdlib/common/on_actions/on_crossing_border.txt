@@ -1,0 +1,10 @@
+on_crossing_border = {
+	events = {
+		cara.1010 # Caravaneer Fleet 1 intro
+		cara.2010 # Caravaneer Fleet 2 intro
+		cara.3010 # Caravaneer Fleet 3 intro
+		cara.1250 # Caravaneer Fleet 1 Re-Deal
+		cara.2250 # Caravaneer Fleet 2 Re-Deal
+		cara.3250 # Caravaneer Fleet 3 Re-Deal
+	}
+}

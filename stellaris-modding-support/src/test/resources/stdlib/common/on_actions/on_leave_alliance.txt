@@ -1,0 +1,2 @@
+on_leave_alliance = {
+}

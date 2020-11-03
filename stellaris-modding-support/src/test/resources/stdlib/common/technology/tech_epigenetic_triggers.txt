@@ -1,0 +1,88 @@
+tech_epigenetic_triggers = {
+	cost = @tier2cost2
+	area = society
+	tier = 2
+	category = { biology }
+	prerequisites = { "tech_genome_mapping" }
+	weight = @tier2weight2
+
+	feature_flags = {
+		uplifting
+	}
+
+	potential = {
+		NOT = {
+			has_valid_civic = civic_fanatic_purifiers
+			#has_valid_civic = civic_machine_terminator # covered by not being machine
+			#has_valid_civic = civic_hive_devouring_swarm # can uplift to make delicious
+		}
+		OR = {
+			NOT = { has_authority = auth_machine_intelligence }
+			has_civic = civic_machine_assimilator
+			has_civic = civic_machine_servitor
+		}
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 0.5
+			has_ethic = ethic_fanatic_xenophobe
+		}
+		modifier = {
+			factor = 0.75
+			has_ethic = ethic_xenophobe
+		}
+		modifier = {
+			factor = 1.25
+			has_ethic = ethic_xenophile
+		}
+		modifier = {
+			factor = 1.5
+			has_ethic = ethic_fanatic_xenophile
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_biology"
+			}
+		}
+		modifier = {
+			factor = 0
+			NOR = {
+				has_country_flag = found_presapients
+				any_planet_within_border = {
+					any_pop = {
+						is_sapient = no
+					}
+				}
+			}
+		}
+	}
+
+	ai_weight = {
+		modifier = {
+			factor = 0.5
+			has_ethic = ethic_fanatic_xenophobe
+		}
+		modifier = {
+			factor = 0.75
+			has_ethic = ethic_xenophobe
+		}
+		modifier = {
+			factor = 1.25
+			has_ethic = ethic_xenophile
+		}
+		modifier = {
+			factor = 1.5
+			has_ethic = ethic_fanatic_xenophile
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_biology"
+			}
+		}
+	}
+}

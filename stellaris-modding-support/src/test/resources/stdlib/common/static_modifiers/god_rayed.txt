@@ -1,0 +1,5 @@
+god_rayed = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_atmospheric_hallucinogen.dds"
+	pop_ethic_spiritualist_attraction_mult = 9.99
+	icon_frame = 2
+}

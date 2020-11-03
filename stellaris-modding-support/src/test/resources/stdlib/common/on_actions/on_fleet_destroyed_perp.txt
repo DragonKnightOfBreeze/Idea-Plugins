@@ -1,0 +1,65 @@
+on_fleet_destroyed_perp = {
+	events = {
+		country.9
+		country.11
+		country.14
+		country.215
+		country.216
+		country.1020
+		country.1043
+		colony.181
+		observation.5
+		story.109
+		#story.114
+		#story.209
+		#story.309
+		#story.311
+		#story.214
+		story.216
+		story.332
+		#story.409
+		anomaly.3101
+		anomaly.3120
+		anomaly.3121
+		galactic_features.360
+		crisis.1111
+		crisis.70
+		leviathans.1009
+		leviathans.1012
+		leviathans.1015
+		leviathans.1032
+		leviathans.1040
+		leviathans.648
+		leviathans.655
+		leviathans.670
+		leviathans.334
+		leviathans.2014
+		leviathans.4
+		pirate.13
+		pirate.24
+		akx.9318
+		akx.10030
+		factions.330
+		factions.10
+		crisis.2472
+		distar.5009
+		cara.1002 # Destroyed Caravaneer Fleet 1
+		cara.2002 # Destroyed Caravaneer Fleet 2
+		cara.3002 # Destroyed Caravaneer Fleet 3
+		ancrel.4020
+		origin.1030
+		galcom.101 # Killed Tiyanki Inside Borders
+		galactic_features.381 #  Tiyanki Counter
+		federations2.112 # Destroyed training targets in militarist federation challenge
+	}
+	random_events = {
+		300 = 0
+		2 = leader.1
+		2 = leader.5
+		2 = leader.6
+		2 = leader.7
+		2 = leader.8
+		2 = leader.9
+		2 = leader.17
+	}
+}

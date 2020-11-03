@@ -1,0 +1,13 @@
+cb_fe_punishment = {
+	show_notification = yes
+	potential = {
+		is_country_type = fallen_empire
+	}
+	is_valid = {
+		OR = {
+			has_opinion_modifier = { who = from modifier = opinion_angered_fallen_machine_empire }
+			has_opinion_modifier = { who = from modifier = opinion_refused_fallen_empire_demand }
+			has_opinion_modifier = { who = from modifier = opinion_majorly_failed_fallen_empire_task  }			
+		}
+	}
+}

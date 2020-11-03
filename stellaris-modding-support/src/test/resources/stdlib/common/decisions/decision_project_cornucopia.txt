@@ -1,0 +1,55 @@
+decision_project_cornucopia = {
+	owned_planets_only = yes
+
+	enactment_time = 180
+	resources = {
+		category = decisions
+		cost = {
+			influence = 25
+			energy = 500
+		}
+	}
+
+	potential = {
+		habitable_structure = no
+		NOT = { is_planet_class = pc_machine }
+		NOT = { is_planet_class = pc_hive }
+		NOT = { is_planet_class = pc_city }
+		owner = {
+			is_galactic_community_member = yes
+			is_active_resolution = "resolution_industry_project_cornucopia"
+		}
+		NOT = { has_deposit = d_project_cornucopia }
+	}
+
+	effect = {
+		custom_tooltip = decision_project_cornucopia_effects_short
+		add_deposit = d_project_cornucopia
+		hidden_effect = {
+			create_message = {
+				type = MESSAGE_TYPE_PLANET_PROSPECTED
+				localization = MESSAGE_PLANET_PROSPECTED
+				days = 30
+				target = this
+				variable = {
+					type = name
+					localization = PLANET
+					scope = this
+				}
+				variable = {
+					type = name
+					localization = DEPOSIT
+					scope = last_added_deposit
+				}
+			}
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0
+			num_pops < 20
+		}
+	}
+}

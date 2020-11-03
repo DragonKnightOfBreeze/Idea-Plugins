@@ -1,0 +1,7 @@
+starbase_modules = {
+	parent = starbases
+
+	generate_mult_modifiers = {
+		cost
+	}
+}

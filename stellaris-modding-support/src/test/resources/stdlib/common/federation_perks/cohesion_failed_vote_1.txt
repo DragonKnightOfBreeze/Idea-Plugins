@@ -1,0 +1,15 @@
+cohesion_failed_vote_1 = {
+	federation_modifier = {
+		description = cohesion_failed_vote_1_effect
+	}
+	on_activate = {
+		set_federation_settings = {
+			failed_vote_half_price = yes
+		}
+	}
+	on_deactivate = {
+		set_federation_settings = {
+			failed_vote_half_price = no
+		}
+	}
+}

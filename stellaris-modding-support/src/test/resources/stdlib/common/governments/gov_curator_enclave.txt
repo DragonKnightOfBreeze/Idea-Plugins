@@ -1,0 +1,13 @@
+gov_curator_enclave = {
+	ruler_title = RT_HIGH_CURATOR
+	
+	should_force_rename = yes
+
+	possible = {
+		has_valid_civic = civic_ancient_preservers
+	}
+
+	weight = {
+		base = 100000
+	}
+}

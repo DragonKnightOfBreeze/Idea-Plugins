@@ -1,0 +1,4 @@
+resolution_sanctions_administrative = {
+	country_admin_cap_mult = -0.1
+	diplomacy_upkeep_mult = 0.25
+}

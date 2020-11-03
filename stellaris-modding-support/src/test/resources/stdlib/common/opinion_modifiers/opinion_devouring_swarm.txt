@@ -1,0 +1,17 @@
+opinion_devouring_swarm = {		
+	trigger = {
+		is_country_type = default
+		OR = {
+			has_valid_civic = "civic_hive_devouring_swarm"
+			AND = {			
+				from = { has_valid_civic = "civic_hive_devouring_swarm" }
+				NOT = { has_valid_civic = civic_fanatic_purifiers }
+			}			
+		}	
+	}
+	opinion = {
+		modifier = {
+			add = -1000				
+		}		
+	}
+}

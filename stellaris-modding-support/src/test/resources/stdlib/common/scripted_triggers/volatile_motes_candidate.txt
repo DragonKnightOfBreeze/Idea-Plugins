@@ -1,0 +1,7 @@
+volatile_motes_candidate = {
+	NOT = { has_deposit_for = shipclass_research_station }
+	OR = {			
+		is_planet_class = pc_molten
+		is_planet_class = pc_asteroid
+	}
+}

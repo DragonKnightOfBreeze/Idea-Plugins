@@ -1,0 +1,31 @@
+UPLIFT_TROPICAL_CAT = {
+	desc = "UPLIFT_TROPICAL_CAT_DESC"
+	picture = "GFX_evt_alien_nature"
+	level = 1
+
+	should_ai_and_humans_use = yes
+	
+	spawn_chance = {
+		modifier = {
+			add = 10
+			is_planet_class = pc_tropical
+		}
+		modifier = {
+			factor = 0
+			from = {
+				owner = {
+					OR = {
+						has_valid_civic = civic_fanatic_purifiers
+						has_valid_civic = civic_hive_devouring_swarm
+						has_valid_civic = civic_machine_terminator
+					}
+				}
+			}
+		}
+	}
+	
+	on_success = {
+		1 = uplift.6040
+		1 = uplift.6045
+	}
+}

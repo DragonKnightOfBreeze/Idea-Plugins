@@ -1,0 +1,3 @@
+federation_xenophobe_ideology = {
+	pop_ethic_xenophobe_attraction_mult = 0.35
+}

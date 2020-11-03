@@ -1,0 +1,36 @@
+tech_micro_replicators = {
+	cost = @tier2cost2
+	area = engineering
+	tier = 2
+	category = { industry }	
+	weight = @tier2weight2
+	
+	modifier = {
+		planet_pop_assembly_mult = 0.10
+	}
+	
+	potential = {
+		has_authority = auth_machine_intelligence
+	}
+	
+	weight_modifier = {
+		factor = 1.5 
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_industry"
+			}
+		}
+	}
+	
+	ai_weight = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_industry"
+			}
+		}
+	}
+}

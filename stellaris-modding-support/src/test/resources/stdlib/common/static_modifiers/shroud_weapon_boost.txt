@@ -1,0 +1,3 @@
+shroud_weapon_boost = {
+	ship_weapon_damage = 0.2
+}

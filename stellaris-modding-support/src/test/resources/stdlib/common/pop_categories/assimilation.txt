@@ -1,0 +1,28 @@
+assimilation = {
+	rank = 0
+
+	assign_to_pop = {
+		is_being_assimilated = yes
+	}
+
+	weight = {
+		weight = 15
+	}
+
+	# scope: pop to be resettled
+	allow_resettlement = {
+		always = yes
+	}
+
+	resettlement_cost = {
+		energy = 100
+	}
+
+	pop_modifier = {
+		pop_political_power = -1
+	}
+
+	resources = {
+		category = pop_category_assimilation
+	}
+}

@@ -1,0 +1,30 @@
+artifact_zroni_research = {
+	resources = {
+		category = artifact_actions
+		cost = {
+			minor_artifacts = 50
+		}
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+
+	potential = {
+		 has_country_flag = last_zroni_system
+		 NOT = { has_country_flag = zroni_research_started } 
+	}
+	
+	effect = {
+		enable_special_project = {
+			name = "ZRONI_SECRETS"
+			location = capital_scope
+			owner = ROOT
+		}
+		
+		hidden_effect = {
+			set_country_flag = zroni_research_started
+			country_event = { id = ancrel.10040 }
+		}
+	}
+}

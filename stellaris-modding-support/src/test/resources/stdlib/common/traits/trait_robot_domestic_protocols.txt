@@ -1,0 +1,19 @@
+trait_robot_domestic_protocols = {
+	cost = 2
+
+	initial = no
+	randomized = no
+
+	allowed_archetypes = { ROBOT }
+
+	# Synth and Droid only
+	species_potential_add = {
+		exists = from
+		from = {
+			has_technology = tech_droid_workers
+			NOT = { has_policy_flag = ai_outlawed }
+		}
+	}
+
+	custom_tooltip = TRAIT_DOMESTIC_PROTOCOLS_EFFECT
+}

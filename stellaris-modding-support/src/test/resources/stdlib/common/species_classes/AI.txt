@@ -1,0 +1,15 @@
+AI = {
+	playable = { always = no }
+	randomized = no
+
+	gender = no
+
+	portraits = {
+		"hum_robot_red"
+	}
+
+	graphical_culture = ai_01
+	move_pop_sound_effect = "moving_pop_confirmation"
+
+	resources = {}
+}

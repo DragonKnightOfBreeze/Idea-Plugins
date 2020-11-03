@@ -1,0 +1,11 @@
+chemical_plant_upkeep_affordable = {
+	has_monthly_income = {
+		resource = energy
+		value > 3
+	}
+	# Both the regular job and gestalt job has the same upkeep
+	has_monthly_income = {
+		resource = minerals
+		value > 10
+	}
+}

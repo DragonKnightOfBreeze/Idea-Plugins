@@ -1,0 +1,26 @@
+d_collapsed_spire = {
+	time = 480
+	icon = d_broken_spire
+	
+	is_for_colonizeable = yes
+	category = deposit_cat_rare_blocker
+	
+	potential = { always = no }
+	
+	planet_modifier = { 
+		planet_max_districts_add = -1
+	}
+
+	use_weights_for_blocker_swap_types = no
+
+	blocker_swap_types = {
+		d_central_spire
+	}
+
+	resources = {
+		category = deposit_blockers
+		cost = {
+			energy = 2000
+		}
+	}
+}

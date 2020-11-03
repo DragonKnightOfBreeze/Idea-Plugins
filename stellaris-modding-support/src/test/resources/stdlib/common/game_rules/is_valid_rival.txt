@@ -1,0 +1,14 @@
+is_valid_rival = {
+	custom_tooltip = {
+		fail_text = INVALID_RIVAL_DESC
+		root = {
+			OR = {
+				prev = { NOT = { is_country_type = default } }
+				AND = {
+					relative_power = { who = prev value >= inferior }
+					relative_power = { who = prev value <= superior }
+				}
+			}
+		}
+	}
+}

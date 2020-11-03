@@ -1,0 +1,74 @@
+resolution_repeal_tiyanki_pest_control = {
+	icon = "GFX_repeal_red"
+
+	resources = {
+		category = resolutions
+		cost = {
+			influence = @resolution_cost_denounce
+		}
+	}
+
+	target = no
+
+	effect = {
+		custom_tooltip = resolution_repeal_tiyanki_pest_control_effect_success
+		hidden_effect = {
+			set_timed_country_flag = { flag = galactic_community_resolution_passed_ecology_repeal days = @resolution_flag_timer }
+			add_modifier = {
+				modifier = resolution_passed_diplomatic_weight
+				days = 2200
+			}
+		}
+	}
+
+	fail_effects = {
+		hidden_effect = {
+			set_timed_country_flag = { flag = galactic_community_resolution_failed_ecology_repeal days = @resolution_flag_timer }
+			add_modifier = {
+				modifier = resolution_failed_diplomatic_weight
+				days = 2200
+			}
+		}
+	}
+
+	potential = {
+		is_active_resolution = "resolution_tiyanki_pest_control"
+	}
+
+	ai_weight = {
+		weight = @resolution_weight_disliked
+
+		modifier = {
+			factor = 1.5
+			is_xenophile = yes
+		}
+
+		modifier = {
+			factor = 1.25
+			is_pacifist = yes
+		}
+
+		modifier = {
+			factor = 0.75
+			is_militarist = yes
+		}
+
+		modifier = {
+			factor = 1.5
+			OR = {
+				has_valid_civic = civic_environmentalist
+				has_valid_civic = civic_hive_empath
+			}
+		}
+
+		modifier = {
+			factor = 0
+			is_xenophobe = yes
+		}
+
+		modifier = {
+			factor = 10
+			in_breach_of = resolution_tiyanki_pest_control
+		}
+	}
+}

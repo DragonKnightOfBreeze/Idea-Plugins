@@ -1,0 +1,85 @@
+guardians_init_stellarites = {
+	class = rl_dwarf_stars
+	usage = misc_system_init
+	usage_odds = {
+		base = 0
+		modifier = {
+			has_leviathans = yes
+			add = 100
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				is_fe_cluster = yes
+				has_star_flag = empire_cluster
+			}
+		}
+		modifier = {
+			factor = 0
+			is_bottleneck_system = yes
+		}
+	}
+
+	max_instances = 1
+	scaled_spawn_chance = 8	# scales by galaxy size (1000 stars = 10x base)
+	
+	flags = { guardians_stellarite_system guardian hostile_system }
+	
+	planet = {
+		count = 1
+		class = star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = { min = 20 max = 30 }
+		has_ring = no
+	}
+	
+	change_orbit = 45
+	
+	planet = {
+		count = { min = 1 max = 2 }
+		orbit_distance = 20
+		orbit_angle = { min = 90 max = 270 }
+		size = { min = 10 max = 25 }
+		change_orbit = @base_moon_distance
+		
+		moon = {
+			count = { min = 0 max = 1 }
+			orbit_angle = { min = 90 max = 270 }
+			size = { min = 10 max = 14 }
+			orbit_distance = 5
+		}
+	}
+
+	planet = {
+		class = pc_frozen
+		count = { min = 1 max = 1 }
+		orbit_distance = 20
+		size = { min = 15 max = 25 }
+		orbit_angle = { min = 90 max = 270 }
+	}
+
+	planet = {
+		count = { min = 1 max = 2 }
+		orbit_distance = 20
+		orbit_angle = { min = 90 max = 270 }
+		size = { min = 10 max = 25 }
+		change_orbit = @base_moon_distance
+		
+		moon = {
+			count = { min = 0 max = 1 }
+			orbit_angle = { min = 90 max = 270 }
+			size = { min = 10 max = 14 }
+			orbit_distance = 5
+		}
+	}
+	
+	init_effect = {
+		random_system_planet = {
+			limit = {
+				is_star = yes
+			}
+			change_planet_size = -5
+		}
+	}
+}

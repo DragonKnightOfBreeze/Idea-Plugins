@@ -1,0 +1,38 @@
+primitive_noble = {
+	category = ruler
+	is_capped_by_modifier = yes
+	building_icon = building_primitive_capital
+	clothes_texture_index = 1
+
+	possible_pre_triggers = {
+		has_owner = yes
+	}
+
+	possible = {
+		owner = {
+			is_primitive = yes
+			OR = {
+				has_country_flag = bronze_age
+				has_country_flag = iron_age
+				has_country_flag = late_medieval_age
+				has_country_flag = renaissance_age
+				has_country_flag = steam_age
+			}
+		}
+	}
+
+	resources = {
+		category = planet_administrators
+		produces = {
+			unity = 1
+		}
+	}
+
+	planet_modifier = {
+		planet_amenities_add = 3
+	}
+
+	weight = {
+		weight = @ruler_job_weight
+	}
+}

@@ -1,0 +1,20 @@
+breach_fix_resolution_divinity_a_defined_purpose_nonsynthetic = {
+	if = {
+		limit = {
+			is_active_resolution = "resolution_divinity_a_defined_purpose"
+			in_breach_of = resolution_divinity_a_defined_purpose
+			has_policy_flag = ai_full_rights
+			NOT = { has_country_flag = synthetic_empire }
+			is_machine_empire = no
+		}
+		hidden_effect = {
+			set_policy = {
+				policy = artificial_intelligence_policy
+				option = ai_servitude
+				cooldown = yes
+			}
+		}
+
+		custom_tooltip = "federations.10340.complychangeai"
+	}
+}

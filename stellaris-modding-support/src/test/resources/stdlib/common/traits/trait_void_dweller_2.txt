@@ -1,0 +1,15 @@
+trait_void_dweller_2 = {
+	icon = "gfx/interface/icons/traits/trait_void_dweller.dds"
+	initial = no
+	modification = no
+	randomized = no
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	sorting_priority = 30
+	potential_crossbreeding_chance = 0.33
+	modifier = {
+		pop_growth_speed = -0.6
+	}
+	ai_weight = {
+		weight = 0
+	}
+}

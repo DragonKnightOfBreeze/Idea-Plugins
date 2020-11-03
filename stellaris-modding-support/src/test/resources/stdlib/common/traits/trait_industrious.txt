@@ -1,0 +1,11 @@
+trait_industrious = {
+	cost = 2
+	potential_crossbreeding_chance = 1.0
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	modifier = {
+		planet_jobs_minerals_produces_mult = 0.15
+	}
+	slave_cost = {
+		energy = 50
+	}
+}

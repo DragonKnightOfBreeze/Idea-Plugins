@@ -1,0 +1,3 @@
+servitor_mission_accomplished = {
+	planet_jobs_complex_drone_produces_mult = 0.10
+}

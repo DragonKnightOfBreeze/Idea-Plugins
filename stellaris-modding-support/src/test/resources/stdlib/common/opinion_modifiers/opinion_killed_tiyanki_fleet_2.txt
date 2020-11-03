@@ -1,0 +1,11 @@
+opinion_killed_tiyanki_fleet_2 = {
+	opinion = {
+		base = -20
+	}
+
+	accumulative = yes
+
+	decay = {
+		base = 1
+	}
+}

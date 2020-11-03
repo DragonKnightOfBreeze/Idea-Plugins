@@ -1,0 +1,22 @@
+achievement_suffer_not_the_alien = {
+	id = 40
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		OR = {
+			has_ethic = ethic_xenophobe
+			has_ethic = ethic_fanatic_xenophobe
+		}
+		NOT = {
+			any_country = {
+				any_owned_pop = {
+					is_sapient = yes
+					NOT = { is_same_species = root }
+				}
+			}
+		}
+	}
+}

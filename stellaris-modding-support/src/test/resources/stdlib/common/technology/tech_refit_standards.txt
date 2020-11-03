@@ -1,0 +1,41 @@
+tech_refit_standards = {
+	cost = @tier3cost1
+	area = society
+	tier = 3
+	category = { military_theory }
+	prerequisites = { "tech_interstellar_fleet_traditions" }
+	weight = @tier3weight1
+
+	modifier = {
+		country_ship_upgrade_cost_mult = -0.20
+		ships_upkeep_mult = -0.05
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 2
+			is_militarist = yes
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_military_theory"
+			}
+		}
+	}
+
+	ai_weight = {
+		modifier = {
+			factor = 2
+			is_militarist = yes
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_military_theory"
+			}
+		}
+	}
+}

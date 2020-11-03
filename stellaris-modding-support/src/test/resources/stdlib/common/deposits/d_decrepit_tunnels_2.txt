@@ -1,0 +1,24 @@
+d_decrepit_tunnels_2 = {
+	is_for_colonizeable = yes
+	icon = "d_mining_tunnels"
+	category = deposit_cat_blockers
+	time = 360
+
+	potential = { always = no }
+
+	resources = {
+		category = deposit_blockers
+		cost = {
+			energy = 500
+		}
+	}
+
+	on_cleared = {
+		owner = {
+			add_resource = {
+				minerals = 400
+				rare_crystals = 100
+			}
+		}
+	}
+}

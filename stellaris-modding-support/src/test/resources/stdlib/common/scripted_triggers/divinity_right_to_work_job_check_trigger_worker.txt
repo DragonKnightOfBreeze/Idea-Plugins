@@ -1,0 +1,11 @@
+divinity_right_to_work_job_check_trigger_worker = {
+	NOT = {
+		planet = {
+			any_owned_pop = {
+				is_unemployed = yes
+				is_robotic_species = no
+				is_pop_category = worker
+			}
+		}
+	}
+}

@@ -1,0 +1,3 @@
+is_megacorp = {
+	has_authority = auth_corporate
+}

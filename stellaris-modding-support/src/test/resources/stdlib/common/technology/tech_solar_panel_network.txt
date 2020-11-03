@@ -1,0 +1,11 @@
+tech_solar_panel_network = {
+	area = engineering
+	tier = 0
+	category = { voidcraft }
+	prerequisites = { "tech_starbase_2" }
+	start_tech = yes
+
+	potential = {
+		is_gestalt = yes
+	}
+}

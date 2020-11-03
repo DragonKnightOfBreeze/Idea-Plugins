@@ -1,0 +1,4 @@
+can_generate_trade_value = {
+	exists = owner
+	owner = { is_country_type = default }
+}

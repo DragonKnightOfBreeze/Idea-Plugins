@@ -1,0 +1,37 @@
+d_forgiving_tundra = {
+	is_for_colonizeable = yes
+	use_for_min_max_adjustments = yes
+
+	category = deposit_cat_food
+
+	use_weights_for_terraforming_swap_types = yes
+	should_swap_deposit_on_terraforming = yes
+	terraforming_swap_types = {
+		d_lichen_fields
+		d_bountiful_plains
+		d_rugged_woods
+		d_green_hills
+		d_boggy_fens
+		d_nutritious_mudland
+		d_natural_farmland # gaia
+	}
+
+	planet_modifier = {
+		district_farming_max = 1
+	}
+
+	potential = {
+		OR = {
+			is_planet_class = pc_alpine
+			is_planet_class = pc_tundra
+		}
+	}
+
+	drop_weight = {
+		weight = @high
+		modifier = {
+			factor = @planet_type_bonus
+			is_wet = yes
+		}
+	}
+}

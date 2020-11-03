@@ -1,0 +1,154 @@
+swarm_vanguard = {
+	
+	random_list = {
+		10 = {
+			create_leader = {
+				class = admiral
+				species = event_target:prethoryn_species
+				name = random
+				skill = 3
+				set_age = 3452
+				traits = {
+					trait = leader_trait_void_swimmer
+				}
+			}
+		}
+		10 = {
+			create_leader = {
+				class = admiral
+				species = event_target:prethoryn_species
+				name = random
+				skill = 3
+				set_age = 2967
+				traits = {
+					trait = leader_trait_void_swimmer
+				}
+			}
+		}
+		10 = {
+			create_leader = {
+				class = admiral
+				species = event_target:prethoryn_species
+				name = random
+				skill = 3
+				set_age = 4126
+				traits = {
+					trait = leader_trait_void_swimmer
+				}
+			}
+		}
+		10 = {
+			create_leader = {
+				class = admiral
+				species = event_target:prethoryn_species
+				name = random
+				skill = 3
+				set_age = 756
+				traits = {
+					trait = leader_trait_void_swimmer
+				}
+			}
+		}
+		10 = {
+			create_leader = {
+				class = admiral
+				species = event_target:prethoryn_species
+				name = random
+				skill = 3
+				set_age = 1007
+				traits = {
+					trait = leader_trait_void_swimmer
+				}
+			}
+		}
+		10 = {
+			create_leader = {
+				class = admiral
+				species = event_target:prethoryn_species
+				name = random
+				skill = 3
+				set_age = 2510
+				traits = {
+					trait = leader_trait_void_swimmer
+				}
+			}
+		}
+		10 = {
+			create_leader = {
+				class = admiral
+				species = event_target:prethoryn_species
+				name = random
+				skill = 3
+				set_age = 4831
+				traits = {
+					trait = leader_trait_void_swimmer
+				}
+			}
+		}
+		10 = {
+			create_leader = {
+				class = admiral
+				species = event_target:prethoryn_species
+				name = random
+				skill = 3
+				set_age = 3367
+				traits = {
+					trait = leader_trait_void_swimmer
+				}
+			}
+		}
+		10 = {
+			create_leader = {
+				class = admiral
+				species = event_target:prethoryn_species
+				name = random
+				skill = 3
+				set_age = 987
+				traits = {
+					trait = leader_trait_void_swimmer
+				}
+			}
+		}
+		10 = {
+			create_leader = {
+				class = admiral
+				species = event_target:prethoryn_species
+				name = random
+				skill = 3
+				set_age = 4517
+				traits = {
+					trait = leader_trait_void_swimmer
+				}
+			}
+		}
+	}
+
+	create_fleet = {
+		name = "NAME_Prethoryn_Vanguard"
+		effect = {
+			set_owner = PREV
+			create_ship = {
+				name = random
+				design = "NAME_Swarm_Small"
+				graphical_culture = "swarm_01"
+			}
+			assign_leader = last_created_leader
+			while = {
+				count = 30
+				create_ship = {
+					name = random
+					design = "NAME_Swarm_Small"
+					graphical_culture = "swarm_01"
+				}
+			}
+			set_location = {
+				target = PREVPREV
+				distance = 35
+				angle = random 
+			}
+			set_fleet_stance = aggressive
+			set_aggro_range = 500
+			set_aggro_range_measure_from = self
+		}
+	}
+}

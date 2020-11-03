@@ -1,0 +1,15 @@
+achievement_controlled_evolution = {
+	id = 62
+
+	possible = {
+		is_ironman = yes
+		host_has_dlc = "Utopia"
+	}
+
+	happened = {
+		has_ascension_perk = ap_evolutionary_mastery
+		any_owned_pop = {
+			num_trait_points > 6
+		}
+	}
+}

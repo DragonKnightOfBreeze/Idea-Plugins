@@ -1,0 +1,30 @@
+tech_shield_rechargers_1 = {
+	area = physics
+	cost = @tier2cost3
+	tier = 2
+	category = { field_manipulation }
+	ai_update_type = all
+	prerequisites = { "tech_shields_3" }
+	weight = @tier2weight3
+
+	weight_modifier = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_field_manipulation"
+			}
+		}
+	}
+
+	ai_weight = {
+		factor = 2 #good component
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_field_manipulation"
+			}
+		}
+	}
+}

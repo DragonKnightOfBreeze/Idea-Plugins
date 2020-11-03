@@ -1,0 +1,8 @@
+planet_researchers = {
+	icon = "job_researcher"
+	parent = planet_jobs
+	generate_mult_modifiers = {
+		produces
+		upkeep
+	}
+}

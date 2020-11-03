@@ -1,0 +1,26 @@
+decision_study_the_sea = {
+
+	resources = {
+		category = decisions
+		cost = {
+			energy = 500
+		}
+	}
+	potential = {
+		has_modifier = living_sea
+		space_owner = { #from = decision enacter ie country
+			has_event_chain = "living_planet_chain"
+			NOT = { has_country_flag = completed_living_sea }
+		}
+	}
+	effect = {
+		add_modifier = {
+			modifier = pm_study_the_sea
+			days = -1
+		}
+		hidden_effect = {
+			space_owner = { country_event = { id = distar.191 } }
+		}
+		custom_tooltip = "decision_study_the_sea.tooltip"
+	}
+}

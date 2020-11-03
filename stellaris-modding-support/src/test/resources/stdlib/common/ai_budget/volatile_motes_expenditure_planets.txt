@@ -1,0 +1,13 @@
+volatile_motes_expenditure_planets = {
+	resource = volatile_motes 
+	type = expenditure
+	category = planets
+	
+	potential = {
+		always = yes
+	}
+	
+	fraction = {
+		weight = 0.2
+	}	
+}

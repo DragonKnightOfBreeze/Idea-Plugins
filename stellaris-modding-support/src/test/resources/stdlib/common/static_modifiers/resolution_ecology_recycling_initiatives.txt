@@ -1,0 +1,5 @@
+resolution_ecology_recycling_initiatives = {
+	diplo_weight_economy_mult = -0.2
+	planet_pops_consumer_goods_upkeep_mult = -0.05
+	planet_clear_blocker_time_mult = 0.1
+}

@@ -1,0 +1,25 @@
+agenda_science = {
+	weight_modifier = {
+		weight = 100
+		modifier = {
+			factor = 1.5
+				from = {
+					has_ethic = ethic_materialist
+				}
+			}
+		modifier = {
+			factor = 2
+				from = {
+					has_ethic = ethic_fanatic_materialist
+				}
+			}
+		modifier = {
+			factor = 1.5
+			leader_class = scientist
+		}
+	}
+	
+	modifier = {
+		all_technology_research_speed = 0.10
+	}
+}

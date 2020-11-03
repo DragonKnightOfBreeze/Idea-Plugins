@@ -1,0 +1,5 @@
+on_pop_displaced = {
+	events = {
+		refugees.3
+	}
+}

@@ -1,0 +1,4 @@
+ship_upgrades = {
+	parent = ships
+	use_for_ai_budget = yes
+}

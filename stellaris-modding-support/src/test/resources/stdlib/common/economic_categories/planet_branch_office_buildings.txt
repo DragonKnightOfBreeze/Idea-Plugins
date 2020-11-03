@@ -1,0 +1,3 @@
+planet_branch_office_buildings = {
+	parent = planets
+}

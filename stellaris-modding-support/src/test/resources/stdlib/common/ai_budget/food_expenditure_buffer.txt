@@ -1,0 +1,13 @@
+food_expenditure_buffer = { # Buffer, will not be spent
+	resource = food
+	type = expenditure
+	category = buffer
+
+	potential = {
+		always = yes
+	}
+
+	fraction = {
+		weight = 0.3
+	}
+}

@@ -1,0 +1,5 @@
+colonial_remains = {
+	planet_buildings_cost_mult = -0.25
+	planet_districts_cost_mult = -0.25
+	icon = "gfx/interface/icons/planet_modifiers/pm_planet_from_space.dds"
+}

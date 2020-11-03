@@ -1,0 +1,30 @@
+grunur_digsite_1 = {
+	desc = "grunur_digsite_1_desc"
+	picture = GFX_evt_baol_grunur
+	stages = 2
+	max_instances = 1
+	weight = 0 #Set by ancrel.2000
+	allow = {
+		exists = leader
+		leader = { leader_class = scientist }
+	}
+	visible = {
+		has_country_flag = baol_intro
+		default_site_visible_trigger = yes
+	}
+	stage = {
+		difficulty = 2
+		icon = GFX_archaeology_runes_C1
+		event = ancrel.2001
+	}
+	stage = {
+		difficulty = 2
+		icon = GFX_archaeology_runes_C2
+		event = ancrel.2002
+	}
+	on_roll_failed = {
+		from = {
+			standard_archaeological_site_on_roll_failed = { RANDOM_EVENTS = all_random_events }
+		}
+	}
+}

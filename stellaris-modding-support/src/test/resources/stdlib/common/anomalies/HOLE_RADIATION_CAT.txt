@@ -1,0 +1,30 @@
+HOLE_RADIATION_CAT = {
+	desc = "HOLE_RADIATION_DESC"
+	picture = "GFX_evt_black_hole"
+	level = 5
+	
+	spawn_chance = {
+		modifier = {
+			add = 3
+			is_star_class = sc_black_hole
+		}
+	}
+	
+	on_success = {
+		0 = {
+			modifier = {
+				add = 1
+				leader = {
+					NOR = {
+						has_trait = leader_trait_paranoid
+						species = {
+							has_trait = trait_hive_mind
+						}
+					}
+				}
+			}
+			anomaly_event = anomaly.3070
+		}
+		1 = anomaly.3075
+	}
+}

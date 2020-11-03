@@ -1,0 +1,67 @@
+tech_synchronized_defences = {
+	area = physics
+	tier = 4
+	cost = @tier4cost2
+	category = { computing }
+	ai_update_type = military
+	prerequisites = { "tech_self_aware_logic" }
+	is_rare = yes
+	weight = @tier4weight2
+
+	# unlocks starbase building - defense-grid supercomputer
+
+	weight_modifier = {
+		factor = 0.5
+		modifier = {
+			factor = 0.50
+			NOR = {
+				research_leader = {
+					area = physics
+					has_trait = "leader_trait_expertise_computing"
+				}
+				research_leader = {
+					area = physics
+					has_trait = "leader_trait_curator"
+				}
+			}
+		}
+		modifier = {
+			factor = 0.75
+			has_ethic = ethic_pacifist
+		}
+		modifier = {
+			factor = 0.65
+			has_ethic = ethic_fanatic_pacifist
+		}
+		modifier = {
+			factor = 1.10
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.20
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
+		}
+		modifier = {
+			factor = @federation_perk_factor
+			has_federation = yes
+			federation = {
+				has_federation_perk = rare_tech_boost
+				any_member = { has_technology = tech_synchronized_defences }
+			}
+		}
+	}
+
+	ai_weight = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_computing"
+			}
+		}
+	}
+}

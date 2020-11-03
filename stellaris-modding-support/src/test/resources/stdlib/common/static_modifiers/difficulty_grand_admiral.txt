@@ -1,0 +1,8 @@
+difficulty_grand_admiral = {
+	stations_produces_mult = 1
+	planet_jobs_produces_mult = 1
+	country_naval_cap_mult = 0.6
+	ships_upkeep_mult = -0.4
+	starbase_shipyard_build_cost_mult = -0.4
+	planet_stability_add = 20
+}

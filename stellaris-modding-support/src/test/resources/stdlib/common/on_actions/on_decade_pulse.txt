@@ -1,0 +1,14 @@
+on_decade_pulse = {
+	events = {
+		galactic_features.362
+		utopia.50
+		syndaw.10 # machine leader malfunction chance
+		syndaw.400 # machine uprising + warning events
+		galcom.14 # check if anyone's missing an invite to the Galactic Community
+		drones.1001	# triggers a possible Ancient Mining Drone expansion (unclaimed systems)
+		drones.1003	# triggers a possible Ancient Mining Drone expansion (claimed systems too)
+		drones.1010	# triggers a possible Space Crystal Splitter expansion (any system)
+		pirate.100 # assorted late-game pirates
+		fedev.600	# Federation Joint Operation - Trade League
+	}
+}

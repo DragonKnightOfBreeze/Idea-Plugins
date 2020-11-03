@@ -1,0 +1,13 @@
+triggered_opinion_both_hive_mind = {
+	trigger = {
+		has_authority = auth_hive_mind
+		FROM = {
+			NOT = { has_valid_civic = "civic_hive_devouring_swarm" }
+			has_authority = auth_hive_mind
+		}
+	}
+
+	opinion = {
+		base = 30
+	}
+}

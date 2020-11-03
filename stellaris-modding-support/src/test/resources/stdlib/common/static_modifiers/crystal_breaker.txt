@@ -1,0 +1,3 @@
+crystal_breaker = {
+	damage_vs_country_type_crystal_mult = 0.2
+}

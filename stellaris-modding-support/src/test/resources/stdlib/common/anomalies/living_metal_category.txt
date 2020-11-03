@@ -1,0 +1,26 @@
+living_metal_category = {
+	desc = "living_metal_category_desc"
+	picture = GFX_evt_cold_barren
+	level = 7
+	
+	spawn_chance = {	
+		modifier = {
+			add = 0.1
+			OR = {
+				is_planet_class = pc_barren
+				is_planet_class = pc_barren_cold
+				is_asteroid = yes
+			}
+			has_any_strategic_resource = no
+		}
+		modifier = {
+			factor = 0
+			OR = { 
+				has_deposit_for = shipclass_mining_station
+				has_deposit_for = shipclass_research_station
+			}
+		}
+	}
+	
+	on_success = anomaly.2576
+}

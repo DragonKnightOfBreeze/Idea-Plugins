@@ -1,0 +1,3 @@
+shroud_neg_ethic = {
+	pop_government_ethic_attraction = -0.5
+}

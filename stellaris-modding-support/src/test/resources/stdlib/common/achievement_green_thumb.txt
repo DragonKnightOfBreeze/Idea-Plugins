@@ -1,0 +1,11 @@
+achievement_green_thumb = {
+	id = 100
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		has_country_flag = green_thumb_achievement
+	}
+}

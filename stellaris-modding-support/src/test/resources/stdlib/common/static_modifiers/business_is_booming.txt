@@ -1,0 +1,4 @@
+business_is_booming = {
+	trade_value_mult = 0.10
+	country_energy_produces_mult = 0.05
+}

@@ -1,0 +1,9 @@
+hazardous_weather = {
+	pop_environment_tolerance = -0.10
+	pop_happiness = -0.05
+	planet_jobs_energy_produces_mult = 0.20
+	district_generator_max = 4
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_hazardous_weather.dds"
+	icon_frame = 2
+}

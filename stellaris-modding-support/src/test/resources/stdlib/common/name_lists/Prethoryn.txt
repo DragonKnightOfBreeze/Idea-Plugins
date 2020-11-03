@@ -1,34 +1,35 @@
-﻿### Prethoryn Scourge
 Prethoryn = {
 	selectable = { always = no }
 	randomized = no
+	
+	language = "l_simp_chinese"
 	
 	### SHIPS
 
 	ship_names = {
 
 		generic = {
-			"Prethoryn Swarmer"
+			"虫群"
 		}
 	
 		small_ship_swarm = {
-			"Prethoryn Swarmling"
+			"虫族幼虫"
 		}
 		
 		large_ship_swarm = {
-			"Prethoryn Warrior"
+			"虫族战士"
 		}
 		
 		large_ship_carrier_swarm = {
-			"Prethoryn Brood Mother"
+			"虫后"
 		}
 		
 		queen_swarm = {
-			Xarkiz Mugask "Dark One" Sikilo Saggraz Zazas Dimasos Zugal Terreak Xabil Xukaz Xukanna Zakul Sugassa Simirk Xeldak Zazuk "Golden One" "Angry One"
+			克鲁巴 扎克斯 米布克斯 马提克斯 加尔 佐克斯 雷克姆 拉鲁科斯 鲁克斯 里扎科斯 拉鲁布 拉奇柯斯 玛帕克斯 格帕克斯 奥克扎
 		}
 		
 		colony_ship_swarm = {
-			"Prethoryn Infestor"
+			"虫族潜伏者"
 		}
 		
 		mining_station = { }
@@ -41,7 +42,7 @@ Prethoryn = {
 	}
 
 	fleet_names = {
-		sequential_name = "%O% Star Brood"
+		sequential_name = "星际育种 %C%"
 	}
 
 	### CHARACTERS
@@ -49,19 +50,19 @@ Prethoryn = {
 	character_names = {
 		default = {
 			full_names = {
-				"Gestalt Pattern 'Hunter'" "Gestalt Pattern 'Stalker'" "Gestalt Pattern 'Devourer'" "Gestalt Pattern 'Slayer'" 
-				"Gestalt Pattern 'Destroyer'" "Gestalt Pattern 'Executioner'" "Gestalt Pattern 'Reaper'" "Gestalt Pattern 'Slaughterer'" 
-				"Gestalt Pattern 'Howler'" "Gestalt Pattern 'Prowler'" "Gestalt Pattern 'Killer'" "Gestalt Pattern 'Mauler'"
-				"Gestalt Pattern 'Seeker'" "Gestalt Pattern 'Butcher'" "Gestalt Pattern 'Corrupter'" "Gestalt Pattern 'Screamer'" 
-				"Gestalt Pattern 'Stinger'" "Gestalt Pattern 'Thresher'" "Gestalt Pattern 'Strider'" "Gestalt Pattern 'Singer'" 
-				"Gestalt Pattern 'Silencer'" "Gestalt Pattern 'Feeder'" "Gestalt Pattern 'Striker'" "Gestalt Pattern 'Smiter'"
-				"Gestalt Pattern 'Watcher'" "Gestalt Pattern 'Observer'" "Gestalt Pattern 'Chaser'" "Gestalt Pattern 'Vanquisher'" 
-				"Gestalt Pattern 'Crusher'" "Gestalt Pattern 'Eater'" "Gestalt Pattern 'Invader'" "Gestalt Pattern 'Interloper'" 
-				"Gestalt Pattern 'Intruder'" "Gestalt Pattern 'Trespasser'" "Gestalt Pattern 'Encroacher'" "Gestalt Pattern 'Ravager'" 
-				"Gestalt Pattern 'Gnawer'" "Gestalt Pattern 'Ruiner'" "Gestalt Pattern 'Wrecker'" "Gestalt Pattern 'Despoiler'" 
-				"Gestalt Pattern 'Pillager'" "Gestalt Pattern 'Tainter'" "Gestalt Pattern 'Depriver'" "Gestalt Pattern 'Reaver'" 
-				"Gestalt Pattern 'Berserker'" "Gestalt Pattern 'Punisher'" "Gestalt Pattern 'Scourer'" "Gestalt Pattern 'Cleanser'" 
-				"Gestalt Pattern 'Shatterer'" "Gestalt Pattern 'Tormenter'" "Gestalt Pattern 'Terrorizer'"
+				"格式塔模型 '狂战士'" "格式塔模型 '惩罚者'" "格式塔模型 '刷洗者'" "格式塔模型 '净化者'" 
+				"格式塔模型 '粉碎者'" "格式塔模型 '咽食者'" "格式塔模型 '渗透者'" "格式塔模型 '闯入者'" 
+				"格式塔模型 '毁灭者'" "格式塔模型 '行刑者'" "格式塔模型 '收割者'" "格式塔模型 '索取者'" 
+				"格式塔模型 '咬噬者'" "格式塔模型 '摧毁者'" "格式塔模型 '破坏者'" "格式塔模型 '掠夺者'" 
+				"格式塔模型 '咆哮者'" "格式塔模型 '潜行者'" "格式塔模型 '基拉'" "格式塔模型 '拳击手'"
+				"格式塔模型 '猎手'" "格式塔模型 '追踪者'" "格式塔模型 '吞噬者'" "格式塔模型 '送行者'" 
+				"格式塔模型 '攻入者'" "格式塔模型 '侵害者'" "格式塔模型 '来袭者'" "格式塔模型 '劫掠者'" 
+				"格式塔模型 '抢掠者'" "格式塔模型 '污染者'" "格式塔模型 '剥夺者'" "格式塔模型 '窃掠者'" 
+				"格式塔模型 '搜寻者'" "格式塔模型 '伤害者'" "格式塔模型 '腐蚀者'" "格式塔模型 '尖叫者'" 
+				"格式塔模型 '破碎者'" "格式塔模型 '拷问者'" "格式塔模型 '恐吓者'"
+				"格式塔模型 '沉默者'" "格式塔模型 '喂食者'" "格式塔模型 '打击者'" "格式塔模型 '重创者'"
+				"格式塔模型 '针刺者'" "格式塔模型 '翻滚者'" "格式塔模型 '迈进者'" "格式塔模型 '歌唱者'" 
+				"格式塔模型 '守望者'" "格式塔模型 '观察者'" "格式塔模型 '追逐者'" "格式塔模型 '征服者'"
 			}
 			
 		}

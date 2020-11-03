@@ -1,0 +1,19 @@
+space_whale_2 = {
+	graphical_culture = no
+	is_space_object = yes
+	max_speed = @speed_very_slow
+	rotation_speed = 0.02
+	acceleration = 0.6
+	modifier = {
+		ship_evasion_add = 8
+		ship_armor_add = 2000
+	}
+	max_hitpoints = 4000
+	size_multiplier = 4
+	fleet_slot_size = 4
+	section_slots = { "mid" = { locator = "part1" } }
+	num_target_locators = 0
+	icon_frame = 12
+	class = shipclass_military
+	is_designable = no
+}

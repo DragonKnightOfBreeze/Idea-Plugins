@@ -1,0 +1,3 @@
+yuht_cryo_core = {
+	ships_upkeep_mult = -0.2
+}

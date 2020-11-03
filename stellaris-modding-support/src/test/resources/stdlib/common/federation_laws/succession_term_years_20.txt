@@ -1,0 +1,95 @@
+succession_term_years_20 = {
+	potential = { always = yes }
+	allow = {
+		custom_tooltip = {
+			NOT = {
+				AND = {
+					NOT = { has_federation_law = succession_term_years_20 }
+					has_modifier = federation_law_category_succession_term_cooldown
+					has_any_federation_law_in_category = law_category_succession_term
+				}
+			}
+		}
+		custom_tooltip = {
+			fail_text = cannot_change_succession_term_during_war
+			NAND = {
+				NOT = { has_federation_law = succession_term_years_20 }
+				any_member = { is_at_war = yes }
+				has_any_federation_law_in_category = law_category_succession_term
+			}
+		}
+	}
+	on_enact = {
+		set_federation_succession_term = years_20
+		if = {
+			limit = { has_federation_flag = enable_federation_cooldowns }
+			add_modifier = {
+				modifier = federation_law_category_succession_term_cooldown
+				days = @cooldown
+			}
+		}
+	}
+
+	ai_weight = {
+		base = 0
+				
+		#Default support
+		modifier = {
+			desc = federation_acceptance_generally_positive
+			add = 41
+		}
+		
+		#Behaviour-specific
+		modifier = {
+			desc = federation_acceptance_president
+			add = -100
+			is_federation_leader = yes
+			federation = {
+				has_federation_law = succession_term_status_change
+				has_federation_law = succession_type_strongest
+			}
+		}
+		
+		#Attempt to change from status change when cohesion is low
+		modifier = {
+			desc = federation_acceptance_term_limit
+			add = 25
+			is_federation_leader = no
+			federation = {			
+				federation_cohesion < 0
+				has_federation_law = succession_type_strongest
+				has_federation_law = succession_term_status_change
+			}
+		}
+		modifier = {
+			desc = federation_acceptance_term_limit
+			add = 25
+			is_federation_leader = no
+			federation = {			
+				federation_cohesion < -25
+				has_federation_law = succession_type_strongest
+				has_federation_law = succession_term_status_change
+			}
+		}
+		modifier = {
+			desc = federation_acceptance_term_limit
+			add = 25
+			is_federation_leader = no
+			federation = {			
+				federation_cohesion < -50
+				has_federation_law = succession_type_strongest
+				has_federation_law = succession_term_status_change
+			}
+		}
+		modifier = {
+			desc = federation_acceptance_term_limit
+			add = 25
+			is_federation_leader = no
+			federation = {			
+				federation_cohesion < -75
+				has_federation_law = succession_type_strongest
+				has_federation_law = succession_term_status_change
+			}
+		}
+	}
+}

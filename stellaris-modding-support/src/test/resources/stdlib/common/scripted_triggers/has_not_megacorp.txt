@@ -1,0 +1,3 @@
+has_not_megacorp = {
+	NOT = { host_has_dlc = "Megacorp" }
+}

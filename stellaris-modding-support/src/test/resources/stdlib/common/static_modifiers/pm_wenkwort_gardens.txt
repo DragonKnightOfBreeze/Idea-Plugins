@@ -1,0 +1,7 @@
+pm_wenkwort_gardens = {
+    icon = "gfx/interface/icons/planet_modifiers/pm_natural_beauty.dds"
+    icon_frame = 2
+    # pop_happiness = 0.06 #Can stack with 'Natural Beauty'
+    planet_artisans_produces_mult = 0.06
+    # planet_entertainers_produces_mult = 0.03 #Does this exist?
+}

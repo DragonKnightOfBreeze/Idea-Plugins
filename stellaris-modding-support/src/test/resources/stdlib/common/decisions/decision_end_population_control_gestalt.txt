@@ -1,0 +1,25 @@
+decision_end_population_control_gestalt = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = decision_politics
+
+	resources = {
+		category = decisions
+	}
+
+	potential = {
+		has_modifier = planet_population_control_gestalt
+	}
+
+	effect = {
+		remove_modifier = "planet_population_control_gestalt"
+	}
+
+	ai_weight = {
+		weight = 20
+		modifier = { # don't end if less than 1 housing
+			factor = 0
+			free_housing < 1
+		}
+	}
+}

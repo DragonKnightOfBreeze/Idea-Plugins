@@ -1,0 +1,172 @@
+hauer_system_initializer = {
+	name = "NAME_Hauer"
+	
+	class = "sc_g"
+	
+	usage = misc_system_init 
+	usage_odds = 1
+	max_instances = 1
+
+	###  1
+	planet = {
+		name = "NAME_Aureyon"
+		class = "pc_g_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		has_ring = no
+	}
+	
+	###  2
+	planet = {
+		name = "NAME_Stykkia"
+		class = random
+		orbit_distance = 40
+		orbit_angle = -115
+		has_ring = no
+	}
+	
+	###  3
+	planet = {
+		name = "NAME_Baage"
+		class = random
+		orbit_distance = 25
+		orbit_angle = -20
+		has_ring = no
+	}
+	
+	###  4	Tannhäuser Gate
+	planet = {
+		name = "NAME_Piyhl"
+		class = random
+		orbit_distance = 32
+		orbit_angle = -10
+		has_ring = no
+
+		init_effect = {
+			create_drone_country = yes
+			create_ambient_object = {
+				type = "tannhauser_gate_object"
+				entity_offset = { min = 0 max = 20}
+				entity_offset_height = { min = -0 max = -20 }
+				location = this
+			}
+			last_created_ambient_object = {
+				save_event_target_as = tannhauser_gate
+				set_location = {
+					target = prev
+					distance = 15
+					angle = random
+				}
+			}
+			create_fleet = {
+				name = "NAME_Ancient_Mining_Drones"
+				effect = {
+					set_owner = event_target:drone_country
+					while = {
+						count = 3
+						create_ship = {
+							name = "NAME_Mining_Drone_C_Class"
+							design = "NAME_Ancient_Mining_Drone"
+						}
+					}
+					set_location = {
+						target = event_target:tannhauser_gate
+						distance = 5
+						angle = random
+					}
+					set_fleet_stance = aggressive
+					set_aggro_range_measure_from = return_point
+					set_aggro_range = 15
+				}
+			}
+		}
+	}
+	
+	###  5	Attack Ships
+	planet = {
+		name = "NAME_Straeng"
+		class = random
+		orbit_distance = 33
+		orbit_angle = -160
+		has_ring = no
+
+		init_effect = {
+			create_ambient_object = {
+				type = "attack_ship_01_object"
+				entity_offset = { min = 0 max = 20}
+				entity_offset_height = { min = -0 max = -20 }
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 20
+					angle = random
+				}
+			}
+		}
+	}
+	
+	###  6
+	planet = {
+		name = "NAME_Bhete"
+		class = random
+		orbit_distance = 78
+		orbit_angle = 62
+		has_ring = no
+
+		moon = {
+			count = { min = 0 max = 2 }
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = @base_moon_distance
+		}
+	}
+	
+	###  7
+	planet = {
+		name = "NAME_Floe"
+		class = random
+		orbit_distance = 6
+		orbit_angle = -39
+		has_ring = no
+	}
+	
+	###  8
+	planet = {
+		name = "NAME_Snaara"
+		class = random
+		orbit_distance = 42
+		orbit_angle = 197
+		has_ring = no
+
+		change_orbit = @base_moon_distance
+		
+		moon = {
+			count = { min = 0 max = 1 }
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = @base_moon_distance
+		}
+	}
+
+	###  9	Archaeological Site
+	planet = {
+		name = "NAME_Spjuuht"  
+		class = random
+		orbit_distance = 20
+		orbit_angle = -160
+		has_ring = no
+
+		init_effect = {
+			create_archaeological_site = site_lost_moments
+		}
+	}
+	
+	###  10
+	planet = {
+		name = "NAME_Baelte"
+		class = random
+		orbit_distance = 9
+		orbit_angle = 115
+		has_ring = no
+	}
+}

@@ -1,0 +1,3 @@
+elderly_tiyanki_power = {
+	ship_weapon_damage = 1
+}

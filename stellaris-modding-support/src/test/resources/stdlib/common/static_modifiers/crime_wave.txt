@@ -1,0 +1,5 @@
+crime_wave = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_crime.dds"
+	icon_frame = 3
+	planet_crime_add = 30
+}

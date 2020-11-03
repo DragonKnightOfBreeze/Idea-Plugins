@@ -1,0 +1,54 @@
+gateway_restored = {
+	entity = "reactivated_gateway_entity"
+	construction_entity = "gateway_portal_entity"
+	portrait = "GFX_megastructure_construction_background"
+	place_entity_on_planet_plane = no
+	# build_outside_gravity_well = yes
+	show_galactic_map_icon = no
+	
+	potential = {
+		has_technology = tech_gateway_activation
+	}
+	
+	possible = {
+		custom_tooltip = {
+			fail_text = "requires_technology_gateway_activation"
+			from = { has_technology = tech_gateway_activation }
+		}
+	}
+	upgrade_from = {
+		gateway_ruined
+	}
+	build_time = 720
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 2500
+			energy = 6000
+		}
+	}
+	construction_blocks_others = no
+	construction_blocked_by_others = no
+
+	bypass_type = gateway
+	on_build_complete = {
+		activate_gateway = fromfrom
+		if = {
+			limit = { num_active_gateways = 1 }
+			random_megastructure = {
+				limit = { is_megastructure_type = gateway_ruined }
+				if = {
+					limit = { exists = solar_system.starbase }
+					solar_system.starbase.owner = { set_country_flag = did_not_repair_gateway }
+				}
+				upgrade_megastructure_to = gateway_restored
+				finish_upgrade = yes
+			}
+		}
+		from = {
+			country_event = { id = apoc.12 }
+			country_event = { id = apoc.10 }
+			country_event = { id = origin.1050 }
+		}
+	}
+}

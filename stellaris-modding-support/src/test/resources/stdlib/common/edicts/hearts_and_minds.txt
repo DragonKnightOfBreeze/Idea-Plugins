@@ -1,0 +1,23 @@
+hearts_and_minds = {
+	length = @ambitionDuration
+	icon = "GFX_edict_type_time"
+
+	is_ambition = yes 		# Costs Unity scaled to tradition cost
+	resources = {
+		category = edicts
+	}
+
+	modifier = {
+		pop_government_ethic_attraction = 1.00
+		pop_ethics_shift_speed_mult = 1.00
+	}
+
+	potential = {
+		has_technology = tech_ascension_theory
+		NOT = { has_ethic = ethic_gestalt_consciousness }
+	}
+
+	ai_weight = {
+		weight = 0
+	}
+}

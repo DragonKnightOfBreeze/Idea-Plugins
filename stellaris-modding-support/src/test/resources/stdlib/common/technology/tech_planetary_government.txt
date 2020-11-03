@@ -1,0 +1,9 @@
+tech_planetary_government = {
+	cost = 0
+	area = society
+	tier = 0
+	category = { statecraft }
+	start_tech = yes
+
+	# unlocks Planetary Outpost
+}

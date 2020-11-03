@@ -1,0 +1,5 @@
+resolution_industry_regulatory_facilitation = {
+	diplo_weight_economy_mult = 0.2
+	planet_jobs_worker_produces_mult = 0.025
+	pop_environment_tolerance = -0.02
+}

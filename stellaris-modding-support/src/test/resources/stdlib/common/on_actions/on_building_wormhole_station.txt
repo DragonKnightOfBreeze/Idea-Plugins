@@ -1,0 +1,4 @@
+on_building_wormhole_station = {
+	events = {
+	}
+}

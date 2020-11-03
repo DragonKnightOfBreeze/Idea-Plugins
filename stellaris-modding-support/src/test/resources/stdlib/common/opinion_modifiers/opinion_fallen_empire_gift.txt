@@ -1,0 +1,11 @@
+opinion_fallen_empire_gift = {
+	opinion = {
+		base = 50
+	}
+
+	max = 50
+
+	decay = {
+		base = 2
+	}
+}

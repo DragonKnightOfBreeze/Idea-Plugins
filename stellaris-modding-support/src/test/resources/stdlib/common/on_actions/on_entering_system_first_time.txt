@@ -1,0 +1,32 @@
+on_entering_system_first_time = {
+	events = {
+		graygoo.160
+		graygoo.550
+		federations2.20
+		galactic_features.2
+		galactic_features.350
+		leviathans.3000
+		leviathans.3100
+		leviathans.3202
+		leviathans.2105
+		utopia.2010
+		utopia.2012
+		utopia.2014
+		utopia.2016
+		precursor.2101
+		precursor.2102
+		apoc.1
+		apoc.3
+		apoc.5
+		mega.9100
+		mega.9110
+		mega.9120
+		mega.9130
+		feda.5
+		galactic_features.500
+	}
+	random_events = {
+		200 = 0
+		10 = leader.19
+	}
+}

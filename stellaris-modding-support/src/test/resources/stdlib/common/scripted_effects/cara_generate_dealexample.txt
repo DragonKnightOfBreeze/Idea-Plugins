@@ -1,0 +1,86 @@
+cara_generate_dealexample = {
+	if = {
+		# repeat existing price for 1 year, otherwise refresh flag
+		limit = {
+			NOR = {
+				has_country_flag = fleet1dealcost1 # 2000 energy
+				has_country_flag = fleet1dealcost2
+				has_country_flag = fleet1dealcost3
+				has_country_flag = fleet1dealcost4
+				has_country_flag = fleet1dealcost5
+				has_country_flag = fleet1dealcost6
+			}
+		}
+		random_list = {
+			1 = { set_timed_country_flag = { flag = fleet1dealcost1 days = @fleet1dealdecay } }
+			1 = { set_timed_country_flag = { flag = fleet1dealcost2 days = @fleet1dealdecay } }
+			1 = { set_timed_country_flag = { flag = fleet1dealcost3 days = @fleet1dealdecay } }
+			1 = { set_timed_country_flag = { flag = fleet1dealcost4 days = @fleet1dealdecay } }
+			1 = { set_timed_country_flag = { flag = fleet1dealcost5 days = @fleet1dealdecay } }
+			1 = { set_timed_country_flag = { flag = fleet1dealcost6 days = @fleet1dealdecay } }
+		}
+	}
+	# PRODUCT
+	if = {
+		# repeat existing product for 1 year, otherwise refresh flag
+		limit = {
+			NOR = {
+				has_country_flag = fleet1dealproduct1 # Slave pop
+				has_country_flag = fleet1dealproduct2 # Destroyer (own design)
+				has_country_flag = fleet1dealproduct3
+				has_country_flag = fleet1dealproduct4
+				has_country_flag = fleet1dealproduct5
+				has_country_flag = fleet1dealproduct6
+			}
+		}
+
+		random_list = {
+
+			# Slave Pop
+			1 = {
+				modifier = {
+					factor = 0
+					allows_slavery = no
+				}
+				set_timed_country_flag = { flag = fleet1dealproduct1 days = @fleet1dealdecay }
+			}
+
+			# Destroyer (own design)
+			1 = { 
+				modifier = {
+					factor = 0
+					NOT = { has_technology = tech_destroyers }
+				}
+				create_fleet = {
+					effect = {
+						set_owner = root
+						create_ship = {
+							name = random
+							random_existing_design = destroyer
+						}
+						if = {
+							limit = { exists = event_target:caravaneer_fleet1_fleet.solar_system }
+							set_location = event_target:caravaneer_fleet1_fleet.solar_system.star
+						}
+						else = {
+							set_location = root.capital_scope
+						}
+					}
+				}
+				set_timed_country_flag = { flag = fleet1dealproduct2 days = @fleet1dealdecay }
+			}
+			1 = {
+				set_timed_country_flag = { flag = fleet1dealproduct3 days = @fleet1dealdecay }
+			}
+			1 = {
+				set_timed_country_flag = { flag = fleet1dealproduct4 days = @fleet1dealdecay }
+			}
+			1 = {
+				set_timed_country_flag = { flag = fleet1dealproduct5 days = @fleet1dealdecay }
+			}
+			1 = {
+				set_timed_country_flag = { flag = fleet1dealproduct6 days = @fleet1dealdecay }
+			}
+		}
+	}
+}

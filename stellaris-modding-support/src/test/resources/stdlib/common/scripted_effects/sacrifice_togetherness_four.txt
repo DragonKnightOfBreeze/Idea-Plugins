@@ -1,0 +1,43 @@
+sacrifice_togetherness_four = {
+	if = { #Charismatic ruler boosts edict duration
+		limit = {
+			exists = ruler
+			ruler = { has_trait = trait_ruler_charismatic }
+			NOT = { is_active_resolution = "resolution_rulesofwar_demobilization_initiative" }
+		}
+		add_modifier = {
+			modifier = "sacrifice_togetherness_4"
+			days = 2160
+		}
+	}
+	else_if = { #Rules of War 5 boosts edict duration
+		limit = {
+			NAND = {
+				exists = ruler
+				ruler = { has_trait = trait_ruler_charismatic }
+			}
+			is_active_resolution = "resolution_rulesofwar_demobilization_initiative"
+		}
+		add_modifier = {
+			modifier = "sacrifice_togetherness_4"
+			days = 2160
+		}
+	}
+	else_if = { #Both edict boosts are active
+		limit = {
+			exists = ruler
+			ruler = { has_trait = trait_ruler_charismatic }
+			is_active_resolution = "resolution_rulesofwar_demobilization_initiative"
+		}
+		add_modifier = {
+			modifier = "sacrifice_togetherness_4"
+			days = 2520
+		}
+	}
+	else = { #Standard edict-accompanying modifier
+		add_modifier = {
+			modifier = "sacrifice_togetherness_4"
+			days = 1800
+		}
+	}
+}

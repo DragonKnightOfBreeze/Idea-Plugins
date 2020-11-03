@@ -1,0 +1,13 @@
+living_metal_expenditure_edicts = {
+	resource = sr_living_metal 
+	type = expenditure
+	category = edicts
+	
+	potential = {
+		always = yes
+	}
+	
+	fraction = {
+		base = 0.5
+	}
+}

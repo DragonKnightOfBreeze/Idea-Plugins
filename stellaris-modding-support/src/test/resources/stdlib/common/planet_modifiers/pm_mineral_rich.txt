@@ -1,0 +1,75 @@
+pm_mineral_rich = {
+	spawn_chance = {
+		modifier = {
+			add = 10
+			is_planet_class = "pc_desert"
+		}
+		modifier = {
+			add = 10
+			is_planet_class = "pc_tropical"
+		}
+		modifier = {
+			add = 10
+			is_planet_class = "pc_arid"
+		}
+		modifier = {
+			add = 10
+			is_planet_class = "pc_continental"
+		}
+		modifier = {
+			add = 10
+			is_planet_class = "pc_ocean"
+		}
+		modifier = {
+			add = 10
+			is_planet_class = "pc_tundra"
+		}
+		modifier = {
+			add = 10
+			is_planet_class = "pc_arctic"
+		}
+		modifier = {
+			add = 10
+			is_planet_class = "pc_alpine"
+		}
+		modifier = {
+			add = 10
+			is_planet_class = "pc_savannah"
+		}				
+		modifier = {
+			add = 10
+			is_planet_class = "pc_gaia"
+		}				
+		modifier = {
+			add = 5
+			is_planet_class = "pc_relic"
+		}
+		modifier = {
+			add = 1
+			is_planet_class = "pc_nuked"
+		}
+		modifier = {
+			factor = 4
+			has_planet_modifier = "pm_high_gravity"
+		}
+		modifier = {
+			factor = 0
+			has_planet_modifier = "pm_mineral_rich"
+		}
+		modifier = {
+			factor = 0
+			has_planet_modifier = "pm_mineral_poor"
+		}
+		modifier = {
+			factor = 0
+			has_planet_modifier = "pm_ultra_rich"
+		}
+
+		modifier = {
+			factor = 0
+			num_modifiers > 1
+		}
+	}
+	
+	modifier = "mineral_rich"
+}

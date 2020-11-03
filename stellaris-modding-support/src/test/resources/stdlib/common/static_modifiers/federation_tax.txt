@@ -1,0 +1,3 @@
+federation_tax = {
+	country_energy_produces_mult = -0.15
+}

@@ -1,0 +1,3 @@
+hegemony_propaganda_spiritualist = {
+	pop_ethic_spiritualist_attraction_mult = 0.35
+}

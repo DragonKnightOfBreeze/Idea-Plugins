@@ -1,0 +1,22 @@
+incr_engineeringdepo1_var = {
+	root.owner = {
+		if = {
+			limit = {
+				check_variable = {
+					which = aianom_engineering_depo1
+					value < 1
+				}
+			}
+			set_variable = {
+				which = aianom_engineering_depo1
+				value = 1
+			}
+		}
+		else = {
+			change_variable = {
+				which = aianom_engineering_depo1
+				value = 1
+			}
+		}
+	}
+}

@@ -1,0 +1,4 @@
+on_army_recruited = {
+	events = {
+	}
+}

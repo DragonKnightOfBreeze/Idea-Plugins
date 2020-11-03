@@ -1,0 +1,10 @@
+has_comms_with_alien_empire = {
+	any_relation = {
+		has_communications = root
+		OR = {
+			is_country_type = default
+			is_country_type = fallen_empire
+			is_country_type = awakened_fallen_empire
+		}
+	}
+}

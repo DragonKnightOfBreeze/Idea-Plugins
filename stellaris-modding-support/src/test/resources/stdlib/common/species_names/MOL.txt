@@ -1,0 +1,244 @@
+MOL = {
+	djomar = {
+		language = "l_simp_chinese"
+		name = 卓玛尔
+		plural = 卓玛尔
+		home_planet = "卓·费马丽"
+		home_system = 赛马卓
+		name_list = "MOL3"
+	}
+	
+	mathin = {
+		language = "l_simp_chinese"
+		name = 马西
+		plural = 马西
+		home_planet = "马西尼主星"
+		home_system = 马西尼斯
+		name_list = "MOL3"
+	}
+	
+	malwegoll = {
+		language = "l_simp_chinese"
+		name = 马尔维戈
+		plural = 马尔维戈
+		home_planet = 维格拉
+		home_system = "维格拉·乌塔"
+		name_list = "MOL3"
+	}
+	
+	alvothari = {
+		language = "l_simp_chinese"
+		name = 艾尔沃萨里
+		plural = 艾尔沃萨里
+		home_planet = 艾尔沃
+		home_system = 索锐
+		name_list = "MOL3"
+	}
+	
+	hathgum = {
+		language = "l_simp_chinese"
+		name = 哈希古玛
+		plural = 哈希古玛
+		home_planet = 哈希古姆a
+		home_system = 古玛
+		name_list = "MOL3"
+	}
+	
+	uri = {
+		language = "l_simp_chinese"
+		name = 乌瑞
+		plural = 乌瑞托尼恩
+		home_planet = "乌尔·伊德拉"
+		home_system = "乌尔·伊萨"
+		name_list = "MOL3"
+	}
+	
+	havoll = {
+		language = "l_simp_chinese"
+		name = 哈沃拉
+		plural = 哈沃拉
+		home_planet = 哈沃
+		home_system = "哈沃拉·盖斯"
+		name_list = "MOL3"
+	}
+	
+	ymacera = {
+		language = "l_simp_chinese"
+		name = 伊玛克拉
+		plural = 伊玛克拉
+		home_planet = 伊玛卡
+		home_system = 塞拉坎
+		name_list = "MOL3"
+	}
+	
+	jogollwa = {
+		language = "l_simp_chinese"
+		name = 约哥瓦
+		plural = 约哥瓦
+		home_planet = 欧格
+		home_system = 瓦恩约格
+		name_list = "MOL3"
+	}
+	
+	usanace = {
+		language = "l_simp_chinese"
+		name = 乌萨纳斯
+		plural = 乌萨纳坎
+		home_planet = 萨那坎
+		home_system = "乌-萨那-伊特卡尔"
+		name_list = "MOL3"
+	}
+	
+	havarigga = {
+		language = "l_simp_chinese"
+		name = 哈瓦力加
+		plural = 哈瓦力加
+		home_planet = 利佳
+		home_system = "哈瓦力"
+		name_list = "MOL3"
+	}
+	
+	slerpanor = {
+		language = "l_simp_chinese"
+		name = 斯勒帕诺
+		plural = 斯勒帕诺
+		home_planet = "乐潘·索"
+		home_system = 斯勒帕琴
+		name_list = "MOL3"
+	}
+	
+	fellnoll = {
+		language = "l_simp_chinese"
+		name = 菲尔诺
+		plural = 菲尔诺兰
+		home_planet = 菲尔诺
+		home_system = "摩特·菲力诺"
+		name_list = "MOL3"
+	}
+	
+	sirgogg = {
+		language = "l_simp_chinese"
+		name = 希尔戈
+		plural = 希尔戈
+		home_planet = 瓦斯格格
+		home_system = 瓦特吉衮
+		name_list = "MOL3"
+	}
+	
+	obadin = {
+		language = "l_simp_chinese"
+		name = 奥巴丁
+		plural = 奥巴丁
+		home_planet = 奥巴丁
+		home_system = "欧达卡"
+		name_list = "MOL3"
+	}
+	
+	yalon = {
+		language = "l_simp_chinese"
+		name = 耶尔龙
+		plural = 耶尔龙
+		home_planet = 耶尔
+		home_system = "皮克纳·耶尔"
+		name_list = "MOL3"
+	}
+	
+	dyss = {
+		language = "l_simp_chinese"
+		name = 戴斯
+		plural = 戴萨尼
+		home_planet = 赛尔
+		home_system = 迪斯赛尔
+		name_list = "MOL3"
+	}
+	
+	gwesibor = {
+		language = "l_simp_chinese"
+		name = 温斯博尔
+		plural = 温斯博尔兰
+		home_planet = 温斯博尔兰
+		home_system = 哈奇波利
+		name_list = "MOL3"
+	}
+	
+	andigonj = {
+		language = "l_simp_chinese"
+		name = 安迪贡
+		plural = 安迪贡
+		home_planet = 贡吉
+		home_system = 安欧恩
+		name_list = "MOL3"
+	}
+	
+	grollferp = {
+		language = "l_simp_chinese"
+		name = 格洛拉费普
+		plural = 格洛拉费普
+		home_planet = 格洛拉 
+		home_system = 珈蓝费普
+		name_list = "MOL3"
+	}
+	
+	sondrithan = {
+		language = "l_simp_chinese"
+		name = 松德里萨恩
+		plural = 松德里萨恩
+		home_planet = 松德里萨
+		home_system = 阿巴卡努斯松德里
+		name_list = "MOL3"
+	}
+	
+	hjannarthi = {
+		language = "l_simp_chinese"
+		name = 夏纳尔希
+		plural = 夏纳尔希
+		home_planet = 阿卡玛拉坎
+		home_system = 阿卡玛布克
+		name_list = "MOL3"
+	}
+	
+	domanna = {
+		language = "l_simp_chinese"
+		name = 多玛纳
+		plural = 多玛楠
+		home_planet = 多玛尼卡
+		home_system = 佩托尔普
+		name_list = "MOL3"
+	}
+	
+	wacegi = {
+		language = "l_simp_chinese"
+		name = 瓦斯吉
+		plural = 瓦斯吉
+		home_planet = 瓦斯格
+		home_system = "瓦斯格·伊福特拉"
+		name_list = "MOL3"
+	}
+	
+	norillga = {
+		language = "l_simp_chinese"
+		name = 诺力佳
+		plural = 诺力佳
+		home_planet = 纳维利尔
+		home_system = 内维德拉尔
+		name_list = "MOL3"
+	}
+	
+	laginchuuz = {
+		language = "l_simp_chinese"
+		name = 拉金秋茨
+		plural = 拉金秋茨
+		home_planet = 拉金秋
+		home_system = 洛格拉夏纳
+		name_list = "MOL3"
+	}
+	
+	moijhuxgan = {
+		language = "l_simp_chinese"
+		name = 魔杰胡克甘
+		plural = 魔杰胡克甘
+		home_planet = 马奇
+		home_system = 胡克甘尼佳
+		name_list = "MOL3"
+	}
+}

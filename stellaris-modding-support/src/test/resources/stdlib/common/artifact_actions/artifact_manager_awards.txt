@@ -1,0 +1,21 @@
+artifact_manager_awards = {
+	resources = {
+		category = artifact_actions
+		cost = {
+			minor_artifacts = @minor_artifact_decision_cost
+		}
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+
+	potential = { is_megacorp = yes }
+	
+	allow = {
+		custom_tooltip = {
+			fail_text = "artifact_manager_awards_effect"
+			always = no
+		}
+	}
+}

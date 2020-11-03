@@ -1,0 +1,25 @@
+opinion_new_contact = {
+	opinion = {
+		base = -20
+	}
+
+	decay = {
+		base = 2
+
+		modifier = {
+			add = 1
+			OR = {
+				has_ethic = "ethic_xenophile"
+				has_ethic = "ethic_fanatic_xenophile"
+			}
+		}
+
+		modifier = {
+			add = -1
+			OR = {
+				has_ethic = "ethic_xenophobe"
+				has_ethic = "ethic_fanatic_xenophobe"
+			}
+		}
+	}
+}

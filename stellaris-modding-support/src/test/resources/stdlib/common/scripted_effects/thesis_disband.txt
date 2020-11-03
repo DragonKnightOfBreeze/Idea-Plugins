@@ -1,0 +1,15 @@
+thesis_disband = {
+	while = {
+		limit = {
+			any_owned_leader = {
+				has_leader_flag = thesis_team
+			}
+		}
+		random_owned_leader = {
+			limit = {
+				has_leader_flag = thesis_team
+			}
+			remove_leader_flag = thesis_team
+		}
+	}
+}

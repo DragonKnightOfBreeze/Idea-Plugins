@@ -1,0 +1,6 @@
+has_primitive_government = {
+	OR = {
+		has_government = gov_feudal_realms
+		has_government = gov_fragmented_nation_states
+	}
+}

@@ -1,0 +1,6 @@
+hive_warren_upkeep_affordable = {
+	has_monthly_income = {
+		resource = energy
+		value > 2
+	}
+}

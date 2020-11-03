@@ -1,0 +1,26 @@
+mandate_monthly_minerals = {
+	valid = {
+		exists = owner
+		owner = {
+			has_monthly_income = { resource = minerals value < 30 }
+		}
+	}
+	parameters = {}
+
+	on_term_started = {
+		owner = {
+			begin_event_chain = {
+				event_chain = "mandate_monthly_minerals_chain"
+				target = this
+			}
+		}
+	}
+
+	on_term_ended = {
+		owner = {
+			if = { limit = { is_ai = no } 	log = "mandate_monthly_minerals end_of_term fired for player" }
+			if = { limit = { is_ai = yes } 	log = "mandate_monthly_minerals end_of_term fired for AI" }
+			country_event = { id = mandate.171 }
+		}
+	}
+}

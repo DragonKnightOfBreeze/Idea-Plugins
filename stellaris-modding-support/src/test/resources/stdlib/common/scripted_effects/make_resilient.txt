@@ -1,0 +1,13 @@
+make_resilient = {
+	if = {
+		limit = { pop_has_trait = trait_resilient }
+		# nothing
+	}
+	else = {
+		# no opposites
+		modify_species = {
+			species = this
+			add_trait = trait_resilient
+		}
+	}
+}

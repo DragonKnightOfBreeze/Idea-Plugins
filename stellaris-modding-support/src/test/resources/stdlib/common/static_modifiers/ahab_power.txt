@@ -1,0 +1,5 @@
+ahab_power = {
+	ship_hull_mult = 4
+	ship_weapon_damage = 3
+	ship_fire_rate_mult = 0.2
+}

@@ -1,0 +1,19 @@
+energy_uninhabitable_category = {
+	desc = "energy_uninhabitable_category_desc"
+	picture = GFX_evt_ship_in_orbit_3
+	level = 2
+	
+	spawn_chance = {		
+		modifier = {
+			add = 3
+			uninhabitable_regular_planet = yes
+		}
+	}
+	
+	on_success = {
+		1 = anomaly.610
+		1 = anomaly.615
+		1 = anomaly.655
+		1 = distar.1040
+	}
+}

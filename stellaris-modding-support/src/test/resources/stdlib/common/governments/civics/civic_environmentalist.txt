@@ -1,0 +1,10 @@
+civic_environmentalist = {
+	potential = {
+		ethics = { NOT = { value = ethic_gestalt_consciousness } }
+		authority = { NOT = { value = auth_corporate } }
+	}
+	random_weight = { base = 5 }
+	modifier = {
+		planet_pops_consumer_goods_upkeep_mult = -0.10
+	}
+}

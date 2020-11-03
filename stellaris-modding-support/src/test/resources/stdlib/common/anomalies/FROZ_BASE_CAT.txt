@@ -1,0 +1,30 @@
+FROZ_BASE_CAT = {
+	desc = "FROZ_BASE_DESC"
+	picture = "GFX_evt_outpost"
+	level = 2
+	
+	spawn_chance = {
+		modifier = {
+			add = 3
+			is_planet_class = pc_frozen
+			FROM = {
+				owner = {
+					NOT = {
+						has_country_flag = FROZ_BASE_FLAG
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			from.owner = {
+				has_ethic = ethic_gestalt_consciousness
+			}
+		}
+	}
+	
+	on_success = {
+		1 = anomaly.170
+		1 = anomaly.175
+	}
+}

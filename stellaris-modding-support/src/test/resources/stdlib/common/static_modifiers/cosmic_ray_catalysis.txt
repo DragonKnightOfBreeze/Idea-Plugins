@@ -1,0 +1,3 @@
+cosmic_ray_catalysis = {
+	station_gatherers_energy_produces_mult = 0.1
+}

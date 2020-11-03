@@ -1,0 +1,3 @@
+pop_category_xeno_ward = {
+	parent = planet_pops
+}

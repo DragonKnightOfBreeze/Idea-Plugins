@@ -1,0 +1,4 @@
+worm_scales = {
+	all_technology_research_speed = 0.20
+	planet_stability_add = -5
+}

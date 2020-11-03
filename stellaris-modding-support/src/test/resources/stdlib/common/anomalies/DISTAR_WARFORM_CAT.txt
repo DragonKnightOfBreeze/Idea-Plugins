@@ -1,0 +1,21 @@
+DISTAR_WARFORM_CAT = {
+	desc = "DISTAR_WARFORM_CAT_DESC"
+	picture = "GFX_evt_toxic"
+	level = 5
+	
+	spawn_chance = {
+		modifier = {
+			add = 1
+			has_distar = yes
+			is_planet_class = "pc_toxic"
+		}
+	}
+
+	max_once_global = yes
+
+	on_success = {
+		1 = {
+			anomaly_event =	distar.155
+		}
+	}
+}

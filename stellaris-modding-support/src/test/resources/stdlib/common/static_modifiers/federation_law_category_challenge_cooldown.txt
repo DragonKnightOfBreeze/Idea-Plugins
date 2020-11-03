@@ -1,0 +1,3 @@
+federation_law_category_challenge_cooldown = {
+	icon = "gfx/interface/icons/modifiers/mod_relic_cooldown.dds"
+}

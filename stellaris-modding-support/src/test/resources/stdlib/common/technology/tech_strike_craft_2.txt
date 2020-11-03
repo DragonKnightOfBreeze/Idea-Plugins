@@ -1,0 +1,31 @@
+tech_strike_craft_2 = {
+	cost = @tier2cost3
+	area = engineering
+	tier = 2
+	ai_update_type = military
+	category = { voidcraft }
+	prerequisites = { "tech_strike_craft_1" }
+	weight = @tier2weight3
+
+	## unlock strike craft 2
+
+	weight_modifier = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_voidcraft"
+			}
+		}
+	}
+
+	ai_weight = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_voidcraft"
+			}
+		}
+	}
+}

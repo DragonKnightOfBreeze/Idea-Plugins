@@ -1,0 +1,18 @@
+sc_trinary_2 = { # Trinary System
+    class             = b_star
+    icon              = a_trinary_star
+    planet            = {
+                        key = pc_b_star
+                        class = b_star
+                    }
+    planet            = {
+                        key = pc_a_star
+                        class = a_star
+                    }
+    planet            = {
+                        key = pc_f_star
+                        class = f_star
+                    }
+    spawn_odds         = 30
+    num_planets     = { min = 4 max = 10 }
+}

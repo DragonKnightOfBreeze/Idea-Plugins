@@ -1,0 +1,85 @@
+guiTypes = {
+
+	containerWindowType = {
+		name = "sector_settings_view"
+		orientation = center
+		origo = center
+		moveable = yes
+		clipping = yes
+		size = { width = 370 height = 414 }
+
+		background = {
+			name = "fleet_view_ship_details_view_background"
+			spriteType = "GFX_tile_outliner_bg"
+		}
+
+		iconType = {
+			name = "hex_bg"
+			spriteType = "GFX_hex_bg"
+			position = { x = -10 y = -12 }
+			alwaysTransparent = yes
+			alwaystransparent = yes
+		}
+
+		iconType = {
+			name = "empire_header_line"
+			quadTextureSprite = "GFX_line"
+			position = { x = 6 y = 21 }
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "settings_label"
+			font = "malgun_goth_24"
+			text = "SECTOR_SETTINGS"
+			position = { x = 15 y = 5 }
+			fixedSize = yes
+			format = left
+			#text_color_code = "E"
+			alwaystransparent = yes
+		}
+
+		buttonType = {
+			name = "close"
+			quadTextureSprite = "GFX_close_square"
+			orientation = UPPER_RIGHT
+			position = { x = -45 y = 16 }
+			pdx_tooltip = "CLOSE_TITLE"
+			shortcut = "ESCAPE"
+			clicksound = "back_click"
+			actionShortcut = "cancel"
+		}
+
+		instantTextBoxType = {
+			name = "sector_focus_label"
+			font = "cg_16b"
+			text = "SECTOR_FOCUS_PREFERENCE"
+			position = { x = 15 y = 48 }
+			fixedSize = yes
+			format = left
+			text_color_code = "H"
+			alwaystransparent = yes
+		}
+
+		gridBoxType = {
+			name = "focuses"
+			slotSize = { width = 51 height = 51 }
+			position = { x = 10 y = 70 }
+			format = "UPPER_LEFT"
+		}
+	}
+
+	containerWindowType = {
+		name = "focus_entry"
+		size = { width = 30 height = 30 }
+
+		buttonType = {
+			name = "select"
+			quadTextureSprite = "GFX_sector_agricultural_focus"
+			position = { x= 0 y = 0  }
+			clicksound = "back_click"
+			clicksound = select_click
+		}
+	}
+
+}

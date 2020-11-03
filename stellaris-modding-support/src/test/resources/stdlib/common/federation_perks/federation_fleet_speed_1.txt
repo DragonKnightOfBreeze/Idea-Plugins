@@ -1,0 +1,6 @@
+federation_fleet_speed_1 = {
+	members_modifier = {
+		description = federation_fleet_speed_effect
+		ship_federation_territory_speed_mult = 0.10
+	}
+}

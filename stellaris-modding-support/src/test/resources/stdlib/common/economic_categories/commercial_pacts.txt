@@ -1,0 +1,3 @@
+commercial_pacts = {
+	parent = diplomacy
+}

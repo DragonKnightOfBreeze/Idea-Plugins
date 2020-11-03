@@ -1,0 +1,6 @@
+planetary_shield_generator_upkeep_affordable = {
+	has_monthly_income = {
+		resource = energy
+		value > 5
+	}
+}

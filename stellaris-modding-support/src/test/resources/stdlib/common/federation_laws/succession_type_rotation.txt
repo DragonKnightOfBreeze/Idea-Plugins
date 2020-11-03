@@ -1,0 +1,132 @@
+succession_type_rotation = {
+	potential = { always = yes }
+	allow = { 
+		custom_tooltip = {
+			NOT = {
+				AND = {
+					NOT = { has_federation_law = succession_type_rotation }
+					has_modifier = federation_law_category_succession_type_cooldown
+					has_any_federation_law_in_category = law_category_succession_type
+				}
+			}
+		}
+		custom_tooltip = {
+			fail_text = cannot_change_succession_type_during_war
+			NAND = {
+				NOT = { has_federation_law = succession_type_rotation }
+				any_member = { is_at_war = yes }
+				has_any_federation_law_in_category = law_category_succession_type
+			}
+		}
+	}
+	cohesion_growth = -0.50
+	on_enact = {
+		set_federation_succession_type = rotation
+		if = {
+			limit = { has_federation_law = succession_term_status_change }
+			if = {
+				limit = { has_modifier = federation_law_category_succession_term_cooldown }
+				remove_modifier = federation_law_category_succession_term_cooldown
+			}
+			set_federation_succession_term = years_40
+			if = {
+				limit = { has_federation_flag = enable_federation_cooldowns }
+				add_modifier = {
+					modifier = federation_law_category_succession_term_cooldown
+					days = @cooldown
+				}
+			}
+		}
+		if = {
+			limit = { has_federation_flag = enable_federation_cooldowns }
+			add_modifier = {
+				modifier = federation_law_category_succession_type_cooldown
+				days = @cooldown
+			}
+		}
+	}
+	
+	ai_weight = {
+		base = 0
+		
+		#Default support
+		modifier = {
+			desc = federation_acceptance_generally_positive
+			add = 26
+		}	
+		
+		#Attempt to change to rotating when there is bad cohesion
+		modifier = {
+			desc = federation_acceptance_rotating
+			add = 25
+			federation = {			
+				federation_cohesion < 0
+				has_federation_law = succession_type_strongest
+			}
+		}
+		modifier = {
+			desc = federation_acceptance_rotating
+			add = 25
+			federation = {			
+				federation_cohesion < -25
+				has_federation_law = succession_type_strongest
+			}
+		}
+		modifier = {
+			desc = federation_acceptance_rotating
+			add = 25
+			federation = {			
+				federation_cohesion < -50
+				has_federation_law = succession_type_strongest
+			}
+		}
+		modifier = {
+			desc = federation_acceptance_rotating
+			add = 25
+			federation = {			
+				federation_cohesion < -75
+				has_federation_law = succession_type_strongest
+			}
+		}
+		
+		#Behaviour-specific
+		modifier = {
+			desc = federation_acceptance_strong_president
+			add = -100
+			is_federation_leader = yes
+			federation = {
+				has_federation_law = succession_type_strongest
+			}
+		}
+		modifier = {
+			desc = federation_acceptance_migrating_flock
+			add = 25
+			has_ai_personality = migrating_flock
+		}
+		modifier = {
+			desc = federation_acceptance_democratic_crusaders
+			add = 25
+			has_ai_personality = democratic_crusaders
+		}
+		modifier = {
+			desc = federation_acceptance_xenophobic_isolationists
+			add = 50
+			has_ai_personality = xenophobic_isolationists
+		}
+		modifier = {
+			desc = federation_acceptance_hive_mind
+			add = 50
+			has_ai_personality = hive_mind
+		}
+		modifier = {
+			desc = federation_acceptance_machine_intelligence
+			add = 50
+			has_ai_personality = machine_intelligence
+		}
+		modifier = {
+			desc = federation_acceptance_servitors
+			add = 50
+			has_ai_personality = servitors
+		}
+	}
+}

@@ -1,0 +1,5 @@
+on_pop_added = {
+	events = {
+		origin.1
+	}
+}

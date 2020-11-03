@@ -1,0 +1,5 @@
+opinion_machine_uprising = {
+	opinion = {
+		base = -1000
+	}
+}

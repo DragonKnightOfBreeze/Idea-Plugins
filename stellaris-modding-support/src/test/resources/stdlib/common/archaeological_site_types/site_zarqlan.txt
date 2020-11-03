@@ -1,0 +1,61 @@
+site_zarqlan = {
+	desc = "site_zarqlan_intro"
+	picture = GFX_evt_excavation_team
+	stages = 6
+	weight = {
+		base = 0
+	}
+	allow = {
+		exists = leader
+		leader = { leader_class = scientist }
+	}
+	visible = {
+		default_site_visible_trigger = yes
+	}
+
+	on_visible = {
+		country_event = { id = story.5 days = 30 }
+	}
+
+	stage = {
+		difficulty = 3
+		icon = GFX_archaeology_runes_C1
+		event = ancrel.6100
+	}
+
+	stage = {
+		difficulty = 4
+		icon = GFX_archaeology_runes_C2
+		event = ancrel.6105
+	}
+
+	stage = {
+		difficulty = 5
+		icon = GFX_archaeology_runes_C3
+		event = ancrel.6110
+	}
+
+	stage = {
+		difficulty = 6
+		icon = GFX_archaeology_runes_C4
+		event = ancrel.6115
+	}
+
+	stage = {
+		difficulty = 7
+		icon = GFX_archaeology_runes_C5
+		event = ancrel.6120
+	}
+
+	stage = {
+		difficulty = 8
+		icon = GFX_archaeology_runes_C6
+		event = ancrel.6125
+	}
+
+	on_roll_failed = {
+		from = {
+			standard_archaeological_site_on_roll_failed = { RANDOM_EVENTS = all_random_events }
+		}
+	}
+}

@@ -1,0 +1,14 @@
+opinion_dc_vs_autocracy = {
+	opinion = {
+		modifier = {
+			add = -100
+			has_ai_personality = democratic_crusaders	
+			FROM = { 
+				OR = {
+					has_authority = auth_imperial
+					has_authority = auth_dictatorial
+				}
+			}
+		}
+	}
+}

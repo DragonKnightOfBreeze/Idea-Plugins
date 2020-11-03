@@ -1,0 +1,39 @@
+primitive_warrior = {
+	category = specialist
+	is_capped_by_modifier = yes
+	building_icon = building_primitive_dwellings
+	clothes_texture_index = 2
+
+	possible_pre_triggers = {
+		has_owner = yes
+	}
+
+	possible = {
+		owner = {
+			is_primitive = yes
+			OR = {
+				has_country_flag = bronze_age
+				has_country_flag = iron_age
+				has_country_flag = late_medieval_age
+				has_country_flag = renaissance_age
+				has_country_flag = steam_age
+			}
+		}
+	}
+
+	pop_modifier = {
+		pop_defense_armies_add = 3
+	}
+
+	weight = {
+		weight = 2
+		modifier = {
+			factor = 6
+			is_militarist = yes
+		}
+		modifier = {
+			factor = 0
+			is_pacifist = yes
+		}
+	}
+}

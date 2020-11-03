@@ -1,0 +1,27 @@
+UHB_BUOY_CAT = {
+	desc = "UHB_BUOY_DESC"
+	picture = "GFX_evt_satellite_in_orbit"
+	level = 3
+	
+	spawn_chance = {
+		modifier = {
+			add = 3
+			OR = {
+				is_planet_class = pc_toxic
+				is_planet_class = pc_barren_cold
+				is_planet_class = pc_barren
+				is_planet_class = pc_frozen
+				is_planet_class = pc_nuked
+			}
+			NOT = { has_planet_flag = nuked_planet_anomalies_disabled }
+			from.owner = {
+				has_country_flag = birth_of_piracy
+				NOT = {
+					has_ethic = ethic_gestalt_consciousness
+				}
+			}
+		}
+	}
+	
+	on_success = anomaly.3090
+}

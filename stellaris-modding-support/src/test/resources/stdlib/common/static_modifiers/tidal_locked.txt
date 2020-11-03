@@ -1,0 +1,6 @@
+tidal_locked = {
+	planet_max_districts_mult = -0.30
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_tidal_locked.dds"
+	icon_frame = 3
+}

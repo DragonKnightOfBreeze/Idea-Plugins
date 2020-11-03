@@ -1,0 +1,45 @@
+auth_machine_intelligence = {
+	machine_empire = yes
+	has_heir = no
+	election_type = none
+	has_factions = no
+	can_reform = no
+	localization_postfix = machine_intelligence
+
+	valid_for_released_vassal = no
+
+	playable = {
+		host_has_dlc = "Synthetic Dawn Story Pack"
+	}
+	possible = {
+		ethics = {
+			value = ethic_gestalt_consciousness
+		}
+	}
+	random_weight = {
+		modifier = {
+			factor = 0
+			NOT = { host_has_dlc = "Synthetic Dawn Story Pack" }
+		}
+	}
+
+	traits = {
+		trait = trait_machine_unit
+	}
+
+	country_modifier = {
+		colony_start_num_pops_add = 1
+		station_gatherers_produces_mult = 0.1
+		empire_size_penalty_mult = 1.0
+		pop_growth_speed_reduction = 0.5
+	}
+
+	tags = {
+		AUTH_MACHINE_INTELLIGENCE_IMMORTAL_LEADERS
+		AUTH_MACHINE_NATIVE_POPS
+		AUTH_MACHINE_FOREIGN_POP_SURVIVAL
+		AUTH_MACHINE_TECH_ADDITIONS
+		AUTH_MACHINE_TECH_RESTRICTIONS
+		AUTH_MACHINE_ASCENSION_RESTRICTIONS
+	}
+}

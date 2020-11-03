@@ -1,0 +1,38 @@
+tech_afterburners_2 = {
+	area = engineering
+	cost = @tier3cost2
+	tier = 3
+	category = { propulsion }
+	ai_update_type = all
+	prerequisites = { "tech_afterburners_1" "tech_thrusters_3" }
+	weight = @tier3weight2
+
+	weight_modifier = {
+		factor = 1.25
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_propulsion"
+			}
+		}
+	}
+
+	prereqfor_desc = {
+		component = {
+			title = "TECH_UNLOCK_AFTERBURNER_2_TITLE"
+			desc = "TECH_UNLOCK_AFTERBURNER_2_DESC"
+		}
+	}
+
+	ai_weight = {
+		factor = 1.25 #important component
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_propulsion"
+			}
+		}
+	}
+}

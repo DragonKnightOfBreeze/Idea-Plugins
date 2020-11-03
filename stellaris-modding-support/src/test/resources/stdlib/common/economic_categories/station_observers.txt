@@ -1,0 +1,3 @@
+station_observers = {
+	parent = stations
+}

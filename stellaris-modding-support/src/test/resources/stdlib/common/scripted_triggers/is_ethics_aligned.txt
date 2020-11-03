@@ -1,0 +1,6 @@
+is_ethics_aligned = {
+	OR = {
+		has_ethic = ethic_$ARG1$
+		has_ethic = ethic_fanatic_$ARG1$
+	}
+}

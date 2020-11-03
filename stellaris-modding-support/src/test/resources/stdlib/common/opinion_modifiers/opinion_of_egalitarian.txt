@@ -1,0 +1,25 @@
+opinion_of_egalitarian = {
+	opinion = {
+		base = 0
+		modifier = {
+			add = -10
+			has_ethic = "ethic_authoritarian"
+			FROM = { has_ethic = "ethic_egalitarian" }
+		}
+		modifier = {
+			add = -20
+			has_ethic = "ethic_authoritarian"
+			FROM = { has_ethic = "ethic_fanatic_egalitarian" }
+		}
+		modifier = {
+			add = -20
+			has_ethic = "ethic_fanatic_authoritarian"
+			FROM = { has_ethic = "ethic_egalitarian" }
+		}
+		modifier = {
+			add = -40
+			has_ethic = "ethic_fanatic_authoritarian"
+			FROM = { has_ethic = "ethic_fanatic_egalitarian" }
+		}
+	}
+}

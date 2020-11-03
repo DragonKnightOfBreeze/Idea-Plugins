@@ -1,0 +1,6 @@
+on_rebels_take_planet = {
+	events = {
+		action.30
+		unrest.4210
+	}
+}

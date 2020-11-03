@@ -1,0 +1,25 @@
+crystalline_sensors  = {
+	length = @EdictDuration
+	icon = "GFX_edict_type_time"
+	resources = {
+		category = rare_edicts
+		cost = {
+			rare_crystals = 25
+		}
+	}
+
+	potential = {
+		OR = {
+			has_resource = { type = rare_crystals amount > 0 }
+			has_edict = crystalline_sensors
+		}
+	}
+
+	modifier = {
+		ship_sensor_range_add = 1
+	}
+
+	ai_weight = {
+		weight = 0
+	}
+}

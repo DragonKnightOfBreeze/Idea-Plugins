@@ -1,0 +1,5 @@
+subterranean_tech_transaction = {
+	planet_jobs_engineering_research_produces_mult = -0.30
+	icon = "gfx/interface/icons/modifiers/mod_resource_engineering_research_mult.dds"
+	icon_frame = 3
+}

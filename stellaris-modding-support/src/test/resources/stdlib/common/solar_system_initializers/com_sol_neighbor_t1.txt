@@ -1,0 +1,62 @@
+com_sol_neighbor_t1 = {
+	name = "NAME_Barnard's_Star"
+	class = sc_m
+	flags = { com_barnards_star }
+
+	init_effect = {
+		every_neighbor_system = { set_star_flag = empire_cluster }
+	}
+
+	planet = {
+		count = 1
+		class = star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = { min = 20 max = 30 }
+		has_ring = no
+	}
+	
+	change_orbit = 45
+	
+	planet = {
+		count = { min = 0 max = 2 }
+		orbit_distance = 20
+		change_orbit = @base_moon_distance
+		
+		moon = {
+			count = { min = 0 max = 1 }
+			orbit_distance = 5
+		}
+	}
+	
+	planet = {
+		count = { min = 2 max = 5 }
+		orbit_distance = 20
+	}
+
+	init_effect = {
+		random_system = {
+			limit = { has_star_flag = com_sol }
+			save_event_target_as = com_sol
+		}
+		if = {
+			limit = {
+				NOT = { has_hyperlane_to = event_target:com_sol }
+			}
+			add_hyperlane = { from = this to = event_target:com_sol }
+		}
+		create_starbase = {
+			size = starbase_outpost
+			owner = event_target:npc_UNoE
+		}
+	}
+	
+	neighbor_system = {
+		hyperlane_jumps = { min = 1 max = @jumps }
+		initializer = "com_sol_neighbor_t2_second_colony"
+	}
+	neighbor_system = {
+		hyperlane_jumps = { min = 1 max = @jumps }
+		initializer = "sol_neighbor_t2_no_guaranteed_colony"
+	}
+}

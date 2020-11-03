@@ -1,0 +1,8 @@
+part = {
+	location = 0
+	localization = "START_SCREEN_CM"
+
+	trigger = {
+		has_country_flag = human_2
+	}
+}

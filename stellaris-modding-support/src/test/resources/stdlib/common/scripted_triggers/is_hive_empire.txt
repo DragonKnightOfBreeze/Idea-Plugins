@@ -1,0 +1,3 @@
+is_hive_empire = {
+	has_authority = auth_hive_mind
+}

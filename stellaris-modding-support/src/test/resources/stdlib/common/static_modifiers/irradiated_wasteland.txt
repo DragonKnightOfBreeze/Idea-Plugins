@@ -1,0 +1,4 @@
+irradiated_wasteland = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_irradiated.dds"
+	icon_frame = 3
+}

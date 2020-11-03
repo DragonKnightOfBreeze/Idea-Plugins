@@ -1,0 +1,15 @@
+achievement_minerals_1 = {
+	id = 2
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		has_monthly_income =
+		{
+			resource = minerals
+			value > 249
+		}
+	}
+}

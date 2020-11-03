@@ -1,0 +1,29 @@
+opinion_gave_space_rum = {
+	opinion = {
+		base = 20
+	}
+	unique = yes
+	
+	decay = {
+		base = 5
+		modifier = {
+			add = 1
+			has_ethic = "ethic_fanatic_xenophobe"
+		}
+
+		modifier = {
+			add = 2
+			has_ethic = "ethic_xenophobe"			
+		}
+
+		modifier = {
+			add = -1
+			has_ethic = "ethic_xenophile"
+		}
+
+		modifier = {
+			add = -2
+			has_ethic = "ethic_fanatic_xenophile"
+		}
+	}
+}

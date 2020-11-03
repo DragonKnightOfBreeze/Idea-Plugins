@@ -1,0 +1,32 @@
+on_ship_destroyed_victim = {
+	events = {
+		syndaw.30
+		mandate.143
+		nomad.95
+		leviathans.3002
+		leviathans.3101
+		leviathans.592
+		leviathans.140
+		crisis.1281
+		crisis.1282
+		crisis.217
+		crisis.2070
+		crisis.1012
+		crisis.1115
+		crisis.1215
+		marauder.4
+		marauder.14
+		marauder.505
+		marauder.509
+		crisis.80
+		marauder.525
+		distar.57
+		graygoo.6
+		cara.900 # Tradestation Destroyed
+		graygoo.180
+		crisis.251 # Prethoryn Brood-Queen Captured
+		crisis.261 # Remove Swarm System Effect
+		crisis.1311 # Remove Extradimensional System Effect
+		crisis.2601 # Remove Contingency System Effect
+	}
+}

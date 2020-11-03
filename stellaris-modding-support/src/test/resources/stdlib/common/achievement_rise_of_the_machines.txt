@@ -1,0 +1,24 @@
+achievement_rise_of_the_machines = {
+	id = 66
+
+	possible = {
+		is_ironman = yes
+		host_has_dlc = "Synthetic Dawn Story Pack"
+	}
+
+	happened = {
+		NOT = {
+			any_country = {
+				OR = {
+					is_country_type = default
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
+				NOR = {
+					is_mechanical_empire = yes
+					has_authority = auth_machine_intelligence
+				}
+			}
+		}
+	}
+}

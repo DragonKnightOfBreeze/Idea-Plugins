@@ -1,0 +1,5 @@
+end_war_effect = {
+	every_war_participant = {
+		prev = { remove_war_participant = prev }
+	}
+}

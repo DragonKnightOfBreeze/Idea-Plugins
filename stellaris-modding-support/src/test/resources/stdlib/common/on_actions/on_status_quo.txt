@@ -1,0 +1,6 @@
+on_status_quo = {
+	events = {
+		action.39
+		action.45
+	}
+}

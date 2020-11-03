@@ -1,0 +1,7 @@
+civic_trading_posts = {
+	potential = { authority = { value = auth_corporate } }
+	random_weight = { base = 5 }
+	modifier = {
+		country_starbase_capacity_add = 4
+	}
+}

@@ -1,0 +1,13 @@
+living_metal_expenditure_ships = {
+	resource = sr_living_metal
+	type = expenditure
+	category = ships
+	
+	potential = {
+		always = yes
+	}
+	
+	fraction = {
+		weight = 0.1
+	}	
+}

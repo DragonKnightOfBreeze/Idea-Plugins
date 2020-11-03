@@ -1,0 +1,3 @@
+has_distar = {
+	host_has_dlc = "Distant Stars Story Pack"
+}

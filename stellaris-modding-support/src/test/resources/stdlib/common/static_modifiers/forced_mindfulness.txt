@@ -1,0 +1,3 @@
+forced_mindfulness = {
+	country_unity_produces_mult = 0.05
+}

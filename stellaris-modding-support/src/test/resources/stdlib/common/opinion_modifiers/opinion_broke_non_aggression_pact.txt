@@ -1,0 +1,11 @@
+opinion_broke_non_aggression_pact = {
+	opinion = {
+		base = -50
+	}
+
+	accumulative = yes
+
+	decay = {
+		base = 2
+	}
+}

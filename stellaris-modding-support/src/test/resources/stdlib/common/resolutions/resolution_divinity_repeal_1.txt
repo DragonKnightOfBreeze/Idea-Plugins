@@ -1,0 +1,83 @@
+resolution_divinity_repeal_1 = {
+	icon = "GFX_repeal_blue"
+
+	resources = {
+		category = resolutions
+		cost = {
+			influence = @resolution_cost_t1
+		}
+	}
+	target = no
+
+	effect = {
+		custom_tooltip = resolution_divinity_repeal_1_effect_success
+		hidden_effect = {
+			remove_global_flag = galactic_community_resolution_divinity_comfort_the_fallen
+			set_timed_country_flag = { flag = galactic_community_resolution_passed_divinity_repeal days = @resolution_flag_timer }
+			add_modifier = {
+				modifier = resolution_passed_diplomatic_weight
+				days = 2200
+			}
+		}
+	}
+
+	fail_effects = {
+		hidden_effect = {
+			set_timed_country_flag = { flag = galactic_community_resolution_failed_divinity_repeal days = @resolution_flag_timer }
+			add_modifier = {
+				modifier = resolution_failed_diplomatic_weight
+				days = 2200
+			}
+		}
+	}
+
+	potential = {
+		is_active_resolution = "resolution_divinity_comfort_the_fallen"
+	}
+
+	ai_weight = {
+		weight = @resolution_weight_unpopular
+
+		modifier = {
+			factor = 1.15
+			is_authoritarian = yes
+			is_spiritualist = no
+		}
+
+		modifier = {
+			factor = 1.15
+			is_megacorp = yes
+			is_spiritualist = no
+		}
+
+		modifier = {
+			factor = 1.25
+			is_materialist = yes
+		}
+
+		modifier = {
+			factor = 0.95
+			is_egalitarian = yes
+		}
+
+		modifier = {
+			factor = 1.5
+			is_gestalt = yes
+		}
+
+		modifier = {
+			factor = 2
+			is_synthetic_empire = yes
+		}
+
+		modifier = {
+			factor = 0.5
+			is_spiritualist = yes
+		}
+
+		modifier = {
+			factor = 0
+			has_valid_civic = civic_shared_burden
+		}
+	}
+}

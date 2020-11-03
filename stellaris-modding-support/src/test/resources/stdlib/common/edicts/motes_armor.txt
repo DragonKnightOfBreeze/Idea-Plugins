@@ -1,0 +1,29 @@
+motes_armor = {
+	length = @EdictDuration
+	icon = "GFX_edict_type_time"
+	resources = {
+		category = ship_edicts
+		cost = {
+			volatile_motes = 50
+		}
+	}
+
+	potential = {
+		OR = {
+			has_resource = { type = volatile_motes amount > 0 }
+			has_edict = motes_armor
+		}
+	}
+
+	modifier = {
+		ship_armor_mult = 0.25
+	}
+
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = @EdictMedPrio
+			is_at_war = yes
+		}
+	}
+}

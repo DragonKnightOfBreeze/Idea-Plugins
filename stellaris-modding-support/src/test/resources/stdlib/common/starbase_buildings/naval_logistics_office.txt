@@ -1,0 +1,40 @@
+naval_logistics_office = {
+	icon = "GFX_starbase_naval_logistics"
+	construction_days = 360
+
+	potential = {
+		exists = owner
+		owner = { has_technology = tech_interstellar_fleet_traditions }
+	}
+
+	possible = {
+		has_starbase_module = anchorage
+	}
+
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 100
+		}
+
+		upkeep = {
+			energy = 2
+		}
+	}
+
+	custom_tooltip = sm_naval_logistics_office_desc_modifier
+	show_in_tech = "tech_interstellar_fleet_traditions"
+
+	ai_build_at_chokepoint = no
+	ai_build_outside_chokepoint = yes
+	ai_weight = {
+		weight = 200
+		modifier = {
+			factor = 0
+			count_starbase_modules = {
+				type = anchorage
+				count < 3
+			}
+		}
+	}
+}

@@ -1,0 +1,7 @@
+mineral_rich = {
+	planet_jobs_minerals_produces_mult = 0.15
+	district_mining_max = 4
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_mineral_rich.dds"
+	icon_frame = 1
+}

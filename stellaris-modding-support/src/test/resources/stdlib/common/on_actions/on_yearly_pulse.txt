@@ -1,0 +1,25 @@
+on_yearly_pulse = {
+	events = {
+		leviathans.10
+		crisis.204
+		crisis.205
+		crisis.208
+		crisis.240 # Prethoryn army reinforcements
+		crisis.1254
+		crisis.2080
+		crisis.2310
+		action.64 # species assimilation
+		marauder.100
+		crisis.122
+		marauder.85
+		marauder.160
+		marauder.699
+		# action.95 # Galactic Market - replaced with resolution in the Galactic Community
+		crime.50 # Crime Events
+		action.105 # Catch those outside of the Market - now requires you to be part of Galactic Community
+		ancrel.6098
+		galcom.1 # Galactic Community
+		origin.25
+		galactic_features.400
+	}
+}

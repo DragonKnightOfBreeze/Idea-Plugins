@@ -1,0 +1,13 @@
+opinion_assimilated_a_world = {
+	opinion = {
+		base = -60
+	}
+
+	accumulative = yes
+
+	min = -300
+
+	decay = {
+		base = 1
+	}
+}

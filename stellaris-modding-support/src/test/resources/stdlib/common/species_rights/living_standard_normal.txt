@@ -1,0 +1,82 @@
+living_standard_normal = {
+	token = living_standard_normal
+	name = living_standard_normal
+
+	triggered_pop_modifier = {
+		potential = {
+			NAND = {
+				exists = owner
+				owner = { has_deficit = consumer_goods }
+			}
+		}
+		pop_cat_ruler_happiness = 0.10
+		pop_cat_specialist_happiness = 0.05
+	}
+
+	in_breach_of = {
+		{
+			trigger = {
+				is_gestalt = no
+			}
+			key = resolution_greatergood_balance_in_the_middle
+		}
+		{
+			trigger = {
+				is_gestalt = no
+			}
+			key = resolution_greatergood_universal_prosperity_mandate
+		}
+	}
+
+	pop_modifier = {
+		pop_cat_ruler_political_power = 7
+		pop_cat_specialist_political_power = 1
+	}
+
+	potential = {
+		exists = from
+		from = { is_gestalt = no }
+		NOT = { from = { has_valid_civic = civic_shared_burden } }
+		NOR = {
+			has_trait = trait_hive_mind
+			has_trait = trait_machine_unit
+			is_shackled_robot_species_rights = yes
+		}
+	}
+
+	allow = {
+		hidden_trigger = { exists = from }
+		custom_tooltip = {
+			fail_text = SPECIES_MUST_NOT_BE_ASSIMILATING
+			NOT = {
+				has_citizenship_type = {
+					type = citizenship_assimilation
+					country = from
+				}
+			}
+		}
+		custom_tooltip = {
+			NAND = {
+				OR = {
+					has_citizenship_type = { country = from type = citizenship_purge_machine }
+					has_citizenship_type = { country = from type = citizenship_purge }
+				}
+				NOT = { has_purge_type = { country = from type = purge_neutering } }
+			}
+			fail_text = is_purged_not_neutered
+		}
+	}
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0.5
+			from = {
+				is_galactic_community_member = yes
+			}
+			OR = {
+				is_active_resolution = "resolution_greatergood_balance_in_the_middle"
+				is_active_resolution = "resolution_greatergood_universal_prosperity_mandate"
+			}
+		}
+	}
+}

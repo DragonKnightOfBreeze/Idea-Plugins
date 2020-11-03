@@ -1,0 +1,57 @@
+col_mac_factory = {
+	icon = 6
+
+	potential = {
+		uses_district_set = machine_world
+		owner = { has_civic = civic_machine_servitor }
+	}
+
+
+	planet_modifier = {
+		planet_district_mining_uncapped_build_speed_mult = 0.25
+		planet_district_generator_uncapped_build_speed_mult = 0.25
+		planet_artisans_upkeep_mult = -0.2
+	}
+
+	weight_modifier = {
+		base = 10
+		modifier = {
+			add = 5
+			owner = { has_monthly_income = { resource = consumer_goods value < 100 } }
+		}
+		modifier = {
+			add = 5
+			has_designation = col_mac_factory
+		}
+		modifier = {
+			add = 1
+			num_buildings = { type = building_factory_1 value >= 2 }
+		}
+		modifier = {
+			add = 2
+			num_buildings = { type = building_factory_1 value >= 3 }
+		}
+		modifier = {
+			add = 3
+			num_buildings = { type = building_factory_1 value >= 4 }
+		}
+		modifier = {
+			add = 2
+			num_buildings = { type = building_factory_2 value >= 1 }
+		}
+		modifier = {
+			add = 4
+			num_buildings = { type = building_factory_2 value >= 2 }
+		}
+		modifier = {
+			add = 5
+			num_buildings = { type = building_factory_3 value >= 1 }
+		}
+		modifier = {
+			factor = 0
+			num_buildings = { type = building_factory_1 value = 0 }
+			num_buildings = { type = building_factory_2 value = 0 }
+			num_buildings = { type = building_factory_3 value = 0 }
+		}
+	}
+}

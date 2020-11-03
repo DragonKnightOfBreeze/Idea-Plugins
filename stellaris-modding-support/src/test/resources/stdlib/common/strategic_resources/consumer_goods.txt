@@ -1,0 +1,16 @@
+consumer_goods = {
+	tradable = yes
+	market_amount = 50
+	market_price = 100
+	max = 15000
+	
+	deficit_modifier = consumer_goods_deficit #found in static modifiers
+	
+	ai_weight = {
+		weight = 5
+	}
+
+	ai_wants = {
+		base = 500
+	}
+}

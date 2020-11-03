@@ -1,0 +1,12 @@
+triggered_opinion_federation_midas = {
+	trigger = {
+		is_in_federation_with = FROM
+		FROM = {
+			has_modifier = midas_stigma
+		}
+	}
+
+	opinion = {
+		base = -100
+	}
+}

@@ -1,0 +1,2 @@
+generate_empire_home_planet = {
+}

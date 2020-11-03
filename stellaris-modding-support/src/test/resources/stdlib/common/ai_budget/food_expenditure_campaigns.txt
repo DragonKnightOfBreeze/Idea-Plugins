@@ -1,0 +1,14 @@
+food_expenditure_campaigns = {
+	resource = food
+	type = expenditure
+	category = campaigns
+
+	potential = {
+		is_hive_empire = yes
+		is_lithoid_empire = no
+	}
+
+	fraction = {
+		weight = 0.7
+	}
+}

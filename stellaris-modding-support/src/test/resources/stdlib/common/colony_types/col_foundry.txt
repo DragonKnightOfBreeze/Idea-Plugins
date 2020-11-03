@@ -1,0 +1,112 @@
+col_foundry = {
+	icon = 5
+
+	potential = {
+		exists = owner
+		NOR = {
+			uses_district_set = city_world
+			uses_district_set = ring_world
+			uses_district_set = habitat
+			uses_district_set = machine_world
+		}
+		is_special_colony_type = no
+	}
+
+	planet_modifier = {
+		planet_building_foundry_1_build_speed_mult = 0.25
+		planet_metallurgists_upkeep_mult = -0.20
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_galactic_community_member = yes
+			}
+			OR = {
+				is_active_resolution = "resolution_industry_environmental_ordinance_waivers"
+				is_active_resolution = "resolution_industry_project_cornucopia"
+			}
+		}
+		modifier = {
+			planet_metallurgists_produces_mult = 0.05
+		}
+	}
+
+	weight_modifier = {
+		modifier = {
+			add = 2
+			OR = {
+				num_free_districts = { type = district_city value = @free_districts_high_threshold }
+				num_free_districts = { type = district_nexus value = @free_districts_high_threshold }
+				num_free_districts = { type = district_hive value = @free_districts_high_threshold }
+			}
+			OR = {
+				AND = {
+					owner = {
+					has_monthly_income = { resource = alloys value < 10 }
+					years_passed <= 20
+					}
+				}
+				AND = {
+					owner = {
+					has_monthly_income = { resource = alloys value < 20 }
+					years_passed > 20
+					years_passed < 50
+					}
+				}
+				AND = {
+					owner = {
+					has_monthly_income = { resource = alloys value < 40 }
+					years_passed > 50
+					years_passed < 75
+					}
+				}
+				AND = {
+					owner = {
+					has_monthly_income = { resource = alloys value < 50 }
+					years_passed > 75
+					years_passed < 100
+					}
+				}
+			}
+		}
+		modifier = {
+			add = 5
+			has_designation = col_foundry
+		}
+		modifier = {
+			add = 2
+			num_buildings = { type = building_foundry_1 value >= 2 }
+		}
+		modifier = {
+			add = 3
+			num_buildings = { type = building_foundry_1 value >= 3 }
+		}
+		modifier = {
+			add = 4
+			num_buildings = { type = building_foundry_1 value >= 4 }
+		}
+		modifier = {
+			add = 5
+			num_buildings = { type = building_foundry_1 value >= 5 }
+		}
+		modifier = {
+			add = 4
+			num_buildings = { type = building_foundry_2 value >= 1 }
+		}
+		modifier = {
+			add = 5
+			num_buildings = { type = building_foundry_2 value >= 2 }
+		}
+		modifier = {
+			add = 10
+			num_buildings = { type = building_foundry_3 value >= 1 }
+		}
+		modifier = {
+			factor = 0
+			num_buildings = { type = building_foundry_1 value = 0 }
+			num_buildings = { type = building_foundry_2 value = 0 }
+			num_buildings = { type = building_foundry_3 value = 0 }
+		}
+	}
+}

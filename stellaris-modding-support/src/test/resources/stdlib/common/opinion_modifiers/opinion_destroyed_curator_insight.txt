@@ -1,0 +1,9 @@
+opinion_destroyed_curator_insight = {
+	opinion = {
+		base = -30
+	}
+
+	decay = {
+		base = 2
+	}
+}

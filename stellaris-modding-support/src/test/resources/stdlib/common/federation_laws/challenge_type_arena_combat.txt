@@ -1,0 +1,101 @@
+challenge_type_arena_combat = {
+	potential = { has_federation_law = succession_type_challenge }
+	allow = {
+		custom_tooltip = {
+			NOT = {
+				AND = {
+					NOT = { has_federation_law = challenge_type_arena_combat }
+					has_modifier = federation_law_category_challenge_cooldown
+					has_any_federation_law_in_category = law_category_challenge
+				}
+			}
+		}
+	}
+	on_enact = {
+		if = {
+			limit = {
+				has_federation_flag = challenge_type_no_cooldown
+			}
+			remove_federation_flag = challenge_type_no_cooldown
+		}
+		else_if = {
+			limit = { has_federation_flag = enable_federation_cooldowns }
+			add_modifier = {
+				modifier = federation_law_category_challenge_cooldown
+				days = @cooldown
+			}
+		}
+	}
+
+	ai_weight = {
+		base = 0
+		
+		#Default support
+		modifier = {
+			desc = federation_acceptance_generally_positive
+			add = 51
+		}
+				
+		#Behaviour-specific
+		modifier = {
+			desc = federation_acceptance_ruler_cyborg
+			add = 10
+			exists = ruler
+			ruler = {
+				has_trait = leader_trait_ruler_cyborg
+			}
+		}
+		modifier = {
+			desc = federation_acceptance_ruler_synthetic
+			add = 15
+			exists = ruler
+			ruler = {
+				has_trait = leader_trait_ruler_synthetic
+			}
+		}
+		modifier = {
+			desc = federation_acceptance_ruler_very_strong
+			add = 10
+			exists = ruler
+			ruler = {
+				species = { has_trait = trait_very_strong }
+			}
+		}
+		modifier = {
+			desc = federation_acceptance_ruler_psionic
+			add = 10
+			exists = ruler
+			ruler = {
+				has_trait = leader_trait_ruler_psionic
+			}
+		}
+		modifier = {
+			desc = federation_acceptance_honorbound_warriors
+			add = 25
+			has_ai_personality = honorbound_warriors
+		}
+		modifier = {
+			desc = federation_acceptance_warrior_culture
+			add = 50
+			has_civic = civic_warrior_culture
+		}
+		modifier = {
+			desc = federation_acceptance_peaceful_traders
+			add = -25
+			has_ai_personality = peaceful_traders
+		}
+		modifier = {
+			desc = federation_acceptance_harmonious_hierarchy
+			add = -25
+			has_ai_personality = harmonious_hierarchy
+		}
+		modifier = {
+			desc = federation_acceptance_ruler_chosen
+			add = 100
+			exists = ruler
+			ruler = {
+				has_trait = leader_trait_ruler_chosen
+			}
+		}
+	}
+}

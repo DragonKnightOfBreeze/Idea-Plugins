@@ -1,0 +1,34 @@
+information_quarantine = {
+	length = @EdictPerpetual
+	icon = "GFX_edict_type_policy"
+	edict_cap_usage = 1
+
+	resources = {
+		category = edicts
+		cost = { #Activation Cost
+			trigger = {
+				NOT = { has_edict = information_quarantine }			
+			}
+			influence = 200
+		}
+		cost = { #Deactivation Cost
+			trigger = {
+				has_edict = information_quarantine
+			}
+			influence = 100
+		}
+	}
+
+	modifier = {
+		planet_stability_add = 5
+		pop_government_ethic_attraction = 0.5
+	}
+
+	potential = {
+		is_authoritarian = yes
+	}
+
+	ai_weight = {
+		weight = @EdictLowPrio
+	}
+}

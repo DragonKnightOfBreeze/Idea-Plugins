@@ -1,0 +1,4 @@
+cost_of_progress = {
+	trade_value_mult = -0.10
+	country_consumer_goods_produces_mult = 0.05
+}

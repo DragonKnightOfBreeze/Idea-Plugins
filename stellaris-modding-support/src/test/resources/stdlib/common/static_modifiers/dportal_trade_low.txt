@@ -1,0 +1,6 @@
+dportal_trade_low = {
+	#planet_jobs_trade_value_produces_mult = 0.25
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_resources.dds"
+	icon_frame = 2
+}

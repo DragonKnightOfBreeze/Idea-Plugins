@@ -1,0 +1,48 @@
+create_thalassocracy_country = {
+	if = {
+		limit = { NOT = { exists = event_target:thalassocracy_country } }
+		create_species = {
+			name = "NAME_Thalassocracy_species"
+			plural = "NAME_Thalassocracy_species_plural"
+			adjective = "NAME_Thalassocracy_species_adj"
+			class = MAM
+			portrait = "mam1"
+			namelist = "HUM2"
+			traits = {
+				trait = "trait_unruly"
+				trait = "trait_nonadaptive"
+				trait = "trait_talented"
+				trait = "trait_deviants"
+				trait = "trait_void_dweller_1"
+			}
+			effect = { save_global_event_target_as = thalassocracy_species }
+		}
+		create_country = {
+			name = "NAME_Thalassocracy"
+			type = pirate
+			# ignore_initial_colony_error = yes
+			species = event_target:thalassocracy_species
+			name_list = "HUM2"
+			flag = {
+				icon = {
+					category = "pirate"
+					file = "flag_pirate_9.dds"
+				}
+				background = {
+					category = "backgrounds"
+					file = "pattern_01.dds"
+				}
+				colors ={
+					"red"
+					"black"
+					"null"
+					"null"
+				}
+			}
+			effect = {
+				save_global_event_target_as = thalassocracy_country
+				set_faction_hostility = { set_hostile = yes }
+			}
+		}
+	}
+}

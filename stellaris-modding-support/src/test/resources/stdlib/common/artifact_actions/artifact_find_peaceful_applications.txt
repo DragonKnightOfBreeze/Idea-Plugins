@@ -1,0 +1,54 @@
+artifact_find_peaceful_applications = {
+	resources = {
+		category = artifact_actions
+		cost = {
+			minor_artifacts = 5
+		}
+	}
+	
+	ai_weight = {
+		weight = 10
+		modifier = {
+			factor = 0.10
+			is_militarist = yes
+		}
+		modifier = {
+			factor = 1.25
+			is_pacifist = yes
+		}
+		modifier = {
+			factor = 0.10
+			is_at_war = yes
+		}
+		modifier = {
+			factor = 0
+			has_resource = { type = minor_artifacts amount < 105 }
+		}
+	}
+
+	allow = {
+		custom_tooltip = {
+			fail_text = "artifact_find_peaceful_applications_no_cooldown"
+			NOT = { has_modifier = artifact_find_applications_cooldown }
+		}
+	}
+
+	potential = {
+		has_technology = tech_arcane_deciphering
+		is_homicidal = no
+	}
+
+	effect = {
+		custom_tooltip = artifact_find_peaceful_applications_effect
+
+		hidden_effect = {
+			add_modifier = {
+				modifier = "artifact_find_applications_cooldown"
+				days = 900
+			}
+			owner = {
+				country_event = { id = ancrel.10020 }
+			}
+		}
+	}
+}

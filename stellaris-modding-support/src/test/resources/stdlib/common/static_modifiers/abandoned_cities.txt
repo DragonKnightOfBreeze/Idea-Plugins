@@ -1,0 +1,3 @@
+abandoned_cities = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_factory.dds"
+}

@@ -1,0 +1,5 @@
+opinion_cheat = {
+	opinion = {
+		base = 1
+	}
+}

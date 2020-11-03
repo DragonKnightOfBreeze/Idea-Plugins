@@ -1,0 +1,40 @@
+mega_shipyard_1 = {
+	entity = "mega_shipyard_01_stage_1_entity"
+	construction_entity = "mega_shipyard_01_stage_1_entity"
+	portrait = GFX_megastructure_construction_background
+	place_entity_on_planet_plane = no
+	entity_offset = { x = -27 y = -27 }
+	build_time = 1800
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 10000
+		}
+
+		upkeep = {
+			energy = 10
+		}
+	}
+
+	upgrade_from = {
+		mega_shipyard_0
+	}
+
+	prerequisites = { "tech_mega_shipyard" }
+
+	ship_modifier = {
+		ship_starting_experience_add = 100
+	}
+
+	station_modifier = {
+		starbase_shipyard_capacity_add = 5
+	}
+
+	country_modifier = {
+		starbase_shipyard_build_speed_mult = 0.33
+	}
+
+	on_build_complete = {
+		from = { country_event = { id = feda.1 } }
+	}
+}

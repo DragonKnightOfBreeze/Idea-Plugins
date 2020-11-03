@@ -1,0 +1,3 @@
+leader_governors = {
+	parent = leaders
+}

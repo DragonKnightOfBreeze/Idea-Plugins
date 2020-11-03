@@ -1,0 +1,65 @@
+toxic_planet_toxic_moon = {
+	class = "rl_standard_stars"
+
+	usage = misc_system_init
+	usage_odds = {
+		base = 90000
+		modifier = {
+			factor = 0
+			has_distar = no
+		}
+		modifier = {
+	        factor = 0
+	        has_star_flag = empire_cluster
+	    }
+	}
+
+	max_instances = 1
+	scaled_spawn_chance = 8
+
+	flags = { toxic_moon_system }
+
+	planet = {
+		count = 1
+		class = star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = { min = 20 max = 30 }
+		has_ring = no
+	}
+	planet = {
+		count = { min = 0 max = 2 }
+		orbit_distance = 25
+		orbit_angle = { min = 90 max = 270 }
+	}
+	planet = {
+		orbit_distance = 40
+		orbit_angle = { min = 90 max = 180 }
+		class = pc_toxic
+		
+		change_orbit = @base_moon_distance
+		
+		moon = {
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 5
+			class = pc_toxic
+			init_effect = {
+				prevent_anomaly = yes
+				set_deposit = d_society_3
+			}
+		}
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			add_deposit = d_society_3
+			add_deposit = d_society_3
+			add_deposit = d_society_3
+			add_modifier =  { modifier = building_blocks days = -1 }
+		}
+	}
+	planet = {
+		count = { min = 1 max = 3 }
+		orbit_distance = 40
+		orbit_angle = { min = 90 max = 270 }
+	}
+}

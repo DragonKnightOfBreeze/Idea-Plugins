@@ -1,0 +1,4 @@
+on_fleet_detected = {
+	events = {
+	}
+}

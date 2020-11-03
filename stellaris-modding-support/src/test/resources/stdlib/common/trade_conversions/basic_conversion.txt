@@ -1,0 +1,16 @@
+basic_conversion =
+{
+	potential = {
+		always = yes
+	}
+	
+	weight = {
+		weight = 1
+	}
+	
+	conversion_rate = {
+		energy = 1
+	}
+
+	economic_category = trade_routes
+}

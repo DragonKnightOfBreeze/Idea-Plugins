@@ -1,0 +1,11 @@
+achievement_economy_2 = {
+	id = 5
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		resource_stockpile_compare = { resource = energy value >= 5000 }
+	}
+}

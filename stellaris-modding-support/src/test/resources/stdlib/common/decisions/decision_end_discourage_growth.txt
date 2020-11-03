@@ -1,0 +1,26 @@
+decision_end_discourage_growth = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = decision_politics
+
+	resources = {
+		category = decisions
+	}
+
+	potential = {
+		has_modifier = planet_growth_discouraged
+	}
+
+	effect = {
+		remove_modifier = "planet_growth_discouraged"
+	}
+
+	ai_weight = {
+		weight = 20
+		
+		modifier = { # don't end if less than 1 housing
+			factor = 0
+			free_housing < 1
+		}
+	}
+}

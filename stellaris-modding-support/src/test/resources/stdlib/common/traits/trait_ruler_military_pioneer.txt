@@ -1,0 +1,15 @@
+trait_ruler_military_pioneer = {
+	cost = 1
+	modification = no
+	icon = "gfx/interface/icons/traits/leader_traits/trait_ruler_military_pioneer.dds"
+	leader_potential_add = {
+		NOT = { from = { has_ethic = "ethic_gestalt_consciousness" } }
+	}
+	modifier = {
+		country_ship_upgrade_cost_mult = -0.1
+		starbase_shipyard_build_cost_mult = -0.1
+	}
+	leader_trait = { ruler }
+	leader_class = { ruler }
+	prerequisites = { tech_refit_standards }
+}

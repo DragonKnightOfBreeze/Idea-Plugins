@@ -1,0 +1,7 @@
+opinion_ally_of_ally = {
+	opinion = {
+		base = 25
+	}
+
+	unique = yes
+}

@@ -1,0 +1,21 @@
+decision_end_anticrime_campaign = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = decision_crime
+
+	resources = {
+		category = decisions
+	}
+	
+	potential = {
+		has_modifier = anticrime_campaign
+	}
+	
+	effect = {
+		remove_modifier = anticrime_campaign
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}

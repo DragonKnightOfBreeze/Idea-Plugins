@@ -1,0 +1,387 @@
+cara_execute_deal3 = {
+	# Cost
+	hidden_effect = {
+		if = { #Deal 1 Cost 1
+			limit = { has_country_flag = fleet3deal1cost1 }
+			add_resource = { food = -200 }
+			tooltip = { add_resource = { food = -200 } }
+			remove_country_flag = fleet3deal1cost1
+		}
+		else_if = { #Deal 1 Cost 2
+			limit = { has_country_flag = fleet3deal1cost2 }
+			add_resource = { food = -1000 }
+			tooltip = { add_resource = { food = -1000 } }
+			remove_country_flag = fleet3deal1cost2
+		}
+		else_if = { #Deal 1 Cost 3
+			limit = { has_country_flag = fleet3deal1cost3 }
+			add_resource = { food = -4000 }
+			tooltip = { add_resource = { food = -4000 } }
+			remove_country_flag = fleet3deal1cost3
+		}
+		else_if = { #Deal 2 Cost 1
+			limit = { has_country_flag = fleet3deal2cost1 }
+			add_resource = { energy = -300 }
+			tooltip = { add_resource = { energy = -300 } }
+			remove_country_flag = fleet3deal2cost1
+		}
+		else_if = { #Deal 2 Cost 2
+			limit = { has_country_flag = fleet3deal2cost2 }
+			add_resource = { food = -200 }
+			tooltip = { add_resource = { food = -200 } }
+			remove_country_flag = fleet3deal2cost2
+		}
+		else_if = { #Deal 2 Cost 3
+			limit = { has_country_flag = fleet3deal2cost3 }
+			add_resource = { consumer_goods = -150 }
+			tooltip = { add_resource = { consumer_goods = -150 } }
+			remove_country_flag = fleet3deal2cost3
+		}
+		else_if = { #Deal 3 Cost
+			limit = { has_country_flag = fleet3deal3 }
+			add_resource = { alloys = -500 }
+			tooltip = { add_resource = { alloys = -500 } }
+			#flag removed in product
+		}
+		else_if = { #Deal 4 Cost 1
+			limit = { has_country_flag = fleet3deal4cost1 }
+			add_resource = { sr_dark_matter = -15 }
+			tooltip = { add_resource = { sr_dark_matter = -15 } }
+			remove_country_flag = fleet3deal4cost1
+		}
+		else_if = { #Deal 4 Cost 2
+			limit = { has_country_flag = fleet3deal4cost2 }
+			add_resource = { rare_crystals = -55 }
+			tooltip = { add_resource = { rare_crystals = -55 } }
+			remove_country_flag = fleet3deal4cost2
+		}
+		else_if = { #Deal 4 Cost 3
+			limit = { has_country_flag = fleet3deal4cost3 }
+			add_resource = { sr_zro = -15 }
+			tooltip = { add_resource = { sr_zro = -15 } }
+			remove_country_flag = fleet3deal4cost3
+		}
+		else_if = { #Deal 5
+			limit = { has_country_flag = fleet3deal5 }
+			while = {
+				count = 6
+				random_owned_pop = {
+					limit = {
+						OR = {
+							has_job = unemployed
+							is_pop_category = worker
+							is_pop_category = simple_drone
+							is_pop_category = slave
+							is_pop_category = criminal
+							is_pop_category = purge
+						}
+					}
+					weights = { #Prioritize Unemployed pops
+						base = 1
+						modifier = {
+							mult = 100
+							has_job = unemployed
+						}
+					}
+					kill_pop = yes
+				}
+			}
+			if = {
+				limit = { has_ethic = ethic_gestalt_consciousness }
+				custom_tooltip = fleet3deal5cost_gesta_tooltip
+			}
+			else = { custom_tooltip = fleet3deal5cost_tooltip }
+			#flag removed in product
+		}
+		else_if = { #Deal 6 Cost 1
+			limit = { has_country_flag = fleet3deal6cost1 }
+			add_resource = { energy = -1000 }
+			tooltip = { add_resource = { energy = -1000 } }
+			remove_country_flag = fleet3deal6cost1
+		}
+		else_if = { #Deal 6 Cost 2
+			limit = { has_country_flag = fleet3deal6cost2 }
+			add_resource = { minerals = -300 }
+			tooltip = { add_resource = { minerals = -300 } }
+			remove_country_flag = fleet3deal6cost2
+		}
+		else_if = { #Deal 6 Cost 3
+			limit = {
+				has_country_flag = fleet3deal6cost3
+			}
+			add_resource = { consumer_goods = -800 }
+			tooltip = { add_resource = { consumer_goods = -800 } }
+			remove_country_flag = fleet3deal6cost3
+		}
+		else_if = { #Deal 7 Cost 1
+			limit = { has_country_flag = fleet3deal7cost1 }
+			add_resource = { influence = -70 }
+			tooltip = { add_resource = { influence = -70 } }
+			remove_country_flag = fleet3deal7cost1
+		}
+		else_if = { #Deal 7 Cost 2
+			limit = { has_country_flag = fleet3deal7cost2 }
+			add_resource = { exotic_gases = -15 }
+			tooltip = { add_resource = { exotic_gases = -15 } }
+			remove_country_flag = fleet3deal7cost2
+		}
+		else_if = { #Deal 7 Cost 3
+			limit = { has_country_flag = fleet3deal7cost3 }
+			add_resource = { consumer_goods = -100 }
+			tooltip = { add_resource = { consumer_goods = -100 } }
+			remove_country_flag = fleet3deal7cost3
+		}
+		else_if = { #Deal 8 Cost 1
+			limit = { has_country_flag = fleet3deal8cost1 }
+			add_resource = { consumer_goods = -300 }
+			tooltip = { add_resource = { consumer_goods = -300 } }
+			remove_country_flag = fleet3deal8cost1
+		}
+		else_if = { #Deal 8 Cost 2
+			limit = { has_country_flag = fleet3deal8cost2 }
+			add_resource = { influence = -70 }
+			tooltip = { add_resource = { influence = -70 } }
+			remove_country_flag = fleet3deal8cost2
+		}
+		else_if = { #Deal 9
+			limit = { has_country_flag = fleet3deal9 }
+			tooltip = {
+				add_resource = { minerals = -200 }
+			}
+			custom_tooltip = "fleet3deal9.tooltip"
+			capital_scope = {
+				create_fleet = {
+					name = "NAME_CARAVANEER_DESTROYER_RACKET"
+					effect = {
+						set_owner = root
+						create_ship = {
+							name = "NAME_CARAVANEER_DESTROYER_RACKET"
+							design = NAME_Yojimbo
+							graphical_culture = "caravaneer_01"
+						}
+						set_location = {
+							target = root.capital_scope
+							distance = 10
+							angle = random
+						}
+					}
+				}
+			}
+		}
+	}
+
+	#Product
+	hidden_effect = {
+		# Deal 1 Products
+		if = {
+			limit = { has_country_flag = fleet3deal1product1 }
+			add_resource = { minerals = 200 }
+			tooltip = { add_resource = { minerals = 200 } }
+			remove_country_flag = fleet3deal1product1
+			remove_country_flag = fleet3deal1
+		}
+		else_if = {
+			limit = { has_country_flag = fleet3deal1product2 }
+			add_resource = { minerals = 500 }
+			tooltip = { add_resource = { minerals = 500 } }
+			remove_country_flag = fleet3deal1product2
+			remove_country_flag = fleet3deal1
+		}
+		else_if = {
+			limit = { has_country_flag = fleet3deal1product3 }
+			add_resource = { minerals = 2000 }
+			tooltip = { add_resource = { minerals = 2000 } }
+			remove_country_flag = fleet3deal1product3
+			remove_country_flag = fleet3deal1
+		}
+		# Deal 2 Product 1: Engineer
+		else_if = {
+			limit = { has_country_flag = fleet3deal2product1 }
+			custom_tooltip = fleet3deal2product1_tooltip
+			if = { #Biological
+				limit = { NOT = { has_authority = auth_machine_intelligence } }
+				create_leader = {
+					class = scientist
+					species = event_target:racket_species
+					name = random
+					skill = 3
+				}
+				last_created_leader = {
+					random_list = {
+						1 = { add_trait = leader_trait_spark_of_genius }
+						1 = { add_trait = leader_trait_maniacal }
+						1 = { add_trait = leader_trait_expertise_materials }
+						1 = { add_trait = leader_trait_expertise_propulsion }
+						1 = { add_trait = leader_trait_expertise_voidcraft }
+						1 = { add_trait = leader_trait_expertise_industry }
+					}
+				}
+			}
+			else_if = { #Machine
+				limit = { has_authority = auth_machine_intelligence }
+				create_leader = {
+					class = scientist
+					species = event_target:racket_robot_species
+					name = random
+					skill = 3
+				}
+				last_created_leader = {
+					random_list = {
+						1 = { add_trait = leader_trait_flexible_programming }
+						1 = { add_trait = leader_trait_analytical }
+						1 = { add_trait = leader_trait_expertise_materials }
+						1 = { add_trait = leader_trait_expertise_propulsion }
+						1 = { add_trait = leader_trait_expertise_voidcraft }
+						1 = { add_trait = leader_trait_expertise_industry }
+					}
+				}
+			}
+			remove_country_flag = fleet3deal2product1
+			remove_country_flag = fleet3deal2
+		}
+		# Deal 2 Product 2: Governor
+		else_if = {
+			limit = { has_country_flag = fleet3deal2product2 }
+			custom_tooltip = fleet3deal2product2_tooltip
+			if = { #Biological
+				limit = { NOT = { has_authority = auth_machine_intelligence } }
+				create_leader = {
+					class = governor
+					species = event_target:racket_species
+					name = random
+					skill = 3
+				}
+				last_created_leader = {
+					add_trait = leader_trait_waste_management_specialist
+				}
+			}
+			else_if = { #Machine
+				limit = { has_authority = auth_machine_intelligence }
+				create_leader = {
+					class = governor
+					species = event_target:racket_robot_species
+					name = random
+					skill = 3
+				}
+				last_created_leader = {
+					add_trait = leader_trait_waste_management_specialist
+				}
+			}
+			remove_country_flag = fleet3deal2product2
+			remove_country_flag = fleet3deal2
+		}
+		# Deal 3 Product
+		else_if = {
+			limit = { has_country_flag = fleet3deal3 }
+			if = {
+				limit = { owner = { has_authority = auth_machine_intelligence } }
+				custom_tooltip = "fleet3deal3product_machi_tooltip"
+			}
+			else = {
+				custom_tooltip = "fleet3deal3product_tooltip"
+			}
+			event_target:fleet3deal3planet = {
+				if = {
+					limit = { owner = { has_authority = auth_machine_intelligence } }
+					while = {
+						count = 4
+						create_pop = {
+							species = event_target:racket_robot_species
+						}
+					}
+				}
+				else = {
+					while = {
+						count = 4
+						create_pop = {
+							species = event_target:racket_species
+						}
+					}
+				}
+				remove_planet_flag = fleet3deal3planet
+			}
+			remove_country_flag = fleet3deal3
+		}
+		# Deal 4 Product 1
+		else_if = {
+			limit = { has_country_flag = fleet3deal4product1 }
+			add_resource = { alloys = 2000 }
+			tooltip = { add_resource = { alloys = 2000 } }
+			remove_country_flag = fleet3deal4product1
+			remove_country_flag = fleet3deal4
+		}
+		# Deal 4 Product 2
+		else_if = {
+			limit = { has_country_flag = fleet3deal4product2 }
+			add_resource = { exotic_gases = 150 }
+			tooltip = { add_resource = { exotic_gases = 150 } }
+			remove_country_flag = fleet3deal4product2
+			remove_country_flag = fleet3deal4
+		}
+		# Deal 4 Product 3
+		else_if = {
+			limit = { has_country_flag = fleet3deal4product3 }
+			add_resource = { sr_living_metal = 40 }
+			tooltip = { add_resource = { sr_living_metal = 40 } }
+			remove_country_flag = fleet3deal4product3
+			remove_country_flag = fleet3deal4
+		}
+		# Deal 5
+		else_if = {
+			limit = { has_country_flag = fleet3deal5 }
+			set_country_flag = bought_waste_reprocessing_center
+			custom_tooltip = fleet3deal5product_tooltip
+			remove_country_flag = fleet3deal5
+		}
+		# Deal 6
+		else_if = {
+			limit = { has_country_flag = fleet3deal6 }
+			give_technology = { tech = tech_orbital_trash_dispersal }
+			tooltip = { give_technology = { tech = tech_orbital_trash_dispersal } }
+			remove_country_flag = fleet3deal6
+		}
+		# Deal 7
+		else_if = {
+			limit = { has_country_flag = fleet3deal7 }
+			event_target:fleet3deal7planet = {
+				add_deposit = d_energy_5
+				add_modifier = {
+					modifier = "racket_energy_extractor"
+					days = -1
+				}
+				remove_planet_flag = fleet3deal7planet
+			}
+			tooltip = {
+				event_target:fleet3deal7planet = {
+					add_deposit = d_energy_5
+				}
+			}
+			if = {
+				limit = { NOT = { has_country_flag = got_fleet3deal7 } }
+				set_country_flag = got_fleet3deal7
+			}
+			remove_country_flag = fleet3deal7
+		}
+		# Deal 8
+		else_if = {
+			limit = { has_country_flag = fleet3deal8 }
+			event_target:fleet3deal8planet = {
+				add_modifier = {
+					modifier = "racket_generator_regulator"
+					days = -1
+				}
+				remove_planet_flag = fleet3deal8planet
+			}
+			tooltip = {
+				event_target:fleet3deal8planet = {
+					add_modifier = {
+						modifier = "racket_generator_regulator"
+						days = -1
+					}
+				}
+			}
+			set_country_flag = got_fleet3deal8
+			remove_country_flag = fleet3deal8
+		}
+	}
+}

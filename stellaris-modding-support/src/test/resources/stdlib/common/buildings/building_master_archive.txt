@@ -1,0 +1,34 @@
+building_master_archive = {
+	base_buildtime = @b2_time
+	can_build = no
+	can_demolish = yes
+	
+	potential = {
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_fallen_empire = yes }
+		}
+		job_fe_archivist_add = 10
+	}
+
+	resources = {
+		category = planet_buildings
+		produces = {
+			physics_research = 100
+			society_research = 100
+			engineering_research = 100
+		}
+		cost = {
+			minerals = @b2_minerals
+		}
+		upkeep = {
+			energy = 20
+		}
+	}
+		
+	upgrades = {
+	}
+}

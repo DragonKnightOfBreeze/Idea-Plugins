@@ -1,0 +1,69 @@
+honorbound_warriors = {
+	aggressiveness = 1.75
+	trade_willingness = 0.7
+	bravery = 1.5
+	combat_bravery = 2.0	# rarely ever retreat in battle
+
+	military_spending = 1.2
+	colony_spending = 0.9
+
+	federation_acceptance = 0 #-10
+	nap_acceptance = -100
+	commercial_pact_acceptance = -20
+	research_agreement_acceptance = 0
+	defensive_pact_acceptance = 20
+	migration_pact_acceptance = 0
+
+	advanced_start_chance = 75
+
+	weapon_preferences = weapon_type_strike_craft
+	armor_ratio = 0.4
+	shields_ratio = 0.4
+	hull_ratio = 0.2
+
+	threat_modifier = 0.75
+	threat_others_modifier = 0.5
+	friction_modifier = 1.0
+	claims_modifier = 2.0
+
+	behaviour = {
+		conqueror = yes
+		subjugator = yes
+		liberator = no
+		opportunist = no
+		slaver = no
+		uplifter = no
+		purger = no
+		displacer = no
+		infiltrator = no
+		dominator = yes
+		robot_exploiter = no
+		robot_liberator = no
+		propagator = no
+		multispecies = yes
+		crisis_fighter = yes
+	}
+
+	allow = {
+		is_country_type = default
+		OR = {
+			AND = {
+				has_ethic = "ethic_fanatic_militarist"
+				OR = {
+					has_ethic = "ethic_spiritualist"
+					has_ethic = "ethic_egalitarian"
+					has_ethic = "ethic_xenophile"
+				}			
+			}
+			AND = {
+				has_ethic = "ethic_fanatic_xenophile"
+				has_ethic = "ethic_militarist"
+			}
+		}
+
+	}
+
+	weight_modifier = {
+		weight = 50
+	}
+}

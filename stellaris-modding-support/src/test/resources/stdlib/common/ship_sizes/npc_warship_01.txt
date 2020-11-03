@@ -1,0 +1,27 @@
+npc_warship_01 = {
+	graphical_culture = {  "npf_01"  "npf_01_dirty" }
+	is_space_object = yes
+	graphical_culture = yes
+	max_speed = @speed_slow
+	acceleration = 0.15
+	rotation_speed = 0.1
+	collision_radius = 7
+	modifier = {
+		ship_evasion_add = 2
+		ships_upkeep_mult = -1
+		ship_weapon_damage = 2
+		ship_shield_mult = 3
+		ship_armor_add = 5000
+	}
+	max_hitpoints = 10000
+	combat_size_multiplier = 50
+	size_multiplier = 16
+	fleet_slot_size = 8
+	section_slots = { "mid" = { locator = "part1" } }
+	num_target_locators = 0
+	is_space_station = no
+	icon_frame = 6
+	
+	class = shipclass_military
+	is_designable = no
+}

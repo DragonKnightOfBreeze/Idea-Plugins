@@ -1,0 +1,6 @@
+president_keep_navy_1 = {
+	leader_modifier = {
+		description = president_keep_navy_1_effect
+		country_federation_fleet_contribution_naval_cap_reduction_discount = 1
+	}
+}

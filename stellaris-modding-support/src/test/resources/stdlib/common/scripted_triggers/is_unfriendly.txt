@@ -1,0 +1,8 @@
+is_unfriendly = {
+	OR = {
+		has_valid_civic = civic_fanatic_purifiers
+		has_valid_civic = civic_machine_terminator
+		has_valid_civic = civic_hive_devouring_swarm
+		has_valid_civic = civic_barbaric_despoilers
+	}
+}

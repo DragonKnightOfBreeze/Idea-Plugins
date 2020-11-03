@@ -1,0 +1,49 @@
+d_arcane_generator = {
+	is_for_colonizeable = yes
+	icon = "d_station_reactor"
+	category = deposit_cat_rare
+
+	potential = { always = no }
+
+	planet_modifier = {
+		planet_amenities_add = 5
+	}
+
+	resources = {
+		category = planet_deposits
+		produces = {
+			trigger = {
+				planet = { has_district = district_rw_farming	}
+			}
+			volatile_motes = 2
+			energy = 10
+		}
+		produces = {
+			trigger = {
+				OR = {
+					planet = { has_district = district_rw_commercial }
+					planet = { has_district = district_rw_generator	}
+				}
+			}
+			rare_crystals = 2
+			energy = 10
+		}
+		produces = {
+			trigger = {
+				planet = { has_district = district_rw_science }
+			}
+			exotic_gases = 2
+			energy = 10
+		}
+		produces = {
+			trigger = {
+				OR = {
+					planet = { has_district = district_rw_city }
+					planet = { has_district = district_rw_hive }
+					planet = { has_district = district_rw_nexus	}
+				}
+			}
+			energy = 10
+		}
+	}
+}

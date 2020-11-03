@@ -1,0 +1,11 @@
+on_ship_built = {
+	events = {
+		tutorial.40
+		tutorial.8
+		tutorial.21
+		tutorial.25
+		mandate.144
+		crisis.2056
+		fedev.9500
+	}
+}

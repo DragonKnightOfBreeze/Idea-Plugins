@@ -1,0 +1,5 @@
+army_rank_veteran = {
+	army_health = 0.1
+	army_damage_mult = 0.2
+	army_morale = 0.2
+}

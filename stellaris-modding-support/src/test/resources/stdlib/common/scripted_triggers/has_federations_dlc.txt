@@ -1,0 +1,3 @@
+has_federations_dlc = {
+	host_has_dlc = "Federations"
+}

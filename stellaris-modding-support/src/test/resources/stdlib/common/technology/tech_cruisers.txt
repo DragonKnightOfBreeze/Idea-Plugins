@@ -1,0 +1,69 @@
+tech_cruisers = {
+	cost = @tier3cost1
+	area = engineering
+	tier = 3
+	category = { voidcraft }
+	prerequisites = { "tech_destroyers" }
+	weight = @tier3weight1
+
+	gateway = ship
+
+	## unlock cruisers
+	prereqfor_desc = {
+		ship = {
+			title = "TECH_UNLOCK_CRUISER_CONSTRUCTION_TITLE"
+			desc = "TECH_UNLOCK_CRUISER_CONSTRUCTION_DESC"
+		}
+	}
+
+	modifier = {
+		country_command_limit_add = 10
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 0.1
+			NOT = { years_passed > 20 }
+		}
+		modifier = {
+			factor = 10
+			any_neighbor_country = {
+				has_technology = tech_cruisers
+			}
+		}
+		modifier = {
+			factor = 2
+			years_passed > 30
+		}
+		modifier = {
+			factor = 3
+			years_passed > 35
+		}
+		modifier = {
+			factor = 4
+			years_passed > 40
+		}
+		modifier = {
+			factor = 1.25
+			has_tradition = tr_supremacy_adopt
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_voidcraft"
+			}
+		}
+	}
+
+	ai_weight = {
+		factor = 100 #higher factor due to cruiser hull
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_voidcraft"
+			}
+		}
+	}
+}

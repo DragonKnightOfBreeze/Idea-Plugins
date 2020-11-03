@@ -1,0 +1,4 @@
+feral_overload_chain = {
+	icon = "gfx/interface/icons/situation_log/situation_log_alert.dds"
+	picture = GFX_evt_burning_settlement
+}

@@ -1,0 +1,13 @@
+minerals_upkeep_planets = {
+	resource = minerals
+	type = upkeep
+	category = planets
+
+	potential = {
+		always = yes
+	}
+
+	fraction = {
+		weight = 0.70
+	}
+}

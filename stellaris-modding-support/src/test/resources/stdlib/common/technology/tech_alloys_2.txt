@@ -1,0 +1,31 @@
+tech_alloys_2 = {
+	cost = @tier3cost1
+	area = engineering
+	tier = 3
+	category = { materials }
+	prerequisites = { "tech_alloys_1" "tech_colonial_centralization" }
+	weight = @tier3weight1
+
+	# Unlock better alloy buildings
+
+	weight_modifier = {
+		factor = 2
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_materials"
+			}
+		}
+	}
+
+	ai_weight = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_materials"
+			}
+		}
+	}
+}

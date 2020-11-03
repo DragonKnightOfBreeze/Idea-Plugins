@@ -1,0 +1,6 @@
+on_ship_designed = {
+	events = {
+		tutorial.49
+		tutorial.480
+	}
+}

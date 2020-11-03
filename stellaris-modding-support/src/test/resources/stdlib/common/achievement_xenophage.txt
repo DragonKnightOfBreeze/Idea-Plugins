@@ -1,0 +1,20 @@
+achievement_xenophage = {
+	id = 65
+
+	possible = {
+		is_ironman = yes
+		host_has_dlc = "Utopia"
+	}
+
+	happened = {
+		count_species = {
+			count > 4
+			limit = {
+				has_slavery_type = {
+					country = root
+					type = slavery_livestock
+				}
+			}
+		}
+	}
+}

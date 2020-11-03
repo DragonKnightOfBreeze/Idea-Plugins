@@ -1,0 +1,3 @@
+hegemony_propaganda_egalitarian = {
+	pop_ethic_egalitarian_attraction_mult = 0.35
+}

@@ -1,0 +1,9 @@
+opinion_faction_insult = {
+	opinion = {
+		base = -30
+	}
+
+	decay = {
+		base = 5
+	}
+}

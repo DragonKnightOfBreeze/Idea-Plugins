@@ -1,0 +1,9 @@
+civic_hive_strength_of_legions = {
+	potential = { authority = { value = auth_hive_mind } }
+	random_weight = { base = 5 }
+	modifier = {
+		army_starting_experience_add = 100
+		army_damage_mult = 0.20
+		armies_upkeep_mult = -0.20
+	}
+}

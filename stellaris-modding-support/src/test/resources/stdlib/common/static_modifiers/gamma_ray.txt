@@ -1,0 +1,3 @@
+gamma_ray = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_strong_magnetic_field.dds"
+}

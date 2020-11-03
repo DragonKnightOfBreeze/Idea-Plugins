@@ -1,0 +1,13 @@
+CRYSTAL_MANUFACTORY_CAT = {
+	desc = "CRYSTAL_MANUFACTORY_DESC"
+	picture = "GFX_evt_asteroid_field"
+	level = 3
+	
+	spawn_chance = { # added manually
+		modifier = {
+			factor = 0
+		}
+	}
+	
+	on_success = anomaly.3125
+}

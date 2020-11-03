@@ -1,0 +1,24 @@
+ethic_fanatic_authoritarian = {
+	cost = 2
+	category = "col"
+	category_value = 0
+
+	use_for_pops = no
+
+	regular_variant = ethic_authoritarian
+
+	country_modifier = {
+		country_base_influence_produces_add = 1
+		planet_jobs_worker_produces_mult = 0.1
+	}
+
+	tags = {
+		ETHIC_ALLOWS_STRATIFIED_SOCIETY
+		ETHIC_ALLOWS_SLAVERY
+		ETHIC_ONLY_AUTOCRACY
+	}
+
+	random_weight = {
+		value = 150
+	}
+}

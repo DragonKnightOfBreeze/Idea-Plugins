@@ -1,0 +1,3 @@
+kills_envoys = {
+	diplo_weight_mult = -0.1
+}

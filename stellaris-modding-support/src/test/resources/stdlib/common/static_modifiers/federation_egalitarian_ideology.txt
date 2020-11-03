@@ -1,0 +1,3 @@
+federation_egalitarian_ideology = {
+	pop_ethic_egalitarian_attraction_mult = 0.35
+}

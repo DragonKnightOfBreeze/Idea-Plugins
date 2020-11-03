@@ -1,0 +1,9 @@
+opinion_hegemony_joint_action_agreed = {
+	opinion = {
+		base = 30
+	}
+
+	decay = {
+		base = 3
+	}
+}

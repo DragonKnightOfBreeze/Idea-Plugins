@@ -1,0 +1,5 @@
+planet_population_expelled = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_expel_population.dds"
+	icon_frame = 3
+	planet_stability_add = -10
+}

@@ -1,0 +1,5 @@
+ruler = {
+	can_rule_empire = yes
+	max_trait_points = 2
+	default_category = ruler
+}

@@ -1,0 +1,67 @@
+AST_CLUSTER_CAT = {
+	desc = "AST_CLUSTER_DESC"
+	picture = "GFX_evt_asteroid_field"
+	level = 3
+	
+	spawn_chance = {
+		modifier = {
+			add = 3
+			is_asteroid = yes
+		}
+	}
+	
+	on_success = {
+		0 = {
+			modifier = {
+				add = 1
+				leader = {
+					NOR = {
+						has_trait = leader_trait_carefree
+						has_trait = leader_trait_meticulous
+					}
+				}
+			}
+			anomaly_event = anomaly.3000
+		}
+		0 = {
+			modifier = {
+				add = 1
+				leader = {
+					NOT = {
+						has_trait = leader_trait_expertise_voidcraft
+						has_trait = leader_trait_expertise_materials
+						has_trait = leader_trait_expertise_propulsion
+						has_trait = leader_trait_expertise_industry
+						has_trait = leader_trait_expertise_field_manipulation
+						has_trait = leader_trait_expertise_particles
+						has_trait = leader_trait_expertise_psionics
+						has_trait = leader_trait_expertise_computing
+						has_trait = leader_trait_expertise_new_worlds
+						has_trait = leader_trait_expertise_statecraft
+						has_trait = leader_trait_expertise_biology
+						has_trait = leader_trait_expertise_military_theory
+					}
+				}
+			}
+			anomaly_event = anomaly.3005
+		}
+		1 = anomaly.3010
+		0 = {
+			modifier = {
+				add = 1
+				owner = {
+					any_relation = {
+						is_country_type = default
+						has_communications = prev
+						is_ai = yes
+						NOR = { 
+							has_ethic = ethic_gestalt_consciousness
+							is_xenophobe = yes 
+						}
+					}
+				}
+			}
+			anomaly_event = anomaly.3085
+		}
+	}
+}

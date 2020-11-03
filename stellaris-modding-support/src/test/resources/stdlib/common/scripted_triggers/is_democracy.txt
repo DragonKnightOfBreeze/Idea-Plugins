@@ -1,0 +1,7 @@
+is_democracy = { #Power of many
+	has_authority = auth_democratic
+	AND = {
+		has_authority = auth_corporate
+		is_egalitarian = yes
+	}
+}

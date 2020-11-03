@@ -1,0 +1,25 @@
+sc_binary_4 = { # Binary System: Red star paired with White dwarf
+    class             = m_star
+    icon              = c_binary_star
+    planet            = {
+                        key = pc_m_giant_star
+                        class = m_star
+                    }
+    planet            = {
+                        key = pc_f_star
+                        class = f_star
+                    }
+    spawn_odds         = 5
+    num_planets     = { min = 4 max = 10 }
+
+    pc_desert       = { spawn_odds = 0 }
+    pc_tropical     = { spawn_odds = 0 }
+    pc_arid         = { spawn_odds = 0 }
+    pc_continental  = { spawn_odds = 0 }
+    pc_ocean        = { spawn_odds = 0 }
+    pc_tundra       = { spawn_odds = 0 }
+    pc_arctic       = { spawn_odds = 0 }
+    pc_gaia         = { spawn_odds = 0 }
+    pc_alpine       = { spawn_odds = 0 }
+    pc_savannah     = { spawn_odds = 0 }
+}

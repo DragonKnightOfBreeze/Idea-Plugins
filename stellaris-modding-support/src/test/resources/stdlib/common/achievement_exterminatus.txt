@@ -1,0 +1,11 @@
+achievement_exterminatus = {
+	id = 71
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		has_country_flag = exterminatus
+	}
+}

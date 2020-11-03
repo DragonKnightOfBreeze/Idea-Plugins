@@ -1,0 +1,136 @@
+PLANT = {
+	lozavata = {
+		language = "l_simp_chinese"
+		name = 洛扎瓦特
+		plural = 洛扎瓦特
+		home_planet = "洛扎瓦特主星"
+		home_system = 洛扎
+		name_list = "PLANT"
+	}
+
+	queptilium = {
+		language = "l_simp_chinese"
+		name = 奎普帝留姆
+		plural = 奎普帝留姆
+		home_planet = "奎普帝留姆主星"
+		home_system = 奎普塔
+		name_list = "PLANT2"
+	}
+
+	lilarobius = {
+		language = "l_simp_chinese"
+		name = 里拉罗布斯
+		plural = 里拉罗布斯
+		home_planet = "里拉罗布斯主星"
+		home_system = 里拉罗
+		name_list = "PLANT3"
+	}
+
+	vetirisio = {
+		language = "l_simp_chinese"
+		name = 维特里希
+		plural = 维特里希
+		home_planet = "维提利斯主星"
+		home_system = 维特里
+		name_list = "PLANT"
+	}
+
+	belmacosa = {
+		language = "l_simp_chinese"
+		name = 比尔马克萨
+		plural = 比尔马克萨
+		home_planet = "比尔马克萨主星"
+		home_system = 比尔姆
+		name_list = "PLANT2"
+	}
+
+	panaxala = {
+		language = "l_simp_chinese"
+		name = 潘娜夏拉
+		plural = 潘娜夏拉
+		home_planet = "潘娜夏拉主星"
+		home_system = 潘娜夏
+		name_list = "PLANT3"
+	}
+
+	ganvius = {
+		language = "l_simp_chinese"
+		name = 纲维斯
+		plural = 纲维
+		home_planet = "纲维斯主星"
+		home_system = 纲瓦
+		name_list = "PLANT"
+	}
+
+	caloctora = {
+		language = "l_simp_chinese"
+		name = 卡洛克托亚
+		plural = 卡洛克托亚
+		home_planet = "卡洛克托亚主星"
+		home_system = 卡洛克
+		name_list = "PLANT2"
+	}
+
+	vivisandia = {
+		language = "l_simp_chinese"
+		name = 维维珊迪
+		plural = 维维珊迪
+		home_planet = "维维珊迪主星"
+		home_system = 维维斯
+		name_list = "PLANT3"
+	}
+
+	sidimatus = {
+		language = "l_simp_chinese"
+		name = 希德马图斯
+		plural = 希德马图斯
+		home_planet = "希德马图斯主星"
+		home_system = 希德马
+		name_list = "PLANT"
+	}
+
+	mandasura = {
+		language = "l_simp_chinese"
+		name = 曼达苏拉
+		plural = 曼达苏拉
+		home_planet = "曼达苏拉主星"
+		home_system = 曼达苏
+		name_list = "PLANT2"
+	}
+
+	mirovandia = {
+		language = "l_simp_chinese"
+		name = 汨罗范狄亚
+		plural = 汨罗范狄亚
+		home_planet = "汨罗范狄亚主星"
+		home_system = 汨罗
+		name_list = "PLANT3"
+	}
+
+	pelisimus = {
+		language = "l_simp_chinese"
+		name = 佩里西姆
+		plural = 佩里西姆
+		home_planet = "佩里西姆主星"
+		home_system = 佩里西
+		name_list = "PLANT"
+	}
+
+	lavis = {
+		language = "l_simp_chinese"
+		name = 拉维斯
+		plural = 拉维斯
+		home_planet = "拉维斯主星"
+		home_system = 拉夫
+		name_list = "PLANT2"
+	}
+	
+	raxycodium = {
+		language = "l_simp_chinese"
+		name = 拉克西科迪
+		plural = 拉克西科迪
+		home_planet = "拉克西科迪主星"
+		home_system = 拉克西科
+		name_list = "PLANT3"
+	}
+}

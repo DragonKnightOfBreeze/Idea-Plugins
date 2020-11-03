@@ -1,0 +1,12 @@
+trait_lithoid_volatile_excretions = {
+	cost = 2
+	potential_crossbreeding_chance = 1.0
+
+	opposites = { "trait_lithoid_gaseous_byproducts" "trait_lithoid_scintillating" }
+	allowed_archetypes = { LITHOID }
+	custom_tooltip = TRAIT_LITHOID_VOLATILE_EXCRETIONS_EFFECT
+
+	slave_cost = {
+		energy = 100
+	}
+}

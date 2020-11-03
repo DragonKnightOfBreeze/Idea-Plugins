@@ -1,0 +1,13 @@
+volatile_motes_upkeep_ships = {
+	resource = volatile_motes 
+	type = upkeep
+	category = ships
+	
+	potential = {
+		always = yes
+	}
+	
+	fraction = {
+		weight = 0.1
+	}	
+}

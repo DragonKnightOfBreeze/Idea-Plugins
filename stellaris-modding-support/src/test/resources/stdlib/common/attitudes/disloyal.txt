@@ -1,0 +1,6 @@
+disloyal = {
+	type = disloyal
+	behaviour = {
+		attack = yes
+	}
+}

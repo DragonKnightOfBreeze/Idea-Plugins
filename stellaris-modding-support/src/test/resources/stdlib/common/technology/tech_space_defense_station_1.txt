@@ -1,0 +1,8 @@
+tech_space_defense_station_1 = {
+	cost = 0
+	tier = 0
+	area = engineering
+	start_tech = yes
+	category = { voidcraft }
+	prerequisites = { "tech_starbase_1" }
+}

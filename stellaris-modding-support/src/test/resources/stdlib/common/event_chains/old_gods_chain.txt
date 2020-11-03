@@ -1,0 +1,9 @@
+old_gods_chain = {
+	picture = GFX_evt_throne_room
+	icon = "gfx/interface/icons/situation_log/situation_log_main_quest.dds"
+	counter = {
+		shrines_searched = {
+			max = 3
+		}
+	}
+}

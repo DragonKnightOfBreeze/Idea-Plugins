@@ -1,0 +1,3 @@
+has_criminal_branch_office = {
+	planet_crime_add = 25
+}

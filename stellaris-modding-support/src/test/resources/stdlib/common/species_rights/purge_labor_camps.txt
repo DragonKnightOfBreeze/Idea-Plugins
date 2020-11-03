@@ -1,0 +1,53 @@
+purge_labor_camps = {
+	token = purge_labor_camps
+	pop_escape_chance = 0.33
+	
+	pop_modifier = {
+		pop_decline_speed = 2
+		pop_happiness = -10
+	}
+
+	potential = {	
+		exists = from
+		from = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+		host_has_dlc = "Utopia"
+	}
+	
+	allow = {
+		hidden_trigger = { exists = from }
+		custom_tooltip = {
+			fail_text = "lonely_hive_mind_pops_kill_themselves_purge_type"
+			is_lonely_hive_mind_pop = no
+		}
+		custom_tooltip = {
+			fail_text = "disconnected_machine_pops_kill_themselves_citizenship"
+			is_disconnected_machine_pop = no
+		}
+		custom_tooltip = {
+			fail_text = PURGES_ALLOWED
+			from = {
+				OR = {
+					has_ethic = ethic_gestalt_consciousness
+					has_valid_civic = civic_fanatic_purifiers
+					has_policy_flag = purge_allowed
+				}					
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 5
+		modifier = {
+			factor = 0
+			from = { allows_slavery = no }
+		}
+		modifier = {
+			factor = 0
+			from = {
+				has_valid_ai_personality = yes
+				NOT = {
+					has_ai_personality_behaviour = purger
+				}
+			}
+		}		
+	}
+}

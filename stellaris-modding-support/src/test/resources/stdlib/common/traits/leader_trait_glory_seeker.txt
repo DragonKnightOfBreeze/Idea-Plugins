@@ -1,0 +1,15 @@
+leader_trait_glory_seeker = {
+	cost = 1
+	modification = no
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_glory_seeker.dds"
+	modifier = {
+		army_morale = 0.1
+		army_damage_mult = 0.05
+	}
+	leader_potential_add = {
+		NOT = { from = { has_authority = "auth_machine_intelligence" } }
+	}
+	leader_trait = { general }
+	leader_class = { general }
+	opposites = { "leader_trait_armchair_commander" }
+}

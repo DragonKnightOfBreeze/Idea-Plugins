@@ -1,0 +1,16 @@
+prethoryn_scourge_chain = {
+	icon = "gfx/interface/icons/situation_log/situation_log_main_quest.dds"
+	picture = GFX_evt_throne_room
+	counter = {
+		infested_worlds = {
+		}
+		infested_worlds_cleansed = {
+		}
+		prethoryn_kills_us = {
+		}
+		prethoryn_kills_others = {
+		}
+		prethoryn_victims = {
+		}
+	}
+}

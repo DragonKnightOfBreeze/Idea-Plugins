@@ -1,0 +1,4 @@
+on_ruler_removed = {
+	events = {
+	}
+}

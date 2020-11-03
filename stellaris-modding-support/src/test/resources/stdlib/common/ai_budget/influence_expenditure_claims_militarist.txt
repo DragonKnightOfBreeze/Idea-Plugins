@@ -1,0 +1,14 @@
+influence_expenditure_claims_militarist = {
+	resource = influence 
+	type = expenditure
+	category = claims
+	
+	potential = {
+		has_ethic = ethic_militarist
+		has_potential_claims = yes
+	}
+	
+	fraction = {
+		weight = 0.05
+	}
+}

@@ -1,0 +1,25 @@
+triggered_exterminators_opinion_of_machines = {
+	trigger = {
+		is_country_type = default
+		has_civic = civic_machine_terminator
+		FROM = {
+			OR = {
+				has_authority = auth_machine_intelligence
+				is_species_class = ROBOT
+				is_species_class = MACHINE
+				has_country_flag = synthetic_empire
+				owner_species = {
+					has_trait = trait_cybernetic
+					has_trait = trait_mechanical
+				}
+			}
+			NOT = {
+				has_civic = civic_machine_terminator
+				has_civic = civic_machine_servitor
+			}
+		}
+	}
+	opinion = {
+		base = 100
+	}
+}

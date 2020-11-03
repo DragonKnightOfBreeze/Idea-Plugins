@@ -1,0 +1,31 @@
+gov_war_council = {
+	ruler_title = RT_WARLORD
+	ruler_title_female = RT_WARLORD_FEMALE
+	
+	should_force_rename = yes
+	
+	leader_class = admiral 	# Initial ruler will become this if elected out of office
+
+	election_candidates = {
+		modifier = {
+			add = 100
+			leader_class = ruler
+		}
+		modifier = {
+			add = 10
+			OR = {
+				leader_class = admiral
+				leader_class = general
+			}
+		}
+	}
+
+	possible = {
+		has_authority = auth_oligarchic
+		has_valid_civic = civic_warrior_culture
+	}
+
+	weight = {
+		base = 800
+	}
+}

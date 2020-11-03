@@ -1,0 +1,8 @@
+fallen_empire_cleanse_holy_worlds_effect = {
+	every_owned_planet = {
+		limit = {
+			has_modifier = "holy_planet"
+		}
+		destroy_colony = yes
+	}
+}

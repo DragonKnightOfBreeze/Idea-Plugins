@@ -1,0 +1,5 @@
+relic_zro_crystal_state = {
+	planet_stability_add = 5
+	edicts_cost_mult = -0.10
+	pop_government_ethic_attraction = 0.25
+}

@@ -1,0 +1,6 @@
+gang_wars = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_crime.dds"
+	icon_frame = 3
+	planet_crime_add = 30
+	job_criminal_add = 3
+}

@@ -1,0 +1,11 @@
+opinion_broke_away_from = {
+	opinion = {
+		base = -100
+	}
+
+	accumulative = yes
+
+	decay = {
+		base = 2
+	}
+}

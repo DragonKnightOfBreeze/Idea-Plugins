@@ -1,0 +1,6 @@
+first_league_homeworld = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_factory.dds"
+	country_society_research_produces_add = 10
+	country_physics_research_produces_add = 10
+	country_engineering_research_produces_add = 10
+}

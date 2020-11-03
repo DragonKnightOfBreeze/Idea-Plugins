@@ -1,0 +1,41 @@
+endless_expanse_digsite_2 = {
+	desc = endless_expanse_digsite_2_desc
+	picture = GFX_evt_gas_giant_station
+	stages = 4
+	max_instances = 1
+	weight = 0
+	visible = {
+		default_site_visible_trigger = yes
+	}
+	on_visible = {
+    	country_event = { id = story.5 days = 30 }
+	}
+	allow = {
+		is_ship_class = shipclass_science_ship
+		exists = leader
+	}
+	stage = {
+		difficulty = 3
+		event = ancrel.4043
+		icon = GFX_archaeology_runes_F1
+	}
+	stage = {
+		difficulty = 1
+		event = ancrel.4044
+		icon = GFX_archaeology_runes_F2
+	}
+	stage = {
+		difficulty = 4
+		event = ancrel.4045
+		icon = GFX_archaeology_runes_F3
+	}
+	stage = {
+		difficulty = 4
+		event = ancrel.4046
+		icon = GFX_archaeology_runes_F4
+	}
+	
+	on_roll_failed = {
+		from = { standard_archaeological_site_on_roll_failed = { RANDOM_EVENTS = all_random_events } }
+	}
+}

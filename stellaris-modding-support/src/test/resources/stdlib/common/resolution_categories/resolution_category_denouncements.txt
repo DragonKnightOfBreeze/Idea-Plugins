@@ -1,0 +1,8 @@
+resolution_category_denouncements = {
+	group = politics_culture
+	icon = "GFX_resolution_purges"
+	resolution_types = {
+		"resolution_mutualdefense_castigation_denouncement"
+		"resolution_council_denouncement"
+	}
+}

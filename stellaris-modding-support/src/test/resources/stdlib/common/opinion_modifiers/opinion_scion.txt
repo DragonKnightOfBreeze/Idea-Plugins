@@ -1,0 +1,5 @@
+opinion_scion = {
+	opinion = {
+		base = 100
+	}
+}

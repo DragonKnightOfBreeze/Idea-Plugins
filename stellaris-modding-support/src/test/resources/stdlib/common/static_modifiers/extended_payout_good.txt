@@ -1,0 +1,4 @@
+extended_payout_good = {
+	country_base_minerals_produces_add = 6
+	country_base_energy_produces_add = 6
+}

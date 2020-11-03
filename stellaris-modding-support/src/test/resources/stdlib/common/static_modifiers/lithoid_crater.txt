@@ -1,0 +1,5 @@
+lithoid_crater = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_asteroid_impacts.dds"
+	icon_frame = 3
+	pop_environment_tolerance = -0.5
+}

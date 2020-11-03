@@ -1,0 +1,4 @@
+invisible_point_defence_turret = {
+	size = point_defence
+	component = weapon
+}

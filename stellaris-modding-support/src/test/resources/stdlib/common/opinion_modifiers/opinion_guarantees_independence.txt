@@ -1,0 +1,5 @@
+opinion_guarantees_independence = {
+	opinion = {
+		base = 10
+	}
+}

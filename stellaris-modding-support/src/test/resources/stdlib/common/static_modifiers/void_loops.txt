@@ -1,0 +1,3 @@
+void_loops = {
+	planet_jobs_physics_research_produces_mult = 0.10
+}

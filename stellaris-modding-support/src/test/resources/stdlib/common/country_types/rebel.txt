@@ -1,0 +1,29 @@
+rebel = {
+	observable = no
+	randomize_ethos = yes
+	ai = {
+		#enabled = no
+		enabled = yes
+		declare_war = yes
+		colonizer = yes
+		internal_policies = yes
+		modification = no
+		government = no
+		construction = yes
+		#modules = {
+		#	military_minister_module
+		#	foreign_minister_module
+		#	interior_minister_module
+		#}
+	}
+	modules = {
+		standard_event_module = {}
+		#standard_economy_module = {}
+		standard_leader_module = {}
+		#standard_diplomacy_module = {}
+		exclusive_diplomacy_module = {}
+		standard_technology_module = {}
+		standard_trade_routes_module = {}
+		#standard_species_rights_module = {}
+	}
+}

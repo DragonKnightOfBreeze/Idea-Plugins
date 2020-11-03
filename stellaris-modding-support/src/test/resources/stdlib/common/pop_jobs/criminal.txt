@@ -1,0 +1,33 @@
+criminal = {
+	category = criminal
+	is_capped_by_modifier = yes
+	can_set_priority = no
+	clothes_texture_index = 2
+	building_icon = building_residence
+	contributes_to_diplo_weight = no
+	
+	possible_pre_triggers = {
+		has_owner = yes
+	}
+
+	possible = {
+		# check that this is not a robot in servitude
+		NOT = { 
+			has_citizenship_type = { 
+				country = owner 
+				type = citizenship_robot_servitude
+			}
+		}
+		owner = {
+			is_gestalt = no
+		}
+	}
+
+	planet_modifier = {
+		trade_value_add = -1
+	}
+		
+	weight = {
+		weight = @criminal_job_weight
+	}
+}

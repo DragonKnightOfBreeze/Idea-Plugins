@@ -1,0 +1,29 @@
+d_bluelotus2 = {
+    is_for_colonizeable = yes
+    category = deposit_cat_rare
+    icon = d_bunker_door
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = no }
+		}
+		modifier = {
+			job_bluelotus_technician_add = 2
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		modifier = {
+			job_bluelotus_drone_add = 2
+		}
+	}
+	
+	drop_weight = {
+		weight = 0
+	}
+}

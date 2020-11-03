@@ -1,0 +1,32 @@
+GEN_DESERT_CAT = {
+	desc = "GEN_DESERT_DESC"
+	picture = "GFX_evt_landing_ship"
+	level = 3
+	
+	spawn_chance = {
+		modifier = {
+			add = 3
+			is_planet_class = pc_desert
+		}
+	}
+	
+	on_success = {
+		0 = {
+			modifier = {
+				add = 1
+				leader = {
+					OR = {
+						has_trait = leader_trait_meticulous
+						has_trait = leader_trait_carefree
+					}
+				}
+				owner = {
+					resource_stockpile_compare = { resource = energy value >= 50 }
+				}
+			}
+			anomaly_event = anomaly.3035
+		}
+		1 = anomaly.3135
+		1 = anomaly.3060
+	}
+}

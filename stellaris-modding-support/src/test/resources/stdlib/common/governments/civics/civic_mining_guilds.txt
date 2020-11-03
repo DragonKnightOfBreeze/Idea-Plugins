@@ -1,0 +1,10 @@
+civic_mining_guilds = {
+	potential = {
+		ethics = { NOT = { value = ethic_gestalt_consciousness } }
+		authority = { NOT = { value = auth_corporate } }
+	}
+	random_weight = { base = 5 }
+	modifier = {
+		planet_miners_minerals_produces_add = 1
+	}
+}

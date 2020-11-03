@@ -1,0 +1,4 @@
+sector_separatist_supporter = {
+	pop_happiness = -0.1
+	icon_frame = 3
+}

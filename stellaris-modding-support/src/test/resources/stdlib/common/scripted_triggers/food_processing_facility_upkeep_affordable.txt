@@ -1,0 +1,6 @@
+food_processing_facility_upkeep_affordable = {
+	has_monthly_income = {
+		resource = energy
+		value > 2
+	}
+}

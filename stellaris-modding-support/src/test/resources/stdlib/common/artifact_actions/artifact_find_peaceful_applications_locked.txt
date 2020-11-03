@@ -1,0 +1,13 @@
+artifact_find_peaceful_applications_locked = {
+	potential = {
+		NOT = { has_technology = tech_arcane_deciphering }
+		is_homicidal = no
+	}
+	
+	allow = {
+		custom_tooltip = {
+			fail_text = "artifact_action_locked_failtext"
+			has_technology = tech_arcane_deciphering
+		}
+	}
+}

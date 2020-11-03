@@ -1,0 +1,3 @@
+dimensional_horror_weak_points = {
+	damage_vs_country_type_guardian_horror_mult = 0.25
+}

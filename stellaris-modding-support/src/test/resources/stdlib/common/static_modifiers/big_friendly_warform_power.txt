@@ -1,0 +1,3 @@
+big_friendly_warform_power = {
+	ship_hull_mult = 5.0
+}

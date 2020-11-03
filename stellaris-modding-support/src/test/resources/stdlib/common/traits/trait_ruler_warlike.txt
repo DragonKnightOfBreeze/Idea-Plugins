@@ -1,0 +1,14 @@
+trait_ruler_warlike = {
+	cost = 1
+	modification = no
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_fist.dds"
+	leader_potential_add = {
+		NOT = { from = { has_ethic = "ethic_gestalt_consciousness" } }
+	}
+	modifier = {
+		ship_weapon_damage = 0.05
+		army_damage_mult = 0.10
+	}
+	leader_trait = { ruler }
+	leader_class = { ruler }
+}

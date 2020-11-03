@@ -1,0 +1,27 @@
+pirate_cruiser = {
+	graphical_culture = { "pirate_01" }
+
+	max_speed = @speed_fast
+	acceleration = 0.2
+	rotation_speed = 0.2
+	collision_radius = @destroyer_collision_radius
+	modifier = {
+		ship_evasion_add = 10
+		ship_armor_add = 34
+		ship_piracy_suppression_add = 6
+	}
+	max_hitpoints = 2000
+	size_multiplier = 4
+	fleet_slot_size = 4
+	section_slots = { "mid" = { locator = "part1" } }
+	num_target_locators = 0
+	icon_frame = 3
+	is_space_station = no
+	
+	class = shipclass_military
+	is_designable = no
+	
+	required_component_set = "ftl_components"
+	required_component_set = "combat_computers"
+	required_component_set = "thruster_components"
+}

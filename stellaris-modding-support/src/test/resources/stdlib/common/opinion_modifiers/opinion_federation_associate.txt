@@ -1,0 +1,5 @@
+opinion_federation_associate = {
+	opinion = {
+		base = 10
+	}
+}

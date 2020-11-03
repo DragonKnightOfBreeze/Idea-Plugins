@@ -1,0 +1,2 @@
+ship_rank_regular = {
+}

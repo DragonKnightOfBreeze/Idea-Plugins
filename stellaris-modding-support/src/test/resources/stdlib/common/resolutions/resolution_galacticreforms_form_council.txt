@@ -1,0 +1,119 @@
+resolution_galacticreforms_form_council = {
+	icon = "GFX_resolution_create_council"
+
+	potential = {
+		has_federations_dlc = yes
+		NOT = { has_global_flag = galactic_council_formed }
+	}
+
+	resources = {
+		category = resolutions
+		cost = {
+			influence = @resolution_cost_t1
+		}
+	}
+	target = no
+
+	modifier = {
+	}
+
+	allow = {
+		is_years_since_community_formation >= 20
+	}
+
+	effect = {
+		custom_tooltip = resolution_galacticreforms_form_council_tooltip
+		hidden_effect = {
+			set_council_size = 3
+			set_council_veto = no
+			remove_global_flag = resolution_council_denouncement_abolished
+			set_global_flag = galactic_council_formed
+			set_global_flag = galactic_community_resolution_passed
+
+			set_global_flag = resolution_with_breach_effect_passed # council denouncement
+
+			set_timed_country_flag = { flag = galactic_community_resolution_passed_general days = @resolution_flag_timer }
+			add_modifier = {
+				modifier = resolution_passed_diplomatic_weight
+				days = 2200
+			}
+		}
+	}
+
+	fail_effects = {
+		hidden_effect = {
+			set_timed_country_flag = { flag = galactic_community_resolution_failed_general days = @resolution_flag_timer }
+			add_modifier = {
+				modifier = resolution_failed_diplomatic_weight
+				days = 2200
+			}
+		}
+	}
+
+	ai_weight = {
+		weight = @resolution_weight_loved
+
+		modifier = {
+			factor = 2
+			OR = {
+				has_civic = civic_diplomatic_corps
+				has_civic = civic_public_relations_specialists
+				has_civic = civic_hive_empath
+				has_civic = civic_machine_servitor
+			}
+		}
+
+		modifier = {
+			factor = 1.5
+			OR = {
+				galactic_community_rank <= 3
+				AND = {
+					is_subject = yes
+					overlord = {
+						opinion_level = { who = prev level >= neutral }
+						galactic_community_rank <= 3
+					}
+				}
+			}
+		}
+
+		modifier = {
+			factor = 1.1
+			is_authoritarian = yes
+		}
+
+		modifier = {
+			factor = 0.8
+			OR = {
+				is_gestalt = yes
+				is_xenophobe = yes
+				is_egalitarian = yes
+			}
+		}
+
+		modifier = {
+			factor = 0.8
+			galactic_community_rank > 5
+			NAND = {
+				is_subject = yes
+				overlord = {
+					opinion_level = { who = prev level >= neutral }
+					galactic_community_rank <= 3
+				}
+			}
+		}
+
+		modifier = {
+			factor = 0.5
+			OR = {
+				has_ai_personality = democratic_crusaders
+				has_valid_civic = civic_shared_burden
+			}
+		}
+
+		modifier = {
+			factor = 1.1
+			is_xenophile = yes
+		}
+	}
+}

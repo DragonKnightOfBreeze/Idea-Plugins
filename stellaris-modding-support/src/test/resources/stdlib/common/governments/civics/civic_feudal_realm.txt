@@ -1,0 +1,17 @@
+civic_feudal_realm = {
+	potential = {
+		ethics = { NOT = { value = ethic_gestalt_consciousness } }
+		authority = { NOT = { value = auth_corporate } }
+	}
+	possible = {
+		authority = {
+			value = auth_imperial
+		}
+	}
+	random_weight = { base = 5 }
+
+	description = "civic_tooltip_feudal_realm_effects"
+	modifier = {
+		country_subject_power_penalty_mult = -0.5
+	}
+}

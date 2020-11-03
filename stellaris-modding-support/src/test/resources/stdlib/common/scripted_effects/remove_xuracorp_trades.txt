@@ -1,0 +1,12 @@
+remove_xuracorp_trades = {
+	if = { limit = { has_modifier = enclave_trade_1_xur }
+				  remove_modifier = enclave_trade_1_xur }
+	if = { limit = { has_modifier = enclave_trade_2_xur }
+				  remove_modifier = enclave_trade_2_xur }
+	if = { limit = { has_modifier = enclave_trade_3_xur }
+				  remove_modifier = enclave_trade_3_xur }
+	if = { limit = { has_modifier = enclave_trade_4_xur }
+				  remove_modifier = enclave_trade_4_xur	}
+	if = { limit = { has_modifier = enclave_trade_5_xur }
+				  remove_modifier = enclave_trade_5_xur	}
+}

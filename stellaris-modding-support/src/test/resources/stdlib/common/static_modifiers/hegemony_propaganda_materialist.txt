@@ -1,0 +1,3 @@
+hegemony_propaganda_materialist = {
+	pop_ethic_materialist_attraction_mult = 0.35
+}

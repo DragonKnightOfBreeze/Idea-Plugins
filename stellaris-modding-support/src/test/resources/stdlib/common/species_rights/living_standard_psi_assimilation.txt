@@ -1,0 +1,31 @@
+living_standard_psi_assimilation = {
+	token = living_standard_psi_assimilation
+	name = living_standard_psi_assimilation
+
+	pop_modifier = {
+		pop_happiness = -0.25
+	}
+
+	potential = {
+		host_has_dlc = "Utopia"
+		exists = from
+		from = {
+			has_ascension_perk = ap_transcendence
+		}
+	}
+
+	allow = {
+		hidden_trigger = { exists = from }
+		custom_tooltip = {
+			fail_text = SPECIES_MUST_BE_ASSIMILATING
+			has_citizenship_type = {
+				type = citizenship_assimilation
+				country = from
+			}
+		}
+	}
+
+	ai_will_do = {
+		factor = 100
+	}
+}

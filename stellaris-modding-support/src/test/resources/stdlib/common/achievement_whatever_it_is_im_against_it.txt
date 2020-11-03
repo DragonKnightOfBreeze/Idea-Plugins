@@ -1,0 +1,12 @@
+achievement_whatever_it_is_im_against_it = {
+	id = 110
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		has_country_flag = whatever_it_is_im_against_it_rejected_community
+		has_country_flag = whatever_it_is_im_against_it_left_federation
+	}
+}

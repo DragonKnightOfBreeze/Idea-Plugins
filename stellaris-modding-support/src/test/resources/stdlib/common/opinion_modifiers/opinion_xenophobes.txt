@@ -1,0 +1,88 @@
+opinion_xenophobes = {
+	opinion = {
+		base = 0
+
+		modifier = {
+			add = -10
+			OR = {
+				has_ethic = "ethic_xenophile"
+				has_ethic = "ethic_fanatic_xenophile"
+			}
+			FROM = { has_ethic = "ethic_xenophobe" }
+			NOT = { is_same_species_class = FROM }
+		}
+		modifier = {
+			add = -5
+			OR = {
+				has_ethic = "ethic_xenophile"
+				has_ethic = "ethic_fanatic_xenophile"
+			}
+			FROM = { has_ethic = "ethic_xenophobe" }
+			is_same_species_class = FROM
+			NOT = { is_same_species = FROM }
+			NOT = { is_subspecies = FROM }
+		}
+
+		modifier = {
+			add = -10
+			NOT = { has_ethic = "ethic_fanatic_xenophobe" }
+			NOT = { has_ethic = "ethic_xenophobe" }
+			NOT = { has_civic = civic_machine_terminator }
+			FROM = { has_ethic = "ethic_xenophobe" }
+			NOT = { is_same_species_class = FROM }
+		}
+		modifier = {
+			add = -5
+			NOT = { has_ethic = "ethic_fanatic_xenophobe" }
+			NOT = { has_ethic = "ethic_xenophobe" }
+			NOT = { has_civic = civic_machine_terminator }
+			FROM = { has_ethic = "ethic_xenophobe" }
+			is_same_species_class = FROM
+			NOT = { is_same_species = FROM }
+			NOT = { is_subspecies = FROM }
+		}
+
+		modifier = {
+			add = -20
+			OR = {
+				has_ethic = "ethic_xenophile"
+				has_ethic = "ethic_fanatic_xenophile"
+			}
+			FROM = {
+				has_ethic = "ethic_fanatic_xenophobe"
+			}
+			NOT = {
+				is_same_species_class = FROM }
+		}
+		modifier = {
+			add = -10
+			OR = {
+				has_ethic = "ethic_xenophile"
+				has_ethic = "ethic_fanatic_xenophile"
+			}
+			FROM = { has_ethic = "ethic_fanatic_xenophobe" }
+			is_same_species_class = FROM
+			NOT = { is_same_species = FROM }
+			NOT = { is_subspecies = FROM }
+		}
+
+		modifier = {
+			add = -20
+			NOT = { has_ethic = "ethic_fanatic_xenophobe" }
+			NOT = { has_ethic = "ethic_xenophobe" }
+			NOT = { has_civic = civic_machine_terminator }
+			FROM = { has_ethic = "ethic_fanatic_xenophobe" }
+			NOT = { is_same_species_class = FROM }
+		}
+		modifier = {
+			add = -10
+			NOT = { has_ethic = "ethic_fanatic_xenophobe" }
+			NOT = { has_ethic = "ethic_xenophobe" }
+			NOT = { has_civic = civic_machine_terminator }
+			FROM = { has_ethic = "ethic_fanatic_xenophobe" }
+			is_same_species_class = FROM
+			NOT = { is_same_species = FROM }
+			NOT = { is_subspecies = FROM }
+		}
+	}
+}

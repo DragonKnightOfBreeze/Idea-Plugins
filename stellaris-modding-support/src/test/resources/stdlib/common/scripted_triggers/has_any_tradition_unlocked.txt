@@ -1,0 +1,11 @@
+has_any_tradition_unlocked = {
+	OR = {
+		has_tradition = tr_discovery_adopt
+		has_tradition = tr_diplomacy_adopt
+		has_tradition = tr_domination_adopt
+		has_tradition = tr_expansion_adopt
+		has_tradition = tr_harmony_adopt
+		has_tradition = tr_prosperity_adopt
+		has_tradition = tr_supremacy_adopt
+	}
+}

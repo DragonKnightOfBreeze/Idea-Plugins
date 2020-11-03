@@ -1,0 +1,35 @@
+mandate_peacemaker = {
+	valid = {
+		always = no
+		exists = owner
+		owner = {
+			is_at_war = yes
+			is_war_leader = yes
+		}
+	}
+
+	parameters = {
+		self = country
+		enemy = country
+	}
+
+	on_term_started = {
+		owner = {
+			begin_event_chain = {
+				event_chain = "mandate_peacemaker_chain"
+				target = this
+			}
+			# Detail event chain reward in comment here:
+			# +300 Influence
+		}
+	}
+
+	on_term_ended = {
+		owner = {
+			if = { limit = { is_ai = no } 	log = "mandate_peacemaker end_of_term fired for player" }
+			if = { limit = { is_ai = yes } 	log = "mandate_peacemaker end_of_term fired for AI" }
+			country_event = { id = mandate.160 }
+			#country_event = { id = mandate.2 }
+		}
+	}
+}

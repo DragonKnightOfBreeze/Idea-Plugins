@@ -1,0 +1,13 @@
+exotic_gases_expenditure_upgrade = {
+	resource = exotic_gases 
+	type = expenditure
+	category = ship_upgrades
+	
+	potential = {
+		always = yes
+	}
+	
+	fraction = {
+		base = 0.1
+	}
+}

@@ -1,0 +1,10 @@
+can_terraform_planet = {
+	NAND = {
+		root = { has_policy_flag = pre_sapients_protect }
+		any_owned_pop = { is_sapient = no }
+	}
+	custom_tooltip = {
+		fail_text = "requires_actor_not_devouring_swarm_lithoid"
+		root = { is_lithoid_devouring_swarm = no }
+	}
+}

@@ -1,0 +1,57 @@
+create_2nd_khan_fleet = {
+	create_fleet = {
+		name = "NAME_Chosen_of_the_Great_Khan"
+		effect = {
+			set_owner = event_target:raider_khanate
+			while = {
+				count = 18
+				create_ship = {
+					name = random
+					design = "NAME_Outrider"
+					prefix = no
+					graphical_culture = "pirate_01"
+				}
+			}
+			while = {
+				count = 12
+				create_ship = {
+					name = random
+					design = "NAME_Lancer"
+					prefix = no
+					graphical_culture = "pirate_01"
+				}
+			}
+			while = {
+				count = 6
+				create_ship = {
+					name = random
+					design = "NAME_Void_Champion"
+					prefix = no
+					graphical_culture = "pirate_01"
+				}
+			}
+			while = {
+				count = 1
+				create_ship = {
+					name = random
+					design = "NAME_Ancestral_Glory"
+					prefix = no
+					graphical_culture = "pirate_01"
+				}
+			}
+			set_leader = exiled_khan
+			set_location = {
+				target = event_target:marauder_rally_point
+				distance = 45
+				angle = random
+			}
+		}
+		settings = {
+			can_upgrade = no
+			can_disband = no
+			can_change_composition = no
+			can_change_leader = no
+			uses_naval_capacity = no
+		}
+	}
+}

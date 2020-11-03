@@ -1,0 +1,20 @@
+strange_signal_category = {
+	desc = "strange_signal_category_desc"
+	picture = GFX_evt_cold_barren
+	level = 2
+	
+	spawn_chance = {	
+		modifier = {
+			add = 2
+			OR = {
+				is_planet_class = pc_barren
+				is_planet_class = pc_barren_cold
+			}
+			has_any_strategic_resource = no
+			NOT = { from.owner = { has_ethic = ethic_gestalt_consciousness } }
+			NOT = { years_passed = 300 } #year minus 600 must be pre-1900
+		}
+	}
+	
+	on_success = federations2.1
+}

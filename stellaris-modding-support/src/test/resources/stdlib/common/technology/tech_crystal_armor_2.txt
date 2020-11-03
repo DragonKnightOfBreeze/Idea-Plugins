@@ -1,0 +1,19 @@
+tech_crystal_armor_2 = {
+	area = engineering
+	cost = @tier4cost1
+	tier = 4
+	is_rare = yes
+	category = { materials }
+	ai_update_type = all
+	weight = 0
+
+	ai_weight = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_materials"
+			}
+		}
+	}
+}

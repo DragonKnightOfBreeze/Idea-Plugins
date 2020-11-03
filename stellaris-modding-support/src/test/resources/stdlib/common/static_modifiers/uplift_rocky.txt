@@ -1,0 +1,5 @@
+uplift_rocky = {
+	planet_jobs_minerals_produces_mult = -0.05
+	icon = "gfx/interface/icons/planet_modifiers/capital.dds"
+	icon_frame = 3
+}

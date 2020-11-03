@@ -1,0 +1,6 @@
+artifact_find_military_application_army = {
+	army_morale = 0.05
+	army_damage_mult = 0.05
+    army_morale_damage_mult = 0.10
+	army_collateral_damage_mult = 0.20
+}

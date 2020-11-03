@@ -1,0 +1,25 @@
+breach_fix_resolution_greatergood_greater_than_ourselves_no_utopia = {
+	if = {
+		limit = {
+			is_active_resolution = "resolution_greatergood_greater_than_ourselves"
+			in_breach_of = resolution_greatergood_greater_than_ourselves
+			NOT = { host_has_dlc = "Utopia" }
+			NOR = {
+				has_valid_civic = civic_indentured_assets
+				has_valid_civic = civic_slaver_guilds
+			}
+		}
+		hidden_effect = {
+			every_owned_species = {
+				limit = {
+					is_sapient = yes
+					has_citizenship_type = { type = citizenship_slavery country = prev }
+				}
+				set_citizenship_type = { type = citizenship_limited country = prev }
+			}
+		}
+		custom_tooltip = "federations.10210.freeslaves"
+	}
+
+	breach_fix_resolution_greatergood_greater_than_ourselves_living_standards = yes
+}

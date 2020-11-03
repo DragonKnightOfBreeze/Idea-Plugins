@@ -1,0 +1,64 @@
+scyldari = {
+	name = "scyldari"
+	adjective = "PRESCRIPTED_adjective_scyldari"
+	spawn_enabled = yes # yes / no / always
+	
+	species = {
+		class = "MAM"
+		portrait = "mam6"
+		name = "PRESCRIPTED_species_name_scyldari"
+		plural = "PRESCRIPTED_species_plural_scyldari"
+		adjective = "PRESCRIPTED_species_adjective_scyldari"
+		name_list = "MAM1"
+		trait = "trait_charismatic"
+		trait = "trait_natural_sociologists"
+		trait = "trait_weak"
+	}
+	
+	ship_prefix = "PRESCRIPTED_ship_prefix_scyldari"
+	
+	planet_name = "PRESCRIPTED_planet_name_scyldari"
+	planet_class = "pc_ocean"
+	system_name = "PRESCRIPTED_system_name_scyldari"
+	
+	room = "personality_spiritual_seekers_room"
+	
+	authority = "auth_democratic"
+	civics = { "civic_environmentalist" "civic_free_haven" }
+	government = gov_theocratic_republic
+	origin = "origin_default"
+
+	ethic = "ethic_spiritualist"
+	ethic = "ethic_pacifist"
+	ethic = "ethic_xenophile"
+	
+	graphical_culture = "mammalian_01"
+	city_graphical_culture = "mammalian_01"
+	
+	empire_flag = {
+		icon= {
+			category = "spherical"
+			file = "flag_spherical_15.dds"
+		}
+		background= {
+			category = "backgrounds"
+			file = "00_solid.dds"
+		}
+		colors={
+			"burgundy"
+			"orange"
+			"null"
+			"null"
+		}
+	}
+	
+	ruler = {
+		name = "PRESCRIPTED_ruler_name_scyldari"
+		gender = female
+		portrait = "mam6"
+		texture = 3
+		#hair = 0
+		clothes = 3
+		leader_class = ruler
+	}
+}

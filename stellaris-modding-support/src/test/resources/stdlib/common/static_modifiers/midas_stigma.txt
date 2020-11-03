@@ -1,0 +1,3 @@
+midas_stigma = {
+	country_energy_produces_mult = 0.10
+}

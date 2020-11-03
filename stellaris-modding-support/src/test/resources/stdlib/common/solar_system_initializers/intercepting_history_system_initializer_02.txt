@@ -1,0 +1,89 @@
+intercepting_history_system_initializer_02 = {
+	class = "rl_standard_stars"
+	
+	usage = misc_system_init
+	usage_odds = 0
+	max_instances = 1
+
+	# Star
+	planet = {
+		count = 1
+		class = star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = { min = 20 max = 30 }
+		has_ring = no
+	}
+	
+	change_orbit = 45
+	
+	# Inner misc. planets
+	planet = {
+		count = { min = 1 max = 2 }
+		orbit_distance = 20
+		orbit_angle = { min = 90 max = 270 }
+		
+		change_orbit = @base_moon_distance
+		
+		moon = {
+			count = { min = 0 max = 1 }
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 5
+		}
+	}
+
+	# Benefactor Homeworld planet
+	planet = {
+		class = "pc_continental"
+		orbit_distance = 20
+		orbit_angle = { min = 90 max = 270 }
+		size = 25
+		change_orbit = @base_moon_distance
+		modifiers = none
+		deposit_blockers = none
+		
+		init_effect = {
+			prevent_anomaly = yes
+
+    		create_species = {
+        		name = "NAME_ThwaaPhyr"
+        		plural = "NAME_ThwaaPhyr"
+        		class = random_non_machine
+        		portrait = random
+        		homeworld = THIS
+				traits = {
+					trait = "trait_adaptive"
+					trait = "trait_nomadic"	
+				}
+				effect = {
+#					save_global_event_target_as = primitive_benefactor_species
+				}
+    		}
+			create_early_primitive_empire = yes
+			setup_primitive_planet = yes
+			last_created_country = {
+    			set_country_flag = benefactor_empire
+			}
+			save_global_event_target_as = benefactor_planet
+		}
+	}
+
+	# Outer misc. planets
+	planet = {
+		count = { min = 2 max = 3 }
+		orbit_distance = 20
+		orbit_angle = { min = 90 max = 270 }
+		
+		change_orbit = @base_moon_distance
+		
+		moon = {
+			count = { min = 0 max = 1 }
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 5
+		}
+	}
+
+	init_effect = {
+		save_global_event_target_as = benefactor_homeworld
+	}
+}

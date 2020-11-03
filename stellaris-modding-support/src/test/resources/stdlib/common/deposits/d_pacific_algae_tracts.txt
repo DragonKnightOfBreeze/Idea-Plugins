@@ -1,0 +1,12 @@
+d_pacific_algae_tracts = {
+	is_for_colonizeable = yes
+	icon = d_toxic_kelp
+	
+	planet_modifier = { 
+		district_farming_max = 3
+	}
+	
+	drop_weight = {
+		weight = 0
+	}
+}

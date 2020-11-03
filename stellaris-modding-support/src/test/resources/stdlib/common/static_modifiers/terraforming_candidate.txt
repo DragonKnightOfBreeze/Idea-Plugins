@@ -1,0 +1,5 @@
+terraforming_candidate = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_planet_from_space.dds"
+	icon_frame = 1
+	important = yes			# if present on a planet, show the planet's nameplate
+}

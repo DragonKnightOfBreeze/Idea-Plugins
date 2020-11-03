@@ -1,0 +1,10 @@
+AI = {
+	ai = {
+		language = "l_simp_chinese"
+		name = 人工智能
+		plural = 人工智能
+		home_planet = "格点 x0y0z0"
+		home_system = "U格点x0y0z0 x0y0z0"
+		name_list = "AI"
+	}
+}

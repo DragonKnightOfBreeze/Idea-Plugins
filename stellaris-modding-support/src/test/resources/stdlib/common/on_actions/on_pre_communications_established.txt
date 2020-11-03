@@ -1,0 +1,6 @@
+on_pre_communications_established = {
+	events = {
+		action.7
+		action.19
+	}
+}

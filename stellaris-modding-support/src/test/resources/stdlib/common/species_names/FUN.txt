@@ -1,0 +1,244 @@
+FUN = {
+	obevni = {
+		language = "l_simp_chinese"
+		name = 奥贝尼
+		plural = 奥贝尼
+		home_planet = "奥贝夫·摩尼"
+		home_system = 欧伊根
+		name_list = "FUN3"
+	}
+	
+	finu = {
+		language = "l_simp_chinese"
+		name = 芬纽
+		plural = 芬纽
+		home_planet = "芬纽维亚"
+		home_system = 格拉提尔
+		name_list = "FUN3"
+	}
+	
+	obbha = {
+		language = "l_simp_chinese"
+		name = 奥巴
+		plural = 奥巴
+		home_planet = 霍奇
+		home_system = "霍奇·加戈"
+		name_list = "FUN3"
+	}
+	
+	ganlarev = {
+		language = "l_simp_chinese"
+		name = 甘拉瑞弗
+		plural = 甘拉瑞弗
+		home_planet = 甘拉瑞弗亚
+		home_system = 甘拉瑞戈
+		name_list = "FUN3"
+	}
+	
+	buhavilaa = {
+		language = "l_simp_chinese"
+		name = 布哈维拉
+		plural = 布哈维兰
+		home_planet = 布哈
+		home_system = 贝维尔
+		name_list = "FUN3"
+	}
+	
+	oginollox = {
+		language = "l_simp_chinese"
+		name = 欧吉诺洛克斯
+		plural = 欧吉诺洛克斯
+		home_planet = "赛尔 赛尔"
+		home_system = "沃金·佛布兰"
+		name_list = "FUN3"
+	}
+	
+	celimy = {
+		language = "l_simp_chinese"
+		name = 赛利姆y
+		plural = 赛利姆安
+		home_planet = 赛利姆
+		home_system = "霍瓦西里姆·布"
+		name_list = "FUN3"
+	}
+	
+	pogovon = {
+		language = "l_simp_chinese"
+		name = 普戈万
+		plural = 普戈万
+		home_planet = 普戈万
+		home_system = 科沃波
+		name_list = "FUN3"
+	}
+	
+	qasvalyvia = {
+		language = "l_simp_chinese"
+		name = 魁斯瓦雷维亚
+		plural = 魁斯瓦雷维亚
+		home_planet = 魁夫波尔福
+		home_system = 魁夫波尔福格
+		name_list = "FUN3"
+	}
+	
+	avabbian = {
+		language = "l_simp_chinese"
+		name = 阿瓦比亚
+		plural = 阿瓦比亚恩
+		home_planet = 阿瓦比亚
+		home_system = 哈亚罗巴瓦
+		name_list = "FUN3"
+	}
+	
+	lolehndra = {
+		language = "l_simp_chinese"
+		name = 洛勒恩达
+		plural = 洛勒恩达
+		home_planet = 罗里芬卓
+		home_system = 艾吉芬德拉
+		name_list = "FUN3"
+	}
+	
+	reyubb = {
+		language = "l_simp_chinese"
+		name = 雷布
+		plural = 雷布
+		home_planet = "雷布·奥夫"
+		home_system = 泽泽布
+		name_list = "FUN3"
+	}
+	
+	varelviv = {
+		language = "l_simp_chinese"
+		name = 瓦尔维夫
+		plural = 瓦尔维夫
+		home_planet = 维弗瓦
+		home_system = "阿瓦福布"
+		name_list = "FUN3"
+	}
+	
+	zeppadroggan = {
+		language = "l_simp_chinese"
+		name = 泽帕多拉根
+		plural = 泽帕多拉根
+		home_planet = 帕德罗格
+		home_system = 帕德罗格沃尔
+		name_list = "FUN3"
+	}
+	
+	buvhondon = {
+		language = "l_simp_chinese"
+		name = 布霍顿
+		plural = 布霍迪安
+		home_planet = 布霍顿
+		home_system = "嘉熙·绪比"
+		name_list = "FUN3"
+	}
+	
+	valmennax = {
+		language = "l_simp_chinese"
+		name = 瓦尔门纳克
+		plural = 瓦尔门纳克
+		home_planet = 瓦马克斯
+		home_system = "左普夫·伊娃"
+		name_list = "FUN3"
+	}
+	
+	huviduzaan = {
+		language = "l_simp_chinese"
+		name = 胡维杜赞
+		plural = 胡维杜赞
+		home_planet = 胡维杜莎
+		home_system = 扎伊瓦
+		name_list = "FUN3"
+	}
+	
+	provalguvor = {
+		language = "l_simp_chinese"
+		name = 普罗威尔古弗尔
+		plural = 普罗威尔古弗尔
+		home_planet = 普罗威尔
+		home_system = 伊思瓦拉
+		name_list = "FUN3"
+	}
+	
+	qlorvinserian = {
+		language = "l_simp_chinese"
+		name = 魁洛文瑟恩
+		plural = 魁洛文瑟恩
+		home_planet = 魁洛克
+		home_system = 魁洛西索补
+		name_list = "FUN3"
+	}
+	
+	wulhubb = {
+		language = "l_simp_chinese"
+		name = 乌胡布
+		plural = 乌胡布
+		home_planet = 乌胡布a 
+		home_system = 基布鲁瓦
+		name_list = "FUN3"
+	}
+	
+	caphevad = {
+		language = "l_simp_chinese"
+		name = 咖菲夫德
+		plural = 咖菲夫迪
+		home_planet = 咖菲夫
+		home_system = 贝罗维
+		name_list = "FUN3"
+	}
+	
+	vool = {
+		language = "l_simp_chinese"
+		name = 沃尔
+		plural = 沃尔安
+		home_planet = 沃尔乌
+		home_system = 沃尔乌姆
+		name_list = "FUN3"
+	}
+	
+	frubralav = {
+		language = "l_simp_chinese"
+		name = 福禄布拉维
+		plural = 福禄布拉维
+		home_planet = 福布拉
+		home_system = 法布里海思
+		name_list = "FUN3"
+	}
+	
+	fjasivlin = {
+		language = "l_simp_chinese"
+		name = 福佳斯维林
+		plural = 福佳斯维林
+		home_planet = 福尔斯
+		home_system = "博萨·辛得"
+		name_list = "FUN3"
+	}
+	
+	pobelin = {
+		language = "l_simp_chinese"
+		name = 普拜林
+		plural = 普拜林
+		home_planet = 普拜林纳
+		home_system = 普尔布雷尔
+		name_list = "FUN3"
+	}
+	
+	laachax = {
+		language = "l_simp_chinese"
+		name = 拉夏克斯
+		plural = 拉夏克斯
+		home_planet = 拉夏克斯
+		home_system = "格尔茨·拉夏克斯"
+		name_list = "FUN3"
+	}
+	
+	udkavongo = {
+		language = "l_simp_chinese"
+		name = 乌德卡冯哥
+		plural = 乌德卡冯哥
+		home_planet = 乌德卡尔
+		home_system = "爪·瓦克塔拉"
+		name_list = "FUN3"
+	}
+}

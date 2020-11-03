@@ -1,0 +1,10 @@
+site_ocean_sites_random_events = {
+	random_list = {
+		10 = { fleet_event = { id = ancrel.8055} }
+		10 = { fleet_event = { id = ancrel.8075} }
+		10 = { fleet_event = { id = ancrel.8090} }
+		10 = { fleet_event = { id = ancrel.8091} }
+		10 = { fleet_event = { id = ancrel.8092} }
+		10 = { fleet_event = { id = ancrel.8093} }
+	}
+}

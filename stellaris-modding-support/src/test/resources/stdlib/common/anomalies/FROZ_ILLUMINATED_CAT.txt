@@ -1,0 +1,24 @@
+FROZ_ILLUMINATED_CAT = {
+	desc = "FROZ_ILLUMINATED_DESC"
+	picture = "GFX_evt_frozen"
+	level = 3
+	
+	spawn_chance = {
+		modifier = {
+			add = 3
+			is_planet_class = pc_frozen
+			from = {
+				owner = {
+					has_technology = tech_lasers_1
+					NOT = {
+						has_technology = tech_lasers_3
+						has_technology = tech_lasers_4
+						has_technology = tech_lasers_5
+					}
+				}
+			}
+		}
+	}
+	
+	on_success = anomaly.235
+}

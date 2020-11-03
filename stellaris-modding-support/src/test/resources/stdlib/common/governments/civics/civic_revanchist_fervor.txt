@@ -1,0 +1,12 @@
+civic_revanchist_fervor = {
+	modification = no
+	icon = "gfx/interface/icons/governments/civics/civic_revanchist_fervor.dds"
+	potential = {
+		country_type = { value = awakened_fallen_empire }
+		ethics = { NOT = { value = ethic_gestalt_consciousness } }
+	}
+	random_weight = { base = 5 }
+	modifier = { 
+		country_base_influence_produces_add = 1
+	}
+}

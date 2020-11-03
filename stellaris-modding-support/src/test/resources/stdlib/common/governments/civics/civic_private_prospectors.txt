@@ -1,0 +1,10 @@
+civic_private_prospectors = {
+	potential = { authority = { value = auth_corporate } }
+	random_weight = { base = 5 }
+	modifier = {
+		empire_size_systems_mult = -0.33
+	}
+
+	# unlocks sponsored_colonizer ship size
+	description = "civic_tooltip_private_prospectors_effects"
+}

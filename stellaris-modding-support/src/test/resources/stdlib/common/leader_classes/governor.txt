@@ -1,0 +1,15 @@
+governor = {
+	can_govern_planet = yes
+	max_trait_points = 1
+	resources = {
+		category = leader_governors
+		cost = {
+			energy = 200
+		}
+		upkeep = {
+			energy = 2
+		}
+	}
+
+	default_category = governor
+}

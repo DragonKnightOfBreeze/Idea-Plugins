@@ -1,0 +1,10 @@
+triggered_opinion_both_servitors = {
+	trigger = {
+		is_country_type = default
+		has_civic = civic_machine_servitor
+		FROM = { has_civic = civic_machine_servitor }
+	}
+	opinion = {
+		base = 40
+	}
+}

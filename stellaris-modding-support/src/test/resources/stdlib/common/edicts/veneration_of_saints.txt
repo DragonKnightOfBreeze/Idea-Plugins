@@ -1,0 +1,25 @@
+veneration_of_saints = {
+	length = @EdictPerpetual
+	icon = "GFX_edict_type_policy"
+	edict_cap_usage = 1
+
+	resources = {
+		category = edicts
+		cost = {
+			influence = @Edict1Cost
+		}
+	}
+
+	modifier = {
+		planet_priests_produces_mult = 0.20
+		pop_ethic_spiritualist_attraction_mult = 0.25
+	}
+
+	potential = {
+		is_spiritualist = yes
+	}
+
+	ai_weight = {
+		weight = @EdictMedPrio
+	}
+}

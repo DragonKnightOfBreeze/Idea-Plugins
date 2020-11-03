@@ -1,0 +1,8 @@
+civic_hive_pooled_knowledge = {
+	potential = { authority = { value = auth_hive_mind } }
+	random_weight = { base = 5 }
+	modifier = {
+		leader_skill_levels = 1
+		species_leader_exp_gain = 0.1
+	}
+}

@@ -1,0 +1,31 @@
+col_ring_research = {
+	icon = 8
+
+	potential = {
+		uses_district_set = ring_world
+	}
+
+	planet_modifier = {
+		planet_jobs_engineering_research_produces_mult = 0.15
+		planet_jobs_physics_research_produces_mult = 0.15
+		planet_jobs_society_research_produces_mult = 0.15
+	}
+
+	weight_modifier = {
+		modifier = {
+			add = 50
+			owner = { has_monthly_income = { resource = physics_research value < 200 } }
+			owner = { has_monthly_income = { resource = society_research value < 200 } }
+			owner = { has_monthly_income = { resource = engineering_research value < 200 } }
+		}
+		modifier = {
+			add = 100
+			has_designation = col_ring_research
+		}
+		modifier = {
+			add = 200
+			is_capital = no
+			num_districts = { type = district_rw_science value >= 1 }
+		}
+	}
+}

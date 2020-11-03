@@ -1,0 +1,3 @@
+subject_tax = {
+	parent = diplomacy
+}

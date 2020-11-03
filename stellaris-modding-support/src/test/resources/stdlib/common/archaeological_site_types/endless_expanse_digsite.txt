@@ -1,0 +1,49 @@
+endless_expanse_digsite = {
+	desc = endless_expanse_digsite_desc
+	picture = GFX_evt_frozen
+	stages = 4
+	max_instances = 1
+	weight = {
+    	base = 100
+		modifier = {
+			factor = 0
+			NOT = {
+				is_planet_class = pc_frozen
+			}
+		}
+	}
+	visible = {
+		default_site_visible_trigger = yes
+	}
+	on_visible = {
+    	country_event = { id = story.5 days = 30 }
+	}
+	allow = {
+		is_ship_class = shipclass_science_ship
+		exists = leader
+	}
+	stage = {
+		difficulty = 1
+		event = ancrel.4040
+		icon = GFX_archaeology_runes_F1
+	}
+	stage = {
+		difficulty = 2
+		event = ancrel.4041
+		icon = GFX_archaeology_runes_F2
+	}
+	stage = {
+		difficulty = 2
+		event = ancrel.4042
+		icon = GFX_archaeology_runes_F3
+	}
+	stage = {
+		difficulty = 3
+		event = ancrel.4047
+		icon = GFX_archaeology_runes_F4
+	}
+
+	on_roll_failed = {
+		from = { standard_archaeological_site_on_roll_failed = { RANDOM_EVENTS = all_random_events } }
+	}
+}

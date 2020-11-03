@@ -1,0 +1,27 @@
+create_fe_fringe_colony = {
+	set_planet_flag = fallen_empire_world
+	clear_blockers = yes
+	prevent_anomaly = yes
+	set_owner = ROOT
+	add_building = building_ancient_palace
+	add_building = building_fe_dome
+	while = {
+		count = 5
+		add_district = {
+			district_type = district_city
+			ignore_cap = yes
+		}
+	}
+	while = {
+		count = 8
+		create_pop = {
+			species = owner_main_species
+		}
+	}
+	while = {
+		count = 8
+		create_pop = {
+			species = event_target:fe_servants
+		}
+	}
+}

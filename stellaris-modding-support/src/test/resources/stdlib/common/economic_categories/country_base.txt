@@ -1,0 +1,6 @@
+country_base = {
+	parent = country
+	generate_add_modifiers = {
+		produces
+	}
+}

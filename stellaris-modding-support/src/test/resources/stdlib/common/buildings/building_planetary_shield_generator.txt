@@ -1,0 +1,39 @@
+building_planetary_shield_generator = {
+	base_buildtime = @b3_time	
+	base_cap_amount = 1
+	add_to_first_building_slot = yes
+
+	category = army
+	
+	allow = {
+		has_upgraded_capital = yes
+		owner = { is_ai = no }
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		owner = { is_ai = yes }
+	}
+	
+	planet_modifier = {
+		planet_orbital_bombardment_damage = -0.5
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b2_minerals
+		}			
+		upkeep = {
+			energy = @b2_upkeep
+		}
+	}
+	
+	prerequisites = {
+		"tech_planetary_shield_generator"
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}

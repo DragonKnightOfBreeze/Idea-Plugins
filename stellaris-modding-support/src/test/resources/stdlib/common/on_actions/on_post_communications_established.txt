@@ -1,0 +1,12 @@
+on_post_communications_established = {
+	events = {
+		action.11
+		anomaly.4016
+		#anomaly.4092
+		tutorial.60
+		tutorial.61
+		tutorial.62
+		factions.11
+		action.110 # get Galactic Community invitation
+	}
+}

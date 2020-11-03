@@ -1,0 +1,209 @@
+old_foes_system = {
+	class = "rl_standard_stars"
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 70
+	}
+
+	usage = misc_system_init
+	usage_odds = {
+		base = 90000
+		modifier = {
+			factor = 0
+			has_distar = no
+		}
+		modifier = {
+			factor = 0
+			is_fe_cluster = yes
+		}
+		modifier = {
+            factor = 0
+            has_star_flag = empire_cluster
+        }
+	}
+	primitive_system = yes
+	scaled_spawn_chance = 8
+	max_instances = 1
+
+	flags = { old_foes_system }
+
+	planet = {
+		class = star
+		orbit_distance = 0
+	}
+
+	change_orbit = 30
+
+	planet = {
+		count = 2
+		class = "rl_unhabitable_planets"
+		orbit_distance = 30
+		orbit_angle = { min = 90 max = 270 }
+		size = { min = 10 max = 16 }
+	}
+
+	planet = {
+		count = 1
+		class = "pc_nuked"
+		orbit_distance = 35
+		orbit_angle = { min = 90 max = 270 }
+		size = { min = 9 max = 24 }
+		init_effect = {
+			prevent_anomaly = yes
+			set_planet_flag = czyrni_planet
+			create_species = {
+				name = "NAME_Czyrni"
+				plural = "NAME_Czyrni"
+				class = HUM
+				portrait = humanoid_02
+				namelist = "HUM3"
+				traits = {
+					trait = "trait_pc_nuked_preference"
+					trait = trait_intelligent
+					trait = trait_quarrelsome
+					trait = trait_solitary
+					trait = trait_charismatic
+					trait = trait_talented
+				}
+				homeworld = this
+			}
+			create_country = {
+				name = random
+				authority = random
+				civics = {
+					civic = civic_secret_of_fire
+					civic = civic_the_wheel
+				}
+				species = last_created
+				ethos = random
+				origin = "origin_enlightened" # Should only be visible if they become spacefaring
+				flag = {
+					icon = {
+						category = "special"
+						file = "primitive.dds"
+					}
+					background= {
+						category = "backgrounds"
+						file = "new_dawn.dds"
+					}
+					colors={
+						"turquoise"
+						"green"
+						"null"
+						"null"
+					}
+				}
+				type = primitive
+			}
+			last_created_country = {
+				set_country_flag = bronze_age
+				set_primitive_age = bronze_age
+				set_graphical_culture = preindustrial_01
+			}
+			set_owner = last_created_country
+			set_capital = yes
+			while = {
+				count = 8
+				create_pop = {
+					species = last_created
+				}					
+			}
+			add_building = building_primitive_dwellings
+			add_building = building_stone_palace
+		}
+	}
+
+	planet = {
+		count = 1
+		class = "pc_nuked"
+		orbit_distance = 40
+		orbit_angle = { min = 90 max = 270 }
+		size = { min = 9 max = 24 }
+		moon = {
+			count = 1
+			size = { min = 6 max = 12 }
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 10
+		}
+		init_effect = {
+			prevent_anomaly = yes
+			set_planet_flag = pyorun_planet
+			create_species = {
+				name = "NAME_Pyorun"
+				plural = "NAME_Pyorun"
+				class = HUM
+				portrait = humanoid_03
+				namelist = "HUM2"
+				traits = {
+					trait = "trait_pc_nuked_preference"
+					trait = trait_strong
+					trait = trait_quarrelsome
+					trait = trait_charismatic
+					trait = trait_resilient
+				}
+				homeworld = this
+			}
+			create_country = {
+				name = random
+				authority = random
+				civics = {
+					civic = civic_secret_of_fire
+					civic = civic_the_wheel
+				}
+				species = last_created
+				ethos = random
+				origin = "origin_enlightened" # Should only be visible if they become spacefaring
+				flag = {
+					icon = {
+						category = "special"
+						file = "primitive.dds"
+					}
+					background= {
+						category = "backgrounds"
+						file = "new_dawn.dds"
+					}
+					colors={
+						"turquoise"
+						"green"
+						"null"
+						"null"
+					}
+				}
+				type = primitive
+			}
+			last_created_country = {
+				set_country_flag = bronze_age
+				set_primitive_age = bronze_age
+				set_graphical_culture = preindustrial_01
+			}
+			set_owner = last_created_country
+			set_capital = yes
+			while = {
+				count = 8
+				create_pop = {
+					species = last_created
+				}					
+			}
+			add_building = building_primitive_dwellings
+			add_building = building_stone_palace
+		}
+	}
+
+	planet = {
+		count = 1
+		class = pc_gas_giant
+		orbit_distance = 40
+		orbit_angle = { min = 90 max = 270 }
+		size = { min = 20 max = 30 }
+		has_ring = no
+		
+		change_orbit = @base_moon_distance
+		
+		moon = {
+			count = { min = 0 max = 3 }
+			size = { min = 6 max = 12 }
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 7
+		}
+	}
+}

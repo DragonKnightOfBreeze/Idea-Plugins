@@ -1,0 +1,5 @@
+cloud_power = {
+	ship_weapon_damage = 2
+	ship_hull_regen_add_static = 10
+	ship_shield_regen_add_static = 30
+}

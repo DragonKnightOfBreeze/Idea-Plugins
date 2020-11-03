@@ -1,0 +1,35 @@
+is_owner_ethic_pop_faction = {
+	switch = {
+		trigger = is_pop_faction_type
+		prosperity = {
+			owner = { is_pacifist = yes }
+		}
+		progressive = {
+			owner = { is_egalitarian = yes }
+		}
+		imperialist = {
+			owner = { is_militarist = yes }
+		}
+		isolationist = {
+			owner = { is_xenophobe = yes }
+		}
+		supremacist = {
+			owner = { is_xenophobe = yes }
+		}
+		technologist = {
+			owner = { is_materialist = yes }
+		}
+		totalitarian = {
+			owner = { is_authoritarian = yes }
+		}
+		traditionalist = {
+			owner = { is_spiritualist = yes }
+		}
+		xenoist = {
+			owner = { is_xenophile = yes }
+		}
+		default = {
+			always = yes
+		}
+	}
+}

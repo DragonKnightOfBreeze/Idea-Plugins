@@ -1,0 +1,12 @@
+d_saharan_irrigation_project = {
+	is_for_colonizeable = yes
+	icon = d_green_hills
+	
+	planet_modifier = { 
+		district_farming_max = 4
+	}
+	
+	drop_weight = {
+		weight = 0
+	}
+}

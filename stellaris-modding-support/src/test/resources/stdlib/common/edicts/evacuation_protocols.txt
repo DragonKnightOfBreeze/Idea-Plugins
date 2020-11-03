@@ -1,0 +1,50 @@
+evacuation_protocols = {
+	length = @EdictPerpetual
+	icon = "GFX_edict_type_policy"
+	edict_cap_usage = 1
+
+	resources = {
+		category = edicts
+		cost = {
+			influence = @Edict1Cost
+		}
+	}
+
+	modifier = {
+		planet_colony_development_speed_mult = 1.00
+		pop_resettlement_cost_mult = -0.50
+	}
+
+	potential = {
+		has_origin = origin_doomsday
+		any_owned_planet = {
+			OR = {
+				has_modifier = doomsday_1
+				has_modifier = doomsday_2
+				has_modifier = doomsday_3
+				has_modifier = doomsday_4
+				has_modifier = doomsday_5
+			}
+		}
+	}
+	
+	allow = {
+		custom_tooltip = {
+			fail_text = "requires_doomsday_colony"			
+			any_owned_planet = {
+				habitable_planet = yes
+				NOR = {
+					has_modifier = doomsday_1
+					has_modifier = doomsday_2
+					has_modifier = doomsday_3
+					has_modifier = doomsday_4
+					has_modifier = doomsday_5
+				}
+			}
+		}
+	}
+
+	ai_weight = {
+		weight = @EdictHighPrio
+	}
+}

@@ -1,0 +1,3 @@
+galatron_naval_cap1 = {
+	country_naval_cap_add = 10
+}

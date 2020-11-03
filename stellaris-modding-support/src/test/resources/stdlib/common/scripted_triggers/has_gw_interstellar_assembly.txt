@@ -1,0 +1,3 @@
+has_gw_interstellar_assembly = {
+	has_technology = tech_interstellar_assembly
+}

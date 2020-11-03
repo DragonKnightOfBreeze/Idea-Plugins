@@ -1,0 +1,203 @@
+special_init_07 = {
+	class = "rl_standard_stars"
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 150
+	}
+
+	usage = misc_system_init
+
+	usage_odds = {
+		base = 5
+		modifier = {
+			factor = 0
+			NOT = { is_in_cluster = resource_cluster_1 }
+		}
+		modifier = {
+            factor = 0
+            has_star_flag = empire_cluster
+        }
+		modifier = {
+			factor = 0
+			is_bottleneck_system = yes
+		}
+	}
+	max_instances = 1
+	
+	flags = { hostile_system }
+	
+	planet = {
+		count = 1
+		class = star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = { min = 20 max = 30 }
+		has_ring = no
+		
+		init_effect = {
+			#create_country = {
+			#	name = "NAME_Shardlings"
+			#	type = faction
+			#}
+			create_crystal_country = yes
+			#last_created_country = {
+			event_target:crystal_country = {
+				create_fleet = {
+					name = "NAME_Shards_of_Obsidian"
+					effect = {
+						set_owner = PREV
+						while = {
+							count = 10
+							create_ship = {
+								name = "NAME_Shardling"
+								design = "NAME_Small_Crystal_Entity_Blue"
+							}
+						}
+						set_location = {
+							target = PREVPREV
+							distance = 70
+							angle = 90
+						}
+					}
+				}
+				create_fleet = {
+					name = "NAME_Shards_of_Diamond"
+					effect = {
+						set_owner = PREV
+						while = {
+							count = 10
+							create_ship = {
+								name = "NAME_Shardling"
+								design = "NAME_Small_Crystal_Entity_Blue"
+							}
+						}
+						set_location = {
+							target = PREVPREV
+							distance = 70
+							angle = 180
+						}
+					}
+				}
+				create_fleet = {
+					name = "NAME_Shards_of_Onyx"
+					effect = {
+						set_owner = PREV
+						while = {
+							count = 10
+							create_ship = {
+								name = "NAME_Shardling"
+								design = "NAME_Small_Crystal_Entity_Blue"
+							}
+						}
+						set_location = {
+							target = PREVPREV
+							distance = 70
+							angle = 270
+						}
+					}
+				}
+				create_fleet = {
+					name = "NAME_Shards_of_Sapphire"
+					effect = {
+						set_owner = PREV
+						while = {
+							count = 10
+							create_ship = {
+								name = "NAME_Shardling"
+								design = "NAME_Small_Crystal_Entity_Blue"
+							}
+						}
+						set_location = {
+							target = PREVPREV
+							distance = 70
+							angle = 0
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	change_orbit = 150
+	
+	planet = {
+		name = "NAME_Yormak's_Tusk"
+		count = 1
+		class = pc_asteroid
+		orbit_distance = 0
+		orbit_angle = 10
+		init_effect = {
+			set_deposit = d_minerals_3
+		}
+	}
+	planet = {
+		name = "NAME_Yormak's_Eye"
+		count = 1
+		class = pc_asteroid
+		orbit_distance = 0
+		orbit_angle = 46
+		init_effect = {
+			set_deposit = d_minerals_3
+		}
+	}
+	planet = {	
+		name = "NAME_Yormak's_Tongue"
+		count = 1
+		class = pc_asteroid
+		orbit_distance = 0
+		orbit_angle = 97
+		init_effect = {
+			set_deposit = d_minerals_2
+		}
+	}
+	planet = {
+		name = "NAME_Yormak's_Tail"
+		count = 1
+		class = pc_asteroid
+		orbit_distance = 0
+		orbit_angle = 145
+		init_effect = {
+			set_deposit = d_minerals_2
+		}
+	}
+	planet = {
+		name = "NAME_Yormak's_Heart"
+		count = 1
+		class = pc_rare_crystal_asteroid
+		orbit_distance = 0
+		orbit_angle = 189
+		init_effect = {
+			set_deposit = d_rare_crystals_3
+		}
+	}
+	planet = {
+		name = "NAME_Yormak's_Belly"
+		count = 1
+		class = pc_asteroid
+		orbit_distance = 0
+		orbit_angle = 231
+		init_effect = {
+			set_deposit = d_minerals_3
+		}
+	}
+	planet = {
+		name = "NAME_Yormak's_Snout"
+		count = 1
+		class = pc_asteroid
+		orbit_distance = 0
+		orbit_angle = 286
+		init_effect = {
+			set_deposit = d_minerals_2
+		}
+	}
+	planet = {
+		name = "NAME_Yormak's_Fist"
+		count = 1
+		class = pc_asteroid
+		orbit_distance = 0
+		orbit_angle = 321
+		init_effect = {
+			set_deposit = d_minerals_2
+		}
+	}
+}

@@ -1,0 +1,3 @@
+recently_liberated = {
+	pop_government_ethic_attraction = 0.5
+}

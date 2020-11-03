@@ -1,0 +1,115 @@
+action_break_guarantee = {
+	select = {
+		01_REVOKE_GUARANTEE_SELECT = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					has_authority = auth_corporate
+				}
+			}
+		}
+	}
+
+	propose = {
+		01_REVOKE_GUARANTEE_PROPOSE = {
+			trigger = {
+				from = {
+					NOR = {
+						has_authority = auth_machine_intelligence
+						has_authority = auth_corporate
+					}
+				}
+			}
+		}
+	}
+
+	accept = {
+		01_REVOKE_GUARANTEE_ACCEPT = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					has_authority = auth_corporate
+				}
+			}
+		}
+	}
+
+	select = {
+		MECH_REVOKE_GUARANTEE_SELECT = {
+			trigger = {
+				has_authority = auth_machine_intelligence
+			}
+		}
+	}
+
+	propose = {
+		MECH_REVOKE_GUARANTEE_PROPOSE = {
+			trigger = {
+				from = {
+					has_authority = auth_machine_intelligence
+				}
+			}
+		}
+	}
+
+	accept = {
+		MECH_REVOKE_GUARANTEE_ACCEPT = {
+			trigger = {
+				is_same_empire = event_target:ratling_country
+			}
+		}
+	}
+
+	#Ketlings
+	select = {
+		KET_REVOKE_GUARANTEE_SELECT = {
+			weight = { weight = 100000 }
+			trigger = {
+				is_same_empire = event_target:ratling_country
+			}
+		}
+	}
+	propose = {
+		KET_REVOKE_GUARANTEE_PROPOSE = {
+			weight = { weight = 100000 }
+			trigger = {
+				FROM = {
+					is_same_empire = event_target:ratling_country
+				}
+			}
+		}
+	}
+	accept = {
+		KET_REVOKE_GUARANTEE_ACCEPT = {
+			weight = { weight = 100000 }
+			trigger = {
+				is_same_empire = event_target:ratling_country
+			}
+		}
+	}
+
+	# Corporate
+	select = {
+		CORP_REVOKE_GUARANTEE_SELECT_01 = {
+			trigger = {
+				has_authority = auth_corporate
+			}
+		}
+	}
+	propose = {
+		CORP_REVOKE_GUARANTEE_PROPOSE_01 = {
+			trigger = {
+				from = {
+					has_authority = auth_corporate
+				}
+			}
+		}
+	}
+	accept = {
+		CORP_REVOKE_GUARANTEE_ACCEPT_01 = {
+			trigger = {
+				has_authority = auth_corporate
+			}
+		}
+	}
+}

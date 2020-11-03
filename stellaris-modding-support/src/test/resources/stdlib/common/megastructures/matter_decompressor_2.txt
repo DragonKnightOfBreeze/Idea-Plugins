@@ -1,0 +1,33 @@
+matter_decompressor_2 = {
+	entity = "matter_decompressor_stage_2_entity"
+	construction_entity = "matter_decompressor_stage_2_construction_entity"
+	portrait = "GFX_megastructure_construction_background"
+	entity_offset = { x = -20 y = -20 }
+	rotate_to_center = yes
+	scale_offset = yes
+	place_entity_on_planet_plane = no
+	build_time = 3600
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 12500
+		}
+
+		produces = {
+			minerals = 1000
+		}
+
+		upkeep = {
+			energy = 50
+		}
+	}
+	upgrade_from = {
+		matter_decompressor_1
+	}
+
+	prerequisites = { "tech_matter_decompressor" }
+
+	on_build_complete = {
+		from = { country_event = { id = mega.9011 } }
+	}
+}

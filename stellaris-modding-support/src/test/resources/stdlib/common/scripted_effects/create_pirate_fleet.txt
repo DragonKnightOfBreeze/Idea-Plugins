@@ -1,0 +1,121 @@
+create_pirate_fleet = {
+	event_target:pirate_band = {
+		create_leader = {
+			class = admiral
+			species = owner_main_species
+			name = random
+			skill = 1
+			traits = {
+				trait = random_trait
+			}
+		}
+		create_fleet = {
+			name = "NAME_Pirate_Fleet"
+			effect = {
+				set_owner = event_target:pirate_band
+				if = {
+					limit = { 
+						event_target:pirate_system = { 
+							trade_intercepted_value < 10
+						}
+					}
+					create_pirate_ships_0 = yes
+				}
+				if = {
+					limit = { 
+						event_target:pirate_system = { 
+							trade_intercepted_value >= 10
+							trade_intercepted_value < 20
+						}
+					}
+					create_pirate_ships_1 = yes
+				}
+				if = {
+					limit = { 
+						event_target:pirate_system = { 
+							trade_intercepted_value >= 20
+							trade_intercepted_value < 30
+						}
+					}
+					create_pirate_ships_2 = yes
+				}
+				if = {
+					limit = { 
+						event_target:pirate_system = { 
+							trade_intercepted_value >= 30
+							trade_intercepted_value < 40
+						}
+					}
+					create_pirate_ships_3 = yes
+				}
+				if = {
+					limit = { 
+						event_target:pirate_system = { 
+							trade_intercepted_value >= 40
+							trade_intercepted_value < 50
+						}
+					}
+					create_pirate_ships_4 = yes
+				}
+				if = {
+					limit = { 
+						event_target:pirate_system = { 
+							trade_intercepted_value >= 50
+							trade_intercepted_value < 60
+						}
+					}
+					create_pirate_ships_5 = yes
+				}
+				if = {
+					limit = { 
+						event_target:pirate_system = { 
+							trade_intercepted_value >= 60
+							trade_intercepted_value < 70
+						}
+					}
+					create_pirate_ships_6 = yes
+				}
+				if = {
+					limit = { 
+						event_target:pirate_system = { 
+							trade_intercepted_value >= 70
+							trade_intercepted_value < 80
+						}
+					}
+					create_pirate_ships_7 = yes
+				}
+				if = {
+					limit = { 
+						event_target:pirate_system = { 
+							trade_intercepted_value >= 80
+							trade_intercepted_value < 90
+						}
+					}
+					create_pirate_ships_8 = yes
+				}
+				if = {
+					limit = { 
+						event_target:pirate_system = { 
+							trade_intercepted_value >= 90
+							trade_intercepted_value < 100
+						}
+					}
+					create_pirate_ships_9 = yes
+				}
+				if = {
+					limit = { 
+						event_target:pirate_system = { 
+							trade_intercepted_value > 100
+						}
+					}
+					create_pirate_ships_10 = yes
+				}
+				assign_leader = last_created_leader
+				set_location = event_target:pirate_home
+				set_fleet_stance = aggressive
+				set_aggro_range_measure_from = self
+				set_aggro_range = 800
+			}
+		}
+	}
+}

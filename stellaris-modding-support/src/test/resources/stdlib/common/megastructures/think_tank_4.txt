@@ -1,0 +1,39 @@
+think_tank_4 = {
+	entity = "thinktank_phase_03_entity"
+	construction_entity = "thinktank_phase_03_entity"
+	portrait = "GFX_megastructure_think_tank_background"
+	place_entity_on_planet_plane = no
+	entity_offset = { x = @entity_x y = @entity_y }
+	build_time = 20
+	resources = {
+		category = megastructures
+		upkeep = {
+			energy = 100
+		}
+
+		produces = {
+			society_research = @stage_4_research_bonus
+			engineering_research = @stage_4_research_bonus
+			physics_research = @stage_4_research_bonus
+		}
+	}
+	upgrade_from = {
+		think_tank_3
+	}
+
+	on_build_complete = {
+		from = {
+			set_country_flag = has_built_or_repaired_megastructure
+		}
+	}
+	
+	prerequisites = { "tech_science_nexus" }
+
+	# used from script only
+	upgrade_desc = hide
+	potential = { always = no }
+
+	country_modifier = {
+		all_technology_research_speed = 0.15
+	}
+}

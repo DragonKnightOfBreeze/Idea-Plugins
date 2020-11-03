@@ -1,0 +1,26 @@
+tribute_cost_energy = {
+	if = {
+		limit = { has_country_flag = marauder_tribute_1@event_target:raiding_marauder }
+		add_resource = { energy = @tributecost1 }
+	}
+	if = {
+		limit = { has_country_flag = marauder_tribute_2@event_target:raiding_marauder }
+		add_resource = { energy = @tributecost2 }
+	}
+	if = {
+		limit = { has_country_flag = marauder_tribute_3@event_target:raiding_marauder }
+		add_resource = { energy = @tributecost3 }
+	}
+	if = {
+		limit = { has_country_flag = marauder_tribute_4@event_target:raiding_marauder }
+		add_resource = { energy = @tributecost4 }
+	}
+	if = {
+		limit = { has_country_flag = marauder_tribute_5@event_target:raiding_marauder }
+		add_resource = { energy = @tributecost5 }
+	}
+	if = {
+		limit = { has_country_flag = marauder_tribute_6@event_target:raiding_marauder }
+		add_resource = { energy = @tributecost6 }
+	}
+}

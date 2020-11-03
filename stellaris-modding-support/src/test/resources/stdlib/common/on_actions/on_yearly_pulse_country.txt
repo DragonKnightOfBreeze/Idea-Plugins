@@ -1,0 +1,6 @@
+on_yearly_pulse_country = {
+	events = {
+		cara.4101 #Caravan neighbor gatekeeper
+		#tutorial.44
+	}
+}

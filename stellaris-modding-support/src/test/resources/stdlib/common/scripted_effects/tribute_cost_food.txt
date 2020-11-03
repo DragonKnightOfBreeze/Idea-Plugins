@@ -1,0 +1,26 @@
+tribute_cost_food = {
+	if = {
+		limit = { has_country_flag = marauder_tribute_1@event_target:raiding_marauder }
+		add_resource = { food = @tributecost1 }
+	}
+	if = {
+		limit = { has_country_flag = marauder_tribute_2@event_target:raiding_marauder }
+		add_resource = { food = @tributecost2 }
+	}
+	if = {
+		limit = { has_country_flag = marauder_tribute_3@event_target:raiding_marauder }
+		add_resource = { food = @tributecost3 }
+	}
+	if = {
+		limit = { has_country_flag = marauder_tribute_4@event_target:raiding_marauder }
+		add_resource = { food = @tributecost4 }
+	}
+	if = {
+		limit = { has_country_flag = marauder_tribute_5@event_target:raiding_marauder }
+		add_resource = { food = @tributecost5 }
+	}
+	if = {
+		limit = { has_country_flag = marauder_tribute_6@event_target:raiding_marauder }
+		add_resource = { food = @tributecost6 }
+	}
+}

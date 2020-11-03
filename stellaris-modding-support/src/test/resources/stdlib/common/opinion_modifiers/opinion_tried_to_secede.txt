@@ -1,0 +1,9 @@
+opinion_tried_to_secede = {
+	opinion = {
+		base = -20
+	}
+
+	decay = {
+		base = 1
+	}
+}

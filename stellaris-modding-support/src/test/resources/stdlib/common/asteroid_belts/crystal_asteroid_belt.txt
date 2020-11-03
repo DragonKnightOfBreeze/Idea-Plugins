@@ -1,0 +1,5 @@
+crystal_asteroid_belt = {
+	mesh="asteroid_crystal_small_01_mesh"
+	mesh="asteroid_crystal_small_02_mesh"
+	mesh="asteroid_crystal_small_03_mesh"
+}

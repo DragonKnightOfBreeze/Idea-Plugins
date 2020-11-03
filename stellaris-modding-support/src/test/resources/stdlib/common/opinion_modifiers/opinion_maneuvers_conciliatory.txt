@@ -1,0 +1,9 @@
+opinion_maneuvers_conciliatory = {
+	opinion = {
+		base = -40
+	}
+
+	decay = {
+		base = 2
+	}
+}

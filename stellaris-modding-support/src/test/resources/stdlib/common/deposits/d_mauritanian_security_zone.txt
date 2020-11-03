@@ -1,0 +1,12 @@
+d_mauritanian_security_zone = {
+	is_for_colonizeable = yes
+	icon = d_quarantine_zone
+	
+	planet_modifier = { 
+		district_mining_max = 1
+	}
+	
+	drop_weight = {
+		weight = 0
+	}
+}

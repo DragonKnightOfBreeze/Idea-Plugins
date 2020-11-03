@@ -1,11 +1,12 @@
-﻿### Fungoid 2
-### Created by Maximilian Olbers
-
 FUN2 = {
+
 	category = "Fungoid"
+	
+	language = "l_simp_chinese"
+	
 	ship_names = {
 		generic = {
-			Yehm-Guulyeg Yehm-Frahan Yehm-Qiigrud Yehm-Priidgynn Yehm-Taagrid Yehm-Neerolg Yehm-Tuurazh Yehm-Phuetl Yehm-Houtrend Yehm-Yglaagd Yehm-Ruuvgru Yehm-Tiiqup Yehm-Daaremt Yehm-Traguud Yehm-Wootunn Yehm-Raaslurg Yehm-Rehm Yehm-Nargudd Yehm-Fiilyub Yehm-Raasud Yehm-Plourh Yehm-Fleeyup Yehm-Putrieeg Yehm-Shaaluv Yehm-Khaarnob Yehm-Truukend Yehm-Gfaleehn Yehm-Yduumen Yehm-Muldaryyn Yehm-Trooghum Yehm-Beiiyud Yehm-Tiipagh Yehm-Sughraad Yehm-Filgfuul Yehm-Buydool
+			克多西奇 奇米扎尔 祖拉克利 齐布克罗克 西弗拉尼姆 克罗拉利克 科姆扎冯 泽德克拉克
 		}
 
 		corvette = {
@@ -19,7 +20,7 @@ FUN2 = {
 		
 		battleship = {
 		}
-
+		
 		titan = {
 		}
 
@@ -48,93 +49,95 @@ FUN2 = {
 
 	fleet_names = {
 		random_names = {
-			"Quuwo Disseminule" "Qaamara Disseminule" "Shanbaloo Disseminule" "Hooregh Disseminule" "Thuuna Disseminule" "Hathurr Disseminule" "Lurdoosh Disseminule" "Groagsuuh Disseminule" "Lishureeh Disseminule" "Gleggrot Disseminule" "Hahmaar Disseminule" "Thuurgla Disseminule" "Magralha Disseminule" "Qroogm Disseminule" "Greelmash Disseminule" "Kughsee Disseminule"
+			"红之拉塔拉" "白之图拉金" "黑之埃弗凯" "绿之丽萨孟德" "屠夫罗马迪克" "守护者拉帕金"
 		}
-		sequential_name = "%O% Disseminule"
+		sequential_name = "二重身族群 %C%"
 	}
 
 	army_names = {
 
 		machine_defense = {
-			sequential_name = "%O% Agarics"
+			sequential_name = "伞菌 %C%"
 		}
 		
 		machine_assault_1 = {
-			sequential_name = "%O% Ballistospore"
+			sequential_name = "水脱孢子﻿ %C%"
 		}
 		
 		machine_assault_2 = {
-			sequential_name = "%O% Ballistospore"
+			sequential_name = "水脱孢子﻿ %C%"
 		}
 		
 		machine_assault_3 = {
-			sequential_name = "%O% Ballistospore"
+			sequential_name = "水脱孢子﻿ %C%"
 		}
 
 		defense_army = {
-			sequential_name = "%O% Agarics"
+			sequential_name = "伞菌 %C%"
 		}
 
 		assault_army = {
-			sequential_name = "%O% Ballistospore"
+			sequential_name = "水脱孢子﻿ %C%"
 		}
 		
 		slave_army = {
-			sequential_name = "%O% Cordyceptic Force"
+			sequential_name = "虫草部队﻿ %C%"
 		}
 		
 		clone_army = { 
-			sequential_name = "%O% Fungible Formation"
+			sequential_name = "真菌技术融合部队 %C%"
 		}
-		
+
 		undead_army = {
-			sequential_name = "%O% Dread Force"
+			sequential_name = "%O%恐惧战队"
 		}
 
 		robotic_army = {
-			sequential_name = "%O% Robo-Shroom Group"
+			sequential_name = "机器蘑菇小组 %C%"
 		}
 
 		robotic_defense_army = {
-			sequential_name = "%O% Robotic Agarics"
+			sequential_name = "机器蘑菇小组 %C%"
 		}
 		
 		psionic_army = { 
-			sequential_name = "%O% Psychofungi"
+			sequential_name = "纯种之血 %C%"
 		}
 		
 		xenomorph_army = {
-			sequential_name = "%O% Encroachers"
+			sequential_name = "强化军团 %C%"
 		}
 		
 		gene_warrior_army = {
-			sequential_name = "%O% Slime Molds"
+			sequential_name = "超前思想 %C%"
 		}
-
 		occupation_army = {
-			sequential_name = "%O% Garrison Agarics"
+			sequential_name = "%O% 加里森波德"
 		}
 
 		robotic_occupation_army = {
-			sequential_name = "%O% Robotic Garrison"
+			sequential_name = "%O% 安卓 加里森波德"
 		}
-
 		primitive_army = {
-			sequential_name = "Primitive Army %C%"
+			sequential_name = "原始军队 %C%"
 		}
 		industrial_army = {
-			sequential_name = "Industrial Army %C%"
+			sequential_name = "工业军队 %C%"
 		}
 		postatomic_army = {
-			sequential_name = "Post-Atomic Army %C%"
+			sequential_name = "后原子军 %C%"
 		}
 	}
+		
+
+	### PLANETS
 
 	planet_names = {
 
 		generic = {
 			names = {
-				Jurg-Felooq Jurg-Saphand Jurg-Puuligh Jurg-Sohoodh Jurg-Ghirgaal Jurg-Qurliidh Jurg-Shondaar Jurg-Huquell Jurg-Ondareen Jurg-Gurhiil Jurg-Saromyin Jurg-Qoleath Jurg-Hulaagh Jurg-Sabarandh Jurg-Knootheg Jurg-Shuugrem Jurg-Ularaih Jurg-Upaadgh Jurg-Seroondh Jurg-Faliigh Jurg-Sahuul Jurg-Pabdoon Jurg-Pheedhun Jurg-Wuudhal Jurg-Woraaq
+				乌布利尔杜 利布恩杜尔 克拉姆杜尔 科恩娜格杜尔
+				巨人星 温特
 			}
 		}
 		
@@ -186,13 +189,16 @@ FUN2 = {
 			names = {
 			}
 		}
+		
 	}
+
+	### CHARACTERS
 
 	character_names = {
 		default = {
 			# A complete name
 			full_names = {
-				Wuuqam Elgicroon Qaarugm Pubgluurh Mishgreel Shunbloor Seedkugh Huuregdhe Gurloonh Hmaalurd Oleghatuur Thuunolg Liqeerudh Jhulaad Jhutleeg Jhomneel Grodsuun Wluguarq Pugleesh Eguloordh
+				伍德 杰克逊 克拉克 李维斯 梅森 米切尔 科克斯 坎贝尔 斯图尔特 奎恩 墨菲 汉密尔顿 莫尔 莫里 莫里麦克劳林 马丁 奥尼尔 欧勒格 利其尔 胡拉德 格森姆 帕勒希 伊戈勒沃
 			}
 			
 			# Always combined with a second name
@@ -204,11 +210,11 @@ FUN2 = {
 			}
 			
 			regnal_first_names = {
-				Wuuqam Elgicroon Qaarugm Pubgluurh Mishgreel Shunbloor Seedkugh
+				伍德 杰克逊 克拉克 李维斯 梅森 米切尔 科克斯 坎贝尔 斯图尔特 奎恩 墨菲
 			}
 			
 			regnal_second_names = {
-				Waqqo
+				瓦克
 			}
 		}
 	}

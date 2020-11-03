@@ -1,0 +1,24 @@
+decision_end_martial_law = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+
+	resources = {
+		category = decisions
+	}
+	
+	potential = {
+		#owner = { is_regular_empire = yes } #if you conquer the planet as a different type you need to be able to disable it
+		has_modifier = martial_law
+	}
+	
+	effect = {
+		custom_tooltip = decision_end_martial_law_effects_short
+		hidden_effect = {
+			remove_modifier = martial_law
+		}
+	}
+	
+	ai_weight = {
+		weight = 1
+	}
+}

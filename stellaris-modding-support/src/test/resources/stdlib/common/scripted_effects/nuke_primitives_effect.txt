@@ -1,0 +1,9 @@
+nuke_primitives_effect = {
+	destroy_colony = yes
+	set_planet_flag = primitives_nuked_themselves
+	change_pc = pc_nuked
+	reroll_planet = yes
+	remove_all_buildings = yes
+	add_deposit = d_metal_boneyard
+	set_planet_flag = nuked_planet_anomalies_disabled
+}

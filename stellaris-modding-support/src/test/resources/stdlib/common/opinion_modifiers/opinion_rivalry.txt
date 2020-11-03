@@ -1,0 +1,14 @@
+opinion_rivalry = {
+	opinion = {
+		base = -100
+		modifier = {
+			add = -100
+			OR = {
+				is_country_type = fallen_empire
+				is_country_type = awakened_fallen_empire
+			}
+		}
+	}
+
+	unique = yes
+}

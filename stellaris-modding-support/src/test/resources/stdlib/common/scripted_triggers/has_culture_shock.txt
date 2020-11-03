@@ -1,0 +1,15 @@
+has_culture_shock = {
+	OR = {
+		has_modifier = culture_shock_stone_age
+		has_modifier = culture_shock_bronze_age
+		has_modifier = culture_shock_iron_age
+		has_modifier = culture_shock_late_medieval_age
+		has_modifier = culture_shock_renaissance_age
+		has_modifier = culture_shock_steam_age
+		has_modifier = culture_shock_industrial_age
+		has_modifier = culture_shock_machine_age
+		has_modifier = culture_shock_atomic_age
+		has_modifier = culture_shock_early_space_age
+		has_modifier = planet_culture_shock
+	}
+}

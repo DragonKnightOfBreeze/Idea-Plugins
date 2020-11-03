@@ -1,0 +1,13 @@
+triggered_opinion_galatron_holder = {
+	trigger = {
+		is_gestalt = no
+		FROM = {
+			has_modifier = galatron_modifier
+			NOT = { has_closed_borders = prev }
+		}
+	}
+
+	opinion = {
+		base = 25
+	}
+}

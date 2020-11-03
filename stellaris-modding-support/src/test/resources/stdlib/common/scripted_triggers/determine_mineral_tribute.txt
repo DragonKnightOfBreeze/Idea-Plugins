@@ -1,0 +1,26 @@
+determine_mineral_tribute = {
+	if = {
+		limit = { has_country_flag = marauder_tribute_6@event_target:raiding_marauder }
+		resource_stockpile_compare = { resource = minerals value >= @tributeallow6 }
+	}
+	else_if = {
+		limit = { has_country_flag = marauder_tribute_5@event_target:raiding_marauder }
+		resource_stockpile_compare = { resource = minerals value >= @tributeallow5 }
+	}
+	else_if = {
+		limit = { has_country_flag = marauder_tribute_4@event_target:raiding_marauder }
+		resource_stockpile_compare = { resource = minerals value >= @tributeallow4 }
+	}
+	else_if = {
+		limit = { has_country_flag = marauder_tribute_3@event_target:raiding_marauder }
+		resource_stockpile_compare = { resource = minerals value >= @tributeallow3 }
+	}
+	else_if = {
+		limit = { has_country_flag = marauder_tribute_2@event_target:raiding_marauder }
+		resource_stockpile_compare = { resource = minerals value >= @tributeallow2 }
+	}
+	else_if = {
+		limit = { has_country_flag = marauder_tribute_1@event_target:raiding_marauder }
+		resource_stockpile_compare = { resource = minerals value >= @tributeallow1 }
+	}
+}

@@ -1,0 +1,9 @@
+on_leader_death = {
+	events = {
+		pretender.1
+		mandate.21
+		akx.9330
+		marauder.70
+		marauder.711
+	}
+}

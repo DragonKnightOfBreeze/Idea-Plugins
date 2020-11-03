@@ -1,0 +1,12 @@
+achievement_i_can_see_forever = {
+	id = 58
+
+	possible = {
+		is_ironman = yes
+		host_has_dlc = "Utopia"
+	}
+
+	happened = {
+		has_country_flag = built_sentry_array
+	}
+}

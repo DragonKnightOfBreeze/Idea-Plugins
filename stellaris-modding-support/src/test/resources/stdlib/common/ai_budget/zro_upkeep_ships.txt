@@ -1,0 +1,13 @@
+zro_upkeep_ships = {
+	resource = sr_zro 
+	type = upkeep
+	category = ships
+	
+	potential = {
+		always = yes
+	}
+	
+	fraction = {
+		weight = 0.1
+	}	
+}

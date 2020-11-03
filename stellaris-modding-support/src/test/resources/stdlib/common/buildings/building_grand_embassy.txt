@@ -1,0 +1,83 @@
+building_grand_embassy = {
+	base_buildtime = @b3_time
+	can_build = no
+
+	category = government
+
+	potential = {
+		exists = owner
+		owner = { is_regular_empire = yes }
+
+		planet = { is_capital = yes }
+		NOT = { has_modifier = resort_colony }
+		NOT = { has_modifier = slave_colony }
+	}
+
+	allow = {
+		has_major_upgraded_capital = yes
+	}
+
+	destroy_trigger = {
+		OR = {
+			AND = {
+				exists = owner
+				owner = { is_regular_empire = no }
+			}
+			planet = { is_capital = no }
+			buildings_no_crystals = yes
+		}
+	}
+
+	country_modifier = {
+		envoys_add = 2
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b3_minerals
+			rare_crystals = @b3_rare_cost
+		}
+		upkeep = {
+			energy = @b3_upkeep
+			rare_crystals = @b3_rare_upkeep
+		}
+	}
+
+	prerequisites = {
+		"tech_xeno_relations"
+	}
+
+	show_tech_unlock_if = {
+		is_regular_empire = yes
+	}
+
+	ai_weight = {
+		weight = 10
+		modifier = {
+			factor = 0
+			buildings_has_crystals = no
+		}
+		modifier = {
+			factor = 5
+			exists = owner
+			owner = {
+				is_galactic_community_member = yes
+			}
+		}
+		modifier = {
+			factor = 5
+			exists = owner
+			owner = {
+				has_federation = yes
+			}
+		}
+		modifier = {
+			factor = 3
+			exists = owner
+			owner = {
+				is_part_of_galactic_council = yes
+			}
+		}
+	}
+}

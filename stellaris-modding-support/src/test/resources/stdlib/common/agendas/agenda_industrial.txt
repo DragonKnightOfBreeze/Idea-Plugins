@@ -1,0 +1,9 @@
+agenda_industrial = {
+	weight_modifier = {
+		weight = 100
+	}
+	
+	modifier = {
+		planet_jobs_minerals_produces_mult = 0.10
+	}
+}

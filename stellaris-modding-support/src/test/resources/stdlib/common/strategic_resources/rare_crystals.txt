@@ -1,0 +1,18 @@
+rare_crystals = {
+	tradable = yes
+	market_amount = 10
+	market_price = 100
+	max = 15000
+	
+	prerequisites = { "tech_mine_rare_crystals" }
+	
+	deficit_modifier = rare_crystals_deficit #found in static modifiers
+	
+	ai_weight = {
+		weight = 10
+	}
+
+	ai_wants = {
+		base = 10
+	}
+}

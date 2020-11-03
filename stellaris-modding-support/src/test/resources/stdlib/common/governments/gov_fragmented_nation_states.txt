@@ -1,0 +1,15 @@
+gov_fragmented_nation_states = {
+	ruler_title = RT_SECRETARY
+	ruler_title_female = RT_SECRETARY_FEMALE
+	
+	should_force_rename = yes
+
+	possible = {
+		has_valid_civic = civic_increasing_urbanization
+		has_valid_civic = civic_atmospheric_pollution
+	}
+
+	weight = {
+		base = 100000
+	}
+}

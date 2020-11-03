@@ -1,0 +1,4 @@
+reset_planet = {
+	clear_planet_modifiers = yes
+	reroll_deposits = yes
+}

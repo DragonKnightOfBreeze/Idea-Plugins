@@ -1,0 +1,27 @@
+DISTAR_WRECK_CAT = {
+	desc = "DISTAR_WRECK_CAT_DESC"
+	picture = "GFX_evt_ship_in_orbit"
+	level = 2
+	
+	spawn_chance = {
+		modifier = {
+			add = 1
+			has_distar = yes
+			from.owner = {
+				is_homicidal = no
+				any_neighbor_country = {
+					is_ai = yes
+					is_country_type = default
+					is_homicidal = no
+					has_communications = from.owner
+					NOR = {
+						is_at_war_with = from.owner
+						is_same_value = from.owner
+					}
+				}
+			}
+		}
+	}
+	
+	on_success = distar.1
+}

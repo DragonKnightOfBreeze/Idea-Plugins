@@ -1,0 +1,3 @@
+rare_crystals_deficit = {
+	planet_jobs_produces_mult = -0.25
+}

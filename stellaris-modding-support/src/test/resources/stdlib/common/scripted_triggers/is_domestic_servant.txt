@@ -1,0 +1,4 @@
+is_domestic_servant = {
+	is_enslaved = yes
+	has_slavery_type = { type = slavery_domestic }
+}

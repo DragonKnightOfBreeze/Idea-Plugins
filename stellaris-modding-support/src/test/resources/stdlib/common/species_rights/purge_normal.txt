@@ -1,0 +1,49 @@
+purge_normal = {
+	token = purge_normal
+	pop_escape_chance = 0.05
+	
+	pop_modifier = {
+		pop_decline_speed = 6
+		pop_happiness = -10
+	}	
+	
+	potential = {
+		exists = from
+		from = { NOT = { has_valid_civic = civic_hive_devouring_swarm } }
+	}
+	
+	allow = {
+		hidden_trigger = { exists = from }
+		if = { 
+			limit = { is_lonely_hive_mind_pop = yes } 
+			always = yes
+		}
+		else = {
+			custom_tooltip = {
+				fail_text = PURGES_ALLOWED
+				OR = {
+					is_robotic_species = yes
+					from = {
+						OR = {
+							has_ethic = ethic_gestalt_consciousness
+							has_valid_civic = civic_fanatic_purifiers
+							has_policy_flag = purge_allowed
+						}			
+					}
+				}
+			}	
+		}
+	}
+	ai_will_do = {
+		factor = 3
+		modifier = {
+			factor = 0
+			from = {
+				has_valid_ai_personality = yes
+				NOT = {
+					has_ai_personality_behaviour = purger
+				}
+			}
+		}		
+	}
+}

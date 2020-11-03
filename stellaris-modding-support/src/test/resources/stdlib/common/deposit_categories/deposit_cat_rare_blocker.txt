@@ -1,0 +1,4 @@
+deposit_cat_rare_blocker = { 
+	blocker = yes # Counts as blockers
+	important = yes	# Shows up as rare deposits in planetview
+}

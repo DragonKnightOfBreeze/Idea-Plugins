@@ -1,0 +1,36 @@
+wg_assert_overlordship = {
+	casus_belli = cb_event
+	
+	cede_claims = occupied_only
+
+	allowed_peace_offers = {
+		status_quo
+		surrender
+		demand_surrender
+	}
+	
+	potential = {
+		always = no # event only
+	}
+	possible = {
+		always = yes
+	}
+	
+	on_accept = {
+		custom_tooltip = wg_assert_overlordship_accept
+		hidden_effect = {
+			from = {
+				every_system_within_border = {
+					limit = {
+						root = { has_claim = prev }
+					}
+					remove_claims = { who = root }
+				}				
+			}		
+		}
+	}
+	
+	ai_weight = {
+		weight = 100
+	}
+}

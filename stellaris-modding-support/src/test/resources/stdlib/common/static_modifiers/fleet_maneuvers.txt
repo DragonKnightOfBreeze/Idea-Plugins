@@ -1,0 +1,5 @@
+fleet_maneuvers = {
+	icon = "gfx/interface/icons/modifiers/mod_navy_size_add.dds"
+	icon_frame = 1
+	ship_fire_rate_mult = 0.10
+}

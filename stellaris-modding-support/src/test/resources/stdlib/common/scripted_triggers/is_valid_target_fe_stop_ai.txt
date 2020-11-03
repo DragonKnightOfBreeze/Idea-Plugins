@@ -1,0 +1,6 @@
+is_valid_target_fe_stop_ai = {
+	NOT = { has_policy_flag = ai_outlawed }
+	NOT = { has_ethic = ethic_gestalt_consciousness }
+	has_technology = tech_synthetic_workers
+	is_mechanical_empire = no
+}

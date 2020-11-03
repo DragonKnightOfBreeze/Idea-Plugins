@@ -1,0 +1,4 @@
+ship_master_cruiser = {
+	ship_evasion_mult = 0.25
+	ships_upkeep_mult = -0.5
+}

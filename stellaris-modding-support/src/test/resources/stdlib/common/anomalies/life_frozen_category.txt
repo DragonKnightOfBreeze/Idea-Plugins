@@ -1,0 +1,23 @@
+life_frozen_category = {
+	desc = "life_frozen_category_desc"
+	picture = GFX_evt_microscopic_life
+	level = 2
+	
+	spawn_chance = {		
+		modifier = {
+			add = 3
+			is_planet_class = pc_frozen
+		}
+		modifier = {
+			factor = 0
+			from.owner = {
+				AND = {
+					has_authority = auth_machine_intelligence
+					NOT =  { has_civic = civic_machine_servitor }
+				}
+			}
+		}
+	}
+	
+	on_success = anomaly.2510
+}

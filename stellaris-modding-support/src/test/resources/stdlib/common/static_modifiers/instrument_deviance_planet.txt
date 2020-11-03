@@ -1,0 +1,5 @@
+instrument_deviance_planet = {
+	pop_government_ethic_attraction = -1.00
+	icon = "gfx/interface/icons/planet_modifiers/pm_surreal_visions.dds"
+	icon_frame = 3
+}

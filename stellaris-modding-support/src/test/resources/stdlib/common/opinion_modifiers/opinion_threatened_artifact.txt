@@ -1,0 +1,9 @@
+opinion_threatened_artifact = {
+	opinion = {
+		base = -50
+	}
+
+	decay = {
+		base = 2
+	}
+}

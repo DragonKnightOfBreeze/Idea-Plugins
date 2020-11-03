@@ -1,0 +1,27 @@
+renewable_energy = {
+	length = @EdictDuration
+	icon = "GFX_edict_type_time"
+	resources = {
+		category = edicts
+		cost = {
+			influence = @Edict2Cost
+		}
+	}
+
+	potential = {
+		has_country_flag = edict_renewable_energy
+	}
+	
+	modifier = {
+		planet_pops_consumer_goods_upkeep_mult = -0.05
+		category_industry_research_speed_mult = 0.1
+		category_materials_research_speed_mult = 0.1
+	}
+
+	allow = {
+	}
+
+	ai_weight = {
+		weight = @EdictHighPrio
+	}
+}

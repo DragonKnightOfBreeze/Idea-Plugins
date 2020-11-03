@@ -1,0 +1,39 @@
+auth_corporate = {
+	election_term_years = 20
+	election_type = oligarchic
+	can_have_emergency_elections = yes
+	emergency_election_cost = 250
+	max_election_candidates = 4
+	localization_postfix = corporate
+
+	has_agendas = yes
+
+	playable = {
+		host_has_dlc = "Megacorp"
+	}
+	random_weight = {
+		modifier = {
+			factor = 0
+			NOT = { host_has_dlc = "Megacorp" }
+		}
+	}
+
+	country_modifier = {
+		country_admin_cap_add = 20
+		empire_size_penalty_mult = 0.5
+	}
+
+	possible = {
+		ethics = {
+			NOR = {
+				value = ethic_gestalt_consciousness
+				value = ethic_fanatic_egalitarian
+				value = ethic_fanatic_authoritarian
+			}
+		}
+	}
+
+	tags = {
+		AUTHORITY_ELECTION_OLIGARCHIC
+	}
+}

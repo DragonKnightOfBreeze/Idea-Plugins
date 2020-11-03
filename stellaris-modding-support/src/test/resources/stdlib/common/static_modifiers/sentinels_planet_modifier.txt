@@ -1,0 +1,5 @@
+sentinels_planet_modifier = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_artist_monument_erected.dds"
+	pop_ethic_spiritualist_attraction_mult = 0.10
+	planet_jobs_unity_produces_mult = 0.15
+}

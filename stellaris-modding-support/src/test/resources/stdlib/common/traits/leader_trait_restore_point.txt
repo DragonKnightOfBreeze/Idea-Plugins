@@ -1,0 +1,14 @@
+leader_trait_restore_point = {
+	cost = 1
+	modification = no
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_restore_point.dds"
+	leader_potential_add = {
+		host_has_dlc = "Synthetic Dawn Story Pack"
+		OR = {
+			has_trait = trait_mechanical
+			has_trait = trait_machine_unit
+		}
+	}
+	leader_trait = { admiral }
+	leader_class = { admiral }
+}

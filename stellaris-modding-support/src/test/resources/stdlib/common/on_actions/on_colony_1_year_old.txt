@@ -1,0 +1,58 @@
+on_colony_1_year_old = {
+	events = {
+		### Planet Modifiers - 9
+		#colony_mod.1 # Irradiated
+		#colony_mod.2 # Titanic Life
+		#colony_mod.3 # Unstable Tectonics
+		#colony_mod.4 # Asteroid Belt
+		#colony_mod.5 # Atmospheric Hallucinogen
+		#colony_mod.12 # Asteroid Impacts
+		#colony_mod.14 # Asteroid Impacts - Good
+		#colony_mod.16 # Strong Magnetic Field - Good
+		#colony_mod.17 # Strong Magnetic Field - Bad
+		#colony_mod.121 # Gatekeeper for Asteroid Impacts
+		colony_mod.161 # Gatekeeper for modifier colony events
+	}
+
+	random_events = {
+		300 = 0
+
+		#### Colony Events & Chains - 14
+		#1 = colony.1 # Migrating Forests
+		#1 = colony.50 # Subterranean Aliens
+		#1 = colony.1500 # Helpful Drones
+		#1 = colony.1520 # Mharin Kharin
+
+		#2 = colony.100 # Abandoned Terraforming
+		#1 = colony.180 # Asteroid Sighted
+		#1 = colony.2001 # Trouble in Paradise
+		#2 = colony.2005 # Submerged Cruiser
+		#1 = colony.2010 # A Change of Heart
+		#2 = colony.2015 # Odd Factory
+		#2 = colony.2025 # What Separates Us
+		#2 = colony.2030 # Assassination
+		#2 = colony.2035 # Infectious Disease
+		#2 = colony.2050 # Clerical Errors
+
+		#### Planet Modifiers - 9
+		#5 = colony_mod.1 # Irradiated
+		#5 = colony_mod.2 # Titanic Life
+		#5 = colony_mod.3 # Unstable Tectonics
+		#5 = colony_mod.4 # Asteroid Belt
+		#5 = colony_mod.5 # Atmospheric Hallucinogen
+		#5 = colony_mod.12 # Asteroid Impacts
+		#5 = colony_mod.14 # Asteroid Impacts - Good
+		#5 = colony_mod.16 # Strong Magnetic Field - Good
+		#5 = colony_mod.17 # Strong Magnetic Field - Bad
+
+		#### Tomb Worlds - 8
+		#5 = colony.150 # Underground Vault
+		#5 = colony.155 # Nuclear Bomb
+		#5 = colony.160 # Particle Accelerator
+		#5 = colony.161 # Surviving Infrastructure
+		#5 = colony.162 # Space Station
+		#5 = colony.163 # Wasteland Radiation
+		#5 = colony.164 # Pacifist Movement
+		#5 = colony.170 # Orbital Debris
+	}
+}

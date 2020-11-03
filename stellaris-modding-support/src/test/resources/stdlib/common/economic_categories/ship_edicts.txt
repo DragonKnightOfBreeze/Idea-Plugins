@@ -1,0 +1,4 @@
+ship_edicts = {
+	parent = rare_edicts
+	use_for_ai_budget = yes
+}

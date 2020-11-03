@@ -1,0 +1,15 @@
+admiral = {
+	can_lead_navy = yes
+	max_trait_points = 1
+	resources = {
+		category = leader_admirals
+		cost = {
+			energy = 200
+		}
+		upkeep = {
+			energy = 2
+		}
+	}
+
+	default_category = admiral
+}

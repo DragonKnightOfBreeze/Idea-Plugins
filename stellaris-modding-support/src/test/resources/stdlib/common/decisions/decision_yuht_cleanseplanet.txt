@@ -1,0 +1,33 @@
+decision_yuht_cleanseplanet = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = decision_animal_wildlife
+
+	resources = {
+		category = decisions
+		cost = {
+			energy = 500
+		}
+	}
+
+	potential = {
+		can_have_habitable_deposits = yes
+		owner = {
+			has_country_flag = artifact_yuht_research_completed
+		}
+		NOT = { has_modifier = pm_yuht_cleansing }
+	}
+
+	effect = {
+		add_planet_devastation = 50
+		add_modifier = { modifier = pm_yuht_cleansing days = -1 }
+		every_deposit = {
+			limit = { is_deposit_type = d_dangerous_wildlife_blocker }
+			clear_blocker = yes
+		}
+		if = {
+			limit = { has_modifier = dangerous_wildlife }
+			remove_modifier = dangerous_wildlife
+		}
+	}
+}

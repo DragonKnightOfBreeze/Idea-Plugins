@@ -1,0 +1,15 @@
+civic_memorialist = {
+	playable = { host_has_dlc = "Necroids Species Pack" }
+	description = "civic_tooltip_memorialist_effects"
+	potential = {
+		ethics = { NOT = { value = ethic_gestalt_consciousness } } #Gestalts get their own versions
+		authority = { NOT = { value = auth_corporate } }
+	}
+	possible = {
+		civics = {
+			NOT = {
+				value = civic_fanatic_purifiers
+			}
+		}
+	}
+}

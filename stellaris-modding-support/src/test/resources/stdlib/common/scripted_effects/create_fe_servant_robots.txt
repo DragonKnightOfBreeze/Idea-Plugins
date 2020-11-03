@@ -1,0 +1,79 @@
+create_fe_servant_robots = {
+	create_species = {
+		name = "NAME_Synthetic"
+		plural = "NAME_Synthetics"
+		class = ROBOT
+		namelist = this
+		portrait = "default_robot"
+		traits = {
+			trait = "trait_mechanical"
+			trait = "trait_robot_luxurious"
+			trait = "trait_robot_domestic_protocols"
+		}
+
+		effect = {
+			if = {
+				limit = {
+					prev = { use_robot_portrait_sd_hum_robot = yes }
+				}
+				change_species_portrait = sd_hum_robot
+			}
+			else_if = {
+				limit = {
+					prev = { use_robot_portrait_sd_mam_robot = yes }
+				}
+				change_species_portrait = sd_mam_robot
+			}
+			else_if = {
+				limit = {
+					prev = { use_robot_portrait_sd_rep_robot = yes }
+				}
+				change_species_portrait = sd_rep_robot
+			}
+			else_if = {
+				limit = {
+					prev = { use_robot_portrait_sd_avi_robot = yes }
+				}
+				change_species_portrait = sd_avi_robot
+			}
+			else_if = {
+				limit = {
+					prev = { use_robot_portrait_sd_art_robot = yes }
+				}
+				change_species_portrait = sd_art_robot
+			}
+			else_if = {
+				limit = {
+					prev = { use_robot_portrait_sd_mol_robot = yes }
+				}
+				change_species_portrait = sd_mol_robot
+			}
+			else_if = {
+				limit = {
+					prev = { use_robot_portrait_sd_fun_robot = yes }
+				}
+				change_species_portrait = sd_fun_robot
+			}
+			else_if = {
+				limit = {
+					prev = { use_robot_portrait_sd_pla_robot = yes }
+				}
+				change_species_portrait = sd_pla_robot
+			}
+			else_if = {
+				limit = {
+					prev = { use_robot_portrait_sd_lit_robot = yes }
+				}
+				change_species_portrait = lith_machine
+			}
+			else_if = {
+				limit = {
+					prev = { use_robot_portrait_sd_nec_robot = yes }
+				}
+				change_species_portrait = nec_machine
+			}
+		}
+	}
+
+	set_built_species = last_created_species
+}

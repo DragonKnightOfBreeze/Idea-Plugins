@@ -1,0 +1,3 @@
+machine_empire_code_improvements = {
+	planet_jobs_robotic_produces_mult = 0.05
+}

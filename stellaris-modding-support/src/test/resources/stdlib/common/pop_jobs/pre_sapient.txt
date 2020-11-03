@@ -1,0 +1,21 @@
+pre_sapient = {
+	category = pre_sapients
+	is_capped_by_modifier = no
+	is_pre_sapient = yes
+	clothes_texture_index = 2
+
+	possible_pre_triggers = {
+		is_sapient = no
+	}
+
+	planet_modifier = {
+	}
+
+	resources = {
+		category = planet_farmers
+	}
+
+	weight = {
+		weight = 9000
+	}
+}

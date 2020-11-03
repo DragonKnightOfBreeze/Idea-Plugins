@@ -1,0 +1,11 @@
+opinion_galactic_community_emergency_measure_resolution = {
+	opinion = {
+		base = 30
+	}
+
+	accumulative = yes
+
+	decay = {
+		base = 1
+	}
+}

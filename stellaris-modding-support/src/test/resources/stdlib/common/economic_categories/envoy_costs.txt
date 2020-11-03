@@ -1,0 +1,3 @@
+envoy_costs = {
+	parent = diplomacy
+}

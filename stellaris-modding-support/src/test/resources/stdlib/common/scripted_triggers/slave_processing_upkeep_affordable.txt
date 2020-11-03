@@ -1,0 +1,6 @@
+slave_processing_upkeep_affordable = {
+	has_monthly_income = {
+		resource = energy
+		value > 2
+	}
+}

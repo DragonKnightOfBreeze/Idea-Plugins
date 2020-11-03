@@ -1,0 +1,38 @@
+create_fe_spiritualist_fringe_colony = {
+	set_planet_flag = fallen_empire_world
+	clear_blockers = yes
+	prevent_anomaly = yes
+	set_owner = ROOT
+	add_building = building_ancient_palace
+	add_building = building_fe_dome
+	while = {
+		count = 3
+		add_district_and_planet_size_if_needed_effect = {
+			district = district_city
+		}
+	}
+	while = {
+		count = 2
+		add_district_and_planet_size_if_needed_effect = {
+			district = district_generator
+		}
+	}
+	while = {
+		count = 2
+		add_district_and_planet_size_if_needed_effect = {
+			district = district_mining
+		}
+	}
+	while = {
+		count = 2
+		add_district_and_planet_size_if_needed_effect = {
+			district = district_farming
+		}
+	}
+	while = {
+		count = 20
+		create_pop = {
+			species = owner_main_species
+		}
+	}
+}

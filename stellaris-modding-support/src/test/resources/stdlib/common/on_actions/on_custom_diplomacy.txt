@@ -1,0 +1,41 @@
+on_custom_diplomacy = {
+	events = {
+		crisis.30
+		crisis.55
+		crisis.1050
+		crisis.1051
+		crisis.1052
+		nomad.30
+		leviathans.100
+		leviathans.103
+		leviathans.104
+		#leviathans.200
+		leviathans.299
+		leviathans.313
+		#leviathans.400
+		leviathans.500
+		leviathans.157
+		leviathans.160
+		leviathans.163
+		leviathans.597
+		utopia.3000
+		utopia.3010
+		crisis.2300
+		crisis.2403
+		marauder.19
+		marauder.20
+		marauder.102
+		marauder.550
+		marauder.112
+		marauder.665
+		graygoo.120
+		cara.100 # Caravaneer Home Base
+		cara.101 # Hostile Caravaneers
+		graygoo.130
+		graygoo.500
+		graygoo.501
+		graygoo.502
+		graygoo.503
+		graygoo.504
+	}
+}

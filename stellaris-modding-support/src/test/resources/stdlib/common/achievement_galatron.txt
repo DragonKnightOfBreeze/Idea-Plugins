@@ -1,0 +1,11 @@
+achievement_galatron = {
+	id = 87
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		has_relic = r_galatron
+	}
+}

@@ -1,0 +1,44 @@
+site_buried_deep = {
+	desc = "site_buried_deep_intro"
+	picture = GFX_evt_ship_in_orbit
+	stages = 2
+	max_instances = 999
+	weight = {
+ 		base = 0
+ 	}
+
+	allow = {
+		exists = leader
+		leader = { leader_class = scientist }
+		hidden_trigger = {
+			owner = {
+				has_country_flag = shoulders_origin_@from.planet
+			}
+		}
+	}
+	
+	visible = {
+		default_site_visible_trigger = yes
+		owner = {
+			has_country_flag = shoulders_origin_@from.planet
+		}
+	}
+
+	stage = {
+		difficulty = 3
+		icon = GFX_archaeology_runes_A5 
+		event = origin.1240
+	}
+	
+	stage = {
+		difficulty = 1
+		icon = GFX_archaeology_runes_A2
+		event = origin.1245
+	}
+	
+	on_roll_failed = {
+		from = {
+			standard_archaeological_site_on_roll_failed = { RANDOM_EVENTS = site_buried_deep_random_events }
+		}
+	}
+}

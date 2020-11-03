@@ -1,0 +1,11 @@
+achievement_synth_detector = {
+	id = 24
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		has_country_flag = synth_detector
+	}
+}

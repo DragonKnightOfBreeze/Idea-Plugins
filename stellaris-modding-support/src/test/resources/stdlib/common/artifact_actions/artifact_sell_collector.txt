@@ -1,0 +1,31 @@
+artifact_sell_collector = {
+	resources = {
+		category = artifact_actions
+		cost = {
+			minor_artifacts = 1
+		}
+	}
+	
+	ai_weight = {
+		weight = 100
+		modifier = {
+			factor = 0
+			has_resource = { type = energy amount > 5000 }
+		}
+		modifier = {
+			factor = 0
+			has_resource = { type = minor_artifacts amount < 105 }
+		}
+	}
+
+	potential = { is_gestalt = no }
+
+	effect = {
+		add_monthly_resource_mult = {
+			resource = energy
+			value = @tier1materialreward
+			min = @tier1materialmin
+			max = @tier1materialmax
+		}
+	}
+}

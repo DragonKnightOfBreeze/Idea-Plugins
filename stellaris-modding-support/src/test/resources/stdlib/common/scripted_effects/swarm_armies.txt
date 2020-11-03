@@ -1,0 +1,23 @@
+swarm_armies = {
+	create_fleet = {
+		name = "NAME_Prethoryn_Armies"
+		effect = {
+			set_owner = event_target:prethoryn
+			while = {
+				count = 20
+				create_army_transport = {
+					ship_name = "NAME_Prethoryn_Transport"
+					graphical_culture = "swarm_01"
+					army_name = "NAME_Prethoryn_Invaders"
+					army_type = "swarm_army"
+					species = event_target:prethoryn_species
+				}
+			}
+			set_location = {
+				target = PREVPREV
+				distance = 20
+				angle = random 
+			}
+		}
+	}
+}

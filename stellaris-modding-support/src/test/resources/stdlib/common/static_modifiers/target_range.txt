@@ -1,0 +1,3 @@
+target_range = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_asteroid_impacts.dds"
+}

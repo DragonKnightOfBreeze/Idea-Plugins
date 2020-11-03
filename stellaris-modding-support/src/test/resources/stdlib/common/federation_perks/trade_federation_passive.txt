@@ -1,0 +1,5 @@
+trade_federation_passive = {
+	members_modifier = {
+		description = trade_federation_passive_effect
+	}
+}

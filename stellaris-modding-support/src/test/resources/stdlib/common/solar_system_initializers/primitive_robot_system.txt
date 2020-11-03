@@ -1,0 +1,95 @@
+primitive_robot_system = {
+	class = "rl_standard_stars"
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 125
+	}
+
+	usage = misc_system_init
+	usage_odds = {
+		base = 9000
+		modifier = {
+			factor = 0
+			has_distar = no
+		}
+		modifier = {
+			factor = 0
+			is_fe_cluster = yes
+		}
+		modifier = {
+            factor = 0
+            has_star_flag = empire_cluster
+        }
+	}
+	scaled_spawn_chance = 8	# scales by galaxy size (1000 stars = 10x base)
+	max_instances = 1
+
+	primitive_system = yes	# usage odds modified by primitives setup slider
+
+	flags = { primitive_robot_system }
+
+	planet = {
+		count = 1
+		class = star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = { min = 20 max = 30 }
+		deposit_blockers = none
+		has_ring = no
+	}
+
+	change_orbit = 25
+
+	planet = {
+		count = 2
+		orbit_distance = 20
+		orbit_angle = { min = 90 max = 270 }
+		size = { min = 8 max = 12 }
+		class = "rl_unhabitable_planets"
+	}
+
+	planet = {
+		count = 1
+		orbit_distance = 25
+		orbit_angle = { min = 90 max = 270 }
+		size = { min = 12 max = 25 }
+		class = "rl_cool_moist_planets"
+		anomaly = "DISTAR_ROBO_CAT"
+		
+		init_effect = {
+			set_planet_flag = primitive_robot_planet
+			prevent_anomaly = yes
+			#clear_blockers = yes
+			add_deposit = d_city_ruins
+			add_deposit = d_city_ruins
+			add_deposit = d_failing_infrastructure
+			add_deposit = d_failing_infrastructure
+			add_deposit = d_metal_boneyard
+		}
+	}
+
+	change_orbit = 38
+
+	planet = {
+		count = { min = 1 max = 3 }
+		class = pc_asteroid
+		orbit_distance = 0
+		orbit_angle = { min = 0 max = 360 }
+	}
+
+	planet = {
+		class = pc_gas_giant
+		orbit_distance = 35
+		orbit_angle = { min = 90 max = 270 }
+		size = { min = 20 max = 30 }
+		
+		change_orbit = @base_moon_distance
+		
+		moon = {
+			count = { min = 0 max = 2 }
+			size = { min = 6 max = 20 }
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 6
+		}
+	}
+}

@@ -1,0 +1,14 @@
+TOX_MAT_CAT = {
+	desc = "TOX_MAT_DESC"
+	picture = "GFX_evt_atmospheric_flight"
+	level = 2
+	
+	spawn_chance = {
+		modifier = {
+			add = 3
+			is_planet_class = pc_toxic
+		}
+	}
+	
+	on_success = anomaly.290
+}

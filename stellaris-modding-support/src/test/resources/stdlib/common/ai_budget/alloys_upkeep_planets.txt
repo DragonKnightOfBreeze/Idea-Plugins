@@ -1,0 +1,13 @@
+alloys_upkeep_planets = {
+	resource = alloys
+	type = upkeep
+	category = planets
+
+	potential = {
+		always = yes
+	}
+
+	fraction = {
+		weight = 0.2
+	}
+}

@@ -1,0 +1,13 @@
+dark_matter_expenditure_upgrade = {
+	resource = sr_dark_matter 
+	type = expenditure
+	category = ship_upgrades
+	
+	potential = {
+		always = yes
+	}
+	
+	fraction = {
+		base = 0.1
+	}
+}

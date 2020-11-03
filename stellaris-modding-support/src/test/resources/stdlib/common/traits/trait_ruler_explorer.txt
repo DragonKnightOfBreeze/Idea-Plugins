@@ -1,0 +1,14 @@
+trait_ruler_explorer = {
+	cost = 1
+	modification = no
+	icon = "gfx/interface/icons/traits/leader_traits/trait_ruler_explorer.dds"
+	leader_potential_add = {
+		NOT = { from = { has_ethic = "ethic_gestalt_consciousness" } }
+	}
+	modifier = {
+		ship_science_cost_mult = -0.25
+		ship_anomaly_research_speed_mult = 0.33
+	}
+	leader_trait = { ruler }
+	leader_class = { ruler }
+}

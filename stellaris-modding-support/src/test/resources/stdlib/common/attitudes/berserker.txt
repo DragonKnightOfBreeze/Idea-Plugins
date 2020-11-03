@@ -1,0 +1,6 @@
+berserker = {
+	type = berserker
+	behaviour = {
+		attack = yes
+	}
+}

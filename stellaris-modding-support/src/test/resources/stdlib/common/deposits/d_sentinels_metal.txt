@@ -1,0 +1,17 @@
+d_sentinels_metal = {
+	is_for_colonizeable = yes
+	category = deposit_cat_rare
+
+	icon = d_mineral_fields
+
+	resources = {
+		category = planet_deposits
+		produces = {
+			sr_living_metal = 2
+		}
+	}
+	drop_weight = {
+		weight = 0
+		#Event deposit
+	}
+}

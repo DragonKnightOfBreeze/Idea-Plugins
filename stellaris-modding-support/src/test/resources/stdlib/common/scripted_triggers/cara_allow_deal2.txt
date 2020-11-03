@@ -1,0 +1,109 @@
+cara_allow_deal2 = {
+	# Price checks
+	if = { # Numistic Shrine
+		limit = { has_country_flag = fleet2deal1 }
+		resource_stockpile_compare = { resource = energy value >= 4000 }
+		custom_tooltip = {
+			fail_text = already_bought
+			NOT = { has_country_flag = nuumismatic_shrine }
+		}
+	}
+	else_if = { # Buy pops
+		limit = { has_country_flag = fleet2deal2 }
+		resource_stockpile_compare = { resource = energy value >= 3500 }
+	}
+	else_if = { # Edict
+		limit = { has_country_flag = fleet2deal3 }
+		resource_stockpile_compare = { resource = energy value >= 2500 }
+		custom_tooltip = {
+			fail_text = already_bought
+			NOT = { has_country_flag = nuumismatic_visualization }
+		}
+	}
+	else_if = { # Technology
+		limit = { has_country_flag = fleet2deal4 }
+		resource_stockpile_compare = { resource = energy value >= 3500 }
+		custom_tooltip = {
+			fail_text = already_bought
+			NOT = { has_technology = tech_prescient_data_modeling }
+		}
+	}
+	else_if = { # Leader
+		limit = { has_country_flag = fleet2deal5 }
+		resource_stockpile_compare = { resource = energy value >= 1500 }
+		custom_tooltip = {
+			fail_text = already_bought
+			NOT = { any_owned_leader = { has_leader_flag = nuumismatic_priest } }
+		}
+	}
+	else_if = { # Selling pops for crystals
+		limit = { has_country_flag = fleet2deal6 }
+		count_owned_pops = { count > 2 }
+		custom_tooltip = {
+			fail_text = already_bought
+			NOT = { has_country_flag = sold_pops_for_crystals }
+		}
+	}
+	else_if = { # Cruiser
+		limit = { has_country_flag = fleet2deal7 }
+		resource_stockpile_compare = { resource = energy value >= 2500 }
+		custom_tooltip = {
+			fail_text = already_bought
+			NOT = { has_country_flag = bought_numistic_cruiser }
+		}
+	}
+	else_if = { # Planetary deposit
+		limit = { has_country_flag = fleet2deal8 }
+		resource_stockpile_compare = { resource = minerals value >= 200 }
+		custom_tooltip = {
+			fail_text = already_bought
+			NOT = {
+				any_owned_planet = {
+					has_deposit = d_numas_breath
+				}
+			}
+		}
+	}
+	else_if = { # MI upkeep mod
+		limit = { has_country_flag = fleet2deal9 }
+		resource_stockpile_compare = { resource = influence value >= 100 }
+		custom_tooltip = {
+			fail_text = already_bought
+			NOT = {
+				any_owned_planet = {
+					has_modifier = numistic_magnetostrips
+				}
+			}
+		}
+	}
+	else_if = { # MI decision
+		limit = { has_country_flag = fleet2deal10 }
+		resource_stockpile_compare = { resource = minerals value >= 2000 }
+		custom_tooltip = {
+			fail_text = already_bought
+			NOT = { has_country_flag = divine_algorithm }
+		}
+	}
+	else_if = { # Minor Artifacts
+		limit = { has_country_flag = fleet2deal12 }
+		resource_stockpile_compare = { resource = alloys value >= 300 }
+	}
+	else_if = { # Repeatable cruiser
+		limit = { has_country_flag = fleet2deal11.a }
+		resource_stockpile_compare = { resource = energy value >= 2500 }
+	}
+	else_if = { # Repeatable exotic gases
+		limit = { has_country_flag = fleet2deal11.b }
+		resource_stockpile_compare = { resource = energy value >= 1700 }
+	}
+	else_if = { # Repeatable energy
+		limit = { has_country_flag = fleet2deal11.c }
+		resource_stockpile_compare = { resource = alloys value >= 500 }
+	}
+	else = {
+		custom_tooltip = { # Deal expired
+			text = cara_deal_expired.tooltip
+			always = no
+		}
+	}
+}

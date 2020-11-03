@@ -1,0 +1,9 @@
+tutorial_19_chain = {
+	icon = "gfx/interface/icons/situation_log/situation_log_tutorial.dds"
+	picture = GFX_evt_hangar_bay
+	counter = {
+		ships_designed = {
+			max = 1
+		}
+	}
+}

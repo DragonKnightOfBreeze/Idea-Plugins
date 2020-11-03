@@ -1,0 +1,18 @@
+add_awakened_fallen_empire_resources = {
+	# Changing country type resets resources, so give them full stores
+	add_resource = { minerals = 50000 }
+	add_resource = { energy = 50000 }
+	add_resource = { food = 10000 }
+	add_resource = { influence = 1000 }
+	add_resource = { alloys = 20000 }
+	add_resource = { consumer_goods = 20000 }
+	add_resource = { alloys = 20000 }
+	add_resource = { exotic_gases = 10000 }
+	add_resource = { volatile_motes = 10000 }
+	add_resource = { rare_crystals = 10000 }
+	add_resource = { sr_dark_matter = 10000 }
+	if = {
+		limit = { is_fallen_empire_spiritualist = yes }
+		add_resource = { sr_zro = 10000 }
+	}
+}

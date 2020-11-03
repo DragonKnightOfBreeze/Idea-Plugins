@@ -1,0 +1,25 @@
+feral_prethoryn_roaming_1 = {
+	create_fleet = {
+		name = "NAME_Feral_Prethoryn"
+		effect = {
+			set_owner = event_target:feral_prethoryn
+			while = {
+				count = 30
+				create_ship = {
+					name = random
+					design = "NAME_Swarm_Small"
+					graphical_culture = "swarm_01"
+				}
+			}
+			set_location = {
+				target = prev
+				distance = 35
+				angle = random 
+			}
+			set_fleet_flag = roaming_prethoryn_fleet
+			set_fleet_stance = aggressive
+			set_aggro_range = 500
+			set_aggro_range_measure_from = self
+		}
+	}
+}

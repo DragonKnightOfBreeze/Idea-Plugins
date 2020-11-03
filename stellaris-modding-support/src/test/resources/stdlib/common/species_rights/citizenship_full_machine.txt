@@ -1,0 +1,38 @@
+citizenship_full_machine = {
+	token = citizenship_full_machine
+
+	potential = {
+		host_has_dlc = "Synthetic Dawn Story Pack"
+		exists = from
+		from = { has_authority = auth_machine_intelligence }
+	}
+
+	allow = {
+		hidden_trigger = { exists = from }
+		custom_tooltip = {
+			fail_text = MACHINE_SPECIES_NOT_MACHINE
+			OR = {
+				has_trait = trait_mechanical
+				has_trait = trait_machine_unit
+				from = { has_valid_civic = civic_machine_assimilator }
+			}
+		}
+		custom_tooltip = {
+			fail_text = ASSIMILATOR_SPECIES_NOT_CYBORG
+			OR = {
+				NOT = { from = { has_valid_civic = civic_machine_assimilator } }
+				AND = {
+					OR = {
+						has_trait = trait_cybernetic
+						has_trait = trait_machine_unit
+						has_trait = trait_mechanical
+					}
+					from = { has_valid_civic = civic_machine_assimilator }
+				}
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 30
+	}
+}

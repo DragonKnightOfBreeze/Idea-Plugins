@@ -1,155 +1,165 @@
-﻿### Hive Mind
-### Created by Miranda van den Brink
-
 HIVE = {
+
 	category = "Hive Mind"
+	
+	language = "l_simp_chinese"
+	
 	randomized = no
 	should_name_home_system_planets = no
 
 	ship_names = {
 		generic = {
+			"蜂巢船"
 		}
 
 		corvette = {
-			"Combat Vessel"
+			"作战船只"
 		}
 		
 		destroyer = {
-			"Combat Vessel"
+			"作战船只"
 		}
 		
 		cruiser = {
-			"Combat Vessel"
+			"作战船只"
 		}
 		
 		battleship = {
-			"Combat Vessel"
+			"作战船只"
 		}
 
 		titan = {
-			"Combat Vessel"
+			"作战船只"
 		}
 
 		colossus = {
-			"Primary Combat Vessel"
+			"作战船只"
 		}
-
+		
 		juggernaut = {
-			"Primary Combat Node"
+			"首要战斗节点"
 		}
 		
 		science = {
-			"Seeker Vessel"
+			"寻求船"
 		}
 		
 		colonizer = {
-			"Nester"
+			"筑巢者"
 		}
 		
 		constructor = {
-			"Builder Vessel"
+			"建造船"
 		}
-	
-		transport = {
-			"Carrier Vessel"
-		}
-	
+		
 		military_station_small = {
-			"Stationary Defensive"
+			"阿尔法式" "贝塔式" "伽玛式" "德耳塔式" "艾普西隆式" "泽塔式" "伊塔式" "西塔式" "约塔式" "卡帕式" "拉姆达式" "谬式" "纽式" "克西式" "奥米克戎式" "派式" "柔式" "西格马式" "陶式" "宇普西龙式" "斐式" "希式" "普西式" "奥米伽式"
 		}
 
 		ion_cannon = {
-			"Ion Defensive"
+			"阿尔法式" "贝塔式" "伽玛式" "德耳塔式" "艾普西隆式" "泽塔式" "伊塔式" "西塔式" "约塔式" "卡帕式" "拉姆达式" "谬式" "纽式" "克西式" "奥米克戎式" "派式" "柔式" "西格马式" "陶式" "宇普西龙式" "斐式" "希式" "普西式" "奥米伽式"
+		}
+
+		transport = {
+			"航母船"
 		}
 	}
 
 	ship_class_names = {
 		generic = {
-			"Type Alpha" "Type Beta" "Type Gamma" "Type Delta" "Type Epsilon" "Type Zeta" "Type Eta" "Type Theta" "Type Iota" "Type Kappa" "Type Lambda" "Type Mu" "Type Nu" "Type Xi" "Type Omicron" "Type Pi" "Type Rho" "Type Sigma" "Type Tau" "Type Upsilon" "Type Phi" "Type Chi" "Type Psi" "Type Omega"
+		"阿尔法式" "贝塔式" "伽玛式" "德耳塔式" "艾普西隆式" "泽塔式" "伊塔式" "西塔式" "约塔式" "卡帕式" "拉姆达式" "谬式" "纽式" "克西式" "奥米克戎式" "派式" "柔式" "西格马式" "陶式" "宇普西龙式" "斐式" "希式" "普西式" "奥米伽式"
 		}		
 	}
 
 	fleet_names = {
 		random_names = {
-			"Howling Swarm" "Ravenous Swarm" "Ravaging Swarm" "Devastating Swarm" "Gorging Swarm" "Rushing Swarm" "Stalking Swarm" "Charging Swarm" "Thundering Swarm" "Teeming Swarm" "Ceaseless Swarm" "Baleful Swarm" "Pestilent Swarm" "Merciless Swarm" "Pitiless Swarm" "Rancorous Swarm"
 		}
-		sequential_name = "Combat Swarm %CC%"
+		sequential_name = "%O% 战斗虫群"
 	}
 	
+	### ARMIES
 	army_names = {
 
 		machine_defense = {
-			sequential_name = "%O% Hive Defenders"
+			sequential_name = "%O% 蜂巢防御者"
 		}
 		
 		machine_assault_1 = {
-			sequential_name = "%O% Aggressors"
+			sequential_name = "%O% 攻击者"
 		}
 		
 		machine_assault_2 = {
-			sequential_name = "%O% Aggressors"
+			sequential_name = "%O% 攻击者"
 		}
 		
 		machine_assault_3 = {
-			sequential_name = "%O% Aggressors"
+			sequential_name = "%O% 攻击者"
 		}
 
 		defense_army = {
-			sequential_name = "%O% Hive Defenders"
+			sequential_name = "%O% 蜂巢防御者"
 		}
 			
 		assault_army = {
-			sequential_name = "%O% Aggressors"
+			sequential_name = "%O% 攻击者"
 		}
 		
 		slave_army = {
-			sequential_name = "%O% Slave Warrior Drones"
+			sequential_name = "%O% 劳力战士无人机"
 		}
 		
 		clone_army = { 
-			sequential_name = "%O% Cloned Warrior Drones"
+			sequential_name = "%O% 克隆战士无人机"
 		}
 		
 		undead_army = {
-			sequential_name = "%O% Dread Drones"
+			sequential_name = "%O%恐惧工蜂"
 		}
 
 		robotic_army = {
-			sequential_name = "%O% Robotic Warrior Drones"
+			sequential_name = "%O% 机器人战士无人机"
 		}
 
 		robotic_defense_army = {
-			sequential_name = "%O% Robotic Defense Drones"
+			sequential_name = "%O% 机器人防御无人机"
 		}
-	
+		
 		psionic_army = { 
-			sequential_name = "%O% Psi Warrior Drones"
+			sequential_name = "%O% 普西战士无人机"
 		}
 		
 		xenomorph_army = {
-			sequential_name = "%O% Morphed Warrior Drones"
+			sequential_name = "%O% 变体战士无人机"
 		}
 		
 		gene_warrior_army = {
-			sequential_name = "%O% Enhanced Warrior Drones"
+			sequential_name = "%O% 强化战士无人机"
+		}
+		occupation_army = {
+			sequential_name = "%O% 加里森波德"
 		}
 
+		robotic_occupation_army = {
+			sequential_name = "%O% 安卓 加里森波德"
+		}
 		primitive_army = {
-			sequential_name = "Primitive Army %C%"
+			sequential_name = "原始军队 %C%"
 		}
 		industrial_army = {
-			sequential_name = "Industrial Army %C%"
+			sequential_name = "工业军队 %C%"
 		}
 		postatomic_army = {
-			sequential_name = "Post-Atomic Army %C%"
+			sequential_name = "后原子军 %C%"
 		}
 	}
+
+	### PLANETS
 
 	planet_names = {
 
 		generic = {
 			names = {
-				"Alpha Cell" "Swarm Cell Alpha" "Drone Cell" "Nesting Chamber" "Drone Nest" "Outward Reach" "Exterior Drone Chamber" "Extension Node" "Standard Node" "Drone Node" "Expansive Cell" "Production Chamber" "Superior Vertex" "Expansion Node" "Development Chamber" "Advancement Cell" "Manufacturing Node" "Assembly Cell" "Guard Junction" "Supra-Vertex" "Forward Junction" "Assembly Node" "Brood Colony" "Alpha Colony" "Beta Colony" "Gamma Colony" "Delta Colony" "Epsilon Colony" "Zeta Colony" "Eta Colony" "Theta Colony" "Iota Colony" "Production Cell" "Brood Cell" "Drone Cluster" "Swarm Colony" "Drone Colony" "Assembly Colony"
+				"阿尔法单元" "虫群单元阿尔法" "子成员单元" "筑巢舱" "子成员巢" "外向延伸" "外部子成员舱" "扩展节点" "标准节点" "子成员节点" "扩张单元" "生产舱" "高等天顶" "扩张节点" "发展舱" "进步单元" "生产节点" "组装单元" "守卫接合点" "超前天顶" "前进接合点" "组装节点" "巢穴移民地" "阿尔法移民地" "贝塔移民地" "伽玛移民地" "德耳塔移民地" "艾普西隆移民地" "泽塔移民地" "伊塔移民地" "西塔移民地" "Iota_Colony" "生产单元" "巢穴单元" "子成员群" "虫群移民地" "子成员移民地" "组装移民地"
 			}
 		}
 		
@@ -197,14 +207,58 @@ HIVE = {
 			names = {
 			}
 		}
+
+		### UNINHABITABLE PLANETS
+		
+		pc_gas_giant = {
+			names = {
+				"阿尔法" "贝塔" "伽马值" "德耳塔" "艾普西隆" "泽塔" "伊塔" "西塔" "约塔" "卡帕" "拉姆达" "谬" "纽" "克西" "奥米克戎" "派" "柔" "西格马" "陶" "宇普西龙" "斐" "希" "普西" "奥米伽" "球体 I" "球体 II" "球体 III" "球体 IV" "球体 V" "球体 VI" "球体 VII" "球体 VIII" "球体 IX" "球体 X"
+			}
+		}
+
+		pc_barren = {
+			names = {
+				"阿尔法" "贝塔" "伽马值" "德耳塔" "艾普西隆" "泽塔" "伊塔" "西塔" "约塔" "卡帕" "拉姆达" "谬" "纽" "克西" "奥米克戎" "派" "柔" "西格马" "陶" "宇普西龙" "斐" "希" "普西" "奥米伽" "球体 I" "球体 II" "球体 III" "球体 IV" "球体 V" "球体 VI" "球体 VII" "球体 VIII" "球体 IX" "球体 X"
+			}
+		}
+
+		pc_molten = {
+			names = {
+				"阿尔法" "贝塔" "伽马值" "德耳塔" "艾普西隆" "泽塔" "伊塔" "西塔" "约塔" "卡帕" "拉姆达" "谬" "纽" "克西" "奥米克戎" "派" "柔" "西格马" "陶" "宇普西龙" "斐" "希" "普西" "奥米伽" "球体 I" "球体 II" "球体 III" "球体 IV" "球体 V" "球体 VI" "球体 VII" "球体 VIII" "球体 IX" "球体 X"
+			}
+		}
+
+		pc_barren_cold = {
+			names = {
+				"阿尔法" "贝塔" "伽马值" "德耳塔" "艾普西隆" "泽塔" "伊塔" "西塔" "约塔" "卡帕" "拉姆达" "谬" "纽" "克西" "奥米克戎" "派" "柔" "西格马" "陶" "宇普西龙" "斐" "希" "普西" "奥米伽" "球体 I" "球体 II" "球体 III" "球体 IV" "球体 V" "球体 VI" "球体 VII" "球体 VIII" "球体 IX" "球体 X"
+			}
+		}
+
+		pc_toxic = {
+			names = {
+				"阿尔法" "贝塔" "伽马值" "德耳塔" "艾普西隆" "泽塔" "伊塔" "西塔" "约塔" "卡帕" "拉姆达" "谬" "纽" "克西" "奥米克戎" "派" "柔" "西格马" "陶" "宇普西龙" "斐" "希" "普西" "奥米伽" "球体 I" "球体 II" "球体 III" "球体 IV" "球体 V" "球体 VI" "球体 VII" "球体 VIII" "球体 IX" "球体 X"
+			}
+		}
+
+		pc_frozen = {
+			names = {
+				"阿尔法" "贝塔" "伽马值" "德耳塔" "艾普西隆" "泽塔" "伊塔" "西塔" "约塔" "卡帕" "拉姆达" "谬" "纽" "克西" "奥米克戎" "派" "柔" "西格马" "陶" "宇普西龙" "斐" "希" "普西" "奥米伽" "球体 I" "球体 II" "球体 III" "球体 IV" "球体 V" "球体 VI" "球体 VII" "球体 VIII" "球体 IX" "球体 X"
+			}
+		}
 	}
+
+	### CHARACTERS
 
 	character_names = {
 		default = {
 			# A complete name
 			full_names = {
 
-				"Autonomous Drone 1" "Autonomous Drone 2" "Autonomous Drone 3" "Autonomous Drone 4" "Autonomous Drone 5" "Autonomous Drone 6" "Autonomous Drone 7" "Autonomous Drone 8" "Autonomous Drone 9" "Autonomous Drone 10" "Autonomous Drone 11" "Autonomous Drone 12" "Autonomous Drone 13" "Autonomous Drone 14" "Autonomous Drone 15" "Autonomous Drone 16" "Autonomous Drone 17" "Autonomous Drone 18" "Autonomous Drone 19" "Autonomous Drone 20" "Autonomous Drone 21" "Autonomous Drone 22" "Autonomous Drone 23" "Autonomous Drone 24" "Autonomous Drone 25" "Autonomous Drone 26" "Autonomous Drone 27" "Autonomous Drone 28" "Autonomous Drone 29" "Autonomous Drone 30" "Autonomous Drone 31" "Autonomous Drone 32" "Autonomous Drone 33" "Autonomous Drone 34" "Autonomous Drone 35" "Autonomous Drone 36" "Autonomous Drone 37" "Autonomous Drone 38" "Autonomous Drone 39" "Autonomous Drone 40" "Autonomous Drone 41" "Autonomous Drone 42" "Autonomous Drone 43" "Autonomous Drone 44" "Autonomous Drone 45" "Autonomous Drone 46" "Autonomous Drone 47" "Autonomous Drone 48" "Autonomous Drone 49" "Autonomous Drone 50" "Autonomous Drone 51" "Autonomous Drone 52" "Autonomous Drone 53" "Autonomous Drone 54" "Autonomous Drone 55" "Autonomous Drone 56" "Autonomous Drone 57" "Autonomous Drone 58" "Autonomous Drone 59" "Autonomous Drone 60" "Autonomous Drone 61" "Autonomous Drone 62" "Autonomous Drone 63" "Autonomous Drone 64" "Autonomous Drone 65" "Autonomous Drone 66" "Autonomous Drone 67" "Autonomous Drone 68" "Autonomous Drone 69" "Autonomous Drone 70" "Autonomous Drone 71" "Autonomous Drone 72" "Autonomous Drone 73" "Autonomous Drone 74"
+				"自主子成员 1" "自主子成员 2" "自主子成员 3" "自主子成员 4" "自主子成员 5" "自主子成员 6" "自主子成员 7" "自主子成员 8" "自主子成员 9" "自主子成员 10" "自主子成员 11" "自主子成员 12" "自主子成员 13" "自主子成员 14"
+				"自主子成员 15" "自主子成员 16" "自主子成员 17" "自主子成员 18" "自主子成员 19" "自主子成员 20" "自主子成员 21" "自主子成员 22" "自主子成员 23" "自主子成员 24" "自主子成员 25" "自主子成员 26" "自主子成员 27" "自主子成员 28" "自主子成员 29" 
+				"自主子成员 30" "自主子成员 31" "自主子成员 32" "自主子成员 33" "自主子成员 34" "自主子成员 35" "自主子成员 36" "自主子成员 37" "自主子成员 38" "自主子成员 39" "自主子成员 40" "自主子成员 41" "自主子成员 42" "自主子成员 43" "自主子成员 44"
+				"自主子成员 45" "自主子成员 46" "自主子成员 47" "自主子成员 48" "自主子成员 49" "自主子成员 50" "自主子成员 51" "自主子成员 52" "自主子成员 53" "自主子成员 54" "自主子成员 55" "自主子成员 56" "自主子成员 57" "自主子成员 58" "自主子成员 59" 
+				"自主子成员 60" "自主子成员 61" "自主子成员 62" "自主子成员 63" "自主子成员 64" "自主子成员 65" "自主子成员 66" "自主子成员 67" "自主子成员 68" "自主子成员 69" "自主子成员 70" "自主子成员 71" "自主子成员 72" "自主子成员 73" "自主子成员 74"
 			}
 			
 			# Always combined with a second name
@@ -226,7 +280,7 @@ HIVE = {
 	ruler_names = {
 		default = {
 			full_names = {
-				"Synaptic Nexus" Consciousness
+				"突触枢纽" 意识
 			}
 		}
 	}

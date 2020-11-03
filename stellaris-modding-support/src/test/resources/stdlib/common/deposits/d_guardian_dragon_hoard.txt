@@ -1,0 +1,11 @@
+d_guardian_dragon_hoard = {
+	resources = {
+		produces = {
+			minerals = 30
+			energy = 30
+		}
+	}
+	station = shipclass_mining_station
+	potential = { always = no }
+	drop_weight = { weight = 0 }
+}

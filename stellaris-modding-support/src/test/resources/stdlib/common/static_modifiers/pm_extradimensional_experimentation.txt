@@ -1,0 +1,6 @@
+pm_extradimensional_experimentation = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_engineering_research.dds"
+	icon_frame = 1
+	show_only_custom_tooltip = yes
+	custom_tooltip = pm_extradimensional_experimentation_tooltip
+}

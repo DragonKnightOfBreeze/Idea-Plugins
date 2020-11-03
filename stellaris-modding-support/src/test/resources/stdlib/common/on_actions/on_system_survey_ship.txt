@@ -1,0 +1,11 @@
+on_system_survey_ship = {
+	events = {
+		tutorial.2
+		tutorial.299
+		tutorial.74
+		tutorial.170
+		country.251
+		country.252
+		country.253
+	}
+}

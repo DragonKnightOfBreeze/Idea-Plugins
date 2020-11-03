@@ -1,0 +1,6 @@
+on_building_replaced = {
+	events = {
+		leviathans.305
+		akx.10000
+	}
+}

@@ -1,0 +1,148 @@
+resolution_galacticreforms_council_size_2 = {
+	icon = "GFX_resolution_council_size"
+
+	resources = {
+		category = resolutions
+		cost = {
+			influence = @resolution_cost_t3
+		}
+	}
+	target = no
+
+	modifier = {
+	}
+
+	effect = {
+		set_council_size = 2
+		set_global_flag = galactic_council_formed
+
+		hidden_effect = {
+			set_timed_country_flag = { flag = galactic_community_resolution_passed_general days = @resolution_flag_timer }
+			add_modifier = {
+				modifier = resolution_passed_diplomatic_weight
+				days = 2200
+			}
+		}
+	}
+
+	fail_effects = {
+		hidden_effect = {
+			set_timed_country_flag = { flag = galactic_community_resolution_failed_general days = @resolution_flag_timer }
+			add_modifier = {
+				modifier = resolution_failed_diplomatic_weight
+				days = 2200
+			}
+		}
+	}
+
+	potential = {
+		has_federations_dlc = yes
+		has_global_flag = galactic_council_formed
+		OR = {
+			num_council_positions = 1
+			num_council_positions = 3
+		}
+	}
+
+	ai_weight = {
+		weight = @resolution_weight_disliked
+
+		modifier = { # raising the number of slots is more popular than lowering it
+			factor = 1.25
+			num_council_positions = 1
+		}
+
+		modifier = {
+			factor = 0
+			OR = {
+				AND = {
+					num_council_positions = 3
+					OR = {
+						galactic_community_rank = 3
+						AND = {
+							is_subject = yes
+							overlord = {
+								opinion_level = { who = prev level >= neutral }
+								galactic_community_rank = 3
+							}
+						}
+					}
+				}
+				AND = {
+					num_council_positions = 1
+					OR = {
+						galactic_community_rank = 1
+						AND = {
+							is_subject = yes
+							overlord = {
+								opinion_level = { who = prev level >= neutral }
+								galactic_community_rank = 1
+							}
+						}
+					}
+				}
+			}
+		}
+
+		modifier = {
+			factor = 3
+			OR = {
+				AND = {
+					num_council_positions = 3
+					OR = {
+						galactic_community_rank <= 2
+						AND = {
+							is_subject = yes
+							overlord = {
+								opinion_level = { who = prev level >= neutral }
+								galactic_community_rank <= 2
+							}
+						}
+					}
+				}
+				AND = {
+					num_council_positions = 1
+					OR = {
+						galactic_community_rank = 2
+						AND = {
+							is_subject = yes
+							overlord = {
+								opinion_level = { who = prev level >= neutral }
+								galactic_community_rank = 2
+							}
+						}
+					}
+				}
+			}
+
+		}
+
+		modifier = {
+			factor = 0.8
+			OR = {
+				AND = {
+					num_council_positions = 3
+					is_egalitarian = yes
+				}
+				AND = {
+					num_council_positions = 1
+					is_authoritarian = yes
+				}
+			}
+		}
+
+		modifier = {
+			factor = 1.2
+			OR = {
+				AND = {
+					num_council_positions = 3
+					is_authoritarian = yes
+				}
+				AND = {
+					num_council_positions = 1
+					is_egalitarian = yes
+				}
+			}
+		}
+	}
+}

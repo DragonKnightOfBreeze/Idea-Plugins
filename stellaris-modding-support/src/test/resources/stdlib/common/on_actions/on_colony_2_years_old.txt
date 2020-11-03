@@ -1,0 +1,53 @@
+on_colony_2_years_old = {
+	events = {
+	}
+	random_events = {
+		150 = 0
+
+		### Colony Events & Chains - 14
+		3 = colony.1 # Migrating Forests
+		3 = colony.50 # Subterranean Aliens
+		3 = colony.1500 # Helpful Drones
+		3 = colony.1520 # Mharin Kharin
+
+		15 = colony.100 # Abandoned Terraforming
+		6 = colony.180 # Asteroid Sighted
+		3 = colony.2001 # Trouble in Paradise
+		15 = colony.2005 # Submerged Cruiser
+
+		15 = colony.2015 # Odd Factory
+		15 = colony.2025 # What Separates Us
+		#15 = colony.2030 # Assassination
+		#15 = colony.2035 # Infectious Disease
+		#15 = colony.2050 # Clerical Errors
+		10 = colony.3001 # Rogue Moon
+		15 = colony.3005 # Dimensional Portal
+
+		### Archaeology Colony Sites
+		3 = ancrel.6049 # Blade of the Huntress
+
+		### Planet Modifiers - 9
+		#150 = colony_mod.1 # Irradiated
+		#150 = colony_mod.2 # Titanic Life
+		#150 = colony_mod.3 # Unstable Tectonics
+		#150 = colony_mod.4 # Asteroid Belt
+		#150 = colony_mod.5 # Atmospheric Hallucinogen
+		#150 = colony_mod.12 # Asteroid Impacts
+		#150 = colony_mod.14 # Asteroid Impacts - Good
+		#150 = colony_mod.16 # Strong Magnetic Field - Good
+		#150 = colony_mod.17 # Strong Magnetic Field - Bad
+
+		### Tomb Worlds - 8
+		75 = colony.150 # Underground Vault
+		75 = colony.155 # Nuclear Bomb
+		75 = colony.160 # Particle Accelerator
+		75 = colony.161 # Surviving Infrastructure
+		75 = colony.162 # Space Station
+		75 = colony.163 # Wasteland Radiation
+		75 = colony.164 # Pacifist Movement
+		75 = colony.170 # Orbital Debris
+
+		### Federations
+		3 = colony_fed.100 #Impossible Corrie
+	}
+}

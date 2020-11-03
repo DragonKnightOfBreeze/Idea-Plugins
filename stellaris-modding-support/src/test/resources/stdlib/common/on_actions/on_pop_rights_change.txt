@@ -1,0 +1,6 @@
+on_pop_rights_change = {
+	events = {
+		utopia.90 # remove withdrawal when blissed
+		utopia.91 # add withdrawal after bliss
+	}
+}

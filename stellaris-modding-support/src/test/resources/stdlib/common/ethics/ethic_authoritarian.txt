@@ -1,0 +1,224 @@
+ethic_authoritarian = {
+	cost = 1
+	category = "col"
+	category_value = 1
+
+	fanatic_variant = ethic_fanatic_authoritarian
+
+	country_modifier = {
+		country_base_influence_produces_add = 0.5
+		planet_jobs_worker_produces_mult = 0.05
+	}
+
+	tags = {
+		ETHIC_ALLOWS_STRATIFIED_SOCIETY
+		ETHIC_ALLOWS_SLAVERY
+		ETHIC_NEVER_DEMOCRACY
+	}
+
+	random_weight = {
+		value = 100
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_AUTHORITARIAN_POS
+		trigger = {
+			OR = {
+				has_ethic = ethic_authoritarian
+				has_ethic = ethic_fanatic_authoritarian
+			}
+		}
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_FACTION_POS
+		trigger = {
+			NOR = {
+				has_ethic = ethic_authoritarian
+				has_ethic = ethic_fanatic_authoritarian
+			}
+			has_faction = totalitarian
+		}
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_RULER_FACTION_POS
+		trigger = {
+			exists = ruler
+			ruler = { leader_of_faction = totalitarian }
+		}
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_SLAVERY_POS
+		trigger = {
+			any_enslaved_species = {
+				is_robotic = no
+			}
+		}
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_CONSUMER_GOODS_NEG
+		trigger = {
+			any_owned_planet = {
+				any_owned_pop = {
+					OR = {
+						has_living_standard = { type = living_standard_utopian }
+						has_living_standard = { type = living_standard_good }
+						has_living_standard = { type = living_standard_shared_burden }
+					}
+				}
+			}
+		}
+	}
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_AUTOCRATIC_GOV_POS
+		trigger = {
+			has_election_type = none
+		}
+	}
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_DEMOCRATIC_GOV_NEG
+		trigger = {
+			has_election_type = democratic
+		}
+	}
+
+	pop_attraction_tag = {
+		desc = POP_ATTRACTION_DECADENT_POS
+		trigger = {
+			any_owned_species = {
+				has_trait = "trait_decadent"
+			}
+		}
+	}
+
+	country_attraction = {
+		value = 1
+		modifier = {
+			factor = 0
+			NOR = {
+				is_country_type = default
+				has_ethic = ethic_authoritarian
+				has_ethic = ethic_fanatic_authoritarian
+				AND = {
+					is_country_type = primitive
+					capital_scope = {
+						has_observation_outpost = yes
+						observation_outpost = {
+							has_mission = native_indoctrination
+						}
+						observation_outpost_owner = {
+							OR = {
+								has_ethic = ethic_fanatic_authoritarian
+								has_ethic = ethic_authoritarian
+							}
+						}
+					}
+				}
+			}
+		}
+		# Effects of indoctrination mission
+		modifier = {
+			factor = 20
+			is_country_type = primitive
+			capital_scope = {
+				has_observation_outpost = yes
+				observation_outpost = {
+					has_mission = native_indoctrination
+				}
+				observation_outpost_owner = { has_ethic = ethic_fanatic_authoritarian }
+			}
+		}
+		modifier = {
+			factor = 10
+			is_country_type = primitive
+			capital_scope = {
+				has_observation_outpost = yes
+				observation_outpost = {
+					has_mission = native_indoctrination
+				}
+				observation_outpost_owner = { has_ethic = ethic_authoritarian }
+			}
+		}
+		modifier = {
+			factor = 2
+			NOR = {
+				has_ethic = ethic_authoritarian
+				has_ethic = ethic_fanatic_authoritarian
+			}
+			has_faction = totalitarian
+		}
+		modifier = {
+			factor = 1.5
+			exists = ruler
+			ruler = { leader_of_faction = totalitarian }
+		}
+		modifier = {
+			factor = 1.5
+			has_federation = yes
+			federation = {
+				has_federation_type = hegemony_federation
+			}
+		}
+		modifier = {
+			factor = 2
+			has_ethic = ethic_authoritarian
+		}
+		modifier = {
+			factor = 3
+			has_ethic = ethic_fanatic_authoritarian
+		}
+		modifier = {
+			factor = 1.25
+			has_election_type = none
+		}
+		modifier = {
+			factor = 0.75
+			has_election_type = democratic
+		}
+	}
+
+	# from = planet
+	pop_attraction = {
+		value = 1
+
+		modifier = {
+			factor = 0
+			has_trait = trait_hive_mind
+		}
+		modifier = {
+			factor = 1.25
+			has_trait = "trait_decadent"
+		}
+		modifier = {
+			factor = 1.5
+			is_enslaved = no
+			from = {
+				any_enslaved_species = {
+					is_same_species = root
+					is_robotic = no
+				}
+			}
+		}
+		modifier = {
+			factor = 1.25
+			is_enslaved = no
+			from = {
+				any_enslaved_species = {
+					is_same_species = root
+					is_robotic = no
+				}
+			}
+		}
+		modifier = {
+			factor = 0.75
+			OR = {
+				has_living_standard = { type = living_standard_utopian }
+				has_living_standard = { type = living_standard_good }
+				has_living_standard = { type = living_standard_shared_burden }
+			}
+		}
+	}
+}

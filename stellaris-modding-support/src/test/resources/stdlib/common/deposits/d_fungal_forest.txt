@@ -1,0 +1,31 @@
+d_fungal_forest = {
+	is_for_colonizeable = yes
+	use_for_min_max_adjustments = yes
+
+	use_weights_for_terraforming_swap_types = yes
+	should_swap_deposit_on_terraforming = yes
+	terraforming_swap_types = {
+		d_black_soil
+		d_teeming_reef
+		d_marvelous_oasis
+		d_tropical_island
+	}
+
+	category = deposit_cat_food
+
+	planet_modifier = {
+		district_farming_max = 3
+	}
+
+	potential = {
+		is_cold = yes
+	}
+
+	drop_weight = {
+		weight = @low
+		modifier = {
+			factor = @planet_type_bonus
+			is_wet = yes
+		}
+	}
+}

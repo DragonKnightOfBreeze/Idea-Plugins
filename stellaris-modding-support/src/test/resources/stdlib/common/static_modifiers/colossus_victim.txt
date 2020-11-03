@@ -1,0 +1,4 @@
+colossus_victim = {
+	pop_ethic_militarist_attraction_mult = 0.5
+	pop_ethic_xenophobe_attraction_mult = 0.5
+}

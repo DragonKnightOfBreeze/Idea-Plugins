@@ -1,0 +1,20 @@
+warped_consciousness = {
+	graphical_culture = no
+	is_space_object = yes
+	max_speed = @speed_very_slow
+	rotation_speed = 1
+	acceleration = 0.1
+	modifier = {
+		ship_evasion_add = 25
+		ship_shield_add = 50000
+		ship_shield_regen_add_static = 500
+	}
+	max_hitpoints = 10000
+	size_multiplier = 32
+	fleet_slot_size = 32
+	section_slots = { "mid" = { locator = "part1" } }
+	num_target_locators = 0
+	icon_frame = 12
+	class = shipclass_military
+	is_designable = no
+}

@@ -1,0 +1,37 @@
+tech_synthetic_thought_patterns = {
+	cost = @tier3cost3
+	area = society
+	tier = 3
+	category = { statecraft }
+	prerequisites = { "tech_artificial_moral_codes" }
+	weight = @tier3weight3
+
+	modifier = {
+		planet_jobs_produces_mult = 0.05
+	}
+
+	potential = {
+		is_gestalt = no
+	}
+
+	weight_modifier = {
+		factor = 1.5
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_statecraft"
+			}
+		}
+	}
+
+	ai_weight = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_statecraft"
+			}
+		}
+	}
+}

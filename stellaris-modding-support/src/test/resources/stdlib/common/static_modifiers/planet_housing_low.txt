@@ -1,0 +1,3 @@
+planet_housing_low = {
+	planet_stability_add = -20
+}

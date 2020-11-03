@@ -1,0 +1,5 @@
+arrogant = {
+	type = arrogant
+	behaviour = {
+	}
+}

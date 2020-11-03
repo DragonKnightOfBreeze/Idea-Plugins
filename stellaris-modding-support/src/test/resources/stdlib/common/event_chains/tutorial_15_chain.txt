@@ -1,0 +1,14 @@
+tutorial_15_chain = {
+	icon = "gfx/interface/icons/situation_log/situation_log_tutorial.dds"
+	picture = GFX_evt_mining_station
+	counter = {
+		credit_income = {
+			max = 1
+		}
+	}
+	counter = {
+		mineral_income = {
+			max = 1
+		}
+	}
+}

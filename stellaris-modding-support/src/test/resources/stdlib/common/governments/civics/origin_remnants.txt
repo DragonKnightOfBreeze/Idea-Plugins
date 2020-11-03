@@ -1,0 +1,35 @@
+origin_remnants = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origins_remnant.dds"
+	picture = GFX_origin_remnants
+
+	starting_colony = pc_relic  #Changes homeworld class regardless of what is picked for empire
+	max_once_global = yes
+
+	playable = {
+		OR = {
+			has_ancrel = yes
+			host_has_dlc = Federations
+		}
+	}
+
+	possible = {
+		civics = {
+			NOT = { value = civic_agrarian_idyll }
+		}
+	}
+
+	description = "origin_tooltip_remnants_effects"
+
+	flags = { custom_start_screen first_contact_event Story7}
+
+	traits = {
+
+	}
+
+	advanced_start = yes
+
+	random_weight = {
+		base = 5
+	}
+}

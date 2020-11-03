@@ -1,0 +1,11 @@
+opinion_crisis_fighter_small = {
+	opinion = {
+		base = 50
+	}
+
+	accumulative = yes
+
+	decay = {
+		base = 1
+	}
+}

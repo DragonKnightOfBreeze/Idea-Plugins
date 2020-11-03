@@ -1,0 +1,40 @@
+building_primitive_farm = {
+	can_build = no
+	can_demolish = yes
+	can_be_ruined = no
+
+	potential = {
+		exists = owner
+		owner = {
+			is_primitive = yes
+			OR = {
+				has_country_flag = machine_age
+				has_country_flag = industrial_age
+				has_country_flag = atomic_age
+				has_country_flag = early_space_age
+			}
+			is_lithoid_empire = no
+		}
+	}
+
+	convert_to = {
+		building_primitive_mine
+	}
+
+	destroy_trigger = {
+		exists = owner
+		owner = {
+			OR = {
+				is_primitive = no
+				is_lithoid_empire = yes
+			}
+		}
+	}
+
+	planet_modifier = {
+		job_primitive_farmer_add = 10
+	}
+
+	upgrades = {
+	}
+}

@@ -1,0 +1,6 @@
+imperious = {
+	type = imperious
+	behaviour = {
+		vassalize = yes
+	}
+}

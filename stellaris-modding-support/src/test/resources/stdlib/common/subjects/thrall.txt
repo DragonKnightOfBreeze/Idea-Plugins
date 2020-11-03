@@ -1,0 +1,55 @@
+thrall = {
+	can_expand = no
+	can_be_integrated = no
+	joins_overlord_wars = no
+	calls_overlord_to_war = no
+	can_do_diplomacy = yes
+	
+	diplo_threat = 0.75
+	
+	subject_tax_rate = {
+		minerals = 0.25
+		energy = 0.25
+	}
+	
+	potential = {
+		is_country_type = default
+		from = {
+			is_country_type = awakened_fallen_empire
+			has_ethic = ethic_fanatic_xenophobe
+		}
+	}
+	
+	effect = {
+		if = {
+			limit = {
+				from = { 	
+					is_country_type_with_subjects = no
+				}
+			}
+			set_subject_of = {
+				who = none
+			}
+			break = yes
+		}		
+		if = {
+			limit = {
+				from = { 
+					NOT = { is_country_type = awakened_fallen_empire }
+				}
+			}
+			set_subject_of = {
+				who = from
+				subject_type = vassal
+			}
+			else = {
+				if = {
+					limit = {
+						has_global_flag = war_in_heaven_ongoing
+					}
+					join_war = from
+				}				
+			}
+		}				
+	}
+}

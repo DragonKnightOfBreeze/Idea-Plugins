@@ -1,0 +1,6 @@
+has_citizenship_rights = {
+	OR = {
+		has_citizenship_type = { type = citizenship_full }
+		has_citizenship_type = { type = citizenship_full_machine }
+	}
+}

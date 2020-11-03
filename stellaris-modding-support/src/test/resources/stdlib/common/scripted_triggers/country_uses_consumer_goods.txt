@@ -1,0 +1,6 @@
+country_uses_consumer_goods = {
+	OR = {
+		is_regular_empire = yes
+		has_valid_civic = civic_machine_servitor
+	}
+}

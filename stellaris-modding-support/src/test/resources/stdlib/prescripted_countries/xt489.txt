@@ -1,0 +1,68 @@
+xt489 = {
+	name = "xt489"
+	adjective = "PRESCRIPTED_adjective_xt489"
+	spawn_enabled = yes # yes / no / always
+	ignore_portrait_duplication = yes
+	
+	playable = has_synthethic_dawn # scripted_triggers
+	
+	ship_prefix = "PRESCRIPTED_ship_prefix_xt489"
+	
+	species = {
+		class = "MACHINE"
+		portrait = "sd_avi_robot"
+		name = "PRESCRIPTED_species_name_xt489"
+		plural = "PRESCRIPTED_species_plural_xt489"
+		adjective = "PRESCRIPTED_species_adjective_xt489"
+		name_list = "MACHINE2"
+		trait = "trait_machine_unit"
+		trait = "trait_robot_power_drills"
+		trait = "trait_robot_mass_produced"
+		trait = "trait_robot_uncanny"
+		trait = "trait_robot_bulky"
+	}
+	
+	room = "machine_room"
+	
+	ethic = ethic_gestalt_consciousness
+	authority = "auth_machine_intelligence"
+	government = gov_machine_terminator
+	civics = { "civic_machine_terminator" "civic_machine_warbots" }
+	origin = "origin_default"
+	
+	planet_name = "PRESCRIPTED_planet_name_xt489"
+	planet_class = "pc_desert"
+	system_name = "PRESCRIPTED_system_name_xt489"
+	initializer = ""
+
+	graphical_culture = "avian_01"
+	city_graphical_culture = "avian_01"
+
+	empire_flag={
+		icon={
+			category = "domination"
+			file = "domination_11.dds"
+		}
+		background = {
+			category = "backgrounds"
+			file = "triangle_split.dds"
+		}
+		colors = {
+			"red"
+			"black"
+			"null"
+			"null"
+		}
+	}
+	
+	ruler = {
+		name = "PRESCRIPTED_ruler_name_xt489"
+		gender = female
+		portrait = "sd_avi_robot"
+		texture = 2
+		hair = 0
+		clothes = 0
+		ruler_title = "PRESCRIPTED_ruler_title_xt489"
+		leader_class = ruler
+	}
+}

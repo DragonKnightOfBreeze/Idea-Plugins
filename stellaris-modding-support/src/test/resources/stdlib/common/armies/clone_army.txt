@@ -1,0 +1,46 @@
+clone_army = {
+	damage = 1.00
+	health = 1.00
+	morale = 1.00
+	collateral_damage = 1.25
+	war_exhaustion = 0.50
+	time = 30
+	icon_frame = 7
+	pop_limited = no
+
+	resources = {
+		category = armies
+		cost = {
+			minerals = 75
+		}
+
+		upkeep = {
+			energy = 0.75
+		}
+	}
+
+	prerequisites = { "tech_gene_banks" }
+	
+	show_tech_unlock_if = {
+		OR = {
+			NOT = { has_authority = auth_machine_intelligence }
+			has_civic = civic_machine_assimilator
+		}
+	}
+	
+	potential = {
+		from = {
+			NOR = {
+				has_trait = "trait_mechanical"
+				has_trait = "trait_machine_unit"
+				is_sapient = no
+			}
+		}
+		owner = {
+			OR = {
+				NOT = { has_authority = auth_machine_intelligence }
+				has_civic = civic_machine_assimilator
+			}
+		}
+	}
+}

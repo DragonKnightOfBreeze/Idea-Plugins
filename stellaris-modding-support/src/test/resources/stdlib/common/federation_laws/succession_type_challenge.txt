@@ -1,0 +1,118 @@
+succession_type_challenge = {
+	potential = { host_has_dlc = Federations }
+	allow = { 
+		custom_tooltip = {
+			NOT = {
+				AND = {
+					NOT = { has_federation_law = succession_type_challenge }
+					has_modifier = federation_law_category_succession_type_cooldown
+					has_any_federation_law_in_category = law_category_succession_type
+				}
+			}
+		}
+		custom_tooltip = {
+			fail_text = cannot_change_succession_type_during_war
+			NAND = {
+				NOT = { has_federation_law = succession_type_challenge }
+				any_member = { is_at_war = yes }
+				has_any_federation_law_in_category = law_category_succession_type
+			}
+		}
+	}
+	required_centralization = {
+		base = 2
+	}
+	on_enact = {
+		set_federation_succession_type = challenge
+		if = {
+			limit = { has_federation_law = succession_term_status_change }
+			if = {
+				limit = { has_modifier = federation_law_category_succession_term_cooldown }
+				remove_modifier = federation_law_category_succession_term_cooldown
+			}
+			set_federation_succession_term = years_40
+			if = {
+				limit = { has_federation_flag = enable_federation_cooldowns }
+				add_modifier = {
+					modifier = federation_law_category_succession_term_cooldown
+					days = @cooldown
+				}
+			}
+		}
+		if = {
+			limit = { has_federation_flag = enable_federation_cooldowns }
+			add_modifier = {
+				modifier = federation_law_category_succession_type_cooldown
+				days = @cooldown
+			}
+		}
+		add_cohesion = -5
+		hidden_effect = {
+			set_federation_flag = challenge_type_no_cooldown
+			set_federation_law = challenge_type_arena_combat
+		}
+	}
+	
+	ai_weight = {
+		base = 0
+		
+		#Default support
+		modifier = {
+			desc = federation_acceptance_generally_positive
+			add = 1
+		}
+		
+		#Behaviour-specific
+		modifier = {
+			desc = federation_acceptance_president
+			add = -10
+			is_federation_leader = yes
+		}
+		modifier = {
+			desc = federation_acceptance_gestalt
+			add = -25
+			is_gestalt = yes
+		}
+		modifier = {
+			desc = federation_acceptance_ruler_cyborg
+			add = 10
+			exists = ruler
+			ruler = { has_trait = leader_trait_ruler_cyborg	}
+		}
+		modifier = {
+			desc = federation_acceptance_ruler_synthetic
+			add = 10
+			exists = ruler
+			ruler = { has_trait = leader_trait_ruler_synthetic }
+		}
+		modifier = {
+			desc = federation_acceptance_ruler_psionic
+			add = 10
+			exists = ruler
+			ruler = { has_trait = leader_trait_ruler_psionic }
+		}
+		modifier = {
+			desc = federation_acceptance_ruler_very_strong
+			add = 10
+			exists = ruler
+			ruler = { species = { has_trait = trait_very_strong } }
+		}
+		modifier = {
+			desc = federation_acceptance_honorbound_warriors
+			add = 25
+			has_ai_personality = honorbound_warriors
+		}
+		modifier = {
+			desc = federation_acceptance_warrior_culture
+			add = 50
+			has_civic = civic_warrior_culture
+		}
+		modifier = {
+			#the chosen believes in both challenges
+			desc = federation_acceptance_ruler_chosen
+			add = 100
+			exists = ruler
+			ruler = { has_trait = leader_trait_ruler_chosen	}
+		}
+	}
+}

@@ -1,0 +1,7 @@
+resolution_commerce_underdeveloped_system_utilization = {
+	show_only_custom_tooltip = no
+	custom_tooltip = resolution_commerce_underdeveloped_system_utilization_tooltip
+	trade_value_mult = 0.05
+	planet_bureaucrats_upkeep_mult = 0.2
+	diplo_weight_economy_mult = 0.2
+}

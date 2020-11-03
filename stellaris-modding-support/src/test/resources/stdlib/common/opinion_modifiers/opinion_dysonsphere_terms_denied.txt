@@ -1,0 +1,8 @@
+opinion_dysonsphere_terms_denied = {
+	opinion = {
+		base = -40
+	}
+	decay = {
+		base = 2
+	}
+}

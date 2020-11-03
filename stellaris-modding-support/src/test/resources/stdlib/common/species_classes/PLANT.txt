@@ -1,0 +1,47 @@
+PLANT = {
+	archetype = BIOLOGICAL
+
+	possible = { authority = { NOT = { value = auth_machine_intelligence text = SPECIES_CLASS_MUST_NOT_USE_MACHINE_INTELLIGENCE } } }
+	playable = {
+		OR = {
+			local_has_dlc = "Plantoid"
+			local_has_dlc = "Ancient Relics Story Pack"
+		}
+	}
+	
+	gender = no
+
+	custom_portraits = {
+		randomized = { host_has_dlc = "Plantoid" }
+		playable = { local_has_dlc = "Plantoid"	}
+		portraits = {
+			"pla2"
+			"pla6"
+			"pla1"
+			"pla11"
+			"pla3"
+			"pla13"
+			"pla7"
+			"pla15"
+			"pla10"
+			"pla5"
+			"pla9"
+			"pla14"
+			"pla4"
+			"pla8"
+			"pla12"
+		}
+	}
+
+	custom_portraits = {
+		randomized = { host_has_dlc = "Ancient Relics Story Pack" }
+		playable = { local_has_dlc = "Ancient Relics Story Pack"	}
+		portraits = {
+			"pla16_baol"
+		}
+	}
+
+	graphical_culture = plantoid_01
+
+	resources = {}
+}

@@ -1,0 +1,98 @@
+resolution_sanctions_administrative_3 = {
+	icon = "GFX_sanctions_purple"
+	level = 3
+
+	potential = {
+		has_federations_dlc = yes
+	}
+
+	resources = {
+		category = resolutions
+		cost = {
+			influence = @resolution_cost_denounce
+		}
+	}
+
+	target = no
+	sanction = yes
+
+	effect = {
+		custom_tooltip = sanctions_effect
+		hidden_effect = {
+			set_timed_country_flag = { flag = galactic_community_resolution_passed_general days = @resolution_flag_timer }
+			add_modifier = {
+				modifier = resolution_passed_diplomatic_weight
+				days = 2200
+			}
+		}
+	}
+
+	fail_effects = {
+		hidden_effect = {
+			set_timed_country_flag = { flag = galactic_community_resolution_failed_general days = @resolution_flag_timer }
+			add_modifier = {
+				modifier = resolution_failed_diplomatic_weight
+				days = 2200
+			}
+		}
+	}
+
+	triggered_modifier = {
+		potential = {
+			OR = {
+				is_in_breach_of_any = yes
+				has_modifier = resolution_denounced
+			}
+		}
+		modifier = {
+			resolution_sanctions_administrative = 3
+		}
+	}
+
+	allow = {
+		is_active_resolution = "resolution_sanctions_administrative_2"
+		is_part_of_galactic_council = yes
+	}
+
+	ai_weight = {
+		weight = @resolution_weight_normal
+
+		modifier = {
+			factor = 0
+			is_in_breach_of_any = yes
+		}
+
+		modifier = {
+			factor = 1.25
+			is_in_breach_of_any = no
+			OR = {
+				is_part_of_galactic_council = yes
+				is_xenophile = yes
+				has_civic = civic_diplomatic_corps
+				has_civic = civic_public_relations_specialists
+				has_civic = civic_hive_empath
+				has_civic = civic_machine_servitor
+			}
+		}
+
+		modifier = {
+			factor = 0.5
+			any_federation_ally = {
+				OR = {
+					is_in_breach_of_any = yes
+					has_modifier = resolution_denounced
+				}
+			}
+		}
+
+		modifier = {
+			factor = 1.25
+			any_rival_country = {
+				OR = {
+					is_in_breach_of_any = yes
+					has_modifier = resolution_denounced
+				}
+			}
+		}
+	}
+}

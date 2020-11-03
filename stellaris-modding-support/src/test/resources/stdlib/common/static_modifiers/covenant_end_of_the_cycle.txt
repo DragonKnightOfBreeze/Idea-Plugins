@@ -1,0 +1,7 @@
+covenant_end_of_the_cycle = {
+	stations_produces_mult = 1
+	planet_jobs_produces_mult = 1
+	country_naval_cap_mult = 1
+	country_starbase_capacity_add = 10
+	country_base_influence_produces_add = 5
+}

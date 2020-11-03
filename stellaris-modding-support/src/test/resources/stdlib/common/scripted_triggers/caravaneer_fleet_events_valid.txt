@@ -1,0 +1,23 @@
+caravaneer_fleet_events_valid = {
+	is_homicidal = no
+	is_at_war = no
+	any_system_within_border = { caravaneer_fleet_in_system = yes }
+	NOR = {
+		AND = {
+			exists = event_target:caravaneer_home_country
+			is_hostile = event_target:caravaneer_home_country
+		}
+		AND = {
+			exists = event_target:caravaneer_fleet1_country
+			is_hostile = event_target:caravaneer_fleet1_country
+		}
+		AND = {
+			exists = event_target:caravaneer_fleet2_country
+			is_hostile = event_target:caravaneer_fleet2_country
+		}
+		AND = {
+			exists = event_target:caravaneer_fleet3_country
+			is_hostile = event_target:caravaneer_fleet3_country
+		}
+	}
+}

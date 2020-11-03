@@ -1,0 +1,31 @@
+AIANOM_MININGDEPO_CAT = {
+	picture = GFX_evt_mining_station
+	level = 1
+
+	should_ai_use = yes
+
+	spawn_chance = {
+		modifier = {
+			add = 1
+			has_deposit_for = shipclass_mining_station
+		}
+		modifier = {
+			add = 2
+			NOR =  {
+				has_deposit_for = shipclass_mining_station
+				has_deposit_for = shipclass_research_station
+			}
+		}
+	}
+
+	on_success = {
+		1 = {
+			anomaly_event = aianom.6
+			max_once = no
+		}
+		1 = {
+			anomaly_event = aianom.7
+			max_once = no
+		}
+	}
+}

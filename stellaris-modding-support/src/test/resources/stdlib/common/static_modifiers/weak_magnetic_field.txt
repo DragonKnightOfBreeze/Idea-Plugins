@@ -1,0 +1,7 @@
+weak_magnetic_field = {
+	pop_environment_tolerance = -0.05
+	pop_growth_speed = -0.05
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_weak_magnetic_field.dds"
+	icon_frame = 3
+}

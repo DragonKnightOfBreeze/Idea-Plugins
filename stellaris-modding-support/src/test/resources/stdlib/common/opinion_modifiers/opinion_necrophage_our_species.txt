@@ -1,0 +1,24 @@
+opinion_necrophage_our_species = {
+	opinion = {
+		base = -10
+		modifier = {
+			add = 3.5
+			has_migration_access = from
+		}
+	}
+
+	accumulative = yes
+
+	min = -500
+
+	decay = {
+		base = 3
+		modifier = {
+			add = 2
+			OR = {
+				has_defensive_pact = from
+				is_in_federation_with = from
+			}
+		}
+	}
+}

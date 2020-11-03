@@ -1,0 +1,4 @@
+on_ship_disengaged_perp = {
+	events = {
+	}
+}

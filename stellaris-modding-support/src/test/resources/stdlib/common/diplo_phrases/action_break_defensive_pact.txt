@@ -1,0 +1,118 @@
+action_break_defensive_pact = {
+	select = {
+		01_BREAK_DP_SELECT = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					has_authority = auth_corporate
+				}
+			}
+		}
+	}
+
+	propose = {
+		01_BREAK_DP_PROPOSE = {
+			trigger = {
+				from = {
+					NOR = {
+						has_authority = auth_machine_intelligence
+						has_authority = auth_corporate
+					}
+				}
+			}
+		}
+	}
+
+	accept = {
+		01_BREAK_DP_ACCEPT = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					has_authority = auth_corporate
+				}
+			}
+		}
+	}
+
+	select = {
+		MECH_BREAK_DP_SELECT = {
+			trigger = {
+				has_authority = auth_machine_intelligence
+			}
+		}
+	}
+
+	propose = {
+		MECH_BREAK_DP_PROPOSE = {
+			trigger = {
+				from = {
+					has_authority = auth_machine_intelligence
+				}
+			}
+		}
+	}
+
+	accept = {
+		MECH_BREAK_DP_ACCEPT = {
+			trigger = {
+				has_authority = auth_machine_intelligence
+			}
+		}
+	}
+
+	# Ketlings
+	select = {
+		KET_BREAK_DP_SELECT = {
+			weight = { weight = 100000 }
+			trigger = {
+				exists = event_target:ratling_country
+				is_same_empire = event_target:ratling_country
+			}
+		}
+	}
+	propose = {
+		KET_BREAK_DP_PROPOSE = {
+			weight = { weight = 100000 }
+			trigger = {
+				exists = event_target:ratling_country
+				FROM = {
+					is_same_empire = event_target:ratling_country
+				}
+			}
+		}
+	}
+	accept = {
+		KET_BREAK_DP_ACCEPT = {
+			weight = { weight = 100000 }
+			trigger = {
+				exists = event_target:ratling_country
+				is_same_empire = event_target:ratling_country
+			}
+		}
+	}
+
+	# Corporate
+	select = {
+		CORP_BREAK_DP_SELECT_01 = {
+			trigger = {
+				has_authority = auth_corporate
+			}
+		}
+	}
+	propose = {
+		CORP_BREAK_DP_PROPOSE_01 = {
+			trigger = {
+				from = {
+					has_authority = auth_corporate
+				}
+			}
+		}
+	}
+	accept = {
+		CORP_BREAK_DP_ACCEPT_01 = {
+			trigger = {
+				has_authority = auth_corporate
+			}
+		}
+	}
+}

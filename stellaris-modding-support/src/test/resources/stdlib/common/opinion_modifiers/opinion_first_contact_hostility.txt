@@ -1,0 +1,5 @@
+opinion_first_contact_hostility = {
+	opinion = {
+		base = -25
+	}
+}

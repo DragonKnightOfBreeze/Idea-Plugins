@@ -1,0 +1,218 @@
+ratling_1_1 = {
+	class = "sc_pulsar"
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 130
+	}
+
+	usage = misc_system_init
+	usage_odds = {
+		base = 90000
+		modifier = {
+			factor = 0
+			has_distar = no
+		}
+		modifier = {
+			factor = 0
+			any_playable_country = {
+				is_ai = no
+				species_portrait = mam_rat
+			}
+		}
+		modifier = {
+			factor = 0
+			is_fe_cluster = yes
+		}
+		modifier = {
+            factor = 0
+            has_star_flag = empire_cluster
+        }
+	}
+	scaled_spawn_chance = 8
+	max_instances = 1
+
+	flags = { ruined_empire ratling_home_system ratling_system }
+
+	planet = {
+		class = star
+		orbit_distance = 0
+		init_effect = {
+   			set_deposit = d_engineering_4
+			create_ambient_object = {
+				type = "abandoned_starbase_01_object"
+			}
+			last_created_ambient_object = { 
+				set_location = {
+					target = prev
+					distance = 15
+					angle = random
+				}
+			}
+			create_ambient_object = {
+				type = "large_debris_object"
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 15
+					angle = random
+				}
+			}
+			create_ambient_object = {
+				type = "ancient_battlefield_02_object"
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 60
+					angle = random
+				}
+			}
+		}
+	}
+
+	change_orbit = 30
+
+	planet = {
+		count = 3
+		class = "rl_unhabitable_planets"
+		orbit_distance = 30
+		orbit_angle = { min = 90 max = 270 }
+		size = { min = 10 max = 16 }
+		init_effect = {
+			prevent_anomaly = yes
+			create_ambient_object = {
+				type = "small_debris_object"
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 0
+					angle = random
+				}
+			}
+		}
+	}
+
+	planet = {
+		name = "NAME_Ruinous_Core"
+		count = 1
+		class = "pc_nuked"
+		orbit_distance = 40
+		orbit_angle = { min = 90 max = 270 }
+		size = { min = 18 max = 24 }
+
+		init_effect = {
+			prevent_anomaly = yes
+			set_planet_flag = ratling_planet
+			set_planet_entity = {
+				picture = pc_junkheap
+			}
+			while = {
+				count = 3
+				random_deposit = {
+					limit = { #none
+					}
+					remove_deposit = yes
+				}
+			}
+			add_deposit = d_junk_wastes
+			add_deposit = d_junk_canals
+			add_deposit = d_junk_hollows
+			save_global_event_target_as = ratling_capital
+			create_ambient_object = {
+				type = "abandoned_starbase_01_object"
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 5
+					angle = random
+				}
+			}
+			create_ambient_object = {
+				type = "large_debris_object"
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 5
+					angle = random
+				}
+			}
+		}
+
+		change_orbit = @base_moon_distance
+		
+		moon = {
+			name = "NAME_Lost_Encampment"
+			count = 1
+			class = "pc_nuked"
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 5
+			size = { min = 11 max = 16 }
+			init_effect = {
+				prevent_anomaly = yes
+				set_planet_flag = ratling_planet
+				create_ambient_object = {
+					type = "large_debris_object"
+				}
+				last_created_ambient_object = {
+					set_location = {
+						target = prev
+						distance = 5
+						angle = random
+					}
+				}
+				set_planet_entity = {
+					picture = pc_junkheap
+				}
+				while = {
+					count = 3
+					random_deposit = {
+						limit = { #none
+						}
+						remove_deposit = yes
+					}
+				}
+				add_deposit = d_junk_wastes
+				add_deposit = d_junk_canals
+				add_deposit = d_junk_hollows
+				save_global_event_target_as = ratling_planet_2_tar
+			}
+		}
+	}
+
+	change_orbit = 20
+
+	planet = {
+		count = 1
+		class = "pc_gas_giant"
+		orbit_distance = 30
+		orbit_angle = { min = 90 max = 270 }
+		size = { min = 10 max = 30 }
+		has_ring = yes
+		init_effect = {
+			prevent_anomaly = yes
+			create_ambient_object = {
+				type = "large_debris_object"
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 5
+					angle = random
+				}
+			}
+		}
+	}
+
+	neighbor_system = {
+		distance = { min = 0 max = 50 }
+		initializer = "ratling_1_2"
+	}
+	neighbor_system = {
+		distance = { min = 0 max = 50 }
+		initializer = "ratling_1_3"
+	}
+}

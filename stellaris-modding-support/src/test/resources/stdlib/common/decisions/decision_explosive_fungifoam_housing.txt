@@ -1,0 +1,31 @@
+decision_explosive_fungifoam_housing = {
+	owned_planets_only = yes
+	sound = event_laboratory_sound
+	icon = decision_resources
+	
+	resources = {
+		category = decisions
+		cost = {
+			energy = 500
+		}
+	}
+	
+	potential = {
+		owner = {
+			is_machine_empire = yes
+			has_country_flag = city_of_bones_completed
+		}
+	}
+	
+	allow = {
+		NOT = { has_modifier = explosive_fungifoam_housing }
+	}	
+	
+	effect = {
+		add_modifier = { modifier = explosive_fungifoam_housing }
+	}
+	
+	ai_weight = {
+		weight = 1
+	}
+}

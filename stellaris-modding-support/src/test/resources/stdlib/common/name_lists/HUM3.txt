@@ -1,12 +1,13 @@
-﻿### Humanoid 3
-### Created by Henrik Thyrwall
-
 HUM3 = {
+	
+	language = "l_simp_chinese"
+	
 	category = "Humanoid"
+
 	ship_names = {
 
 		generic = {
-			Replar Implar Suplar Viplar Roplar Deplar Dirplar Illiplar Ranplar Ronplar Pulplar Taplar Fiplar Ereplar Sisplar Nomplar Jonplar Tilplar Davplar Konplar Kavplar Kinplar Doplar Falplar Uriplar Unplar Molplar Narplar Nitplar Sarplar Banplar Binplar Bosplar Parplar Lisplar Larplar Lunplar Lirplar Lakplar Lykplar Inplar Implar Itaplar Iriplar Isplar Rokaplar Preplar Utaplar Felplar Fonplar Maplar Miplar Evplar Eriplar Enplar Ekaplar Etaniplar Esplar Ratrex Bontrex Ertrex Sirtrex Evtrex Kirtrex Sontrex Sektrex Birtrex Kortrex Rutrex Retrex Lomtrex Litrex Nitrex Neltrex Naktrex Intrex Iltrex Iritrex Raltrex Matrex Mitrex Titrex Tartrex Tibeltrex Tuntrex Ditrex Datrex Dontrex Duntrex Diftrex Ultrex Untrex Uritrex Ontrex Oratrex Obitrex Okitrex Ibatrex Batrex Aketrex Avotrex 
+			瑞普拉 因普拉 苏普拉 维普拉 洛普拉 戴普拉 迪尔普拉 伊利普拉 兰普拉 隆普拉 普尔普拉 塔普拉 费普拉 艾瑞普拉 希斯普拉 农普拉 琼普拉 提尔普拉 代普拉 空普拉 凯普拉 金普拉 多普拉 法尔普拉 乌瑞普拉 恩姆普拉 莫普拉 那普拉 尼特普拉 萨普拉 班普拉 宾普拉 波斯普拉 帕普拉 里斯普拉 拉普拉 伦普拉 里尔普拉 拉克普拉 里克普拉 印普拉 因母普拉 伊塔普拉 伊里普拉 伊斯普拉 罗卡普拉 普瑞普拉 乌塔普拉 菲尔普拉 冯普拉 马普拉 米普拉 伊普拉 艾瑞普拉 恩普拉 艾卡普拉 艾塔尼普拉 伊斯普拉 拉崔克斯 彭崔克斯 尔崔克斯 瑟崔克斯 伊崔克斯 齐尔崔克斯 松崔克斯 瑟克崔克斯 比尔崔克斯 克崔克斯 鲁崔克斯 瑞崔克斯 伦姆崔克斯 利崔克斯 尼崔克斯 尼尔崔克斯 纳克崔克斯 因崔克斯 伊尔崔克斯 伊里崔克斯 拉尔崔克斯 马崔克斯 米崔克斯 提崔克斯 塔尔崔克斯 提贝尔崔克斯 通崔克斯 迪崔克斯 达崔克斯 东崔克斯 顿崔克斯 迪夫崔克斯 乌尔崔克斯 恩崔克斯 乌里崔克斯 翁崔克斯 奥拉崔克斯 欧比崔克斯 欧奇崔克斯 伊巴崔克斯 巴崔克斯 艾克崔克斯 艾沃崔克斯
 		}
 
 		corvette = {
@@ -49,83 +50,83 @@ HUM3 = {
 	fleet_names = {
 		random_names = {
 		}
-		sequential_name = "%O% Expeditionary Fleet"
+		sequential_name = "%O% 远征舰队"
 	}
 	
 	army_names = {
 
 		machine_defense = {
-			sequential_name = "%O% Ground Shield"
+			sequential_name = "%O% 地面之盾"
 		}
 		
 		machine_assault_1 = {
-			sequential_name = "%O% War Guild"
+			sequential_name = "%O% 战争工会"
 		}
 		
 		machine_assault_2 = {
-			sequential_name = "%O% War Guild"
+			sequential_name = "%O% 战争工会"
 		}
 		
 		machine_assault_3 = {
-			sequential_name = "%O% War Guild"
+			sequential_name = "%O% 战争工会"
 		}
 
 		defense_army = {
-			sequential_name = "%O% Ground Shield"
+			sequential_name = "%O% 地面之盾"
 		}
 			
 		assault_army = {
-			sequential_name = "%O% War Guild"
+			sequential_name = "%O% 战争工会"
 		}
 		
 		slave_army = {
-			sequential_name = "%O% War Peons"
+			sequential_name = "%O% 战争苦工"
 		}
 		
 		clone_army = { 
-			sequential_name = "%O% Fighting Clones"
+			sequential_name = "%O% 战斗克隆"
 		}
-		
+
 		undead_army = {
-			sequential_name = "%O% Dread Peons"
+			sequential_name = "%O%恐惧劳工"
 		}
 
 		robotic_army = {
-			sequential_name = "%O% Robotic Lancers"
+			sequential_name = "%O% 机器人枪骑兵"
 		}
 
 		robotic_defense_army = {
-			sequential_name = "%O% Robotic Protectors"
+			sequential_name = "%O% 机器人保护者"
 		}
 		
 		psionic_army = { 
-			sequential_name = "%O% Warlock Company"
+			sequential_name = "%O% 术士连队"
 		}
 		
 		xenomorph_army = {
-			sequential_name = "%O% Death Flock"
+			sequential_name = "%O% 死亡之群"
 		}
 		
 		gene_warrior_army = {
-			sequential_name = "%O% Star Knights"
+			sequential_name = "%O% 星际骑士"
 		}
 
 		occupation_army = {
-			sequential_name = "%O% Occupation Watch"
+			sequential_name = "%O% 占领守卫军"
 		}
 
 		robotic_occupation_army = {
-			sequential_name = "%O% Occupation Drones"
+			sequential_name = "%O% 占领无人机"
 		}
 
 		primitive_army = {
-			sequential_name = "Primitive Army %C%"
+			sequential_name = "原始军队 %C%"
 		}
 		industrial_army = {
-			sequential_name = "Industrial Army %C%"
+			sequential_name = "工业军队 %C%"
 		}
 		postatomic_army = {
-			sequential_name = "Post-Atomic Army %C%"
+			sequential_name = "后原子军 %C%"
 		}
 	}
 
@@ -133,7 +134,7 @@ HUM3 = {
 
 		generic = {
 			names = {
-				Valdus Kornas Iribla Sarat Seldis Pakon Erell Ultar Bonath Koldar Ekonir Fendir Rilir Rathyr Rillis Pishar Kethon Veriban Pathar Jarus Nathka Rossell Makora Nith Oramath Sithran Terrib Tannag Siribon Konada Jinnir Sarish Kathon Inathon Erathon
+				瓦杜斯 克纳斯 艾瑞博拉 萨拉特 塞尔迪斯 帕空 艾瑞尔 奥塔 博纳斯 寇达 艾空尼尔 芬迪尔 瑞里尔 拉塞尔 瑞里斯 皮夏 克松 瓦瑞班 帕萨 贾鲁斯 纳斯卡 罗塞尔 马科拉 尼斯 奥拉马斯 希斯兰 特瑞布 唐纳格 希里波 克纳达 金尼尔 萨里斯 卡森 因纳森 艾拉森
 			}
 		}
 		
@@ -192,28 +193,28 @@ HUM3 = {
 			
 			# Always combined with a second name
 			first_names_male = {
-				Rosh Vash Sash Besh Pash Nish Kesh Ilsh Orsh Ersh Fash Tosh Yrsh Desh Jash Rish Aosh
+				罗什 瓦什 萨什 贝什 帕什 尼什 克什 伊什 奥什 厄什 法什 托什 叶什 德什 贾什 里什 奥什
 			}
 
 			first_names_female = {
-				Abia Tona Suna Rhoa Pela Vika Bera Otia Fira Irva Wita Nara Yria Toba Daka Dika Pova
+				阿比亚 托纳 苏纳 罗阿 佩拉 维卡 贝拉 奥提雅 菲拉 伊娃 维塔 娜拉 瑞亚 托巴 达卡 迪卡 博雅
 			}
 
 			# Always combined with a first name
 			second_names = {
-				na-Folken na-Siben na-Seter na-Kiter na-Ilben na-Woter na-Filvan na-Febor na-Feljen na-Podan na-Sutar na-Ledir na-Ilper na-Karan na-Ladar na-Forkan na-Tilpen na-Tukor na-Povon na-Kirper na-Ibban na-Wegan na-Solpan na-Eldgan na-Redgan na-Telkan
+				纳-福尔肯 纳-赛本 纳-塞特而 纳-吉特尔 纳-伊尔本 纳-沃特尔 纳-菲尔万 纳-费波 纳-费尔杰 纳-波丹 纳-苏塔尔 纳-勒迪尔 纳-伊尔坡 纳-卡兰 纳-拉达尔 纳-福尔坎 纳-提尔本 纳-库克尔 纳-波恩 纳-吉尔博 纳-伊班 纳-维甘 纳-索班 纳-艾德甘 纳-瑞德甘 纳-特尔坎
 			}
 			
 			regnal_first_names_female = {
-				Abia Tona Suna Rhoa Pela Vika Bera
+				阿比亚 托纳 苏纳 罗阿 佩拉 维卡 贝拉
 			}
 
 			regnal_first_names_male = {
-				Rosh Vash Sash Besh Pash Nish Kesh
+				罗什 瓦什 萨什 贝什 帕什 尼什 克什
 			}
 			
 			regnal_second_names = {
-				na-Tukan
+				纳-图坎
 			}
 		}
 	}

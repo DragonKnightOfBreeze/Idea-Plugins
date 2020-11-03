@@ -1,0 +1,13 @@
+exotic_gases_upkeep_planets = {
+	resource = exotic_gases 
+	type = upkeep
+	category = planets
+	
+	potential = {
+		always = yes
+	}
+	
+	fraction = {
+		weight = 0.9
+	}	
+}

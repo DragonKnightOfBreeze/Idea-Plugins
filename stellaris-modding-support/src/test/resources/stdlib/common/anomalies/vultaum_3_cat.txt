@@ -1,0 +1,56 @@
+vultaum_3_cat = {
+	desc = "vultaum_habitable_category_desc"
+	picture = "GFX_evt_ship_in_orbit"
+	level = @precursor_medium
+	
+	spawn_chance = {
+		modifier = {
+			add = 10
+			NOT = { has_planet_flag = precursor_world }
+			habitable_planet = yes
+			solar_system = { has_star_flag = precursor_1 }
+			from.owner = {
+				NOT = { has_country_flag = vultaum_3 }
+				has_country_flag = vultaum_intro
+				has_event_chain = vultaum_chain
+			}
+		}
+	}
+
+	on_spawn = {
+		set_planet_flag = precursor_world
+		FROM = {
+			owner = {
+				set_country_flag = vultaum_3
+			}
+		}
+	}
+	
+	on_success = precursor.15
+	
+	#on_fail = {
+	#	1 = {
+	#		ship_event = anomaly_failure.33
+	#	}
+	#}
+	#on_critical_fail = {
+	#	1 = {
+	#		ship_event = anomaly_failure.1400
+	#	}
+	#	1 = {
+	#		ship_event = anomaly_failure.1401
+	#	}
+	#	1 = {
+	#		ship_event = anomaly_failure.1402
+	#	}
+	#	1 = {
+	#		ship_event = anomaly_failure.1403
+	#	}
+	#	1 = {
+	#		ship_event = anomaly_failure.1404
+	#	}
+	#	1 = {
+	#		ship_event = anomaly_failure.1405
+	#	}
+	#}
+}

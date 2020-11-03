@@ -1,0 +1,60 @@
+metalhead = {
+	aggressiveness = 10.0
+	trade_willingness = 0.0
+	bravery = 10.0
+	combat_bravery = 10.0
+
+	military_spending = 1.2
+	colony_spending = 1.2
+
+	federation_acceptance = -1000
+	nap_acceptance = -1000
+	commercial_pact_acceptance = -1000
+	research_agreement_acceptance = -1000
+	defensive_pact_acceptance = -1000
+	migration_pact_acceptance = -1000
+
+	advanced_start_chance = 100
+
+	weapon_preferences = weapon_type_energy
+	armor_ratio = 0.5
+	shields_ratio = 0.0
+	hull_ratio = 0.5
+	
+	threat_modifier = 0
+	threat_others_modifier = 0
+	friction_modifier = 0
+	claims_modifier = 0
+
+	behaviour = {
+		conqueror = yes
+		subjugator = no
+		liberator = no
+		slaver = no
+		opportunist = yes
+		uplifter = no
+		purger = yes
+		displacer = no
+		dominator = yes
+		infiltrator = no
+		robot_exploiter = no
+		robot_liberator = yes
+		propagator = no
+		multispecies = no
+		crisis_fighter = no
+		attack_neutrals = yes
+	}
+
+	allow = {
+		is_country_type = default
+		has_ethic = "ethic_militarist"
+		has_ethic = "ethic_materialist"
+		has_ethic = "ethic_xenophobe"
+		has_trait = "trait_industrious"
+		has_trait = "trait_strong"
+	}
+
+	weight_modifier = {
+		weight = 1000
+	}
+}

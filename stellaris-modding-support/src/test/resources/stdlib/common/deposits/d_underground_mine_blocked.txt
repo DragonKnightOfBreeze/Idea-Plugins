@@ -1,0 +1,14 @@
+d_underground_mine_blocked = {
+	is_for_colonizeable = yes
+	category = deposit_cat_rare
+	
+	icon = d_slums
+	
+	planet_modifier = {
+		#district_mining_max = 3
+	}
+	
+	drop_weight = {
+		weight = 0
+	}
+}

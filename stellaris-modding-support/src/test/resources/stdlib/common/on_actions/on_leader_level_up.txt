@@ -1,0 +1,5 @@
+on_leader_level_up = {
+	events = {
+		leader.20 #gatekeeper for various events
+	}
+}

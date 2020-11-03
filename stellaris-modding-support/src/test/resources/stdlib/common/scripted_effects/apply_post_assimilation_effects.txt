@@ -1,0 +1,32 @@
+apply_post_assimilation_effects = {
+	if = { # assimilator empire
+		limit = {
+			root.owner = {
+				has_authority = auth_machine_intelligence
+				has_civic = civic_machine_assimilator
+			}
+		}
+		root.owner = { generate_cyborg_treats = yes } # scripted effect
+	}
+	if = { # set citizenship
+		limit = { root.owner = { has_authority = auth_machine_intelligence } }
+		set_citizenship_type = {
+			type = citizenship_full_machine
+			country = root.owner
+		}
+	}
+	else = {
+		set_citizenship_type = {
+			type = citizenship_full
+			country = root.owner
+		}
+	}
+
+	if = { # set citizenship
+		limit = { root.owner = { has_ethic = ethic_gestalt_consciousness } }
+		set_living_standard = {
+			type = living_standard_hive_mind
+			country = root.owner
+		}
+	}
+}

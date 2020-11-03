@@ -1,0 +1,50 @@
+colossus_yards = {
+	icon = "GFX_spaceport_module_colossus_assembly_yard"
+	construction_days = 720
+
+	potential = {
+		exists = owner
+		owner = {
+			OR = {
+				has_technology = tech_colossus
+				has_technology = tech_juggernaut		
+			}
+		}
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "requires_citadel"
+			has_starbase_size >= starbase_citadel
+		}
+		has_starbase_module = shipyard
+	}
+
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 1000
+		}
+
+		upkeep = {
+			energy = 20
+		}
+	}
+
+	custom_tooltip = sm_colossus_yards_desc_modifier
+	show_in_tech = "tech_colossus"
+	show_in_tech = "tech_juggernaut"
+
+	ai_build_at_chokepoint = no
+	ai_build_outside_chokepoint = yes
+	ai_weight = {
+		weight = 200
+		modifier = {
+			factor = 0
+			count_starbase_modules = {
+				type = shipyard
+				count < 3
+			}
+		}
+	}
+}

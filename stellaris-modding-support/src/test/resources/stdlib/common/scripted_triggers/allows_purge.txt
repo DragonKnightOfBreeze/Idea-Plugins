@@ -1,0 +1,8 @@
+allows_purge = {
+	OR = {
+		has_ethic = ethic_gestalt_consciousness
+		has_valid_civic = civic_fanatic_purifiers
+		has_policy_flag = purge_allowed
+		has_policy_flag = purge_displacement_only
+	}
+}

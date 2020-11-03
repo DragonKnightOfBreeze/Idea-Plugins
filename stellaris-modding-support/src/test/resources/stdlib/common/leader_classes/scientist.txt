@@ -1,0 +1,15 @@
+scientist = {
+	can_research = yes
+	max_trait_points = 1
+	resources = {
+		category = leader_scientists
+		cost = {
+			energy = 200
+		}
+		upkeep = {
+			energy = 2
+		}
+	}
+
+	default_category = scientist
+}

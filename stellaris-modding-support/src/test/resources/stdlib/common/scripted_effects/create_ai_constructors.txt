@@ -1,0 +1,27 @@
+create_ai_constructors = {
+	if = {
+		limit = {
+			event_target:AI_crisis = {
+				count_owned_ship = {
+					limit = { is_ship_size = construction_ship_ai }
+					count < 5
+				}
+			}
+		}
+		create_fleet = {
+			effect = {
+				set_owner = event_target:AI_crisis
+				create_ship = {
+					name = random
+					design = "NAME_AI_Constructor"
+					graphical_culture = "ai_01"
+				}
+				set_location = {
+					target = root
+					distance = 45
+					angle = random
+				}
+			}
+		}
+	}
+}

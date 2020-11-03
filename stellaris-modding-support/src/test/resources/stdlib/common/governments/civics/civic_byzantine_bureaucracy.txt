@@ -1,0 +1,14 @@
+civic_byzantine_bureaucracy = {
+	playable = { host_has_dlc = "Megacorp" }
+	potential = {
+		ethics = { NOT = { value = ethic_gestalt_consciousness } }
+		authority = { NOT = { value = auth_corporate } }
+	}
+	possible = {
+		always = yes
+	}
+	random_weight = {
+		base = 2
+	}
+	description = "civic_tooltip_byzantine_bureaucracy_effects"
+}

@@ -1,0 +1,32 @@
+action_vote_for_federation_law = {
+	icon = "GFX_diplomacy_status_federation"
+	is_listed = no
+	auto_accepted = yes
+	requires_alliance_vote = yes
+	requires_unanimous_vote = no
+	requires_actor_independence = no
+	requires_recipient_independence = no
+	diplo_view_acceptance_icon = yes
+	AI_acceptance_base_value = -50
+	action_type = neutral
+
+	potential = {
+		custom_tooltip = {
+			fail_text = "IS_AT_WAR"
+			NOT = {
+				any_war = {
+					OR = {
+						using_war_goal = {
+							owner = root
+							type = wg_leave_hegemony
+						}
+						using_war_goal = {
+							owner = root
+							type = wg_assert_hegemony
+						}
+					}
+				}
+			}
+		}
+	}
+}

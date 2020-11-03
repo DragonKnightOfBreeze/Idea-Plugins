@@ -1,0 +1,71 @@
+wg_ae_domination = {
+	casus_belli = cb_subjugation
+	set_defender_wargoal = wg_end_threat
+	
+	hide_if_no_cb = yes
+	total_war = yes
+
+	allowed_peace_offers = {
+		status_quo
+	}
+	
+	cede_claims = occupied_only
+
+	potential = {
+		is_country_type = awakened_fallen_empire
+		NOT = { has_ethic = ethic_gestalt_consciousness }
+	}
+	possible = {
+		always = yes
+	}
+	on_accept = {
+		if = {
+			limit = {
+				is_xenophile = yes
+			}
+			from = {
+				set_subject_of = {
+					who = root
+					subject_type = signatory
+				}				
+			}	
+		}
+		if = {
+			limit = {
+				is_xenophobe = yes
+			}
+			from = {
+				set_subject_of = {
+					who = root
+					subject_type = thrall
+				}	
+			}
+		}
+		if = {
+			limit = {
+				is_spiritualist = yes
+			}
+			from = {
+				set_subject_of = {
+					who = root
+					subject_type = dominion
+				}		
+			}
+		}
+		if = {
+			limit = { 
+				is_materialist = yes
+			}
+			from = {
+				set_subject_of = {
+					who = root
+					subject_type = satellite
+				}
+			}
+		}
+	}
+	
+	ai_weight = {
+		weight = 100
+	}
+}

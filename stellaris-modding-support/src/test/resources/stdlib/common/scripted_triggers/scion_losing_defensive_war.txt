@@ -1,0 +1,23 @@
+scion_losing_defensive_war = {
+	any_war = {
+		any_defender = {
+			is_same_value = root
+		}
+		any_attacker = {
+			OR = {
+				relative_power = {
+					who = root
+					category = fleet
+					value = overwhelming
+				}
+				relative_power = {
+					who = root
+					category = fleet
+					value = superior
+				}
+			}
+		}
+		defender_war_exhaustion > 0.8
+		attacker_war_exhaustion < 0.6
+	}	
+}

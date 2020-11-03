@@ -1,0 +1,13 @@
+rare_crystals_expenditure_ships = {
+	resource = rare_crystals
+	type = expenditure
+	category = ships
+	
+	potential = {
+		always = yes
+	}
+	
+	fraction = {
+		weight = 0.1
+	}	
+}

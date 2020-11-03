@@ -1,0 +1,189 @@
+dimensional_portal_researcher = {
+	category = specialist
+	condition_string = SPECIALIST_JOB_TRIGGER
+	building_icon = building_research_lab_1
+	clothes_texture_index = 3
+	icon = researcher
+
+	possible_pre_triggers = {
+		has_owner = yes
+		is_enslaved = no
+		is_being_purged = no
+		is_being_assimilated = no
+	}
+
+	possible = {
+		complex_specialist_job_check_trigger = yes
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			planet = {
+				has_modifier = dportal_trade_normal
+			}
+		}
+		modifier = {
+			planet_amenities_add = 6
+			trade_value_add = 4
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			planet = {
+				has_modifier = dportal_trade_high
+			}
+		}
+		modifier = {
+			planet_amenities_add = 12
+			trade_value_add = 8
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			planet = {
+				has_modifier = dportal_trade_low
+			}
+		}
+		modifier = {
+			planet_amenities_add = 3
+			trade_value_add = 2
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			planet = {
+				has_modifier = dportal_trade_crisis
+			}
+		}
+		modifier = {
+			planet_amenities_add = 2
+			trade_value_add = 1
+		}
+	}
+
+	resources = {
+		category = planet_researchers
+		produces = {
+			physics_research = 12
+		}
+		produces = {
+			trigger = {
+				exists = owner
+				owner = { has_valid_civic = civic_technocracy }
+			}
+			unity = 1
+		}
+		produces = {
+			trigger = {
+				planet = {
+					has_planet_flag = dportal_closed
+				}
+			}
+			physics_research = -6
+		}
+		produces = {
+			trigger = {
+				planet = {
+					has_planet_flag = dportal_energy
+				}
+			}
+			energy = 6
+		}
+		produces = {
+			trigger = {
+				planet = {
+					has_planet_flag = dportal_void
+				}
+			}
+			sr_dark_matter = 0.2
+		}
+		produces = {
+			trigger = {
+				planet = {
+					has_planet_flag = dportal_void2
+				}
+			}
+			sr_dark_matter = 1
+		}
+		upkeep = {
+			consumer_goods = 3
+		}
+		upkeep = {
+			trigger = {
+				planet = {
+					has_planet_flag = dportal_hell
+				}
+			}
+			consumer_goods = 3
+		}
+		upkeep = {
+			trigger = {
+				exists = owner
+				owner = {
+					has_edict = research_subsidies
+				}
+			}
+			energy = 1
+		}
+	}
+
+	weight = {
+		weight = @specialist_job_weight
+		modifier = {
+			factor = 0.2
+			has_citizenship_rights = no
+			NOT = { has_trait = trait_mechanical }
+		}
+		modifier = {
+			factor = 2
+			has_living_standard = { type = living_standard_academic_privilege }
+		}
+		modifier = {
+			factor = 3
+			has_trait = trait_erudite
+		}
+		modifier = {
+			factor = 2
+			OR = {
+				has_trait = trait_robot_logic_engines
+				has_trait = trait_intelligent
+				has_trait = trait_brainslug
+			}
+		}
+		modifier = {
+			factor = 1.5
+			OR = {
+				has_trait = trait_natural_engineers
+				has_trait = trait_natural_physicists
+				has_trait = trait_natural_sociologists
+			}
+		}
+		modifier = {
+			factor = 0.65
+			OR = {
+				has_trait = trait_syncretic_proles
+				has_trait = trait_presapient_proles
+			}
+		}
+		modifier = {
+			factor = 0.5
+			AND = {
+				planet = {
+					has_planet_flag = dportal_hell
+				}
+				OR = {
+					has_ethic = ethic_spiritualist
+					has_ethic = ethic_fanatic_spiritualist
+				}
+			}
+		}
+		modifier = {
+			factor = 0.1
+			can_take_servant_job = yes
+		}
+		modifier = {
+			factor = 1.5
+			has_trait = trait_necrophage
+		}
+	}
+}

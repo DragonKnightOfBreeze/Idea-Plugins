@@ -1,0 +1,32 @@
+tech_cryostasis_2 = {
+	cost = @tier2cost3
+	area = physics
+	tier = 3
+	category = { computing }
+	prerequisites = { "tech_self_aware_logic" "tech_cryostasis_1" }
+	weight = @tier2weight3
+
+	modifier = {
+		planet_colony_development_speed_mult = 0.50
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_computing"
+			}
+		}
+	}
+
+	ai_weight = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_computing"
+			}
+		}
+	}
+}

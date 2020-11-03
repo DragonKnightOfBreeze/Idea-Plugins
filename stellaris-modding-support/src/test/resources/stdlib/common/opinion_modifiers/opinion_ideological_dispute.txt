@@ -1,0 +1,8 @@
+opinion_ideological_dispute = {
+	opinion = {
+		base = -30
+	}
+	decay = {
+		base = 1
+	}
+}

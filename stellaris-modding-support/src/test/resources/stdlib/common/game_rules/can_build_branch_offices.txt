@@ -1,0 +1,6 @@
+can_build_branch_offices = {
+	custom_tooltip = {
+		fail_text = BRANCH_OFFICE_NOT_MEGACORP
+		has_authority = auth_corporate
+	}
+}

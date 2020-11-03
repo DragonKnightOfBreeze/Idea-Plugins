@@ -1,0 +1,15 @@
+alloys_expenditure_starbases = {
+	resource = alloys
+	type = expenditure
+	category = starbases
+
+	potential = {
+		NOT = {
+			is_country_type = fallen_empire
+		}
+	}
+
+	fraction = {
+		weight = 0.3
+	}
+}

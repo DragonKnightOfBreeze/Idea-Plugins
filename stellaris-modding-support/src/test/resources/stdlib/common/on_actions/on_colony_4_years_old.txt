@@ -1,0 +1,13 @@
+on_colony_4_years_old = {
+	random_events = {
+		150 = 0
+
+		### Colony Events & Chains - 14
+		1 = colony.2001 # Trouble in Paradise
+		1 = colony.2010 # A Change of Heart
+		3 = federations2.8 # Dancing Plague
+
+		### Archaeology Colony Sites
+		3 = ancrel.6049 # Blade of the Huntress
+	}
+}

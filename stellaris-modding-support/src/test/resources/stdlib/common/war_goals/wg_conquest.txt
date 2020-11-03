@@ -1,0 +1,24 @@
+wg_conquest = {
+	casus_belli = cb_claim
+
+	hide_if_no_cb = no
+
+	allowed_peace_offers = {
+		status_quo
+		surrender
+		demand_surrender
+	}
+
+	threat_multiplier = 0.75
+
+	potential = {
+		has_total_war_cb = no
+	}
+	possible = {
+		always = yes
+	}
+
+	ai_weight = {
+		weight = 2
+	}
+}

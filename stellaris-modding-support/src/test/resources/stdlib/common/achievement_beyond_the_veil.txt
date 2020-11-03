@@ -1,0 +1,12 @@
+achievement_beyond_the_veil = {
+	id = 60
+
+	possible = {
+		is_ironman = yes
+		host_has_dlc = "Utopia"
+	}
+
+	happened = {
+		has_country_flag = breached_shroud
+	}
+}

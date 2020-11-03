@@ -1,0 +1,35 @@
+cybrex_empire = {
+	scaled_difficulty_bonuses = 3.0
+	can_own_empty_planets = yes
+	can_planets_be_attacked = no
+	needs_survey = no
+	has_complete_sensor = yes
+	government = no
+	playable = no
+	enforces_borders = no
+	minimalist_contacts_list_profile = yes
+	home_system = cybrex_beta
+	observable = yes
+	ai = {
+		enabled = yes
+		modules = {
+			anti_crisis_military_minister_module
+		}
+	}
+	faction = {
+		hostile = no
+		needs_border_access = no
+		needs_colony = no
+		generate_borders = yes
+	}
+
+	custom_diplomacy = yes
+
+	modules = {
+		exclusive_diplomacy_module = {
+			contact_rule = always
+		}
+		all_technology_module = {}
+		standard_event_module = {}
+	}
+}

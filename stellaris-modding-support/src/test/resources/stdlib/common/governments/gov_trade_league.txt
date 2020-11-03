@@ -1,0 +1,47 @@
+gov_trade_league = {
+	ruler_title = RT_CHAIRMAN
+	ruler_title_female = RT_CHAIRWOMAN
+	
+	should_force_rename = yes
+
+	election_candidates = {
+		modifier = {
+			add = 100
+			leader_class = ruler
+		}
+		modifier = {
+			add = 10
+			leader_class = governor
+		}
+	}
+
+	possible = {
+		OR = {
+			AND = {
+				has_authority = auth_oligarchic
+				NOR = {
+					has_ethic = ethic_authoritarian
+					has_ethic = ethic_fanatic_authoritarian		
+				}
+				OR = {
+					has_ethic = ethic_egalitarian
+					has_ethic = ethic_fanatic_egalitarian
+					has_ethic = ethic_pacifist
+					has_ethic = ethic_fanatic_pacifist
+				}		
+				has_valid_civic = civic_corporate_dominion
+			}
+			AND = {
+				has_authority = auth_corporate
+				OR = {
+					has_valid_civic = civic_free_traders
+					has_valid_civic = civic_trading_posts
+				}
+			}
+		}
+	}
+
+	weight = {
+		base = 1200
+	}
+}

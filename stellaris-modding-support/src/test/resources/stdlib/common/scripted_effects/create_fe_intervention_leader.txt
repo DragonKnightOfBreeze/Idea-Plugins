@@ -1,0 +1,15 @@
+create_fe_intervention_leader = {
+	create_leader = {
+		class = admiral
+		species = event_target:fe_species
+		name = random
+		skill = 7
+		traits = {
+			trait = random_trait
+		}
+		event_leader = yes	# prevents this leader from leading factions and winning elections
+		effect = {
+			save_event_target_as = fe_intervention_admiral
+		}
+	}
+}

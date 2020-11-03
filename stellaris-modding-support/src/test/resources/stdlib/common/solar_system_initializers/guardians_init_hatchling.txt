@@ -1,0 +1,77 @@
+guardians_init_hatchling = {
+	class = sc_g
+	prevent_anomalies = yes
+
+	usage = misc_system_init
+	usage_odds = {
+		base = 90000
+		modifier = {
+			factor = 0
+			has_distar = no
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				is_fe_cluster = yes
+				has_star_flag = empire_cluster
+			}
+		}
+		modifier = {
+			factor = 0
+			is_bottleneck_system = yes
+		}
+	}
+
+	max_instances = 1
+	scaled_spawn_chance = 8	# scales by galaxy size (1000 stars = 10x base)
+
+	flags = { guardians_hatchling_system guardian hostile_system }
+
+	planet = {
+		count = 1
+		class = star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = { min = 20 max = 30 }
+		has_ring = no
+	}
+	planet = {
+		count = { min = 1 max = 2 }
+		orbit_distance = 25
+		orbit_angle = { min = 90 max = 270 }
+	}
+
+	planet = {
+		class = rl_voidspawn_egg
+		orbit_distance = 20
+		orbit_angle = { min = 90 max = 270 }
+		size = 20
+		has_ring = no
+		modifiers = none
+		
+		init_effect = {
+			save_global_event_target_as = hatchling_egg
+			set_planet_flag = hatchling_egg
+			prevent_anomaly = yes
+			random_list = {
+				60 = { set_planet_flag = hatchling_will_trigger }
+				40 = {}
+			}
+		}
+	}
+
+	planet = {
+		count = { min = 2 max = 4 }
+		orbit_distance = 30
+		orbit_angle = { min = 90 max = 270 }
+		
+		change_orbit = @base_moon_distance
+		
+		moon = {
+			count = { min = 0 max = 1 }
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 5
+		}
+	}
+	change_orbit = 15
+}

@@ -1,0 +1,19 @@
+on_megastructure_upgraded = {
+	events = {
+		utopia.2003
+		utopia.2004
+		utopia.4001
+		utopia.4003
+		utopia.4004
+		utopia.4005
+		utopia.4006 # alert message
+		utopia.4101
+		utopia.4103
+		utopia.4104
+		utopia.81
+		utopia.83
+		utopia.84
+		utopia.85
+		action.120 # alert message for contacts
+	}
+}

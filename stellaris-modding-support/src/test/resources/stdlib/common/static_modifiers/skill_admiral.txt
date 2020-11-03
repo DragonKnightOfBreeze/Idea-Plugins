@@ -1,0 +1,3 @@
+skill_admiral = {
+	ship_fire_rate_mult = 0.03
+}

@@ -1,0 +1,54 @@
+site_from_gateway_sent = {
+	desc = "site_from_gateway_sent_intro"
+	picture = GFX_evt_atmospheric_entry
+	stages = 4
+	max_instances = 999
+	weight = 0
+
+	allow = {
+		exists = leader
+		leader = { leader_class = scientist }
+	}
+
+	visible = {
+		default_site_visible_trigger = yes
+	}
+
+	on_visible = {
+    	country_event = { id = story.5 days = 30 }
+	}
+
+	# Beyond Impact
+	stage = {
+		difficulty = -2
+		icon = GFX_archaeology_runes_B5
+		event = origin.1100
+	}
+
+	# Temporal Dissonance
+	stage = {
+		difficulty = 1
+		icon = GFX_archaeology_runes_B1
+		event = origin.1105
+	}
+
+	# Room Without A View
+	stage = {
+		difficulty = -1
+		icon = GFX_archaeology_runes_B6
+		event = origin.1110
+	}
+
+	# The Gatekeeper Memoirs
+	stage = {
+		difficulty = 1
+		icon = GFX_archaeology_runes_B4
+		event = origin.1115
+	}
+
+	on_roll_failed = {
+		from = {
+			standard_archaeological_site_on_roll_failed = { RANDOM_EVENTS = site_from_gateway_sent_random_events }
+		}
+	}
+}

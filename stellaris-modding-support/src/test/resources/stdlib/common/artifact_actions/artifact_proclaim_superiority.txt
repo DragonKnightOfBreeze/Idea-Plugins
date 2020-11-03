@@ -1,0 +1,37 @@
+artifact_proclaim_superiority = {
+	resources = {
+		category = artifact_actions
+		cost = {
+			minor_artifacts = @minor_artifact_decision_cost
+		}
+	}
+	
+	ai_weight = {
+		weight = 100
+		modifier = {
+			factor = 0
+			has_resource = { type = minor_artifacts amount < 105 }
+		}
+	}
+
+	potential = {
+		is_xenophobe = yes
+	}
+	
+	effect = {
+		add_monthly_resource_mult = {
+			resource = influence
+			value = @tier1influencereward
+			min = @tier1influencemin
+			max = @tier1influencemax
+		}
+		add_modifier = {
+			modifier = "proclaim_superiority" 
+			days = @minor_artifact_decision_duration 
+		}
+	}
+	
+	allow = {
+		NOT = { has_modifier = proclaim_superiority }
+	}
+}

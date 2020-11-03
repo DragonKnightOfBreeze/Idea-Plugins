@@ -1,0 +1,12 @@
+civic_empire_in_decline = {
+	modification = no
+	icon = "gfx/interface/icons/governments/civics/civic_empire_in_decline.dds"
+	potential = {
+		country_type = { value = fallen_empire }
+		ethics = { NOT = { value = ethic_gestalt_consciousness } }
+	}
+	random_weight = { base = 5 }
+	description = FALLEN_EMPIRE_LETHARGY_2
+	modifier = {
+	}
+}

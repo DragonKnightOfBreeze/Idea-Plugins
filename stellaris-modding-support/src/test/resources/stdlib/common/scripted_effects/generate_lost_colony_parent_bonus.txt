@@ -1,0 +1,46 @@
+generate_lost_colony_parent_bonus = {
+	add_district = district_city
+	add_district = district_city
+	add_district = district_mining
+	add_district = district_mining
+	add_district = district_mining
+	add_district = district_generator
+	add_district = district_generator
+	add_district = district_farming
+	add_building = building_research_lab_1
+	add_building = building_foundry_1
+	add_building = building_factory_1
+	add_building = building_holo_theatres
+	add_building = building_precinct_house
+
+	while = {
+		limit = { num_pops < 57 }
+		create_pop = {
+			species = owner_main_species
+			ethos = random
+		}
+	}
+
+	owner = {
+		create_fleet = {
+			effect = {
+				set_owner = prev
+				create_ship = {
+					name = random
+					random_existing_design = science
+				}
+				set_fleet_stance = evasive
+				set_location = prev.capital_scope.star
+				owner = {
+					create_leader = {
+						class = scientist
+						sub_type = survey
+						name = random
+						species = owner_main_species
+					}
+				}
+				set_leader = last_created_leader
+			}
+		}
+	}
+}

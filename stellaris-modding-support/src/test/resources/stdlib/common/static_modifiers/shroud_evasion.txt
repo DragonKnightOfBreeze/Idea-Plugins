@@ -1,0 +1,3 @@
+shroud_evasion = {
+	ship_evasion_mult = 0.3
+}

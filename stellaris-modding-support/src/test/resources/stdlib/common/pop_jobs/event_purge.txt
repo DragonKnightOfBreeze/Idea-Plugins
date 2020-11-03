@@ -1,0 +1,32 @@
+event_purge = {
+	is_capped_by_modifier = no
+	category = purge
+
+	purge = purge_normal
+
+	possible = {
+		has_pop_flag = event_purge
+	}
+
+	resources = {
+		category = planet_jobs
+		produces = {
+			trigger = {
+				exists = owner
+				owner = { has_valid_civic = civic_fanatic_purifiers }
+			}
+			unity = 2
+		}
+		produces = {
+			trigger = {
+				exists = owner
+				owner = { has_valid_civic = civic_hive_devouring_swarm }
+			}
+			society_research = 2
+		}
+	}
+
+	weight = {
+		weight = 999999
+	}
+}

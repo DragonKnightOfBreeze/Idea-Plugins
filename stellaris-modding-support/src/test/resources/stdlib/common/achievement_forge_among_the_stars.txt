@@ -1,0 +1,13 @@
+achievement_forge_among_the_stars = {
+	id = 109
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		any_owned_megastructure = {
+			is_megastructure_type = mega_shipyard_3
+		}
+	}
+}

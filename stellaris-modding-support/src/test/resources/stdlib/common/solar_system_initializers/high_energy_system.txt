@@ -1,0 +1,60 @@
+high_energy_system = {
+	class = sc_b
+
+	usage = misc_system_init
+	usage_odds = {
+		base = 90000
+		modifier = {
+			factor = 0
+			has_distar = no
+		}
+		modifier = {
+	        factor = 0
+	        has_star_flag = empire_cluster
+	    }
+	}
+
+	max_instances = 1
+	scaled_spawn_chance = 8	# scales by galaxy size (1000 stars = 10x base)
+
+	flags = { high_energy_system }
+
+	planet = {
+		count = 1
+		class = star
+		orbit_distance = 0
+		init_effect = {
+			clear_deposits = yes
+			add_deposit = d_energy_4
+			add_deposit = d_energy_4
+			add_deposit = d_energy_4
+		}
+	}
+	
+	planet = {
+		class = pc_molten
+		orbit_distance = 40
+		orbit_angle = 30
+		size = 13
+		has_ring = no
+		moon = {
+			class = "pc_molten"
+			size = { min = 9 max = 12 }
+			orbit_distance = 10
+			orbit_angle = 180
+			has_ring = no
+		}
+		init_effect = {
+			set_deposit = d_energy_3
+		}
+	}
+	
+	planet = {
+		count = { min = 3 max = 6 }
+		class = "pc_molten"
+		orbit_distance = 30
+		orbit_angle = { min = 90 max = 270 }
+		size = { min = 10 max = 20}
+		has_ring = no
+	}
+}

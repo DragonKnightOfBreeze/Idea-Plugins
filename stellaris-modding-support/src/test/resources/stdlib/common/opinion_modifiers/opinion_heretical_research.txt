@@ -1,0 +1,9 @@
+opinion_heretical_research = {
+	opinion = {
+		base = -50
+	}
+
+	decay = {
+		base = 5
+	}
+}

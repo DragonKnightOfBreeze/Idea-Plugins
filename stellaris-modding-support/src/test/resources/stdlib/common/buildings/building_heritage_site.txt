@@ -1,0 +1,98 @@
+building_heritage_site = {
+	base_buildtime = @b2_time
+	can_build = no
+
+	category = unity
+
+	potential = {
+		exists = owner
+		NOT = { has_modifier = slave_colony }
+		owner = {
+			NOR = {
+				is_gestalt = yes
+				is_spiritualist = yes
+				is_megacorp = yes
+				has_valid_civic = civic_memorialist
+				has_valid_civic = civic_hive_memorialist
+				has_valid_civic = civic_machine_memorialist
+			}
+		}
+	}
+
+	allow = {
+		has_upgraded_capital = yes
+		buildings_upgrade_allow = yes
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			has_modifier = slave_colony
+			owner = {
+				OR = {
+					is_gestalt = yes
+					is_spiritualist = yes
+					is_megacorp = yes
+					has_valid_civic = civic_memorialist
+					has_valid_civic = civic_hive_memorialist
+					has_valid_civic = civic_machine_memorialist
+				}
+			}
+		}
+	}
+
+	convert_to = {
+		building_holotemple
+		building_simulation_2
+		building_hive_cluster
+		building_corporate_site
+		building_galactic_memorial_2
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b2_minerals
+			rare_crystals = @b2_rare_cost
+		}
+		upkeep = {
+			energy = @b2_upkeep
+			rare_crystals = @b2_rare_upkeep
+		}
+	}
+
+	planet_modifier = {
+		job_culture_worker_add = @b2_jobs
+	}
+
+	prerequisites = {
+		"tech_heritage_site"
+	}
+
+	show_tech_unlock_if = {
+		is_gestalt = no
+		is_spiritualist = no
+		is_megacorp = no
+	}
+
+	upgrades = {
+		building_hypercomms_forum
+	}
+
+	triggered_desc = {
+		text = job_culture_worker_effect_desc
+	}
+
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0
+			owner = {
+				has_monthly_income = {
+					resource = consumer_goods
+					value < 8
+				}
+			}
+		}
+	}
+}

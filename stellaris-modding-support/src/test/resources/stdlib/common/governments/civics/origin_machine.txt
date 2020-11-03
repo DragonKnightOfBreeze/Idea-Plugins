@@ -1,0 +1,30 @@
+origin_machine = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origins_resource_consolidation.dds"
+	picture = GFX_origin_resource_consolidation
+	starting_colony = pc_machine
+	max_once_global = yes
+
+	playable = {
+		host_has_dlc = "Synthetic Dawn Story Pack"
+	}
+
+	possible = {
+		authority = { value = auth_machine_intelligence }
+		civics = {
+			NOT = { value = civic_machine_servitor }
+		}
+	}
+
+	description = "origin_tooltip_machine_effects"
+	#flags = { custom_start_screen }
+
+	traits = {
+	}
+
+	advanced_start = yes
+
+	random_weight = {
+		base = 2
+	}
+}

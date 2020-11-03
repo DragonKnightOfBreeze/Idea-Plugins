@@ -1,0 +1,42 @@
+resolution_mutualdefense_castigation_denouncement = {
+	icon = "GFX_resolution_mutual_defense"
+
+	resources = {
+		category = resolutions
+		cost = {
+			influence = @resolution_cost_denounce
+		}
+	}
+
+	target = yes
+	harmful = yes
+	valid_target = {
+		is_country_type = default
+		NOT = { is_same_value = from } # don't denounce yourself.
+		OR = {
+			is_galactic_community_member = no
+			is_in_breach_of_any = yes
+		}
+		OR = {
+			opinion_level = { who = from level < neutral }
+			from = { is_rival = prev }
+			is_in_breach_of_any = yes
+		}
+	}
+
+	effect = {
+		add_modifier = { modifier = resolution_denounced days = 3600 }
+	}
+
+	potential = {
+		has_federations_dlc = yes
+		OR = {
+			is_active_resolution = "resolution_mutualdefense_castigation_proclamation"
+			is_active_resolution = "resolution_mutualdefense_renegade_containment"
+		}
+	}
+
+	ai_weight = {
+		weight = @resolution_weight_normal
+	}
+}

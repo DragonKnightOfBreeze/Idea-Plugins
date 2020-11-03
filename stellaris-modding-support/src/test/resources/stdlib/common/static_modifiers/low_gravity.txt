@@ -1,0 +1,7 @@
+low_gravity = {
+	planet_buildings_cost_mult = -0.1
+	pop_environment_tolerance = -0.05
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_low_gravity.dds"
+	icon_frame = 2
+}

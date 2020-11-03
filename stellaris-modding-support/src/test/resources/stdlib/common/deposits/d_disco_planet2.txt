@@ -1,0 +1,18 @@
+d_disco_planet2 = {
+	is_for_colonizeable = yes
+	category = deposit_cat_rare
+	
+	icon = d_tradestation_interior
+	
+	planet_modifier = {
+		planet_amenities_mult = 0.2
+	}
+	
+	planet_modifier = {
+		pop_growth_speed = 0.15
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}

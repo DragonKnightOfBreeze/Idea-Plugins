@@ -1,0 +1,6 @@
+wasteland_radiation = {
+	biological_pop_happiness = -0.1
+	lithoid_pop_happiness = -0.1
+	icon = "gfx/interface/icons/planet_modifiers/pm_irradiated.dds"
+	icon_frame = 3
+}

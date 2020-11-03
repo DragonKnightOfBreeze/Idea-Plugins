@@ -1,0 +1,13 @@
+energy_expenditure_buffer = { # Buffer, will not be spent
+	resource = energy 
+	type = expenditure
+	category = buffer
+	
+	potential = {
+		always = yes
+	}
+	
+	fraction = {
+		weight = 0.1
+	}	
+}

@@ -1,0 +1,5 @@
+opinion_book_burner = {
+	opinion = {
+		base = -20
+	}
+}

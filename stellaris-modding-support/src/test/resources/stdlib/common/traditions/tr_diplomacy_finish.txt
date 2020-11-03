@@ -1,0 +1,46 @@
+tr_diplomacy_finish = {
+	modifier = {
+		ascension_perks_add = 1
+		country_trust_cap_add = 50
+		country_trust_growth = 0.33
+	}
+
+	tradition_swap = {
+		name = tr_adaptability_finish
+		inherit_effects = no
+		inherit_icon = yes
+		inherit_name = yes
+		trigger = {
+			OR = {
+				has_valid_civic = civic_fanatic_purifiers
+				has_valid_civic = civic_inwards_perfection
+				is_hive_empire = yes
+				has_valid_civic = civic_barbaric_despoilers
+				has_origin = origin_necrophage
+			}
+		}
+		modifier = {
+			ascension_perks_add = 1
+		}
+		weight = {
+			factor = 1
+		}
+	}
+
+	tradition_swap = {
+		name = tr_versatility_finish
+		inherit_effects = no
+		inherit_icon = yes
+		inherit_name = yes
+		trigger = {
+			is_machine_empire = yes
+		}
+		modifier = {
+			planet_building_refund_mult = 0.5
+			ascension_perks_add = 1
+		}
+		weight = {
+			factor = 1
+		}
+	}
+}

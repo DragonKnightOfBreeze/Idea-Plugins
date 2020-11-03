@@ -1,0 +1,11 @@
+opinion_war_diadochi = {
+	opinion = {
+		modifier = {
+			add = -100
+			has_government = gov_diadochi	
+			FROM = { 
+				has_government = gov_diadochi
+			}
+		}
+	}
+}

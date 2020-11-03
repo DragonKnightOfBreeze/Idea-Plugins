@@ -1,0 +1,99 @@
+living_standard_subsistence = {
+	token = living_standard_subsistence
+	name = living_standard_subsistence
+
+	pop_modifier = {
+		pop_cat_ruler_happiness = -0.05
+		pop_cat_specialist_happiness = -0.10
+		pop_cat_worker_happiness = -0.20
+		pop_cat_slave_happiness = -0.10
+		pop_cat_ruler_political_power = 4
+		pop_cat_specialist_political_power = -0.25
+		pop_cat_worker_political_power = -0.5
+	}
+
+	in_breach_of = {
+		{
+			key = resolution_greatergood_five_year_plans
+		}
+		{
+			trigger = {
+				is_gestalt = no
+			}
+			key = resolution_greatergood_greater_than_ourselves
+		}
+		{
+			trigger = {
+				is_gestalt = no
+			}
+			key = resolution_greatergood_balance_in_the_middle
+		}
+		{
+			trigger = {
+				is_gestalt = no
+			}
+			key = resolution_greatergood_universal_prosperity_mandate
+		}
+	}
+
+
+	potential = {
+		exists = from
+		NOT = { from = { has_valid_civic = civic_shared_burden } }
+		OR = {
+			from = { is_gestalt = no }
+			has_citizenship_type = { type = citizenship_slavery country = from }
+		}
+		NOR = {
+			has_trait = trait_hive_mind
+			has_trait = trait_machine_unit
+			is_shackled_robot_species_rights = yes
+		}
+	}
+
+	allow = {
+		hidden_trigger = { exists = from }
+		OR = {
+			has_citizenship_type = { country = from type = citizenship_slavery }
+			has_citizenship_type = { type = citizenship_limited country = from }
+			AND = {
+				OR = {
+					has_citizenship_type = { country = from type = citizenship_purge_machine }
+					has_citizenship_type = { country = from type = citizenship_purge }
+				}
+				has_purge_type = { country = from type = purge_displacement }
+			}
+		}
+		custom_tooltip = {
+			fail_text = SPECIES_MUST_NOT_BE_ASSIMILATING
+			NOT = {
+				has_citizenship_type = {
+					type = citizenship_assimilation
+					country = from
+				}
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 10
+		modifier = {
+			factor = 0
+			from = {
+				is_xenophobe = no
+				is_gestalt = no
+			}
+		}
+		modifier = {
+			factor = 0.1
+			from = {
+				is_galactic_community_member = yes
+			}
+			OR = {
+				is_active_resolution = "resolution_greatergood_five_year_plans"
+				is_active_resolution = "resolution_greatergood_greater_than_ourselves"
+				is_active_resolution = "resolution_greatergood_balance_in_the_middle"
+				is_active_resolution = "resolution_greatergood_universal_prosperity_mandate"
+			}
+		}
+	}
+}

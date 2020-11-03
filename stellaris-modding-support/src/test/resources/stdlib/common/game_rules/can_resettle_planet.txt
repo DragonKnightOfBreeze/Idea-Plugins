@@ -1,0 +1,28 @@
+can_resettle_planet = {
+	is_controlled_by = owner
+	has_ground_combat = no
+	has_orbital_bombardment = no
+	owner = {
+		OR = {
+			has_policy_flag = resettlement_allowed
+			is_gestalt = yes
+			any_owned_pop = {
+				is_shackled_robot = yes
+			}
+			any_owned_planet = {
+				OR = {
+					has_modifier = doomsday_1
+					has_modifier = doomsday_2
+					has_modifier = doomsday_3
+					has_modifier = doomsday_4
+					has_modifier = doomsday_5
+				}
+			}
+		}
+	}
+	custom_tooltip = {
+		text = "RESETTLE_PLANET_UNDER_COLONIZATION"
+		exists = this
+		is_under_colonization = no
+	}
+}

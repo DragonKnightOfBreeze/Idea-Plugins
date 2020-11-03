@@ -1,0 +1,80 @@
+distar_phaseshift_system = {
+	class = "sc_binary_5"
+	
+	usage = misc_system_init
+	usage_odds = {
+		base = 90000
+		modifier = {
+			factor = 0
+			has_distar = no
+		}
+		modifier = {
+			factor = 0
+			is_fe_cluster = yes
+		}
+		modifier = {
+            factor = 0
+            has_star_flag = empire_cluster
+        }
+	}
+	scaled_spawn_chance = 8
+	max_instances = 1
+
+	flags = { phaseshift_system }
+
+	planet = {
+		count = 1
+		class = star
+		orbit_distance = 25
+		orbit_angle = 0
+		size = { min = 25 max = 30 }
+		has_ring = no
+	}
+
+	planet = {
+		count = 1
+		class = star
+		orbit_distance = 0
+		orbit_angle = 160
+		size = { min = 20 max = 25 }
+		has_ring = no
+	}
+	
+	change_orbit = 55
+	
+	planet = {
+		count = { min = 2 max = 3 }
+		orbit_distance = 20
+		orbit_angle = { min = 90 max = 270 }
+
+		change_orbit = @base_moon_distance
+        
+        moon = {
+            count = { min = 0 max = 1 }
+            orbit_angle = { min = 90 max = 270 }
+            orbit_distance = 5
+        }
+	}
+
+	change_orbit = 35
+
+	planet = {
+		count = 1
+		class = "pc_shrouded"
+		orbit_angle = { min = 90 max = 270 }
+		init_effect = {
+			clear_deposits = yes
+			save_global_event_target_as = phaseshift_planet
+			set_planet_flag = phaseshifting_active
+		}
+	}
+
+	change_orbit = 35 
+	
+	planet = {
+		count = { min = 2 max = 3 }
+		orbit_angle = { min = 90 max = 270 }
+		
+		change_orbit = @base_moon_distance
+	}
+}

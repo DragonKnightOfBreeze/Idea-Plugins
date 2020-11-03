@@ -1,0 +1,72 @@
+site_freighter_crash = {
+	desc = "site_freighter_crash_intro"
+	picture = GFX_evt_crashed_station
+	stages = 6
+	weight = {
+		base = 0
+		modifier = {
+			add = 100
+			OR = {
+				is_planet_class = pc_barren
+				is_planet_class = pc_barren_cold
+				is_planet_class = pc_molten
+				is_planet_class = pc_frozen
+				is_planet_class = pc_toxic
+			}
+			has_ancrel = yes
+		}
+	}
+	allow = {
+		exists = leader
+		leader = { leader_class = scientist }
+	}
+	visible = {
+		default_site_visible_trigger = yes
+	}
+
+	on_visible = {
+		country_event = { id = story.5 days = 30 }
+	}
+
+	stage = {
+		difficulty = 2
+		icon = GFX_archaeology_runes_D1
+		event = ancrel.6300
+	}
+
+	stage = {
+		difficulty = 3
+		icon = GFX_archaeology_runes_D2
+		event = ancrel.6310
+	}
+
+	stage = {
+		difficulty = 4
+		icon = GFX_archaeology_runes_D3
+		event = ancrel.6320
+	}
+
+	stage = {
+		difficulty = 5
+		icon = GFX_archaeology_runes_D4
+		event = ancrel.6330
+	}
+
+	stage = {
+		difficulty = 6
+		icon = GFX_archaeology_runes_D5
+		event = ancrel.6340
+	}
+
+	stage = {
+		difficulty = 7
+		icon = GFX_archaeology_runes_D6
+		event = ancrel.6350
+	}
+
+	on_roll_failed = {
+		from = {
+			standard_archaeological_site_on_roll_failed = { RANDOM_EVENTS = all_random_events }
+		}
+	}
+}

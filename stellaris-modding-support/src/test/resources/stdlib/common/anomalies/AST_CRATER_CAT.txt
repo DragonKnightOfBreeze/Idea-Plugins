@@ -1,0 +1,28 @@
+AST_CRATER_CAT = {
+	desc = "AST_CRATER_DESC"
+	picture = "GFX_evt_asteroid_approaching_planet"
+	level = 1
+	
+	spawn_chance = {
+		modifier = {
+			add = 3
+			is_asteroid = yes
+		}
+	}
+	
+	on_success = {
+		1 = anomaly.265
+		1 = anomaly.270
+		0 = {
+			modifier = {
+				add = 1
+				owner = {
+					NOT = {
+						has_technology = tech_thrusters_2
+					}
+				}
+			}
+			anomaly_event = anomaly.275
+		}
+	}
+}

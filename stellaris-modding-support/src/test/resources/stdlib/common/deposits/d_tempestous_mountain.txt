@@ -1,0 +1,35 @@
+d_tempestous_mountain = {
+	is_for_colonizeable = yes
+	use_for_min_max_adjustments = yes
+
+	category = deposit_cat_energy
+
+	use_weights_for_terraforming_swap_types = yes
+	should_swap_deposit_on_terraforming = yes
+	terraforming_swap_types = {
+		d_geothermal_vent
+		d_underwater_vent
+	}
+
+	planet_modifier = {
+		district_generator_max = 3
+	}
+
+	potential = {
+		OR = {
+			is_planet_class = pc_tropical
+			is_planet_class = pc_alpine
+			is_planet_class = pc_gaia
+			is_planet_class = pc_relic
+			is_planet_class = pc_continental
+		}
+	}
+
+	drop_weight = {
+		weight = @low
+		modifier = {
+			factor = @planet_type_bonus
+			is_dry = yes
+		}
+	}
+}

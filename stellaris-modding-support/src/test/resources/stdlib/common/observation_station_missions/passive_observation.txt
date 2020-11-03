@@ -1,0 +1,48 @@
+passive_observation = {
+	icon = "GFX_fleet_task_passive_observation"
+	small_icon = 1
+
+	resources = {
+		category = station_observer_missions
+		produces = {
+			society_research = 8
+		}
+		produces = {
+			trigger = {
+				owner = {
+					is_galactic_community_member = yes
+				}
+				OR = {
+					is_active_resolution = "resolution_galacticstudies_advanced_xenostudies"
+					is_active_resolution = "resolution_galacticstudies_ethical_guideline_refactoring"
+					is_active_resolution = "resolution_galacticstudies_extradimensional_experimentation"
+				}
+			}
+			society_research = 4
+		}
+		produces = {
+			trigger = {
+				owner = {
+					is_galactic_community_member = yes
+				}
+
+				OR = {
+					is_active_resolution = "resolution_commerce_underdeveloped_system_utilization"
+					is_active_resolution = "resolution_commerce_holistic_asset_coordination"
+					is_active_resolution = "resolution_commerce_profit_maximization_engines"
+				}
+			}
+			consumer_goods = 2
+		}
+	}
+
+	potential = {
+		FROM = {
+			exists = owner
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+	}
+}

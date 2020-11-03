@@ -1,0 +1,28 @@
+decision_sanctuary_exhibits = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = decision_museum
+	
+	potential = {
+		owner = { has_civic = civic_machine_servitor }
+	}
+
+	allow = {
+		NOT = { has_modifier = "planet_sanctuary_exhibits" }
+	}
+
+	resources = {
+		category = decisions
+		cost = {
+			minor_artifacts = @minor_artifact_decision_cost
+		}
+	}
+	
+	effect = {
+		add_modifier = { modifier = "planet_sanctuary_exhibits" days = @minor_artifact_decision_duration }
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}

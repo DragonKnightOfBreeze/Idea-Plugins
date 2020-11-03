@@ -1,0 +1,15 @@
+d_exotic_gases_5 = {
+	station = shipclass_mining_station 
+	is_for_colonizeable = no
+	
+	resources = { 
+		category = orbital_mining_deposits
+		produces = {
+			exotic_gases = 5
+		}
+	}
+	
+	drop_weight = {
+		weight = 0
+	}
+}

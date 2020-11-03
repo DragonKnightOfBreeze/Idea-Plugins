@@ -1,0 +1,56 @@
+hive_mind = {
+	aggressiveness = 2.0	# only attack if they can't expand peacefully
+	trade_willingness = 0.7
+	bravery = 1.0
+	combat_bravery = 1.0
+
+	military_spending = 1.0
+	colony_spending = 1.2
+
+	federation_acceptance = 0 #-50
+	nap_acceptance = -10
+	commercial_pact_acceptance = 0
+	research_agreement_acceptance = 0
+	defensive_pact_acceptance = -10
+	migration_pact_acceptance = -100
+
+	advanced_start_chance = 75
+
+	weapon_preferences = weapon_type_kinetic
+	armor_ratio = 0.2
+	shields_ratio = 0.4
+	hull_ratio = 0.4
+
+	threat_modifier = 0.75
+	threat_others_modifier = 0.5
+	friction_modifier = 1.5
+	claims_modifier = 1.5
+
+	behaviour = {
+		conqueror = yes
+		subjugator = no
+		liberator = no
+		opportunist = yes
+		slaver = yes
+		uplifter = no
+		purger = no
+		displacer = yes
+		dominator = yes
+		infiltrator = no
+		robot_exploiter = no
+		robot_liberator = no
+		propagator = yes
+		multispecies = no
+		crisis_fighter = yes
+	}
+
+	allow = {
+		is_country_type = default
+		has_authority = "auth_hive_mind"
+		NOT = { has_valid_civic = civic_hive_devouring_swarm }
+	}
+
+	weight_modifier = {
+		weight = 1000
+	}
+}

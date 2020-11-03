@@ -1,0 +1,13 @@
+influence_expenditure_buffer = { # Buffer, will not be spent
+	resource = influence 
+	type = expenditure
+	category = buffer
+	
+	potential = {
+		always = no
+	}
+	
+	fraction = {
+		weight = 0.0
+	}	
+}

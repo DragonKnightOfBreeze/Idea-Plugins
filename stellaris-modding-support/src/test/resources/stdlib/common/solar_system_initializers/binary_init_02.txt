@@ -1,0 +1,63 @@
+binary_init_02 = {
+    class = "rl_binary_stars"
+    
+    usage = misc_system_init
+    usage_odds = 4
+
+    #inner_radius_offset = 200
+	#outer_radius_offset = 220
+
+    planet = {
+        count = 1
+        class = star
+        orbit_distance = 0
+        orbit_angle = 0
+        size = { min = 30 max = 35 }
+        has_ring = no
+    }
+
+    planet = {
+        count = 1
+        class = star
+        orbit_distance = 240
+        orbit_angle = { min = 0 max = 360 }
+        size = { min = 15 max = 25 }
+        has_ring = no
+        satellite_naming_policy = upper_case_roman_numerals
+
+        change_orbit = 25
+
+         planet = {
+            count = { min = 2 max = 3 }
+            class = rl_unhabitable_planets
+            size = { min = 14 max = 24 }
+            orbit_angle = { min = 90 max = 270 }
+            orbit_distance = 25
+            satellite_naming_policy = lower_case_latin_letters
+
+            change_orbit = @base_moon_distance
+
+            moon = {
+        	    count = { min = 0 max = 1 }
+        	    orbit_angle = { min = 90 max = 270 }
+        	    orbit_distance = 3
+        	}
+        }
+    }
+
+    change_orbit = -210
+    
+    planet = {
+        count = { min = 3 max = 5 }
+        orbit_distance = 20
+        orbit_angle = { min = 90 max = 270 }
+        
+        change_orbit = @base_moon_distance
+        
+        moon = {
+            count = { min = 0 max = 1 }
+            orbit_angle = { min = 90 max = 270 }
+            orbit_distance = 3
+        }
+    }
+}

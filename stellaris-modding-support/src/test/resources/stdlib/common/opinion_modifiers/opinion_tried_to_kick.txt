@@ -1,0 +1,11 @@
+opinion_tried_to_kick = {
+	opinion = {
+		base = -100
+	}
+
+	accumulative = yes
+
+	decay = {
+		base = 2
+	}
+}

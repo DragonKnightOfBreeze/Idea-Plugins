@@ -1,0 +1,11 @@
+achievement_clash_of_the_titans = {
+	id = 72
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		has_country_flag = clash_of_the_titans
+	}
+}

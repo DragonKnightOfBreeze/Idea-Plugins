@@ -1,0 +1,3 @@
+spawn_pool_stimulants = {
+	pop_growth_speed = 0.10
+}

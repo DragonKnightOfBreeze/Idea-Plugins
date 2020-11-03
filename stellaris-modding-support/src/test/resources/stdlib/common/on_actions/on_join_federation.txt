@@ -1,0 +1,5 @@
+on_join_federation = {
+	events = {
+		fedev.499 # First Federation event
+	}
+}

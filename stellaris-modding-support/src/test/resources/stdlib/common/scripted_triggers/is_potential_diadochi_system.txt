@@ -1,0 +1,10 @@
+is_potential_diadochi_system = {
+	exists = starbase
+	starbase = { owner = { is_same_value = root } }
+	NOR = {
+		has_star_flag = first_diadochi_system
+		has_star_flag = second_diadochi_system
+		has_star_flag = third_diadochi_system
+		has_star_flag = fourth_diadochi_system
+	}
+}

@@ -1,0 +1,38 @@
+achievement_deus_vult = {
+	id = 45
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		OR = {
+			has_ethic = ethic_fanatic_spiritualist
+			has_ethic = ethic_spiritualist
+		}
+		any_owned_planet = {
+			is_planet_class = pc_gaia
+			solar_system = {
+				has_star_flag = holy_system_1
+			}
+		}
+		any_owned_planet = {
+			is_planet_class = pc_gaia
+			solar_system = {
+				has_star_flag = holy_system_2
+			}
+		}
+		any_owned_planet = {
+			is_planet_class = pc_gaia
+			solar_system = {
+				has_star_flag = holy_system_3
+			}
+		}
+		any_owned_planet = {
+			is_planet_class = pc_gaia
+			solar_system = {
+				has_star_flag = holy_system_4
+			}
+		}
+	}
+}

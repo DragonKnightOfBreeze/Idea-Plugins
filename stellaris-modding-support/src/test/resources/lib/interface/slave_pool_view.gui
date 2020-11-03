@@ -1,0 +1,407 @@
+guiTypes = {
+	containerWindowType = {
+		name = "slave_pool_view"
+		position = { x = -200 y = -400 }
+		orientation = center
+		size = { width = 460 height = 600 }
+		moveable = yes
+
+		background = {
+			name = "leader_pool_bg"
+			quadTextureSprite = "GFX_tile_outliner_bg_solid"
+		}
+
+		iconType = {
+			name = "hex_bg"
+			spriteType = "GFX_hex_bg"
+			position = { x = -10 y = -14 }
+			alwaysTransparent = yes
+		}
+
+		iconType = {
+			name = "empire_header_line"
+			quadTextureSprite = "GFX_line_short"
+			position = { x = 6 y = 24 }
+			alwaysTransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "title"
+			position = { x = 22 y = 5 }
+			orientation = "UPPER_LEFT"
+			text = "SELL_SLAVES"
+			font = "malgun_goth_24"
+			maxWidth = 300
+			maxHeight = 100
+			fixedSize = yes
+		}
+
+		buttonType = {
+			name = "close"
+			quadTextureSprite = "GFX_close"
+			position = { x = -45 y = 15 }
+			Orientation = "UPPER_RIGHT"
+			shortCut = "ESCAPE"
+			clicksound = "back_click"
+		}
+
+		containerWindowType = {
+			name = "dropdown_header"
+			size = { width = 402 height = 40 }
+			position = { x = 10 y = 60 }
+
+			background = {
+				name = "dropdown_bg"
+				spriteType = "GFX_tiles_dark_area_cut_8"
+				alwaysTransparent = no
+			}
+		}
+
+		dropDownBoxType = {
+			name = "species_dropdown"
+			position = { x = 0 y = 40 }
+			size = { width = 292 height = 58 }
+
+			iconType = {
+				name = "slave_icon"
+				quadTextureSprite = "GFX_species_right_slavery_type"
+				position = { x = 15 y = 23 }
+				alwaystransparent = no
+			}
+
+			instantTextBoxType = {
+				name = "slave_amount"
+				position = { x = 45 y = 30 }
+				font = "cg_16b"
+				maxWidth = 50
+				maxHeight = 30
+				format = left
+				text_color_code = "Y"
+				alwaystransparent = no
+			}
+
+			instantTextBoxType = {
+				name = "selected_species"
+				position = { x = 30 y = 9 }
+				alwaystransparent = yes
+				font = "malgun_goth_24"
+				maxWidth = 385
+				maxHeight = 58
+				text_color_code = "H" 
+				format = center
+				vertical_alignment = center
+			}
+
+			expandButton = {
+				name = "expand_button"	
+				position = { x = 415 y = 21 }
+				quadTextureSprite = "GFX_button_down_arrow"
+			}
+
+			expandedWindow = {
+				name = "expanded_window"
+				position = { x = 10 y = -300 }	
+				show_position = { x = 10 y = 65 }
+				show_animation_type = decelerated
+				hide_animation_type = accelerated
+				animation_time = 200
+				size = { 
+					width = 440 
+					height = 200 
+				}
+
+				verticalScrollbar = "right_vertical_slider"
+				margin = { 
+					top = 10 
+					bottom = 10 
+				}
+
+				background = {
+					name = "bg"
+					quadTextureSprite = "GFX_subwindow_tile_plain_solid"
+				}
+
+				gridBoxType = {
+					name = "elements"
+					position = { x = 5 y = 0 }
+					size = { width = 426 height = 110 }
+					slotsize = {
+						 width = 460 
+						 height = 32 
+						}
+					max_slots_horizontal = 1
+				}
+			}
+		}
+
+		containerWindowType = {
+			name = "slaves"
+			position = { x = 10 y = 105 }
+			size = { width = 441 height = 390 }
+			clipping = yes
+
+			background = {
+				name = "bg"
+				quadTextureSprite = "GFX_tiled_window_transparent"
+			}
+
+			smoothListboxType = {
+				name = "planet_groups"
+				position = { x = 0 y = 0 }
+				size = { x = 430 y = 380 }
+				spacing = 1
+				scrollbartype = "standardlistbox_slider"
+				orientation = "UPPER_LEFT"
+
+			}
+		}
+
+		containerWindowType = {
+			name = "summary_window"
+			size = { width = 381 height = 60 }
+			position = { x = 70 y = 490 }
+
+			instantTextBoxType = {
+				name = "cost_summary"
+				position = { x = 0 y = 10 }
+				alwaystransparent = no
+				font = "cg_16b"
+				maxWidth = 320
+				maxHeight = 50
+				format = center
+			}
+		}
+
+		buttonType = {
+			name = "put_on_market"
+			quadTextureSprite = "GFX_standard_button_142_34_button"
+			position = { x = 150 y = 535  }
+			buttonFont = "cg_16b"
+			buttonText = "PUT_ON_MARKET"
+			clicksound = back_click
+		}
+	}
+
+	containerWindowType = {
+		name = "dropdown_entry"
+		size = { width = 424 height = 38 }
+		position = { x = 16 y = 0 }
+
+		background = {
+			name = "tile_entry_background"
+			spriteType = "GFX_outliner_header_bg"
+		}
+
+		instantTextBoxType = {
+			name = "species_info"
+			position = { x = 0 y = 0 }
+			alwaystransparent = no
+			font = "cg_16b"
+			maxWidth = 424
+			maxHeight = 40
+			format = center
+			vertical_alignment = center
+		}
+	}
+
+	containerWindowType = {
+		name = "slave_pool_planet_group_entry"
+		position = { x = 0 y = 0 }
+		size = { width = 430 height = 35 }
+
+		buttonType = {
+			name = "background"
+			quadTextureSprite = "GFX_tiles_dark_area_cut_8_hover"
+			size = { x = 430 y = 35 }
+			clicksound = "outliner_click_tab"
+		}
+
+		iconType = {
+			name = "planet_class"
+			alwaysTransparent = no
+			position = { x = 5 y = 2 }
+			quadTextureSprite = "GFX_planet_type"
+			scale = 0.65
+		}
+
+		instantTextBoxType = {
+			name = "planet_name"
+			font = "cg_16b"
+			position = { x = 35 y = 7 }
+			fixedSize = yes
+			format = left
+			maxHeight = 20
+			maxWidth = 150
+			text_color_code = "E"
+			alwaysTransparent = no
+		}
+
+		instantTextBoxType = {
+			name = "details"
+			font = "cg_16b"
+			position = { x = 180 y = 9 }
+			fixedSize = yes
+			maxWidth = 200
+			maxHeight = 20
+			format = right
+			alwaysTransparent = no
+		}
+
+		iconType = {
+			name = "expand_icon"
+			quadTextureSprite = "GFX_entry_expand"
+			position = { x = 397 y = 5 }
+			alwaysTransparent = yes
+		}
+
+		smoothListboxType = {
+			name = "slave_pool_list"
+			position = { x = 0 y = 40 }
+			size = { x = 440 y = 380 }
+			borderSize = { x = 0 y = 10 }
+			spacing = 4
+			orientation = "UPPER_LEFT"
+		}
+	}
+
+	containerWindowType = {
+		name = "slave_pool_pop_entry"
+		size = { width = 430 height = 65 }
+		position = { x = 0 y = 0 }
+
+		background = {
+			name = "slave_pool_pop_entry_bg"
+			spriteType = "GFX_tiles_dark_area_cut_8"
+		}
+
+		background = {
+			name = "selected_overlay"
+			spriteType = "GFX_glow_tile_orange_no_padding"
+		}
+
+		containerWindowType = {
+			name = "portrait"
+			position = { x = 7 y = 5 }
+			size = { width = 55 height = 55 }
+			clipping = yes
+
+			buttonType = {
+				name = "pop_background"
+				spriteType = "GFX_planet_background"
+				position = { x = 1 y = 2 }
+				scale = 0.55
+				clicksound = no_sound
+				oversound = no_sound
+			}
+
+			iconType = {
+				name = "pop_background_frame"
+				spriteType = "GFX_planet_background_frame"
+				scale = 0.55
+				alwaysTransparent = yes
+			}
+
+			iconType = {
+				name = "building_icon"
+				position = { x = -10 y = -5 }
+				scale = 0.66
+				spriteType = "GFX_building_unknown"
+				alwaysTransparent = yes
+			}
+
+			iconType = {
+				name = "portrait"
+				quadTextureSprite = "GFX_portrait_character"
+				position = { x = -23 y = -7 }
+				scale = 0.17
+				alwaysTransparent = yes
+			}
+
+			iconType = {
+				name = "pop_status"
+				spriteType = "GFX_pop_status"
+				position = { x = 0 y = 30 }
+				scale = 0.8
+			}
+
+			iconType = {
+				name = "pop_mod"
+				spriteType = "GFX_pop_mod"
+				position = { x = 0 y = 0 }
+			}
+		}
+
+		instantTextBoxType = {
+			name = "species"
+			position = { x = 75 y = 10 }
+			alwaystransparent = no
+			font = "cg_16b"
+			maxWidth = 125
+			maxHeight = 20
+			fixedSize = yes
+			text_color_code = "H" 
+		}
+
+		iconType = {
+			name = "job_icon"
+			quadTextureSprite = "GFX_job_unknown"
+			position = { x = 72 y = 30 }
+			scale = 0.75
+		}
+
+		instantTextBoxType = {
+			name = "job"
+			position = { x = 98 y = 33 }
+			alwaystransparent = no
+			font = "cg_16b"
+			maxWidth = 90
+			maxHeight = 20
+			fixedSize = yes
+		}
+
+		OverlappingElementsBoxType = {
+			name = "traits_icons"
+			position = { x = 200 y = 20 }
+			size = { x = 130 y = 40 }
+			format = left
+		}
+
+		containerWindowType = {
+			name = "estimated_price"
+			position = { x = 345 y = 5 }
+			size = { width = 80 height = 55 }
+			clipping = yes
+
+			instantTextBoxType = {
+				name = "estimated_price"
+				position = { x = 0 y = 5 }
+				alwaystransparent = no
+				font = "cg_16b"
+				maxWidth = 80
+				maxHeight = 20
+				fixedSize = yes
+				text_color_code = "H" 
+				text = "EST_PRICE"
+			}
+
+			instantTextBoxType = {
+				name = "price"
+				position = { x = 0 y = 28 }
+				alwaystransparent = no
+				font = "cg_16b"
+				maxWidth = 60
+				maxHeight = 40
+				text_color_code = "Y" 
+				format = center
+			}
+		}
+
+		iconType = {
+			name = "disabled_entry"
+			position = { x = 0 y = 0 }
+			quadTextureSprite ="GFX_disabled_song"
+			alwaystransparent = yes	
+			scale = 2.2
+		}
+	}
+}

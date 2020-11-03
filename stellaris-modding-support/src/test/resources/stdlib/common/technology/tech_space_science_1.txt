@@ -1,0 +1,32 @@
+tech_space_science_1 = {
+	cost = @tier1cost1
+	area = physics
+	tier = 1
+	category = { computing }
+	prerequisites = { "tech_space_construction" }
+	weight = @tier1weight1
+
+	modifier = {
+		station_researchers_produces_mult = 0.10
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_computing"
+			}
+		}
+	}
+
+	ai_weight = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_computing"
+			}
+		}
+	}
+}

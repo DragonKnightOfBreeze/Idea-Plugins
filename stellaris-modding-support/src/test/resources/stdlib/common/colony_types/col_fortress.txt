@@ -1,0 +1,48 @@
+col_fortress = {
+	icon = 9
+
+	potential = {
+		exists = owner
+		NOR = {
+			uses_district_set = city_world
+			uses_district_set = ring_world
+			uses_district_set = habitat
+			uses_district_set = machine_world
+			uses_district_set = hive_world
+		}
+		is_special_colony_type = no
+	}
+
+	planet_modifier = {
+		planet_buildings_strongholds_cost_mult = -0.20
+		planet_orbital_bombardment_damage = -0.10
+		army_defense_damage_mult = 0.20
+	}
+
+	weight_modifier = {
+		modifier = {
+			add = 5
+			has_designation = col_fortress
+		}
+		modifier = {
+			add = 3
+			num_buildings = { type = building_stronghold value >= 2 }
+		}
+		modifier = {
+			add = 4
+			num_buildings = { type = building_stronghold value >= 3 }
+		}
+		modifier = {
+			add = 5
+			num_buildings = { type = building_stronghold value >= 4 }
+		}
+		modifier = {
+			add = 3
+			num_buildings = { type = building_fortress value >= 1 }
+		}
+		modifier = {
+			add = 5
+			num_buildings = { type = building_fortress value >= 2 }
+		}
+	}
+}

@@ -1,0 +1,57 @@
+r_surveyor = {
+	activation_duration = @triumph_duration
+	portrait = "GFX_relic_surveyor"
+	sound = "relic_activation_the_surveyor"
+
+	resources = {
+		category = relics
+		# Activation cost
+		cost = {
+			energy = 500
+		}
+	}
+
+	ai_weight = {
+		weight = 120
+	}
+
+	triggered_country_modifier = {
+		potential = {
+			always = yes
+		}
+		ship_sensor_range_add = 1
+	}
+
+	score = 200
+
+	active_effect = {
+		custom_tooltip = relic_surveyor_active
+		custom_tooltip = relic_triumph_cooldown_short
+		hidden_effect = {
+			add_modifier = {
+				modifier = "relic_activation_cooldown"
+				days = @triumph_duration_short
+			}
+			country_event = { id = story.335 }
+
+			# Chance for additional deposits
+			random_list = {
+				50 = { country_event = { id = story.335 days = 720 random = 360 } }
+				50 = {}
+			}
+
+			random_list = {
+				20 = { country_event = { id = story.335 days = 1440 random = 360 } }
+				80 = {}
+			}
+		}
+	}
+
+	# Possible check for activation
+	possible = {
+		custom_tooltip = {
+			fail_text = "requires_relic_no_cooldown"
+			NOT = { has_modifier = relic_activation_cooldown }
+		}
+	}
+}

@@ -1,0 +1,6 @@
+law_category_separate_treaties = {
+	laws = {
+		treaties_separate_yes
+		treaties_separate_no
+	}
+}

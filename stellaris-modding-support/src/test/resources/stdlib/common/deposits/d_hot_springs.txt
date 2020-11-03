@@ -1,0 +1,33 @@
+d_hot_springs = {
+	is_for_colonizeable = yes
+	use_for_min_max_adjustments = yes
+
+	category = deposit_cat_energy
+
+	use_weights_for_terraforming_swap_types = yes
+	should_swap_deposit_on_terraforming = yes
+	terraforming_swap_types = {
+		d_arid_highlands
+		d_buzzing_plains # gaia
+	}
+
+	planet_modifier = {
+		district_generator_max = 1
+	}
+
+	potential = {
+		OR = {
+			is_cold = yes
+			is_wet = yes
+			is_planet_class = pc_nuked
+		}
+	}
+
+	drop_weight = {
+		weight = @high
+		modifier = {
+			factor = @planet_type_bonus
+			is_dry = yes
+		}
+	}
+}

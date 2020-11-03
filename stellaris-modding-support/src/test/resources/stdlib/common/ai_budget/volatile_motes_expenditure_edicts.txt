@@ -1,0 +1,13 @@
+volatile_motes_expenditure_edicts = {
+	resource = volatile_motes 
+	type = expenditure
+	category = edicts
+	
+	potential = {
+		always = yes
+	}
+	
+	fraction = {
+		base = 0.5
+	}
+}

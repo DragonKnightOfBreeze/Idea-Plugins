@@ -1,0 +1,44 @@
+extended_shifts = {
+	length = @EdictPerpetual
+	icon = "GFX_edict_type_policy"
+	edict_cap_usage = 1
+
+	resources = {
+		category = edicts
+		cost = { #Activation Cost
+			trigger = {
+				NOT = { has_edict = extended_shifts }			
+			}
+			influence = 200
+		}
+		cost = { #Deactivation Cost
+			trigger = {
+				has_edict = extended_shifts
+			}
+			influence = 100
+		}
+	}
+
+	modifier = {
+		planet_jobs_worker_produces_mult = 0.10
+		planet_jobs_slave_produces_mult = 0.10
+		pop_cat_worker_happiness = -0.10
+		pop_cat_slave_happiness = -0.10
+	}
+
+	potential = {
+		has_non_swapped_tradition = tr_domination_workplace_motivators
+	}
+
+	ai_weight = {
+		weight = @EdictHighPrio
+		modifier = {
+			factor = 1.5
+			has_ethic = ethic_authoritarian
+		}
+		modifier = {
+			factor = 2
+			has_ethic = ethic_fanatic_authoritarian
+		}
+	}
+}

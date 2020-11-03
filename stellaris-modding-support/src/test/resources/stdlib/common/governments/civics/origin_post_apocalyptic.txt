@@ -1,0 +1,28 @@
+origin_post_apocalyptic = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origins_post_apocalyptic.dds"
+	picture = GFX_origin_post_apocalyptic
+
+	starting_colony = pc_nuked
+
+	playable = {
+		host_has_dlc = "Apocalypse"
+	}
+
+	possible = {
+		authority = { NOT = { value = auth_machine_intelligence } }
+		civics = { NOT = { value = civic_agrarian_idyll } }
+	}
+
+	description = "civic_tooltip_post_apocalyptic_effects"
+
+	traits = {
+		trait = trait_survivor
+	}
+
+	advanced_start = yes
+
+	random_weight = {
+		base = 5
+	}
+}

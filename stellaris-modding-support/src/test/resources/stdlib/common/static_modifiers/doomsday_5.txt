@@ -1,0 +1,11 @@
+doomsday_5 = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_exploding_planet.dds"
+	icon_frame = 2
+	pop_environment_tolerance = -0.9
+	planet_jobs_alloys_produces_mult = 1.2
+	planet_jobs_minerals_produces_mult = 1.2
+	planet_jobs_energy_produces_mult = 1.2
+	planet_stability_add = -30
+	planet_immigration_pull_mult = -0.5
+	planet_emigration_push_add = 100
+}

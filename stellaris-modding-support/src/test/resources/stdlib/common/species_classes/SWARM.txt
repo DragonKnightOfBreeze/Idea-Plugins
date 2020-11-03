@@ -1,0 +1,15 @@
+SWARM = {
+	archetype = OTHER
+
+	playable = { always = no }
+	randomized = no
+
+	gender = no
+
+	portraits = {
+		"swarm"
+	}
+
+	graphical_culture = swarm_01
+	move_pop_sound_effect = "moving_pop_confirmation"
+}

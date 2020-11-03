@@ -1,0 +1,86 @@
+building_drone_storage = {
+	base_buildtime = @b1_time
+
+	category = amenity
+
+	potential = {
+		exists = owner
+		owner = { is_machine_empire = yes }
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			AND = {
+				free_building_slots = 0
+				free_jobs < 1
+				free_housing > 10
+				owner = {
+					is_ai = yes
+				}
+			}
+			NOR = {
+				owner = { is_machine_empire = yes }
+			}
+		}
+	}
+
+	allow = {
+		buildings_simple_allow = yes
+	}
+
+	convert_to = {
+		building_luxury_residence
+		building_communal_housing
+		building_hive_warren
+	}
+
+	planet_modifier = {
+		planet_housing_add = 4
+		planet_amenities_add = 3
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b1_minerals
+		}
+		upkeep = {
+			energy = 2
+		}
+	}
+
+	upgrades = {
+		"building_drone_megastorage"
+	}
+
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = 100 #High weight to gurantee that if the below is true then the AI should build it
+			free_housing < 3 #Prevents the AI from running out of residences when nearly out of tiles
+			OR = {
+				free_jobs > 0 #prevents spamming of residence buildings when no jobs are open
+				AND = {
+					free_housing < 0 #Prevents the AI from running out of residences when nearly out of tiles
+					NOT = { any_owned_pop = { is_unemployed = yes } }
+				}
+			}
+			free_district_slots = 0 #Do not build when city districts can still be built
+		}
+		modifier = {
+			weight = 100 #High weight to gurantee that if the below is true then the AI should build it
+			is_planet_class = pc_habitat
+			free_housing < 4
+			OR = {
+				not = { any_owned_pop = { is_unemployed = yes } }
+				free_jobs > 0 #Servitors can run into a situation with no houses but free jobs open
+			}
+		}
+		modifier = {
+			factor = 0
+			has_building = building_drone_storage
+			owner = { has_technology = tech_micro_replicators }
+		}
+	}
+}

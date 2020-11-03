@@ -1,0 +1,15 @@
+civic_machine_warbots = {
+	potential = {
+		authority = {
+			OR = {
+				value = auth_ancient_machine_intelligence
+				value = auth_machine_intelligence
+			}
+		}
+	}
+	random_weight = { base = 5 }
+	modifier = {
+		army_damage_mult = 0.2
+		armies_upkeep_mult = -0.2
+	}
+}

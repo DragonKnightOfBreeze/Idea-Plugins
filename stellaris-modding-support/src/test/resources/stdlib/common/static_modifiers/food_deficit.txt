@@ -1,0 +1,4 @@
+food_deficit = {
+	biological_pop_happiness = -0.25
+	bio_pop_growth_speed_reduction = 0.75
+}

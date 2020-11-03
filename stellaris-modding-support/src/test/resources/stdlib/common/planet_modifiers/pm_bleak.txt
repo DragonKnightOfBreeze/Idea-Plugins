@@ -1,0 +1,55 @@
+pm_bleak = {
+	spawn_chance = {
+		modifier = {
+			add = 10
+			is_planet_class = "pc_desert"
+		}
+		modifier = {
+			add = 10
+			is_planet_class = "pc_arid"
+		}
+		modifier = {
+			add = 10
+			is_planet_class = "pc_continental"
+		}
+		modifier = {
+			add = 10
+			is_planet_class = "pc_ocean"
+		}
+		modifier = {
+			add = 10
+			is_planet_class = "pc_tundra"
+		}
+		modifier = {
+			add = 10
+			is_planet_class = "pc_arctic"
+		}
+		modifier = {
+			add = 10
+			is_planet_class = "pc_alpine"
+		}
+		modifier = {
+			add = 10
+			is_planet_class = "pc_savannah"
+		}
+		modifier = {
+			add = 10
+			is_planet_class = "pc_relic"
+		}				
+		modifier = {
+			factor = 0
+			has_planet_modifier = "pm_bleak"
+		}
+		modifier = {
+			factor = 0
+			has_planet_modifier = "pm_lush"
+		}
+		
+		modifier = {
+			factor = 0
+			num_modifiers > 1
+		}
+	}
+	
+	modifier = "bleak_planet"
+}

@@ -1,0 +1,5 @@
+envoy = {
+	can_be_envoy = yes
+	default_category = envoy
+	assignment_cooldown = 360
+}

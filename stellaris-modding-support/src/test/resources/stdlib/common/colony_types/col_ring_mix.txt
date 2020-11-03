@@ -1,0 +1,16 @@
+col_ring_mix = {
+	icon = 18
+
+	potential = {
+		uses_district_set = ring_world
+	}
+
+	planet_modifier = {
+		planet_immigration_pull_mult = 0.2
+		planet_jobs_produces_mult = 0.05
+	}
+
+	weight_modifier = {
+		base = 100
+	}
+}

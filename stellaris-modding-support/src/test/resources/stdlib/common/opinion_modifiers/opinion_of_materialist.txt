@@ -1,0 +1,26 @@
+opinion_of_materialist = {
+	opinion = {
+		base = 0
+
+		modifier = {
+			add = -10
+			has_ethic = "ethic_spiritualist"
+			FROM = { has_ethic = "ethic_materialist" }
+		}
+		modifier = {
+			add = -20
+			has_ethic = "ethic_spiritualist"
+			FROM = { has_ethic = "ethic_fanatic_materialist" }
+		}
+		modifier = {
+			add = -20
+			has_ethic = "ethic_fanatic_spiritualist"
+			FROM = { has_ethic = "ethic_materialist" }
+		}
+		modifier = {
+			add = -40
+			has_ethic = "ethic_fanatic_spiritualist"
+			FROM = { has_ethic = "ethic_fanatic_materialist" }
+		}
+	}
+}

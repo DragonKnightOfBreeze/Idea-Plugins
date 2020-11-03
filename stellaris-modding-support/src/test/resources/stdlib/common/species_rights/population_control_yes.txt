@@ -1,0 +1,48 @@
+population_control_yes = {
+	token = population_control_yes
+
+	pop_modifier = {
+		pop_happiness = -0.1
+	}
+
+	allow = {
+		hidden_trigger = { exists = from }
+		from = {
+			NOT = { has_policy_flag = population_controls_not_allowed }
+		}
+		if = {
+			limit = {
+				OR = {
+					has_citizenship_type = { country = from type = citizenship_purge }
+					has_citizenship_type = { country = from type = citizenship_purge_machine }
+				}
+			}
+			always = yes
+		}
+		else = {
+			custom_tooltip = {
+				fail_text = same_species_disallowed
+				NOT = { is_same_species = from }
+			}
+			custom_tooltip = {
+				fail_text = empire_xenophile
+				from = {
+					NOR = {
+						has_ethic = ethic_xenophile
+						has_ethic = ethic_fanatic_xenophile
+					}
+				}
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOR = {
+				has_citizenship_type = { country = from type = citizenship_purge_machine }
+				has_citizenship_type = { country = from type = citizenship_purge }
+			}
+		}
+	}
+}

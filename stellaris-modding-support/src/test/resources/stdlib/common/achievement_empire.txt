@@ -1,0 +1,11 @@
+achievement_empire = {
+	id = 9
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		vassals > 2
+	}
+}

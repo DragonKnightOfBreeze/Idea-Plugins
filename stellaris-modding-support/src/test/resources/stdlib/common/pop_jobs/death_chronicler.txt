@@ -1,0 +1,85 @@
+death_chronicler = {
+	category = specialist
+	condition_string = SPECIALIST_JOB_TRIGGER
+	building_icon = building_galactic_memorial_1
+	clothes_texture_index = 3
+
+	possible_pre_triggers = {
+		has_owner = yes
+		is_being_purged = no
+		is_being_assimilated = no
+		is_sapient = yes
+	}
+
+	possible = { complex_specialist_job_check_trigger = yes }
+
+	resources = {
+		category = planet_culture_workers
+		produces = {
+			unity = 4
+			society_research = 2
+		}
+		upkeep = {
+			trigger = {
+				is_organic_species = yes
+				is_lithoid = no
+			}
+			consumer_goods = 2
+			food = @living_standard_food_normal
+		}
+		upkeep = {
+			trigger = {
+				is_lithoid = yes
+			}
+			consumer_goods = 2
+			minerals = @living_standard_food_normal
+		}
+	}
+
+	weight = {
+		weight = @specialist_job_weight
+		modifier = {
+			factor = 0.2
+			OR = {
+				has_citizenship_rights = no
+				has_trait = trait_quarrelsome
+			}
+		}
+		modifier = {
+			factor = 2
+			OR = {
+				has_trait = trait_traditional
+				has_trait = trait_erudite
+			}
+		}
+		modifier = {
+			factor = 1.5
+			OR = {
+				has_trait = trait_robot_propaganda_machines
+				has_trait = trait_traditional
+				has_trait = trait_natural_sociologists
+				has_job = culture_worker
+				has_trait = trait_intelligent
+				has_trait = trait_psionic
+			}
+		}
+		modifier = {
+			factor = 0.1
+			can_take_servant_job = yes
+		}
+		modifier = {
+			factor = 2
+		}
+		modifier = {
+			factor = 1.4
+			OR = {
+				has_trait = trait_robot_logic_engines
+				has_trait = trait_latent_psionic
+			}
+		}
+		modifier = {
+			factor = 1.5
+			has_trait = trait_necrophage
+		}
+	}
+}

@@ -1,0 +1,3 @@
+empire_size = {
+	rare_edicts_cost_mult = 0.01
+}

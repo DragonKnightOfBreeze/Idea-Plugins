@@ -1,0 +1,3 @@
+asteroid_hive_weak_points = {
+	damage_vs_country_type_guardian_hiver_mult = 0.25
+}

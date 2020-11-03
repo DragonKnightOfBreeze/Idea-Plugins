@@ -1,0 +1,89 @@
+resolution_sanctions_military_repeal_3 = {
+	icon = "GFX_repeal_red"
+
+	resources = {
+		category = resolutions
+		cost = {
+			influence = @resolution_cost_denounce
+		}
+	}
+	target = no
+	sanction = yes
+
+	effect = {
+		custom_tooltip = resolution_sanctions_military_repeal_3_effect_success
+		hidden_effect = {
+			pass_resolution = "resolution_sanctions_military_2"
+			set_timed_country_flag = { flag = galactic_community_resolution_passed_general days = @resolution_flag_timer }
+			add_modifier = {
+				modifier = resolution_passed_diplomatic_weight
+				days = 2200
+			}
+		}
+	}
+
+	fail_effects = {
+		hidden_effect = {
+			set_timed_country_flag = { flag = galactic_community_resolution_failed_general days = @resolution_flag_timer }
+			add_modifier = {
+				modifier = resolution_failed_diplomatic_weight
+				days = 2200
+			}
+		}
+	}
+
+	potential = {
+		has_federations_dlc = yes
+		is_active_resolution = "resolution_sanctions_military_3"
+	}
+
+	triggered_modifier = {
+		potential = {
+			OR = {
+				is_in_breach_of_any = yes
+				has_modifier = resolution_denounced
+			}
+		}
+		modifier = {
+			resolution_sanctions_military = 2
+		}
+	}
+
+	ai_weight = {
+		weight = @resolution_weight_unpopular
+
+		modifier = {
+			factor = 2
+			is_in_breach_of_any = yes
+		}
+
+		modifier = {
+			factor = 0.25
+			is_in_breach_of_any = no
+			OR = {
+				is_militarist = yes
+				is_pacifist = yes
+			}
+		}
+
+		modifier = {
+			factor = 2
+			any_federation_ally = {
+				OR = {
+					is_in_breach_of_any = yes
+					has_modifier = resolution_denounced
+				}
+			}
+		}
+
+		modifier = {
+			factor = 0.75
+			any_rival_country = {
+				OR = {
+					is_in_breach_of_any = yes
+					has_modifier = resolution_denounced
+				}
+			}
+		}
+	}
+}

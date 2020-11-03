@@ -1,0 +1,12 @@
+cb_megacorp_subjugate = {
+	show_in_diplomacy = yes
+	show_notification = yes
+	potential = {
+		is_country_type = default
+		has_authority = auth_corporate
+		is_subject = no
+	}
+	is_valid = { 
+		always = no # triggered only
+	}	
+}

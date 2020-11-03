@@ -1,0 +1,6 @@
+on_monthly_pulse_country = {
+	events = {
+		tutorial.1337 #Artifact tutorial
+		federations.10011 # Greater than Ourselves
+	}
+}

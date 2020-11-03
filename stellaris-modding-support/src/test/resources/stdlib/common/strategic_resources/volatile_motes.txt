@@ -1,0 +1,18 @@
+volatile_motes = {
+	tradable = yes
+	market_amount = 10
+	market_price = 100
+	max = 15000
+	
+	prerequisites = { "tech_mine_volatile_motes" }
+	
+	deficit_modifier = volatile_motes_deficit #found in static modifiers
+	
+	ai_weight = {
+		weight = 10
+	}
+
+	ai_wants = {
+		base = 10
+	}
+}

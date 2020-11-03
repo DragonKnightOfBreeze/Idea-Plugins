@@ -1,0 +1,13 @@
+trait_ruler_champion_of_the_people = {
+	cost = 1
+	modification = no
+	icon = "gfx/interface/icons/traits/leader_traits/trait_ruler_champion_of_the_people.dds"
+	leader_potential_add = {
+		NOT = { from = { has_ethic = "ethic_gestalt_consciousness" } }
+	}
+	modifier = {
+		pop_happiness = 0.05
+	}
+	leader_trait = { ruler }
+	leader_class = { ruler }
+}

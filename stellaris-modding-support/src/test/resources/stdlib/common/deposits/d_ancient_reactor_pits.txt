@@ -1,0 +1,10 @@
+d_ancient_reactor_pits = {
+	is_for_colonizeable = yes
+	icon = d_reactor
+
+	potential = { always = no }
+	
+	planet_modifier = { 
+		district_generator_max = 6
+	}
+}

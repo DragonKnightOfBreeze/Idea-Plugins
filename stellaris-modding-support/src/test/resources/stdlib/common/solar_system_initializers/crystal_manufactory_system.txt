@@ -1,0 +1,67 @@
+crystal_manufactory_system = {
+	class = "rl_standard_stars"
+	flags = { manufactory_system }
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 120
+	}
+	
+	usage = misc_system_init
+	usage_odds = 5
+	max_instances = 1
+	spawn_chance = 25
+	
+	planet = {
+		count = 1
+		class = star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = { min = 20 max = 30 }
+		has_ring = no
+	}
+	
+	change_orbit = 120
+	
+	planet = {
+		count = { min = 3 max = 6 }
+		class = pc_asteroid
+		orbit_distance = 0
+		orbit_angle = { min = 90 max = 270 }
+	}
+	
+	change_orbit = -80
+	
+	planet = {
+		count = { min = 0 max = 2 }
+		orbit_distance = 20
+		orbit_angle = { min = 90 max = 270 }
+	}
+	
+	change_orbit = 80
+	
+	planet = {
+		count = { min = 0 max = 2 }
+		orbit_distance = 40
+		orbit_angle = { min = 90 max = 270 }
+	}
+
+	init_effect = {
+		random_system_planet = {
+			limit = {
+				habitable_planet = no
+				has_deposit_for = shipclass_mining_station
+				#reduces spawn rate of manufactory, but not system
+			}
+			create_ambient_object = {
+				type = "crystal_manufactory_object"
+				location = this
+			}
+			last_created_ambient_object = {
+				set_ambient_object_flag = manufactory
+			}
+			add_anomaly = {
+				category = CRYSTAL_MANUFACTORY_CAT
+			}
+		}
+	}
+}

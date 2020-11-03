@@ -1,0 +1,10 @@
+can_crossbreed_species_on_planet = {
+	exists = owner
+	owner = { has_ascension_perk = ap_xeno_compatibility }
+	count_species = {
+		limit = {
+			is_crossbreeding_possible = yes
+		}
+		count >= 2
+	}
+}

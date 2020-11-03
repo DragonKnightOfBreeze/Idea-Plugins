@@ -1,0 +1,16 @@
+DISTAR_RAINBOW_CAT = {
+	desc = "DISTAR_RAINBOW_CAT_DESC"
+	picture = "GFX_evt_black_hole"
+	level = 4
+	
+	spawn_chance = {
+		modifier = {
+			add = 1
+			has_distar = yes
+			is_star = yes
+			is_star_class = sc_black_hole
+		}
+	}
+	
+	on_success = distar.15
+}

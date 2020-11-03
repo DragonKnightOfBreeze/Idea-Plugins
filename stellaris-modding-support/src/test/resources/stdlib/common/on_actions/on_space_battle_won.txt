@@ -1,0 +1,5 @@
+on_space_battle_won = {
+	events = {
+		achievement.1
+	}
+}

@@ -1,0 +1,11 @@
+opinion_broke_migration_pact = {
+	opinion = {
+		base = -15
+	}
+
+	accumulative = yes
+
+	decay = {
+		base = 2
+	}
+}

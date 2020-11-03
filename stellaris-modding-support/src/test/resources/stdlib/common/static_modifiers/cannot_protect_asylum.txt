@@ -1,0 +1,3 @@
+cannot_protect_asylum = {
+	diplo_weight_mult = -0.05
+}

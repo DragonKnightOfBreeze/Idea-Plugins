@@ -1,0 +1,42 @@
+military_station_small_fallen_empire = {
+	graphical_culture = { "fallen_empire_01" "fallen_empire_02" "fallen_empire_03" "fallen_empire_04" "fallen_machine_empire_01" }
+	max_speed = 6
+	rotation_speed = 10
+	acceleration = 10
+	modifier = {
+		ship_evasion_mult = -1
+		ship_hull_regen_add_perc = 0.5
+		ship_armor_regen_add_perc = 0.5
+		ships_upkeep_mult = -0.25
+	}
+	ship_modifier = {
+		ship_weapon_range_mult = 0.20
+	}
+	max_hitpoints = 5000
+
+	combat_size_multiplier = 4
+	size_multiplier = 2
+	fleet_slot_size = 2
+	section_slots = { 
+		"mid" = { locator = "part1" }
+	}
+	num_target_locators = 0
+	is_space_station = yes
+	build_block_radius = @build_block_radius_military
+	
+	uses_name_prefix = no
+	takes_name_from_ship_design = yes
+
+	resources = {
+		category = ships
+		cost = {
+			alloys = 1000
+		}
+	}
+
+	base_buildtime = 365
+	
+	class = shipclass_military_station
+	construction_type = starbase_defenses
+	is_designable = no
+}

@@ -1,0 +1,85 @@
+building_corporate_monument = {
+	base_buildtime = @b1_time
+	icon = building_autochthon_monument
+
+	category = unity
+
+	potential = {
+		exists = owner
+		building_basic_income_check = yes
+		NOT = { has_modifier = slave_colony }
+		owner = {
+			is_megacorp = yes
+			is_spiritualist = no
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			has_modifier = slave_colony
+			owner = {
+				OR = {
+					is_megacorp = no
+					is_spiritualist = yes
+				}
+			}
+		}
+	}
+
+	convert_to = {
+		building_temple
+		building_hive_node
+		building_simulation_1
+		building_autochthon_monument
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b1_minerals
+		}
+		upkeep = {
+			energy = @b1_upkeep
+		}
+	}
+
+	planet_modifier = {
+		job_manager_add = @b1_jobs
+	}
+
+	prerequisites = {
+		"tech_cultural_heritage"
+	}
+
+	upgrades = {
+		building_corporate_site
+	}
+
+	show_tech_unlock_if = {
+		is_megacorp = yes
+		is_spiritualist = no
+	}
+
+	triggered_desc = {
+		text = job_manager_effect_desc
+	}
+
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = 2
+			owner = {
+				has_monthly_income = {
+					resource = consumer_goods
+					value > 10
+				}
+			}
+			NOR = {
+				has_building = building_corporate_monument
+				has_building = building_corporate_site
+				has_building = building_corporate_forum
+			}
+		}
+	}
+}

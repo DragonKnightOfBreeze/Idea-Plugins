@@ -1,0 +1,7 @@
+edicts = {
+	use_for_ai_budget = yes
+	parent = country
+	generate_mult_modifiers = {
+		cost
+	}
+}

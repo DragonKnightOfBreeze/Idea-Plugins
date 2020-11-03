@@ -1,0 +1,19 @@
+DISTAR_HOLO_CAT = {
+	desc = "DISTAR_HOLO_CAT_DESC"
+	picture = "GFX_evt_black_hole"
+	level = 4
+	
+	spawn_chance = {
+		modifier = {
+			add = 1
+			has_distar = yes
+			is_star = yes
+			is_star_class = sc_black_hole
+			from.owner = {
+				num_communications > 0
+			}
+		}
+	}
+	
+	on_success = distar.20
+}

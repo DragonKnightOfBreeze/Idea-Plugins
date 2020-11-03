@@ -1,0 +1,23 @@
+pc_ringworld_tech = {
+	ringworld = yes
+	entity = "ringworld_tech_entity"
+	preview_entity = "ringworld_01_damaged_full_entity"
+	picture = pc_ringworld_section
+	icon_frame = 21
+	entity_scale = 1.0
+	enable_tilt = no
+	fixed_entity_scale = yes
+	atmosphere_color 		= hsv { 0.50 0.2 0.8 }		#DONE
+	atmosphere_intensity 	= 1.0
+	atmosphere_width 		= 0.5
+	city_color_lut = "gfx/portraits/misc/colorcorrection_desert.dds"
+	extra_orbit_size = 0
+	extra_planet_count = 0
+	chance_of_ring = 0.0
+	planet_size = 5
+	moon_size = 1
+	colonizable = no
+	orbit_lines = no
+
+	is_artificial_planet = yes
+}

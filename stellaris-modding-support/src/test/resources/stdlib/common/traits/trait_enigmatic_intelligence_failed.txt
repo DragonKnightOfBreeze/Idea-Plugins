@@ -1,0 +1,15 @@
+trait_enigmatic_intelligence_failed = {
+	cost = 0
+	initial = no
+	randomized = no
+	modification = no
+	improves_leaders = yes
+	advanced_trait = yes
+	opposites = { "trait_intelligent"}
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	modifier = {
+		planet_jobs_engineering_research_produces_mult = -0.6
+		planet_jobs_physics_research_produces_mult = -0.6
+		planet_jobs_society_research_produces_mult = -0.6
+	}
+}

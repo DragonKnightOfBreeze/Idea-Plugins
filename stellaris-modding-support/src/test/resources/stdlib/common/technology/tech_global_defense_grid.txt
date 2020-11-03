@@ -1,0 +1,44 @@
+tech_global_defense_grid = {
+	cost = @tier2cost1
+	area = society
+	tier = 2
+	category = { military_theory }
+	prerequisites = { "tech_ground_defense_planning" }
+	weight = @tier2weight1
+
+	# unlocks fortress
+
+	modifier = {
+		army_defense_health_mult = 0.25
+	}
+
+	weight_modifier = {
+		factor = 2
+		modifier = {
+			factor = 2
+			is_militarist = yes
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_military_theory"
+			}
+		}
+	}
+
+	ai_weight = {
+		factor = 2
+		modifier = {
+			factor = 2
+			is_militarist = yes
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_military_theory"
+			}
+		}
+	}
+}

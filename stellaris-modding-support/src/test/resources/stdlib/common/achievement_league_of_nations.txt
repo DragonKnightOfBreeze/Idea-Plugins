@@ -1,0 +1,11 @@
+achievement_league_of_nations = {
+	id = 105
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		has_country_flag = league_of_nations_achievement
+	}
+}

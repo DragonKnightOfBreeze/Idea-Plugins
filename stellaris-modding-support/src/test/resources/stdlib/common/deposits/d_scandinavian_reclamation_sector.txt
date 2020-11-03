@@ -1,0 +1,12 @@
+d_scandinavian_reclamation_sector = {
+	is_for_colonizeable = yes
+	icon = d_radioactive_wasteland
+	
+	planet_modifier = { 
+		district_farming_max = 1
+	}
+	
+	drop_weight = {
+		weight = 0
+	}
+}

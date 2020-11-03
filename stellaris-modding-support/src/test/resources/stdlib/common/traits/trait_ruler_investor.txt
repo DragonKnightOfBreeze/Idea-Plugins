@@ -1,0 +1,13 @@
+trait_ruler_investor = {
+	cost = 1
+	modification = no
+	icon = "gfx/interface/icons/traits/leader_traits/trait_ruler_investor.dds"
+	leader_potential_add = {
+		NOT = { from = { has_ethic = "ethic_gestalt_consciousness" } }
+	}
+	modifier = {
+		trade_value_mult = 0.10
+	}
+	leader_trait = { ruler }
+	leader_class = { ruler }
+}

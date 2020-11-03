@@ -1,0 +1,67 @@
+chinorr = {
+	name = "chinorr"
+	adjective = "PRESCRIPTED_adjective_chinorr"
+	spawn_enabled = yes # yes / no / always
+	
+	playable = has_megacorp
+	
+	species = {
+		class = "MOL"
+		portrait = "mol11"
+		name = "PRESCRIPTED_species_name_chinorr"
+		plural = "PRESCRIPTED_species_plural_chinorr"
+		adjective = "PRESCRIPTED_species_adjective_chinorr"
+		name_list = "MOL1"
+		trait = "trait_industrious"
+		trait = "trait_intelligent"
+		trait = "trait_solitary"
+		trait = "trait_wasteful"
+	}
+	
+	ship_prefix = "PRESCRIPTED_ship_prefix_chinorr"
+	
+	planet_name = "PRESCRIPTED_planet_name_chinorr"
+	planet_class = "pc_arid"
+	system_name = "PRESCRIPTED_system_name_chinorr"
+	
+	room = "personality_ruthless_capitalists_room"
+	
+	authority = "auth_corporate"
+	government = gov_megacorporation
+	civics = { "civic_private_prospectors" "civic_ruthless_competition" }
+	origin = "origin_default"
+
+	ethic = "ethic_militarist"
+	ethic = "ethic_fanatic_materialist"
+	flags = { chinorr_combine }
+	
+	graphical_culture = "molluscoid_01"
+	city_graphical_culture = "molluscoid_01"
+	
+	empire_flag = {
+		icon= {
+			category = "ornate"
+			file = "flag_ornate_4.dds"
+		}
+		background= {
+			category = "backgrounds"
+			file = "triangle_split.dds"
+		}
+		colors={
+			"red_orange"
+			"black"
+			"null"
+			"null"
+		}
+	}
+	
+	ruler = {
+		name = "PRESCRIPTED_ruler_name_chinorr"
+		gender = male
+		portrait = "mol11"
+		texture = 1
+		#hair = 0
+		clothes = 3
+		leader_class = ruler
+	}
+}

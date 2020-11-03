@@ -1,0 +1,3 @@
+shroud_ship_upkeep = {
+	ships_upkeep_mult = -0.3
+}

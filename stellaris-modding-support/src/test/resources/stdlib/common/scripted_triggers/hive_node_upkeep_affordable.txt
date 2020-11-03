@@ -1,0 +1,10 @@
+hive_node_upkeep_affordable = {
+	has_monthly_income = {
+		resource = energy
+		value > 5
+	}
+	has_monthly_income = {
+		resource = food
+		value > 4
+	}
+}

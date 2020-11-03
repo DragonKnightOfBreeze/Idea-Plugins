@@ -1,0 +1,62 @@
+DISTAR_PHASE_CAT = {
+	desc = "DISTAR_PHASE_CAT_DESC"
+	picture = "GFX_evt_ship_in_orbit"
+	level = 10
+	
+	spawn_chance = {
+		modifier = {
+			add = 0 #Set in distar.256
+		}
+	}
+
+	on_spawn = {
+	}
+	
+	on_success = {
+		0 = { #Case where we don't own the system, and planet is still shifting
+			modifier = {
+				add = 1
+				from = {
+					has_planet_flag = phaseshifting_active
+					has_modifier = phaseshifted
+					OR = {
+						NOT = { exists = space_owner }
+						AND = {
+							exists = space_owner
+							space_owner = {
+								NOT = { is_same_value = root.owner }
+							}
+						}
+					}
+				}
+			}
+			anomaly_event = distar.250
+		}
+		0 = { #Case where we own the system, and planet is still shifting
+			modifier = {
+				add = 1
+				from = {
+					has_planet_flag = phaseshifting_active
+					has_modifier = phaseshifted
+					exists = space_owner
+					space_owner = {
+						is_same_value = root.owner
+					}
+				}
+			}
+			anomaly_event = distar.302
+		}
+		0 = { #Case where anyone has already completed the project and planet is locked
+			modifier = {
+				add = 1
+				from = {
+					NOR = {
+						has_planet_flag = phaseshifting_active
+						has_modifier = phaseshifted
+					}
+				}
+			}
+			anomaly_event = distar.303
+		}
+	}
+}

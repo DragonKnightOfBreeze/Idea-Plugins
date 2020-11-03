@@ -1,0 +1,43 @@
+REP = {
+	archetype = BIOLOGICAL
+
+	possible = { authority = { NOT = { value = auth_machine_intelligence text = SPECIES_CLASS_MUST_NOT_USE_MACHINE_INTELLIGENCE } } }
+
+	portraits = {
+		"rep2"
+		"rep10"
+		"rep14"
+		"rep3"
+		"rep7"
+		"rep12"
+		"rep9"
+		"rep11"
+		"rep6"
+		"rep13"
+		"rep1"
+		"rep8"
+		"rep4"
+		"rep15"
+		"rep5"
+	}
+
+	custom_portraits = {#add additional portraits when customizing species
+		randomized = { host_has_dlc = "Leviathans Story Pack" }
+		playable = { local_has_dlc = "Leviathans Story Pack" }
+		portraits = {
+			"rep16"
+		}
+	}
+	custom_portraits = {
+		randomized = { host_has_dlc = "Anniversary Portraits" }
+		playable = { local_has_dlc = "Anniversary Portraits" }
+		portraits = {
+			"rep17"
+		}
+	}
+
+	graphical_culture = reptilian_01
+	move_pop_sound_effect = "reptilian_pops_move"
+
+	resources = {}
+}

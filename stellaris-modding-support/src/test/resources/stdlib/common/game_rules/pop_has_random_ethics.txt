@@ -1,0 +1,3 @@
+pop_has_random_ethics = {
+	NOT = { has_citizenship_type = { type = citizenship_organic_trophy } }
+}

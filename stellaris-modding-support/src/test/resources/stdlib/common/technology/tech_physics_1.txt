@@ -1,0 +1,52 @@
+tech_physics_1 = {
+	cost = @tier1cost1
+	area = physics
+	tier = 1
+	category = { computing }
+	weight = @tier1weight1
+
+	modifier = {
+		planet_researchers_physics_research_produces_mult = 0.2
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 5
+			is_ai = yes
+		}
+		modifier = {
+			factor = 2
+			years_passed > 5
+		}
+		modifier = {
+			factor = 2
+			years_passed > 10
+		}
+		modifier = {
+			factor = 2
+			years_passed > 15
+		}
+		modifier = {
+			factor = 2
+			years_passed > 20
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_computing"
+			}
+		}
+	}
+
+	ai_weight = {
+		weight = 10
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_computing"
+			}
+		}
+	}
+}

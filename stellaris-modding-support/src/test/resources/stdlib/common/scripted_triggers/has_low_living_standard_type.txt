@@ -1,0 +1,3 @@
+has_low_living_standard_type = {
+	has_living_standard = { type = living_standard_subsistence }
+}

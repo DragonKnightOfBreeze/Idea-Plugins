@@ -1,0 +1,8 @@
+opinion_doomed_us_all = {
+	opinion = {
+		base = -1000
+	}
+	decay = {
+		base = 5
+	}
+}

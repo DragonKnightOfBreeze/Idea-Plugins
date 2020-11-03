@@ -1,0 +1,6 @@
+on_starbase_transfer = {
+	events = {
+		action.223
+		distar.254
+	}
+}

@@ -1,0 +1,16 @@
+tech_psionic_barrier = {
+	area = society
+	cost = @tier3cost1
+	tier = 3
+	category = { psionics }
+	ai_update_type = all
+	is_rare = yes
+	prerequisites = { "tech_psionic_theory" }
+	weight = 0
+	is_reverse_engineerable = no
+	icon = tech_psionic_barrier
+
+	weight_modifier = {
+		factor = 0
+	}
+}

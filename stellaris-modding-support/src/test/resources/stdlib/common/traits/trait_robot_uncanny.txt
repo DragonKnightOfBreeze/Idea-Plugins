@@ -1,0 +1,9 @@
+trait_robot_uncanny = {
+	cost = -1
+	opposites = { "trait_robot_emotion_emulators" }
+	allowed_archetypes = { MACHINE }
+	custom_tooltip = TRAIT_UNCANNY_EFFECT
+	ai_weight = {
+		factor = 0
+	}
+}

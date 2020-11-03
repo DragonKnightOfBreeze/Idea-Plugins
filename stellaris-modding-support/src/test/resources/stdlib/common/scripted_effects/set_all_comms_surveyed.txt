@@ -1,0 +1,13 @@
+set_all_comms_surveyed = {
+	every_country = {
+		limit = {
+			has_communications = from
+		}
+		prev = {
+			surveyed = {
+  				set_surveyed = yes
+   				surveyor = Prev
+   			}
+    	}
+	}
+}

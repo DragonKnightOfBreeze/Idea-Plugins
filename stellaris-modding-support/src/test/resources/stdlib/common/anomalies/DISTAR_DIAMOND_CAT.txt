@@ -1,0 +1,22 @@
+DISTAR_DIAMOND_CAT = {
+	desc = "DISTAR_DIAMOND_CAT_DESC"
+	picture = "GFX_evt_star_white"
+	level = 2
+	
+	spawn_chance = {
+		modifier = {
+			add = 1
+			has_distar = yes
+			is_star = yes #Necessary b/c is_star_class actually means is_system_class
+			is_star_class = sc_f
+		}
+	}
+
+	null_spawn_chance = 0.5  # 50% chance to spawn
+	
+	on_success = {
+		1 = {
+			anomaly_event =	distar.140
+		}
+	}
+}

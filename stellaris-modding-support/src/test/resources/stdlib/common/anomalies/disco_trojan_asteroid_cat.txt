@@ -1,0 +1,20 @@
+disco_trojan_asteroid_cat = {
+	desc = "disco_trojan_asteroid_cat_desc"
+	picture = "GFX_evt_asteroid_field"
+	level = 3
+
+	spawn_chance = {
+		modifier = {
+			add = 2
+			is_asteroid = yes
+			has_any_strategic_resource = no
+		}
+		# fiction doesn't work for hive minds/robots, so they're blocked
+		modifier = {
+			factor = 0
+			from.owner = { has_authority = auth_machine_intelligence }
+		}
+	}
+
+	on_success = distar.3000
+}

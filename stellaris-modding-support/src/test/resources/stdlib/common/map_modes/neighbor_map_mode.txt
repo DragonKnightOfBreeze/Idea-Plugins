@@ -1,0 +1,27 @@
+neighbor_map_mode = {
+	icon = "GFX_map_mode_neighbor"
+	enable_terra_incognita = yes
+	shortcut = "CTRL+b"
+
+   color = {
+        value = hsv { 0.580 1.0 0.8 1.0 }
+        custom_tooltip = "DIPLOMATIC_MAP_MODE_SAME_EMPIRE"
+        condition = {
+            is_same_empire = from
+        }
+    }
+	color = {
+        value = hsv { 0.0 0.0 0.8 0.7 }
+        custom_tooltip = "MAP_MODE_NOT_NEIGHBOR"
+        condition = {
+			NOT = { is_neighbor_of = from }
+        }
+    }
+	color = {
+		value = hsv { 0.3 1.0 0.6 1.0 }
+		custom_tooltip = "MAP_MODE_NEIGHBOR"
+		condition = {
+            is_neighbor_of = from			
+		}
+	}
+}

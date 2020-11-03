@@ -1,0 +1,42 @@
+col_habitat_research = {
+	icon = 22
+
+	potential = {
+		uses_district_set = habitat
+	}
+	planet_modifier = {
+		planet_districts_hab_research_cost_mult = -0.1
+		planet_researchers_produces_mult = 0.1
+	}
+	weight_modifier = {
+		base = 300
+		modifier = {
+			factor = 2
+			OR = {
+				owner = { has_monthly_income = { resource = physics_research value < 100 } }
+				owner = { has_monthly_income = { resource = society_research value < 100 } }
+				owner = { has_monthly_income = { resource = engineering_research value < 100 } }
+			}
+		}
+		modifier = {
+			factor = 3
+			has_designation = col_habitat_research
+		}
+		modifier = {
+			factor = 3
+			num_districts = { type = district_hab_science value >= 3 }
+		}
+		modifier = {
+			factor = 2
+			num_buildings = { type = building_research_lab_1 value >= 2 }
+		}
+		modifier = {
+			factor = 2
+			num_buildings = { type = building_research_lab_2 value >= 2 }
+		}
+		modifier = {
+			factor = 2
+			num_buildings = { type = building_research_lab_3 value >= 2 }
+		}
+	}
+}

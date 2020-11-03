@@ -1,0 +1,226 @@
+REP = {
+	raxthalak = {
+		language = "l_simp_chinese"
+		name = 雷克索拉克
+		plural = 雷克索拉克
+		home_planet = 雷克索拉克
+		home_system = 索拉金
+		name_list = "REP1"
+	}
+	
+	thekqlak = {
+		language = "l_simp_chinese"
+		name = 赛克奎拉克
+		plural = 赛克奎拉克
+		home_planet = 魁拉克
+		home_system = 魁拉奇多克
+		name_list = "REP2"
+	}
+	
+	bospachtux = {
+		language = "l_simp_chinese"
+		name = 波斯帕图克斯
+		plural = 波斯帕图克斯
+		home_planet = 图克西卡
+		home_system = 波斯图克斯卡
+		name_list = "REP3"
+	}
+
+	mectpux = {
+		language = "l_simp_chinese"
+		name = 迈特帕克斯
+		plural = 迈特帕克斯
+		home_planet = 祖伊弗
+		home_system = 祖弗尔
+		name_list = "REP1"
+	}
+	
+	othethi = {
+		language = "l_simp_chinese"
+		name = 欧塞西
+		plural = 欧塞西
+		home_planet = 玛塔尔
+		home_system = 玛塔利尔
+		name_list = "REP2"
+	}
+
+	oxbraxi = {
+		language = "l_simp_chinese"
+		name = 奥克布莱希
+		plural = 奥克布莱希
+		home_planet = 奥克西纳克
+		home_system = 奥克西纳克维拉
+		name_list = "REP3"
+	}
+
+	zaydran = {
+		language = "l_simp_chinese"
+		name = 扎伊德兰
+		plural = 扎伊德兰
+		home_planet = 亚德拉
+		home_system = 亚德拉克
+		name_list = "REP1"
+	}
+
+	nharr = {
+		language = "l_simp_chinese"
+		name = 纳尔
+		plural = 纳利安
+		home_planet = 纳尔
+		home_system = 纳尔博
+		name_list = "REP2"
+	}
+	
+	zukakkan = {
+		language = "l_simp_chinese"
+		name = 祖卡坎
+		plural = 祖姆
+		home_planet = 祖凯
+		home_system = 祖凯蒙多尔
+		name_list = "REP3"
+	}
+	
+	seklokkar = {
+		language = "l_simp_chinese"
+		name = 赛克罗卡尔
+		plural = 赛克罗卡利安
+		home_planet = 罗坎
+		home_system = "罗坎·贾科"
+		name_list = "REP1"
+	}
+	
+	netraxi = {
+		language = "l_simp_chinese"
+		name = 尼特拉克西
+		plural = 尼特拉克西
+		home_planet = 尼特拉克西
+		home_system = 尼特拉克西阿萨卡
+		name_list = "REP2"
+	}
+	
+	dimaxanian = {
+		language = "l_simp_chinese"
+		name = 迪马扎恩
+		plural = 迪马扎恩
+		home_planet = 扎尼亚
+		home_system = "扎尼·纳迪"
+		name_list = "REP3"
+	}
+	
+	vagoross = {
+		language = "l_simp_chinese"
+		name = 瓦格欧罗斯
+		plural = 瓦格欧罗斯
+		home_planet = 奥洛斯
+		home_system = 奥洛斯胡瓦克
+		name_list = "REP1"
+	}
+	
+	Kalaxenan = {
+		language = "l_simp_chinese"
+		name = 卡拉克南
+		plural = 卡拉克南
+		home_planet = 伊帕戈
+		home_system = "伊帕戈·泰尔"
+		name_list = "REP2"
+	}
+	
+	fexklanga = {
+		language = "l_simp_chinese"
+		name = 费克兰加
+		plural = 费克兰加
+		home_planet = 费克拉
+		home_system = 费克兰斯加
+		name_list = "REP3"
+	}
+	
+	tuxkan = {
+		language = "l_simp_chinese"
+		name = 图克坎
+		plural = 图克坎
+		home_planet = 图克卡
+		home_system = 图克卡利
+		name_list = "REP1"
+	}
+	
+	gox = {
+		language = "l_simp_chinese"
+		name = 哥克西
+		plural = 哥克西
+		home_planet = 瓦克拉夏
+		home_system = 杜-拉夏-纳克斯
+		name_list = "REP2"
+	}
+	
+	rakthalaknak = {
+		language = "l_simp_chinese"
+		name = 拉克索拉克纳克
+		plural = 拉克索拉克纳其
+		home_planet = 拉克索拉克纳克
+		home_system = "拉克纳克萨克斯"
+		name_list = "REP3"
+	}
+	
+	bokasheran = {
+		language = "l_simp_chinese"
+		name = 博卡谢兰
+		plural = 博卡谢兰
+		home_planet = 薛拉克
+		home_system = 阿西尔拉卡
+		name_list = "REP1"
+	}
+	
+	adeex = {
+		language = "l_simp_chinese"
+		name = 阿戴克
+		plural = 阿戴克
+		home_planet = 戴克斯
+		home_system = 扎恩德拉
+		name_list = "REP2"
+	}
+	
+	rothak = {
+		language = "l_simp_chinese"
+		name = 罗萨克
+		plural = 罗萨克
+		home_planet = 罗萨克
+		home_system = 维塞姆卡拉克
+		name_list = "REP3"
+	}
+	
+	steccashi = {
+		language = "l_simp_chinese"
+		name = 斯特卡什
+		plural = 斯特卡什
+		home_planet = 乌蜀
+		home_system = "乌斯卡尔·欧佩谢"
+		name_list = "REP1"
+	}
+	
+	xulokako = {
+		language = "l_simp_chinese"
+		name = 叙洛卡克
+		plural = 叙科卡克
+		home_planet = 叙科卡
+		home_system = 叙科卡利吉
+		name_list = "REP2"
+	}
+	
+	gargaxton = {
+		language = "l_simp_chinese"
+		name = 珈尔加克顿
+		plural = 珈尔加克顿
+		home_planet = 勒斯托拉
+		home_system = 奎尔莱斯特
+		name_list = "REP3"
+	}
+	
+	loxungrakva = {
+		language = "l_simp_chinese"
+		name = 洛克乌格拉克瓦
+		plural = 洛克乌格拉克瓦
+		home_planet = 洛克乌格拉克
+		home_system = 洛克乌格拉克欧
+		name_list = "REP1"
+	}
+}

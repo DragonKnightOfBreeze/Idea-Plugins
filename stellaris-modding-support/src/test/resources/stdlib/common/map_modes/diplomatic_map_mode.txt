@@ -1,0 +1,117 @@
+diplomatic_map_mode = {
+	icon = "GFX_map_mode_diplomatic"
+	enable_terra_incognita = yes
+	display_claims = yes
+	shortcut = "CTRL+x"
+	
+	color = { value = hsv { 0.0 0.0 0.8 0.7 } condition = { NOT = { exists = FROM } } custom_tooltip = "MAP_MODE_OBSERVER" }
+	color = {
+        value = hsv { 0.0 0.0 0.8 0.7 }
+        custom_tooltip = "MAP_MODE_NO_CONTACT"
+        condition = {
+            NOT = { has_established_contact = FROM }
+            #always = no
+        }
+    }
+	color = {
+		value = hsv { 0.3 1.0 0.6 1.0 }
+		custom_tooltip = "DIPLOMATIC_MAP_MODE_SAME_EMPIRE"
+		condition = {
+			is_same_empire = from
+		}
+	}
+	color = {
+		value = hsv { 0.8 0.5 0.8 1.0 }
+		custom_tooltip = "DIPLOMATIC_MAP_MODE_FEDERATION"
+		condition = {
+			is_in_federation_with = FROM
+		}
+	}
+	color = {
+		value = hsv { 0.0 1.0 0.6 1.0 }
+		custom_tooltip = "DIPLOMATIC_MAP_MODE_WAR"
+		condition = {
+			OR = {
+				is_at_war_with = FROM
+				is_hostile = FROM
+			}
+		}
+	}
+	color = {
+		value = hsv { 0.15 1.0 0.7 1.0 }
+		custom_tooltip = "DIPLOMATIC_MAP_MODE_SUBJECT"
+		condition = {
+			exists = overlord
+			overlord = {
+				is_same_empire = FROM
+			}
+		}
+	}
+	color = {
+		value = hsv { 0.15 1.0 0.7 1.0 }
+		custom_tooltip = "DIPLOMATIC_MAP_MODE_OVERLORD"
+		condition = {
+			exists = from.overlord
+			from.overlord = {
+				is_same_empire = PREV
+			}
+		}
+	}
+	color = {
+		value = hsv { 0.37 0.8 1.0 1.0 }
+		custom_tooltip = "DIPLOMATIC_MAP_MODE_DEFENSIVE_PACT"
+		condition = {
+			has_defensive_pact = FROM
+		}
+	}
+	color = {
+		value = hsv { 0.4 0.5 1.0 1.0 }
+		custom_tooltip = "DIPLOMATIC_MAP_MODE_NON_AGGRESSION_PACT"
+		condition = {
+			has_non_aggression_pact = FROM
+		}
+	}
+	color = {
+		value = hsv { 0.4 0.5 1.0 1.0 }
+		custom_tooltip = "DIPLOMATIC_MAP_MODE_ASSOCIATION_STATUS"
+		condition = {
+			has_association_status = FROM
+		}
+	}
+	color = {
+		value = hsv { 0.35 0.35 1.0 1.0 }
+		custom_tooltip = "DIPLOMATIC_MAP_MODE_RESEARCH_AGREEMENT"
+		condition = {
+			has_research_agreement = FROM
+		}
+	}	
+	color = {
+		value = hsv { 0.3 0.48 1.0 1.0 }
+		custom_tooltip = "DIPLOMATIC_MAP_MODE_COMMERCIAL_PACT"
+		condition = {
+			has_commercial_pact = FROM
+		}
+	}		
+	color = {
+		value = hsv { 0.05 0.6 0.8 1.0 }
+		custom_tooltip = "DIPLOMATIC_MAP_MODE_RIVAL"
+		condition = {
+			is_rival = FROM
+		}
+	}
+	color = {
+		value = hsv { 0.0 0.4 0.7 1.0 }
+		custom_tooltip = "DIPLOMATIC_MAP_MODE_CLOSED_BORDERS"
+		condition = {
+			# This really could use a better trigger
+			any_system_within_border = { NOT = { has_access_fleet = FROM } }
+		}
+	}
+	color = {
+		value = hsv { 0.6 0.5 1.0 1.0 }
+		custom_tooltip = "DIPLOMATIC_MAP_MODE_MIGRATION_PACT"
+		condition = {
+			has_migration_access = FROM			
+		}
+	}
+}

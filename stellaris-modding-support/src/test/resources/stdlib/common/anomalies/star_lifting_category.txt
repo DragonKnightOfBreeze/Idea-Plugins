@@ -1,0 +1,13 @@
+star_lifting_category = {
+	picture = "GFX_evt_star_pulsar"
+	level = 4
+	max_once_global = yes
+	
+	spawn_chance = {
+		modifier = {
+			add = 0 # added in system initializer
+		}
+	}
+	
+	on_success = distar.1020
+}

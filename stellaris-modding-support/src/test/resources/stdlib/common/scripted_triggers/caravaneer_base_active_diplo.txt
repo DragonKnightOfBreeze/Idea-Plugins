@@ -1,0 +1,11 @@
+caravaneer_base_active_diplo = {
+	has_active_event = {
+		cara.100 # Main menu
+		cara.150 # CaravanCoinz
+		cara.200 # Slots
+		cara.210 # Slots payout
+		cara.300 # Lootboxes
+		cara.310 # Lootbox payout
+		cara.320 # Galatron
+	}
+}

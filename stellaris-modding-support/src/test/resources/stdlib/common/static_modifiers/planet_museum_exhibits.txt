@@ -1,0 +1,4 @@
+planet_museum_exhibits = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_museum.dds"
+	planet_culture_workers_produces_mult = 0.20
+}

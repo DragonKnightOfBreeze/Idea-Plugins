@@ -1,0 +1,3 @@
+fleet3_reset_journey = {
+	fleet_event = { id = cara.3000 days = 3600 }
+}

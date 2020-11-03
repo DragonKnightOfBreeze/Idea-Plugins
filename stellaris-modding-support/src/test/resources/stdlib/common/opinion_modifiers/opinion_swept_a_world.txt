@@ -1,0 +1,13 @@
+opinion_swept_a_world = {
+	opinion = {
+		base = -80
+	}
+
+	accumulative = yes
+
+	min = -400
+
+	decay = {
+		base = 1
+	}
+}

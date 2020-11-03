@@ -1,0 +1,15 @@
+create_graygoo_ships_1 = {
+	create_ship = {
+		name = random
+		design = "NAME_Nanite_Mothership"
+		graphical_culture = "pirate_01"
+	}
+	while = {
+		count = 5
+		create_ship = {
+			name = random
+			design = "NAME_Nanite_Interdictor"
+			graphical_culture = "pirate_01"
+		}
+	}
+}

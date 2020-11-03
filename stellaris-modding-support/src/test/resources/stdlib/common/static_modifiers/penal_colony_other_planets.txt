@@ -1,0 +1,5 @@
+penal_colony_other_planets = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_penal_colony.dds"
+	icon_frame = 1
+	planet_crime_mult = -0.25
+}

@@ -1,0 +1,9 @@
+high_gravity = {
+	planet_buildings_cost_mult = 0.1
+	planet_districts_cost_mult = 0.1
+	pop_environment_tolerance = -0.05
+	planet_max_districts_add = 2
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_high_gravity.dds"
+	icon_frame = 2
+}

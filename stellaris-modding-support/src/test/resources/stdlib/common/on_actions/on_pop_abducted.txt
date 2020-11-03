@@ -1,0 +1,6 @@
+on_pop_abducted  = {
+	events = {
+		action.121
+		action.122
+	}
+}

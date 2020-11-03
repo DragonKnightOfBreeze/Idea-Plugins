@@ -1,0 +1,4 @@
+alloys_deficit = {
+	ship_armor_mult = -0.75
+	ship_fire_rate_mult = -0.75
+}

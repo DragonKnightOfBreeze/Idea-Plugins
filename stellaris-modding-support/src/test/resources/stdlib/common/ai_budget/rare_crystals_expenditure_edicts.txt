@@ -1,0 +1,13 @@
+rare_crystals_expenditure_edicts = {
+	resource = rare_crystals 
+	type = expenditure
+	category = edicts
+	
+	potential = {
+		always = yes
+	}
+	
+	fraction = {
+		base = 0.5
+	}
+}

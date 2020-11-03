@@ -1,0 +1,12 @@
+achievement_dreadnought = {
+	id = 29
+
+	possible = {
+		is_ironman = yes
+		has_leviathans = yes
+	}
+
+	happened = {
+		has_country_flag = restored_dreadnought
+	}
+}

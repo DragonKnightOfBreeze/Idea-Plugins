@@ -1,0 +1,51 @@
+opinion_xenophobia = {
+	opinion = {
+		base = 0
+
+		modifier = {
+			add = -20
+			NOT = { has_valid_civic = civic_fanatic_purifiers } #handled elsewhere
+			has_ethic = "ethic_xenophobe"
+			NOT = { is_same_species_class = FROM }
+		}
+		modifier = {
+			add = -10
+			NOT = { has_valid_civic = civic_fanatic_purifiers } #handled elsewhere
+			has_ethic = "ethic_xenophobe"
+			is_same_species_class = FROM
+			NOT = { is_same_species = FROM }
+			NOT = { is_subspecies = FROM }
+		}
+		modifier = {
+			add = -5
+			NOT = { has_valid_civic = civic_fanatic_purifiers } #handled elsewhere
+			has_ethic = "ethic_xenophobe"
+			is_same_species_class = FROM
+			NOT = { is_same_species = FROM }
+			is_subspecies = FROM
+		}
+
+		modifier = {
+			add = -40
+			NOT = { has_valid_civic = civic_fanatic_purifiers } #handled elsewhere
+			has_ethic = "ethic_fanatic_xenophobe"
+			NOT = { is_same_species_class = FROM }
+		}
+		modifier = {
+			add = -20
+			NOT = { has_valid_civic = civic_fanatic_purifiers } #handled elsewhere
+			has_ethic = "ethic_fanatic_xenophobe"
+			is_same_species_class = FROM
+			NOT = { is_same_species = FROM }
+			NOT = { is_subspecies = FROM }
+		}
+		modifier = {
+			add = -10
+			NOT = { has_valid_civic = civic_fanatic_purifiers } #handled elsewhere
+			has_ethic = "ethic_fanatic_xenophobe"
+			is_same_species_class = FROM
+			NOT = { is_same_species = FROM }
+			is_subspecies = FROM
+		}
+	}
+}

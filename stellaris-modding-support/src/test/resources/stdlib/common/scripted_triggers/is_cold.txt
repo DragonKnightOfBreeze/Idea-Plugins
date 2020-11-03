@@ -1,0 +1,7 @@
+is_cold = {
+	OR = {
+		is_planet_class = pc_arctic
+		is_planet_class = pc_tundra
+		is_planet_class = pc_alpine
+	}
+}

@@ -1,0 +1,3 @@
+defensive_pacts = {
+	parent = diplomacy
+}

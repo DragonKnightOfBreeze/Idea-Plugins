@@ -1,0 +1,16 @@
+achievement_paradise_found = {
+	id = 51
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		any_system = {
+			any_system_planet = {
+				terraformed_by = prevprev
+				is_planet_class = pc_gaia
+			}
+		}
+	}
+}

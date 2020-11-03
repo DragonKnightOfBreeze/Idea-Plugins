@@ -1,0 +1,15 @@
+gov_stagnant_ascendancy = {
+	ruler_title = RT_EMPEROR
+	ruler_title_female = RT_EMPRESS
+	
+	should_force_rename = yes
+
+	possible = {
+		has_valid_civic = civic_lethargic_leadership
+		has_valid_civic = civic_empire_in_decline
+	}
+
+	weight = {
+		base = 100000
+	}
+}

@@ -1,0 +1,46 @@
+nutritional_plenitude = {
+	length = @EdictPerpetual
+	icon = "GFX_edict_type_policy"
+	edict_cap_usage = 1
+
+	resources = {
+		category = edicts
+		cost = { #Activation Cost
+			trigger = {
+				NOT = { has_edict = nutritional_plenitude }			
+			}
+			influence = 200
+		}
+		cost = { #Deactivation Cost
+			trigger = {
+				has_edict = nutritional_plenitude
+			}
+			influence = 100
+		}
+	}
+
+	modifier = {
+		pop_growth_speed = 0.10
+		biological_pop_happiness = 0.05
+		lithoid_pop_happiness = 0.05
+		empire_size_pops_mult = 0.10
+		planet_pops_organics_food_upkeep_mult = 0.25
+		planet_pops_organics_minerals_upkeep_mult = 0.25
+	}
+
+	potential = {
+		is_gestalt = no
+	}
+
+	prerequisites = {
+		"tech_gene_crops"
+	}
+
+	show_tech_unlock_if = {
+		is_gestalt = no
+	}
+
+	ai_weight = {
+		weight = @EdictHighPrio
+	}
+}

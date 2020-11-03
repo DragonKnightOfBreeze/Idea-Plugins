@@ -1,0 +1,7 @@
+empire_size_mods = {
+	empire_size_branch_office_mult = 0.1
+	empire_size_districts_mult = 0.1
+	empire_size_systems_mult = 0.1
+	empire_size_colonies_mult = 0.1
+	empire_size_pops_mult = 0.1
+}

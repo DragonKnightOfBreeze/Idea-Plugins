@@ -1,0 +1,13 @@
+gov_fallback = {
+	ruler_title = RT_KING
+	
+	should_force_rename = yes
+
+	possible = {
+		always = yes
+	}
+
+	weight = {
+		base = 1
+	}
+}

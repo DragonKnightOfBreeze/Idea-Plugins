@@ -1,0 +1,42 @@
+make_intelligent = {
+	if = {
+		limit = { pop_has_trait = trait_intelligent }
+		# nothing
+	}
+	else = {
+		# remove opposite traits
+		if = {
+			limit = { pop_has_trait = trait_nerve_stapled }
+			modify_species = {
+				species = this
+				remove_trait = trait_nerve_stapled
+			}
+		}
+		if = {
+			limit = { pop_has_trait = trait_erudite }
+			modify_species = {
+				species = this
+				remove_trait = trait_erudite
+			}
+		}
+		if = {
+			limit = { pop_has_trait = trait_enigmatic_intelligence }
+			modify_species = {
+				species = this
+				remove_trait = trait_enigmatic_intelligence
+			}
+		}
+		if = {
+			limit = { pop_has_trait = trait_enigmatic_intelligence_poor }
+			modify_species = {
+				species = this
+				remove_trait = trait_enigmatic_intelligence_poor
+			}
+		}
+		# add trait
+		modify_species = {
+			species = this
+			add_trait = trait_intelligent
+		}
+	}
+}

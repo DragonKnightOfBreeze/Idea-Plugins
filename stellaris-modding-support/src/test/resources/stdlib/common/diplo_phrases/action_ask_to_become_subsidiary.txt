@@ -1,0 +1,50 @@
+action_ask_to_become_subsidiary = {
+	consider = {
+		# Corp
+		CORP_CONSIDER_01 = {
+			trigger = {
+				has_authority = auth_corporate
+			}
+		}
+	}
+	select = {
+		CORP_ASK_FOR_SUBS_SELECT_01 = {
+			trigger = {
+				has_authority = auth_corporate
+			}
+		}
+	}
+	propose = {
+		# CORP
+		CORP_ASK_FOR_SUBS_PROPOSE_01 = {
+			trigger = {
+				has_authority = auth_corporate
+			}
+		}
+		# NON-CORP
+		ASK_FOR_SUBS_PROPOSE_01 = {
+			trigger = {
+				NOT = { has_authority = auth_corporate }
+			}
+		}
+	}
+	accept = {
+		CORP_ASK_FOR_SUBS_ACCEPT_01 = {
+			trigger = {
+				has_authority = auth_corporate
+			}
+		}
+		CORP_ASK_FOR_SUBS_ACCEPT_02 = {
+			trigger = {
+				has_authority = auth_corporate
+			}
+		}
+	}
+	refuse = {
+		CORP_ASK_FOR_SUBS_REFUSE_01 = {
+			trigger = {
+				has_authority = auth_corporate
+			}
+		}
+	}
+}

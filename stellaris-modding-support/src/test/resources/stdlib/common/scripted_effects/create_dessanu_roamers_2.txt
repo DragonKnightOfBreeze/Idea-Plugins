@@ -1,0 +1,68 @@
+create_dessanu_roamers_2 = {
+	event_target:graygoo_country = {
+		create_leader = {
+			class = admiral
+			species = owner_main_species
+			name = random
+			skill = 3
+			leader_age_min = 25
+			leader_age_max = 45
+			traits = {
+				trait = random_trait
+			}
+		}
+	}
+	create_fleet = {
+		name = "NAME_Dessanu_Fleet_2"
+		effect = {
+			set_owner = event_target:graygoo_country
+			create_ship = {
+				name = random
+				design = "NAME_Dessanu_Mothership"
+			}
+			while = {
+				count = 5
+				create_ship = {
+					name = random
+					design = "NAME_Dessanu_Interdictor"
+				}
+			}
+			set_location = event_target:start_1
+			set_formation_scale = 2
+			set_fleet_stance = aggressive
+			set_aggro_range_measure_from = self
+			set_aggro_range = 500
+			assign_leader = last_created_leader
+
+			queue_actions = {
+				repeat = {
+					find_random_system = {
+						trigger = {
+							id = "dessanu_roamers_2.trigger.1"
+							has_star_flag = lcluster
+						}
+						found_system = {
+							move_to = THIS
+						}	
+					}
+					find_closest_planet = {
+						trigger = {
+							id = "dessanu_roamers_2.trigger.2"
+							is_planet_class = "pc_gray_goo"
+						}
+						found_planet = {
+							orbit_planet = THIS
+							wait = {
+								duration = 50
+								random = 25
+							}
+						}
+					}
+				}
+			}
+		}
+		settings = {
+			uses_naval_capacity = no
+		}
+	}
+}

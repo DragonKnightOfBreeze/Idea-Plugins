@@ -1,0 +1,5 @@
+on_leave_federation = {
+	events = {
+		action.201 # achievement flagging and various cleanups
+	}
+}

@@ -1,0 +1,5 @@
+resolution_divinity_comfort_the_fallen = {
+	diplo_weight_technology_mult = -0.2
+	pop_ethic_spiritualist_attraction_mult = 0.10
+	planet_jobs_unity_produces_mult = 0.05
+}

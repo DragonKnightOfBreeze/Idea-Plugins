@@ -1,0 +1,28 @@
+citizenship_purge_machine = {
+	token = citizenship_purge_machine
+	new_pop_weight = 0.0
+
+	potential = {
+		exists = from
+		from = { has_authority = auth_machine_intelligence }
+		NOR = {
+			has_trait = trait_machine_unit
+			has_trait = trait_mechanical
+		}
+		NAND = {
+			is_lonely_hive_mind_pop = no
+			from = { has_valid_civic = civic_machine_servitor }
+		}
+	}
+
+	allow = {
+		hidden_trigger = { exists = from }
+		custom_tooltip = {
+			fail_text = same_species_disallowed
+			NOT = { is_same_species = from }
+		}
+	}
+	ai_will_do = {
+		factor = 0
+	}
+}

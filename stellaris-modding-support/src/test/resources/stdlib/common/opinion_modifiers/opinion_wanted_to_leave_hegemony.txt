@@ -1,0 +1,9 @@
+opinion_wanted_to_leave_hegemony = {
+	opinion = {
+		base = -15
+	}
+
+	decay = {
+		base = 1
+	}
+}

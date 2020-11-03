@@ -1,0 +1,38 @@
+tech_housing_2 = {
+	cost = @tier3cost1
+	area = engineering
+	tier = 3
+	category = { industry }
+	prerequisites = { "tech_housing_1" }
+	weight = @tier3weight1
+
+	modifier = {
+		description = district_housing_tech_effect
+	}
+
+	weight_modifier = {
+		factor = 1.5
+		modifier = {
+			factor = 0
+			has_valid_civic = civic_agrarian_idyll
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_industry"
+			}
+		}
+	}
+
+	ai_weight = {
+		factor = 2
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_industry"
+			}
+		}
+	}
+}

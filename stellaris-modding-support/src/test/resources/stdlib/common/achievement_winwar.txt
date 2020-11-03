@@ -1,0 +1,11 @@
+achievement_winwar = {
+	id = 21
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		has_country_flag = has_won_war
+	}
+}

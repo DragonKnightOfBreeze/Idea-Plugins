@@ -1,0 +1,8 @@
+tech_ship_armor_1 = {
+	cost = @tier1cost1
+	area = engineering
+	tier = 0
+	category = { materials }
+	ai_update_type = all
+	start_tech = yes
+}

@@ -1,0 +1,32 @@
+trait_lithoid = {
+	cost = 0
+	potential_crossbreeding_chance = 0
+
+	sorting_priority = 20
+
+	initial = yes
+	randomized = no
+	modification = no
+	forced_happiness = no
+	immortal_leaders = no
+
+	modifier = {}
+
+	leader_age_min = 50
+	leader_age_max = 80
+
+	allowed_archetypes = { LITHOID }
+	ai_weight = {
+		weight = 0
+	}
+
+	icon = "gfx/interface/icons/traits/trait_lithoid.dds"
+
+	custom_tooltip = TRAIT_LITHOID_EFFECT
+	modifier = {
+		pop_growth_speed = -0.25
+		pop_environment_tolerance = 0.5
+		army_health = 0.5
+		leader_age = 50
+	}
+}

@@ -1,0 +1,6 @@
+maintenance_depot_upkeep_affordable = {
+	has_monthly_income = {
+		resource = energy
+		value > 1
+	}
+}

@@ -1,0 +1,7 @@
+rare_crystal_candidate = {
+	NOT = { has_deposit_for = shipclass_research_station }
+	OR = {
+		is_planet_class = pc_frozen
+		is_planet_class = pc_ice_asteroid
+	}
+}

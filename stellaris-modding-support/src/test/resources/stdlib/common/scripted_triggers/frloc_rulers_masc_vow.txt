@@ -1,0 +1,19 @@
+frloc_rulers_masc_vow = {
+#Ex. L'empereur / DE L'empereur / grand(X) empereur
+	NOT = { leader = { gender = female } }
+	OR = {
+		has_government = gov_despotic_empire
+		has_government = gov_constitutional_dictatorship
+		has_government = gov_theocratic_monarchy
+		has_government = gov_divine_empire
+		has_government = gov_star_empire
+		has_government = gov_military_junta
+		has_government = gov_martial_empire
+		has_government = gov_martial_dictatorship
+		has_government = gov_celestial_empire
+		has_government = gov_feudal_empire
+		has_government = gov_stagnant_ascendancy
+		has_government = gov_awakened_ascendancy
+		has_government = gov_marauder_clans
+	}
+}

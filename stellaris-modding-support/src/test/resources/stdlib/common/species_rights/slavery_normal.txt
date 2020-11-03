@@ -1,0 +1,36 @@
+slavery_normal = {
+	token = slavery_normal
+
+	pop_modifier = {
+		planet_jobs_produces_mult = 0.10
+		pop_happiness = -0.30
+	}
+
+	in_breach_of = {
+		{
+			key = resolution_greatergood_greater_than_ourselves
+		}
+	}
+
+	potential = {
+		from = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+	}
+
+	allow = {
+		hidden_trigger = { always = yes }
+	}
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0.5
+			from = {
+				is_galactic_community_member = yes
+			}
+			OR = {
+				is_active_resolution = "resolution_greatergood_greater_than_ourselves"
+				is_active_resolution = "resolution_greatergood_balance_in_the_middle"
+				is_active_resolution = "resolution_greatergood_universal_prosperity_mandate"
+			}
+		}
+	}
+}

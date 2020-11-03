@@ -1,0 +1,11 @@
+achievement_belongs_in_museum = {
+	id = 97
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		num_owned_relics > 0
+	}
+}

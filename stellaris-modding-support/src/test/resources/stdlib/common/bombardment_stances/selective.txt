@@ -1,0 +1,32 @@
+selective = {
+	trigger = {
+		owner = {
+			OR = {
+				NOT = { is_country_type = default }
+				has_policy_flag = orbital_bombardment_selective
+				has_policy_flag = orbital_bombardment_indiscriminate
+				has_policy_flag = orbital_bombardment_armageddon
+			}
+		}
+	}
+
+	icon_frame = 1
+	default = yes
+
+	stop_when_armies_dead = yes
+	abduct_pops = no
+
+	planet_damage = 0.5
+	army_damage = 1.0
+
+	kill_pop_chance = {
+		base = 0.25
+	}
+	min_pops_to_kill_pop = 21
+
+	# root = fleet
+	# from = planet
+	ai_weight = {
+		weight = 1
+	}
+}

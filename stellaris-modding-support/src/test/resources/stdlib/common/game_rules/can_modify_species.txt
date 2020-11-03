@@ -1,0 +1,6 @@
+can_modify_species = {
+	OR = {
+		NOT = { has_trait = trait_self_modified }
+		is_same_species = root
+	}
+}

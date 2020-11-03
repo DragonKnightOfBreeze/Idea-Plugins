@@ -1,0 +1,6 @@
+empire_name_parts_list = {
+	key = "artist_names"
+	parts = {
+		"Artist Enclave" = 10
+	}
+}

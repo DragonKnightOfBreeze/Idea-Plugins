@@ -1,0 +1,22 @@
+action_insult = {
+	icon = "GFX_diplomacy_status_war"
+	requires_recipient_independence = no
+	requires_actor_independence = no
+	auto_accepted = yes
+	should_show_auto_accept_message_recipient = yes
+	action_type = aggressive
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "requires_poor_or_worse_opinion"
+
+			OR = {
+				opinion_level = { who = from level <= poor }
+				is_fallen_empire = yes
+				from = { is_fallen_empire = yes }
+				is_harming_relations_with = from
+				from = { is_at_war_with = prev }
+			}
+		}
+	}
+}

@@ -1,0 +1,4 @@
+reroll_planet = {
+	reroll_deposits = yes
+	reroll_planet_modifiers = yes
+}

@@ -1,0 +1,8 @@
+asteroid_impacts = {
+	pop_environment_tolerance = -0.05
+	planet_jobs_minerals_produces_mult = 0.05
+	district_mining_max = 2
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_asteroid_impacts.dds"
+	icon_frame = 2
+}

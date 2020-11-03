@@ -1,0 +1,3 @@
+can_colonize_outside_borders = {
+	always = no
+}

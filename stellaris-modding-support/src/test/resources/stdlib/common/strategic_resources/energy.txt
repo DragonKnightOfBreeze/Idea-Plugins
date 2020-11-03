@@ -1,0 +1,14 @@
+energy = {
+	tradable = yes
+	max = 50000
+	
+	deficit_modifier = energy_deficit #found in static modifiers
+
+	ai_weight = {
+		weight = 1.5
+	}
+
+	ai_wants = {
+		base = 500
+	}
+}

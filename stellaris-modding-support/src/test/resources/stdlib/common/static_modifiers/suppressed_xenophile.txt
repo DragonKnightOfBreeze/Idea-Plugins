@@ -1,0 +1,4 @@
+suppressed_xenophile = {
+	pop_ethic_xenophile_attraction_mult = -0.75
+	country_base_influence_produces_add = -1
+}

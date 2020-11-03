@@ -1,0 +1,3 @@
+proclaim_superiority = {
+	pop_ethic_xenophobe_attraction_mult = 0.50
+}

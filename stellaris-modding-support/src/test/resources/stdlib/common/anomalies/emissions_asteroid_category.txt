@@ -1,0 +1,17 @@
+emissions_asteroid_category = {
+	desc = "emissions_asteroid_category_desc"
+	picture = GFX_evt_mining_station
+	level = 1
+
+	spawn_chance = {
+		modifier = {
+			add = 3
+			is_asteroid = yes
+		}
+	}
+
+	on_success = {
+		1 = anomaly.50
+		1 = anomaly.60
+	}
+}

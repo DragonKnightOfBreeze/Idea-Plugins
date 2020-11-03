@@ -1,0 +1,25 @@
+origin_doomsday = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origins_doomsday.dds"
+	picture = GFX_origin_doomsday
+	max_once_global = yes
+
+	non_colonizable_planet_class_neighbor = yes
+
+	playable = {
+		host_has_dlc = "Federations"
+	}
+
+	possible = {
+	}
+
+	description = "origin_tooltip_doomsday_effects"
+	flags = { custom_start_screen }
+
+	traits = {
+	}
+
+	random_weight = {
+		base = 5
+	}
+}

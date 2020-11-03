@@ -1,0 +1,5 @@
+resolution_rulesofwar_guardian_angels = {
+	diplo_weight_naval_mult = -0.2
+	army_defense_morale_mult = 0.15
+	armies_upkeep_mult = 0.05
+}

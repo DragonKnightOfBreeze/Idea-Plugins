@@ -1,0 +1,13 @@
+leader_trait_general_erudite = {
+	cost = 0
+	modification = no
+	icon = "gfx/interface/icons/traits/trait_erudite.dds"
+	modifier = {
+		army_damage_mult = 0.05
+		army_disengage_chance_mult = 0.10
+	}
+	leader_trait = { general }
+	leader_class = { general }
+	initial = no
+	randomized = no
+}

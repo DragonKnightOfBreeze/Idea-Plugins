@@ -1,0 +1,14 @@
+AST_ILLICIT_DARK_CAT = {
+	desc = "AST_ILLICIT_DARK_DESC"
+	picture = "GFX_evt_asteroid_approaching_planet"
+	level = 7
+	
+	spawn_chance = {
+		modifier = {
+			add = 3
+			is_asteroid = yes
+		}
+	}
+	
+	on_success = anomaly.155
+}

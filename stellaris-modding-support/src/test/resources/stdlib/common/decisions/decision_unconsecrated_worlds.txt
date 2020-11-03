@@ -1,0 +1,98 @@
+decision_unconsecrated_worlds = {
+	resources = {
+		category = decisions
+		cost = {
+			influence = 50
+		}
+	}
+
+	potential = {
+		from = {
+			has_ascension_perk = ap_consecrated_worlds
+		}
+		has_planet_flag = consecrated@from
+	}
+
+	allow = {
+		OR = {
+			has_modifier = consecrated_quality_1
+			has_modifier = consecrated_quality_2
+			has_modifier = consecrated_quality_3
+			has_modifier = consecrated_quality_4
+		}
+	}
+
+	effect = {
+		hidden_effect = {
+			from = {
+				change_variable = {
+					which = num_consecrated_worlds
+					value = -1
+				}
+			}
+			remove_planet_flag = consecrated@from
+			custom_tooltip = unconsecrated_world_tooltip
+			switch = {
+				trigger = has_modifier
+				consecrated_quality_4 = {
+					remove_modifier = consecrated_quality_4
+					from = {
+						change_variable = {
+							which = consecrated_variable
+							value = -4
+						}
+					}
+				}
+				consecrated_quality_3 = {
+					remove_modifier = consecrated_quality_3
+					from = {
+						change_variable = {
+							which = consecrated_variable
+							value = -3
+						}
+					}
+				}
+				consecrated_quality_2 = {
+					remove_modifier = consecrated_quality_2
+					from = {
+						change_variable = {
+							which = consecrated_variable
+							value = -2
+						}
+					}
+				}
+				consecrated_quality_1 = {
+					remove_modifier = consecrated_quality_1
+					from = {
+						change_variable = {
+							which = consecrated_variable
+							value = -1
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						has_planet_flag = holy_world_1
+						has_planet_flag = holy_world_2
+						has_planet_flag = holy_world_3
+						has_planet_flag = holy_world_4
+					}
+					any_country = { has_country_flag = fallen_empire_2 }
+				}
+				random_country = {
+					limit = { has_country_flag = fallen_empire_2 }
+					remove_opinion_modifier = { # Currently removes all instances of this modifier, even if several have been added
+						who = from
+						modifier = opinion_worships_our_holy_world
+					}
+				}
+			}
+			from = {
+				recalculate_consecrated_world_modifier = yes
+				custom_tooltip = recalculates_consecrated_modifier
+			}
+		}
+	}
+}

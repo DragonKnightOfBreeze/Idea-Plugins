@@ -1,0 +1,36 @@
+artifact_league_research = {
+	resources = {
+		category = artifact_actions
+		cost = {
+			minor_artifacts = 50
+		}
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+
+	potential = {
+		OR = {
+			has_country_flag = league_world_found
+			any_owned_planet = {
+				has_modifier = first_league_homeworld
+			}
+		}
+
+		NOT = { has_country_flag = league_research_started } 
+	}
+	
+	effect = {
+		enable_special_project = {
+			name = "LEAGUE_SECRETS"
+			location = capital_scope
+			owner = ROOT
+		}
+		
+		hidden_effect = {
+			set_country_flag = league_research_started
+			country_event = { id = ancrel.10040 }
+		}
+	}
+}

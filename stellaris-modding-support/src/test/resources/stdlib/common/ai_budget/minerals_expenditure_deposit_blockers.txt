@@ -1,0 +1,51 @@
+minerals_expenditure_deposit_blockers = {
+	resource = minerals 
+	type = expenditure
+	category = deposit_blockers
+	
+	potential = {
+		any_owned_planet = {
+			OR = {
+				has_deposit = d_ruined_arcology
+				AND = {
+					OR = {
+						has_deposit = d_buried_lithoids
+						has_deposit = d_hibernating_lithoids
+					}
+					is_homeworld = yes
+				}
+			}
+		}
+	}
+	
+	fraction = {
+		weight = 0.3
+		modifier = {
+			factor = 5
+
+			# if we have any planet that is currently completely blocked
+			any_owned_planet = {
+				OR = {
+					has_deposit = d_ruined_arcology
+					AND = {
+						OR = {
+							has_deposit = d_buried_lithoids
+							has_deposit = d_hibernating_lithoids
+						}
+						is_homeworld = yes
+					}
+				}
+				num_free_districts = { type = any value < 1 }
+			}
+		}
+	}
+
+	# base remove blocker cost
+	static_min = {
+		base = 250
+	}
+
+	static_max = {
+		base = 1000
+	}
+}

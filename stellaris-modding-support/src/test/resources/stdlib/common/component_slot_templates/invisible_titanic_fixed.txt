@@ -1,0 +1,5 @@
+invisible_titanic_fixed = {
+	size = titanic
+	component = weapon
+	is_fixed = yes
+}

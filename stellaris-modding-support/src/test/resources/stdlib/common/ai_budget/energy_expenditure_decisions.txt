@@ -1,0 +1,22 @@
+energy_expenditure_decisions = {
+	resource = energy 
+	type = expenditure
+	category = decisions
+	
+	potential = {
+		# only consider these kinds of decisions when "wealthy"
+		has_resource = { 
+			type = energy 
+			amount > 5000
+		}
+	}
+	
+	fraction = {
+		weight = 0.20
+	}
+
+	# based on mastery of nature decision
+	static_max = {
+		base = 2000
+	}
+}

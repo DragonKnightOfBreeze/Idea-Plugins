@@ -1,0 +1,13 @@
+triggered_opinion_crime_corp = {
+	trigger = {
+		is_gestalt = no
+		is_megacorp = no
+		FROM = {
+			is_criminal_syndicate = yes
+		}
+	}
+
+	opinion = {
+		base = -25
+	}
+}

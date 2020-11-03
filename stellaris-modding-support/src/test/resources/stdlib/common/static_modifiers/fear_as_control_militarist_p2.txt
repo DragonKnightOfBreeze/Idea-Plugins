@@ -1,0 +1,3 @@
+fear_as_control_militarist_p2 = {
+	leaders_cost_mult = 0.20
+}

@@ -1,0 +1,3 @@
+planet_overcrowded = {
+	planet_emigration_push_add = 50
+}

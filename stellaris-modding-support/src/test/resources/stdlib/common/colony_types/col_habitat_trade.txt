@@ -1,0 +1,32 @@
+col_habitat_trade = {
+	icon = 21
+
+	potential = {
+		uses_district_set = habitat
+		exists = owner
+		owner = { is_gestalt = no }
+	}
+	planet_modifier = {
+		planet_districts_hab_trade_cost_mult = -0.1
+		trade_value_mult = 0.20
+	}
+	weight_modifier = {
+		base = 300
+		modifier = {
+			factor = 2
+			owner = { has_monthly_income = { resource = energy value < 0 } }
+		}
+		modifier = {
+			factor = 0.1
+			has_planet_flag = energy_habitat
+		}
+		modifier = {
+			factor = 3
+			has_designation = col_habitat_trade
+		}
+		modifier = {
+			factor = 3
+			num_districts = { type = district_hab_commercial value >= 3 }
+		}
+	}
+}

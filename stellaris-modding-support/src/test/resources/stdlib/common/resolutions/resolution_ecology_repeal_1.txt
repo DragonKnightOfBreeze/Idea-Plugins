@@ -1,0 +1,69 @@
+resolution_ecology_repeal_1 = {
+	icon = "GFX_repeal_blue"
+
+	resources = {
+		category = resolutions
+		cost = {
+			influence = @resolution_cost_t1
+		}
+	}
+	target = no
+
+	effect = {
+		custom_tooltip = resolution_ecology_repeal_1_effect_success
+
+		hidden_effect = {
+			set_timed_country_flag = { flag = galactic_community_resolution_passed_ecology_repeal days = @resolution_flag_timer }
+			add_modifier = {
+				modifier = resolution_passed_diplomatic_weight
+				days = 2200
+			}
+		}
+	}
+
+	fail_effects = {
+		hidden_effect = {
+			set_timed_country_flag = { flag = galactic_community_resolution_failed_ecology_repeal days = @resolution_flag_timer }
+			add_modifier = {
+				modifier = resolution_failed_diplomatic_weight
+				days = 2200
+			}
+		}
+	}
+
+	potential = {
+		is_active_resolution = "resolution_ecology_recycling_initiatives"
+	}
+
+	ai_weight = {
+		weight = @resolution_weight_unpopular
+
+		modifier = {
+			factor = 0
+			has_valid_civic = civic_environmentalist
+		}
+
+		modifier = {
+			factor = 0.25
+			has_valid_civic = civic_agrarian_idyll
+		}
+
+		modifier = {
+			factor = 2
+			OR = {
+				has_valid_civic = civic_mining_guilds
+				has_valid_civic = civic_machine_rockbreakers
+			}
+		}
+
+		modifier = {
+			factor = 1.2
+			country_uses_food = no
+		}
+
+		modifier = {
+			factor = 1.2
+			is_lithoid_empire = yes
+		}
+	}
+}

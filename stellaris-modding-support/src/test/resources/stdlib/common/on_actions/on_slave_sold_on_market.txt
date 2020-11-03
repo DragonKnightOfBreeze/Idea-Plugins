@@ -1,0 +1,2 @@
+on_slave_sold_on_market = {
+}

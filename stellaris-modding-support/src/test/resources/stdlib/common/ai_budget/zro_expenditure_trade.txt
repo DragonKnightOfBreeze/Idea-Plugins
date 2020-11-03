@@ -1,0 +1,13 @@
+zro_expenditure_trade = {
+	resource = sr_zro 
+	type = expenditure
+	category = trade
+	
+	potential = {
+		always = yes
+	}
+	
+	fraction = {
+		weight = 0.1
+	}	
+}

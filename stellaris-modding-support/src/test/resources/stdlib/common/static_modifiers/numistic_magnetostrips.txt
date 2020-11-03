@@ -1,0 +1,5 @@
+numistic_magnetostrips = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_robots.dds"
+	icon_frame = 1
+	planet_pops_robotics_upkeep_mult = -0.1
+}

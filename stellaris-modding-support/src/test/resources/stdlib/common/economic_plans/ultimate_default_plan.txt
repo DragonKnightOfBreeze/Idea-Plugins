@@ -1,0 +1,82 @@
+ultimate_default_plan = {
+	type = ultimate
+
+	income = {
+		energy = 100
+		minerals = 500
+		alloys = 500
+		unity = 300
+
+		physics_research = 6000
+		society_research = 6000
+		engineering_research = 6000
+
+		exotic_gases = 3
+		volatile_motes = 3
+		rare_crystals = 3
+		sr_living_metal = 3
+		sr_zro = 3
+		sr_dark_matter = 3
+	}
+
+	focus = {
+		energy = 50
+		minerals = 100
+		alloys = 200
+	}
+
+	subplan = {
+		potential = {
+			country_uses_consumer_goods = yes
+			country_uses_food = yes
+		}
+
+		income = {
+			food = 200
+			consumer_goods = 200
+		}
+
+		focus = {
+			food = 50
+			consumer_goods = 50
+		}
+	}
+
+	subplan = {
+		potential = {
+			country_uses_consumer_goods = yes
+			country_uses_food = no
+		}
+
+		income = {
+			consumer_goods = 200
+		}
+
+		focus = {
+			consumer_goods = 50
+		}
+	}
+
+	# increased food goals for hiveminds
+	subplan = {
+		potential = {
+			country_uses_consumer_goods = no
+			country_uses_food = yes
+		}
+
+		income = {
+			food  = 200
+		}
+
+		focus = {
+			food = 50
+		}
+	}
+
+	pops = 10000
+	empire_size = 1.5
+
+	ai_weight = {
+		weight = 0.5
+	}
+}

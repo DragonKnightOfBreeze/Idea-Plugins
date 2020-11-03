@@ -1,0 +1,193 @@
+building_foundry_1 = {
+	base_buildtime = @b1_time
+
+	category = manufacturing
+
+	potential = {
+		NOT = { has_modifier = resort_colony }
+		NOT = { has_modifier = slave_colony }
+		OR = {
+			building_relaxed_basic_income_check = yes
+			AND = {
+				num_buildings = { type = building_foundry_1 value < 5 }
+				is_capital = yes
+				owner = {
+					OR = {
+						country_uses_consumer_goods = no
+						country_uses_food = no
+					}
+				}
+			}
+		}
+	}
+
+	destroy_trigger = {
+		OR = {
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		modifier = {
+			job_alloy_drone_add = @b1_jobs
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			job_fabricator_add = @b1_jobs
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_foundry_add = @b1_jobs
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b1_minerals
+		}
+		upkeep = {
+			energy = @b1_upkeep
+		}
+	}
+
+	upgrades = {
+		building_foundry_2
+	}
+
+	prerequisites = {
+		tech_basic_industry
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		text = job_foundry_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		text = job_alloy_drone_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		text = job_fabricator_effect_desc
+	}
+
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = 10
+			OR = {
+				planet_crime < 15
+				has_building = building_hall_judgment
+			}
+			is_capital = no
+			free_amenities > 2
+			owner = {
+				has_monthly_income = {
+					resource = minerals
+					value > 100
+				}
+				has_monthly_income = {
+					resource = alloys
+					value < 100
+				}
+				has_monthly_income = {
+					resource = alloys
+					value > 6
+				}#Check for alloy shutdown
+			}
+		}
+		modifier = {
+			weight = 200
+			planet = {
+				is_capital = yes
+				NOR = {
+					has_building = building_foundry_2
+					has_building = building_foundry_3
+				}
+				num_buildings = { type = building_foundry_1 value < 3 }
+				has_building_construction = no
+			}
+		}
+		modifier = {
+			weight = 400
+			NOR = {
+				num_buildings = { type = building_foundry_1 value > 1 }
+				has_building = building_foundry_2
+				has_building = building_foundry_3
+			}
+			OR = {
+				NOT = { has_building = building_foundry_1 }
+				AND = {
+					owner = {
+						OR = {
+							has_monthly_income = {
+								resource = consumer_goods
+								value > 0
+							}
+							country_uses_consumer_goods = no
+						}
+					}
+					owner = {
+						has_ai_personality_behaviour = conqueror
+						OR = {
+							has_ai_personality_behaviour = opportunist
+							has_ai_personality_behaviour = purger
+							has_ai_personality_behaviour = propagator
+						}
+					}#Agressive empires but not robot liberators as they tend to be erudite explorers and the like.
+				}#Give agressive empires 2 alloy factories on planets early on.
+			}
+		}
+		modifier = {
+			factor = 0.5
+			free_jobs > 3
+		}
+		modifier = {
+			factor = 1.5
+			owner = {
+				has_origin = origin_void_dwellers
+			}
+		}
+		modifier = {
+			weight = 500
+			has_building = building_foundry_1
+			free_building_slots = 0
+		}#Repairs
+	}
+
+	ai_resource_production = {
+		alloys = 1
+		trigger = {
+			always = yes
+		}
+	}
+}

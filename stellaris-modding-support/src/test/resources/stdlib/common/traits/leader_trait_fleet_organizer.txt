@@ -1,0 +1,15 @@
+leader_trait_fleet_organizer = {
+	cost = 1
+	modification = no
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_fleet_organizer.dds"
+	leader_potential_add = {
+		NOT = { from = { has_ethic = "ethic_gestalt_consciousness" } }
+	}
+	modifier = {
+		country_naval_cap_mult = 0.15
+	}
+	leader_trait = { ruler }
+	leader_class = { ruler }
+	prerequisites = { tech_doctrine_fleet_size_2 }
+	opposites = { "leader_trait_nervous" }
+}

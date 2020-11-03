@@ -1,0 +1,20 @@
+trait_robot_superconductive = {
+	cost = 2
+
+	allowed_archetypes = { ROBOT MACHINE }
+
+	# Droids and Machine only
+	species_potential_add = {
+		exists = from
+		from = {
+			OR = {
+				has_authority = auth_machine_intelligence
+				has_technology = tech_droid_workers
+			}
+		}
+	}
+
+	modifier = {
+		planet_jobs_energy_produces_mult = 0.15
+	}
+}

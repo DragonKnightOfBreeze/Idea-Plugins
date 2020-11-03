@@ -1,0 +1,59 @@
+ap_engineered_evolution = {
+	on_enabled = {
+		add_research_option = tech_gene_seed_purification
+		hidden_effect = {
+			country_event = { id = utopia.2700 }
+		}
+	}
+	possible = {
+		custom_tooltip = {
+			fail_text = "synthetic_empire_biological_ascension"
+			NOT = { has_trait = trait_mechanical }
+		}
+		custom_tooltip = {
+			fail_text = "requires_ascension_perks_1"
+			num_ascension_perks > 0
+		}
+		custom_tooltip = {
+			fail_text = "requires_technology_gene_tailoring"
+			has_technology = tech_gene_tailoring
+		}
+		custom_tooltip = {
+			fail_text = "requires_not_ap_the_flesh_is_weak"
+			NOT = { has_ascension_perk = ap_the_flesh_is_weak }
+		}
+		custom_tooltip = {
+			fail_text = "requires_not_ap_mind_over_matter"
+			NOT = { has_ascension_perk = ap_mind_over_matter }
+		}
+	}
+	modifier = {
+		description = ap_engineered_evolution_modifier_desc
+		description_parameters = {
+			POINTS = @ap_engineered_evolution_POINTS
+			COST_MULT = @ap_engineered_evolution_COST_MULT
+		}
+
+		BIOLOGICAL_species_trait_points_add = @ap_engineered_evolution_POINTS
+
+		modify_species_cost_mult = @ap_engineered_evolution_COST_MULT
+	}
+
+	potential = {
+		host_has_dlc = "Utopia"
+		NOT = {
+			has_ascension_perk = ap_engineered_evolution
+			has_authority = "auth_machine_intelligence"
+		}
+		is_mechanical_empire = no
+		is_cyborg_empire = no
+	}
+
+	ai_weight = {
+		factor = 10
+		modifier = {
+			factor = 0
+			num_owned_planets < 10
+		}
+	}
+}

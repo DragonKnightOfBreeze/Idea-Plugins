@@ -1,0 +1,8 @@
+extra_large_turret = {
+	size = extra_large
+	component = weapon
+	entities = {
+		weapon_type_kinetic = "turret_xl_entity"
+		weapon_type_energy = "turret_xl_entity"
+	}
+}

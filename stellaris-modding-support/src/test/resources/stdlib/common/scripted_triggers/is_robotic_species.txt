@@ -1,0 +1,8 @@
+is_robotic_species = {
+	species = {
+		OR = {
+			is_archetype = ROBOT
+			is_archetype = MACHINE
+		}
+	}
+}

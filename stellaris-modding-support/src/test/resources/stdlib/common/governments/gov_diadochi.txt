@@ -1,0 +1,13 @@
+gov_diadochi = {
+	ruler_title = RT_KHAN
+	
+	should_force_rename = yes
+
+	possible = {
+		has_civic = civic_diadochi
+	}
+
+	weight = {
+		base = 100000
+	}
+}

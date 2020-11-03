@@ -1,0 +1,31 @@
+living_standard_deassimilation = {
+	token = living_standard_deassimilation
+	name = living_standard_deassimilation
+
+	pop_modifier = {}
+
+	potential = {
+		host_has_dlc = "Utopia"
+		exists = from
+		has_trait = trait_hive_mind
+		from = {
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+			has_ascension_perk = ap_evolutionary_mastery
+		}
+	}
+
+	allow = {
+		hidden_trigger = { exists = from }
+		custom_tooltip = {
+			fail_text = SPECIES_MUST_BE_ASSIMILATING
+			has_citizenship_type = {
+				type = citizenship_assimilation
+				country = from
+			}
+		}
+	}
+
+	ai_will_do = {
+		factor = 100
+	}
+}

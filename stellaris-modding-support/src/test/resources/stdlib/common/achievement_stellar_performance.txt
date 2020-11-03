@@ -1,0 +1,12 @@
+achievement_stellar_performance = {
+	id = 30
+
+	possible = {
+		is_ironman = yes
+		has_leviathans = yes
+	}
+
+	happened = {
+		has_country_flag = stellarite_trophy_allowed
+	}
+}

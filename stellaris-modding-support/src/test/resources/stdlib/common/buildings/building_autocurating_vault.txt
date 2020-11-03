@@ -1,0 +1,97 @@
+building_autocurating_vault = {
+	base_buildtime = @b2_time
+	base_cap_amount = 1
+
+	category = unity
+
+	potential = {
+		exists = owner
+		building_basic_income_check = yes
+		NOT = { has_modifier = slave_colony }
+		owner = {
+			is_machine_empire = no
+			is_spiritualist = no
+			is_megacorp = no
+		}
+	}
+
+	allow = {
+		has_fully_upgraded_capital = yes
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			has_modifier = slave_colony
+			buildings_no_crystals = yes
+	 		owner = {
+				OR = {
+					is_machine_empire = yes
+					is_spiritualist = yes
+					is_megacorp = yes
+				}
+			}
+		}
+	}
+
+	convert_to = {
+		building_citadel_of_faith
+		building_alpha_hub
+		building_corporate_vault
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b2_minerals
+			rare_crystals = @b2_rare_cost
+		}
+		upkeep = {
+			energy = @b2_upkeep
+			rare_crystals = @b2_rare_upkeep
+		}
+		produces = {
+			unity = 10
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = no }
+		}
+		planet_culture_workers_produces_mult = 0.15
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		planet_synapse_drones_unity_produces_mult = 0.15
+	}
+
+	prerequisites = {
+		"tech_autocurating_vault"
+	}
+
+	show_tech_unlock_if = {
+		is_machine_empire = no
+		is_spiritualist = no
+		is_megacorp = no
+	}
+
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = 1
+			buildings_has_crystals = yes
+			owner = {
+				has_monthly_income = {
+					resource = consumer_goods
+					value > 8
+				}
+			}
+		}
+	}
+}

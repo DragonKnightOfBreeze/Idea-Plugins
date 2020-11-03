@@ -1,0 +1,14 @@
+create_pirate_base_1 = {
+	create_fleet = {
+		name = "NAME_Pirate_Station"
+		effect = {
+			set_owner = event_target:pirate_band
+			create_ship = {
+				name = random
+				design = "NAME_Pirate_Nest"
+				graphical_culture = "pirate_01"
+			}
+			set_location = event_target:pirate_home
+		}
+	}
+}

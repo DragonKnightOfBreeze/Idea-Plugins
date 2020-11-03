@@ -1,0 +1,68 @@
+col_rural = {
+	icon = 13
+
+	potential = {
+		exists = owner
+		owner = { is_gestalt = no }
+		NOR = {
+			uses_district_set = habitat
+			uses_district_set = ring_world
+			uses_district_set = city_world
+		}
+		is_special_colony_type = no
+	}
+
+	planet_modifier = {
+		planet_district_farming_build_speed_mult = 0.25
+		planet_district_generator_build_speed_mult = 0.25
+		planet_district_mining_build_speed_mult = 0.25
+		planet_jobs_worker_produces_mult = 0.05
+	}
+
+	weight_modifier = {
+		modifier = {
+			add = 1
+			OR = {
+				AND = {
+					num_free_districts = { type = district_mining value <= @free_districts_low_threshold }
+					num_free_districts = { type = district_farming value <= @free_districts_low_threshold }
+					num_free_districts = { type = district_generator value <= @free_districts_low_threshold }
+					num_free_districts = { type = district_city value < @free_districts_high_threshold }
+				}
+				AND = {
+					num_free_districts = { type = district_farming value > @free_districts_low_threshold }
+					num_free_districts = { type = district_generator value > @free_districts_low_threshold }
+					num_free_districts = { type = district_city value < @free_districts_high_threshold }
+				}
+				AND = {
+					num_free_districts = { type = district_mining value > @free_districts_low_threshold }
+					num_free_districts = { type = district_generator value > @free_districts_low_threshold }
+					num_free_districts = { type = district_city value < @free_districts_high_threshold }
+				}
+				AND = {
+					num_free_districts = { type = district_mining value > @free_districts_low_threshold }
+					num_free_districts = { type = district_farming value > @free_districts_low_threshold }
+					num_free_districts = { type = district_city value < @free_districts_high_threshold }
+				}
+			}
+		}
+		modifier = {
+			add = 1
+			num_districts = { type = district_mining value > @built_districts_low_threshold }
+			num_districts = { type = district_farming value > @built_districts_low_threshold }
+			num_districts = { type = district_generator value > @built_districts_low_threshold }
+			num_districts = { type = district_city value <= @built_districts_medium_threshold }
+		}
+		modifier = {
+			add = 3
+			num_districts = { type = district_mining value > @built_districts_medium_threshold }
+			num_districts = { type = district_farming value > @built_districts_medium_threshold }
+			num_districts = { type = district_generator value > @built_districts_medium_threshold }
+			num_districts = { type = district_city value <= @built_districts_high_threshold }
+		}
+		modifier = {
+			add = 1
+			has_designation = col_rural
+		}
+	}
+}

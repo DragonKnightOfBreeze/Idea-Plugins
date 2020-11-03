@@ -1,0 +1,3 @@
+draconic_beats = {
+	damage_vs_country_type_guardian_dragon_mult = 0.25
+}

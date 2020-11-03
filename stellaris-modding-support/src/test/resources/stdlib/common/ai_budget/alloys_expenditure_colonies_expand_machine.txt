@@ -1,0 +1,23 @@
+alloys_expenditure_colonies_expand_machine = {
+	resource = alloys
+	type = expenditure
+	category = colonies
+
+	potential = {
+		is_machine_empire = yes
+		is_at_war = no
+		ai_colonize_plans > 0
+	}
+
+	fraction = {
+		weight = 0.5
+	}
+
+	static_min = {
+		base = 400
+	}
+
+	static_max = {
+		base = 450
+	}
+}

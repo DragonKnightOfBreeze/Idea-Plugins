@@ -1,0 +1,7 @@
+on_war_lost = {
+	events = {
+		action.38
+		fallen_empires.2
+		fallen_empires.12
+	}
+}

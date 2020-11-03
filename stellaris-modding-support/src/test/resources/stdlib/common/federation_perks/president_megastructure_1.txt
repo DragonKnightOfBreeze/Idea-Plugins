@@ -1,0 +1,5 @@
+president_megastructure_1 = {
+	leader_modifier = {
+		country_megastructure_build_cap_add = 1
+	}
+}

@@ -1,0 +1,3 @@
+planet_deposits = {
+	parent = planets
+}

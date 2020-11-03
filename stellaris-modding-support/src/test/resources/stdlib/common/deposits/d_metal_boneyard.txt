@@ -1,0 +1,30 @@
+d_metal_boneyard = {
+	is_for_colonizeable = yes
+	category = deposit_cat_rare
+	
+	planet_modifier = {
+		district_mining_max = 4
+		planet_jobs_society_research_produces_mult = 0.10
+	}
+	
+	drop_weight = {
+		weight = 0
+	}
+} 
+
+d_migrating_forests = {
+	is_for_colonizeable = yes
+	category = deposit_cat_rare
+	
+	icon = d_huge_tree
+	
+	planet_modifier = {
+		district_mining_max = -1
+		district_farming_max = -1
+		district_generator_max = -1
+	}
+	
+	drop_weight = {
+		weight = 0
+	}
+}

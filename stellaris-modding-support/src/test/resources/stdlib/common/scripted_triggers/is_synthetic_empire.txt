@@ -1,0 +1,6 @@
+is_synthetic_empire = {
+	OR = {
+		has_country_flag = synthetic_empire
+		has_authority = auth_machine_intelligence
+	}
+}

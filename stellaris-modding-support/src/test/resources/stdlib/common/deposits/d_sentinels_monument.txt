@@ -1,0 +1,16 @@
+d_sentinels_monument = {
+	is_for_colonizeable = yes
+	category = deposit_cat_rare
+
+	icon = d_monument
+	resources = {
+		category = planet_deposits
+		produces = {
+			unity = 15
+		}
+	}
+	drop_weight = {
+		weight = 0
+		#Event deposit
+	}
+}

@@ -1,0 +1,164 @@
+recalculate_consecrated_world_modifier = {
+	switch = {
+		trigger = has_modifier
+		consecrated_modifier_12 = { remove_modifier = consecrated_modifier_12 }
+		consecrated_modifier_11 = { remove_modifier = consecrated_modifier_11 }
+		consecrated_modifier_10 = { remove_modifier = consecrated_modifier_10 }
+		consecrated_modifier_9 = { remove_modifier = consecrated_modifier_9 }
+		consecrated_modifier_8 = { remove_modifier = consecrated_modifier_8 }
+		consecrated_modifier_7 = { remove_modifier = consecrated_modifier_7 }
+		consecrated_modifier_6 = { remove_modifier = consecrated_modifier_6 }
+		consecrated_modifier_5 = { remove_modifier = consecrated_modifier_5 }
+		consecrated_modifier_4 = { remove_modifier = consecrated_modifier_4 }
+		consecrated_modifier_3 = { remove_modifier = consecrated_modifier_3 }
+		consecrated_modifier_2 = { remove_modifier = consecrated_modifier_2 }
+		consecrated_modifier_1 = { remove_modifier = consecrated_modifier_1 }
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = consecrated_variable
+				value >= 12
+			}
+		}
+		add_modifier = {
+			modifier = consecrated_modifier_12
+			days = -1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				which = consecrated_variable
+				value = 11
+			}
+		}
+		add_modifier = {
+			modifier = consecrated_modifier_11
+			days = -1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				which = consecrated_variable
+				value = 10
+			}
+		}
+		add_modifier = {
+			modifier = consecrated_modifier_10
+			days = -1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				which = consecrated_variable
+				value = 9
+			}
+		}
+		add_modifier = {
+			modifier = consecrated_modifier_9
+			days = -1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				which = consecrated_variable
+				value = 8
+			}
+		}
+		add_modifier = {
+			modifier = consecrated_modifier_8
+			days = -1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				which = consecrated_variable
+				value = 7
+			}
+		}
+		add_modifier = {
+			modifier = consecrated_modifier_7
+			days = -1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				which = consecrated_variable
+				value = 6
+			}
+		}
+		add_modifier = {
+			modifier = consecrated_modifier_6
+			days = -1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				which = consecrated_variable
+				value = 5
+			}
+		}
+		add_modifier = {
+			modifier = consecrated_modifier_5
+			days = -1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				which = consecrated_variable
+				value = 4
+			}
+		}
+		add_modifier = {
+			modifier = consecrated_modifier_4
+			days = -1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				which = consecrated_variable
+				value = 3
+			}
+		}
+		add_modifier = {
+			modifier = consecrated_modifier_3
+			days = -1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				which = consecrated_variable
+				value = 2
+			}
+		}
+		add_modifier = {
+			modifier = consecrated_modifier_2
+			days = -1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				which = consecrated_variable
+				value = 1
+			}
+		}
+		add_modifier = {
+			modifier = consecrated_modifier_1
+			days = -1
+		}
+	}
+	else = {
+		# nothing
+	}
+}

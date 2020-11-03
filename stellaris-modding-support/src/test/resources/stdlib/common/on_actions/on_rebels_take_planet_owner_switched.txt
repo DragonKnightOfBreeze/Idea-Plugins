@@ -1,0 +1,5 @@
+on_rebels_take_planet_owner_switched = {
+	events = {
+		action.36
+	}
+}

@@ -1,0 +1,16 @@
+col_ecu_mix = {
+	icon = 1
+
+	potential = {
+		uses_district_set = city_world
+	}
+
+
+	planet_modifier = {
+		planet_districts_cost_mult = -0.05
+	}
+
+	weight_modifier = {
+		base = 10
+	}
+}

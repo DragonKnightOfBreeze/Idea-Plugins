@@ -1,0 +1,56 @@
+tech_manifest_destiny = {
+	cost = @tier4cost2
+	area = society
+	category = { new_worlds }
+	tier = 4
+	prerequisites = { "tech_galactic_ambitions" }
+	weight = @tier4weight2
+
+	modifier = {
+		country_starbase_capacity_add = 2
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 2
+			num_communications > 2
+		}
+		modifier = {
+			factor = 2
+			num_communications > 3
+		}
+		modifier = {
+			factor = 2
+			num_communications > 4
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_new_worlds"
+			}
+		}
+		modifier = {
+			factor = 0
+			num_communications < 1
+		}
+	}
+
+	ai_weight = {
+		modifier = {
+			factor = 1.5
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 2
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_new_worlds"
+			}
+		}
+	}
+}

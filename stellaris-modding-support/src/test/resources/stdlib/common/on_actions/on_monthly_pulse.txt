@@ -1,0 +1,36 @@
+on_monthly_pulse = {
+	events = {
+		unrest.162
+		unrest.164
+		marauder.511 # Great Khan Dies
+		#marauder.11 # Marauder infighting - commented out for now
+		crisis.120 # Feral Prethoryn
+		crisis.123 # Feral Prethoryn infighting
+		marauder.113
+		leviathans.170
+		action.85 # flip planets to starbase owner
+		marauder.150 # AI hires Marauder raids
+		marauder.151 # AI hires Marauder mercs
+		action.92 # make sure the swarm infests
+		action.93 # make sure extradimensionals have no planets
+		action.90 # rebuild outpost for orphaned colonies
+		unrest.166
+		apoc.301
+		distar.1082
+		distar.5014
+		distar.5001
+		distar.301
+		graygoo.183
+		graygoo.510
+		distar.10955
+		action.116 # enable resources for galactic market
+		pirate.48
+		pirate.4
+		crime.1000
+		origin.50
+		origin.30
+		galcom.105
+		galcom.108
+		galactic_features.365 # Tiyanki Respawning
+	}
+}

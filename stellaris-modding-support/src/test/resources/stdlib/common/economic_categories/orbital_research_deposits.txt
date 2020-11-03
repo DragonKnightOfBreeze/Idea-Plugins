@@ -1,0 +1,3 @@
+orbital_research_deposits = {
+	parent = station_researchers
+}

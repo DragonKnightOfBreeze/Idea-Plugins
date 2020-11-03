@@ -1,0 +1,9 @@
+trait_quick_learners = {
+	cost = 1
+	potential_crossbreeding_chance = 1.0
+	opposites = { "trait_slow_learners" }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	modifier = {
+		species_leader_exp_gain = 0.25
+	}
+}

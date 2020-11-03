@@ -1,0 +1,4 @@
+on_late_game_pulse_country = {
+	events = {
+	}
+}

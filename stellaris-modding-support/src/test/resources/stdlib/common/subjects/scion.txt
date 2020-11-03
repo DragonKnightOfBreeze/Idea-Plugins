@@ -1,0 +1,22 @@
+scion = {
+	can_expand = yes
+	can_be_integrated = no
+	joins_overlord_wars = yes
+	calls_overlord_to_war = no
+	can_do_diplomacy = yes
+	gets_sensor = no
+	gets_access = no
+	
+	diplo_threat = 0.75
+
+	potential = {
+		has_origin = origin_scion
+		from = {
+			has_country_flag = scion_master
+			is_country_type = fallen_empire 
+		}
+	}
+	
+	effect = {
+	}	
+}

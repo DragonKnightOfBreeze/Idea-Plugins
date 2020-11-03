@@ -1,0 +1,6 @@
+planet_bio_trophies = {
+	parent = planet_jobs
+	generate_mult_modifiers = {
+		produces
+	}
+}

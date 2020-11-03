@@ -1,0 +1,5 @@
+ancient_harvesters = { 
+	planet_jobs_food_produces_mult = 0.20
+	icon = "gfx/interface/icons/planet_modifiers/pm_lush.dds"
+	icon_frame = 1
+}

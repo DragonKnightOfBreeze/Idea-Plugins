@@ -1,0 +1,14 @@
+debris_asteroid_category = {
+	desc = "debris_asteroid_category_desc"
+	picture = GFX_evt_mining_station
+	level = 3
+	
+	spawn_chance = {		
+		modifier = {
+			add = 3
+			is_asteroid = yes
+		}
+	}
+
+	on_success = anomaly.30
+}

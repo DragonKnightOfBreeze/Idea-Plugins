@@ -1,0 +1,11 @@
+opinion_refused_fallen_empire_request = {
+	opinion = {
+		base = -50
+	}
+
+	min = -100
+
+	decay = {
+		base = 1
+	}
+}

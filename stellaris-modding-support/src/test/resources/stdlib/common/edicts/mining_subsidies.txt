@@ -1,0 +1,35 @@
+mining_subsidies = {
+	length = @EdictPerpetual
+	icon = "GFX_edict_type_policy"
+	edict_cap_usage = 1
+
+	resources = {
+		category = edicts
+		cost = { #Activation Cost
+			trigger = {
+				NOT = { has_edict = mining_subsidies }			
+			}
+			influence = 200
+		}
+		cost = { #Deactivation Cost
+			trigger = {
+				has_edict = mining_subsidies
+			}
+			influence = 100
+		}
+	}
+
+	modifier = {
+		planet_miners_produces_mult = 0.20 # Note: Also affects organic special resource miners!
+		custom_tooltip = edict_mining_subsidies_tooltip
+		show_only_custom_tooltip = no
+	}
+
+	prerequisites = {
+		"tech_mineral_purification_1"
+	}
+
+	ai_weight = {
+		weight = @EdictMedPrio
+	}
+}

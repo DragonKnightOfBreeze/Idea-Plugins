@@ -1,0 +1,3 @@
+planet_telepaths = {
+	parent = planet_enforcers
+}

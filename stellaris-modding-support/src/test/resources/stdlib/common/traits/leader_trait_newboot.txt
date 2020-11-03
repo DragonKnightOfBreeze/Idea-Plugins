@@ -1,0 +1,15 @@
+leader_trait_newboot = {
+	cost = 1
+	modification = no
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_eager.dds"
+	self_modifier = {
+		leaders_cost_mult = -0.50
+		leaders_upkeep_mult = -0.50
+	}
+	leader_potential_add = {
+		NOT = { leader_class = ruler}
+		from = { has_authority = "auth_machine_intelligence" }
+	}
+	leader_class = { admiral scientist general governor }
+	leader_trait = all
+}

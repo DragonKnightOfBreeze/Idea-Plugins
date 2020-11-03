@@ -1,0 +1,37 @@
+appropriation = {
+	potential = {
+		has_comms_with_alien_empire = yes
+		NOT = { has_ethic = ethic_gestalt_consciousness }
+	}
+
+	option = {
+		name = "appropriation_not_allowed"
+
+		policy_flags = {
+			appropriation_not_allowed
+		}
+
+		AI_weight = {
+			modifier = {
+				factor = 10
+				has_ai_personality_behaviour = multispecies
+			}
+		}
+	}
+
+	option = {
+		name = "appropriation_allowed"
+
+		policy_flags = {
+			appropriation_allowed
+		}
+		modifier = {}
+
+		AI_weight = {
+			modifier = {
+				factor = 10
+				NOT = { has_ai_personality_behaviour = multispecies }
+			}
+		}
+	}
+}

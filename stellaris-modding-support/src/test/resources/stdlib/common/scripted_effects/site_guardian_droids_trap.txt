@@ -1,0 +1,8 @@
+site_guardian_droids_trap = {
+	random_list = {
+		5 = { fleet_event = { id = ancrel.8030 } }
+		25 = { fleet_event = { id = ancrel.8031 } }
+		25 = { fleet_event = { id = ancrel.8032 } }
+		25 = { fleet_event = { id = ancrel.8033 } }
+	}
+}

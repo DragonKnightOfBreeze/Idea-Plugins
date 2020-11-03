@@ -1,0 +1,5 @@
+unity = {
+	ai_weight = {
+		weight = 1
+	}
+}

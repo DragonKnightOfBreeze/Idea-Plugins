@@ -1,0 +1,11 @@
+opinion_spurned_fallen_empire_gift = {
+	opinion = {
+		base = -50
+	}
+
+	min = -100
+
+	decay = {
+		base = 1
+	}
+}

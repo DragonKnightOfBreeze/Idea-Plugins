@@ -1,0 +1,16 @@
+achievement_the_good_stuff = {
+	id = 35
+
+	possible = {
+		is_ironman = yes
+		has_leviathans = yes
+	}
+
+	happened = {
+		OR = {
+			has_active_xuracorp_trade = yes
+			has_active_riggan_trade = yes
+			has_active_muutagan_trade = yes
+		}
+	}
+}

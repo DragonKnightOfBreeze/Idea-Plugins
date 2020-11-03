@@ -1,0 +1,4 @@
+black_hole_energy = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_black_hole.dds"
+	icon_frame = 1
+}

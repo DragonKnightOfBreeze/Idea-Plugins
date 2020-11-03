@@ -1,0 +1,3 @@
+fleet_force_disparity_effect = {
+	force_disparity_fire_rate_mult = 0.5
+}

@@ -1,0 +1,10 @@
+complex_worker_job_check_trigger = {
+	worker_job_check_trigger = yes
+	hidden_trigger = {
+		exists = owner
+		OR = {
+			NOT = { has_trait = trait_mechanical }
+			owner = { has_technology = tech_droid_workers }
+		}
+	}
+}

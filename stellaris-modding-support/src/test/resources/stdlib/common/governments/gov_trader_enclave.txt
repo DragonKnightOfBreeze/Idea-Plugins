@@ -1,0 +1,13 @@
+gov_trader_enclave = {
+	ruler_title = RT_HIGH_TRADER
+	
+	should_force_rename = yes
+
+	possible = {
+		has_valid_civic = civic_trading_conglomerate
+	}
+
+	weight = {
+		base = 100000
+	}
+}

@@ -1,0 +1,3 @@
+shroud_neg_armor = {
+	ship_armor_mult = -0.2
+}

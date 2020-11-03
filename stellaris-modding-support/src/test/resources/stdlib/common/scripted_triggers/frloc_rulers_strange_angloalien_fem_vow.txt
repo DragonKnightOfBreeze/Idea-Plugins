@@ -1,0 +1,7 @@
+frloc_rulers_strange_angloalien_fem_vow = {
+#Ex. L'unité centrale / DE L'unité centrale / grandE unité centrale
+	OR = {
+		has_government = gov_machine_empire
+		has_government = gov_galactic_defense_unit
+	}
+}

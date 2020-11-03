@@ -1,0 +1,51 @@
+on_survey = {
+	events = {
+		action.24
+		advisor.10
+		advisor.15
+		advisor.25
+		country.52
+		progress.2
+		galactic_features.300
+		#story.307
+		anomaly.6660
+		anomaly.6661
+		anomaly.6662
+		action.12
+		tutorial.50
+		tutorial.55
+		precursor.101
+		precursor.102
+		precursor.601
+		precursor.602
+		precursor.1101
+		precursor.1102
+		precursor.1601
+		precursor.1602
+		#precursor.2102
+		#precursor.2200
+		#precursor.2201
+		leviathans.2010
+		distar.130
+		action.94 # strategic resource discovered
+		distar.256 #Phaseshifting Planet
+		#distar.11002 # distar strategic resource discovered
+		ancrel.2050
+		ancrel.6150
+		ancrel.6151
+		ancrel.9999 # Spawns Archaeology Sites
+		galactic_features.368
+	}
+
+	random_events = {
+		100 = 0
+		
+		6 = precursor.1
+		6 = precursor.500
+		6 = precursor.1000
+		6 = precursor.1500
+		6 = precursor.2000
+		15 = ancrel.2000
+		35 = ancrel.1
+	}
+}

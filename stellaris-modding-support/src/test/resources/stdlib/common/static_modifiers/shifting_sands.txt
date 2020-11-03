@@ -1,0 +1,6 @@
+shifting_sands = {
+	pop_environment_tolerance = -0.20
+	planet_buildings_cost_mult = 0.33
+	icon = "gfx/interface/icons/planet_modifiers/pm_wasteland.dds"
+	icon_frame = 3
+}

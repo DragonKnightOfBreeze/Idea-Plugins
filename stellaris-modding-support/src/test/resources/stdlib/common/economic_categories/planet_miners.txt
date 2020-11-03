@@ -1,0 +1,10 @@
+planet_miners = {
+	parent = planet_jobs
+	generate_mult_modifiers = {
+		produces
+	}
+
+	generate_add_modifiers = {
+		produces
+	}
+}

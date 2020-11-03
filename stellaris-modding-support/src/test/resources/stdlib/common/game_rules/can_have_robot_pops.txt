@@ -1,0 +1,5 @@
+can_have_robot_pops = {
+	exists = this
+	NOT = { has_authority = auth_hive_mind }
+	NOT = { has_policy_flag = robots_outlawed }
+}

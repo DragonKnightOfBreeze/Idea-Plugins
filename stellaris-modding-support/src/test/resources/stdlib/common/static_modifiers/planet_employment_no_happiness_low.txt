@@ -1,0 +1,3 @@
+planet_employment_no_happiness_low = {
+	planet_emigration_push_add = 5
+}

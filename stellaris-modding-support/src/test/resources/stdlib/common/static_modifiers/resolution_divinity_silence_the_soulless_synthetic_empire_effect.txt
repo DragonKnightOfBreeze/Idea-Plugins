@@ -1,0 +1,3 @@
+resolution_divinity_silence_the_soulless_synthetic_empire_effect = {
+	diplo_weight_mult = -0.25
+}

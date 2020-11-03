@@ -1,0 +1,20 @@
+gov_divine_empire = {
+	ruler_title = RT_GOD_EMPEROR
+	ruler_title_female = RT_GOD_EMPRESS
+	heir_title = HT_SAINT
+	heir_title_female = HT_SAINT_FEMALE
+
+	use_regnal_names = yes
+	dynastic_last_names = yes
+	
+	should_force_rename = yes
+
+	possible = {
+		has_authority = auth_imperial
+		has_valid_civic = civic_imperial_cult
+	}
+
+	weight = {
+		base = 1000
+	}
+}

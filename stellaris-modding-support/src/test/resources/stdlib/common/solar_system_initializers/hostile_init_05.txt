@@ -1,0 +1,197 @@
+hostile_init_05 = {
+	class = "rl_standard_stars"
+	
+	usage = misc_system_init
+	usage_odds = {
+		base = 2
+		modifier = {
+			factor = 0
+			NOT = { is_in_cluster = resource_cluster_1 }
+		}
+		modifier = {
+            factor = 0
+            has_star_flag = empire_cluster
+        }
+        modifier = {
+			factor = 0
+			is_bottleneck_system = yes
+		}
+	}
+	
+	flags = { hostile_system red_system }
+
+	planet = {
+		count = 1
+		class = star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = { min = 20 max = 30 }
+		has_ring = no
+	}
+	
+	change_orbit = 45
+	
+	planet = {
+		count = { min = 4 max = 8 }
+		orbit_distance = 20
+		orbit_angle = { min = 90 max = 270 }
+		
+		change_orbit = @base_moon_distance
+		
+		moon = {
+			count = { min = 0 max = 1 }
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 5
+		}
+	}
+	
+	init_effect = {
+		random_system_planet = {
+			limit = {
+				is_star = no
+				is_moon = no
+			}
+			save_event_target_as = red_trigger_1
+		}
+		random_system_planet = {
+			limit = {
+				is_star = no
+				is_moon = no
+				NOT = {
+					is_same_value = event_target:red_trigger_1
+				}
+			}
+			save_event_target_as = red_trigger_2
+		}
+		random_system_planet = {
+			limit = {
+				is_star = no
+				is_moon = no
+				NOT = {
+					is_same_value = event_target:red_trigger_1
+					is_same_value = event_target:red_trigger_2
+				}
+			}
+			save_event_target_as = red_trigger_3
+		}
+		random_system_planet = {
+			limit = {
+				is_star = no
+				is_moon = no
+				NOT = {
+					is_same_value = event_target:red_trigger_1
+					is_same_value = event_target:red_trigger_2
+					is_same_value = event_target:red_trigger_3
+				}
+			}
+			save_event_target_as = red_trigger_4
+		}
+		create_crystal_country = yes
+		event_target:crystal_country = {
+			save_event_target_as = red_crystals
+			create_fleet = {
+				name = "NAME_Ruby_Stack"
+				effect = {
+					set_owner = event_target:crystal_country
+					while = {
+						count = 3
+						create_ship = {
+							name = ""
+							design = "NAME_Large_Crystal_Entity_Red"
+						}
+					}
+					set_location = event_target:red_trigger_1
+					set_fleet_stance = aggressive
+					set_aggro_range_measure_from = return_point
+					set_aggro_range = 40
+					queue_actions = {
+						repeat = {
+							wait = {
+								duration = 9999
+							}
+						}
+					}
+				}
+			}
+			create_fleet = {
+				name = "NAME_Ruby_Stack"
+				effect = {
+					set_owner = event_target:crystal_country
+					while = {
+						count = 4
+						create_ship = {
+							name = ""
+							design = "NAME_Medium_Crystal_Entity_Red"
+						}
+					}
+					set_location = event_target:red_trigger_2
+					set_fleet_stance = aggressive
+					set_aggro_range_measure_from = return_point
+					set_aggro_range = 30
+					queue_actions = {
+						repeat = {
+							wait = {
+								duration = 9999
+							}
+						}
+					}
+				}
+			}
+			create_fleet = {
+				name = "NAME_Ruby_Stack"
+				effect = {
+					set_owner = event_target:crystal_country
+					while = {
+						count = 11
+						create_ship = {
+							name = ""
+							design = "NAME_Small_Crystal_Entity_Red"
+						}
+					}
+					set_location = event_target:red_trigger_3
+					set_fleet_stance = aggressive
+					set_aggro_range_measure_from = return_point
+					set_aggro_range = 40
+					queue_actions = {
+						repeat = {
+							wait = {
+								duration = 9999
+							}
+						}
+					}
+				}
+			}
+			create_fleet = {
+				name = "NAME_Ruby_Stack"
+				effect = {
+					set_owner = event_target:crystal_country
+					while = {
+						count = 3
+						create_ship = {
+							name = ""
+							design = "NAME_Large_Crystal_Entity_Red"
+						}
+					}
+					while = {
+						count = 6
+						create_ship = {
+							name = ""
+							design = "NAME_Small_Crystal_Entity_Red"
+						}
+					}
+					set_location = event_target:red_trigger_4
+					set_fleet_stance = aggressive
+					set_aggro_range_measure_from = return_point
+					set_aggro_range = 30
+					queue_actions = {
+						repeat = {
+							wait = {
+								duration = 9999
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

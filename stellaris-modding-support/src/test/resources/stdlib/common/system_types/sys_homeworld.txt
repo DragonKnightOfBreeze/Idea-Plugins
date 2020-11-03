@@ -1,0 +1,13 @@
+sys_homeworld = {
+	potential = {
+		exists = owner
+		any_system_planet = {
+			is_owned_by = root.owner
+			is_homeworld = yes
+		}
+	}
+
+	weight_modifier = {
+		base = 2000
+	}
+}

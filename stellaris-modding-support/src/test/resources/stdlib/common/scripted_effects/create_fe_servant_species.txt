@@ -1,0 +1,14 @@
+create_fe_servant_species = {
+	create_species = {
+		name = random
+		class = random_non_machine
+		portrait = random
+		traits = random
+		traits = {
+			ideal_planet_class = root
+			trait = "trait_nerve_stapled"
+			trait = "trait_strong"
+			trait = "trait_charismatic"
+		}
+	}
+}

@@ -1,0 +1,153 @@
+create_early_primitive_empire = {
+	create_country = {
+		name = random
+		authority = random
+		civics = {
+			civic = civic_landed_nobility
+			civic = civic_flat_world_theory
+		}
+		species = last_created
+		ethos = random
+		flag = {
+			icon = {
+				category = "special"
+				file = "primitive.dds"
+			}
+			background= {
+				category = "backgrounds"
+				file = "new_dawn.dds"
+			}
+			colors={
+				"turquoise"
+				"green"
+				"null"
+				"null"
+			}
+		}
+		origin = "origin_enlightened" # Should only be visible if they become spacefaring
+		type = primitive
+	}
+	last_created_country = {
+		set_graphical_culture = preindustrial_01
+		random_list = {
+			20 = {
+				set_country_flag = stone_age 
+				set_primitive_age = stone_age
+				change_government = {
+					authority = random
+					civics = {
+						civic = civic_secret_of_fire
+						civic = civic_the_wheel
+					}
+				}
+			}
+			20 = {
+				set_country_flag = bronze_age 
+				set_primitive_age = bronze_age
+				change_government = {
+					authority = random
+					civics = {
+						civic = civic_secret_of_fire
+						civic = civic_the_wheel
+					}
+				}
+				change_country_flag = {
+					icon = {
+						category = "special"
+						file = "primitive.dds"
+					}
+					background= {
+						category = "backgrounds"
+						file = "new_dawn.dds"
+					}
+					colors={
+						"green"
+						"dark_green"
+						"null"
+						"null"
+					}
+				}
+			}
+			20 = {
+				set_country_flag = iron_age 
+				set_primitive_age = iron_age
+				change_country_flag = {
+					icon = {
+						category = "special"
+						file = "primitive.dds"
+					}
+					background= {
+						category = "backgrounds"
+						file = "new_dawn.dds"
+					}
+					colors={
+						"purple"
+						"dark_purple"
+						"null"
+						"null"
+					}
+				}
+			}
+			20 = {
+				set_country_flag = late_medieval_age 
+				set_primitive_age = late_medieval_age
+				change_country_flag = {
+					icon = {
+						category = "special"
+						file = "primitive.dds"
+					}
+					background= {
+						category = "backgrounds"
+						file = "new_dawn.dds"
+					}
+					colors={
+						"light_blue"
+						"blue"
+						"null"
+						"null"
+					}
+				}
+			}
+			20 = {
+				set_country_flag = renaissance_age 
+				set_primitive_age = renaissance_age
+				change_country_flag = {
+					icon = {
+						category = "special"
+						file = "primitive.dds"
+					}
+					background= {
+						category = "backgrounds"
+						file = "new_dawn.dds"
+					}
+					colors={
+						"pink"
+						"burgundy"
+						"null"
+						"null"
+					}
+				}
+			}
+			20 = {
+				set_country_flag = steam_age 
+				set_primitive_age = steam_age
+				change_country_flag = {
+					icon = {
+						category = "special"
+						file = "primitive.dds"
+					}
+					background= {
+						category = "backgrounds"
+						file = "new_dawn.dds"
+					}
+					colors={
+						"orange"
+						"red"
+						"null"
+						"null"
+					}
+				}
+			}
+		}
+	}	
+}

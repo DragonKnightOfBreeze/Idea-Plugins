@@ -1,0 +1,20 @@
+site_deja_vu_dig_random_events = {
+	random_list = {
+		10 = { fleet_event = { id = ancrel.8030} }
+		10 = { fleet_event = { id = ancrel.8031} }
+		10 = { fleet_event = { id = ancrel.8032} }
+		10 = { fleet_event = { id = ancrel.8033} }
+		10 = { fleet_event = { id = ancrel.8040} }
+		10 = { fleet_event = { id = ancrel.8045} }
+		10 = { fleet_event = { id = ancrel.8050} }
+		10 = { fleet_event = { id = ancrel.8055} }
+		10 = { fleet_event = { id = ancrel.8060} }
+		10 = { fleet_event = { id = ancrel.8075} }
+		10 = { fleet_event = { id = ancrel.8080} }
+		10 = { fleet_event = { id = ancrel.8100} }
+		10 = { fleet_event = { id = ancrel.8101} }
+		10 = { fleet_event = { id = ancrel.8102} }
+		10 = { fleet_event = { id = ancrel.8103} }
+		10 = { fleet_event = { id = ancrel.8110} }
+	}
+}

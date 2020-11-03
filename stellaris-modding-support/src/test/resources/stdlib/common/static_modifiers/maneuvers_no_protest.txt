@@ -1,0 +1,4 @@
+maneuvers_no_protest = {
+	icon = "gfx/interface/icons/modifiers/mod_country_insult_efficiency.dds"
+	country_unity_produces_mult = -0.15
+}

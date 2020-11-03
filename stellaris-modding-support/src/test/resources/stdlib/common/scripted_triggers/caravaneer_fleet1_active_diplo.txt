@@ -1,0 +1,8 @@
+caravaneer_fleet1_active_diplo = {
+	has_active_event = {
+		cara.1020 # First contact
+		cara.1100 # Menu
+		cara.1200 # Deals
+		cara.1251 # Re-offer deal
+	}
+}

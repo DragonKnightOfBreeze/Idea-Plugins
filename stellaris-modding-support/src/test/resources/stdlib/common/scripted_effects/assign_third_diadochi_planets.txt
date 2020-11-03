@@ -1,0 +1,23 @@
+assign_third_diadochi_planets = {
+	random_system_within_border = {
+		limit = {
+			is_potential_diadochi_system = yes
+			any_system_planet = {
+				has_owner = yes
+			}
+		}
+		save_event_target_as = third_diadochi_origin
+	}
+	effect_on_blob = {
+		center = event_target:third_diadochi_origin
+		owned_planets_percentage = 0.5
+		planet_limit = {
+			solar_system = {
+				is_potential_diadochi_system = yes
+			}
+		}
+		effect = {
+			set_star_flag = third_diadochi_system
+		}
+	}
+}

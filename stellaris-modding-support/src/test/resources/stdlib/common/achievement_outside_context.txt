@@ -1,0 +1,11 @@
+achievement_outside_context = {
+	id = 53
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		has_country_flag = outsidecontext
+	}
+}

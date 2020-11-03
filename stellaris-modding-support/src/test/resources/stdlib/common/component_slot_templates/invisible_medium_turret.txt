@@ -1,0 +1,4 @@
+invisible_medium_turret = {
+	size = medium
+	component = weapon
+}

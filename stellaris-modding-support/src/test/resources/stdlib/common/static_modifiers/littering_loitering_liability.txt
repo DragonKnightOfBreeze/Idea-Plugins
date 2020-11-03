@@ -1,0 +1,3 @@
+littering_loitering_liability = {
+	pop_ethic_xenophobe_attraction_mult = 0.33
+}

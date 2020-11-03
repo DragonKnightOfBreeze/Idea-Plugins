@@ -1,0 +1,40 @@
+set_herald_damage = {
+	random_list = {
+		5 = {
+			#
+		}
+		25 = {
+			add_modifier = {
+				modifier = herald_75
+				days = -1
+			}
+			enable_special_project = {
+				name = "Herald_repair"
+				owner = this.owner
+				location = this
+			}
+		}
+		50 = {
+			add_modifier = {
+				modifier = herald_50
+				days = -1
+			}
+			enable_special_project = {
+				name = "Herald_repair"
+				owner = this.owner
+				location = this
+			}
+		}
+		20 = {
+			add_modifier = {
+				modifier = herald_25
+				days = -1
+			}
+			enable_special_project = {
+				name = "Herald_repair"
+				owner = this.owner
+				location = this
+			}
+		}
+	}
+}

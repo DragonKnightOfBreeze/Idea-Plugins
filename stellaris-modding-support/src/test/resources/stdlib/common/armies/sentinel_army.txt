@@ -1,0 +1,13 @@
+sentinel_army = {
+	defensive = yes
+	damage = 4
+	morale_damage = 5
+	health = 7
+	has_morale = no
+	icon_frame = 11
+	has_species = no
+
+	potential = {
+		always = no
+	}
+}

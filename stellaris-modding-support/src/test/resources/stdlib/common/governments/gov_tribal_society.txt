@@ -1,0 +1,15 @@
+gov_tribal_society = {
+	ruler_title = RT_KING
+	ruler_title_female = RT_QUEEN
+	
+	should_force_rename = yes
+
+	possible = {
+		has_valid_civic = civic_secret_of_fire
+		has_valid_civic = civic_the_wheel
+	}
+
+	weight = {
+		base = 100000
+	}
+}

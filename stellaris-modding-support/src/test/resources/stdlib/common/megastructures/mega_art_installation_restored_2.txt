@@ -1,0 +1,45 @@
+mega_art_installation_restored_2 = {
+	entity = "mega_art_institution_stage_3_entity"
+	construction_entity = "mega_art_institution_stage_3_entity"
+	portrait = "GFX_mega_art_installation_background"
+	place_entity_on_planet_plane = no
+	entity_offset = { x = -27 y = -27 }
+	build_time = 3600
+	resources = {
+		category = megastructures
+		cost = {
+			minor_artifacts = 100
+		}
+		
+		produces = {
+			unity = 400
+		}
+
+		upkeep = {
+			energy = 30
+		}
+	}
+	
+	upgrade_from = {
+		mega_art_installation_restored
+	}
+
+	prerequisites = { "tech_mega_art" }
+	show_prereqs = no
+
+	country_modifier = {
+		planet_amenities_mult = 0.2
+	}
+
+	possible = {
+		from = { has_ancrel = yes }
+	}
+
+	on_build_complete = {
+		set_star_flag = mega_art_installation_built
+		from = {
+			set_country_flag = has_built_or_repaired_megastructure
+			country_event = { id = ancrel.10030 } 
+		}
+	}
+}

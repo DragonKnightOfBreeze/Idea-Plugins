@@ -1,0 +1,55 @@
+ai_system_05 = {
+	class = "sc_m_giant"
+	name = "NAME_Contingency_System"
+
+	flags = { AI_lair }
+
+	planet = {
+		count = 1
+		class = star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = { min = 20 max = 30 }
+		has_ring = no
+	}
+	
+	change_orbit = 75
+
+	planet = {
+		class = pc_ai
+		name = "NAME_Contingency_Lair"
+		size = 35
+		flags = { machine_lair crisis_vital_planet }
+
+		init_effect = {
+			random_country = {
+				limit = { is_country_type = ai_empire }
+				save_event_target_as = AI_crisis
+			}
+			set_owner = event_target:AI_crisis
+		}
+	}
+
+	change_orbit = 35
+
+	planet = {
+		class = pc_barren
+		orbit_distance = 35
+		orbit_angle = { min = 90 max = 270 }
+		size = 12
+	}
+
+	planet = {
+		class = pc_barren_cold
+		orbit_distance = 30
+		orbit_angle = { min = 90 max = 270 }
+		size = 8
+	}
+
+	planet = {
+		class = pc_barren_cold
+		orbit_distance = 45
+		orbit_angle = { min = 90 max = 270 }
+		size = 10
+	}
+}

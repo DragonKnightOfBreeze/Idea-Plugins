@@ -1,0 +1,35 @@
+research_subsidies = {
+	length = @EdictPerpetual
+	icon = "GFX_edict_type_policy"
+	edict_cap_usage = 1
+
+	resources = {
+		category = edicts
+		cost = { #Activation Cost
+			trigger = {
+				NOT = { has_edict = research_subsidies }			
+			}
+			influence = 200
+		}
+		cost = { #Deactivation Cost
+			trigger = {
+				has_edict = research_subsidies
+			}
+			influence = 100
+		}
+	}
+
+	modifier = {
+		planet_researchers_produces_mult = 0.10
+		custom_tooltip = edict_research_subsidies_tooltip
+		show_only_custom_tooltip = no
+	}
+
+	potential = {
+		has_tradition = tr_discovery_databank_uplinks
+	}
+
+	ai_weight = {
+		weight = @EdictMedPrio
+	}
+}

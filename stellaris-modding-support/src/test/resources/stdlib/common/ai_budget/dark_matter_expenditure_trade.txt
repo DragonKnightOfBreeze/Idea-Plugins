@@ -1,0 +1,13 @@
+dark_matter_expenditure_trade = {
+	resource = sr_dark_matter 
+	type = expenditure
+	category = trade
+	
+	potential = {
+		always = yes
+	}
+	
+	fraction = {
+		weight = 0.1
+	}	
+}

@@ -1,0 +1,16 @@
+on_game_start = {
+	events = {
+		game_start.1 # Spawn special/hidden countries
+		game_start.2 # removes random planet modifiers from homeworlds
+		game_start.3 # Hidden Game Start Event that resets tutorial for advisor trigger purposes
+		game_start.5 # Countdown to Nomad Fleet
+		game_start.31 # Create wormhole pairs
+		distar.290 # Spawn Sealed System
+		distar.252 # Phaseshifting Planet
+		distar.295 # Connect Ratling Systems to one another
+		distar.8000 # Randomize L-Cluster outcome
+		colony_mod.100 #titanic life blocker setup
+		game_start.50 # Set up Nebula system art
+		galactic_features.420 # Spawn VLUUR
+	}
+}

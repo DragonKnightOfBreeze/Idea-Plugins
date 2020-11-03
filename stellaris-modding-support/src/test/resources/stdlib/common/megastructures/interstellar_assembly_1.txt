@@ -1,0 +1,33 @@
+interstellar_assembly_1 = {
+	entity = "interstellar_assembly_stage_1_entity"
+	construction_entity = "interstellar_assembly_stage_1_entity"
+	portrait = GFX_megastructure_construction_background
+	place_entity_on_planet_plane = no
+	entity_offset = { x = -27 y = -27 }
+	build_time = 1800
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 10000
+		}
+
+		upkeep = {
+			energy = 10
+		}
+	}
+
+	upgrade_from = {
+		interstellar_assembly_0
+	}
+
+	prerequisites = { "tech_interstellar_assembly" }
+
+	country_modifier = {
+		diplo_weight_mult = 0.10
+		# enables triggered_opinion_of_interstellar_assembly_1
+	}
+
+	on_build_complete = {
+		from = { country_event = { id = mega.9006 } }
+	}
+}

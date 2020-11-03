@@ -1,0 +1,11 @@
+tr_supremacy_overwhelming_force = {
+
+	modifier = {
+		ship_orbital_bombardment_mult = 0.20
+		ship_fire_rate_mult = 0.10
+	}
+
+	ai_weight = {
+		factor = 1000
+	}
+}

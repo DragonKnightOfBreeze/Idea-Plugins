@@ -1,0 +1,21 @@
+d_trade_value_1 = {
+	station = shipclass_mining_station
+	is_for_colonizeable = no
+		
+	planet_modifier = { 
+		trade_value_add = 1
+	}
+	
+	potential = {
+		OR = {
+			is_planet_class = pc_gas_giant
+			is_planet_class = pc_molten
+			is_planet_class = pc_toxic
+			is_asteroid = yes
+		}	
+	}
+	
+	drop_weight = {
+		weight = 0			
+	}
+}

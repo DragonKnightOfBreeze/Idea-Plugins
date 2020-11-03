@@ -1,0 +1,5 @@
+tupperware_deployed = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_resources.dds"
+	icon_frame = 1
+	planet_pops_organics_food_upkeep_mult = -0.10
+}

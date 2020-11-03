@@ -1,0 +1,5 @@
+neutral = {
+	members_modifier = {
+		country_naval_cap_add = 20
+	}
+}

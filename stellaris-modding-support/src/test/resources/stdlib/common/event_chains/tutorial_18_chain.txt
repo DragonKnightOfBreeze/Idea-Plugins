@@ -1,0 +1,9 @@
+tutorial_18_chain = {
+	icon = "gfx/interface/icons/situation_log/situation_log_tutorial.dds"
+	picture = GFX_evt_throne_room
+	counter = {
+		sector_governor_assigned = {
+			max = 1
+		}
+	}
+}

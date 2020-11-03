@@ -1,0 +1,20 @@
+civic_warrior_culture = {
+	potential = {
+		ethics = { NOT = { value = ethic_gestalt_consciousness } }
+		authority = { NOT = { value = auth_corporate } }
+	}
+	possible = {
+		ethics = {
+			OR = {
+				text = civic_tooltip_militarist
+				value = ethic_militarist
+				value = ethic_fanatic_militarist
+			}
+		}
+	}
+	random_weight = { base = 5 }
+	description = "civic_tooltip_warrior_culture_effects"
+	modifier = {
+		army_damage_mult = 0.20
+	}
+}

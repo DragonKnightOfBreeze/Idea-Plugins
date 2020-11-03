@@ -1,0 +1,9 @@
+tech_industrial_farming = {
+	cost = 0
+	area = society
+	tier = 0
+	category = { biology }
+	start_tech = yes
+
+	# unlocks farming districts
+}

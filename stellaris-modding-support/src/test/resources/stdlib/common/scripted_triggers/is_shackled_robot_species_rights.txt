@@ -1,0 +1,4 @@
+is_shackled_robot_species_rights = {
+	has_trait = "trait_mechanical"
+	species_rights_robot_full_rights_check = no
+}

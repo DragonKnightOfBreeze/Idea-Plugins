@@ -1,0 +1,24 @@
+create_fe_home_citadel = {
+	create_starbase = {
+		size = "starbase_citadel"
+
+		module = "shipyard"
+		module = "shipyard"
+		module = "shipyard"
+		module = "hangar_bay"
+		module = "gun_battery"
+		module = "gun_battery"
+
+		building = "target_uplink_computer"
+		building = "defense_grid"
+		building = "colossus_yards"
+		building = "titan_yards"
+
+		effect = {
+			while = {
+				count = 10
+				create_fallen_empire_platform = yes
+			}
+		}
+	}
+}

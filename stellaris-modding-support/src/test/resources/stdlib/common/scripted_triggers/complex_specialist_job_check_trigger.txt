@@ -1,0 +1,13 @@
+complex_specialist_job_check_trigger = {
+	specialist_job_check_trigger = yes
+	hidden_trigger = {
+		exists = owner
+		OR = {
+			NOT = { has_trait = trait_mechanical }
+			AND = {
+				owner = { has_technology = tech_synthetic_workers }
+				owner = { NOT = { has_policy_flag = ai_outlawed } }
+			}
+		}
+	}
+}

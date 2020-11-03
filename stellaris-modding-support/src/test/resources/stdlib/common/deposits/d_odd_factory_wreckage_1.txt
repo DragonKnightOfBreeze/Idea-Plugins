@@ -1,0 +1,14 @@
+d_odd_factory_wreckage_1 = {
+	is_for_colonizeable = yes
+	category = deposit_cat_rare
+	
+	icon = d_city_ruins
+	
+	planet_modifier = {
+		district_generator_max = 2
+	}
+	
+	drop_weight = {
+		weight = 0
+	}
+}

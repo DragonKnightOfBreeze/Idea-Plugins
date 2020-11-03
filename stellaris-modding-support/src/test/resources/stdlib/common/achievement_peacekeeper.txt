@@ -1,0 +1,17 @@
+achievement_peacekeeper = {
+	id = 43
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		OR = {
+			has_ethic = ethic_fanatic_pacifist
+			has_ethic = ethic_pacifist
+		}
+		years_of_peace = {
+			value > 199
+		}
+	}
+}

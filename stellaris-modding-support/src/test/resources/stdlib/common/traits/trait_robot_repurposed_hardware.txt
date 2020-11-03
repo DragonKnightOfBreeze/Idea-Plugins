@@ -1,0 +1,29 @@
+trait_robot_repurposed_hardware = {
+	cost = -1
+	opposites = { "trait_robot_learning_algorithms" }
+
+	allowed_archetypes = { ROBOT MACHINE }
+
+	# Synth and Machine only
+	species_potential_add = {
+		exists = from
+		from = {
+			OR = {
+				has_authority = auth_machine_intelligence
+				has_technology = tech_synthetic_leaders
+			}
+			NOT = { has_policy_flag = ai_outlawed }
+		}
+	}
+
+	modifier = {
+		species_leader_exp_gain = -0.25
+	}
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0
+			years_passed > 5
+		}
+	}
+}

@@ -1,0 +1,5 @@
+extra_influence_1 = {
+	leader_modifier = {
+		federation_influence_produces_add = 1
+	}
+}

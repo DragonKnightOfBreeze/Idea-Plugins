@@ -1,0 +1,13 @@
+energy_expenditure_leaders = {
+	resource = energy 
+	type = expenditure
+	category = leaders
+	
+	potential = {
+		always = yes
+	}
+	
+	fraction = {
+		weight = 0.4
+	}	
+}

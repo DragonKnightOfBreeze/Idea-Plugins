@@ -1,0 +1,26 @@
+triggered_opinion_both_machine_intelligence = {
+	trigger = {
+		has_authority = auth_machine_intelligence
+		NOT = { has_valid_civic = civic_machine_terminator }
+		FROM = {
+			NOT = { has_valid_civic = civic_machine_terminator }
+			has_authority = auth_machine_intelligence
+		}
+		NOT = {
+			AND = {
+				has_valid_civic = civic_machine_assimilator
+				FROM = { has_valid_civic = civic_machine_assimilator }
+			}
+		}
+		NOT = {
+			AND = {
+				has_valid_civic = civic_machine_servitor
+				FROM = { has_valid_civic = civic_machine_servitor }
+			}
+		}
+	}
+
+	opinion = {
+		base = 30
+	}
+}

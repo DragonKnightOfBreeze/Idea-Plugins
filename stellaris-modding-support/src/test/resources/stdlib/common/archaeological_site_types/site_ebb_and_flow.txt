@@ -1,0 +1,56 @@
+site_ebb_and_flow = {
+	desc = "site_ebb_and_flow_intro"
+	picture = GFX_evt_warm_barren
+	stages = 4
+	weight = {
+		base = 0
+		modifier = {
+			add = 100
+			is_planet_class = pc_molten
+			has_ancrel = yes
+		}
+	}
+
+	allow = {
+		exists = leader
+		leader = { leader_class = scientist }
+	}
+
+	visible = {
+		default_site_visible_trigger = yes
+	}
+
+	on_visible = {
+    	country_event = { id = story.5 days = 30 }
+	}
+
+	stage = {
+		difficulty = 3
+		icon = GFX_archaeology_runes_B1
+		event = ancrel.9165
+	}
+
+	stage = {
+		difficulty = 5
+		icon = GFX_archaeology_runes_B2
+		event = ancrel.9170
+	}
+
+	stage = {
+		difficulty = 3
+		icon = GFX_archaeology_runes_B3
+		event = ancrel.9175
+	}
+
+	stage = {
+		difficulty = 7
+		icon = GFX_archaeology_runes_B4
+		event = ancrel.9176
+	}
+
+	on_roll_failed = {
+		from = {
+			standard_archaeological_site_on_roll_failed = { RANDOM_EVENTS = site_ebb_and_flow_random_events }
+		}
+	}
+}

@@ -1,0 +1,15 @@
+trait_ruler_eye_for_talent = {
+	cost = 1
+	modification = no
+	icon = "gfx/interface/icons/traits/leader_traits/trait_ruler_eye_for_talent.dds"
+	leader_potential_add = {
+		NOT = { from = { has_ethic = "ethic_gestalt_consciousness" } }
+	}
+	modifier = {
+		leader_skill_levels = 1
+		species_leader_exp_gain = 0.20
+	}
+	leader_trait = { ruler }
+	leader_class = { ruler }
+	prerequisites = { tech_galactic_administration }
+}

@@ -1,0 +1,11 @@
+leader_trait_mindfulness = {
+	cost = 1
+	modification = no
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_bureaucrat.dds"
+	custom_tooltip = "mod_planet_synapse_drones_admin_cap_tooltip"
+	leader_potential_add = {
+		from = { has_authority = "auth_hive_mind" }
+	}
+	leader_trait = { governor }
+	leader_class = { governor }
+}

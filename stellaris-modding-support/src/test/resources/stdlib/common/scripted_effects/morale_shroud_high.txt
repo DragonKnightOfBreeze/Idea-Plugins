@@ -1,0 +1,9 @@
+morale_shroud_high = {
+	hidden_effect = {
+		random_list = {
+			70 = { country_event = { id = utopia.3043 }}
+			20 = { country_event = { id = utopia.3045 }}
+			10 = { country_event = { id = utopia.3059 }}
+		}
+	}
+}

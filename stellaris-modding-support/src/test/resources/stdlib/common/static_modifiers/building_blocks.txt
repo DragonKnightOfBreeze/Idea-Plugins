@@ -1,0 +1,4 @@
+building_blocks = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_seismological_disturbances.dds"
+	icon_frame = 1
+}

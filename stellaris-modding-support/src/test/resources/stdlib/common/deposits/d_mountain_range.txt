@@ -1,0 +1,46 @@
+d_mountain_range = {
+	time = 270
+
+	is_for_colonizeable = yes
+	category = deposit_cat_blockers
+
+	resources = {
+		category = deposit_blockers
+		cost = {
+			energy = 1000
+		}
+	}
+
+	potential = {
+		planet_size >= 10
+	}
+
+	planet_modifier = {
+		planet_max_districts_add = -2
+	}
+
+	drop_weight = {
+		weight = @blocker_low
+		modifier = {
+			factor = 2
+			is_planet_class = pc_alpine
+		}
+		modifier = {
+			factor = 0.5
+			planet_size < 15
+		}
+		modifier = {
+			factor = 0
+			num_free_districts = {
+				type = district_city
+				value < 2
+			}
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+	}
+
+	prerequisites = { "tech_mountain_range" }
+}

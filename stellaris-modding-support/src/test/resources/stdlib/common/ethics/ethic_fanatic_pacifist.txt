@@ -1,0 +1,25 @@
+ethic_fanatic_pacifist = {
+	cost = 2
+	category = "mil"
+	category_value = 4
+
+	category_opposite = yes
+
+	regular_variant = ethic_pacifist
+
+	use_for_pops = no
+
+	tags = {
+		ETHIC_DISALLOW_OFFENSIVE_WARS
+		ETHIC_DISALLOW_FULL_BOMBARDMENT
+	}
+
+	country_modifier = {
+		empire_size_pops_mult = -0.30
+		planet_stability_add = 10
+	}
+
+	random_weight = {
+		value = 33 		# rare ethic
+	}
+}

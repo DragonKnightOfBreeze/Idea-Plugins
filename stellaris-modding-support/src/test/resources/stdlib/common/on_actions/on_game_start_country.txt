@@ -1,0 +1,7 @@
+on_game_start_country = {
+	events = {
+		game_start.33 # populate system with stations
+		game_start.10
+		necroids.4 # flip guaranteed planets to guaranteed primitives for Necrophage
+	}
+}

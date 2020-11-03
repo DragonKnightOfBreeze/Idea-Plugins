@@ -1,0 +1,35 @@
+d_mineral_fields = {
+	is_for_colonizeable = yes
+	use_for_min_max_adjustments = yes
+
+	category = deposit_cat_minerals
+
+	use_weights_for_terraforming_swap_types = yes
+	should_swap_deposit_on_terraforming = yes
+	terraforming_swap_types = {
+		d_veiny_cliffs
+		d_mineral_striations # gaia
+	}
+
+	planet_modifier = {
+		district_mining_max = 1
+	}
+
+	potential = {
+		OR = {
+			is_planet_class = pc_tropical
+			is_planet_class = pc_savannah
+			is_planet_class = pc_desert
+			is_planet_class = pc_ocean
+			is_planet_class = pc_tundra
+		}
+	}
+
+	drop_weight = {
+		weight = @high
+		modifier = {
+			factor = @planet_type_bonus
+			is_cold = yes
+		}
+	}
+}

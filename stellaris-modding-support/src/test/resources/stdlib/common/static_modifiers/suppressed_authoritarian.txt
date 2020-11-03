@@ -1,0 +1,4 @@
+suppressed_authoritarian = {
+	pop_ethic_authoritarian_attraction_mult = -0.75
+	country_base_influence_produces_add = -1
+}

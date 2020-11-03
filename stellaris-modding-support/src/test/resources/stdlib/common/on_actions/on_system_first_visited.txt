@@ -1,0 +1,4 @@
+on_system_first_visited = {
+	events = {
+	}
+}

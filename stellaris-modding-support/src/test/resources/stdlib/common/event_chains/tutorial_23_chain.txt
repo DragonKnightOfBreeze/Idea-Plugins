@@ -1,0 +1,9 @@
+tutorial_23_chain = {
+	icon = "gfx/interface/icons/situation_log/situation_log_tutorial.dds"
+	picture = GFX_evt_ship_in_orbit
+	counter = {
+		contact_made = {
+			max = 1
+		}
+	}
+}

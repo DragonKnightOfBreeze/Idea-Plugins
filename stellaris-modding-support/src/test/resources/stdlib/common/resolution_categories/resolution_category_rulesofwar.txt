@@ -1,0 +1,17 @@
+resolution_category_rulesofwar = {
+	group = defense_war
+	icon = "GFX_resolution_rules_of_war"
+
+	resolution_types = {
+		"resolution_rulesofwar_repeal_1"
+		"resolution_rulesofwar_repeal_2"
+		"resolution_rulesofwar_repeal_3"
+		"resolution_rulesofwar_repeal_4"
+		"resolution_rulesofwar_repeal_5"
+		"resolution_rulesofwar_guardian_angels"
+		"resolution_rulesofwar_reverence_for_life"
+		"resolution_rulesofwar_independent_tribunals"
+		"resolution_rulesofwar_last_resort_doctrine"
+		"resolution_rulesofwar_demobilization_initiative"
+	}
+}

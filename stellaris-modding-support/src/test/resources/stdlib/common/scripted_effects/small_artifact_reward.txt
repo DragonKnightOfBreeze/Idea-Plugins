@@ -1,0 +1,17 @@
+small_artifact_reward = {
+	custom_tooltip = minor_artifacts_found
+	locked_random_list = {
+		33 = {
+			owner = { add_resource = { minor_artifacts = 1 } }
+		}
+		33 = {
+			owner = { add_resource = { minor_artifacts = 3 } }
+		}
+		33 = {
+			owner = { add_resource = { minor_artifacts = 5 } }
+		}
+	}
+	hidden_effect = {
+		owner = { country_event = { id = tutorial.1337 days = 5 } }
+	}
+}

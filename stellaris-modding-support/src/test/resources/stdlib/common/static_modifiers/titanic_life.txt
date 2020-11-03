@@ -1,0 +1,6 @@
+titanic_life = {
+	planet_jobs_society_research_produces_mult = 0.25
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_titanic_life.dds"
+	icon_frame = 1
+}

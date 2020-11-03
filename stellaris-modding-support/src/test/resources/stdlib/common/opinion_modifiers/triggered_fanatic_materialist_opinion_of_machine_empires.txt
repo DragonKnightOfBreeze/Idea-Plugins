@@ -1,0 +1,15 @@
+triggered_fanatic_materialist_opinion_of_machine_empires = {
+	trigger = {
+		has_ethic = ethic_fanatic_materialist
+		FROM = {
+			has_authority = auth_machine_intelligence
+			NOT = {
+				has_civic = civic_machine_terminator
+				has_civic = civic_machine_assimilator
+			}
+		}
+	}
+	opinion = {
+		base = 20
+	}
+}

@@ -1,0 +1,85 @@
+resolution_mutualdefense_military_readiness_act = {
+	icon = "GFX_resolution_mutual_defense"
+
+	resources = {
+		category = resolutions
+		cost = {
+			influence = @resolution_cost_t2
+		}
+	}
+	target = no
+	level = 2
+
+	modifier = {
+		resolution_mutualdefense_the_readied_shield = 1
+		resolution_mutualdefense_naval_weight = 1
+	}
+
+	effect = {
+		custom_tooltip = resolution_mutualdefense_military_readiness_act_tooltip
+		hidden_effect = {
+			set_global_flag = resolution_with_breach_effect_passed
+			set_timed_country_flag = { flag = galactic_community_resolution_passed_mutualdefense days = @resolution_flag_timer }
+			add_modifier = {
+				modifier = resolution_passed_diplomatic_weight
+				days = 2200
+			}
+		}
+	}
+
+	fail_effects = {
+		hidden_effect = {
+			set_timed_country_flag = { flag = galactic_community_resolution_failed_mutualdefense days = @resolution_flag_timer }
+			add_modifier = {
+				modifier = resolution_failed_diplomatic_weight
+				days = 2200
+			}
+		}
+	}
+
+	allow = {
+		is_active_resolution = "resolution_mutualdefense_the_readied_shield"
+	}
+
+	breach = {
+		used_naval_capacity_percent < 0.5
+	}
+
+	ai_weight = {
+		weight = @resolution_weight_popular
+
+		modifier = {
+			factor = 2
+			is_militarist = yes
+		}
+
+		modifier = {
+			factor = 0
+			in_breach_of = resolution_mutualdefense_military_readiness_act
+		}
+
+		modifier = {
+			factor = 1.5
+			OR = {
+				has_valid_civic = civic_citizen_service
+				has_valid_civic = civic_distinguished_admiralty
+				has_valid_civic = civic_warrior_culture
+				has_valid_civic = civic_private_military_companies
+				has_valid_civic = civic_naval_contractors
+				has_valid_civic = civic_hive_subspace_ephapse
+				has_valid_civic = civic_hive_strength_of_legions
+				has_valid_civic = civic_machine_warbots
+			}
+		}
+
+		modifier = {
+			factor = 0.1
+			used_naval_capacity_percent < 0.5
+		}
+
+		modifier = {
+			factor = 0
+			is_pacifist = yes
+		}
+	}
+}

@@ -1,0 +1,16 @@
+gov_theocratic_republic = {
+	ruler_title = RT_REVERED_ELDER
+	ruler_title_female = RT_REVERED_ELDER_FEMALE
+
+	possible = {
+		has_authority = auth_democratic
+		OR = {
+			has_ethic = ethic_spiritualist
+			has_ethic = ethic_fanatic_spiritualist			
+		}
+	}
+
+	weight = {
+		base = 5
+	}
+}

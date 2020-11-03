@@ -1,0 +1,15 @@
+gov_devouring_swarm = {
+	ruler_title = RT_HIVE_MIND
+	ruler_title_female = RT_HIVE_MIND_FEMALE
+	
+	should_force_rename = yes
+
+	possible = {
+		has_authority = auth_hive_mind
+		has_valid_civic = civic_hive_devouring_swarm
+	}
+
+	weight = {
+		base = 100000
+	}
+}

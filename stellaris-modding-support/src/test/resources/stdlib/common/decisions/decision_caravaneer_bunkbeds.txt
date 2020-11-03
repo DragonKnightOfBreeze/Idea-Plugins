@@ -1,0 +1,31 @@
+decision_caravaneer_bunkbeds = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = decision_resources
+	
+	resources = {
+		category = decisions
+		cost = {
+		}
+	}
+	
+	potential = {
+		owner = {
+			is_regular_empire = yes
+			has_country_flag = bunkbeds_ready
+		}
+	}
+	
+	allow = {
+		NOT = { has_modifier = bunkbeds_deployed }
+	}	
+	
+	effect = {
+		hidden_effect = { owner = { remove_country_flag = bunkbeds_ready } }
+		add_modifier = { modifier = bunkbeds_deployed days = 28800 }
+	}
+	
+	ai_weight = {
+		weight = 1
+	}
+}

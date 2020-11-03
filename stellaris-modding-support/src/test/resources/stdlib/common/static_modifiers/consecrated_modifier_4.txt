@@ -1,0 +1,5 @@
+consecrated_modifier_4 = {
+	country_unity_produces_mult = 0.08
+	planet_amenities_mult = 0.04
+	pop_ethic_spiritualist_attraction_mult = 0.08
+}

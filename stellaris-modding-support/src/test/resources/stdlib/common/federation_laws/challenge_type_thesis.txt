@@ -1,0 +1,52 @@
+challenge_type_thesis = {
+	potential = { has_federation_law = succession_type_challenge }
+	allow = {
+		custom_tooltip = {
+			NOT = {
+				AND = {
+					NOT = { has_federation_law = challenge_type_thesis }
+					has_modifier = federation_law_category_challenge_cooldown
+					has_any_federation_law_in_category = law_category_challenge
+				}
+			}
+		}
+	}
+	on_enact = {
+		if = {
+			limit = { has_federation_flag = enable_federation_cooldowns }
+			add_modifier = {
+				modifier = federation_law_category_challenge_cooldown
+				days = @cooldown
+			}
+		}
+	}
+
+	ai_weight = {
+		base = 0
+		
+		#Default support
+		modifier = {
+			desc = federation_acceptance_generally_positive
+			add = 26
+		}
+		
+		modifier = {
+			desc = federation_acceptance_materialist
+			add = 5
+			is_materialist = yes
+		}
+		
+		modifier = {
+			desc = federation_acceptance_erudite_explorers
+			add = 26
+			has_ai_personality = erudite_explorers
+		}
+				
+		#Technocrats and materialists will relish it
+		modifier = {
+			desc = federation_acceptance_technocracy
+			add = 50
+			has_civic = civic_technocracy
+		}
+	}
+}

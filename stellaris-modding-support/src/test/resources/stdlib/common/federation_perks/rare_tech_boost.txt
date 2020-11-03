@@ -1,0 +1,5 @@
+rare_tech_boost = {
+	members_modifier = {
+		description = rare_tech_boost_effect
+	}
+}

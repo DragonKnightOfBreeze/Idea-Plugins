@@ -1,0 +1,62 @@
+decadent_hierarchy = {
+	aggressiveness = 0.5
+	trade_willingness = 0.9
+	bravery = 0.5
+	combat_bravery = 1.0
+
+	military_spending = 1.1
+	colony_spending = 0.9
+
+	federation_acceptance = 0 #-30
+	nap_acceptance = 20
+	commercial_pact_acceptance = 0
+	research_agreement_acceptance = 0
+	defensive_pact_acceptance = -10
+	migration_pact_acceptance = -100
+
+	advanced_start_chance = 10
+
+	weapon_preferences = weapon_type_kinetic
+	armor_ratio = 0.3
+	shields_ratio = 0.5
+	hull_ratio = 0.2
+
+	threat_modifier = 1.1
+	threat_others_modifier = 0.75
+	friction_modifier = 0.75
+	claims_modifier = 1.5
+
+	behaviour = {
+		conqueror = no
+		subjugator = no
+		liberator = no
+		opportunist = yes
+		slaver = yes
+		uplifter = no
+		purger = no
+		displacer = no
+		dominator = no
+		infiltrator = no
+		robot_exploiter = yes
+		robot_liberator = no
+		propagator = no
+		multispecies = no
+		crisis_fighter = yes
+	}
+
+
+	allow = {
+		is_country_type = default
+		has_valid_civic = civic_slaver_guilds
+		OR = {
+			has_ethic = "ethic_pacifist"
+			has_ethic = "ethic_fanatic_pacifist"
+			has_ethic = "ethic_xenophile"
+			has_ethic = "ethic_fanatic_xenophile"				
+		}		
+	}
+
+	weight_modifier = {
+		weight = 200
+	}
+}

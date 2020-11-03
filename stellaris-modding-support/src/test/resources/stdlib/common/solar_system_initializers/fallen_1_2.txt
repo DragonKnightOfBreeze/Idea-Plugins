@@ -1,0 +1,113 @@
+fallen_1_2 = {
+	usage = fallen_empire_init
+	class = "rl_standard_stars"
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 120
+	}
+
+	planet = {
+		count = 1
+		class = star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = { min = 20 max = 30 }
+		has_ring = no
+	}
+
+	change_orbit = 40
+
+	planet = {
+		count = { min = 1 max = 1 }
+		orbit_distance = 15
+		class = pc_molten
+		size = { min = 8 max = 16 }
+		orbit_angle = { min = 90 max = 270 }
+	}
+
+	planet = {
+		name = "NAME_The_Archives"
+		orbit_distance = 20
+		class = pc_gaia
+		orbit_angle = { min = 90 max = 270 }
+		size = 15
+		deposit_blockers = none
+		modifiers = none
+		has_ring = no
+
+		init_effect = {
+			set_planet_flag = fallen_empire_world
+			prevent_anomaly = yes
+			set_owner = root
+			set_controller = root			
+		
+			add_building = building_ancient_palace
+			add_building = building_master_archive
+			add_building = building_fe_stronghold
+			add_building = building_fe_dome
+			add_building = building_fe_dome
+			add_building = building_class_4_singularity
+			add_building = building_class_4_singularity
+			add_building = building_affluence_center
+			add_building = building_affluence_center
+			add_building = building_nourishment_center
+			add_building = building_nourishment_center
+			add_building = building_dimensional_fabricator
+			add_building = building_dimensional_fabricator			
+			add_building = building_nano_forge
+			add_building = building_nano_forge			
+			while = {
+				count = 15
+				add_district = district_city
+			}
+			while = {
+				count = 35
+				create_pop = {
+					species = owner_main_species
+				}
+			}
+			while = {
+				count = 35
+				create_pop = {
+					species = event_target:fe_servants
+				}
+			}
+		}
+	}
+
+	planet = {
+		count = { min = 0 max = 2 }
+		orbit_distance = 20
+		class = random_non_colonizable
+		orbit_angle = { min = 90 max = 270 }
+
+		change_orbit = @base_moon_distance
+
+		moon = {
+			count = { min = 0 max = 1 }
+			class = random_non_colonizable
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 5
+		}
+	}
+
+	planet = {
+		count = { min = 1 max = 1 }
+		orbit_distance = 20
+		class = pc_gas_giant
+		orbit_angle = { min = 90 max = 270 }
+
+		change_orbit = @base_moon_distance
+
+		moon = {
+			count = { min = 0 max = 3 }
+			class = random_non_colonizable
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 5
+		}
+	}
+
+	init_effect = {
+		create_fe_citadel = yes
+	}
+}

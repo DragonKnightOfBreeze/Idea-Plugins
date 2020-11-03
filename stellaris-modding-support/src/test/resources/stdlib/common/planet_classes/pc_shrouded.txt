@@ -1,0 +1,19 @@
+pc_shrouded = {
+	entity = "shroud_planet"
+	entity_scale = @planet_standard_scale
+	icon_frame = 23
+
+	atmosphere_color 		= hsv { 0.0 0.9 0.45	}		#DONE
+	atmosphere_intensity 	= 0.5
+	atmosphere_width 		= 1.5
+	
+	spawn_odds = 0
+	
+	extra_orbit_size = 0
+	extra_planet_count = 0
+	
+	planet_size = { min = 10 max = 25 }
+	moon_size = { min = 6 max = 10 }
+	
+	colonizable = no
+}

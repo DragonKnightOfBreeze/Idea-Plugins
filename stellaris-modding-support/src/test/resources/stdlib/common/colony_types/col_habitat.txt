@@ -1,0 +1,11 @@
+col_habitat = {
+	icon = 12
+
+	potential = {
+		uses_district_set = habitat
+	}
+
+	weight_modifier = {
+		base = 500
+	}
+}

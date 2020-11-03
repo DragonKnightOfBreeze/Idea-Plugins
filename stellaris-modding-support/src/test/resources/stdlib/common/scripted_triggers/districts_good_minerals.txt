@@ -1,0 +1,13 @@
+districts_good_minerals = {
+	planet = {
+		OR = {
+			has_modifier = extensive_moon_system
+			has_modifier = carbon_world
+			has_modifier = mineral_rich
+			has_modifier = ultra_rich
+			has_modifier = asteroid_belt
+			has_modifier = minerals_relic
+			has_planet_flag = buildings_good_minerals
+		}
+	}
+}

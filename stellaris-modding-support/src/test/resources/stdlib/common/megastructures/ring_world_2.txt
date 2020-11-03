@@ -1,0 +1,12 @@
+ring_world_2 = {
+	entity = "ringworld_3x_seams_entity"
+	portrait = "GFX_megastructure_construction_background"
+	
+	upgrade_from = {
+		ring_world_2_intermediate
+	}
+
+	# used from script only
+	upgrade_desc = hide
+	potential = { always = no }
+}

@@ -1,0 +1,19 @@
+machine_occupation_army = {
+	defensive = yes
+	occupation = yes
+	health = 1.10
+	damage = 1.10
+	has_morale = no
+	morale_damage = 1.00
+	collateral_damage = 0.0
+	war_exhaustion = 0.0 # No WE from occupation armies
+	icon_frame = 12
+	has_species = yes
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+		from = {
+			has_trait = "trait_machine_unit"
+		}
+	}
+}

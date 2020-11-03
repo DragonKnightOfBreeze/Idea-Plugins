@@ -1,0 +1,9 @@
+generation_ship_chain = {
+	icon = "gfx/interface/icons/situation_log/situation_log_main_quest.dds"
+	picture = GFX_evt_ship_in_orbit
+	counter = {
+     	planet_found = {
+     		max = 1
+     	}
+    }
+}

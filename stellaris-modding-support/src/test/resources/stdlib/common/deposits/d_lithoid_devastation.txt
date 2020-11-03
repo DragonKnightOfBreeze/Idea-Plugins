@@ -1,0 +1,38 @@
+d_lithoid_devastation = {
+	icon = d_gaseous_eruption
+
+	time = 360
+
+	is_for_colonizeable = yes
+	category = deposit_cat_blockers
+
+	potential = { always = no }
+	can_be_cleared = {
+		custom_tooltip = {
+			fail_text = requires_actor_not_devouring_swarm_lithoid
+			exists = owner
+			owner = {
+				OR = {
+					is_lithoid_empire = no
+					NOT = { has_valid_civic = civic_hive_devouring_swarm }
+				}
+			}
+		}
+	}
+
+	planet_modifier = {
+		planet_max_districts_add = -1
+		pop_environment_tolerance = -0.1
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+
+	resources = {
+		category = deposit_blockers
+		cost = {
+			energy = 1000
+		}
+	}
+}

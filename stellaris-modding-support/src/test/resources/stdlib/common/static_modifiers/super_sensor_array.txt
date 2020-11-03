@@ -1,0 +1,6 @@
+super_sensor_array = {
+	planet_sensor_range_add = 4
+	planet_hyperlane_range_add = 6
+	icon = "gfx/interface/icons/planet_modifiers/pm_factory.dds"
+	icon_frame = 1
+}

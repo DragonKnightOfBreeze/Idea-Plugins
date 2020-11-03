@@ -1,0 +1,57 @@
+d_energy_5 = {
+	resources = {
+		category = orbital_mining_deposits
+		produces = {
+			energy = 5
+		}
+	}
+	station = shipclass_mining_station
+	is_for_colonizeable = no
+	
+	potential = {
+		OR = {
+			is_planet_class = pc_a_star
+			is_planet_class = pc_b_star
+			is_planet_class = pc_f_star
+			is_planet_class = pc_g_star
+			is_planet_class = pc_k_star
+			is_planet_class = pc_m_star
+			is_planet_class = pc_m_giant_star
+			is_planet_class = pc_t_star
+			is_planet_class = pc_gas_giant
+			is_planet_class = pc_molten
+			is_planet_class = pc_ice_asteroid
+		}	
+	}
+	
+	drop_weight = {
+		weight = 0.1
+		modifier = {
+			factor = 1.5
+			OR = {
+				is_planet_class = pc_k_star
+				is_planet_class = pc_m_star
+				is_planet_class = pc_m_giant_star
+				is_planet_class = pc_t_star
+			}
+		}
+		modifier = {
+			factor = 1.25
+			OR = {
+				is_planet_class = pc_f_star
+				is_planet_class = pc_g_star
+			}
+		}
+		modifier = {
+			factor = 0.5
+			OR = {
+				is_planet_class = pc_a_star
+				is_planet_class = pc_b_star
+			}
+		}			
+		modifier = {
+			factor = 2.0
+			is_planet_class = pc_gas_giant
+		}			
+	}
+}

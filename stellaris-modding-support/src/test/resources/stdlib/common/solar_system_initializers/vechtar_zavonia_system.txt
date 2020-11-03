@@ -1,0 +1,66 @@
+vechtar_zavonia_system = {
+	prevent_anomalies = yes
+	class = rl_binary_stars
+	
+	usage = misc_system_init
+	usage_odds = 0
+	flags = { vechtar_zavonia_system }
+	
+	planet = {
+        count = 1
+        class = star
+        orbit_distance = 25
+        orbit_angle = 0
+        size = { min = 25 max = 30 }
+        has_ring = no
+    }
+
+    planet = {
+        count = 1
+        class = star
+        orbit_distance = 0
+        orbit_angle = 180
+        size = { min = 25 max = 30 }
+        has_ring = no
+    }
+    planet = {
+    	class = rl_unhabitable_planets
+        count = { min = 1 max = 3 }
+        orbit_distance = 30
+        orbit_angle = { min = 90 max = 270 }
+        
+        change_orbit = @base_moon_distance
+        
+        moon = {
+            count = { min = 0 max = 1 }
+            orbit_angle = { min = 90 max = 270 }
+            orbit_distance = 5
+        }
+    }
+
+    planet = {
+		class = pc_barren
+		orbit_distance = 30
+		init_effect = {
+			set_planet_flag = utopian_planet
+			save_global_event_target_as = utopian_planet
+		}
+	}
+
+    change_orbit = 45
+    
+    planet = {
+    	class = rl_unhabitable_planets
+        count = { min = 2 max = 6 }
+        orbit_distance = 20
+        orbit_angle = { min = 90 max = 270 }
+        
+        change_orbit = @base_moon_distance
+        
+        moon = {
+            count = { min = 0 max = 1 }
+            orbit_angle = { min = 90 max = 270 }
+            orbit_distance = 5
+        }
+    }
+}

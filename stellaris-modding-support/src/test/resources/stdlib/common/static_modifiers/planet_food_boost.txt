@@ -1,0 +1,5 @@
+planet_food_boost = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_resources.dds"
+	icon_frame = 1
+	pop_growth_speed = 0.25
+}

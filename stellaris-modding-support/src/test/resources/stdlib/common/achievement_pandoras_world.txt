@@ -1,0 +1,11 @@
+achievement_pandoras_world = {
+	id = 75
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		has_country_flag = pandoras_world
+	}
+}

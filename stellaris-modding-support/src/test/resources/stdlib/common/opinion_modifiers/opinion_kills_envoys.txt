@@ -1,0 +1,9 @@
+opinion_kills_envoys = {
+	opinion = {
+		base = -50
+	}
+
+	decay = {
+		base = 1
+	}
+}

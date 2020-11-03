@@ -1,0 +1,12 @@
+resolution_category_sanctions_defense_war = {
+	group = defense_war
+	icon = "GFX_sanctions_red"
+	resolution_types = {
+		"resolution_sanctions_military_repeal_1"
+		"resolution_sanctions_military_repeal_2"
+		"resolution_sanctions_military_repeal_3"
+		"resolution_sanctions_military_1"
+		"resolution_sanctions_military_2"
+		"resolution_sanctions_military_3"
+	}
+}

@@ -1,0 +1,41 @@
+awakened_fallen_empire_machine = { 
+	aggressiveness = 1.0
+	trade_willingness = 0.5
+	bravery = 2.0
+	combat_bravery = 1.25
+	
+	threat_modifier = 0.0
+	threat_others_modifier = 0.33
+	friction_modifier = 0.0
+
+	behaviour = {
+		conqueror = no
+		subjugator = no
+		liberator = no
+		opportunist = no
+		slaver = no
+		uplifter = no
+		purger = yes
+		dominator = no
+		infiltrator = no
+		robot_exploiter = no
+		robot_liberator = yes
+		propagator = no
+		multispecies = no
+		crisis_fighter = yes
+		crisis_leader = yes 	# special for awakened fallen empires
+		custodian = yes	# special for awakened machine fallen empires, prevents colonization & locks attitude
+		enigmatic = yes # special for machine fallen empires
+		limited = yes # prevents certain AI behaviours
+	}	
+	
+	allow = {
+		is_country_type = awakened_fallen_empire
+		has_authority = auth_machine_intelligence
+		has_valid_civic = civic_final_defense_protocols
+	}
+	
+	weight_modifier = {
+		weight = 100	
+	}
+}

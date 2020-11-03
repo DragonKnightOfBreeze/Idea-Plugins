@@ -1,0 +1,9 @@
+trait_robot_power_drills = {
+	cost = 2
+
+	allowed_archetypes = { ROBOT MACHINE }
+
+	modifier = {
+		planet_jobs_minerals_produces_mult = 0.15
+	}
+}

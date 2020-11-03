@@ -1,0 +1,17 @@
+alloys_expenditure_planets = {
+	resource = alloys
+	type = expenditure
+	category = planets
+
+	potential = {
+		always = yes
+	}
+
+	fraction = {
+		weight = 0.1
+	}
+
+	static_max = {
+		base = 450
+	}
+}

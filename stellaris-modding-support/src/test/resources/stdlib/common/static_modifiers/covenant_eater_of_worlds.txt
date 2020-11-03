@@ -1,0 +1,4 @@
+covenant_eater_of_worlds = {
+	ship_fire_rate_mult = 0.15
+	army_morale = 0.3
+}

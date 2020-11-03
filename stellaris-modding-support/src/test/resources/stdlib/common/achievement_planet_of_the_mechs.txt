@@ -1,0 +1,11 @@
+achievement_planet_of_the_mechs = {
+	id = 70
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		has_country_flag = planet_of_the_mechs
+	}
+}

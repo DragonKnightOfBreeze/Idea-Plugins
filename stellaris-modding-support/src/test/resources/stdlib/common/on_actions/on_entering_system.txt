@@ -1,0 +1,6 @@
+on_entering_system = {
+	events = {
+	}
+	random_events = {
+	}
+}

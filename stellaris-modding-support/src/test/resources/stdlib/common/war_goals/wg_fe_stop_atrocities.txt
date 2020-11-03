@@ -1,0 +1,31 @@
+wg_fe_stop_atrocities = {
+	casus_belli = cb_fe_punishment
+	
+	hide_if_no_cb = yes
+
+	allowed_peace_offers = {
+		status_quo
+		surrender
+		demand_surrender
+	}
+
+	potential = {
+		always = yes
+	}
+	possible = {
+		has_ethic = ethic_fanatic_xenophile
+		from = { is_valid_target_fe_stop_atrocities = yes }
+	}
+	on_accept = {
+		custom_tooltip = wg_humiliation_fe_accept
+		save_event_target_as = fallen_empire_humiliator
+		from = {
+			fallen_empire_stop_atrocities_effect = yes
+			fallen_empire_humiliate_effect = yes		
+		}
+	}
+	
+	ai_weight = {
+		weight = 10
+	}
+}

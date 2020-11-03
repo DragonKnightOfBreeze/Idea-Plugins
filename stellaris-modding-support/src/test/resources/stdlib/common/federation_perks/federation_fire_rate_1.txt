@@ -1,0 +1,5 @@
+federation_fire_rate_1 = {
+	members_modifier = {
+		ship_fire_rate_mult = 0.10
+	}
+}

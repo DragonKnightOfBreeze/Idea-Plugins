@@ -1,0 +1,9 @@
+rocky_asteroid_belt = {
+	mesh="asteroid_01_mesh"
+	mesh="asteroid_02_mesh"
+	mesh="asteroid_04_mesh"
+	mesh="asteroid_05_mesh"
+	mesh="asteroid_06_mesh"
+	mesh="asteroid_07_mesh"
+	mesh="asteroid_08_mesh"
+}

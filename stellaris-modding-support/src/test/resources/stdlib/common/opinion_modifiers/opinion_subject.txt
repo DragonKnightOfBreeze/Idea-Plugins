@@ -1,0 +1,5 @@
+opinion_subject = {
+	opinion = {
+		base = 50
+	}
+}

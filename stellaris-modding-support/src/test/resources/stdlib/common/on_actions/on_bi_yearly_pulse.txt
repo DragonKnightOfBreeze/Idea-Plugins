@@ -1,0 +1,7 @@
+on_bi_yearly_pulse = {
+	events = {
+		crisis.206
+		distar.5060
+		cara.960 # Galatron pulse
+	}
+}

@@ -1,0 +1,3 @@
+has_megacorp = {
+	host_has_dlc = "Megacorp"
+}

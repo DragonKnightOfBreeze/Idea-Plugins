@@ -1,0 +1,7 @@
+can_be_soldier = {
+	is_sapient = yes
+	OR = {
+		has_military_service_type = { type = military_service_full }
+		has_military_service_type = { type = military_service_limited }
+	}
+}

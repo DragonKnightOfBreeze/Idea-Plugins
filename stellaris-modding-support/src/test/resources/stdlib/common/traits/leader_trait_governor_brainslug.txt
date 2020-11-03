@@ -1,0 +1,20 @@
+leader_trait_governor_brainslug = {
+	cost = 1
+	modification = no
+	icon = "gfx/interface/icons/traits/leader_traits/trait_brainslugged.dds"
+	modifier = {
+		planet_building_build_speed_mult = 0.10
+		planet_jobs_engineering_research_produces_mult = 0.15
+		planet_jobs_physics_research_produces_mult = 0.15
+		planet_jobs_society_research_produces_mult = 0.15
+	}
+	initial = no
+	randomized = no
+
+	leader_trait = { governor }
+	leader_class = { governor }
+
+	ai_weight = {
+		weight = 0
+	}
+}

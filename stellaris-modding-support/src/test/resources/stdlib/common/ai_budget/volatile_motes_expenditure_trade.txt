@@ -1,0 +1,13 @@
+volatile_motes_expenditure_trade = {
+	resource = volatile_motes 
+	type = expenditure
+	category = trade
+	
+	potential = {
+		always = yes
+	}
+	
+	fraction = {
+		weight = 0.1
+	}	
+}
