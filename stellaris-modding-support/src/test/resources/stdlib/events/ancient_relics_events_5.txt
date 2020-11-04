@@ -1,0 +1,263 @@
+################################
+#
+# Ancient Relics Events
+#
+# Written by Daniel Moregard
+#
+################################
+
+namespace = ancrel
+
+### Archaeology: Command Center
+
+# Stage 1 - Excavating the Site
+fleet_event = {
+	id = ancrel.7001
+	title = "ancrel.7001.name"
+	desc = "ancrel.7001.desc"
+	picture = GFX_evt_outpost
+	
+	archaeology = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		from = { set_site_progress_locked = yes }
+	}
+
+	after = { 
+		from = { set_site_progress_locked = no } 
+	}
+	
+	option = {
+		name = DIG
+		small_artifact_reward = yes
+	}
+}
+
+# Stage 2 - Exploring the Tunnels
+fleet_event = {
+	id = ancrel.7002
+	title = "ancrel.7002.name"
+	desc = "ancrel.7002.desc"
+	picture = GFX_evt_derelict_interior
+	
+	archaeology = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		from = { set_site_progress_locked = yes }
+	}
+
+	after = { 
+		from = { set_site_progress_locked = no } 
+	}
+	
+	option = {
+		name = INTERESTING
+		small_artifact_reward = yes
+	}
+}
+
+# Stage 3 - randomize stage 3
+fleet_event = {
+	id = ancrel.7003
+	hide_window = yes
+	
+	archaeology = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		fromfrom = { set_site_progress_locked = yes }
+		random_list = {
+			50 = {
+				fleet_event = { id = ancrel.7004 }
+			}
+			50 = {
+				fleet_event = { id = ancrel.7005 }
+			}
+		}
+	}
+    
+	after = { 
+		fromfrom = { 
+			set_site_progress_locked = no 
+			expire_site_event = ancrel.7003
+		} 
+	}
+}
+
+# Stage 3 - Ancient Laboratory (Biological)
+fleet_event = {
+	id = ancrel.7004
+	title = "ancrel.7004.name"
+	desc = "ancrel.7004.desc"
+	picture = GFX_evt_disease_outbreak
+	
+	archaeology = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		fromfrom = { set_site_progress_locked = yes }
+	}
+    
+	after = { 
+		fromfrom = { set_site_progress_locked = no } 
+	}
+	
+	option = {
+		name = OK
+		owner = {	
+			add_monthly_resource_mult = {
+				resource = society_research
+				value = @tier3researchreward
+				min = @tier3researchmin
+				max = @tier3researchmax
+			}
+		}
+	}
+}
+
+# Stage 3 - Ancient Laboratory (Weapons)
+fleet_event = {
+	id = ancrel.7005
+	title = "ancrel.7005.name"
+	desc = "ancrel.7005.desc"
+	picture = GFX_evt_engineering_research
+	
+	archaeology = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		fromfrom = { set_site_progress_locked = yes }
+	}
+    
+	after = { 
+		fromfrom = { set_site_progress_locked = no } 
+	}
+	
+	option = {
+		name = OK
+		owner = {	
+			add_research_option = tech_plasma_2
+			add_tech_progress = {
+				tech = tech_plasma_2
+				progress = 0.30
+			}		
+		}		
+	}
+}
+
+##############
+# Relic events
+##############
+
+# Zro Crystal activate
+country_event = {
+	id = ancrel.7006
+	title = "ancrel.7006.name"
+	diplomatic_title = BLANK_STRING
+	picture = GFX_evt_psionics
+	show_sound = event_psionic
+	trackable = yes
+	
+	desc = {
+		text = ancrel.7006.1.desc
+	}
+	desc = {
+		text = ancrel.7006.2.desc
+	}
+	
+	is_triggered_only = yes
+	diplomatic = yes
+	force_open = yes
+	
+	picture_event_data = {
+		portrait = shroud1
+		room = shroud_room
+	}	
+
+	option = {
+		name = "ancrel.7006.a"
+		custom_tooltip = relic_zro_crystal_knowledge
+		hidden_effect = {
+			ruler = { add_experience = 500 }		
+		}
+	}
+	
+	option = {
+		name = "ancrel.7006.b"
+		add_modifier = {
+			modifier = "relic_zro_crystal_martial" 
+			days = 1800
+		}		
+	}
+	
+	option = {
+		name = "ancrel.7006.c"
+		add_modifier = {
+			modifier = "relic_zro_crystal_state" 
+			days = 1800
+		}		
+	}
+}
+
+# Mini-galaxy ativate
+country_event = {
+	id = ancrel.7007
+	title = "ancrel.7007.name"
+	desc = "ancrel.7007.desc"
+	picture = GFX_evt_surreal_visions
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "FASCINATING"
+		locked_random_list = {
+			10 = {
+				add_random_research_option = {
+					add_progress = 0.50
+					area = engineering
+					ignore_prereqs = no
+					fail_effects = {
+						add_monthly_resource_mult = {
+							resource = engineering_research
+							value = @tier5researchreward
+							min = @tier5researchmin
+							max = @tier5researchmax
+						}
+					}
+				}
+			}
+			10 = {
+				add_random_research_option = {
+					add_progress = 0.50
+					area = physics
+					ignore_prereqs = no
+					fail_effects = {
+						add_monthly_resource_mult = {
+							resource = physics_research
+							value = @tier5researchreward
+							min = @tier5researchmin
+							max = @tier5researchmax
+						}
+					}
+				}
+			}
+			10 = {
+				add_random_research_option = {
+					add_progress = 0.50
+					area = society
+					ignore_prereqs = no
+					fail_effects = {
+						add_monthly_resource_mult = {
+							resource = society_research
+							value = @tier5researchreward
+							min = @tier5researchmin
+							max = @tier5researchmax
+						}
+					}
+				}
+			}
+		}
+	}
+}

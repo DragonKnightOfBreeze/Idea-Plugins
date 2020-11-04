@@ -1,0 +1,590 @@
+###########################################
+#
+# Federation Succession Events
+# Written by Douglas Furen & Gemma Thomson
+#
+###########################################
+
+namespace = fedel
+@goldenrule_flagtimer = 360
+
+#################################################
+### BIDDING WAR EVENT (SETUP, federation leader)
+#################################################
+country_event = {
+	id = fedel.900
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		federation = {
+			has_federation_law = challenge_type_bidding_war
+			NOT = { has_federation_flag = bidding_war_underway }
+		}
+	}
+
+	immediate = {
+		save_event_target_as = bidding_federation_leader
+		set_variable = {
+			which = current_pot_variable
+			value = 5000
+		}
+		federation = {
+			#Clean-up from any prior Golden Rules, here or in other federations
+			remove_federation_flag = cheap_bid_flag
+			remove_federation_flag = expensive_bid_flag
+			remove_federation_flag = normal_bid_flag
+			remove_federation_flag = winner_decision_invest
+			remove_federation_flag = winner_decision_distribute
+			remove_federation_flag = winner_decision_appropriate
+			every_member = {
+				remove_country_flag = bid_contender
+				remove_country_flag = has_abstained
+			}
+			#Setup
+			set_federation_flag = bidding_war_underway
+			every_member = {
+				country_event = { id = fedel.899 } #Announce the challenge; flag contenders
+			}
+		}
+		country_event = { id = fedel.9001 days = 3 }
+	}
+}
+
+####################################################
+### BIDDING WAR EVENT - INTRODUCTION (every member)
+####################################################
+country_event = {
+	id = fedel.899
+	title = fedel.899.name
+	desc = fedel.899.desc
+	picture = GFX_evt_board_meeting
+	show_sound = event_default
+
+	is_triggered_only = yes
+
+	immediate = {
+		set_timed_country_flag = { flag = bid_contender days = @goldenrule_flagtimer }
+	}
+
+	option = {
+		name = fedel.899.a
+	}
+}
+
+########################################################################################
+### BIDDING WAR EVENT (OPENING BID)
+### Fired first for the federation leader (delayed start), then current bidder (looped)
+########################################################################################
+
+# Do we have a winner?
+country_event = {
+	id = fedel.9001
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		if = { #No other federation members are left in the challenge
+			limit = {
+				NOT = {
+					federation = {
+						any_member = {
+							NOT = { is_same_value = root }
+							has_country_flag = bid_contender
+						}
+					}
+				}
+			}
+			save_event_target_as = federation_bidding_winner
+			set_timed_country_flag = { flag = the_golden_rule_challenge_winner days = @goldenrule_flagtimer }
+			country_event = { id = fedel.904 days = 2 } #Decide on winnings
+			set_federation_leader = root
+			federation = {
+				remove_federation_flag = bidding_war_underway
+				every_member = { country_event = { id = fedel.903 } } #Declare winner
+			}
+		}
+		else = { #Continue to bid
+			country_event = { id = fedel.901 days = 2 }
+		}
+	}
+}
+
+# Bid event
+country_event = {
+	id = fedel.901
+	title = fedel.901.name
+	desc = fedel.901.desc
+	picture = GFX_evt_civil_action
+	show_sound = event_vote
+
+	is_triggered_only = yes
+
+	immediate = {
+		#Set the pot size
+		if = {
+			limit = {
+				event_target:bidding_federation_leader = {
+					check_variable = {
+						which = current_pot_variable
+						value <= 10000
+					}
+				}
+			}
+			federation = { set_federation_flag = cheap_bid_flag }
+		}
+		else_if = {
+			limit = {
+				event_target:bidding_federation_leader = {
+					check_variable = {
+						which = current_pot_variable
+						value >= 100000
+					}
+				}
+			}
+			federation = {
+				remove_federation_flag = cheap_bid_flag
+				remove_federation_flag = normal_bid_flag
+				set_federation_flag = expensive_bid_flag
+			}
+		}
+		else = {
+			federation = {
+				remove_federation_flag = cheap_bid_flag
+				set_federation_flag = normal_bid_flag
+			}
+		}
+	}
+
+	# Place Expensive bid
+	option = {
+		name = fedel.901.a
+		custom_tooltip = fedel.901.a.tooltip
+		trigger = {
+			federation = {
+				has_federation_flag = expensive_bid_flag
+			}
+		}
+		allow = {
+			resource_stockpile_compare = {
+				resource = energy
+				value >= 10000
+			}
+		}
+		add_resource = {
+			energy = -10000
+		}
+		hidden_effect = {
+			event_target:bidding_federation_leader = {
+				change_variable = {
+					which = current_pot_variable
+					value = 10000
+				}
+			}
+		}
+		ai_chance = {
+			factor = 5
+		}
+	}
+
+	# Place Cheap bid
+	option = {
+		name = fedel.901.b
+		custom_tooltip = fedel.901.b.tooltip
+		trigger = {
+			federation = {
+				has_federation_flag = cheap_bid_flag
+			}
+		}
+		allow = {
+			resource_stockpile_compare = {
+				resource = energy
+				value >= 2500
+			}
+		}
+		add_resource = {
+			energy = -2500
+		}
+		hidden_effect = {
+			event_target:bidding_federation_leader = {
+				change_variable = {
+					which = current_pot_variable
+					value = 2500
+				}
+			}
+		}
+		ai_chance = {
+			factor = 20
+		}
+	}
+
+	# Place Normal bid
+	option = {
+		name = fedel.901.c
+		custom_tooltip = fedel.901.c.tooltip
+		trigger = {
+			federation = {
+				has_federation_flag = normal_bid_flag
+			}
+		}
+		allow = {
+			resource_stockpile_compare = {
+				resource = energy
+				value >= 5000
+			}
+		}
+		add_resource = {
+			energy = -5000
+		}
+		hidden_effect = {
+			event_target:bidding_federation_leader = {
+				change_variable = {
+					which = current_pot_variable
+					value = 5000
+				}
+			}
+		}
+		ai_chance = {
+			factor = 10
+		}
+	}
+
+	# Forfeit
+	option = {
+		name = fedel.901.d
+		custom_tooltip = fedel.901.d.tooltip
+		hidden_effect = {
+			remove_country_flag = bid_contender
+			set_timed_country_flag = { flag = has_abstained days = @goldenrule_flagtimer }
+		}
+	}
+
+	after = {
+		hidden_effect = {
+			federation = {
+				random_member = {
+					limit = {
+						NOT = { is_same_value = root }
+						has_country_flag = bid_contender
+					}
+					country_event = { id = fedel.9001 days = 2 } #Next round of bidding
+				}
+			}
+		}
+	}
+}
+
+######################################################
+### BIDDING WAR EVENT - DECLARE WINNER (every member)
+######################################################
+country_event = {
+	id = fedel.903
+	title = fedel.903.name
+	desc = fedel.903.desc
+	picture = GFX_evt_announcement
+	show_sound = event_announcement
+
+	is_triggered_only = yes
+
+	immediate = {
+		remove_country_flag = bid_contender
+		remove_country_flag = has_abstained
+	}
+
+	option = {
+		name = fedel.903.a
+	}
+}
+
+#############################################################
+### BIDDING WAR EVENT - WINNER'S DECISION (challenge winner)
+#############################################################
+country_event = {
+	id = fedel.904
+	title = fedel.904.name
+	desc = fedel.904.desc
+	picture = GFX_evt_treasure_pile
+	show_sound = event_default
+
+	is_triggered_only = yes
+
+	immediate = { }
+
+	### Invest
+	option = {
+		name = fedel.904.a
+		custom_tooltip = fedel.904.a.tooltip
+		federation = {
+			every_member = {
+				add_modifier = {
+					modifier = "business_is_booming"
+					days = 360
+				}
+			}
+		}
+		hidden_effect = {
+			federation = {
+				set_federation_flag = winner_decision_invest
+			}
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 5
+				is_megacorp = yes
+			}
+			modifier = {
+				factor = 1
+				has_ethic = ethic_egalitarian
+			}
+			modifier = {
+				factor = 1
+				has_ethic = ethic_fanatic_egalitarian
+			}
+			modifier = {
+				factor = 1
+			}
+			modifier = {
+				factor = 1
+				has_ethic = ethic_fanatic_xenophile
+			}
+			modifier = {
+				factor = 2
+				has_civic = civic_trading_posts
+			}
+			modifier = {
+				factor = 2
+				has_civic = civic_free_traders
+			}
+		}
+	}
+
+	### Distribute
+	option = {
+		name = fedel.904.b
+		custom_tooltip = fedel.904.b.tooltip
+		hidden_effect = {
+			event_target:bidding_federation_leader = {
+				if = {
+					limit = {
+						check_variable = {
+							which = current_pot_variable
+							value <= 10000
+						}
+					}
+					federation = {
+						every_member = {
+							add_resource = { energy = 1000 }
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						check_variable = {
+							which = current_pot_variable
+							value >= 100000
+						}
+					}
+					federation = {
+						every_member = {
+							add_resource = { energy = 5000 }
+						}
+					}
+				}
+				else = {
+					federation = {
+						every_member = {
+							add_resource = { energy = 2500 }
+						}
+					}
+				}
+			}
+			federation = {
+				set_federation_flag = winner_decision_distribute
+			}
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 5
+				has_ethic = ethic_egalitarian
+			}
+			modifier = {
+				factor = 7
+				has_ethic = ethic_fanatic_egalitarian
+			}
+		}
+	}
+
+	### Appropriate
+	option = {
+		name = fedel.904.c
+		custom_tooltip = fedel.904.c.tooltip
+		hidden_effect = {
+			if = {
+				limit = {
+					event_target:bidding_federation_leader = {
+						check_variable = {
+							which = current_pot_variable
+							value <= 10000
+						}
+					}
+				}
+				add_resource = { energy = 7000 }
+			}
+			else_if = {
+				limit = {
+					event_target:bidding_federation_leader = {
+						check_variable = {
+							which = current_pot_variable
+							value >= 100000
+						}
+					}
+				}
+				add_resource = { energy = 75000 }
+			}
+			else = {
+				owner = {
+					add_resource = { energy = 15000 }
+				}
+			}
+			add_modifier = {
+				modifier = "midas_stigma"
+				days = 1800
+			}
+			federation = {
+				set_federation_flag = winner_decision_appropriate
+			}
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 2
+				has_ethic = ethic_authoritarian
+			}
+			modifier = {
+				factor = 3
+				has_ethic = ethic_fanatic_authoritarian
+			}
+			modifier = {
+				factor = 2
+				has_ethic = ethic_xenophobe
+			}
+			modifier = {
+				factor = 3
+				has_ethic = ethic_fanatic_xenophobe
+			}
+			modifier = {
+				factor = 3
+				has_ethic = ethic_gestalt_consciousness
+			}
+			modifier = {
+				factor = 5
+				has_civic = civic_criminal_heritage
+			}
+			modifier = {
+				factor = 5
+				has_civic = civic_ruthless_competition
+			}
+		}
+	}
+
+	after = {
+		hidden_effect = {
+			country_event = { id = fedel.905 days = @goldenrule_flagtimer }
+			event_target:bidding_federation_leader = {
+				set_variable = {
+					which = current_pot_variable
+					value = 0
+				}
+			}
+			federation = {
+				every_member = {
+					limit = {
+						NOT = { has_country_flag = the_golden_rule_challenge_winner }
+					}
+					country_event = { id = fedel.906 days = 2 }
+				}
+			}
+		}
+	}
+}
+
+##################################################################
+### BIDDING WAR EVENT - CLEAN-UP EVENT (HIDDEN, challenge winner)
+##################################################################
+country_event = {
+	id = fedel.905
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		federation = {
+			remove_federation_flag = bidding_war_underway
+			remove_federation_flag = cheap_bid_flag
+			remove_federation_flag = expensive_bid_flag
+			remove_federation_flag = normal_bid_flag
+			remove_federation_flag = winner_decision_invest
+			remove_federation_flag = winner_decision_distribute
+			remove_federation_flag = winner_decision_appropriate
+		}
+	}
+}
+
+#################################################
+### BIDDING WAR EVENT - DECISION BROADCAST
+#################################################
+country_event = {
+	id = fedel.906
+	title = fedel.906.name
+	desc = {
+		trigger = {
+			hidden:federation = {
+				switch = {
+					trigger = has_federation_flag
+					winner_decision_invest = { text = fedel.906.desc.a }
+					winner_decision_distribute = { text = fedel.906.desc.b }
+					winner_decision_appropriate = { text = fedel.906.desc.c }
+				}
+			}
+		}
+	}
+	diplomatic_title = BLANK_STRING
+	diplomatic = yes
+	is_triggered_only = yes
+
+	picture_event_data = {
+		portrait = event_target:federation_bidding_winner
+		room = event_target:federation_bidding_winner
+		planet_background = event_target:federation_bidding_winner
+	}
+
+	option = {
+		name = MARVELOUS
+		trigger = {
+			federation = {
+				has_federation_flag = winner_decision_invest
+			}
+		}
+	}
+
+	option = {
+		name = DEAL
+		trigger = {
+			federation = {
+				has_federation_flag = winner_decision_distribute
+			}
+		}
+	}
+
+	option = {
+		name = CURSES
+		trigger = {
+			federation = {
+				has_federation_flag = winner_decision_appropriate
+			}
+		}
+	}
+}

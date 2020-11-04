@@ -1,0 +1,8 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_victory_picture"
+		texturefile = "gfx/event_pictures/victorious_army.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+}

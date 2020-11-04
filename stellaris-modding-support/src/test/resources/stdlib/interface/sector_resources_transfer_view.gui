@@ -1,0 +1,238 @@
+guiTypes = {
+
+	containerWindowType = {
+		name = "sector_resources_transfer_view"
+		orientation = center
+		origo = center
+		moveable = yes
+		size = { width = 370 height = 200 }
+
+		background = {
+			name = "fleet_view_ship_details_view_background"
+			spriteType = "GFX_tile_outliner_bg"
+		}
+
+		iconType = {
+			name = "hex_bg"
+			spriteType = "GFX_hex_bg"
+			position = { x = -10 y = -12 }
+			alwaysTransparent = yes
+		}
+
+		iconType = {
+			name = "empire_header_line"
+			quadTextureSprite = "GFX_line"
+			position = { x = 6 y = 24 }
+			alwaysTransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "transfer_label"
+			font = "malgun_goth_24"
+			text = "SECTOR_TRANSFER_RESOURCES"
+			position = { x = 15 y = 5 }
+			fixedSize = yes
+			format = left
+			alwaysTransparent = yes
+		}
+
+		buttonType = {
+			name = "close"
+			quadTextureSprite = "GFX_close_square"
+			orientation = UPPER_RIGHT
+			position = { x = -45 y = 16 }
+			pdx_tooltip = "CLOSE_TITLE"
+			shortcut = "ESCAPE"
+			clicksound = "back_click"
+		}
+
+		instantTextBoxType = {
+			name = "sector_name"
+			font = "malgun_goth_24"
+			position = { x = 20 y = 53 }
+			maxWidth = 320
+			format = left
+			text_color_code = "H"
+			alwaysTransparent = no
+		}
+
+		instantTextBoxType = {
+			name = "empire_label"
+			font = "cg_16b"
+			text = "EMPIRE_RESOURCES_LABEL"
+			position = { x = 20 y = 95 }
+			maxWidth = 140
+			maxHeight = 20
+			#text_color_code = "E"
+			fixedSize = yes
+		}
+
+		instantTextBoxType = {
+			name = "stockpile_label"
+			font = "cg_16b"
+			text = "SECTOR_STOCKPILE_LABEL"
+			position = { x = 230 y = 95 }
+			maxWidth = 140
+			maxHeight = 20
+			#text_color_code = "E"
+			fixedSize = yes
+		}
+
+		iconType = {
+						name = "title_line"
+						quadTextureSprite = "GFX_line_short"
+						position = { x = 20 y = 225}
+						scale = 1
+		}
+
+		containerWindowType = {
+			name = "amount_bg_box_1"
+			size = { width = 120 height = 66 }
+			position = { x = 230 y = 120 }
+			clipping = no
+
+			background = {
+				name = "amount_bg_1"
+				spriteType = "GFX_tiles_dark_area_cut_8"
+			}
+		}
+
+		instantTextBoxType = {
+			name = "current_amount"
+			font = "malgun_goth_24"
+			position = { x = 230 y = 140 }
+			maxWidth = 120
+			maxHeight = 20
+			format = center
+			alwaysTransparent = no
+			text_color_code = "E"
+		}
+
+		containerWindowType = {
+			name = "resources"
+			size = { width = 340 height = 100%% }
+			position = { x = 19 y = 120 }
+
+			gridBoxType = {
+				name = "resources_grid"
+				slotSize = { width = 240 height = 34 }
+				format = "UPPER_LEFT"
+				max_slots_horizontal = 1
+				add_horizontal = no
+			}
+		}
+	}
+
+	containerWindowType = {
+		name = "sector_resource_transfer_entry"
+		size = { width = 200 height = 32 }
+		clipping = yes
+
+		background = {
+				name = "amount_bg_1"
+				spriteType = "GFX_tiles_dark_area_cut_8"
+				pdx_tooltip = "COUNTRY_STOCKPILE_DESC"
+			}
+
+		#moving this up (out) as removing causes error
+		instantTextBoxType = {
+			name = "name"
+			font = "cg_16b"
+			text = "energy"
+			position = { x = 6 y = 50 }
+			maxWidth = 140
+			maxHeight = 40
+			fixedSize = yes
+			format = left
+		}
+
+		containerWindowType = {
+			name = "amount_bg_box_1"
+			size = { width = 60 height = 25 }
+			position = { x = 20 y = 0 }
+			clipping = no
+
+			background = {
+				name = "amount_bg_1"
+				spriteType = "GFX_invisible"
+				pdx_tooltip = "COUNTRY_STOCKPILE_DESC"
+			}
+		}
+
+		instantTextBoxType = {
+			name = "stored"
+			font = "cg_16b"
+			text = "XXXX"
+			position = { x = 25 y = 6 }
+			font = "cg_16b"
+			maxWidth = 50
+			maxHeight = 20
+			format = center
+			text_color_code = "E"
+			alwaysTransparent = yes
+		}
+
+		buttonType={
+			name = "transfer"
+			font = "cg_16b"
+			spriteType = "GFX_button_75_24"
+			position = { x = 100 y = -9 }
+		}
+
+		instantTextBoxType = {
+			name = "transfer_amount"
+			font = "cg_16b"
+			text = "YYY"
+			position = { x = 100 y = 6 }
+			format = center
+			maxWidth = 90
+			text_color_code = "E"
+			alwaysTransparent = yes
+		}
+	}
+
+	containerWindowType = {
+		name = "monthly_sector_resource_transfer_entry"
+		size = { width = 100 height = 25 }
+
+		containerWindowType = {
+			name = "amount_bg_box_1"
+			size = { width = 75 height = 23 }
+			position = { x = 15 y = 0 }
+			clipping = no
+
+			background = {
+				name = "amount_bg_1"
+				spriteType = "GFX_tiles_dark_area_cut_8"
+				pdx_tooltip = "SECTOR_RESOURCE_MONTHLY_TRANSFER"
+			}
+		}
+
+		instantTextBoxType = {
+			name = "amount"
+			font = "cg_16b"
+			text = "XXXX"
+			position = { x = 14 y = 2 }
+			font = "cg_16b"
+			maxWidth = 70
+			maxHeight = 20
+			format = center
+			text_color_code = "E"
+			alwaysTransparent = yes
+		}
+
+		buttonType={
+			name = "decrease"
+			font = "cg_16b"
+			spriteType = "GFX_topbar_date_minus"
+			position = { x = 0 y = 0 }
+		}
+
+		buttonType={
+			name = "increase"
+			font = "cg_16b"
+			spriteType = "GFX_topbar_date_plus"
+			position = { x = 85 y = 0 }
+		}
+	}
+}

@@ -1,0 +1,3019 @@
+################################
+#
+# Origin Events - Douglas Furen
+#
+###############################
+
+namespace = origin
+
+############
+#  Origin  #  -  Galactic Doorstep Origin
+############
+
+### Origin - Galactic Doorstep - Archaeology: From Gateway Sent
+
+# Stage 1 - Beyond Impact
+fleet_event = {
+	id = origin.1100
+	title = "origin.1100.name"
+	desc = "origin.1100.desc"
+	picture = GFX_evt_landing_ship
+	show_sound = event_ghost_town
+	
+	archaeology = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		from = { set_site_progress_locked = yes }
+	}
+
+	after = { 
+		from = { set_site_progress_locked = no } 
+	}
+	
+	option = {
+		name = DIG
+		small_artifact_reward = yes
+	}
+}
+
+# Stage 2 - Temporal Dissonance
+fleet_event = {
+	id = origin.1105
+	title = "origin.1105.name"
+	desc = "origin.1105.desc"
+	picture = GFX_evt_clocks
+	show_sound = event_mystic_reveal
+	
+	archaeology = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		from = { set_site_progress_locked = yes }
+	}
+
+	after = { 
+		from = { set_site_progress_locked = no } 
+	}
+	
+	option = {
+		name = DIG
+		small_artifact_reward = yes
+	}
+}
+
+# Stage 4 - Room Without A View
+fleet_event = {
+	id = origin.1110
+	title = "origin.1110.name"
+	desc = "origin.1110.desc"
+	picture = GFX_evt_discovered_hidden_door
+	show_sound = event_mystic_reveal
+	
+	archaeology = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		from = { set_site_progress_locked = yes }
+	}
+
+	after = { 
+		from = { set_site_progress_locked = no } 
+	}
+	
+	option = {
+		name = DIG
+		small_artifact_reward = yes
+		owner = {
+			add_monthly_resource_mult = {
+				resource = physics_research
+				value = @tier2researchreward
+				min = @tier2researchmin
+				max = @tier2researchmax
+			}
+		}
+	}
+}
+
+# Stage 4 - The Gatekeeper Memoirs
+fleet_event = {
+	id = origin.1115
+	title = "origin.1115.name"
+	desc = "origin.1115.desc"
+	picture = GFX_evt_star_chart
+	show_sound = event_collapsing_ruins
+	
+	archaeology = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		from = { set_site_progress_locked = yes }
+	}
+
+	after = { 
+		from = { set_site_progress_locked = no }
+	}
+	
+	option = {
+		name = FASCINATING
+		small_artifact_reward = yes
+		owner = {
+			add_monthly_resource_mult = {
+				resource = engineering_research
+				value = @tier3researchreward
+				min = @tier3researchmin
+				max = @tier3researchmax
+			}
+		}
+		hidden_effect = {
+			owner = { country_event = { id = origin.1013 days = 10 } }
+		}
+	}
+}
+
+
+### Origin - Galactic Doorstep - Origin Events
+
+# Galactic Doorstep - Events 0 - Setup
+country_event = {
+	id = origin.1001
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_origin = origin_galactic_doorstep
+	}
+
+	immediate = {
+		capital_scope = {
+			solar_system = {
+				spawn_megastructure = {
+					name = "NAME_Galactic_Doorstep"
+					type = "gateway_ruined"
+					random_pos = yes
+					orbit_angle = 360
+					init_effect = {
+						set_megastructure_flag = doorstep_gateway@root
+						save_event_target_as = doorstep_gateway
+					}
+				}
+			}
+		}
+		set_country_flag = encountered_first_gateway
+		country_event = { id = origin.1000 days = 300 random = 30 }
+	}
+}
+
+# Galactic Doorstep - Events 1 - The Boon
+country_event = {
+	id = origin.1000
+	title = "origin.1000.name"
+	desc = "origin.1000.desc"
+	picture = GFX_evt_hive
+	show_sound = event_energy_field
+	location = event_target:doorstep_gateway
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = MARVELOUS
+		owner = {
+			locked_random_list = {
+				25 = {
+					add_monthly_resource_mult = {
+						resource = alloys
+						value = @tier3materialreward
+						min = @tier3materialmin
+						max = @tier3materialmax
+					}
+				}
+				25 = {
+					add_monthly_resource_mult = {
+						resource = minerals
+						value = @tier2materialreward
+						min = @tier2materialmin
+						max = @tier2materialmax
+					}
+					add_monthly_resource_mult = {
+						resource = alloys
+						value = @tier1materialreward
+						min = @tier1materialmin
+						max = @tier1materialmax
+					}
+				}
+				25 = {
+					add_monthly_resource_mult = {
+						resource = minerals
+						value = @tier1materialreward
+						min = @tier1materialmin
+						max = @tier1materialmax
+					}
+					add_monthly_resource_mult = {
+						resource = alloys
+						value = @tier2materialreward
+						min = @tier2materialmin
+						max = @tier2materialmax
+					}
+				}
+				25 = {
+					add_monthly_resource_mult = {
+						resource = minerals
+						value = @tier3materialreward
+						min = @tier3materialmin
+						max = @tier3materialmax
+					}
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = { id = origin.1005 days = 500 random = 60 }
+		}
+	}
+}
+
+# Galactic Doorstep - Events 2 - The Bane
+country_event = {
+	id = origin.1005
+	title = "origin.1005.name"
+	desc = "origin.1005.desc"
+	picture = GFX_evt_unidentified_monster
+	show_sound = event_red_alert
+	location = event_target:doorstep_gateway
+
+	is_triggered_only = yes
+
+	immediate = {
+		create_country = {
+			name = "NAME_Gateway_Vermin"
+			type = amoeba
+			flag = {
+				icon = {
+					category = "zoological"
+					file = "flag_zoological_1.dds"
+				}
+				background= {
+					category = "backgrounds"
+					file = "00_solid.dds"
+				}
+				colors={
+					"black"
+					"black"
+					"null"
+					"null"
+				}
+			}
+			effect = {
+				set_faction_hostility = { set_hostile = yes }
+				every_playable_country = {
+					establish_communications_no_message = prev
+				}
+			}
+		}
+		last_created_country = {
+			create_fleet = {
+				name = "NAME_Gateway_Vermin"
+				effect = {
+					create_ship = {
+						name = "NAME_Gateway_Vermin"
+						design = "NAME_Small_Space_Organism_Teal"
+					}
+					set_owner = PREV
+					set_location = {
+						target = event_target:doorstep_gateway
+						distance = 5
+						angle = random
+					}
+					set_fleet_stance = aggressive
+					set_aggro_range_measure_from = self
+					set_aggro_range = 500
+				}
+			}
+		}
+	}
+
+	option = {
+		name = BATTLESTATIONS
+		hidden_effect = {
+			country_event = { id = origin.1010 days = 1000 random = 200 }
+		}
+	}
+}
+
+# Galactic Doorstep - Events 3 - The Probe
+country_event = {
+	id = origin.1010
+	title = "origin.1010.name"
+	desc = "origin.1010.desc"
+	picture = GFX_evt_atmospheric_entry
+	show_sound = event_energy_field
+	location = event_target:probe_crashsite
+	
+	is_triggered_only = yes
+
+	immediate = {
+		capital_scope = {
+			solar_system = {
+				random_system_planet = {
+					limit = {
+						is_star = no
+						is_homeworld = no
+						is_asteroid = no
+					}
+					save_event_target_as = probe_crashsite
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = PECULIAR
+		enable_special_project = {
+			name = "A_CLOSER_LOOK_PROJECT"
+			location = event_target:probe_crashsite
+			owner = root
+		}
+	}
+}
+
+# Galactic Doorstep - Hidden Event - Creates From Gateway Sent Arc Site
+planet_event = {
+	id = origin.1011
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		create_archaeological_site = site_from_gateway_sent
+		solar_system = {
+			random_system_planet = {
+				limit = { has_owner = yes }
+				owner = {
+					country_event = { id = origin.1012 days = 1 }
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = origin.1012
+	title = "origin.1012.name"
+	desc = "origin.1012.desc"
+	picture = GFX_evt_satellite_in_orbit
+	show_sound = event_mystic_reveal
+
+	is_triggered_only = yes
+
+	immediate = {
+	}
+
+	after = {
+	}
+
+	option = {
+		name = CURIOUS
+	}
+}
+
+# Galactic Doorstep - Hidden Event - Message prior to Gateway Cannon Research Project
+country_event = {
+	id = origin.1013
+	title = "origin.1013.name"
+	desc = "origin.1013.desc"
+	picture = GFX_evt_drifting_gateway
+	show_sound = event_energy_field
+	location = event_target:doorstep_gateway
+	
+	is_triggered_only = yes
+
+	immediate = {
+		random_megastructure = {
+			limit = { has_megastructure_flag = doorstep_gateway@root }
+			save_event_target_as = doorstep_gateway
+		}
+	}
+
+	option = {
+		name = INTRIGUING
+		enable_special_project = {
+			name = "THE_GATEWAY_CANNON_PROJECT"
+			location = event_target:doorstep_gateway
+			owner = root
+		}
+	}
+}
+
+# Galactic Doorstep - The Waiting Game
+country_event = {
+	id = origin.1015
+	title = "origin.1015.name"
+	desc = "origin.1015.desc"
+	picture = GFX_evt_l-gateway
+	show_sound = event_energy_field
+	location = event_target:doorstep_gateway
+	
+	is_triggered_only = yes
+
+	immediate = {
+	}
+
+	option = {
+		name = INTRIGUING
+		hidden_effect = {
+			country_event = { id = origin.1020 days = 700 random = 50 }
+		}
+	}
+}
+
+# Galactic Doorstep - Return to Sender
+country_event = {
+	id = origin.1020
+	title = "origin.1020.name"
+	desc = {
+		text = "origin.1020.desc"
+		trigger = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}
+	}
+	desc = {
+		text = "origin.1020.desc.machine"
+		trigger = {
+			has_authority = auth_machine_intelligence
+		}
+	}
+	picture = GFX_evt_space_debris
+	show_sound = event_energy_field
+	location = event_target:doorstep_gateway
+	
+	is_triggered_only = yes
+
+	immediate = {
+	}
+
+	option = {
+		name = INTRIGUING
+		owner = {
+			if = {
+				limit = {
+					has_tech_option = tech_gateway_activation
+				}
+				add_tech_progress = {
+					tech = tech_gateway_activation
+					progress = 0.65
+				}
+			}
+			else_if = {
+				limit = {
+					NOT = { has_technology = tech_gateway_activation }
+				}
+				add_research_option = tech_gateway_activation
+				add_tech_progress = {
+					tech = tech_gateway_activation
+					progress = 0.45
+				}
+			}
+			else = {
+				add_monthly_resource_mult = {
+     				resource = engineering_research
+     				value = @tier4researchreward
+     				min = @tier4researchmin
+     				max = @tier4researchmax
+     			}
+     			add_monthly_resource_mult = {
+     				resource = physics_research
+     				value = @tier4researchreward
+     				min = @tier4researchmin
+     				max = @tier4researchmax
+     			}
+			}
+		}
+		hidden_effect = {
+			country_event = { id = origin.1021 days = 1200 random = 100 }
+		}
+	}
+}
+
+# Galactic Doorstep - Hidden Event - Randomises outcome of Origin Event Chain
+country_event = {
+	id = origin.1021
+	hide_window = yes
+	
+	is_triggered_only = yes
+
+	immediate = {
+		random_list = {
+			40 = {
+				country_event = { id = origin.1025 }
+			}
+			30 = {
+				country_event = { id = origin.1035 }
+			}
+			30 = {
+				country_event = { id = origin.1040 }
+			}
+		}
+	}
+}
+
+# Galactic Doorstep - Gateway Locust
+country_event = {
+	id = origin.1025
+	title = "origin.1025.name"
+	desc = "origin.1025.desc"
+	picture = GFX_evt_fleet_evil
+	show_sound = event_red_alert
+	location = event_target:doorstep_gateway
+
+	is_triggered_only = yes
+
+	immediate = {
+		create_country = {
+			name = "NAME_Gateway_Vermin"
+			type = amoeba
+			flag = {
+				icon = {
+					category = "zoological"
+					file = "flag_zoological_1.dds"
+				}
+				background= {
+					category = "backgrounds"
+					file = "00_solid.dds"
+				}
+				colors={
+					"black"
+					"black"
+					"null"
+					"null"
+				}
+			}
+		}
+		last_created_country = {
+			create_fleet = {
+				name = "NAME_Gateway_Vermin"
+				effect = {
+					while = {
+						count = 16	
+						create_ship = {
+							name = "NAME_Gateway_Vermin"
+							design = "NAME_Small_Space_Organism_Teal"
+						}
+						set_owner = PREV
+						set_location = {
+							target = event_target:doorstep_gateway
+							distance = 5
+							angle = random
+						}
+						set_fleet_stance = aggressive
+						set_aggro_range_measure_from = self
+						set_aggro_range = 500
+					}
+					set_fleet_flag = gateway_vermin
+				}
+			}
+		}
+		set_country_flag = gateway_swarm
+	}
+
+	option = {
+		name = BATTLESTATIONS
+	}
+}
+
+# Galactic Doorstep - Pest Control
+country_event = {
+	id = origin.1030
+	title = "origin.1030.name"
+	desc = {
+		text = "origin.1030.desc"
+		trigger = {
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+		}
+	}
+	desc = {
+		text = "origin.1030.desc.gestalt"
+		trigger = {
+			has_ethic = ethic_gestalt_consciousness
+		}
+	}
+	picture = GFX_evt_atmospheric_entry
+	show_sound = event_energy_field
+	location = owner
+	
+	is_triggered_only = yes
+
+	trigger = {
+		has_origin = origin_galactic_doorstep
+        fromfromfrom = { 
+            has_fleet_flag = gateway_vermin
+        }
+	}
+
+	immediate = {
+	}
+
+	after = {
+	}
+
+	option = {
+		name = origin.1030.a
+		hidden_effect = {
+			remove_country_flag = gateway_swarm
+		}
+	}
+}
+
+# Galactic Doorstep - Relentless Barrage
+country_event = {
+	id = origin.1035
+	title = "origin.1035.name"
+	desc = {
+		text = "origin.1035.desc"
+		trigger = {
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+		}
+	}
+	desc = {
+		text = "origin.1035.desc.gestalt"
+		trigger = {
+			has_ethic = ethic_gestalt_consciousness
+		}
+	}
+	picture = GFX_evt_fleet_evil
+	show_sound = event_red_alert
+	location = event_target:doorstep_gateway
+
+	is_triggered_only = yes
+
+	immediate = {
+		create_country = {
+			name = "NAME_Gateway_Vermin"
+			type = amoeba
+			flag = {
+				icon = {
+					category = "zoological"
+					file = "flag_zoological_1.dds"
+				}
+				background= {
+					category = "backgrounds"
+					file = "00_solid.dds"
+				}
+				colors={
+					"black"
+					"black"
+					"null"
+					"null"
+				}
+			}
+		}
+		last_created_country = {
+			create_fleet = {
+				name = "NAME_Gateway_Vermin"
+				effect = {
+					while = {
+						count = 10	
+						create_ship = {
+							name = "NAME_Gateway_Vermin"
+							design = "NAME_Small_Space_Organism_Teal"
+						}
+						set_owner = PREV
+						set_location = {
+							target = root.capital_scope
+							distance = 5
+							angle = random
+						}
+						set_fleet_stance = aggressive
+						set_aggro_range_measure_from = self
+						set_aggro_range = 500
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = BATTLESTATIONS
+	}
+}
+
+# Galactic Doorstep - Cosmic Overload
+country_event = {
+	id = origin.1040
+	title = "origin.1040.name"
+	desc = {
+		text = "origin.1040.desc"
+		trigger = {
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+		}
+	}
+	desc = {
+		text = "origin.1040.desc.gestalt"
+		trigger = {
+			has_ethic = ethic_gestalt_consciousness
+		}
+	}
+	picture = GFX_evt_archaeologists_escaping
+	show_sound = event_air_raid_siren
+	location = root.capital_scope
+	
+	is_triggered_only = yes
+
+	immediate = {
+	}
+
+	option = {
+		name = TERRIBLE
+		root = {
+			capital_scope = {
+				while = {
+					count = 3
+					remove_district = district_generator
+				}
+				add_planet_devastation = 21
+			}
+		}
+	}
+}
+
+country_event = {
+	id = origin.1050
+	title = origin.1050.name
+	desc = origin.1050.desc
+	picture = GFX_evt_drifting_gateway
+	show_sound = event_default
+	location = from
+	
+	is_triggered_only = yes
+
+	trigger = {
+		has_origin = origin_galactic_doorstep
+		NOT = { has_technology = tech_gateway_construction }
+		NOT = { has_tech_option = tech_gateway_construction }
+		fromfromfrom = { has_megastructure_flag = doorstep_gateway@root }
+		NOR = {
+			has_country_flag = gateway_reactivated
+			has_country_flag = gateway_built
+		}
+	}
+
+	immediate = {
+		set_country_flag = gateway_reactivated
+	}
+
+	option = {
+		name = origin.1050.A
+
+		add_research_option = tech_gateway_construction
+		add_tech_progress = {
+			tech = tech_gateway_construction
+			progress = 0.2
+		}
+	}
+}
+
+
+############
+#  Origin  #  -  On the Shoulders of Giants Origin
+############
+
+### Origin - On the Shoulders of Giants Origin - Archaeology: Ex Gravitas
+
+# Stage 1 - The First, Small Step
+fleet_event = {
+	id = origin.1200
+	title = "origin.1200.name"
+	desc = {
+		trigger = {
+			 owner = { has_country_flag = arc_site_moon }
+		}
+		text = origin.1200.desc.a
+	}
+	desc = {
+		trigger = {
+			 owner = { has_country_flag = arc_site_planet }
+		}
+		text = origin.1200.desc.b
+	}
+	picture = GFX_evt_barren_dig_site
+	show_sound = event_laboratory_sound
+	
+	archaeology = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		from = { set_site_progress_locked = yes }
+		from = { save_event_target_as = ex_gravitas_stage_1}
+	}
+
+	after = { 
+		from = { set_site_progress_locked = no } 
+	}
+	
+	option = {
+		name = origin.1200.c
+		small_artifact_reward = yes
+		event_target:ex_gravitas_stage_1 = { add_stage_clues = 1 }
+	}
+}
+
+# Stage 2 - Tracking the Signal
+fleet_event = {
+	id = origin.1205
+	title = "origin.1205.name"
+	desc = "origin.1205.desc"
+	picture = GFX_evt_satellite_in_orbit
+	show_sound = event_scanner
+	
+	archaeology = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		from = { set_site_progress_locked = yes }
+		from = { save_event_target_as = ex_gravitas_stage_2}
+	}
+
+	after = { 
+		from = { set_site_progress_locked = no } 
+	}
+	
+	option = {
+		name = origin.1205.a
+		small_artifact_reward = yes
+		event_target:ex_gravitas_stage_2 = { add_stage_clues = 2 }
+	}
+}
+
+# Stage 3 - It's a Dud
+fleet_event = {
+	id = origin.1210
+	title = "origin.1210.name"
+	desc = "origin.1210.desc"
+	picture = GFX_evt_ship_in_orbit
+	show_sound = event_default
+	
+	archaeology = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		from = { set_site_progress_locked = yes }
+		from = { save_event_target_as = ex_gravitas_stage_3}
+	}
+
+	after = { 
+		from = { set_site_progress_locked = no } 
+	}
+	
+	option = {
+		name = origin.1210.a
+		small_artifact_reward = yes
+		event_target:ex_gravitas_stage_3 = { add_stage_clues = 2 }
+	}
+}
+
+# Stage 4 - Wind Back and Proceed
+fleet_event = {
+	id = origin.1215
+	title = "origin.1215.name"
+	desc = {
+		trigger = {
+			 owner = { has_country_flag = arc_site_moon }
+		}
+		text = origin.1215.desc.a
+	}
+	desc = {
+		trigger = {
+			 owner = { has_country_flag = arc_site_planet }
+		}
+		text = origin.1215.desc.b
+	}
+	picture = GFX_evt_clocks
+	show_sound = event_mystic_reveal
+	
+	archaeology = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		from = { set_site_progress_locked = yes }
+	}
+
+	after = { 
+		from = { set_site_progress_locked = no }
+		owner = {
+			remove_country_flag = arc_site_moon
+			remove_country_flag = arc_site_planet
+		}
+	}
+	
+	option = {
+		name = AMAZING
+		owner = {
+			add_monthly_resource_mult = {
+				resource = minerals
+				value = @tier1materialreward
+				min = @tier1materialmin
+				max = @tier1materialmax
+			}
+		}
+		hidden_effect = {
+			owner = {
+				country_event = { id = origin.1219 days = 3 random = 1 }
+			}
+		}
+	}
+}
+
+### Origin - On the Shoulders of Giants Origin - Archaeology: Something Waiting
+
+# Stage 1 - Let's See What We Got
+fleet_event = {
+	id = origin.1220
+	title = "origin.1220.name"
+	desc = "origin.1220.desc"
+	picture = GFX_evt_archaeology_camp
+	show_sound = event_construction
+	
+	archaeology = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		from = { set_site_progress_locked = yes }
+		from = { save_event_target_as = something_waiting_stage_1}
+	}
+
+	after = { 
+		from = { set_site_progress_locked = no } 
+	}
+	
+	option = {
+		name = DIG
+		small_artifact_reward = yes
+		event_target:something_waiting_stage_1 = { add_stage_clues = 2 }
+	}
+}
+
+# Stage 2 - Proving Grounds
+fleet_event = {
+	id = origin.1225
+	title = "origin.1225.name"
+	desc = "origin.1225.desc"
+	picture = GFX_evt_hidden_door
+	show_sound = event_construction
+	
+	archaeology = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		from = { set_site_progress_locked = yes }
+		from = { save_event_target_as = something_waiting_stage_2}
+	}
+
+	after = { 
+		from = { set_site_progress_locked = no } 
+	}
+	
+	option = {
+		name = origin.1225.a
+		small_artifact_reward = yes
+		event_target:something_waiting_stage_2 = { add_stage_clues = 3 }
+	}
+}
+
+# Stage 3 - The Trials
+fleet_event = {
+	id = origin.1230
+	title = "origin.1230.name"
+	desc = "origin.1230.desc"
+	picture = GFX_evt_sapient_AI
+	show_sound = event_mystic_reveal
+	
+	archaeology = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		from = { set_site_progress_locked = yes }
+		from = { save_event_target_as = something_waiting_stage_3 }
+	}
+
+	after = { 
+		from = { set_site_progress_locked = no } 
+	}
+	
+	option = {
+		name = origin.1230.a
+		small_artifact_reward = yes
+		event_target:something_waiting_stage_3 = { add_stage_clues = 2 }
+	}
+}
+
+# Stage 4 - Full of Wonders
+fleet_event = {
+	id = origin.1235
+	title = "origin.1235.name"
+	desc = "origin.1235.desc"
+	picture = GFX_evt_star_chart
+	show_sound = event_alien_signal
+	
+	archaeology = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		from = { set_site_progress_locked = yes }
+	}
+
+	after = { 
+		from = { set_site_progress_locked = no }
+	}
+	
+	option = {
+		name = FASCINATING
+		small_artifact_reward = yes
+		owner = {
+			locked_random_list = {
+				10 = {
+					add_random_research_option = {
+						add_progress = 0.85
+						area = engineering
+						tier = 1
+						ignore_prereqs = yes
+						fail_effects = {
+							add_monthly_resource_mult = {
+								resource = engineering_research
+								value = @tier5researchreward
+								min = @tier5researchmin
+								max = @tier5researchmax
+							}
+						}
+					}
+				}
+				10 = {
+					add_random_research_option = {
+						add_progress = 0.85
+						area = physics
+						tier = 1
+						ignore_prereqs = yes
+						fail_effects = {
+							add_monthly_resource_mult = {
+								resource = physics_research
+								value = @tier5researchreward
+								min = @tier5researchmin
+								max = @tier5researchmax
+							}
+						}
+					}
+				}
+				10 = {
+					add_random_research_option = {
+						add_progress = 0.85
+						area = society
+						tier = 1
+						ignore_prereqs = yes
+						fail_effects = {
+							add_monthly_resource_mult = {
+								resource = society_research
+								value = @tier5researchreward
+								min = @tier5researchmin
+								max = @tier5researchmax
+							}
+						}
+					}
+				}
+			}
+		}
+		hidden_effect = {
+			owner = {
+				country_event = { id = origin.1239 days = 3 random = 1 }
+			} 
+		}
+	}
+}
+
+### Origin - On the Shoulders of Giants Origin - Archaeology: Buried Deep
+
+# Stage 1 - Sealed Bunker
+fleet_event = {
+	id = origin.1240
+	title = "origin.1240.name"
+	desc = "origin.1240.desc"
+	picture = GFX_evt_drilling_for_gas
+	show_sound = event_construction
+	
+	archaeology = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		from = { set_site_progress_locked = yes }
+		from = { save_event_target_as = buried_deep_stage_1 }
+	}
+
+	after = { 
+		from = { set_site_progress_locked = no } 
+	}
+	
+	option = {
+		name = DIG
+		small_artifact_reward = yes
+		event_target:buried_deep_stage_1 = { add_stage_clues = 2 }
+	}
+}
+
+# Stage 2 - Bunker Debunked
+fleet_event = {
+	id = origin.1245
+	title = "origin.1245.name"
+	desc = "origin.1245.desc"
+	picture = GFX_evt_resource_cache
+	show_sound = event_structural_collapse
+	
+	archaeology = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		from = { set_site_progress_locked = yes }
+	}
+
+	after = { 
+		from = { set_site_progress_locked = no }
+	}
+	
+	option = {
+		name = EXCELLENT
+		small_artifact_reward = yes
+		owner = {
+			locked_random_list = {
+				10 = {
+					add_random_research_option = {
+						add_progress = 0.85
+						area = engineering
+						tier = 1
+						ignore_prereqs = yes
+						fail_effects = {
+							add_monthly_resource_mult = {
+								resource = engineering_research
+								value = @tier5researchreward
+								min = @tier5researchmin
+								max = @tier5researchmax
+							}
+						}
+					}
+				}
+				10 = {
+					add_random_research_option = {
+						add_progress = 0.85
+						area = physics
+						tier = 1
+						ignore_prereqs = yes
+						fail_effects = {
+							add_monthly_resource_mult = {
+								resource = physics_research
+								value = @tier5researchreward
+								min = @tier5researchmin
+								max = @tier5researchmax
+							}
+						}
+					}
+				}
+				10 = {
+					add_random_research_option = {
+						add_progress = 0.85
+						area = society
+						tier = 1
+						ignore_prereqs = yes
+						fail_effects = {
+							add_monthly_resource_mult = {
+								resource = society_research
+								value = @tier5researchreward
+								min = @tier5researchmin
+								max = @tier5researchmax
+							}
+						}
+					}
+				}
+			}
+		}
+		hidden_effect = {
+			owner = {
+				country_event = { id = origin.1249 days = 3 random = 1 }
+			} 
+		}
+	}
+}
+
+### Origin - On the Shoulders of Giants Origin - Archaeology: In Memoriam
+
+# Stage 1 - Very Complex
+fleet_event = {
+	id = origin.1250
+	title = "origin.1250.name"
+	desc = "origin.1250.desc"
+	picture = GFX_evt_satellite_in_orbit
+	show_sound = event_scanner
+	
+	archaeology = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		from = { set_site_progress_locked = yes }
+		from = { save_event_target_as = in_memoriam_stage_1 }
+	}
+
+	after = { 
+		from = { set_site_progress_locked = no } 
+	}
+	
+	option = {
+		name = origin.1250.a
+		small_artifact_reward = yes
+		event_target:in_memoriam_stage_1 = { add_stage_clues = 2 }
+	}
+}
+
+# Stage 2 - Endless Memorial
+fleet_event = {
+	id = origin.1255
+	title = "origin.1255.name"
+	desc = "origin.1255.desc"
+	picture = GFX_evt_derelict_interior
+	show_sound = event_mystic_reveal
+	
+	archaeology = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		from = { set_site_progress_locked = yes }
+		from = { save_event_target_as = in_memoriam_stage_2 }
+	}
+
+	after = { 
+		from = { set_site_progress_locked = no } 
+	}
+	
+	option = {
+		name = DIG
+		small_artifact_reward = yes
+		event_target:in_memoriam_stage_2 = { add_stage_clues = 3 }
+	}
+}
+
+# Stage 3 - Admitting Defeat
+fleet_event = {
+	id = origin.1260
+	title = "origin.1260.name"
+	desc = "origin.1260.desc"
+	picture = GFX_evt_ancient_databank
+	show_sound = event_red_alert
+	
+	archaeology = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		from = { set_site_progress_locked = yes }
+		from = { save_event_target_as = in_memoriam_stage_3 }
+	}
+
+	after = { 
+		from = { set_site_progress_locked = no } 
+	}
+	
+	option = {
+		name = origin.1260.a
+		small_artifact_reward = yes
+		event_target:in_memoriam_stage_3 = { add_stage_clues = 4 }
+	}
+}
+
+# Stage 4 - Addendum
+fleet_event = {
+	id = origin.1265
+	title = "origin.1265.name"
+	desc = "origin.1265.desc"
+	picture = GFX_evt_ancient_artifact
+	show_sound = event_alien_signal
+	
+	archaeology = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		from = { set_site_progress_locked = yes }
+	}
+
+	after = { 
+		from = { set_site_progress_locked = no }
+	}
+	
+	option = {
+		name = origin.1265.a
+		small_artifact_reward = yes
+		owner = {
+			locked_random_list = {
+				10 = {
+					add_random_research_option = {
+						add_progress = 0.85
+						area = engineering
+						tier = 1
+						ignore_prereqs = yes
+						fail_effects = {
+							add_monthly_resource_mult = {
+								resource = engineering_research
+								value = @tier5researchreward
+								min = @tier5researchmin
+								max = @tier5researchmax
+							}
+						}
+					}
+				}
+				10 = {
+					add_random_research_option = {
+						add_progress = 0.85
+						area = physics
+						tier = 1
+						ignore_prereqs = yes
+						fail_effects = {
+							add_monthly_resource_mult = {
+								resource = physics_research
+								value = @tier5researchreward
+								min = @tier5researchmin
+								max = @tier5researchmax
+							}
+						}
+					}
+				}
+				10 = {
+					add_random_research_option = {
+						add_progress = 0.85
+						area = society
+						tier = 1
+						ignore_prereqs = yes
+						fail_effects = {
+							add_monthly_resource_mult = {
+								resource = society_research
+								value = @tier5researchreward
+								min = @tier5researchmin
+								max = @tier5researchmax
+							}
+						}
+					}
+				}
+			}
+		}
+		hidden_effect = {
+			owner = {
+				country_event = { id = origin.1269 days = 3 random = 1 }
+			} 
+		}
+	}
+}
+
+### Origin - On the Shoulders of Giants Origin - Archaeology: The Last Stand
+
+# Stage 1 - Last Bastion
+fleet_event = {
+	id = origin.1270
+	title = "origin.1270.name"
+	desc = "origin.1270.desc"
+	picture = GFX_evt_mining_operations
+	show_sound = event_laboratory_sound
+	
+	archaeology = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		from = { set_site_progress_locked = yes }
+		from = { save_event_target_as = the_last_stand_stage_1 }
+	}
+
+	after = { 
+		from = { set_site_progress_locked = no } 
+	}
+	
+	option = {
+		name = DIG
+		small_artifact_reward = yes
+		event_target:the_last_stand_stage_1 = { add_stage_clues = 1 }
+	}
+}
+
+# Stage 2 - Desperate Measures
+fleet_event = {
+	id = origin.1275
+	title = "origin.1275.name"
+	desc = "origin.1275.desc"
+	picture = GFX_evt_glitchy_matrix
+	show_sound = event_laboratory_sound
+	
+	archaeology = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		from = { set_site_progress_locked = yes }
+	}
+
+	after = { 
+		from = { set_site_progress_locked = no } 
+	}
+	
+	option = {
+		name = origin.1275.a
+		small_artifact_reward = yes
+	}
+}
+
+# Stage 3 - Crescendo!
+fleet_event = {
+	id = origin.1280
+	title = "origin.1280.name"
+	desc = "origin.1280.desc"
+	picture = GFX_evt_space_funeral
+	show_sound = event_ship_thrusters
+	
+	archaeology = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		from = { set_site_progress_locked = yes }
+		from = { save_event_target_as = the_last_stand_stage_3 }
+	}
+
+	after = { 
+		from = { set_site_progress_locked = no } 
+	}
+	
+	option = {
+		name = origin.1280.a
+		small_artifact_reward = yes
+		owner = {
+			locked_random_list = {
+				10 = {
+					add_random_research_option = {
+						add_progress = 0.85
+						area = engineering
+						tier = 1
+						ignore_prereqs = yes
+						fail_effects = {
+							add_monthly_resource_mult = {
+								resource = engineering_research
+								value = @tier5researchreward
+								min = @tier5researchmin
+								max = @tier5researchmax
+							}
+						}
+					}
+				}
+				10 = {
+					add_random_research_option = {
+						add_progress = 0.85
+						area = physics
+						tier = 1
+						ignore_prereqs = yes
+						fail_effects = {
+							add_monthly_resource_mult = {
+								resource = physics_research
+								value = @tier5researchreward
+								min = @tier5researchmin
+								max = @tier5researchmax
+							}
+						}
+					}
+				}
+				10 = {
+					add_random_research_option = {
+						add_progress = 0.85
+						area = society
+						tier = 1
+						ignore_prereqs = yes
+						fail_effects = {
+							add_monthly_resource_mult = {
+								resource = society_research
+								value = @tier5researchreward
+								min = @tier5researchmin
+								max = @tier5researchmax
+							}
+						}
+					}
+				}
+			}
+		}
+		event_target:the_last_stand_stage_3 = { add_stage_clues = 3 }
+	}
+}
+
+# Stage 4 - Aftermath
+fleet_event = {
+	id = origin.1285
+	title = "origin.1285.name"
+	desc = "origin.1285.desc"
+	picture = GFX_evt_ship_offloading_cargo
+	show_sound = event_mystic_reveal
+	
+	archaeology = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		from = { set_site_progress_locked = yes }
+	}
+
+	after = { 
+		from = { set_site_progress_locked = no }
+	}
+	
+	option = {
+		name = PECULIAR
+		small_artifact_reward = yes
+		
+		hidden_effect = {
+			owner = {
+				country_event = { id = origin.1289 days = 3 random = 1 }
+			} 
+		}
+	}
+}
+
+### Origin - On the Shoulders of Giants Origin - Archaeology: Dark Secret
+
+# Stage 1 - Hidden Cave
+fleet_event = {
+	id = origin.1290
+	title = "origin.1290.name"
+	desc = "origin.1290.desc"
+	picture = GFX_evt_alien_planet
+	show_sound = event_scanner
+	
+	archaeology = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		from = { set_site_progress_locked = yes }
+	}
+
+	after = { 
+		from = { set_site_progress_locked = no } 
+	}
+	
+	option = {
+		name = origin.1290.a
+		small_artifact_reward = yes
+	}
+}
+
+# Stage 2 - Cold, Hard Cache
+fleet_event = {
+	id = origin.1295
+	title = "origin.1295.name"
+	desc = "origin.1295.desc"
+	picture = GFX_evt_treasure_pile
+	show_sound = event_mystic_reveal
+	
+	archaeology = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		from = { set_site_progress_locked = yes }
+	}
+
+	after = { 
+		from = { set_site_progress_locked = no } 
+	}
+	
+	option = {
+		name = origin.1295.a
+		small_artifact_reward = yes
+		owner = {
+			add_monthly_resource_mult = {
+				resource = minerals
+				value = @tier4materialreward
+				min = @tier4materialmin
+				max = @tier4materialmax
+			}
+			add_monthly_resource_mult = {
+				resource = alloys
+				value = @tier3materialreward
+				min = @tier3materialmin
+				max = @tier3materialmax
+			}
+			add_monthly_resource_mult = {
+				resource = exotic_gases
+				value = @tier3materialreward
+				min = @tier3materialmin
+				max = @tier3materialmax
+			}
+		}
+	}
+}
+
+# Stage X - Random Outcome
+fleet_event = {
+	id = origin.1296
+	hide_window = yes
+	
+	archaeology = yes
+	is_triggered_only = yes
+
+	immediate = { 
+		random_list = { 
+			20 = {
+				fleet_event = { id = origin.1300 }
+			}
+			20 = {
+				fleet_event = { id = origin.1305 }
+			}
+			20 = {
+				fleet_event = { id = origin.1315 }
+			}
+			20 = {
+				fleet_event = { id = origin.1320 }
+			}
+			20 = {
+				fleet_event = { id = origin.1325 }
+			}
+		}
+	}
+
+	after = { 
+		from = { expire_site_event = origin.1296 } 
+	}
+}
+
+# Stage X - Find final outcome
+fleet_event = {
+	id = origin.1297
+	hide_window = yes
+	
+	archaeology = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = { 
+				owner = { has_country_flag = dark_secret_tyrant }
+			}
+			fleet_event = { id = origin.1310 }
+		}
+		else = {
+			fleet_event = { id = origin.1330 }
+		}
+	}
+
+	after = { 
+		from = { expire_site_event = origin.1297 }
+	}
+}
+
+# Stage 3 - Alt. 1 - Dirty Past
+fleet_event = {
+	id = origin.1300
+	title = "origin.1300.name"
+	desc = "origin.1300.desc"
+	picture = GFX_evt_alien_cavemen
+	show_sound = event_mystic_reveal
+	
+	archaeology = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		fromfrom = { set_site_progress_locked = yes }
+	}
+
+	after = { 
+		fromfrom = { set_site_progress_locked = no }
+	}
+	
+	option = {
+		name = origin.1300.a
+		small_artifact_reward = yes
+	}
+}
+
+# Stage 3 - Alt. 2 - Tyrant's Remorse (Part I)
+fleet_event = {
+	id = origin.1305
+	title = "origin.1305.name"
+	desc = "origin.1305.desc"
+	picture = GFX_evt_fleet_neutral
+	show_sound = event_mystic_reveal
+	
+	archaeology = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		fromfrom = { set_site_progress_locked = yes }
+		owner = { set_country_flag = dark_secret_tyrant }
+	}
+
+	after = { 
+		fromfrom = { set_site_progress_locked = no }
+	}
+	
+	option = {
+		name = origin.1305.a
+		small_artifact_reward = yes
+	}
+}
+
+# Stage 4 - Tyrant's Remorse (Part II)
+fleet_event = {
+	id = origin.1310
+	title = "origin.1310.name"
+	desc = "origin.1310.desc"
+	picture = GFX_evt_alien_cavemen
+	show_sound = event_mystic_reveal
+	
+	archaeology = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		fromfrom = { set_site_progress_locked = yes }
+	}
+
+	after = { 
+		fromfrom = { set_site_progress_locked = no }
+		owner = { 
+			remove_country_flag = dark_secret_tyrant
+		}
+	}
+	
+	option = {
+		name = origin.1310.a
+		small_artifact_reward = yes
+		owner = {
+			add_modifier = {
+ 				modifier = spurred_by_the_past
+ 				days = -1
+ 			}
+ 			hidden_effect = {
+ 				set_country_flag = relentless_pursuit
+ 			}
+ 		}
+	}
+}
+
+# Stage 3 - Alt. 3 - False Flag
+fleet_event = {
+	id = origin.1315
+	title = "origin.1315.name"
+	desc = "origin.1315.desc"
+	picture = GFX_evt_alien_propaganda
+	show_sound = event_mystic_reveal
+	
+	archaeology = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		fromfrom = { set_site_progress_locked = yes }
+	}
+
+	after = { 
+		fromfrom = { set_site_progress_locked = no }
+	}
+	
+	option = {
+		name = origin.1315.a
+		small_artifact_reward = yes
+	}
+}
+
+# Stage 3 - Alt. 4 - Bene-Fiction
+fleet_event = {
+	id = origin.1320
+	title = "origin.1320.name"
+	desc = "origin.1320.desc"
+	picture = GFX_evt_alien_cavemen
+	show_sound = event_mystic_reveal
+	
+	archaeology = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		fromfrom = { set_site_progress_locked = yes }
+	}
+
+	after = { 
+		fromfrom = { set_site_progress_locked = no }
+	}
+	
+	option = {
+		name = origin.1320.a
+		small_artifact_reward = yes
+	}
+}
+
+# Stage 3 - Alt. 5 - Godspeed
+fleet_event = {
+	id = origin.1325
+	title = "origin.1325.name"
+	desc = "origin.1325.desc"
+	picture = GFX_evt_alien_cavemen
+	show_sound = event_mystic_reveal
+	
+	archaeology = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		fromfrom = { set_site_progress_locked = yes }
+	}
+
+	after = { 
+		fromfrom = { set_site_progress_locked = no }
+	}
+	
+	option = {
+		name = origin.1325.a
+		small_artifact_reward = yes
+		owner = {
+			hidden_effect = {
+				set_country_flag = godspeed_outcome
+			}
+		}
+	}
+}
+
+# Stage 4 - Next Step (generic ending text)
+fleet_event = {
+	id = origin.1330
+	title = "origin.1330.name"
+	desc = "origin.1330.desc"
+	picture = GFX_evt_huge_monument
+	show_sound = event_mystic_reveal
+	
+	archaeology = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		fromfrom = { set_site_progress_locked = yes }
+	}
+
+	after = { 
+		fromfrom = { set_site_progress_locked = no }
+	}
+	
+	option = {
+		name = origin.1330.a
+		small_artifact_reward = yes
+		owner = {
+			add_modifier = {
+ 				modifier = spurred_by_the_past
+ 				days = -1
+ 			}
+ 			hidden_effect = {
+ 				if = {
+ 					limit = {
+	 					has_country_flag = godspeed_outcome
+ 					}
+ 					set_country_flag = relentless_pursuit
+ 				}
+ 				else = {
+ 					set_country_flag = intercepting_history
+ 				}
+ 			}
+ 		}
+	}
+}
+
+### Origin - On the Shoulders of Giants Origin - Archaeology: Benign Cover-Up
+
+# Stage 1 - Here! We build here!
+fleet_event = {
+	id = origin.1365
+	title = "origin.1365.name"
+	desc = "origin.1365.desc"
+	picture = GFX_evt_drilling_for_gas
+	show_sound = event_construction
+	
+	archaeology = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		from = { set_site_progress_locked = yes }
+	}
+
+	after = { 
+		from = { set_site_progress_locked = no } 
+	}
+	
+	option = {
+		name = origin.1365.a
+		small_artifact_reward = yes
+	}
+}
+
+# Stage 2 - Step 1 went smoothly
+fleet_event = {
+	id = origin.1370
+	title = "origin.1370.name"
+	desc = "origin.1370.desc"
+	picture = GFX_evt_resource_cache
+	show_sound = event_construction
+	
+	archaeology = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		from = { set_site_progress_locked = yes }
+	}
+
+	after = { 
+		from = { set_site_progress_locked = no }
+	}
+	
+	option = {
+		name = origin.1370.a
+		small_artifact_reward = yes
+		owner = {
+			hidden_effect = {
+				owner = {
+					country_event = { id = origin.1360 days = 10 }
+				}
+			}
+		}
+	}
+}
+
+### Origin - On the Shoulders of Giants - Origin Events
+
+# On the Shoulders of Giants - Events 0 - Setup
+
+country_event = {
+	id = origin.1199
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_origin = origin_shoulders_of_giants
+		NOT = { has_country_flag = origin_shoulders_of_giants_initialised }
+	}
+
+	immediate = {
+		set_country_flag = origin_shoulders_of_giants_initialised
+		capital_scope = {
+			if = {
+				limit = {
+					has_moon = yes
+				}
+				random_moon = {
+					create_archaeological_site = site_ex_gravitas
+					root = {
+						set_country_flag = shoulders_origin_@prev
+					}
+				}
+				root = {
+					set_country_flag = arc_site_moon
+				}
+			}
+			else = {
+				solar_system = {
+					random_system_planet = {
+						limit = {
+							is_colonizable = no
+							is_star = no
+							is_asteroid = no
+							is_homeworld = no
+							NOT = { is_planet_class = pc_gas_giant }
+						}
+						create_archaeological_site = site_ex_gravitas
+						root = {
+							set_country_flag = shoulders_origin_@prev
+						}
+					}
+					root = {
+						set_country_flag = arc_site_planet
+					}
+				}
+			}
+			solar_system = {
+				change_variable = {
+					which = origin_shoulders_of_giants_planets
+					value = 1
+				}
+				every_system_planet = {
+					limit = {
+						is_colonizable = no
+						is_star = no
+						is_asteroid = no
+						is_homeworld = no
+						NOT = { is_planet_class = pc_gas_giant }
+						NOT = { exists = archaeological_site }
+					}
+					prev = {
+						change_variable = {
+							which = origin_shoulders_of_giants_planets
+							value = 1
+						}
+					}
+				}
+				if = {
+					limit = {
+						check_variable = {
+							which = origin_shoulders_of_giants_planets
+							value < 6
+						}
+					}
+					spawn_planet = {
+						class = pc_gas_giant
+						location = this
+						orbit_distance_offset = 190
+						orbit_angle_offset = 127
+						size = 21
+						init_effect = {
+							set_name = "NAME_Islena"
+							save_event_target_as = new_planet
+							solar_system = {
+								spawn_planet = {
+									class = pc_barren_cold
+									location = event_target:new_planet
+									orbit_location = yes
+									orbit_distance_offset = 15
+									orbit_angle_offset = 0
+									size = 18
+									init_effect = {
+										set_name = "NAME_Haradas"
+									}
+								}
+								change_variable = {
+									which = origin_shoulders_of_giants_planets
+									value = 1
+								}
+								if = {
+									limit = {
+										check_variable = {
+											which = origin_shoulders_of_giants_planets
+											value < 6
+										}
+									}
+									spawn_planet = {
+										class = pc_barren_cold
+										location = event_target:new_planet
+										orbit_location = yes
+										orbit_distance_offset = 21
+										orbit_angle_offset = 67
+										size = 11
+										init_effect = {
+											set_name = "NAME_Koras"
+										}
+									}
+								}
+								if = {
+									limit = {
+										check_variable = {
+											which = origin_shoulders_of_giants_planets
+											value < 6
+										}
+									}
+									spawn_planet = {
+										class = pc_barren
+										location = event_target:new_planet
+										orbit_location = yes
+										orbit_distance_offset = 27
+										orbit_angle_offset = 143
+										size = 14
+										init_effect = {
+											set_name = "NAME_Melidas"
+										}
+									}
+								}
+								if = {
+									limit = {
+										check_variable = {
+											which = origin_shoulders_of_giants_planets
+											value < 6
+										}
+									}
+									spawn_planet = {
+										class = pc_toxic
+										location = event_target:new_planet
+										orbit_location = yes
+										orbit_distance_offset = 32
+										orbit_angle_offset = 291
+										size = 16
+										init_effect = {
+											set_name = "NAME_Theros"
+										}
+									}
+								}
+								if = {
+									limit = {
+										check_variable = {
+											which = origin_shoulders_of_giants_planets
+											value < 6
+										}
+									}
+									spawn_planet = {
+										class = pc_toxic
+										location = event_target:new_planet
+										orbit_location = yes
+										orbit_distance_offset = 37
+										orbit_angle_offset = 5
+										size = 8
+										init_effect = {
+											set_name = "NAME_Ira"
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		solar_system = {
+			set_variable = {
+				which = origin_shoulders_of_giants_planets
+				value = 0
+			}
+		}
+	}
+}
+
+# On the Shoulders of Giants - Something Waiting Arc Site Setup
+country_event = {
+	id = origin.1219
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_origin = origin_shoulders_of_giants
+	}
+
+	immediate = {
+		capital_scope = {
+			solar_system = {
+				random_system_planet = {
+					limit = {
+						is_colonizable = no
+						is_star = no
+						is_asteroid = no
+						is_homeworld = no
+						NOT = { is_planet_class = pc_gas_giant }
+						NOT = { exists = archaeological_site }
+					}
+					create_archaeological_site = site_something_waiting
+					root = {
+						set_country_flag = shoulders_origin_@prev
+					}
+				}
+			}
+		}
+	}
+}
+
+# On the Shoulders of Giants - Buried Deep Arc Site Setup
+country_event = {
+	id = origin.1239
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_origin = origin_shoulders_of_giants
+	}
+
+	immediate = {
+		capital_scope = {
+			solar_system = {
+				random_system_planet = {
+					limit = {
+						is_colonizable = no
+						is_star = no
+						is_asteroid = no
+						is_homeworld = no
+						NOT = { is_planet_class = pc_gas_giant }
+						NOT = { exists = archaeological_site }
+					}
+					create_archaeological_site = site_buried_deep
+					root = {
+						set_country_flag = shoulders_origin_@prev
+					}
+				}
+			}
+		}
+	}
+}
+
+# On the Shoulders of Giants - In Memoriam Arc Site Setup
+country_event = {
+	id = origin.1249
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_origin = origin_shoulders_of_giants
+	}
+
+	immediate = {
+		capital_scope = {
+			solar_system = {
+				random_system_planet = {
+					limit = {
+						is_colonizable = no
+						is_star = no
+						is_asteroid = no
+						is_homeworld = no
+						NOT = { is_planet_class = pc_gas_giant }
+						NOT = { exists = archaeological_site }
+					}
+					create_archaeological_site = site_in_memoriam
+					root = {
+						set_country_flag = shoulders_origin_@prev
+					}
+				}
+			}
+		}
+	}
+}
+
+# On the Shoulders of Giants - The Last Stand Arc Site Setup
+country_event = {
+	id = origin.1269
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_origin = origin_shoulders_of_giants
+	}
+
+	immediate = {
+		capital_scope = {
+			solar_system = {
+				random_system_planet = {
+					limit = {
+						is_colonizable = no
+						is_star = no
+						is_asteroid = no
+						is_homeworld = no
+						NOT = { is_planet_class = pc_gas_giant }
+						NOT = { exists = archaeological_site }
+					}
+					create_archaeological_site = site_the_last_stand
+					root = {
+						set_country_flag = shoulders_origin_@prev
+					}
+				}
+			}
+		}
+	}
+}
+
+# On the Shoulders of Giants - Dark Secret Arc Site Setup
+country_event = {
+	id = origin.1289
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_origin = origin_shoulders_of_giants
+	}
+
+	immediate = {
+		capital_scope = {
+			solar_system = {
+				random_system_planet = {
+					limit = {
+						is_colonizable = no
+						is_star = no
+						is_asteroid = no
+						is_homeworld = no
+						NOT = { is_planet_class = pc_gas_giant }
+						NOT = { exists = archaeological_site }
+					}
+					create_archaeological_site = site_dark_secret
+					root = {
+						set_country_flag = shoulders_origin_@prev
+					}
+				}
+			}
+		}
+	}
+}
+
+# On the Shoulders of Giants CONTINUED - Event 0 - Setup
+event = {
+	id = origin.1334
+	hide_window = yes
+	
+	is_triggered_only = yes
+
+	trigger = {
+		any_playable_country = {
+			OR = {
+				has_country_flag = intercepting_history
+				has_country_flag = relentless_pursuit
+			}
+		}
+		mid_game_years_passed > 1
+	}
+	
+	immediate = {
+		random_playable_country = {
+			limit = {
+				OR = {
+					has_country_flag = intercepting_history
+					has_country_flag = relentless_pursuit
+				}
+			}
+			capital_scope = {
+				solar_system = {
+					random_system_planet = {
+						limit = {
+							is_star = no
+							is_homeworld = no
+						}
+						create_ambient_object = {
+							type = "fusion_drive_trail_object"
+							entity_offset = { min = 5 max = 10 }
+							entity_offset_height = { min = -1 max = -5 }
+							location = this
+						}
+						last_created_ambient_object = {
+							save_global_event_target_as = fusion_drive_trail
+							set_location = {
+								target = prev
+								distance = 30
+								angle = random
+							}
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = relentless_pursuit
+				}
+				country_event = { id = origin.1380 days = 5 }
+				remove_country_flag = relentless_pursuit
+			}
+			else_if = {
+				limit = {
+					has_country_flag = intercepting_history
+				}
+				country_event = { id = origin.1335 days = 5 }
+				remove_country_flag = intercepting_history
+			}
+			else = {
+				country_event = { id = origin.1335 days = 5 }
+			}
+		}
+	}
+}
+
+############
+#  Origin  #  -  On the Shoulders of Giants CONTINUED Origin
+############		  INTERCEPTING HISTORY Event Chain
+
+# On the Shoulders of Giants CONTINUED - Event 1 - Cold Trail
+country_event = {
+	id = origin.1335
+	title = "origin.1335.name"	
+	desc = "origin.1335.desc"
+	picture = GFX_evt_ice_asteroids
+	show_sound = event_mystic_reveal
+	location = event_target:fusion_drive_trail
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		begin_event_chain = {
+			event_chain = "intercepting_history_chain"
+			target = ROOT
+		}
+	}
+
+	after = {
+	}
+	
+	option = {
+		name = FASCINATING
+		event_target:fusion_drive_trail = {
+			enable_special_project = {
+				name = "PATHFINDING_PROJECT"
+				location = this
+				owner = root
+			}
+		}
+	}
+}
+
+# On the Shoulders of Giants CONTINUED - Event 2 - Finding the Benefactors
+country_event = {
+	id = origin.1340
+	title = "origin.1340.name"
+	desc = "origin.1340.desc"
+	picture = GFX_evt_fleet_good
+	show_sound = event_mystic_reveal
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			owner = {
+				random_system_within_border = {
+					spawn_system = {
+						min_distance = 10
+						max_distance = 30
+						max_jumps = 0
+						initializer = "intercepting_history_system_initializer_01"
+					}
+					add_extra_hyperlane_to_spawned_system_effect = yes
+				}
+			}
+		}
+	}
+
+	after = {
+	}
+	
+	option = {
+		name = FASCINATING
+		hidden_effect = {
+			owner = {
+				create_point_of_interest = {
+					id = benefactors_end_poi.1
+					name = "benefactors_end_poi"
+					desc = "benefactors_end_poi_desc"
+					event_chain = "intercepting_history_chain"
+					location = event_target:benefactors_end_station
+				}
+			}
+		}
+	}
+}
+
+# On the Shoulders of Giants CONTINUED - Event 3 - These Ravaged Fields
+fleet_event = {
+	id = origin.1345
+	title = "origin.1345.name"
+	desc = "origin.1345.desc"
+	picture = GFX_evt_ruined_system
+	show_sound = event_ghost_town
+	location = this
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		owner = {
+			has_event_chain = "intercepting_history_chain" 
+			FROM = {
+				is_point_of_interest = {
+					id = benefactors_end_poi.1
+					event_chain = intercepting_history_chain
+					owner = root.owner
+				}
+			}
+		}
+	}
+
+	immediate = {
+		owner = {
+			hidden_effect = {
+				remove_point_of_interest = benefactors_end_poi.1
+			}
+		}
+	}
+
+	after = {
+	}
+	
+	option = {
+		name = OK
+		owner = {
+			event_target:benefactor_station = {
+				enable_special_project = {
+					name = "INVESTIGATE_THE_DEAD_STATION_PROJECT"
+					location = this
+					owner = root
+				}
+			}
+		}
+	}
+}
+
+# On the Shoulders of Giants CONTINUED - Event 5 - Raided and Hunted
+country_event = { 
+	id = origin.1350
+	title = "origin.1350.name"
+	desc = "origin.1350.desc"
+	picture = GFX_evt_pirate_armada
+	show_sound = event_mystic_reveal
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			owner = {
+				random_system_within_border = {
+					spawn_system = {
+						min_distance = 10
+						max_distance = 30
+						max_jumps = 1
+						initializer = "intercepting_history_system_initializer_02"
+					}
+					add_extra_hyperlane_to_spawned_system_effect = yes
+				}
+			}
+		}
+	}
+
+	after = {
+	}
+	
+	option = {
+		name = OK
+		hidden_effect = {
+			owner = {
+				create_point_of_interest = {
+					id = benefactors_home_poi.1
+					name = "benefactors_home_poi"
+					desc = "benefactors_home_poi_desc"
+					event_chain = "intercepting_history_chain"
+					location = event_target:benefactor_homeworld
+				}
+			}
+		}
+	}
+}
+
+# On the Shoulders of Giants CONTINUED - Event 6 - Trail's End
+fleet_event = { 
+	id = origin.1351
+	title = "origin.1351.name"
+	desc = "origin.1351.desc"
+	picture = GFX_evt_ship_in_orbit
+	show_sound = event_default
+	location = this
+	
+	is_triggered_only = yes
+
+	trigger = {
+		owner = {
+			has_event_chain = "intercepting_history_chain" 
+			FROM = {
+				is_point_of_interest = {
+					id = benefactors_home_poi.1
+					event_chain = intercepting_history_chain
+					owner = root.owner
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		owner = {
+			hidden_effect = {
+				remove_point_of_interest = benefactors_home_poi.1
+			}
+			clear_global_event_target = benefactors_end_station
+		}
+	}
+
+	after = {
+	}
+	
+	option = {
+		name = OK
+		hidden_effect = {
+			owner = {
+				create_point_of_interest = {
+					id = benefactors_home_poi.2
+					name = "benefactors_home_poi_2"
+					desc = "benefactors_home_poi_2_desc"
+					event_chain = "intercepting_history_chain"
+					location = event_target:benefactor_homeworld
+				}
+			}
+		}
+	}
+}
+
+# On the Shoulders of Giants CONTINUED - Event 7 - Final Rest
+country_event = {
+	id = origin.1355
+	title = "origin.1355.name"
+	desc = "origin.1355.desc"
+	picture = GFX_evt_alien_cavemen
+	show_sound = event_mystic_reveal
+	location = from
+	
+	is_triggered_only = yes
+	
+	immediate = {
+	}
+
+	after = {
+	}
+	
+	option = {
+		name = FASCINATING
+		event_target:benefactor_planet = {
+			enable_special_project = {
+				name = "PROJECT_OUROBOROS_PROJECT"
+				location = this
+				owner = root
+			}
+		}
+		owner = {
+			hidden_effect = {
+				remove_point_of_interest = benefactors_home_poi.2
+			}
+		}
+	}
+}
+
+# On the Shoulders of Giants CONTINUED - Event 8 (Hidden) - Spawns Arc Site
+country_event = {
+	id = origin.1359
+	hide_window = yes
+
+	is_triggered_only = yes 
+	
+	immediate = {
+		event_target:benefactor_homeworld = {
+			random_system_planet = {
+				limit = { uninhabitable_regular_planet = yes }
+				create_archaeological_site = site_benign_cover_up
+				root = {
+					set_country_flag = shoulders_origin_@prev
+				}
+			}
+		}
+	}
+}
+
+# On the Shoulders of Giants CONTINUED - Event 9 - Closure
+country_event = {
+	id = origin.1360
+	title = "origin.1360.name"
+	desc = "origin.1360.desc"
+	picture = GFX_evt_unity_symbol
+	show_sound = event_mystic_reveal
+	
+	is_triggered_only = yes
+	
+	immediate = {
+	}
+
+	after = {
+		clear_global_event_target = benefactor_planet
+		clear_global_event_target = benefactor_homeworld
+	}
+	
+	option = {
+		name = origin.1360.a
+		owner = {
+			add_modifier = {
+ 				modifier = full_circle
+ 				days = -1
+ 			}
+			hidden_effect = {
+				end_event_chain = intercepting_history_chain
+				remove_modifier = spurred_by_the_past
+			}
+		}
+	}
+}
+
+############
+#  Origin  #  -  On the Shoulders of Giants CONTINUED Origin
+############		  RELENTLESS PURSUIT Event Chain
+
+# On the Shoulders of Giants CONTINUED - Event 1 - Trail of the Victor
+country_event = {
+	id = origin.1380
+	title = "origin.1380.name"	
+	desc = "origin.1380.desc"
+	picture = GFX_evt_satellite_in_orbit
+	show_sound = event_laboratory_sound
+	location = event_target:fusion_drive_trail
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		begin_event_chain = {
+			event_chain = "relentless_pursuit_chain"
+			target = ROOT
+		}
+	}
+
+	after = {
+	}
+	
+	option = {
+		name = OK
+		event_target:fusion_drive_trail = {
+			enable_special_project = {
+				name = "TRACKING_THE_PREDATOR_PROJECT"
+				location = this
+				owner = root
+			}
+		}
+	}
+}
+
+# On the Shoulders of Giants CONTINUED - Event 2 - Picking Up the Trail
+country_event = {
+	id = origin.1385
+	title = "origin.1385.name"
+	desc = "origin.1385.desc"
+	picture = GFX_evt_fleet_neutral
+	show_sound = event_mystic_reveal
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			owner = {
+				random_system_within_border = {
+					spawn_system = {
+						min_distance = 10
+						max_distance = 30
+						max_jumps = 0
+						initializer = "relentless_pursuit_system_initializer_01"
+					}
+					add_extra_hyperlane_to_spawned_system_effect = yes
+				}
+			}
+		}
+	}
+
+	after = {
+	}
+	
+	option = {
+		name = OK
+		hidden_effect = {
+			owner = {
+				create_point_of_interest = {
+					id = rendezvous_with_freighter_poi.1
+					name = "rendezvous_with_freighter_poi"
+					desc = "rendezvous_with_freighter_poi_desc"
+					event_chain = "relentless_pursuit_chain"
+					location = event_target:rendezvous_with_freighter_system
+				}
+			}
+		}
+	}
+}
+
+# On the Shoulders of Giants CONTINUED - Event 3 - The Silent Freighter
+fleet_event = {
+	id = origin.1390
+	title = "origin.1390.name"
+	desc = "origin.1390.desc"
+	picture = GFX_evt_ship_in_orbit
+	show_sound = event_mystic_reveal
+	location = this
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		owner = {
+			has_event_chain = "relentless_pursuit_chain" 
+			FROM = {
+				is_point_of_interest = {
+					id = rendezvous_with_freighter_poi.1
+					event_chain = relentless_pursuit_chain
+					owner = root.owner
+				}
+			}
+		}
+	}
+
+	immediate = {
+		owner = {
+			hidden_effect = {
+				remove_point_of_interest = rendezvous_with_freighter_poi.1
+			}
+		}
+	}
+
+	after = {
+	}
+	
+	option = {
+		name = OK
+		owner = {
+			event_target:abandoned_freighter = {
+				enable_special_project = {
+					name = "INVESTIGATE_SILENT_FREIGHTER_PROJECT"
+					location = this
+					owner = root
+				}
+			}
+		}
+	}
+}
+
+# On the Shoulders of Giants CONTINUED - Event 5 - The Maker's Might
+country_event = { 
+	id = origin.1395
+	title = "origin.1395.name"
+	desc = "origin.1395.desc"
+	picture = GFX_evt_space_debris
+	show_sound = event_default
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			owner = {
+				random_system_within_border = {
+					spawn_system = {
+						min_distance = 10
+						max_distance = 30
+						max_jumps = 1
+						initializer = "relentless_pursuit_system_initializer_02"
+					}
+					add_extra_hyperlane_to_spawned_system_effect = yes
+				}
+			}
+		}
+	}
+
+	after = {
+	}
+	
+	option = {
+		name = OK
+		hidden_effect = {
+			owner = {
+				create_point_of_interest = {
+					id = relentless_home_poi.1
+					name = "relentless_home_poi"
+					desc = "relentless_home_poi_desc"
+					event_chain = "relentless_pursuit_chain"
+					location = event_target:relentless_homeworld
+				}
+			}
+		}
+	}
+}
+
+# On the Shoulders of Giants CONTINUED - Event 6 - The Tyrant's Rest
+fleet_event = { 
+	id = origin.1400
+	title = "origin.1400.name"
+	desc = "origin.1400.desc"
+	picture = GFX_evt_space_station
+	show_sound = event_alien_signal
+	location = this
+	
+	is_triggered_only = yes
+
+	trigger = {
+		owner = {
+			has_event_chain = "relentless_pursuit_chain" 
+			FROM = {
+				is_point_of_interest = {
+					id = relentless_home_poi.1
+					event_chain = relentless_pursuit_chain
+					owner = root.owner
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		owner = {
+			hidden_effect = {
+				remove_point_of_interest = relentless_home_poi.1
+			}
+		}
+	}
+
+	after = {
+	}
+	
+	option = {
+		name = INTERESTING
+		event_target:mindwipe_cannon = {
+			enable_special_project = {
+				name = "OLD_BEACON_PROJECT"
+				location = this
+				owner = root
+			}
+		}
+	}
+}
+
+# On the Shoulders of Giants CONTINUED - Event 8 - Blissfully Ignorant
+country_event = {
+	id = origin.1405
+	title = "origin.1405.name"
+	desc = "origin.1405.desc"
+	picture = GFX_evt_overgrown_city
+	show_sound = event_alien_nature
+	location = this
+
+	is_triggered_only = yes 
+	
+	immediate = {
+		event_target:relentless_homeworld = {
+			random_system_planet = {
+				limit = { uninhabitable_regular_planet = yes }
+				create_archaeological_site = site_bury_the_hatchet
+				root = {
+					set_country_flag = shoulders_origin_@prev
+				}
+			}
+		}
+	}
+
+	after = {
+		clear_global_event_target = primitive_relentless_species
+	}
+
+	option = {
+		name = origin.1405.a
+	}
+}
+
+# On the Shoulders of Giants CONTINUED - Event 9 - Not the Enemy
+country_event = {
+	id = origin.1420
+	title = "origin.1420.name"
+	desc = "origin.1420.desc"
+	picture = GFX_evt_unity_symbol
+	show_sound = event_default
+	
+	is_triggered_only = yes
+	
+	immediate = {
+	}
+
+	after = {
+	}
+	
+	option = {
+		name = EXCELLENT
+		owner = {
+			add_modifier = {
+ 				modifier = goes_around_comes_around
+ 				days = -1
+ 			}
+			hidden_effect = {
+				end_event_chain = relentless_pursuit_chain
+				remove_modifier = spurred_by_the_past
+			}
+		}
+	}
+}
+
+# On the Shoulders of Giants CONTINUED - Relentless Pursuit Event Chain - Arc Site
+# Stage 1 - "X Marks the Spot"
+fleet_event = {
+	id = origin.1410
+	title = "origin.1410.name"
+	desc = "origin.1410.desc"
+	picture = GFX_evt_drilling_for_gas
+	show_sound = event_construction
+	
+	archaeology = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		from = { set_site_progress_locked = yes }
+	}
+
+	after = { 
+		from = { set_site_progress_locked = no } 
+	}
+	
+	option = {
+		name = DIG
+		small_artifact_reward = yes
+	}
+}
+
+# Stage 2 - Interstellar Geo-Caching
+fleet_event = {
+	id = origin.1415
+	title = "origin.1415.name"
+	desc = "origin.1415.desc"
+	picture = GFX_evt_resource_cache
+	show_sound = event_construction
+	
+	archaeology = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		from = { set_site_progress_locked = yes }
+	}
+
+	after = { 
+		from = { set_site_progress_locked = no }
+		clear_global_event_target = relentless_planet
+		clear_global_event_target = relentless_homeworld
+	}
+	
+	option = {
+		name = OK
+		small_artifact_reward = yes
+		owner = {
+			hidden_effect = {
+				owner = {
+					country_event = { id = origin.1420 days = 3 }
+				} 
+			}
+		}
+	}
+}

@@ -1,0 +1,59 @@
+sectors_energy_group = {
+	resources = {
+		energy
+	}
+	localization = {
+		"RESOURCE_GROUP_BALANCE_ONLY" = default
+		"RESOURCE_GROUP_BALANCE_ONLY_NEG" = { balance < 0 stored < 1000 }
+	}
+}
+
+sectors_mineral_group = {
+	resources = {
+		minerals
+	}
+	localization = {
+		"RESOURCE_GROUP_BALANCE_ONLY" = default
+		"RESOURCE_GROUP_BALANCE_ONLY_NEG" = { balance < 0 }
+	}
+}
+
+sectors_food_group = {
+	resources = {
+		food
+	}
+	localization = {
+		"RESOURCE_GROUP_BALANCE_ONLY" = default
+		"RESOURCE_GROUP_BALANCE_ONLY_NEG" = { balance < 0 }
+	}
+}
+
+sectors_alloys_group = {
+	resources = {
+		alloys
+	}
+	localization = {
+		"RESOURCE_GROUP_BALANCE_ONLY" = default
+		"RESOURCE_GROUP_BALANCE_ONLY_NEG" = { balance < 0 }
+	}
+}
+
+sectors_consumer_goods_group = {
+	resources = {
+		consumer_goods
+	}
+	localization = {
+		"RESOURCE_GROUP_BALANCE_ONLY" = default
+		"RESOURCE_GROUP_BALANCE_ONLY_NEG" = { balance < 0 }
+	}
+}
+
+sectors_unity_group = {
+	resources = {
+		unity
+	}
+	localization = {
+		"RESOURCE_GROUP_BALANCE_ONLY" = default
+		"RESOURCE_GROUP_BALANCE_ONLY_NEG" = { balance < 0 }
+	}
+}

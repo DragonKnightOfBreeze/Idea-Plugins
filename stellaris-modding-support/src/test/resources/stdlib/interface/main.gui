@@ -1,0 +1,1087 @@
+guiTypes = {
+	positionType = {
+		name = "pause_bg_animation_speed"
+		position = { x = 500 y = 2000 } # min and max divided by 1000
+	}
+
+	#Adjusts offset for tooltips for all elements at the bottom of the screen
+	@tt_offset_y = 0
+
+	positionType = {
+		name = "maingui_bottom_tooltip_offset"
+		position = { x = 0 y = @tt_offset_y }
+	}
+
+	containerWindowType = {
+		name = "maingui_flag"
+		position = { x=0 y=0 }
+		size = { width=100% height=100% }
+
+		iconType = {
+				name = "topbar_shield_decoration"
+				spriteType = "GFX_topbar_shield_decoration"
+				position = { x= 0 y = 0 }
+				Orientation = "UPPER_LEFT"
+				alwaysTransparent = yes
+			}
+
+		buttonType ={
+			name ="button_topbar_government"
+			quadTextureSprite = "GFX_empire_flag_64"
+			position = { x= -3 y = 0 }
+			Orientation = "UPPER_LEFT"
+			pdx_tooltip = "topbar_button_government_instant"
+			pdx_tooltip_delayed = "topbar_button_government_delayed"
+			clicksound = interface
+			oversound = no_sound
+			#shortcut = "F1"
+		}
+	}
+
+
+	positionType = {
+		name = "maingui_lower_topbar_size"
+		# width less than x increase size with y
+		position = { x = 1399 y = 220 }
+	}
+
+	### TOPBAR FOR MUSICPLAYER
+	containerWindowType = {
+		name = "maingui_lower_topbar"
+		position = { x=-170 y=34 }
+		size = { width=170 height=36 }
+		orientation = upper_right
+
+		background = {
+			name ="background"
+			quadTextureSprite = "GFX_topbar_background_cutoff"
+			position = { x= 0 y = 0 }
+		}
+
+		containerWindowType = {
+			name = "topbar_bar_res"
+			size = { width = 260 height = 25 }
+			position = { x = 26 y = 6 }
+
+			background = {
+				name = "topbar_bar_03"
+				spriteType = "GFX_topbar_bar_03"
+				alwaysTransparent = yes
+			}
+		}
+
+		####################
+		# Music
+		####################
+		containerWindowType = {
+			name = "music_commands_win"
+			size = { width=96 height=32 }
+			orientation = upper_right
+			position = { x= -96 y = 0 }
+			clipping = no
+
+			containerWindowType = {
+				name = "topbar_bar_04"
+				size = { width = 102 height = 25 }
+				position = { x = -10 y = 6 }
+
+					background = {
+						name = "topbar_bar_03"
+						spriteType = "GFX_topbar_bar_03"
+						alwaysTransparent = yes
+					}
+			}
+
+			#background = {
+			#	name = "Background"
+			#	quadTextureSprite ="GFX_tiles_frame_light"
+			#}
+
+			buttonType = {
+				name = "music_pause_button"
+				quadTextureSprite ="GFX_music_pause_button"
+				position = { x= 0 y = 0 }
+				clicksound = confirmation
+				oversound = no_sound
+			}
+
+			buttonType = {
+				name = "music_next_button"
+				quadTextureSprite ="GFX_music_next_button"
+				position = { x= 30 y = 0 }
+				pdx_tooltip = "MUSICPLAYER_NEXT"
+				oversound = no_sound
+				clicksound = increment_click
+			}
+
+			buttonType = {
+				name = "musicplayer_button"
+				quadTextureSprite ="GFX_musicplayer_button"
+				position = { x= 60 y = 0 }
+				pdx_tooltip = "MUSICPLAYER_OPEN_PLAYER"
+				clicksound = interface
+				oversound = no_sound
+			}
+		}		
+	}
+
+	containerWindowType = {
+		name = "maingui"
+		position = { x=0 y=0 }
+		size = { width=100% height=100% }
+
+		### Gamepad cursor
+
+		buttonType = {
+			name = "crosshair_cursor"
+			spriteType = "GFX_crosshair_cursor"
+			position = { x = -27.5 y = -27.5 }
+			orientation = "CENTER"
+			scale = 1
+		}
+
+		buttonType = {
+			name = "crosshair_cursor_overlay"
+			spriteType = "GFX_crosshair_cursor_overlay"
+			position = { x = -27.5 y = -27.5 }
+			orientation = "CENTER"
+			scale = 1
+		}
+		
+		### TOPBAR
+
+		containerWindowType = {
+			name = "topbar"
+			position = { x=0 y=0 }
+			size = { width=750 height=36 }
+
+			background = {
+				name ="background"
+				quadTextureSprite = "GFX_topbar_background"
+				position = { x= 0 y = 0 }
+			}
+		}
+
+		buttonType = {
+			name ="topbar_04"
+			quadTextureSprite = "GFX_topbar_bar_04"
+			position = { x= -170 y = 11 }
+			Orientation = "UPPER_RIGHT"
+			oversound = no_sound
+		}
+
+		containerWindowType = {
+			name = "topbar_bar_03"
+			size = { width = 564 height = 25 }
+			position = { x = 65 y = 13 }
+
+				background = {
+					name = "topbar_bar_03"
+					spriteType = "GFX_topbar_bar_03"
+					alwaysTransparent = yes
+				}
+		}
+
+		containerWindowType = {
+			name = "topbar_bar_04"
+			size = { width = 138 height = 25 }
+			position = { x = 750 y = 13 }
+
+				background = {
+					name = "topbar_bar_04"
+					spriteType = "GFX_topbar_bar_03"
+					alwaysTransparent = yes
+				}
+		}
+
+		####################
+		# Resources and Stuff
+		####################
+		containerWindowType = {
+			name = "topbar_extended"
+			position = { x=750 y=0 }
+			size = { width=100%% height=36 }
+			hide_position = { x = 0 y = 0 }
+			show_position = { x = 750 y = 0 }
+			show_animation_type = decelerated
+			hide_animation_type = accelerated
+			animation_time = 200
+
+			background = {
+				name ="background"
+				quadTextureSprite = "GFX_topbar_background"
+				position = { x= 0 y = 0 }
+			}
+
+			containerWindowType = {
+				name = "topbar_bar_05"
+				size = { width = 190 height = 25 }
+				position = { x = 0 y = 13 }
+
+				background = {
+					name = "topbar_bar_03"
+					spriteType = "GFX_topbar_bar_03"
+					alwaysTransparent = yes
+				}
+			}
+			
+			containerWindowType = {
+				name = "empire_size_group"
+				size = { width = 100 height = 35 }
+				position = { x = 0 y = 0 }
+
+				background = {
+					name = "background"
+					spriteType = "GFX_invisible"
+				}
+
+				iconType = {
+					name = "icon"
+					spriteType = "GFX_empire_sprawl_icon"
+					position = { x = 35 y = 0 }
+					scale = 0.8
+					tooltip_mode_enabled = yes
+					alwaysTransparent = yes
+				}
+
+				instantTextBoxType={
+					name = "amount"
+					font = "cg_16b"
+					position = { x = -15 y = 16 }
+					maxWidth = 120
+					maxHeight = 16
+					text = "250"
+					format = center
+					alwaysTransparent = yes
+				}
+			}
+
+			containerWindowType = {
+				name = "envoys_group"
+				size = { width = 100 height = 35 }
+				position = { x = 80 y = 0 }
+
+				background = {
+					name = "background"
+					spriteType = "GFX_invisible"
+				}
+
+				iconType = {
+					name = "icon"
+					spriteType = "GFX_envoy_icon"
+					position = { x = 15 y = 0 }
+					scale = 0.7
+					tooltip_mode_enabled = yes
+					alwaysTransparent = yes
+				}
+
+				instantTextBoxType={
+					name = "amount"
+					font = "cg_16b"
+					position = { x = -35 y = 16 }
+					maxWidth = 120
+					maxHeight = 16
+					text = "250"
+					format = center
+					alwaysTransparent = yes
+				}
+			}
+			
+			containerWindowType = {
+				name = "pop_group"
+				size = { width = 50 height = 35 }
+				position = { x = 130 y = 0 }
+
+				background = {
+					name = "background"
+					spriteType = "GFX_invisible"
+				}
+
+				iconType = {
+					name = "icon"
+					spriteType = "GFX_pop"
+					position = { x = 16 y = 0 }
+					scale = 0.7
+					tooltip_mode_enabled = yes
+					alwaysTransparent = yes
+				}
+
+				instantTextBoxType={
+					name = "amount"
+					font = "cg_16b"
+					position = { x = 0 y = 16 }
+					maxWidth = 50
+					maxHeight = 16
+					text = "0 / 0"
+					format = center
+					alwaysTransparent = yes
+				}
+			}			
+
+			containerWindowType = {
+				name = "starbase_group"
+				size = { width = 64 height = 35 }
+				position = { x = 190 y = 0 }
+
+				background = {
+					name = "background"
+					spriteType = "GFX_invisible"
+				}
+
+				iconType = {
+					name = "icon"
+					spriteType = "GFX_station_icon"
+					position = { x = 20 y = 2 }
+					tooltip_mode_enabled = yes
+					alwaysTransparent = yes
+				}
+
+				instantTextBoxType={
+					name = "amount"
+					font = "cg_16b"
+					position = { x = 2 y = 16 }
+					maxWidth = 60
+					maxHeight = 16
+					text = "0 / 0"
+					format = center
+					alwaysTransparent = yes
+				}
+			}
+
+			containerWindowType = {
+				name = "navy_group"
+				size = { width = 84 height = 35 }
+				position = { x = 250 y = 0 }
+
+				background = {
+					name = "background"
+					spriteType = "GFX_invisible"
+				}
+
+				iconType = {
+					name = "icon"
+					spriteType = "GFX_fleet_size_icon"
+					position = { x = 30 y = 2 }
+					tooltip_mode_enabled = yes
+					alwaysTransparent = yes
+				}
+
+				instantTextBoxType={
+					name = "amount"
+					font = "cg_16b"
+					position = { x = 2 y = 16 }
+					maxWidth = 80
+					maxHeight = 16
+					text = "0 / 0"
+					format = center
+					alwaysTransparent = yes
+				}
+			}
+		}
+
+		containerWindowType = {
+			name = "topbar_static"
+			position = { x= 70 y = 0 }
+			size = { width=200 height=200 }
+			Orientation = UPPER_LEFT
+
+			containerWindowType = {
+				name = "tb_energy_group"
+				size = { width = 74 height = 35 }
+				position = { x = 3 y = 0 }
+
+				background = {
+					name = "background"
+					spriteType = "GFX_invisible"
+				}
+
+				iconType = {
+					name = "icon"
+					spriteType = "GFX_resource_energy"
+					position = { x = 30 y = 2 }
+					tooltip_mode_enabled = yes
+					alwaysTransparent = yes
+				}
+
+				instantTextBoxType={
+					name = "amount"
+					font = "cg_16b"
+					position = { x = 2 y = 16 }
+					maxWidth = 70
+					maxHeight = 16
+					text = "0 / 0"
+					format = center
+					alwaysTransparent = yes
+				}
+			}
+
+			containerWindowType = {
+				name = "tb_mineral_group"
+				size = { width = 74 height = 35 }
+				position = { x = 82 y = 0 }
+
+				background = {
+					name = "background"
+					spriteType = "GFX_invisible"
+				}
+
+				iconType = {
+					name = "icon"
+					spriteType = "GFX_resource_minerals"
+					position = { x = 30 y = 2 }
+					tooltip_mode_enabled = yes
+					alwaysTransparent = yes
+				}
+
+				instantTextBoxType={
+					name = "amount"
+					font = "cg_16b"
+					position = { x = 2 y = 16 }
+					maxWidth = 70
+					maxHeight = 16
+					text = "0 / 0"
+					format = center
+					alwaysTransparent = yes
+				}
+			}
+
+			containerWindowType = {
+				name = "tb_alloys_group"
+				size = { width = 74 height = 35 }
+				position = { x = 319 y = 0 }
+
+				background = {
+					name = "background"
+					spriteType = "GFX_invisible"
+				}
+
+				iconType = {
+					name = "icon"
+					spriteType = "GFX_resource_alloys"
+					position = { x = 30 y = 2 }
+					tooltip_mode_enabled = yes
+					alwaysTransparent = yes
+				}
+
+				instantTextBoxType={
+					name = "amount"
+					font = "cg_16b"
+					position = { x = 2 y = 16 }
+					maxWidth = 70
+					maxHeight = 16
+					text = "0 / 0"
+					format = center
+					alwaysTransparent = yes
+				}
+			}
+
+			containerWindowType = {
+				name = "tb_influence_group"
+				size = { width = 74 height = 35 }
+				position = { x = 398 y = 0 }
+
+				background = {
+					name = "background"
+					spriteType = "GFX_invisible"
+				}
+
+				iconType = {
+					name = "icon"
+					spriteType = "GFX_resource_influence"
+					position = { x = 30 y = 2 }
+					tooltip_mode_enabled = yes
+					alwaysTransparent = yes
+				}
+
+				instantTextBoxType={
+					name = "amount"
+					font = "cg_16b"
+					position = { x = 2 y = 16 }
+					maxWidth = 70
+					maxHeight = 16
+					text = "0 / 0"
+					format = center
+					alwaysTransparent = yes
+				}
+			}
+
+			containerWindowType = {
+				name = "tb_food_group"
+				size = { width = 74 height = 35 }
+				position = { x = 161 y = 0 }
+
+				background = {
+					name = "background"
+					spriteType = "GFX_invisible"
+				}
+
+				iconType = {
+					name = "icon"
+					spriteType = "GFX_resource_food"
+					position = { x = 30 y = 2 }
+					tooltip_mode_enabled = yes
+					alwaysTransparent = yes
+				}
+
+				instantTextBoxType={
+					name = "amount"
+					font = "cg_16b"
+					position = { x = 2 y = 16 }
+					maxWidth = 70
+					maxHeight = 16
+					text = "0 / 0"
+					format = center
+					alwaysTransparent = yes
+				}
+			}
+
+			containerWindowType = {
+				name = "tb_consumer_goods_group"
+				size = { width = 74 height = 35 }
+				position = { x = 240 y = 0 }
+
+				background = {
+					name = "background"
+					spriteType = "GFX_invisible"
+				}
+
+				iconType = {
+					name = "icon"
+					spriteType = "GFX_resource_consumer_goods"
+					position = { x = 32 y = 2 }
+					tooltip_mode_enabled = yes
+					alwaysTransparent = yes
+				}
+
+				instantTextBoxType={
+					name = "amount"
+					font = "cg_16b"
+					position = { x = 2 y = 16 }
+					maxWidth = 70
+					maxHeight = 16
+					text = "0 / 0"
+					format = center
+					alwaysTransparent = yes
+				}
+			}
+
+			containerWindowType = {
+				name = "tb_unity_group"
+				size = { width = 74 height = 35 }
+				position = { x = 477 y = 0 }
+
+				background = {
+					name = "background"
+					spriteType = "GFX_invisible"
+				}
+
+				iconType = {
+					name = "icon"
+					spriteType = "GFX_resource_unity"
+					position = { x = 32 y = 2 }
+					tooltip_mode_enabled = yes
+					alwaysTransparent = yes
+				}
+
+				instantTextBoxType={
+					name = "amount"
+					font = "cg_16b"
+					position = { x = 2 y = 16 }
+					maxWidth = 70
+					maxHeight = 16
+					text = "0 / 0"
+					format = center
+					alwaysTransparent = yes
+				}
+			}
+
+			dropDownBoxType = {
+				name = "tb_research_group"
+				size = { width = 64 height = 35 }
+				position = { x = 556 y = 0 }
+
+				background = {
+					name = "background"
+					spriteType = "GFX_invisible"
+				}
+
+				iconType = {
+					name = "icon"
+					spriteType = "GFX_research_icon"
+					scale = 0.9
+					position = { x = 23 y = 1 }
+					tooltip_mode_enabled = yes
+					alwaysTransparent = yes
+				}
+
+				instantTextBoxType={
+					name = "amount"
+					font = "cg_16b"
+					position = { x = 2 y = 16 }
+					maxWidth = 60
+					maxHeight = 16
+					text = "0 / 0"
+					format = center
+					alwaysTransparent = yes
+				}
+
+				expandedWindow = {
+					name = "expanded_window"
+					position = { x = 0 y = -100 }
+					hide_position = { x = 0 y = -100 }
+					show_position = { x = 0 y = 35 }
+					size = { width = 100 height = 75 }
+					show_animation_type = decelerated
+					hide_animation_type = accelerated
+					animation_time = 200
+					
+					background = {
+						name = "bg"
+						spriteType = "GFX_subwindow_tile_plain_solid"
+					}
+					
+					gridBoxType = {
+						name = "resources"
+						format = "UPPER_LEFT"
+						size = { width = 100% height = 100% }
+						slotsize = { width = 100% height = 25 }
+						max_slots_horizontal = 1
+					}
+				}
+			}
+
+			dropDownBoxType = {
+				name = "tb_others_group"
+				size = { width = 80 height = 35 }
+				position = { x = 615 y = 0 }
+
+				background = {
+					name = "background"
+					spriteType = "GFX_invisible"
+				}
+
+				iconType = {
+					name = "icon"
+					spriteType = "GFX_resource_strategic_top_bar"
+					position = { x = 22 y = 2 }
+					tooltip_mode_enabled = yes
+					alwaysTransparent = yes
+				}
+
+				instantTextBoxType={
+					name = "amount"
+					font = "cg_16b"
+					position = { x = 2 y = 16 }
+					maxWidth = 60
+					maxHeight = 16
+					text = "0 / 0"
+					format = center
+					alwaysTransparent = yes
+				}
+
+				expandedWindow = {
+					name = "expanded_window"
+					hide_position = { x = 0 y = -190 }
+					show_position = { x = 0 y = 36 }
+					size = { width = 100 height = 180 }
+					show_animation_type = decelerated
+					hide_animation_type = accelerated
+					animation_time = 200
+					
+					background = {
+						name = "bg"
+						spriteType = "GFX_subwindow_tile_plain_solid"
+					}
+					
+					gridBoxType = {
+						name = "resources"
+						format = "UPPER_LEFT"
+						position = { x = 3 y = 3 }
+						size = { width = 100% height = 100% }
+						slotsize = { width = 100% height = 25 }
+						max_slots_horizontal = 1
+					}
+				}
+			}
+		}
+
+		#buttonType = {
+		#	name = "toggle_topbar_extended"
+		#	spriteType = "GFX_topbar_date_plus"
+		#	position = { x = 855 y = 10 }
+		#	oversound = "no_sound"
+		#}
+
+		####################
+		# Time stuff
+		####################
+		containerWindowType = {
+			name = "time_window"
+			position = { x= -150 y = 0 }
+			size = { width=200 height=200 }
+			Orientation = upper_right
+
+			buttonType ={
+				name ="pause_bg"
+				spriteType = "GFX_topbar_running"
+				position = { x= -76 y = 0}
+			}
+
+			buttonType ={
+				name ="pause_bg_stop"
+				spriteType = "GFX_topbar_paused"
+				position = { x= -76 y = 0}
+				oversound = no_sound
+			}
+
+			iconType ={
+				name ="pause_glow"
+				spriteType = "GFX_topbar_pause_glow"
+				position = { x= -76 y = -23}
+				alwaystransparent = yes
+			}
+
+			# Need a hitbox since pause_bg hides when game is paused
+			containerWindowType = {
+				name = "hitbox"
+				position = { x = -20 y = 0 }
+				orientation = upper_left
+				size = { width = 120 height = 35 }
+
+				background = {
+					name = "hitbox"
+					spriteType = "GFX_invisible"
+					clicksound = ui_click_pause
+				}
+			}
+
+			buttonType = {
+				name = "decrease_speed"
+				quadTextureSprite = "GFX_topbar_date_minus"
+				position = { x= 125 y = 7  }
+				clicksound = ui_speed_down_time_click
+				oversound = no_sound
+			}
+
+			buttonType = {
+				name = "increase_speed"
+				quadTextureSprite = "GFX_topbar_date_plus"
+				position = { x= 100 y = 7 }
+				clicksound = ui_speed_up_time_click
+				oversound = no_sound
+			}
+
+			instantTextBoxType={
+				name = "time"
+				font = "cg_16b"
+				position = { x= 12 y= 4 }
+				maxWidth = 100
+				maxHeight = 16
+				text = "0000.00.00"
+				alwaystransparent = yes
+			}
+
+			buttonType = {
+				name = "start_stop_icons"
+				quadTextureSprite = "GFX_start_stop_icons"
+				position = { x = -50 y = 6 }
+				frame = 1
+				clicksound = ui_click_pause
+				oversound = no_sound
+			}
+
+			instantTextBoxType = {
+				name = "time_description"
+				position = { x = -30  y = 18 }
+				font = "cg_16b"
+				text = "GAME_SPEED_3"
+				maxWidth = 150
+				maxHeight = 16
+				text_color_code = "E"
+				format = centre
+				#alwaystransparent = yes
+			}
+		}
+
+		instantTextBoxType={
+			name = "debug_version"
+			font = "cg_16b"
+			position = { x= -204 y= -52 }
+			maxHeight = 16
+			maxWidth = 200
+			fixedsize = yes
+			alwaysTransparent = yes
+			text = "Build: 12332"
+			text_color_code = "H"
+			format = right
+			Orientation = "LOWER_RIGHT"
+		}
+	}
+
+	containerWindowType = {
+		name = "single_resource_entry"
+		size = { width = 95 height = 25 }
+
+		background = {
+			name = "background"
+			spriteType = "GFX_invisible"
+		}
+
+		iconType = {
+			name = "icon"
+			spriteType = "GFX_resource_consumer_goods"
+			position = { x = 2 y = 0 }
+			tooltip_mode_enabled = yes
+			alwaysTransparent = yes
+		}
+	
+		instantTextBoxType={
+			name = "amount"
+			font = "cg_16b"
+			position = { x = 23 y = 0 }
+			maxWidth = 80
+			maxHeight = 16
+			text = "0 / 0"
+			alwaysTransparent = yes
+		}
+	}
+
+	containerWindowType = {
+		name = "order_selector"
+		position = { x= 0 y = 0 }
+		size = { width=380 height=10 }
+
+		background = {
+			name = "bg"
+			quadTextureSprite = "GFX_tile_outliner_bg"
+			position = { x= 0 y = 0  }
+		}
+
+		instantTextBoxType={
+			name = "label"
+			font = "cg_16b"
+			position = { x= 12 y= 6 }
+			maxHeight = 16
+			maxWidth = 249
+			fixedsize = yes
+			alwaysTransparent = yes
+			text = "ORDERS"
+			text_color_code = "H"
+		}
+
+		smoothListboxType =
+		{
+			name ="orders"
+			position = { x=10 y=25 }
+			priority = 100
+			size = { x=253 y=0 }
+			scrollbartype = "standardlistbox_slider"
+		}
+	}
+
+	# See 00_defines.lua and NOTIFICATION_MESSAGE_XPOS, ...
+	containerWindowType = {
+		name = "message_window"
+		position = { x=0 y=0 }
+		size = { width=64 height=64 }
+
+		buttonType = {
+			name = "message_icon_button"
+			quadTextureSprite = "GFX_test_message_icon"
+			position = { x= -2 y = 12  }
+			clicksound = "confirmation"
+			oversound = no_sound
+		}
+
+		iconType = {
+			name ="message_frame"
+			spriteType = "GFX_message_frame"
+			position = { x= -18 y = -11 }
+			alwaysTransparent = yes
+			frame = 1
+		}
+
+		iconType = {
+			name ="message_circle"
+			spriteType = "GFX_message_circle"
+			position = { x= -3 y = 11 }
+			alwaysTransparent = yes
+		}
+
+		iconType = {
+			name = "message_response"
+			position = { x = 6 y = 39 }
+			spriteType = "GFX_alliance_vote_status"
+			scale = 0.7
+		}
+	}
+
+	#Order entries
+	containerWindowType = {
+		name = "order_window"
+		position = { x=0 y=0 }
+		size = { width=360 height=28 }
+		clipping = no
+
+		buttonType = {
+			name = "background"
+			quadTextureSprite = "GFX_event_button_452"
+			position = { x= -25 y = 0  }
+			clicksound = confirmation
+		}
+
+		instantTextBoxType={
+			name = "text"
+			font = "cg_16b"
+			position = { x= 9 y= 9 }
+			maxHeight = 16
+			maxWidth = 350
+			fixedsize = yes
+			alwaysTransparent = yes
+		}
+	}
+
+
+	containerWindowType = {
+		name = "saving_window"
+		size = { width = 100% height = 100% }
+		background = {
+			name ="background"
+			quadTextureSprite = "gfx_transparency_button"
+
+		}
+
+		containerWindowType = {
+			name = "window"
+			size = { width = 300 height = 200 }
+			position = { x = -150 y = 200 }
+			orientation = center
+
+			buttonType = {
+				name = "background"
+				quadTextureSprite = "GFX_ship_army_outliner"
+				size = { x = 300 y = 50 }
+				position = { x = 0 y = 0  }
+			}
+
+			instantTextBoxType = {
+				name = "text"
+				font = "large_title_font"
+				position = { x = 0 y = 6 }
+				maxWidth = 300
+				maxHeight = 50
+				text = "SAVING_GAME"
+				fixedSize = yes
+				alwaysTransparent = yes
+				format = center
+			}
+		}
+	}
+
+	####################
+	# Left side navigation bar
+	####################
+
+	containerWindowType = {
+		name = "maingui_left_bar_button"
+		size = { width = 250 height = 40 }
+
+		iconType = {
+			name = "highlight"
+			position = { x=-2 y=-10 }
+			quadTextureSprite = "GFX_navbar_highlight"
+			alwaysTransparent = yes
+		}
+
+		iconType = {
+			name = "icon"
+			position = { x=0 y=0 }
+			quadTextureSprite = "GFX_topbar_situation_button"
+		}
+
+		iconType = {
+			name = "right_icon"
+			position = { x=218 y=8 }
+			scale = 0.6
+			quadTextureSprite = "GFX_topbar_situation_button"
+		}
+
+		iconType = {
+			name = "dot"
+			position = { x=233 y=-3 }
+			quadTextureSprite = "GFX_dot_yellow_icon"
+		}
+
+		instantTextBoxType = {
+			name = "text"
+			font = "cg_16b"
+			position = { x = 60  y = 8 }
+			maxWidth = 140
+			maxHeight = 30
+			fixedSize = yes
+			alwaysTransparent = yes
+			format = left
+		}
+
+		instantTextBoxType = {
+			name = "hotkey"
+			font = "cg_16b"
+			position = { x = 195  y = 8 }
+			maxWidth = 40
+			maxHeight = 30
+			fixedSize = yes
+			alwaysTransparent = yes
+			format = right
+		}
+
+		buttonType = {
+			name = "button"
+			quadTextureSprite = "GFX_outliner_member_bg"
+			position = { x = -5 y = -10 }
+			clicksound = interface
+			oversound = mouse_over
+		}
+	}
+
+	containerWindowType = {
+		name = "maingui_left_bar_buttons"
+		size = { width = 250 height = 670 } 
+		position = { x = -225 y = 35 }
+		hide_position = { x = -225 y = 35 }
+		show_position = { x = -5 y = 35 }
+		show_animation_type = decelerated
+		hide_animation_type = accelerated
+		animation_time = 200
+
+		orientation = upper_left
+		moveable = no
+		clipping = no
+		
+		containerWindowType = {
+			name = "background"
+			size = { width = 250 height = 640 }
+			position = { x = 5 y = 5 }
+			
+			background = {
+				name = "navbar_bg"
+				spriteType = "GFX_navbar_bg"
+			}
+		}
+
+		buttonType = {
+			name = "lock"
+			quadTextureSprite = "GFX_navbar_lock_less"
+			position = { x = -26 y = -26 }
+			Orientation = "LOWER_RIGHT"
+			clicksound = interface
+			oversound = mouse_over
+		}
+
+		gridBoxType = {
+			name = "gridbox"
+			position = { x = 34 y = 50 }
+			slotSize = { width = 54 height = 40 }
+			max_slots_horizontal = 1
+		}
+	}
+}
