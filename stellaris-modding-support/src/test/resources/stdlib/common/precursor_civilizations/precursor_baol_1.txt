@@ -1,7 +1,0 @@
-precursor_baol_1 = {
-	size = 100
-
-	possible = {
-		has_ancrel = yes
-	}
-}

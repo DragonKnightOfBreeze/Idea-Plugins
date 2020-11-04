@@ -1,3 +1,0 @@
-pop_angry_subterranean = {
-	pop_happiness = -0.2
-}

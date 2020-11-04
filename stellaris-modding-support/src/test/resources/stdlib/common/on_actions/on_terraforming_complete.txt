@@ -1,7 +1,0 @@
-on_terraforming_complete = {
-	events = {
-		action.68
-		syndaw.1320 # Planet of the Mechs achievement check
-		distar.197
-	}
-}

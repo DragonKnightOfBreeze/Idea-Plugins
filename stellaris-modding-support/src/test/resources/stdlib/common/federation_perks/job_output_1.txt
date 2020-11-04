@@ -1,9 +1,0 @@
-job_output_1 = {
-	members_modifier = {
-		planet_jobs_produces_mult = 0.05
-	}
-	leader_modifier = {
-		description = "president_no_effect"
-		planet_jobs_produces_mult = -0.05
-	}
-}

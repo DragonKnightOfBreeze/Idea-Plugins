@@ -1,4 +1,0 @@
-on_federation_leader_elections = {
-	events = {
-	}
-}

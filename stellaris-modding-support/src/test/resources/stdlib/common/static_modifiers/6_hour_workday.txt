@@ -1,3 +1,0 @@
-6_hour_workday = {
-	planet_jobs_minerals_produces_mult = -0.15
-}

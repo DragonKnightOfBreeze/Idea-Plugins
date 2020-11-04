@@ -1,5 +1,0 @@
-pyramid_wars = {
-	pop_happiness = -0.4
-	icon = "gfx/interface/icons/planet_modifiers/pm_unknown.dds"
-	icon_frame = 3
-}

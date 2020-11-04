@@ -1,5 +1,0 @@
-planet_manager_awards = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_museum.dds"
-	planet_executives_produces_mult = 0.10
-	planet_managers_produces_mult = 0.10
-}

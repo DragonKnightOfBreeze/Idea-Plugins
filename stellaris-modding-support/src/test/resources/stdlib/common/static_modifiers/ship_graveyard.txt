@@ -1,4 +1,0 @@
-ship_graveyard = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_mineral_rich.dds"
-	icon_frame = 1
-}

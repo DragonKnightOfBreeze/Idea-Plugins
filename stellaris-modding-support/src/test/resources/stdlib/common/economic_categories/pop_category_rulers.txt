@@ -1,3 +1,0 @@
-pop_category_rulers = {
-	parent = planet_pops
-}

@@ -1,3 +1,0 @@
-shroud_influence_boost = {
-	country_influence_produces_mult = 0.3
-}

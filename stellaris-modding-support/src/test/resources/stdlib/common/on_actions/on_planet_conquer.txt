@@ -1,7 +1,0 @@
-on_planet_conquer = {
-	events = {
-		action.42 # Land appropriation
-		action.84
-		action.89
-	}
-}

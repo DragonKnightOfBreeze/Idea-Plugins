@@ -1,3 +1,0 @@
-solar_harvesting_bacteria = {
-	planet_jobs_energy_produces_mult = 0.05
-}

@@ -1,3 +1,0 @@
-pop_happiness_positive_slave = {
-	pop_ethic_authoritarian_attraction_mult = 1
-}

@@ -1,3 +1,0 @@
-can_subjugate_empires = {
-	always = yes
-}

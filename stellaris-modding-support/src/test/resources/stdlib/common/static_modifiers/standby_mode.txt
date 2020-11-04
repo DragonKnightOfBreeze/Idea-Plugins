@@ -1,6 +1,0 @@
-standby_mode = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_resources.dds"
-	icon_frame = 2
-	unemployment_resources_energy_upkeep_add = 2
-	custom_tooltip = standby_mode_tooltip
-}

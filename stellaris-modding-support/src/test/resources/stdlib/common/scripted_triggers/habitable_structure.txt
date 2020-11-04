@@ -1,6 +1,0 @@
-habitable_structure = {
-	OR = {
-		is_planet_class = pc_ringworld_habitable
-		is_planet_class = pc_habitat
-	}
-}

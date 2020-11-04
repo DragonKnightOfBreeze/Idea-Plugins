@@ -1,7 +1,0 @@
-law_category_kick_members_vote = {
-	laws = {
-		kick_members_majority_vote
-		kick_members_president_vote
-		kick_members_president_vote_hegemony
-	}
-}

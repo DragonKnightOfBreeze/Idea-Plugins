@@ -1,3 +1,0 @@
-add_volatile_motes = {
-	set_deposit = d_volatile_motes_1
-}

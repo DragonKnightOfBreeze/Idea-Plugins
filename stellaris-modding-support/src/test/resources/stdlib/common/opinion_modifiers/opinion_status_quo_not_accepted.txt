@@ -1,9 +1,0 @@
-opinion_status_quo_not_accepted = {
-	opinion = {
-		base = -20
-	}
-
-	decay = {
-		base = 5
-	}
-}

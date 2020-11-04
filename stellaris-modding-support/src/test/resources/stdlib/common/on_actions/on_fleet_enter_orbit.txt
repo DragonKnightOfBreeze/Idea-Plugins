@@ -1,4 +1,0 @@
-on_fleet_enter_orbit = {
-	events = {
-	}
-}

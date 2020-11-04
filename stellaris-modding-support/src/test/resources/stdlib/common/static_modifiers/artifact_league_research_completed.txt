@@ -1,4 +1,0 @@
-artifact_league_research_completed = {
-	category_industry_research_speed_mult = 0.15
-	planet_building_build_speed_mult = 0.10
-}

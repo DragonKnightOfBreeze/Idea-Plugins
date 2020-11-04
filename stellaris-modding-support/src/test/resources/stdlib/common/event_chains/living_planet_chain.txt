@@ -1,9 +1,0 @@
-living_planet_chain = {
-	icon = "gfx/interface/icons/situation_log/situation_log_scanning_beam.dds"
-	picture = GFX_evt_ocean
-	counter = {
-		living_sea_decision = {
-			max = 1
-		}
-	}
-}

@@ -1,3 +1,0 @@
-deposit_cat_rare = { 
-	important = yes	# Shows up as rare deposits in planetview
-}

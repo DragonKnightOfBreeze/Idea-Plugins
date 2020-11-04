@@ -1,8 +1,0 @@
-on_planet_transfer = {
-	events = {
-#		utopia.2657 # make habitats larger
-		mega.205 # nuke invalid ongoing planetary political decisions
-		origin.3002#ToL Tree death
-		origin.3004#ToL Tree modifier
-	}
-}

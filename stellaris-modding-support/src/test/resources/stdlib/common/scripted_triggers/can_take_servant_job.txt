@@ -1,6 +1,0 @@
-can_take_servant_job = {
-	OR = {
-		is_domestic_robot = yes
-		is_domestic_servant = yes
-	}
-}

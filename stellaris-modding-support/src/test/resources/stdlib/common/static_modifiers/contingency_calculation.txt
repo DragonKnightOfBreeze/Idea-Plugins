@@ -1,3 +1,0 @@
-contingency_calculation = {
-	megastructure_build_speed_mult = 3.0
-}

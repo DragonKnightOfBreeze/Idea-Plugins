@@ -1,3 +1,0 @@
-has_gw_strategic_coordination_center = {
-	has_technology = tech_strategic_coordination
-}

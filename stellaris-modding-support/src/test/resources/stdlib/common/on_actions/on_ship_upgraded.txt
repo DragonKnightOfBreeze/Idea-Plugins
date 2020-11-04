@@ -1,5 +1,0 @@
-on_ship_upgraded = {
-	events = {
-		crisis.2057
-	}
-}

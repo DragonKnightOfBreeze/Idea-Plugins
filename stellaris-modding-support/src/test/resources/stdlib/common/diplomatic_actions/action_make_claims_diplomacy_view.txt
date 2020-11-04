@@ -1,3 +1,0 @@
-action_make_claims_diplomacy_view = {
-	is_listed = yes
-}

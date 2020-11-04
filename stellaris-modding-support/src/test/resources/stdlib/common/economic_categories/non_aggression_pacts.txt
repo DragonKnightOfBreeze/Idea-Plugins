@@ -1,3 +1,0 @@
-non_aggression_pacts = {
-	parent = diplomacy
-}

@@ -1,4 +1,0 @@
-racket_energy_extractor = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_faith_in_science.dds"
-	icon_frame = 1
-}

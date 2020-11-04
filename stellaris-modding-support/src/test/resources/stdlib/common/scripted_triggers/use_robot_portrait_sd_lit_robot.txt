@@ -1,7 +1,0 @@
-use_robot_portrait_sd_lit_robot = {
-	has_lithoids = yes
-	OR = {
-		is_species_class = LITHOID
-		species_portrait = lith_machine
-	}
-}

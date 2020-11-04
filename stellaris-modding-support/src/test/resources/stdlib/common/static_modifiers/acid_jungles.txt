@@ -1,4 +1,0 @@
-acid_jungles = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_planet_surface.dds"
-	icon_frame = 3
-}

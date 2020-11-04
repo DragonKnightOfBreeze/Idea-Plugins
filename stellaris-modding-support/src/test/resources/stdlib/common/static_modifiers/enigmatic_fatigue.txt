@@ -1,3 +1,0 @@
-enigmatic_fatigue = {
-	planet_jobs_produces_mult = -0.3
-}

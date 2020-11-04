@@ -1,3 +1,0 @@
-suppressed_faction = {
-	faction_approval = -0.2
-}

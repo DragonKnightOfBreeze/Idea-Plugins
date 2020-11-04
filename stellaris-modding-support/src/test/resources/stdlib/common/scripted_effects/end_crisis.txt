@@ -1,6 +1,0 @@
-end_crisis = {
-	remove_global_flag = crisis_stage_1
-	remove_global_flag = crisis_stage_2
-	remove_global_flag = crisis_stage_3
-	remove_global_flag = crisis_stage_4
-}

@@ -1,5 +1,0 @@
-trade_value_1 = {
-	members_modifier = {
-		trade_value_mult = 0.05
-	}
-}

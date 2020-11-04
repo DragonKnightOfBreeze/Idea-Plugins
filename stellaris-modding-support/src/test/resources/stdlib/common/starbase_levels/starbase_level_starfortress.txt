@@ -1,7 +1,0 @@
-starbase_level_starfortress = {
-	ship_size = starbase_starfortress
-	next_level = starbase_level_citadel
-	level_weight = 3
-	ai_weight = { weight = 4 }
-	potential_home_base = yes
-}

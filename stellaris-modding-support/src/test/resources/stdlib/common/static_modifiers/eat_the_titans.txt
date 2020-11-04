@@ -1,9 +1,0 @@
-eat_the_titans = {
-	district_farming_max = 6
-	planet_jobs_food_produces_mult = 0.3
-	job_titan_hunter_add = 1
-	job_titan_hunter_per_pop = 0.033 # 1 per 30
-
-	icon = "gfx/interface/icons/planet_modifiers/pm_titanic_life.dds"
-	icon_frame = 1
-}

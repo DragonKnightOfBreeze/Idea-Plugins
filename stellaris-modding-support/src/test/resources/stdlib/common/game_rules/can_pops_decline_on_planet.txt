@@ -1,3 +1,0 @@
-can_pops_decline_on_planet = {
-	always = yes
-}

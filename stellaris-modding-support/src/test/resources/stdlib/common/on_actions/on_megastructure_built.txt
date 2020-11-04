@@ -1,9 +1,0 @@
-on_megastructure_built = {
-	events = {
-		utopia.2000
-		utopia.4000
-		utopia.4100
-		utopia.80
-		utopia.4007 # alert message
-	}
-}

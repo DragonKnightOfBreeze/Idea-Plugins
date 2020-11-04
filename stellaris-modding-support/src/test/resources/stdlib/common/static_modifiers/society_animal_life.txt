@@ -1,5 +1,0 @@
-society_animal_life = {
-	planet_jobs_society_research_produces_mult = 0.25
-	icon = "gfx/interface/icons/planet_modifiers/pm_dangerous_wildlife.dds"
-	icon_frame = 1
-}

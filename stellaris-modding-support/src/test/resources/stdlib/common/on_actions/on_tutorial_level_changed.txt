@@ -1,8 +1,0 @@
-on_tutorial_level_changed = {
-	events = {
-		tutorial.100 # Show what has been enabled / disabled
-		tutorial.101 # Show what has been enabled / disabled
-		tutorial.102 # Show what has been enabled / disabled
-		tutorial.103 # Disable irrelevant tutorial stuff
-	}
-}

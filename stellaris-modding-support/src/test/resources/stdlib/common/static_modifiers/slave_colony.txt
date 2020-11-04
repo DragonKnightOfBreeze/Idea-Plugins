@@ -1,5 +1,0 @@
-slave_colony = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_slave_colony.dds"
-	icon_frame = 2
-	pop_growth_speed = 0.5
-}

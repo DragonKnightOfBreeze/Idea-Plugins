@@ -1,7 +1,0 @@
-pm_ancient_factory = {
-	spawn_chance = {
-		#None - From anomaly 
-	}
-	
-	modifier = "ancient_factory"
-}

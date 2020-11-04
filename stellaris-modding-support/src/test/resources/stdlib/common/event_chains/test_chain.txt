@@ -1,7 +1,0 @@
-test_chain = {
-	counter = {
-		test_counter = {
-			max = 6
-		}
-	}
-}

@@ -1,9 +1,0 @@
-opinion_maneuvers_canceled = {
-	opinion = {
-		base = 40
-	}
-
-	decay = {
-		base = 2
-	}
-}

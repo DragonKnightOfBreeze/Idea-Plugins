@@ -1,3 +1,0 @@
-drone_mining_techniques = {
-	station_gatherers_minerals_produces_mult = 0.1
-}

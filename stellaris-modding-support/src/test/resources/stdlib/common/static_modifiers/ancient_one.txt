@@ -1,4 +1,0 @@
-ancient_one = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_titanic_life.dds"
-	icon_frame = 2
-}

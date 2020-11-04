@@ -1,5 +1,0 @@
-dead_god_planet_hidden = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_atmospheric_hallucinogen.dds"
-	icon_frame = 2
-	pop_ethic_spiritualist_attraction_mult = 2
-}

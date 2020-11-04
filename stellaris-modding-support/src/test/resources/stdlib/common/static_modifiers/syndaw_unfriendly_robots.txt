@@ -1,5 +1,0 @@
-syndaw_unfriendly_robots = {
-	country_unity_produces_mult = -0.10
-	icon = "gfx/interface/icons/planet_modifiers/pm_robots.dds"
-	icon_frame = 3
-}

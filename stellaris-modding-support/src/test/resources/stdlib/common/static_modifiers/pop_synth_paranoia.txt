@@ -1,3 +1,0 @@
-pop_synth_paranoia = {
-	pop_happiness = -0.2
-}

@@ -1,4 +1,0 @@
-playable_ai_empire = {
-	diplomacy_upkeep_mult = -0.5
-	ship_archaeological_site_excavation_speed_mult = -0.50
-}

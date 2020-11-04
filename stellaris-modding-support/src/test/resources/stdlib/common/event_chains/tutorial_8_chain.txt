@@ -1,9 +1,0 @@
-tutorial_8_chain = {
-	icon = "gfx/interface/icons/situation_log/situation_log_tutorial.dds"
-	picture = GFX_evt_star_chart
-	counter = {
-		systems_surveyed = {
-			max = 3
-		}
-	}
-}

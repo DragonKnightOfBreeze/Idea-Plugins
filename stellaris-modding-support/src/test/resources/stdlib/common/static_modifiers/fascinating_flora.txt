@@ -1,4 +1,0 @@
-fascinating_flora = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_unknown.dds"
-	icon_frame = 1
-}

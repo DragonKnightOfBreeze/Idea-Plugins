@@ -1,5 +1,0 @@
-species_crossbreeding = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_atmospheric_aphrodisiac.dds"
-	icon_frame = 1
-	pop_growth_speed = 0.20
-}

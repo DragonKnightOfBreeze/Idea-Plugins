@@ -1,4 +1,0 @@
-machine_empire_code_bugs = {
-	planet_pops_robotics_upkeep_mult = 0.05
-	planet_jobs_robotic_produces_mult = -0.20
-}

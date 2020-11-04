@@ -1,5 +1,0 @@
-on_war_ended = {
-	events = {
-		fallen_empires.14
-	}
-}

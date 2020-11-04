@@ -1,3 +1,0 @@
-a_hitchikers_guide_to_the_galaxy = {
-	pop_ethic_xenophile_attraction_mult = 0.33
-}

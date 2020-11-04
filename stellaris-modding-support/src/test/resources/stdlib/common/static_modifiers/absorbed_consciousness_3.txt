@@ -1,7 +1,0 @@
-absorbed_consciousness_3 = {
-	ship_shield_add = 300000 
-	ship_hull_add = 150000
-	ship_shield_regen_add_static = 300
-	ship_weapon_damage = 4
-	ship_fire_rate_mult = 4
-}

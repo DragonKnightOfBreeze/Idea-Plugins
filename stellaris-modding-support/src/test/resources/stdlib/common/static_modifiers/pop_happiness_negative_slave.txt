@@ -1,3 +1,0 @@
-pop_happiness_negative_slave = {
-	pop_ethic_egalitarian_attraction_mult = 5
-}

@@ -1,8 +1,0 @@
-is_non_menial_laborer = {
-	OR = {
-		is_enslaved = no
-		NOT = { has_slavery_type = { country = from type = slavery_normal } }
-	}
-	is_non_sapient_robot = no
-	is_sapient = yes
-}

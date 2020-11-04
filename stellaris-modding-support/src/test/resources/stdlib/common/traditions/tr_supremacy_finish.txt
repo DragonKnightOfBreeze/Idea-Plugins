@@ -1,5 +1,0 @@
-tr_supremacy_finish = {
-	modifier = {
-		ascension_perks_add = 1
-	}
-}

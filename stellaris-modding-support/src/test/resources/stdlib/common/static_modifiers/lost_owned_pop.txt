@@ -1,3 +1,0 @@
-lost_owned_pop = {
-	pop_happiness = -0.2
-}

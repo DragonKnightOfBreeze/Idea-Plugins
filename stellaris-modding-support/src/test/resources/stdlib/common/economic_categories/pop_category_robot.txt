@@ -1,3 +1,0 @@
-pop_category_robot = {
-	parent = planet_pops
-}

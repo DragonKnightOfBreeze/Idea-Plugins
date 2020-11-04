@@ -1,9 +1,0 @@
-mandate_district_mining_chain = {
-	icon = "gfx/interface/icons/situation_log/situation_log_decision.dds"
-	picture = GFX_evt_throne_room
-	counter = {
-		built_district = {
-			max = 2
-		}
-	}
-}

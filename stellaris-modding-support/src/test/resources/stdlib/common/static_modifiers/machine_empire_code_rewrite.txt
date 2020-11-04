@@ -1,3 +1,0 @@
-machine_empire_code_rewrite = {
-	planet_pops_robotics_upkeep_mult = 0.10
-}

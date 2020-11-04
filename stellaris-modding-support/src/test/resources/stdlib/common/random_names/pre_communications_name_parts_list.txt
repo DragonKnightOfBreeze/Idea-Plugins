@@ -1,7 +1,0 @@
-pre_communications_name_parts_list = {
-	key = "com_first"
-	parts = {
-		"Bogeys'" = 100
-		"Spooks'" = 10
-	}
-}

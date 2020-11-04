@@ -1,9 +1,0 @@
-strategic_coordination_center_modifier = {
-	country_naval_cap_add = 300
-	shipclass_starbase_damage_mult = 0.50
-	starbase_defense_platform_capacity_add = 24
-	shipsize_corvette_build_speed_mult = 0.25
-	shipsize_destroyer_build_speed_mult = 0.25
-	shipsize_cruiser_build_speed_mult = 0.25
-	shipsize_battleship_build_speed_mult = 0.25
-}

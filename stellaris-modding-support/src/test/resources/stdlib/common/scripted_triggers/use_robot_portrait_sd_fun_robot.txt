@@ -1,7 +1,0 @@
-use_robot_portrait_sd_fun_robot = {
-	host_has_dlc = "Synthetic Dawn Story Pack"
-	OR = {
-		is_species_class = FUN
-		species_portrait = sd_fun_robot
-	}
-}

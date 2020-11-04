@@ -1,3 +1,0 @@
-silicon_lifeforms = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_carbon_world.dds"
-}

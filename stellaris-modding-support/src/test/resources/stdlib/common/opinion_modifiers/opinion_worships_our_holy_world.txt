@@ -1,7 +1,0 @@
-opinion_worships_our_holy_world = {
-	opinion = {
-		base = 30
-	}
-
-	accumulative = yes
-}

@@ -1,6 +1,0 @@
-on_galactic_community_formed = {
-	events = {
-		galcom.60
-	}
-
-}

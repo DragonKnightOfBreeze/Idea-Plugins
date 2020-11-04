@@ -1,4 +1,0 @@
-is_lithoid_devouring_swarm = {
-	is_lithoid_empire = yes
-	has_valid_civic = civic_hive_devouring_swarm
-}

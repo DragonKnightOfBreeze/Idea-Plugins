@@ -1,6 +1,0 @@
-angry = {
-	type = angry
-	behaviour = {
-		attack = yes
-	}
-}

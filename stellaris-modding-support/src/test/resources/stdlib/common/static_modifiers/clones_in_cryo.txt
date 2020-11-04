@@ -1,4 +1,0 @@
-clones_in_cryo = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_faith_in_science.dds"
-	icon_frame = 1
-}

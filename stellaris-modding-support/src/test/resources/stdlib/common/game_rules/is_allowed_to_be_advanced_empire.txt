@@ -1,3 +1,0 @@
-is_allowed_to_be_advanced_empire = {
-	always = yes
-}

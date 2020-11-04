@@ -1,9 +1,0 @@
-site_shot_into_the_ground_random_events = {
-	random_list = {
-		10 = { fleet_event = { id = ancrel.8100} }
-		10 = { fleet_event = { id = ancrel.8101} }
-		10 = { fleet_event = { id = ancrel.8102} }
-		10 = { fleet_event = { id = ancrel.8103} }
-		10 = { fleet_event = { id = ancrel.8050} }
-	}
-}

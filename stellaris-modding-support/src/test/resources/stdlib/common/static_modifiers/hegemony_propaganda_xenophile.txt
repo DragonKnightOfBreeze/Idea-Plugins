@@ -1,3 +1,0 @@
-hegemony_propaganda_xenophile = {
-	pop_ethic_xenophile_attraction_mult = 0.35
-}

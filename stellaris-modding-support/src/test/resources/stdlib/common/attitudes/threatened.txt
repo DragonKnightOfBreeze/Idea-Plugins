@@ -1,7 +1,0 @@
-threatened = {
-	type = threatened
-	behaviour = {
-		attack = yes
-		weaken = yes
-	}
-}

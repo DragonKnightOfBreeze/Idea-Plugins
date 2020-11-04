@@ -1,3 +1,0 @@
-celebrate_diversity = {
-	pop_ethic_xenophile_attraction_mult = 0.50
-}

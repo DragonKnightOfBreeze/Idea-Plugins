@@ -1,9 +1,0 @@
-law_category_challenge = {
-	potential = { has_federation_law = succession_type_challenge }
-	laws = {
-		challenge_type_arena_combat
-		challenge_type_psionic_battle
-		challenge_type_bidding_war
-		challenge_type_thesis
-	}
-}

@@ -1,9 +1,0 @@
-rogue_scientist_2_chain = {
-	picture = GFX_evt_ship_in_orbit
-	icon = "gfx/interface/icons/situation_log/situation_log_quest.dds"
-	counter = {
-		scientist_pursued = {
-			max = 1
-		}
-	}
-}

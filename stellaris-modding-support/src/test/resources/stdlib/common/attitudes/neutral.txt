@@ -1,6 +1,0 @@
-neutral = {
-	type = neutral
-	behaviour = {
-		trade = yes
-	}
-}

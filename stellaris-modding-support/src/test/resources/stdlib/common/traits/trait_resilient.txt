@@ -1,8 +1,0 @@
-trait_resilient = {
-	cost = 1
-	potential_crossbreeding_chance = 1.0
-	allowed_archetypes = { BIOLOGICAL LITHOID }
-	modifier = {
-		army_defense_damage_mult = 0.5
-	}
-}

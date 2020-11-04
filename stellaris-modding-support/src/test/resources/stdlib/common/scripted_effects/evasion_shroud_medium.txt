@@ -1,9 +1,0 @@
-evasion_shroud_medium = {
-	hidden_effect = {
-		random_list = {
-			50 = { country_event = { id = utopia.3039 }}
-			30 = { country_event = { id = utopia.3045 }}
-			20 = { country_event = { id = utopia.3059 }}
-		}
-	}
-}

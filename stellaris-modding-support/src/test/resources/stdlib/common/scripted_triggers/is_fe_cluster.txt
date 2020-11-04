@@ -1,9 +1,0 @@
-is_fe_cluster = {
-	OR = {
-		is_in_cluster = fe1_cluster
-		is_in_cluster = fe2_cluster
-		is_in_cluster = fe3_cluster
-		is_in_cluster = fe4_cluster
-		is_in_cluster = fe_mach_cluster
-	}
-}

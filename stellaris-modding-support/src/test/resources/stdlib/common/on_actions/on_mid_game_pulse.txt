@@ -1,7 +1,0 @@
-on_mid_game_pulse = {
-	events = {
-		leviathans.2011 # spawn wraith
-		leviathans.20101 # remove too-late wraith discovery
-		distar.2050
-	}
-}

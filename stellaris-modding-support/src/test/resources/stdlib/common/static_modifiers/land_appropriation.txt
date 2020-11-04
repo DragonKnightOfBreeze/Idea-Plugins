@@ -1,4 +1,0 @@
-land_appropriation = {
-	planet_immigration_pull_mult = 1
-	icon = "gfx/interface/icons/planet_modifiers/pm_land_appropriated.dds"
-}

@@ -1,5 +1,0 @@
-enclave_trade_1_rig = {
-	icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
-	monthly_trades_volatile_motes_produces_add = 1
-	monthly_trades_energy_produces_add = -10
-}

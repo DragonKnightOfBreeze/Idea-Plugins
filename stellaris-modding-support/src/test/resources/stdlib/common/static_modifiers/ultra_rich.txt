@@ -1,7 +1,0 @@
-ultra_rich = {
-	planet_jobs_minerals_produces_mult = 0.25
-	district_mining_max = 8
-
-	icon = "gfx/interface/icons/planet_modifiers/pm_ultra_rich.dds"
-	icon_frame = 1
-}

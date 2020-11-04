@@ -1,3 +1,0 @@
-streamlined_ship_design = {
-	ship_evasion_mult = 0.1
-}

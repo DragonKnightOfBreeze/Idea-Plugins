@@ -1,3 +1,0 @@
-ghost_signal_1 = { # Weakest
-	icon = "gfx/interface/icons/modifiers/mod_ghost_signal.dds"
-}

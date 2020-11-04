@@ -1,3 +1,0 @@
-artifact_find_peaceful_application_consumer_goods = {
-	planet_pops_consumer_goods_upkeep_mult = -0.05
-}

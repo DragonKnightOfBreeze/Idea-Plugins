@@ -1,5 +1,0 @@
-can_spawn_debris = {
-	root = { is_country_type = default }
-	exists = owner
-	owner = { NOT = { has_ascension_perk = ap_enigmatic_engineering } }
-}

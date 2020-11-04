@@ -1,3 +1,0 @@
-5 = { # Tier 5
-	previously_unlocked = 6
-}

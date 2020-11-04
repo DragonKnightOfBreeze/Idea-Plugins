@@ -1,6 +1,0 @@
-generate_late_primitives_on_planet = {
-	create_primitive_species = yes
-	create_late_primitive_empire = yes
-	setup_primitive_planet = yes
-	#create_primitive_armies = yes ### Done via Pop job now
-}

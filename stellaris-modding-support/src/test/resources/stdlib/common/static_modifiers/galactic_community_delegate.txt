@@ -1,3 +1,0 @@
-galactic_community_delegate = {
-	diplo_weight_envoys_mult = 0.10
-}

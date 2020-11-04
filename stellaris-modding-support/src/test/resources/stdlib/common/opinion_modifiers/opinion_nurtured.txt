@@ -1,5 +1,0 @@
-opinion_nurtured = {
-	opinion = {
-		base = 100
-	}
-}

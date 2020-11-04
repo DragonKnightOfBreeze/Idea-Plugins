@@ -1,3 +1,0 @@
-is_new_colony = {
-	has_building = building_colony_shelter
-}

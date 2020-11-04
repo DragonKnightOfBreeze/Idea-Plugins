@@ -1,3 +1,0 @@
-alien_genome_research = {
-	army_damage_mult = 0.05
-}

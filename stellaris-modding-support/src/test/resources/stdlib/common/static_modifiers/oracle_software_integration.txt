@@ -1,5 +1,0 @@
-oracle_software_integration = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_crime.dds"
-	planet_stability_add = 10
-	planet_crime_no_happiness_add = -15
-}

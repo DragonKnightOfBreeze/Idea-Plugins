@@ -1,4 +1,0 @@
-ship_orbit_repair = {
-	ship_hull_regen_add_perc = 2
-	ship_armor_regen_add_perc = 2
-}

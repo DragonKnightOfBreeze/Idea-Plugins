@@ -1,9 +1,0 @@
-pop_ghost_signal_2 = {
-	planet_jobs_minerals_produces_mult = -0.25
-	planet_jobs_energy_produces_mult = -0.25
-	planet_jobs_physics_research_produces_mult = -0.25
-	planet_jobs_society_research_produces_mult = -0.25
-	planet_jobs_engineering_research_produces_mult = -0.25
-	planet_jobs_unity_produces_mult = -0.25
-	pop_government_ethic_attraction = -0.25
-}

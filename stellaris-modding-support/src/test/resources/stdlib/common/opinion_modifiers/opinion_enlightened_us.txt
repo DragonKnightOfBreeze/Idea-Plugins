@@ -1,9 +1,0 @@
-opinion_enlightened_us = {
-	opinion = {
-		base = 100
-	}
-
-	decay = {
-		base = 5
-	}
-}

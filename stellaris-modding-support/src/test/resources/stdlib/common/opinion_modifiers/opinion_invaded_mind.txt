@@ -1,8 +1,0 @@
-opinion_invaded_mind = {
-	opinion = {
-		base = -35
-	}
-	decay = {
-		base = 2
-	}
-}

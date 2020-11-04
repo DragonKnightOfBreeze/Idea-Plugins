@@ -1,3 +1,0 @@
-unbidden_ritual = {
-	ship_ftl_jumpdrive_range_mult = 1.0
-}

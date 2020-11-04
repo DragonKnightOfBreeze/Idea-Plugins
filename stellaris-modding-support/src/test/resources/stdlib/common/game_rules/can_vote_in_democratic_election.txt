@@ -1,6 +1,0 @@
-can_vote_in_democratic_election = {
-	has_citizenship_rights = yes
-	is_sapient = yes
-	is_enslaved = no
-	is_being_purged = no
-}

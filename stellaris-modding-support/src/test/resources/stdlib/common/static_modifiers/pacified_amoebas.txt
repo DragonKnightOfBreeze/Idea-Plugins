@@ -1,3 +1,0 @@
-pacified_amoebas = {
-	icon = "gfx/interface/icons/modifiers/mod_planet_border_mult.dds"
-}

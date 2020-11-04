@@ -1,9 +1,0 @@
-opinion_hegemony_joint_action_completed = {
-	opinion = {
-		base = 50
-	}
-
-	decay = {
-		base = 1
-	}
-}

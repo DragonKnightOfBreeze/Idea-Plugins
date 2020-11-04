@@ -1,5 +1,0 @@
-syndaw_research_malus = {
-	planet_jobs_society_research_produces_mult = -0.10
-	icon = "gfx/interface/icons/planet_modifiers/pm_faith_in_science.dds"
-	icon_frame = 3
-}

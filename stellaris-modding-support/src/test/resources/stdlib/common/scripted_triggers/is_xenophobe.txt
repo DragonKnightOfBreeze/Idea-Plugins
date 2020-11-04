@@ -1,6 +1,0 @@
-is_xenophobe = {
-	OR = {
-		has_ethic = ethic_xenophobe
-		has_ethic = ethic_fanatic_xenophobe
-	}
-}

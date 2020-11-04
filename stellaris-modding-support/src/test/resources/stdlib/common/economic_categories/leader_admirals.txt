@@ -1,3 +1,0 @@
-leader_admirals = {
-	parent = leaders
-}

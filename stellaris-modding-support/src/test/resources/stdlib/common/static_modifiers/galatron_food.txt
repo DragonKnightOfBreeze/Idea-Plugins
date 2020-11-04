@@ -1,3 +1,0 @@
-galatron_food = {
-	country_minerals_produces_mult = 0.30
-}

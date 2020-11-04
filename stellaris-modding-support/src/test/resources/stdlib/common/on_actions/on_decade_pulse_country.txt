@@ -1,5 +1,0 @@
-on_decade_pulse_country = {
-	events = {
-		federations.10400
-	}
-}

@@ -1,7 +1,0 @@
-is_wet = {
-	OR = {
-		is_planet_class = pc_ocean
-		is_planet_class = pc_continental
-		is_planet_class = pc_tropical
-	}
-}

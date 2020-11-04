@@ -1,9 +1,0 @@
-has_pacifist_government = {
-	OR = {
-		has_government = gov_irenic_monarchy
-		has_government = gov_irenic_dictatorship
-		has_government = gov_irenic_bureaucracy
-		has_government = gov_moral_democracy
-		has_government = gov_celestial_empire
-	}
-}

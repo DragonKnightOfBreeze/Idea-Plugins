@@ -1,3 +1,0 @@
-pop_category_assimilation = {
-	parent = planet_pops
-}

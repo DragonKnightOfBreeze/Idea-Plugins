@@ -1,3 +1,0 @@
-is_gestalt = {
-	has_ethic = ethic_gestalt_consciousness
-}

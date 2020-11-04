@@ -1,3 +1,0 @@
-federation_law_category_succession_power_cooldown = {
-	icon = "gfx/interface/icons/modifiers/mod_relic_cooldown.dds"
-}

@@ -1,7 +1,0 @@
-planet_districts_hab_research = {
-	parent = planet_districts
-
-	generate_mult_modifiers = {
-		cost
-	}
-}

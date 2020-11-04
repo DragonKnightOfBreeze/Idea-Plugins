@@ -1,5 +1,0 @@
-unity_boost_1 = {
-	members_modifier = {
-		country_unity_produces_mult = 0.10
-	}
-}

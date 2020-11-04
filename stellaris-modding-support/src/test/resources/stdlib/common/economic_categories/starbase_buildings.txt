@@ -1,7 +1,0 @@
-starbase_buildings = {
-	parent = starbases
-
-	generate_mult_modifiers = {
-		cost
-	}
-}

@@ -1,7 +1,0 @@
-planet_population_control_gestalt = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_politics.dds"
-	icon_frame = 2
-	custom_tooltip = STOPS_POPULATION_GROWTH
-	show_only_custom_tooltip = yes
-	planet_pop_assemblers_upkeep_mult = -0.75
-}

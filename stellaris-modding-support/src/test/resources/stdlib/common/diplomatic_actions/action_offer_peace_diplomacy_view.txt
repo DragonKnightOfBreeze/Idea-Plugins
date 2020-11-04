@@ -1,3 +1,0 @@
-action_offer_peace_diplomacy_view = {
-	is_listed = yes
-}

@@ -1,3 +1,0 @@
-faction_approval_very_high = {
-	pop_happiness = 0.1
-}

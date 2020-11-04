@@ -1,4 +1,0 @@
-machine_empire_health_boost = {
-	pop_growth_speed = 0.05
-	leader_age = 10
-}

@@ -1,4 +1,0 @@
-cornucopia = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_lush.dds"
-	icon_frame = 1
-}

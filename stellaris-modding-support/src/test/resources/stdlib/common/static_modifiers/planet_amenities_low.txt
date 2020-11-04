@@ -1,3 +1,0 @@
-planet_amenities_low = {
-	pop_happiness = -0.50
-}

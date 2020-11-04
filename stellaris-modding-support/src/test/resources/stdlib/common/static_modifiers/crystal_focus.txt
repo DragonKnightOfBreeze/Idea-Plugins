@@ -1,3 +1,0 @@
-crystal_focus = {
-	planet_jobs_energy_produces_mult = 0.05
-}

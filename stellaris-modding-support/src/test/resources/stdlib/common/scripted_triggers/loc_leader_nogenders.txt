@@ -1,6 +1,0 @@
-loc_leader_nogenders = {
-	NOR = {
-		gender = female
-		gender = male
-	}
-}

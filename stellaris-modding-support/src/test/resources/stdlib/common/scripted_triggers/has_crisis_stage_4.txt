@@ -1,3 +1,0 @@
-has_crisis_stage_4 ={
-	has_global_flag = crisis_stage_4
-}

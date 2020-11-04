@@ -1,3 +1,0 @@
-recent_refugee = {
-	pop_happiness = 0.1
-}

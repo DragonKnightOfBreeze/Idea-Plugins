@@ -1,8 +1,0 @@
-on_war_beginning = {
-	events = {
-		action.41
-		#diplomatic.1002
-		factions.13
-		origin.29
-	}
-}

@@ -1,3 +1,0 @@
-shroud_neg_influence = {
-	country_influence_produces_mult = -0.2
-}

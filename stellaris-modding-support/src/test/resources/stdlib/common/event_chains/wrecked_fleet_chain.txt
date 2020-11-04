@@ -1,9 +1,0 @@
-wrecked_fleet_chain = {
-	picture = GFX_evt_federation_fleet
-	icon = "gfx/interface/icons/situation_log/situation_log_quest.dds"
-	counter = {
-		battlefield_located = {
-			max = 1
-		}
-	}
-}

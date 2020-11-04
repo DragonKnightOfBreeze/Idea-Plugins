@@ -1,3 +1,0 @@
-ether_drake_triumph = {
-	pop_happiness = 0.10
-}

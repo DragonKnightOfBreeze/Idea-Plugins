@@ -1,6 +1,0 @@
-crime_lord_deal = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_crime.dds"
-	icon_frame = 2
-	planet_stability_add = 10
-	planet_crime_mult = 0.5
-}

@@ -1,7 +1,0 @@
-rare_edicts = {
-	use_for_ai_budget = yes
-	parent = edicts
-	generate_mult_modifiers = {
-		cost
-	}
-}

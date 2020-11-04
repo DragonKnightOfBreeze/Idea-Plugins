@@ -1,3 +1,0 @@
-ship_max_damaged_effect = {
-	ship_fire_rate_mult = -0.5
-}

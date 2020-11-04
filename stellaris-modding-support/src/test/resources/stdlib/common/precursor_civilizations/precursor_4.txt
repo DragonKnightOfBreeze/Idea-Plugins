@@ -1,3 +1,0 @@
-precursor_4 = {
-	size = 100
-}

@@ -1,3 +1,0 @@
-malefaction = {
-	pop_happiness = -0.10
-}

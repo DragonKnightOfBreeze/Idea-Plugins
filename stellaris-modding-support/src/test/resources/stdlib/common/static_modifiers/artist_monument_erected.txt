@@ -1,6 +1,0 @@
-artist_monument_erected = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_unknown.dds"
-	icon_frame = 1
-	planet_amenities_mult = 0.15
-	planet_immigration_pull_mult = 0.50
-}

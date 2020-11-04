@@ -1,9 +1,0 @@
-on_building_outpost_station = {
-	events = {
-		tutorial.750
-		tutorial.56
-		mandate.110
-		mandate.120
-		#factions.220
-	}
-}

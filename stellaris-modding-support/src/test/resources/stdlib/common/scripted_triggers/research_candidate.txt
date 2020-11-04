@@ -1,4 +1,0 @@
-research_candidate = {
-	NOT = { has_deposit_for = shipclass_mining_station }
-	habitable_planet = no
-}

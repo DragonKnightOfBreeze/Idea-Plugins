@@ -1,3 +1,0 @@
-amoeba_speed_boost = {
-	ship_speed_mult = 0.4
-}

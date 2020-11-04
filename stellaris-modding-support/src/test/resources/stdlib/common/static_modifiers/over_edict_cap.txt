@@ -1,3 +1,0 @@
-over_edict_cap = {
-	empire_size_mult = 0.25
-}

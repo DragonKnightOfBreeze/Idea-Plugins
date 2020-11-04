@@ -1,6 +1,0 @@
-unemployment_resources = {
-	parent = planet_pops
-	generate_add_modifiers = {
-		upkeep
-	}
-}

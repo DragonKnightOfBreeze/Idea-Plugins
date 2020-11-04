@@ -1,7 +1,0 @@
-civic_hive_subspace_ephapse = {
-	potential = { authority = { value = auth_hive_mind } }
-	random_weight = { base = 5 }
-	modifier = {
-		country_naval_cap_mult = 0.15
-	}
-}

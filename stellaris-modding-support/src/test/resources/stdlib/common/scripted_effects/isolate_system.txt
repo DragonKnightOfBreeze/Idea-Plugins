@@ -1,6 +1,0 @@
-isolate_system = {
-	every_system = {
-		limit = { has_hyperlane_to = prev }
-		remove_hyperlane = { from = this to = prev }
-	}
-}

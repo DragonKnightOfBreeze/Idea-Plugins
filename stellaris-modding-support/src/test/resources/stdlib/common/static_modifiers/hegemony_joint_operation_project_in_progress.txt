@@ -1,3 +1,0 @@
-hegemony_joint_operation_project_in_progress = {
-	country_minerals_produces_mult = -0.1
-}

@@ -1,5 +1,0 @@
-peeyeps_legacy = {
-    icon = "gfx/interface/icons/modifiers/mod_engineering_research_produces_mult.dds"
-    country_engineering_research_produces_mult = 0.05
-    country_society_research_produces_mult = 0.02
-}

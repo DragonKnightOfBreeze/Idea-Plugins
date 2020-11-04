@@ -1,9 +1,0 @@
-action_offer_peace = {
-	icon = "GFX_diplomacy_status_truce"
-	is_listed = no # Peace offers are handled through the war overview.
-	requires_actor_independence = no
-	requires_recipient_independence = no
-	should_notify_all_communications = yes
-	should_show_accept_message = no
-	action_type = positive
-}

@@ -1,9 +1,0 @@
-opinion_dc_vs_democratic = {
-	opinion = {
-		modifier = {
-			add = 25
-			has_ai_personality = democratic_crusaders 
-			FROM = { has_authority = auth_democratic }
-		}		
-	}
-}

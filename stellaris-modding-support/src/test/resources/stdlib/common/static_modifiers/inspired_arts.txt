@@ -1,3 +1,0 @@
-inspired_arts = {
-	pop_happiness = 0.10
-}

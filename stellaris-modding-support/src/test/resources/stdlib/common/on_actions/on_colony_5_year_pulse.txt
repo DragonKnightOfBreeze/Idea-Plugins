@@ -1,5 +1,0 @@
-on_colony_5_year_pulse = {
-	events = {
-		action.222 #Help for AI with Doomsday
-	}
-}

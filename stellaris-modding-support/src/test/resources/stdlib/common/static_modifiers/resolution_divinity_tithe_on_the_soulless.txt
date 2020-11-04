@@ -1,8 +1,0 @@
-resolution_divinity_tithe_on_the_soulless = {
-	diplo_weight_technology_mult = -0.2
-	pop_ethic_spiritualist_attraction_mult = 0.10
-	planet_pops_consumer_goods_upkeep_mult = -0.05
-	planet_jobs_unity_produces_mult = 0.05
-	planet_pop_assemblers_upkeep_mult = 0.25
-	planet_pops_robotics_upkeep_mult = 0.10
-}

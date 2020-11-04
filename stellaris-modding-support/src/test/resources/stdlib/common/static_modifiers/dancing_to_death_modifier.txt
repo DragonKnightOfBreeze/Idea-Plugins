@@ -1,7 +1,0 @@
-dancing_to_death_modifier = {
-	pop_growth_speed = -0.5
-	pop_growth_from_immigration = -0.5
-	pop_happiness = -0.15
-	icon = "gfx/interface/icons/planet_modifiers/pm_surreal_visions.dds"
-	icon_frame = 3
-}

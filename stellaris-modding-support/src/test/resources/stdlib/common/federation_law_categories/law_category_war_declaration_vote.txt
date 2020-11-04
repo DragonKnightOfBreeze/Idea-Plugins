@@ -1,8 +1,0 @@
-law_category_war_declaration_vote = {
-	laws = {
-		declare_war_unanimous_vote
-		declare_war_majority_vote
-		declare_war_majority_vote_hegemony
-		declare_war_president_vote
-	}
-}

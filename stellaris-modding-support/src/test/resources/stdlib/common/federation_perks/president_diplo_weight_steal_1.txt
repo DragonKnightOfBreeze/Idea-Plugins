@@ -1,6 +1,0 @@
-president_diplo_weight_steal_1 = {
-	federation_modifier = {
-		description = president_diplo_weight_steal_1_effect
-		federation_leader_diplo_weight_from_members_mult = 0.10
-	}
-}

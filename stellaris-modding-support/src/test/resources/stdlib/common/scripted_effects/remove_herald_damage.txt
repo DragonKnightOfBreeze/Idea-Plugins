@@ -1,7 +1,0 @@
-remove_herald_damage = {
-	every_owned_fleet = {
-		remove_modifier = herald_75
-		remove_modifier = herald_50
-		remove_modifier = herald_25
-	}
-}

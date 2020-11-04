@@ -1,3 +1,0 @@
-has_humanoids = {
-	host_has_dlc = "Humanoids Species Pack"
-}

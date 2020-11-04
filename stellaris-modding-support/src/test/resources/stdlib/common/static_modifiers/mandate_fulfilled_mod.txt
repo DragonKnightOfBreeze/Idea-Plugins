@@ -1,3 +1,0 @@
-mandate_fulfilled_mod = {
-	pop_happiness = 0.15
-}

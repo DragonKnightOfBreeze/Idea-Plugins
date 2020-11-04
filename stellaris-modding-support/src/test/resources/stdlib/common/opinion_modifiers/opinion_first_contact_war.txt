@@ -1,5 +1,0 @@
-opinion_first_contact_war = {
-	opinion = {
-		base = -75
-	}
-}

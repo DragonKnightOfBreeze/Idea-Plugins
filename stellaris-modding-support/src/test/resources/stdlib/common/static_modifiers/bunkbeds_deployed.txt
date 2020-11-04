@@ -1,5 +1,0 @@
-bunkbeds_deployed = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_resources.dds"
-	icon_frame = 1
-	planet_housing_mult = 0.10
-}

@@ -1,9 +1,0 @@
-trait_traditional = {
-	cost = 1
-	potential_crossbreeding_chance = 1.0
-	opposites = { "trait_quarrelsome" }
-	allowed_archetypes = { BIOLOGICAL LITHOID }
-	modifier = {
-		planet_jobs_unity_produces_mult = 0.1
-	}
-}

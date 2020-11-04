@@ -1,5 +1,0 @@
-watery_grave = {
-	planet_jobs_society_research_produces_mult = 0.30
-	icon = "gfx/interface/icons/planet_modifiers/pm_wild_storms.dds"
-	icon_frame = 1
-}

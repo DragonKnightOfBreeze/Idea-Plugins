@@ -1,5 +1,0 @@
-phaseshifted = {
-	planet_building_build_speed_mult = -0.50
-	icon = "gfx/interface/icons/planet_modifiers/pm_strong_magnetic_field.dds"
-	icon_frame = 3
-}

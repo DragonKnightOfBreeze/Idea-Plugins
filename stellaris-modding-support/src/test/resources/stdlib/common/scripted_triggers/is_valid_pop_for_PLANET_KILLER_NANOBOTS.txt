@@ -1,7 +1,0 @@
-is_valid_pop_for_PLANET_KILLER_NANOBOTS = {
-	NOR = {
-		has_trait = trait_hive_mind
-		has_trait = trait_mechanical
-		has_trait = trait_machine_unit
-	}
-}

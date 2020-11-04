@@ -1,9 +1,0 @@
-trait_docile = {
-	cost = 2
-	potential_crossbreeding_chance = 1.0
-	opposites = { "trait_unruly" }
-	allowed_archetypes = { BIOLOGICAL LITHOID }
-	modifier = {
-		species_empire_size_mult = -0.10
-	}
-}

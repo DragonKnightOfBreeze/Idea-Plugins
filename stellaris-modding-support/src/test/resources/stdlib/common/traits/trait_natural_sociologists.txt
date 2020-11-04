@@ -1,9 +1,0 @@
-trait_natural_sociologists = {
-	cost = 1
-	potential_crossbreeding_chance = 1.0
-	opposites = { "trait_natural_physicists" "trait_natural_engineers" "trait_nerve_stapled" }
-	allowed_archetypes = { BIOLOGICAL LITHOID }
-	modifier = {
-		planet_jobs_society_research_produces_mult = 0.15
-	}
-}

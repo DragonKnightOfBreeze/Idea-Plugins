@@ -1,5 +1,0 @@
-on_status_quo_forced = {
-	events = {
-		action.39
-	}
-}

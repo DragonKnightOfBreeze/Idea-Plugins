@@ -1,7 +1,0 @@
-criminal_underworld = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_crime.dds"
-	icon_frame = 3
-	planet_crime_add = 15
-	job_criminal_add = 1
-	job_criminal_per_crime = 0.03
-}

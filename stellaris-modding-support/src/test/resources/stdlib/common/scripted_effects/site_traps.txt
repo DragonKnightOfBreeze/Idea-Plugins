@@ -1,8 +1,0 @@
-site_traps = {
-	random_list = {
-		25 = { site_laser_grid_trap = yes }
-		25 = { site_sentry_guns_trap = yes }
-		25 = { site_crusher_droids_trap = yes }
-		25 = { site_guardian_droids_trap = yes }
-	}
-}

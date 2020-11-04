@@ -1,8 +1,0 @@
-planet_population_control = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_politics.dds"
-	icon_frame = 2
-	custom_tooltip = STOPS_POPULATION_GROWTH
-	show_only_custom_tooltip = no
-	planet_stability_add = -5
-	planet_emigration_push_add = 100
-}

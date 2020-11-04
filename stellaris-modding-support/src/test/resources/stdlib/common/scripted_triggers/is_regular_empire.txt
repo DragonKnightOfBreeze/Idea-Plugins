@@ -1,3 +1,0 @@
-is_regular_empire = {
-	NOT = { has_ethic = ethic_gestalt_consciousness	}
-}

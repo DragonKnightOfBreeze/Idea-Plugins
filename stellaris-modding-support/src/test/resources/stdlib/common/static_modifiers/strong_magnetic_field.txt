@@ -1,8 +1,0 @@
-strong_magnetic_field = {
-	planet_jobs_energy_produces_mult = 0.05
-	planet_jobs_physics_research_produces_mult = 0.05
-	district_generator_max = 2
-
-	icon = "gfx/interface/icons/planet_modifiers/pm_strong_magnetic_field.dds"
-	icon_frame = 1
-}

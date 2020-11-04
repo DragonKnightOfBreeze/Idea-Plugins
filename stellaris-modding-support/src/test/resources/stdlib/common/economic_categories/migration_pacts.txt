@@ -1,3 +1,0 @@
-migration_pacts = {
-	parent = diplomacy
-}

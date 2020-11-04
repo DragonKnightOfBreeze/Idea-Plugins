@@ -1,9 +1,0 @@
-d_living_subterraneans = {
-	icon = d_slums
-
-	is_for_colonizeable = yes
-	category = deposit_cat_blockers
-
-	potential = { always = no }
-	can_be_cleared = { always = no }
-}

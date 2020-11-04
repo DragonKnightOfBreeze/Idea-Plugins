@@ -1,3 +1,0 @@
-scavenger_bot_power = {
-
-}

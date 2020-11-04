@@ -1,3 +1,0 @@
-pop_category_purge = {
-	parent = planet_pops
-}

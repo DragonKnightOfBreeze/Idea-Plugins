@@ -1,8 +1,0 @@
-opinion_stole_our_glands = {
-	opinion = {
-		base = -200
-	}
-	decay = {
-		base = 1
-	}
-}

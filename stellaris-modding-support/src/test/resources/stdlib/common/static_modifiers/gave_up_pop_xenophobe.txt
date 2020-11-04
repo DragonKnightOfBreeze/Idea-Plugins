@@ -1,3 +1,0 @@
-gave_up_pop_xenophobe = {
-	pop_happiness = -0.2
-}

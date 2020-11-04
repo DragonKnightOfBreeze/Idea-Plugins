@@ -1,7 +1,0 @@
-is_robot_empire = {
-	OR = {
-		owner_species = { has_trait = trait_mechanical }
-		has_country_flag = synthetic_empire
-		has_authority = auth_machine_intelligence
-	}
-}

@@ -1,9 +1,0 @@
-fallen_empire_stop_ai_effect = {
-	hidden_effect = {
-		set_policy = {
-			policy = artificial_intelligence_policy
-			option = ai_outlawed
-			cooldown = yes
-		}
-	}
-}

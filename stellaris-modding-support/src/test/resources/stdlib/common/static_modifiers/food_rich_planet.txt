@@ -1,6 +1,0 @@
-food_rich_planet = {
-	pop_growth_speed = 0.2
-	pop_happiness = 0.1
-	icon = "gfx/interface/icons/planet_modifiers/pm_natural_beauty.dds"
-	icon_frame = 1
-}

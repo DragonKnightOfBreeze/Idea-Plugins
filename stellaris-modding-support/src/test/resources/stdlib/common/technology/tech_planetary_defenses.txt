@@ -1,9 +1,0 @@
-tech_planetary_defenses = {
-	cost = 0
-	area = society
-	start_tech = yes
-	category = { military_theory }
-	tier = 0
-
-	## unlock defense army, militia and basic attachments
-}

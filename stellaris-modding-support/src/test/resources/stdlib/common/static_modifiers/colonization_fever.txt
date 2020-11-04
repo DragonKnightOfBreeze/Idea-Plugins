@@ -1,3 +1,0 @@
-colonization_fever = {
-	pop_happiness = 0.10
-}

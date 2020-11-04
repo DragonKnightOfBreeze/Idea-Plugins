@@ -1,9 +1,0 @@
-on_policy_changed = {
-	events = {
-		action.35
-		syndaw.1300 # banning AI can cause Uprising
-		syndaw.1305 # banning bot workers can cause Uprising
-		leader.30 # banning AI will remove AI-dependent traits from leaders
-		action.80 # banning AI will remove existing Synthetic Armies
-	}
-}

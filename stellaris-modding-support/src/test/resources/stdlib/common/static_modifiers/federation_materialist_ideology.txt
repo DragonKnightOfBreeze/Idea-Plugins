@@ -1,3 +1,0 @@
-federation_materialist_ideology = {
-	pop_ethic_materialist_attraction_mult = 0.35
-}

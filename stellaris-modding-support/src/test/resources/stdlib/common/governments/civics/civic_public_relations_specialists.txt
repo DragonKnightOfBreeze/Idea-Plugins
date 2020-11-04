@@ -1,9 +1,0 @@
-civic_public_relations_specialists = {
-	playable = { host_has_dlc = "Federations" }
-	potential = { authority = { value = auth_corporate } }
-	random_weight = { base = 5 }
-	modifier = {
-		envoys_add = 2
-		diplo_weight_mult = 0.1
-	}
-}

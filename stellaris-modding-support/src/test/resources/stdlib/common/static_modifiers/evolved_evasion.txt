@@ -1,3 +1,0 @@
-evolved_evasion = {
-	ship_evasion_mult = 0.3
-}

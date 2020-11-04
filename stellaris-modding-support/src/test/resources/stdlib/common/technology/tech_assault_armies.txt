@@ -1,8 +1,0 @@
-tech_assault_armies = {
-	cost = @tier1cost1
-	area = engineering
-	tier = 0
-	category = { voidcraft }
-	prerequisites = { "tech_planetary_defenses" }
-	start_tech = yes
-}

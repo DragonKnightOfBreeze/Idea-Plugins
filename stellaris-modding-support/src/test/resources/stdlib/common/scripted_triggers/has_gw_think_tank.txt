@@ -1,3 +1,0 @@
-has_gw_think_tank = {
-	has_technology = tech_science_nexus
-}

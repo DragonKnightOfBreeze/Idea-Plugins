@@ -1,9 +1,0 @@
-opinion_denied_to_leave_hegemony = {
-	opinion = {
-		base = -30
-	}
-
-	decay = {
-		base = 1
-	}
-}

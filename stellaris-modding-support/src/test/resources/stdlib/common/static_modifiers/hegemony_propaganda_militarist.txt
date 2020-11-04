@@ -1,3 +1,0 @@
-hegemony_propaganda_militarist = {
-	pop_ethic_militarist_attraction_mult = 0.35
-}

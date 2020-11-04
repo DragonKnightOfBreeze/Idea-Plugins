@@ -1,8 +1,0 @@
-lush_planet = {
-	pop_environment_tolerance = 0.10
-	planet_jobs_food_produces_mult = 0.20
-	district_farming_max = 4
-
-	icon = "gfx/interface/icons/planet_modifiers/pm_lush.dds"
-	icon_frame = 1
-}

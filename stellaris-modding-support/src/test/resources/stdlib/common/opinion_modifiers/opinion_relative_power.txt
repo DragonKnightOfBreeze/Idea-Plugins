@@ -1,9 +1,0 @@
-opinion_relative_power = {
-	opinion = {
-		base = -1 # per 1% power
-	}
-
-	min = -1000
-
-	unique = yes
-}

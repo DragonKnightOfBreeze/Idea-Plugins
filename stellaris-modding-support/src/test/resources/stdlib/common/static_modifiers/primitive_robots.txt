@@ -1,4 +1,0 @@
-primitive_robots = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_robots.dds"
-	icon_frame = 2
-}

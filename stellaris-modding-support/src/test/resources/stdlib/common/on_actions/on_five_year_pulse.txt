@@ -1,7 +1,0 @@
-on_five_year_pulse = {
-	events = {
-		crisis_trigger.1
-		colony.3029 #Mirror portal followup event gatekeeper
-		origin.1334
-	}
-}

@@ -1,4 +1,0 @@
-subterranean_civilization = {
-	planet_jobs_society_research_produces_mult = 0.1
-	icon = "gfx/interface/icons/planet_modifiers/pm_hollow_planet.dds"
-}

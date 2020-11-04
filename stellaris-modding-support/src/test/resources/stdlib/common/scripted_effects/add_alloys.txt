@@ -1,3 +1,0 @@
-add_alloys = {
-	set_deposit = d_alloys_1
-}

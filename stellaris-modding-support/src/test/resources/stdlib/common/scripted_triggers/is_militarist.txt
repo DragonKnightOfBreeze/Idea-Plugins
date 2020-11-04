@@ -1,6 +1,0 @@
-is_militarist = {
-	OR = {
-		has_ethic = ethic_militarist
-		has_ethic = ethic_fanatic_militarist
-	}
-}

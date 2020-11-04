@@ -1,3 +1,0 @@
-enigmatic_slumber = {
-	planet_jobs_produces_mult = -0.8
-}

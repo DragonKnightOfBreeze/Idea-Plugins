@@ -1,4 +1,0 @@
-on_entering_war = {
-	events = {
-	}
-}

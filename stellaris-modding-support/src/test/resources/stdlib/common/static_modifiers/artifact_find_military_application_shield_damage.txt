@@ -1,3 +1,0 @@
-artifact_find_military_application_shield_damage = {
-	ship_shield_damage_mult = 0.10
-}

@@ -1,5 +1,0 @@
-on_building_starbase_swarm = {
-	events = {
-		crisis.260
-	}
-}

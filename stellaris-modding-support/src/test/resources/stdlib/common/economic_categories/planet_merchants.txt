@@ -1,3 +1,0 @@
-planet_merchants = {
-	parent = planet_jobs
-}

@@ -1,4 +1,0 @@
-decisions = {
-	use_for_ai_budget = yes
-	parent = country
-}

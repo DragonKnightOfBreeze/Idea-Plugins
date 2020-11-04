@@ -1,9 +1,0 @@
-opinion_military_joint_action_refused = {
-	opinion = {
-		base = -50
-	}
-
-	decay = {
-		base = 1
-	}
-}

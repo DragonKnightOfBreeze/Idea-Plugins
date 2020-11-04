@@ -1,5 +1,0 @@
-diplomacy_upkeep_1 = {
-	members_modifier = {
-		description = diplomacy_upkeep_1_effect
-	}
-}

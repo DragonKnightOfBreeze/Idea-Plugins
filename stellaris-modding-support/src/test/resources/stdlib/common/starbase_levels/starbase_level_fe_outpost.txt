@@ -1,8 +1,0 @@
-starbase_level_fe_outpost = {
-	ship_size = starbase_fe_outpost
-	next_level = starbase_level_starport
-	show_in_outliner = no
-	display_map_icon = no
-	level_weight = 0	
-	ai_weight = { weight = 1 }	
-}

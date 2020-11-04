@@ -1,5 +1,0 @@
-on_relic_activated = {
-	events = {
-		achievement.5 # Unlimited Power achievement
-	}
-}

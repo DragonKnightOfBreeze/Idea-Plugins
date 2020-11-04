@@ -1,5 +1,0 @@
-president_hegemony_cb_1 = {
-	leader_modifier = {
-		description = president_hegemony_cb_1_effect
-	}
-}

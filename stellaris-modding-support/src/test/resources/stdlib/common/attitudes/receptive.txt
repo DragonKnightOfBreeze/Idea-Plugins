@@ -1,7 +1,0 @@
-receptive = {
-	type = receptive
-	behaviour = {
-		trade = yes
-		coexist = yes
-	}
-}

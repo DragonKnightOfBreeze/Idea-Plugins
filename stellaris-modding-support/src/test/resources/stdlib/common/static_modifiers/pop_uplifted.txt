@@ -1,3 +1,0 @@
-pop_uplifted = {
-	pop_happiness = 0.1
-}

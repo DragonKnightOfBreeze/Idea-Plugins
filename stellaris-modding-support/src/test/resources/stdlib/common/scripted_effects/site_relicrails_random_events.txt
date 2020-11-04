@@ -1,9 +1,0 @@
-site_relicrails_random_events = {
-	random_list = {
-		10 = { fleet_event = { id = ancrel.8040 } }
-		10 = { fleet_event = { id = ancrel.8055 } }
-		10 = { fleet_event = { id = ancrel.8065 } }
-		10 = { fleet_event = { id = ancrel.8070 } }
-		10 = { fleet_event = { id = ancrel.8080 } }
-	}
-}

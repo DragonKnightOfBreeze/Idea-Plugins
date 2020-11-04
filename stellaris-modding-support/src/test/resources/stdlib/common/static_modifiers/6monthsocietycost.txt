@@ -1,3 +1,0 @@
-6monthsocietycost = {
-	country_society_research_produces_mult = -1
-}

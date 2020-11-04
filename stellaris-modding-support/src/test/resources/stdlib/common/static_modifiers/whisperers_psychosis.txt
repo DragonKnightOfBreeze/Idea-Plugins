@@ -1,5 +1,0 @@
-whisperers_psychosis = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_surreal_visions.dds"
-	icon_frame = 3
-	planet_stability_add = -100
-}

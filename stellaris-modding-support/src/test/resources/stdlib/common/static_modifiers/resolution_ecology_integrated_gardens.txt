@@ -1,7 +1,0 @@
-resolution_ecology_integrated_gardens = {
-	diplo_weight_economy_mult = -0.2
-	pop_environment_tolerance = 0.05
-	planet_jobs_food_produces_mult = 0.05
-	planet_clear_blocker_time_mult = 0.25
-	planet_building_build_speed_mult = -0.1
-}

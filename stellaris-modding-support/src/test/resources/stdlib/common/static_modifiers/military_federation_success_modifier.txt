@@ -1,3 +1,0 @@
-military_federation_success_modifier = {
-	ship_fire_rate_mult = 0.15
-}

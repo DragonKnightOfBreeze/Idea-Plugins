@@ -1,4 +1,0 @@
-on_district_queued = {
-	events = {
-	}
-}

@@ -1,9 +1,0 @@
-law_category_succession_type = {
-	laws = {
-		succession_type_rotation
-		succession_type_random
-		succession_type_challenge
-		succession_type_strongest
-		succession_type_strongest_hegemony
-	}
-}

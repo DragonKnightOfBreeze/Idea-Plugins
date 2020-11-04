@@ -1,5 +1,0 @@
-on_five_year_pulse_country = {
-	events = {
-		action.220
-	}
-}

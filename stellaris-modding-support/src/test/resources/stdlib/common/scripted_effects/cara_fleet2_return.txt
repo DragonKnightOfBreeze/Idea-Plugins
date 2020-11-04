@@ -1,5 +1,0 @@
-cara_fleet2_return = {
-	hidden_effect = {
-		country_event = { id = cara.2100 }
-	}
-}

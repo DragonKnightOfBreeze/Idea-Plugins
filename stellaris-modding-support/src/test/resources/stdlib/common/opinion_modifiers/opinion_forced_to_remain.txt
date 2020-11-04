@@ -1,9 +1,0 @@
-opinion_forced_to_remain = {
-	opinion = {
-		base = -20
-	}
-
-	decay = {
-		base = 1
-	}
-}

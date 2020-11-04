@@ -1,5 +1,0 @@
-opinion_alliance = {
-	opinion = {
-		base = 25
-	}
-}

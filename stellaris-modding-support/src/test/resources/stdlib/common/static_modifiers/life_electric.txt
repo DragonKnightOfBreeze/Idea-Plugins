@@ -1,4 +1,0 @@
-life_electric = {
-	icon = "gfx/interface/icons/planet_modifiers/capital.dds"
-	icon_frame = 2
-}

@@ -1,9 +1,0 @@
-opinion_killed_all_tiyanki_2 = {
-	opinion = {
-		base = -50
-	}
-
-	decay = {
-		base = 1
-	}
-}

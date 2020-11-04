@@ -1,3 +1,0 @@
-must_be_advanced_empire = {
-	has_country_flag = lost_colony_parent
-}

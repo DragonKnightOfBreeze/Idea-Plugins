@@ -1,5 +1,0 @@
-diplo_weight_1 = {
-	leader_modifier = {
-		diplo_weight_mult = 0.1
-	}
-}

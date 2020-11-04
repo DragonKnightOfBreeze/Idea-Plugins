@@ -1,5 +1,0 @@
-planet_separatist_supporter = {
-	pop_happiness = -0.1
-	icon = "gfx/interface/icons/planet_modifiers/pm_planet_separatist_supporter.dds"
-	icon_frame = 3
-}

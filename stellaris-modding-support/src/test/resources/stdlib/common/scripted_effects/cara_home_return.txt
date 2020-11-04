@@ -1,7 +1,0 @@
-cara_home_return = {
-	hidden_effect = {
-		#remove_country_flag = cara_home_convo
-		# commented out for reworked cara.100 trigger
-		country_event = { id = cara.100 }
-	}
-}

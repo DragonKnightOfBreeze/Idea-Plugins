@@ -1,5 +1,0 @@
-on_building_demolished = {
-	events = {
-		leviathans.305
-	}
-}

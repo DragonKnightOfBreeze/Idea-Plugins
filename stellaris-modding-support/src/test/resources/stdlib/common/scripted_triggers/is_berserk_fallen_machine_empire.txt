@@ -1,4 +1,0 @@
-is_berserk_fallen_machine_empire = {
-	is_fallen_machine_empire = yes
-	has_valid_civic = civic_malfunctioning_custodian
-}

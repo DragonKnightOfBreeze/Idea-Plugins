@@ -1,6 +1,0 @@
-secured_factory = {
-	planet_buildings_cost_mult = 0.15
-	planet_building_build_speed_mult = -0.25
-	icon = "gfx/interface/icons/planet_modifiers/pm_factory.dds"
-	icon_frame = 3
-}

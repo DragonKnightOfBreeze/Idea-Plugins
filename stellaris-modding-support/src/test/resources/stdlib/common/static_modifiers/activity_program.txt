@@ -1,6 +1,0 @@
-activity_program = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_resources.dds"
-	icon_frame = 2
-	#effect is added on the actual job: scavenger_drone since HMs don't have unemployment
-	custom_tooltip = activity_program_tooltip
-}

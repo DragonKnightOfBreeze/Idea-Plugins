@@ -1,5 +1,0 @@
-syndaw_congregating_robots = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_robots.dds"
-	icon_frame = 3
-	planet_jobs_unity_produces_mult = -0.10
-}

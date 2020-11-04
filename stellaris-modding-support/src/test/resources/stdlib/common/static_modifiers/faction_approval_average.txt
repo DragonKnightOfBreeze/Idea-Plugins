@@ -1,2 +1,0 @@
-faction_approval_average = {
-}

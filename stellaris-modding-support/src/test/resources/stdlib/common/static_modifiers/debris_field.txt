@@ -1,3 +1,0 @@
-debris_field = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_asteroid_belt.dds"
-}

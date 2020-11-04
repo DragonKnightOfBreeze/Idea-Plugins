@@ -1,8 +1,0 @@
-on_building_complete = {
-	events = {
-		tutorial.14
-		tutorial.140
-		akx.10000
-		federations3.1000
-	}
-}

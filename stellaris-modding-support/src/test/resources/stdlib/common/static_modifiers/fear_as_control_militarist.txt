@@ -1,6 +1,0 @@
-fear_as_control_militarist = {
-	edicts_cost_mult = -0.25
-	army_morale = 0.25
-	icon = "gfx/interface/icons/planet_modifiers/pm_unknown.dds"
-	icon_frame = 1
-}

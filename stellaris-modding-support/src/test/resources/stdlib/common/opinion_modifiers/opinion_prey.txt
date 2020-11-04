@@ -1,5 +1,0 @@
-opinion_prey = {
-	opinion = {
-		base = -1000
-	}
-}

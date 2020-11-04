@@ -1,3 +1,0 @@
-guarantees = {
-	parent = diplomacy
-}

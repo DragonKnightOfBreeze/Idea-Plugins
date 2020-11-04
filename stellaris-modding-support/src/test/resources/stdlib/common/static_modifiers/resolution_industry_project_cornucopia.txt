@@ -1,5 +1,0 @@
-resolution_industry_project_cornucopia = {
-	diplo_weight_economy_mult = 0.2
-	planet_metallurgists_upkeep_mult = -0.1
-	pop_environment_tolerance = -0.05
-}

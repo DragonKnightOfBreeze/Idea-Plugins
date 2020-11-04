@@ -1,3 +1,0 @@
-shroud_neg_happiness = {
-	pop_happiness = -0.2
-}

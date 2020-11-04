@@ -1,3 +1,0 @@
-doomsday_first_colony = {
-	pop_happiness = 0.3
-}

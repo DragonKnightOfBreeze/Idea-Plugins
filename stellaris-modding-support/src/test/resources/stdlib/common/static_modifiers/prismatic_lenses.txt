@@ -1,3 +1,0 @@
-prismatic_lenses = {
-	planet_jobs_physics_research_produces_mult = 0.10
-}

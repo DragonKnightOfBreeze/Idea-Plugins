@@ -1,3 +1,0 @@
-pop_category_specialists = {
-	parent = planet_pops
-}

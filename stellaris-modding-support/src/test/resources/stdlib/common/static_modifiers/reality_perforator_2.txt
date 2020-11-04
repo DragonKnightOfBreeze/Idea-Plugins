@@ -1,3 +1,0 @@
-reality_perforator_2 = {
-	ship_shield_mult = 0.4
-}

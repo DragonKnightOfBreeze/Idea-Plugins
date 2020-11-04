@@ -1,3 +1,0 @@
-shroud_neg_speed = {
-	ship_speed_mult = -0.2
-}

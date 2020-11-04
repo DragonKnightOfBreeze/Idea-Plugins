@@ -1,3 +1,0 @@
-federation_law_category_war_declaration_vote_cooldown = {
-	icon = "gfx/interface/icons/modifiers/mod_relic_cooldown.dds"
-}

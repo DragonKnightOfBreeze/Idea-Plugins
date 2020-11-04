@@ -1,5 +1,0 @@
-on_building_starbase_ai = {
-	events = {
-		crisis.2600
-	}
-}

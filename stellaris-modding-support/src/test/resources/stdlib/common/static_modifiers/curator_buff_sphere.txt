@@ -1,3 +1,0 @@
-curator_buff_sphere = {
-	damage_vs_country_type_guardian_sphere_mult = 0.25
-}

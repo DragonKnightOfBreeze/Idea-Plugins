@@ -1,4 +1,0 @@
-superflare_star = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_star.dds"
-	icon_frame = 3
-}

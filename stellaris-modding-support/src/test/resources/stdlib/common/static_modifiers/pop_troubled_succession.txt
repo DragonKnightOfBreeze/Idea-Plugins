@@ -1,3 +1,0 @@
-pop_troubled_succession = {
-	pop_happiness = -0.3
-}

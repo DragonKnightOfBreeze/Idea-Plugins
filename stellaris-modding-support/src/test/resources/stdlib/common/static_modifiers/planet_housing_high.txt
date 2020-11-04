@@ -1,3 +1,0 @@
-planet_housing_high = {
-	planet_immigration_pull_mult = 0.25
-}

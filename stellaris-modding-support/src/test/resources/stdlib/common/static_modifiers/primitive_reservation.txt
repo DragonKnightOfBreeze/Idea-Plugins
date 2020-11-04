@@ -1,4 +1,0 @@
-primitive_reservation = {
-	planet_jobs_minerals_produces_mult = -0.1
-	icon = "gfx/interface/icons/planet_modifiers/pm_planet_from_space.dds"
-}

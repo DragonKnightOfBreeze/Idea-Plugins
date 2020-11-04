@@ -1,9 +1,0 @@
-action_break_migration_pact = {
-	icon = "GFX_diplomacy_status_migration_pact"
-	auto_accepted = yes
-	should_notify_all_communications = yes
-	should_show_auto_accept_message_recipient = yes
-	requires_actor_independence = no
-	requires_recipient_independence = no
-	action_type = negative
-}

@@ -1,5 +1,0 @@
-chthonian_planet = {
-
-	icon = "gfx/interface/icons/planet_modifiers/pm_chthonian_planet.dds"
-	icon_frame = 1
-}

@@ -1,6 +1,0 @@
-stellarite_high_temp = {
-	pop_happiness = -0.25
-	pop_environment_tolerance = -0.25
-	icon = "gfx/interface/icons/planet_modifiers/pm_unstable_tectonics.dds"
-	icon_frame = 3
-}

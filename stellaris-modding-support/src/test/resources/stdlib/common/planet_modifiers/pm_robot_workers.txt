@@ -1,7 +1,0 @@
-pm_robot_workers = {
-	spawn_chance = {
-		#None - From anomaly 
-	}
-	
-	modifier = "robot_workers"
-}

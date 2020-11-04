@@ -1,3 +1,0 @@
-junkyard = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_asteroid_belt.dds"
-}

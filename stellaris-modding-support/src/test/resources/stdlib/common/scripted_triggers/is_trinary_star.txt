@@ -1,8 +1,0 @@
-is_trinary_star = {
-	OR = {
-		is_star_class = sc_trinary_1
-		is_star_class = sc_trinary_2
-		is_star_class = sc_trinary_3
-		is_star_class = sc_trinary_4
-	}
-}

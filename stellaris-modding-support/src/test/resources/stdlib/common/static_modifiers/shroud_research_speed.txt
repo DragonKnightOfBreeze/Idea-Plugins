@@ -1,3 +1,0 @@
-shroud_research_speed = {
-	all_technology_research_speed = 0.2
-}

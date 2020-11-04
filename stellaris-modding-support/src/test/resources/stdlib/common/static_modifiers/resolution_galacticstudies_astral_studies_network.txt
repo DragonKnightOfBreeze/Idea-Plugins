@@ -1,6 +1,0 @@
-resolution_galacticstudies_astral_studies_network = {
-	planet_sensor_range_add = 1
-	station_researchers_produces_mult = 0.1
-	diplo_weight_technology_mult = 0.2
-	starbases_upkeep_mult = 0.05
-}

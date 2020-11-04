@@ -1,4 +1,0 @@
-promoted_materialist = {
-	pop_ethic_materialist_attraction_mult = 1
-	country_base_influence_produces_add = -2
-}

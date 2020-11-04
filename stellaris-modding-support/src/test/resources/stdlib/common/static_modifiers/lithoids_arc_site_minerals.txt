@@ -1,5 +1,0 @@
-lithoids_arc_site_minerals = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_archaeology.dds"
-	icon_frame = 3
-	planet_jobs_minerals_produces_mult = -0.50
-}

@@ -1,3 +1,0 @@
-pop_planet_terraforming = {
-	pop_happiness = -0.2
-}

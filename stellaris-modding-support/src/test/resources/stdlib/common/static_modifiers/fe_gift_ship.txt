@@ -1,3 +1,0 @@
-fe_gift_ship = {
-	ships_upkeep_mult = -0.33
-}

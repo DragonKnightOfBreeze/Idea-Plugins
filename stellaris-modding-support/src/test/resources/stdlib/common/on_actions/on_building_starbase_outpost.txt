@@ -1,8 +1,0 @@
-on_building_starbase_outpost = {
-	events = {
-		tutorial.76
-		distar.254
-		distar.1007
-		distar.2036
-	}
-}

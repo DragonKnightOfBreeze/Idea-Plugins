@@ -1,4 +1,0 @@
-large_strike_craft = {
-	size = large
-	component = strike_craft
-}

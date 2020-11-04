@@ -1,4 +1,0 @@
-doomsday_1 = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_exploding_planet.dds"
-	icon_frame = 2
-}

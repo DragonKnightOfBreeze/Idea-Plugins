@@ -1,4 +1,0 @@
-invisible_small_turret = {
-	size = small
-	component = weapon
-}

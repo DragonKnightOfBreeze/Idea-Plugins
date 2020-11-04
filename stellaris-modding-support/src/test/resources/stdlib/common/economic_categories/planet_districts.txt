@@ -1,8 +1,0 @@
-planet_districts = {
-	parent = planet_structures
-
-	generate_mult_modifiers = {
-		cost
-		upkeep
-	}
-}

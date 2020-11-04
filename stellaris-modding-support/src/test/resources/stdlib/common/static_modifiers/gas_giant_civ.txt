@@ -1,3 +1,0 @@
-gas_giant_civ = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_chthonian_planet.dds"
-}

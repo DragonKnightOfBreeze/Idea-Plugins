@@ -1,5 +1,0 @@
-sacrifice_bounty_3 = {
-    country_minerals_produces_mult = 0.18
-    country_energy_produces_mult = 0.18
-    icon = "gfx/interface/icons/modifiers/mod_produces_mult.dds"
-}

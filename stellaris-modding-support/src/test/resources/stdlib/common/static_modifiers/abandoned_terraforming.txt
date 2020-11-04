@@ -1,6 +1,0 @@
-abandoned_terraforming = {
-	planet_jobs_food_produces_mult = -0.2
-	pop_happiness = -0.1
-	icon = "gfx/interface/icons/planet_modifiers/pm_asteroid_impacts.dds"
-	icon_frame = 3
-}

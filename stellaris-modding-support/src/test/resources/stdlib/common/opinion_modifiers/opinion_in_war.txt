@@ -1,5 +1,0 @@
-opinion_in_war = {
-	opinion = {
-		base = -50
-	}
-}

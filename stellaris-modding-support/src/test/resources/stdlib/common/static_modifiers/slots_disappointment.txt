@@ -1,3 +1,0 @@
-slots_disappointment = {
-	country_influence_produces_mult = -0.1
-}

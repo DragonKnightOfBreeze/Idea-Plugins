@@ -1,3 +1,0 @@
-pop_liberation_fever = {
-	pop_happiness = 0.3
-}

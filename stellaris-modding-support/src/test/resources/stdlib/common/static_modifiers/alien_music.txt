@@ -1,3 +1,0 @@
-alien_music = {
-	pop_happiness = 0.20
-}

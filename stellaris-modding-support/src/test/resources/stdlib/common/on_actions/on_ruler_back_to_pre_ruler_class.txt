@@ -1,7 +1,0 @@
-on_ruler_back_to_pre_ruler_class = {
-	events = {
-		utopia.2511	# leader gets cyborg trait for their normal leader class
-		utopia.2561	# leader gets synthetic trait for their normal leader class
-		utopia.2653	# leader gets psionic trait for their normal leader class
-	}
-}

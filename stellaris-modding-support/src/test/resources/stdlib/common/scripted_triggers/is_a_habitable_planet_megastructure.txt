@@ -1,8 +1,0 @@
-is_a_habitable_planet_megastructure = {
-	OR = {
-		is_planet_class = pc_nuked
-		is_planet_class = pc_infested
-		habitable_planet = yes
-		habitable_structure = yes
-	}
-}

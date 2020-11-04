@@ -1,4 +1,0 @@
-suppressed_egalitarian = {
-	pop_ethic_egalitarian_attraction_mult = -0.75
-	country_base_influence_produces_add = -1
-}

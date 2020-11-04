@@ -1,7 +1,0 @@
-on_planet_zero_pops = {
-	events = {
-		action.81
-		distar.1015
-		primitive.201
-	}
-}

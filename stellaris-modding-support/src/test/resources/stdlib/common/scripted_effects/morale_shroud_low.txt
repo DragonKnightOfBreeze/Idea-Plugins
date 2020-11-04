@@ -1,9 +1,0 @@
-morale_shroud_low = {
-	hidden_effect = {
-		random_list = {
-			30 = { country_event = { id = utopia.3043 }}
-			40 = { country_event = { id = utopia.3045 }}
-			30 = { country_event = { id = utopia.3051 }}
-		}
-	}
-}

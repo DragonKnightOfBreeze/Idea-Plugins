@@ -1,3 +1,0 @@
-pop_happiness_cheat = {
-	pop_happiness = 0.01
-}

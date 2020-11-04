@@ -1,3 +1,0 @@
-per_neighbor_rival = {
-	country_unity_produces_mult = 0.1
-}

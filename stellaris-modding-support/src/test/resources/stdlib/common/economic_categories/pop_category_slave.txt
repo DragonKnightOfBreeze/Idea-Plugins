@@ -1,6 +1,0 @@
-pop_category_slave = {
-	parent = planet_pops
-	generate_mult_modifiers = {
-		upkeep
-	}
-}

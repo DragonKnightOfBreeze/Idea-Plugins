@@ -1,3 +1,0 @@
-should_spawn_deposits = {
-	habitable_structure = no
-}

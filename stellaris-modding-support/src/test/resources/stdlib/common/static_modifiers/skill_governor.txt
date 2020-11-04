@@ -1,5 +1,0 @@
-skill_governor = {
-	planet_jobs_produces_mult = 0.02
-	species_empire_size_mult = -0.02
-	planet_crime_add = -3
-}

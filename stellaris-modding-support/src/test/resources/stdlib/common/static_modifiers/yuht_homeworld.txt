@@ -1,3 +1,0 @@
-yuht_homeworld = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_factory.dds"
-}

@@ -1,3 +1,0 @@
-psionics = {
-	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_expertise_psionics.dds"
-}

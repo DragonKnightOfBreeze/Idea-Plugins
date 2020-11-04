@@ -1,3 +1,0 @@
-shroud_neg_growth = {
-	pop_growth_speed = -0.30
-}

@@ -1,3 +1,0 @@
-planet_housing_no_happiness_high = {
-	planet_immigration_pull_mult = 0.25
-}

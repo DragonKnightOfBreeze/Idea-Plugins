@@ -1,6 +1,0 @@
-sc_k = {
-	class 			= k_star
-	planet			= { key = pc_k_star }
-	spawn_odds 		= 20
-	num_planets 	= { min = 4 max = 10 }
-}

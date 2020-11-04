@@ -1,4 +1,0 @@
-is_criminal_syndicate_rule = {
-	has_authority = auth_corporate
-	has_valid_civic = civic_criminal_heritage
-}

@@ -1,3 +1,0 @@
-instrument_deviance_empire = {
-	pop_government_ethic_attraction = -0.50
-}

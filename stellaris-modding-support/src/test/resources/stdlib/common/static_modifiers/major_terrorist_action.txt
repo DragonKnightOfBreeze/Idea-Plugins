@@ -1,5 +1,0 @@
-major_terrorist_action = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_nationalist_corruption.dds"
-	icon_frame = 3
-	pop_government_ethic_attraction = -0.75
-}

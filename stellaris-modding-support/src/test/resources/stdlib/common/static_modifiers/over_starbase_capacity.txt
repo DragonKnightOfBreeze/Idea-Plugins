@@ -1,3 +1,0 @@
-over_starbase_capacity = {
-	starbases_upkeep_mult = 0.25
-}

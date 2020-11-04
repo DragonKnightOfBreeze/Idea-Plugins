@@ -1,6 +1,0 @@
-on_pop_assembled = {
-	events = {
-		crisis.2055
-		crisis.2312
-	}
-}

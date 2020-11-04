@@ -1,5 +1,0 @@
-opinion_abducted_aliens = {
-	opinion = {
-		base = 0
-	}
-}

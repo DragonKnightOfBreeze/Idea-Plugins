@@ -1,5 +1,0 @@
-resolution_mutualdefense_the_readied_shield = {
-	diplo_weight_naval_mult = 0.2
-	country_naval_cap_add = 10
-	ships_upkeep_mult = 0.05
-}

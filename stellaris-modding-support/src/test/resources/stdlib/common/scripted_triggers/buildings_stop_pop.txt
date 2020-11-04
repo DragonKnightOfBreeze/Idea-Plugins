@@ -1,5 +1,0 @@
-buildings_stop_pop = {
-	exists = owner
-	free_housing < -4
-	free_district_slots = 0
-}

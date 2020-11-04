@@ -1,4 +1,0 @@
-black_hole_hologram = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_black_hole.dds"
-	icon_frame = 2
-}

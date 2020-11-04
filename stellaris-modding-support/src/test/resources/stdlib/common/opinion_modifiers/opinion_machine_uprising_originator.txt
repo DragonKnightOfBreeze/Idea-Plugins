@@ -1,5 +1,0 @@
-opinion_machine_uprising_originator = {
-	opinion = {
-		base = -1000
-	}
-}

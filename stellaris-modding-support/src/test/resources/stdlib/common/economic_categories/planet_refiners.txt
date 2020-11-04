@@ -1,7 +1,0 @@
-planet_refiners = {
-	parent = planet_jobs
-	generate_mult_modifiers = {
-		produces
-		upkeep
-	}
-}

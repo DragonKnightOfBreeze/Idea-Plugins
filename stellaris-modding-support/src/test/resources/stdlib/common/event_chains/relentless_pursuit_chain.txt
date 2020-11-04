@@ -1,4 +1,0 @@
-relentless_pursuit_chain = {
-	icon = "gfx/interface/icons/situation_log/situation_log_society.dds"
-	picture = GFX_evt_huge_monument
-}

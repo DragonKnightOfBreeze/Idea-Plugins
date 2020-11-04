@@ -1,5 +1,0 @@
-spectral_residue_studies = {
-	country_physics_tech_research_speed = 0.05
-	weapon_type_energy_weapon_damage_mult = 0.05
-	planet_jobs_energy_produces_mult = 0.1
-}

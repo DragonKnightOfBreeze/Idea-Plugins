@@ -1,3 +1,0 @@
-pop_category_pre_sapients = {
-	parent = planet_pops
-}

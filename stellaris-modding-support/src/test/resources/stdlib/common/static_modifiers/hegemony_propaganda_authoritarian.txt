@@ -1,3 +1,0 @@
-hegemony_propaganda_authoritarian = {
-	pop_ethic_authoritarian_attraction_mult = 0.35
-}

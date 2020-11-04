@@ -1,8 +1,0 @@
-planet_structures = {
-	parent = planets
-	hidden = yes
-	generate_mult_modifiers = {
-		cost
-		upkeep
-	}
-}

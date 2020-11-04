@@ -1,3 +1,0 @@
-missing_scientist = {
-	planet_jobs_society_research_produces_mult = -0.10
-}

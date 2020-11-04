@@ -1,4 +1,0 @@
-resolutions = {
-	parent = country
-	use_for_ai_budget = yes
-}

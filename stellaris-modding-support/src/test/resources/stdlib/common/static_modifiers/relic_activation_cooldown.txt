@@ -1,3 +1,0 @@
-relic_activation_cooldown = {
-	icon = "gfx/interface/icons/modifiers/mod_relic_cooldown.dds"
-}

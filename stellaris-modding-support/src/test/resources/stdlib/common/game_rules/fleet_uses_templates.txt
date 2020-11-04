@@ -1,5 +1,0 @@
-fleet_uses_templates = {
-	is_ship_class = shipclass_military
-	is_designable = yes
-	is_alliance_fleet = no
-}

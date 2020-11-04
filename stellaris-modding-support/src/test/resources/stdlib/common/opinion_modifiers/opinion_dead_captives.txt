@@ -1,5 +1,0 @@
-opinion_dead_captives = {
-	opinion = {
-		base = -10
-	}
-}

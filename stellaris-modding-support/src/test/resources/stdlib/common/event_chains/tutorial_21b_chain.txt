@@ -1,4 +1,0 @@
-tutorial_21b_chain = {
-	icon = "gfx/interface/icons/situation_log/situation_log_tutorial.dds"
-	picture = GFX_evt_physics_research
-}

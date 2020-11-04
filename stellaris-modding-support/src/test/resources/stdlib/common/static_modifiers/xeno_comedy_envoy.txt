@@ -1,4 +1,0 @@
-xeno_comedy_envoy = {
-	planet_amenities_mult = 0.25
-	pop_ethic_xenophile_attraction_mult = 0.25
-}

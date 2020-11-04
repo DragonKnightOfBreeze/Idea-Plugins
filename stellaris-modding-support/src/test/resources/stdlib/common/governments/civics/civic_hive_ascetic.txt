@@ -1,8 +1,0 @@
-civic_hive_ascetic = {
-	potential = { authority = { value = auth_hive_mind } }
-	random_weight = { base = 5 }
-	modifier = {
-		pop_environment_tolerance = 0.05
-		pop_amenities_usage_no_happiness_mult = -0.15
-	}
-}

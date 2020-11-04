@@ -1,3 +1,0 @@
-research_agreements = {
-	parent = diplomacy
-}

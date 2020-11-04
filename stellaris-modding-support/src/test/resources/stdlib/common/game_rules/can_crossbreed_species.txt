@@ -1,8 +1,0 @@
-can_crossbreed_species = {
-	is_crossbreeding_possible = yes
-	root = { is_crossbreeding_possible = yes }
-	NOR = {
-		is_subspecies = root
-		root = { is_subspecies = prev }
-	}
-}

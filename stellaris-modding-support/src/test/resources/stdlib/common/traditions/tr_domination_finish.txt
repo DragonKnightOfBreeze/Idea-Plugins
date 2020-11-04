@@ -1,6 +1,0 @@
-tr_domination_finish = {
-	modifier = {
-		ascension_perks_add = 1
-		country_base_influence_produces_add = 1
-	}
-}

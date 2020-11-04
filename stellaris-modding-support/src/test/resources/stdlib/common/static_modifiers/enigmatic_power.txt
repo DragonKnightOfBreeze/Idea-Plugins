@@ -1,5 +1,0 @@
-enigmatic_power = {
-	ship_shield_mult = 4
-	ship_weapon_damage = 8
-	ship_hull_mult = 4
-}

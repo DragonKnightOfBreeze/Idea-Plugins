@@ -1,6 +1,0 @@
-federation_fleet_unity_1 = {
-	federation_modifier = {
-		description = federation_fleet_unity_1_effect
-		federation_leader_fleet_scale_mult = 0.1
-	}
-}

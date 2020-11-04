@@ -1,9 +1,0 @@
-encroaching_colony = {
-	opinion = {
-		base = -75
-	}
-
-	decay = {
-		base = 5
-	}
-}

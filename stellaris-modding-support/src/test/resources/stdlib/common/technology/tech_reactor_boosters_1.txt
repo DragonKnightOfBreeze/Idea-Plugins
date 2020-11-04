@@ -1,9 +1,0 @@
-tech_reactor_boosters_1 = {
-	area = physics
-	cost = 0
-	tier = 0
-	start_tech = yes
-	category = { particles }
-	ai_update_type = military
-	prerequisites = { "tech_fission_power" }
-}

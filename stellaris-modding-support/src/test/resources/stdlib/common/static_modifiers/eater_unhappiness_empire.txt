@@ -1,3 +1,0 @@
-eater_unhappiness_empire = {
-	pop_happiness = -0.3
-}

@@ -1,5 +1,0 @@
-null = {
-	type = null
-	behaviour = {
-	}
-}

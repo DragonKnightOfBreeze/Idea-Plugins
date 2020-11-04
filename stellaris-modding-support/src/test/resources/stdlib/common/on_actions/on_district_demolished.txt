@@ -1,5 +1,0 @@
-on_district_demolished = {
-	events = {
-		mandate.181
-	}
-}

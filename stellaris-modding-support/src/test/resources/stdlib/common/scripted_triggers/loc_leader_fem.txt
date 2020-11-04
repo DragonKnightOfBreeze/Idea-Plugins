@@ -1,3 +1,0 @@
-loc_leader_fem = {
-	gender = female
-}

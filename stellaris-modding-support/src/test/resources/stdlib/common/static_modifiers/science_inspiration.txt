@@ -1,4 +1,0 @@
-science_inspiration = {
-	science_ship_survey_speed  = 0.20
-	ship_anomaly_research_speed_mult = 0.20
-}

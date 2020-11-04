@@ -1,5 +1,0 @@
-mutant_stalker = {
-	pop_happiness = -0.1
-	icon = "gfx/interface/icons/planet_modifiers/pm_dangerous_wildlife.dds"
-	icon_frame = 3
-}

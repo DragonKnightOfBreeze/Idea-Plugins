@@ -1,3 +1,0 @@
-federation_leader_scaled_modifier = {
-	federation_unity_produces_add = 1
-}

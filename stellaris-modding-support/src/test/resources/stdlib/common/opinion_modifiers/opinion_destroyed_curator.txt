@@ -1,9 +1,0 @@
-opinion_destroyed_curator = {
-	opinion = {
-		base = -15
-	}
-
-	decay = {
-		base = 2
-	}
-}

@@ -1,9 +1,0 @@
-action_ask_to_become_thrall = {
-	icon = "GFX_diplomacy_status_has_vassal"
-	requires_actor_peace = yes
-	requires_recipient_peace = no
-	diplo_view_acceptance_icon = yes
-	should_notify_all_communications = yes
-	AI_acceptance_base_value = -50
-	action_type = positive
-}

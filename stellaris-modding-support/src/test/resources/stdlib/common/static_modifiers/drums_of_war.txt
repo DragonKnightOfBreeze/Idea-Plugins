@@ -1,4 +1,0 @@
-drums_of_war = {
-	ship_weapon_damage = 0.20
-	pop_ethic_militarist_attraction_mult = 0.25
-}

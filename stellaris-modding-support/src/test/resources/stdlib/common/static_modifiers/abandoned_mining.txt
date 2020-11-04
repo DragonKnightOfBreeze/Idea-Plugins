@@ -1,4 +1,0 @@
-abandoned_mining= {
-	icon = "gfx/interface/icons/planet_modifiers/pm_factory.dds"
-	icon_frame = 1
-}

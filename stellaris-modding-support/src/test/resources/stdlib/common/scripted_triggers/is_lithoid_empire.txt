@@ -1,3 +1,0 @@
-is_lithoid_empire = {
-	owner_species = { is_lithoid = yes }
-}

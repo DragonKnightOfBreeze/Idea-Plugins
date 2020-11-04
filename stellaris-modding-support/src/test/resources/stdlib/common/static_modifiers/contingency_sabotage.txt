@@ -1,5 +1,0 @@
-contingency_sabotage = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_contingency_sabotage.dds"
-	icon_frame = 1
-	planet_jobs_energy_produces_mult = -0.20
-}

@@ -1,5 +1,0 @@
-on_ask_to_leave_federation_declined = {
-	events = {
-		action.205
-	}
-}

@@ -1,6 +1,0 @@
-planet_pop_assemblers = {
-	parent = planet_jobs
-	generate_mult_modifiers = {
-		upkeep
-	}
-}

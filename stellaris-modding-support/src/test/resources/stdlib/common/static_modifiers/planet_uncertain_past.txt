@@ -1,9 +1,0 @@
-planet_uncertain_past = {
-	planet_jobs_physics_research_produces_mult = 0.1
-	planet_jobs_society_research_produces_mult = 0.1
-	planet_jobs_engineering_research_produces_mult = 0.1
-	pop_happiness = -0.15
-
-	icon = "gfx/interface/icons/planet_modifiers/pm_irradiated.dds"
-	icon_frame = 2
-}

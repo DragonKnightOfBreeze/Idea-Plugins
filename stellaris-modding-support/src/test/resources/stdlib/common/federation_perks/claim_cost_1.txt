@@ -1,5 +1,0 @@
-claim_cost_1 = {
-	leader_modifier = {
-		country_claim_influence_cost_mult = -0.10
-	}
-}

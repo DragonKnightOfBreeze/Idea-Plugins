@@ -1,7 +1,0 @@
-on_destroy_planet_with_PLANET_KILLER_CRACKER = {
-	events = {
-		planet_destruction.100
-		planet_destruction.110
-		planet_destruction.600 # frag holy world
-	}
-}

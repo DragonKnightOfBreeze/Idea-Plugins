@@ -1,4 +1,0 @@
-ship_ghost_signal_3 = {
-	ship_fire_rate_mult = -0.3
-	ship_tracking_add = -3
-}

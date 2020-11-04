@@ -1,6 +1,0 @@
-buildings_difficulty = {
-	is_difficulty > 2
-	years_passed > 20
-	has_resource = { type = energy amount > 1000 }
-	has_resource = { type = minerals amount > 2000 }
-}

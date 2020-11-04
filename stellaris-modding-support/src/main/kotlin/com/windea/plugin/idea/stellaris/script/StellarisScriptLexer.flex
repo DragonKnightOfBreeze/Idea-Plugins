@@ -25,12 +25,6 @@ import static com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
 %state WAITING_PROPERTY_VALUE
 %state WAITING_PROPERTY_EOL
 
-%state WAITING_COLOR
-%state WAITING_COLOR_START
-%state WAITING_COLOR_PARAMETER
-%state WAITING_COLOR_END
-
-
 %{
   int depth = 0;
 

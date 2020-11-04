@@ -1,3 +1,0 @@
-anthem_of_aurora = {
-	country_energy_produces_mult = 0.05
-}

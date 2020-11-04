@@ -1,4 +1,0 @@
-droning_optimizations = {
-	planet_jobs_minerals_produces_mult = 0.15
-	planet_jobs_energy_produces_mult = -0.10
-}

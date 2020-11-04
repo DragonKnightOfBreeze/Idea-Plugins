@@ -1,6 +1,0 @@
-create_marauder_starbase = {
-	create_starbase = {
-		size = "starbase_marauder"
-		owner = event_target:marauder_starbase_owner
-	}
-}

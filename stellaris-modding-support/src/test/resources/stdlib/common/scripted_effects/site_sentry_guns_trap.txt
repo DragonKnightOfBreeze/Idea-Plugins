@@ -1,8 +1,0 @@
-site_sentry_guns_trap = {
-	random_list = {
-		5 = { fleet_event = { id = ancrel.8010 } }
-		25 = { fleet_event = { id = ancrel.8011 } }
-		25 = { fleet_event = { id = ancrel.8012 } }
-		25 = { fleet_event = { id = ancrel.8013 } }
-	}
-}

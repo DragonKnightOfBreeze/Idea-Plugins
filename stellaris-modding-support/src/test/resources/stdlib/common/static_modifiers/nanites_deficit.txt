@@ -1,3 +1,0 @@
-nanites_deficit = {
-	custom_tooltip = nanites_deficit_tooltip
-}

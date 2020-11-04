@@ -1,9 +1,0 @@
-on_fleet_combat_joined_defender = {
-	events = {
-		cara.1001 # Caravaneer Fleet 1
-		cara.2001 # Caravaneer Fleet 2
-		cara.3001 # Caravaneer Fleet 3
-		ancrel.4025
-		galactic_features.550 # Factions set to hostile
-	}
-}

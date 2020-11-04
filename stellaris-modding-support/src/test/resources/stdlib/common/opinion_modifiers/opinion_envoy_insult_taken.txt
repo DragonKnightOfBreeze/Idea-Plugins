@@ -1,9 +1,0 @@
-opinion_envoy_insult_taken = {
-	opinion = {
-		base = -25
-	}
-
-	decay = {
-		base = 1
-	}
-}

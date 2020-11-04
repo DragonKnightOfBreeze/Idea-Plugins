@@ -1,3 +1,0 @@
-has_plantoids = {
-	host_has_dlc = "Plantoid"
-}

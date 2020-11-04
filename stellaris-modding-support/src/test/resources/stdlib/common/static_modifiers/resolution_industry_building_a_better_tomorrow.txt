@@ -1,7 +1,0 @@
-resolution_industry_building_a_better_tomorrow = {
-	diplo_weight_economy_mult = 0.2
-	planet_jobs_worker_produces_mult = 0.025
-	planet_jobs_minerals_produces_mult = 0.05
-	planet_building_build_speed_mult = 0.1
-	pop_environment_tolerance = -0.05
-}

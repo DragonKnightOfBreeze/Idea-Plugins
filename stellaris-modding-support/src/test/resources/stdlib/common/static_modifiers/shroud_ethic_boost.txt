@@ -1,3 +1,0 @@
-shroud_ethic_boost = {
-	pop_government_ethic_attraction = 0.5
-}

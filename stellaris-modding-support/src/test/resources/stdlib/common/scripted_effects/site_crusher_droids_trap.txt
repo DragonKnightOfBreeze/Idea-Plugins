@@ -1,8 +1,0 @@
-site_crusher_droids_trap = {
-	random_list = {
-		5 = { fleet_event = { id = ancrel.8020 } }
-		25 = { fleet_event = { id = ancrel.8021 } }
-		25 = { fleet_event = { id = ancrel.8022 } }
-		25 = { fleet_event = { id = ancrel.8023 } }
-	}
-}

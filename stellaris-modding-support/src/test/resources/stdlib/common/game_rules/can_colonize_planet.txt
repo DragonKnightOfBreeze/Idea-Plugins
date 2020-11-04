@@ -1,3 +1,0 @@
-can_colonize_planet = {
-	always = yes
-}

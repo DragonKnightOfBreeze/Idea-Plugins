@@ -1,3 +1,0 @@
-federation_law_category_allow_subjects_to_join_cooldown = {
-	icon = "gfx/interface/icons/modifiers/mod_relic_cooldown.dds"
-}

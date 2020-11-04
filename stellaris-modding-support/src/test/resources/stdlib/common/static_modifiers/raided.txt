@@ -1,4 +1,0 @@
-raided = {
-	country_energy_produces_mult = -0.20
-	country_minerals_produces_mult = -0.20
-}

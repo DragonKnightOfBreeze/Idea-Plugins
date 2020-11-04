@@ -1,7 +1,0 @@
-resolution_rulesofwar_demobilization_initiative = {
-	diplo_weight_naval_mult = -0.2
-	edict_length_mult = 0.2
-	country_war_exhaustion_mult = -0.05
-	country_naval_cap_mult = -0.25
-	pop_ethic_pacifist_attraction_mult = 0.5
-}

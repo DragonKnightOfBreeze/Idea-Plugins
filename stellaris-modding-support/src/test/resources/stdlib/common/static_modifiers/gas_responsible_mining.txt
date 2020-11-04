@@ -1,4 +1,0 @@
-gas_responsible_mining= {
-	icon = "gfx/interface/icons/planet_modifiers/pm_atmospheric_aphrodisiac.dds"
-	icon_frame = 2
-}

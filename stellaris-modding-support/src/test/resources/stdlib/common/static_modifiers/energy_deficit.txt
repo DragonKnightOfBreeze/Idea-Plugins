@@ -1,6 +1,0 @@
-energy_deficit = {
-	planet_jobs_minerals_produces_mult = -0.5
-	ship_weapon_damage = -0.75
-	army_damage_mult = -0.75
-	ship_shield_mult = -0.75
-}

@@ -1,6 +1,0 @@
-pm_wenkwort_zen = {
-    icon = "gfx/interface/icons/planet_modifiers/pm_machine_sapience.dds"
-    icon_frame = 2
-    pop_happiness = 0.03
-	planet_jobs_upkeep_mult = -0.15
-}

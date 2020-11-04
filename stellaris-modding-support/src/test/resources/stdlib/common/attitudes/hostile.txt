@@ -1,6 +1,0 @@
-hostile = {
-	type = hostile 
-	behaviour = {
-		attack = yes
-	}
-}

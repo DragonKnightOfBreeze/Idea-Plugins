@@ -1,3 +1,0 @@
-shroud_morale = {
-	army_morale = 0.4
-}

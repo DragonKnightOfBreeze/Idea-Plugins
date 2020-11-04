@@ -1,5 +1,0 @@
-on_federation_law_vote_succeed = {
-	events = {
-		fedvote.1
-	}
-}

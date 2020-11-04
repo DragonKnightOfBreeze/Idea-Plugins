@@ -1,8 +1,0 @@
-bleak_planet = {
-	pop_environment_tolerance = -0.05
-	planet_jobs_food_produces_mult = -0.10
-	district_farming_max = -2
-
-	icon = "gfx/interface/icons/planet_modifiers/pm_bleak.dds"
-	icon_frame = 3
-}

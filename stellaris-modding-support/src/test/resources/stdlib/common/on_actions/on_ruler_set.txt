@@ -1,6 +1,0 @@
-on_ruler_set = {
-	events = {
-		action.47	# Remove election-filler leaders when ruler is set
-		mandate.1	# "ruler X elected, check situation log for their mandate"=
-	}
-}

@@ -1,3 +1,0 @@
-youthful_elite = {
-	leader_age = 15
-}

@@ -1,6 +1,0 @@
-has_gw_matter_decompressor = {
-	OR = {
-		has_ascension_perk = ap_galactic_wonders_megacorp
-		has_ascension_perk = ap_galactic_wonders_utopia_and_megacorp
-	}
-}

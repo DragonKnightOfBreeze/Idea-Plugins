@@ -1,5 +1,0 @@
-arrogant = {
-	type = arrogant
-	behaviour = {
-	}
-}

@@ -1,5 +1,0 @@
-good_vibrations = {
-	planet_jobs_unity_produces_mult = 0.50
-	icon = "gfx/interface/icons/planet_modifiers/pm_ultra_rich.dds"
-	icon_frame = 1
-}

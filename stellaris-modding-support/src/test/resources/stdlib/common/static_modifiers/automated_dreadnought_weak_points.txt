@@ -1,3 +1,0 @@
-automated_dreadnought_weak_points = {
-	damage_vs_country_type_guardian_dreadnought_mult = 0.25
-}

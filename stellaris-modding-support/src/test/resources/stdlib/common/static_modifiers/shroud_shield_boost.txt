@@ -1,3 +1,0 @@
-shroud_shield_boost = {
-	ship_shield_mult = 0.5
-}

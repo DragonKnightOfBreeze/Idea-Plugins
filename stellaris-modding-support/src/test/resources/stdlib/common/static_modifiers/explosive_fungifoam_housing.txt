@@ -1,5 +1,0 @@
-explosive_fungifoam_housing = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_resources.dds"
-	icon_frame = 1
-	pop_housing_usage_mult = -0.10
-}

@@ -1,7 +1,0 @@
-should_apply_neighbor_rival_modifier = {
-	OR = {
-		has_non_swapped_tradition = tr_supremacy_great_game
-		has_swapped_tradition = tr_supremacy_great_game_machine
-		has_swapped_tradition = tr_supremacy_great_game_hive
-	}
-}

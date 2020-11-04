@@ -1,7 +1,0 @@
-cordial = {
-	type = cordial
-	behaviour = {
-		trade = yes
-		coexist = yes
-	}
-}

@@ -1,9 +1,0 @@
-on_arch_site_finished = {
-	events = {
-		achievement.6 # Archaeologist achievement
-	}
-	random_events = {
-		90 = 0
-		10 = federations3.2100 # Joint Operation: Genius Caeli
-	}
-}

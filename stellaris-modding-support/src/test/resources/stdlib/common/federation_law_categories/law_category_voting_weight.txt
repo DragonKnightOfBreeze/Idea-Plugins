@@ -1,6 +1,0 @@
-law_category_voting_weight = {
-	laws = {
-		vote_weight_equal
-		vote_weight_diplomatic
-	}
-}

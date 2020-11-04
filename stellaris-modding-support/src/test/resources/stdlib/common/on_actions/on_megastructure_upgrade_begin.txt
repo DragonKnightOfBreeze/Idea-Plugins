@@ -1,6 +1,0 @@
-on_megastructure_upgrade_begin = {
-	events = {
-		utopia.2001
-		utopia.29
-	}
-}

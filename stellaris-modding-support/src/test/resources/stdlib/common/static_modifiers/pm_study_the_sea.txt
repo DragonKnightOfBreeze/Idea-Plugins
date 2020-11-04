@@ -1,4 +1,0 @@
-pm_study_the_sea = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_assist_research.dds"
-	icon_frame = 1
-}

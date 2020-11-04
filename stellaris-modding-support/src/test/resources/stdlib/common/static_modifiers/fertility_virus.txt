@@ -1,4 +1,0 @@
-fertility_virus = {
-	pop_environment_tolerance = -0.20
-	pop_growth_speed = -0.20
-}

@@ -1,3 +1,0 @@
-unity_increase_utopia_30 = {
-	country_unity_produces_mult = 0.10
-}

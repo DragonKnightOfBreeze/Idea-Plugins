@@ -1,4 +1,0 @@
-on_building_queued = {
-	events = {
-	}
-}

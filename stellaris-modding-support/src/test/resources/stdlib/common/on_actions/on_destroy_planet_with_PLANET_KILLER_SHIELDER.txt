@@ -1,6 +1,0 @@
-on_destroy_planet_with_PLANET_KILLER_SHIELDER = {
-	events = {
-		planet_destruction.200
-		planet_destruction.600 # frag holy world
-	}
-}

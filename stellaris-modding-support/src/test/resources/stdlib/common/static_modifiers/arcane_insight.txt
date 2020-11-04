@@ -1,3 +1,0 @@
-arcane_insight = {
-	all_technology_research_speed = 0.10
-}

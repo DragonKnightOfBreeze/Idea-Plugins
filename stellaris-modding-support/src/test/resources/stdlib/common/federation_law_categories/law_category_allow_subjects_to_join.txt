@@ -1,6 +1,0 @@
-law_category_allow_subjects_to_join = {
-	laws = {
-		allow_subjects_to_join_no
-		allow_subjects_to_join_yes
-	}
-}

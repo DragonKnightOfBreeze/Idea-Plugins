@@ -1,7 +1,0 @@
-is_dry = {
-	OR = {
-		is_planet_class = pc_arid
-		is_planet_class = pc_desert
-		is_planet_class = pc_savannah
-	}
-}

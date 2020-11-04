@@ -1,6 +1,0 @@
-difficulty_admiral_npc = {
-	ship_weapon_damage = 0.45
-	ship_hull_mult = 0.45
-	ship_armor_mult = 0.45
-	ship_shield_mult = 0.45
-}

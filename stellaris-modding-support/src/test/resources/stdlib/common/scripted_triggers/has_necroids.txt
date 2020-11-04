@@ -1,3 +1,0 @@
-has_necroids = {
-	host_has_dlc = "Necroids Species Pack"
-}

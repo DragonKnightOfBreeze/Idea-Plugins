@@ -1,3 +1,0 @@
-ship_components = {
-	parent = ships
-}

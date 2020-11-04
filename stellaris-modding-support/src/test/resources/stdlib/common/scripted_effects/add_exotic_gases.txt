@@ -1,3 +1,0 @@
-add_exotic_gases = {
-	set_deposit = d_exotic_gases_1
-}

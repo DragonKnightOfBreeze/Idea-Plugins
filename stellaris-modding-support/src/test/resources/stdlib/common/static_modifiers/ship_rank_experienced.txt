@@ -1,3 +1,0 @@
-ship_rank_experienced = {
-	ship_weapon_damage = 0.1
-}

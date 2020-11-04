@@ -1,5 +1,0 @@
-opinion_defensive_pact = {
-	opinion = {
-		base = 20
-	}
-}

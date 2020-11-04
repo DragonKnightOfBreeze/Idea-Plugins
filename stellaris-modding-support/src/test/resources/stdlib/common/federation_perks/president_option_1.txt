@@ -1,5 +1,0 @@
-president_option_1 = {
-	leader_modifier = {
-		num_tech_alternatives_add = 1
-	}
-}

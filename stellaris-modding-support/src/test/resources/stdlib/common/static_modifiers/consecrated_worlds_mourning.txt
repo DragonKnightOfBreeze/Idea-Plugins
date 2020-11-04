@@ -1,3 +1,0 @@
-consecrated_worlds_mourning = {
-	pop_happiness = -0.10
-}

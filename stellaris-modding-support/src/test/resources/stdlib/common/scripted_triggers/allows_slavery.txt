@@ -1,6 +1,0 @@
-allows_slavery = {
-	OR = {
-		has_policy_flag = slavery_allowed
-		has_ethic = ethic_gestalt_consciousness
-	}
-}

@@ -1,3 +1,0 @@
-scientist_team_well_treated = {
-	planet_jobs_society_research_produces_mult = 0.10
-}

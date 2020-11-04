@@ -1,4 +1,0 @@
-gaia_world = {
-	pop_growth_speed = 0.20
-	icon = "gfx/interface/icons/planet_modifiers/pm_lush.dds"
-}

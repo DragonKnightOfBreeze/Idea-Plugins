@@ -1,8 +1,0 @@
-small_turret = {
-	size = small
-	component = weapon
-	entities = {
-		weapon_type_kinetic = "small_kinetic_gun_entity"
-		weapon_type_energy =  "small_laser_gun_entity"
-	}
-}

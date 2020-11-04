@@ -1,3 +1,0 @@
-gray_scattered = {
-	icon = "gfx/interface/icons/modifiers/mod_shroud_unavailable.dds"
-}

@@ -1,4 +1,0 @@
-germinating_wraith = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_strong_magnetic_field.dds"
-	icon_frame = 3
-}

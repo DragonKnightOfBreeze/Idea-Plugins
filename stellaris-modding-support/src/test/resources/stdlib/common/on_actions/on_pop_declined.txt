@@ -1,4 +1,0 @@
-on_pop_declined = {
-	events = {
-	}
-}

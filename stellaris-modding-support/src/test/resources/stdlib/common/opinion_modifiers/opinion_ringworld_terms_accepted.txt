@@ -1,9 +1,0 @@
-opinion_ringworld_terms_accepted = {
-	opinion = {
-		base = 40
-	}
-
-	decay = {
-		base = 2
-	}
-}

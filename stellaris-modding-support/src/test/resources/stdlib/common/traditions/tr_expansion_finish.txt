@@ -1,6 +1,0 @@
-tr_expansion_finish = {
-	modifier = {
-		planet_non_artificial_max_districts_add = 1
-		ascension_perks_add = 1
-	}
-}

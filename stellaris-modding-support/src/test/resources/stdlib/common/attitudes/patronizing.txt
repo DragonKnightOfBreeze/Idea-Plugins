@@ -1,6 +1,0 @@
-patronizing = {
-	type = patronizing
-	behaviour = {
-		trade = yes
-	}
-}

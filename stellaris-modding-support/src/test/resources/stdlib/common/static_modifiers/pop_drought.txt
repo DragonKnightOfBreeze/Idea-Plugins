@@ -1,3 +1,0 @@
-pop_drought = {
-	pop_happiness = -0.2
-}

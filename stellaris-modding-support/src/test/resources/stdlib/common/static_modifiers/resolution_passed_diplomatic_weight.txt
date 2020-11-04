@@ -1,3 +1,0 @@
-resolution_passed_diplomatic_weight = {
-    diplo_weight_mult = 0.05
-}

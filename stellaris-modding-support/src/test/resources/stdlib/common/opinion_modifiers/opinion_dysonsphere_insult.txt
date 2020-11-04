@@ -1,8 +1,0 @@
-opinion_dysonsphere_insult = {
-	opinion = {
-		base = -40
-	}
-	decay = {
-		base = 2
-	}
-}

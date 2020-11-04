@@ -1,3 +1,0 @@
-pop_category_workers = {
-	parent = planet_pops
-}

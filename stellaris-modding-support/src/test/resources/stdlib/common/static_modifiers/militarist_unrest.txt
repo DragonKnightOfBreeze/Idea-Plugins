@@ -1,5 +1,0 @@
-militarist_unrest = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_unknown.dds"
-	icon_frame = 2
-	pop_ethic_militarist_attraction_mult = 1
-}

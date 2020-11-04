@@ -1,4 +1,0 @@
-galatron_modifier = {
-	country_base_influence_produces_add = 2
-	country_base_unity_produces_add = 2
-}

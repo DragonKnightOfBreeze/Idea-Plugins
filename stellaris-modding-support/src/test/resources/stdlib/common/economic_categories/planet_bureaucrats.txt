@@ -1,8 +1,0 @@
-planet_bureaucrats = {
-	icon = "job_bureaucrat"
-	parent = planet_jobs
-	generate_mult_modifiers = {
-		produces
-		upkeep
-	}
-}

@@ -1,5 +1,0 @@
-trade_protection_1 = {
-	members_modifier = {
-		local_trade_protection_add = 5
-	}
-}

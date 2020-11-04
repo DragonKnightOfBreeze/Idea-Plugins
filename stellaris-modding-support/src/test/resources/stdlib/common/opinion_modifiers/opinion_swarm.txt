@@ -1,5 +1,0 @@
-opinion_swarm = {
-	opinion = {
-		base = -1000
-	}
-}

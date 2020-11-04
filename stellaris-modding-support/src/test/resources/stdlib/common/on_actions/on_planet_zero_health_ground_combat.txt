@@ -1,4 +1,0 @@
-on_planet_zero_health_ground_combat = {
-	events = {
-	}
-}

@@ -1,5 +1,0 @@
-slot_machine_bounty = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_resources.dds"
-	icon_frame = 1
-	trade_value_mult = 0.15
-}

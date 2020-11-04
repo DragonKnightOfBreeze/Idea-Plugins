@@ -1,7 +1,0 @@
-can_species_be_assembled = {
-	is_sapient = yes
-	OR = {
-		has_trait = trait_machine_unit
-		has_trait = trait_mechanical
-	}
-}

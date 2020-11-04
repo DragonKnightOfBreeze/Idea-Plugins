@@ -1,5 +1,0 @@
-on_entering_wormhole = {
-	events = {
-		achievement.4
-	}
-}

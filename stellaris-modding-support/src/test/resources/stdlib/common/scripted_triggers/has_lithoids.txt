@@ -1,3 +1,0 @@
-has_lithoids = {
-	host_has_dlc = "Lithoids Species Pack"
-}

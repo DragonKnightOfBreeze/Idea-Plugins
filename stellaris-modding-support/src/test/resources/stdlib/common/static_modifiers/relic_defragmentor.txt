@@ -1,4 +1,0 @@
-relic_defragmentor = {
-	country_energy_produces_mult = 0.20
-	country_engineering_tech_research_speed = 0.10
-}

@@ -1,3 +1,0 @@
-planet_employment_low = {
-	planet_emigration_push_add = 5
-}

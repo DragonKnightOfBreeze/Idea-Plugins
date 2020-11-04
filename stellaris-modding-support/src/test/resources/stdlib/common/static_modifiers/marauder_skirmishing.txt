@@ -1,3 +1,0 @@
-marauder_skirmishing = {
-	ship_fire_rate_mult = 0.10
-}

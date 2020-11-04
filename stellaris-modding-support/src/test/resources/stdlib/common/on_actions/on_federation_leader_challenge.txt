@@ -1,8 +1,0 @@
-on_federation_leader_challenge = {
-	events = {
-		fedel.1 	# Arena Combat
-		fedel.500	# Psionc Battle
-		fedel.900 	# Bidding War (Golden Rule)
-		fedel.1500	# Thesis Defense
-	}
-}

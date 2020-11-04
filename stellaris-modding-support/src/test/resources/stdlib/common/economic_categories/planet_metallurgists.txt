@@ -1,8 +1,0 @@
-planet_metallurgists = {
-	icon = "job_foundry"
-	parent = planet_jobs
-	generate_mult_modifiers = {
-		produces
-		upkeep
-	}
-}

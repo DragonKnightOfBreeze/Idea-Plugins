@@ -1,8 +1,0 @@
-has_purifier_government = {
-	OR = {
-		has_government = gov_purification_committee
-		has_government = gov_purity_assembly
-		has_government = gov_purity_order
-		has_government = gov_blood_court
-	}
-}

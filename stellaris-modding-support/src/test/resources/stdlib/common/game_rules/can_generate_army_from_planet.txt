@@ -1,6 +1,0 @@
-can_generate_army_from_planet = {
-	any_owned_pop = {
-		is_same_species = root
-		can_be_soldier = yes
-	}
-}

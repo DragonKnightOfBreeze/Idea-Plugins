@@ -1,5 +1,0 @@
-on_district_complete = {
-	events = {
-		mandate.180 # Districts built counter
-	}
-}

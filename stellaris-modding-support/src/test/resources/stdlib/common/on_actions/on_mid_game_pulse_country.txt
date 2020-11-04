@@ -1,4 +1,0 @@
-on_mid_game_pulse_country = {
-	events = {
-	}
-}

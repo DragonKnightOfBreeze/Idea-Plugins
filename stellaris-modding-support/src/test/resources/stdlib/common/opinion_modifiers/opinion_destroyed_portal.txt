@@ -1,9 +1,0 @@
-opinion_destroyed_portal = {
-	opinion = {
-		base = 40
-	}
-
-	decay = {
-		base = 5
-	}
-}

@@ -1,3 +1,0 @@
-ancient_trade_route = {
-	trade_value_mult = 0.10
-}

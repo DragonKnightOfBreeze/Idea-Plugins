@@ -1,5 +1,0 @@
-smuggler_activity = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_crime.dds"
-	icon_frame = 3
-	trade_value_mult = -0.20
-}

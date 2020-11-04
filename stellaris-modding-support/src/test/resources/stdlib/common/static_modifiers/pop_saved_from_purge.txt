@@ -1,3 +1,0 @@
-pop_saved_from_purge = {
-	pop_happiness = 0.3
-}

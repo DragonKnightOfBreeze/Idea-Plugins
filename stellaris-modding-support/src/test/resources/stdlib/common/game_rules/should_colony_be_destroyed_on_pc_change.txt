@@ -1,3 +1,0 @@
-should_colony_be_destroyed_on_pc_change = {
-	is_planet_class = pc_infested
-}

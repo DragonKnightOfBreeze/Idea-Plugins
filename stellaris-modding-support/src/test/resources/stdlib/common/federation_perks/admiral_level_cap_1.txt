@@ -1,5 +1,0 @@
-admiral_level_cap_1 = {
-	members_modifier = {
-		admiral_skill_levels = 1
-	}
-}

@@ -1,3 +1,0 @@
-pop_recently_conquered = {
-	pop_happiness = -0.2
-}

@@ -1,3 +1,0 @@
-mineral_mapping = {
-	country_minerals_produces_mult = 0.10
-}

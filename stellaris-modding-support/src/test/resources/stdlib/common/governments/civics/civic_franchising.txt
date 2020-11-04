@@ -1,9 +1,0 @@
-civic_franchising = {
-	potential = { authority = { value = auth_corporate } }
-	random_weight = { base = 5 }
-	description = "civic_tooltip_franchising_effects"
-	modifier = {
-		country_subject_power_penalty_mult = -0.33
-		empire_size_branch_office_mult = -0.25
-	}
-}

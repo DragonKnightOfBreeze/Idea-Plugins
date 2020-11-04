@@ -1,6 +1,0 @@
-loc_leader_genders = {
-	OR = {
-		gender = female
-		gender = male
-	}
-}

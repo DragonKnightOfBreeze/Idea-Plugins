@@ -1,3 +1,0 @@
-ghost_signal_5 = { # Strongest
-	icon = "gfx/interface/icons/modifiers/mod_ghost_signal.dds"
-}

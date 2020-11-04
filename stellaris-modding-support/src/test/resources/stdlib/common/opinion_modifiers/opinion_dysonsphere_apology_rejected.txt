@@ -1,8 +1,0 @@
-opinion_dysonsphere_apology_rejected = {
-	opinion = {
-		base = -20
-	}
-	decay = {
-		base = 2
-	}
-}

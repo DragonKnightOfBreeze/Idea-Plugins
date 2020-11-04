@@ -1,3 +1,0 @@
-shroud_energy_cost = {
-	add_resource = { energy = -1000 }
-}

@@ -1,8 +1,0 @@
-civic_hive_natural_neural_network = {
-	potential = { authority = { value = auth_hive_mind } }
-	description = "civic_tooltip_natural_neural_network_effects"
-	random_weight = { base = 5 }
-	modifier = {
-		num_tech_alternatives_add = 1
-	}
-}

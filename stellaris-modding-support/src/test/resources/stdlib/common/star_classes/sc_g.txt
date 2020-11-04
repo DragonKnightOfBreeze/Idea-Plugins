@@ -1,6 +1,0 @@
-sc_g = {
-	class 			= g_star
-	planet			= { key = pc_g_star }
-	spawn_odds 		= 30
-	num_planets 	= { min = 4 max = 10 }
-}

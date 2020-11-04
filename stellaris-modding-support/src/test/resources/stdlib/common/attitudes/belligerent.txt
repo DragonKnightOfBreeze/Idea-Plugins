@@ -1,6 +1,0 @@
-belligerent = {
-	type = belligerent
-	behaviour = {
-		attack = yes
-	}
-}

@@ -1,3 +1,0 @@
-modern_trench_war = {
-	army_defense_health_mult = 0.20
-}

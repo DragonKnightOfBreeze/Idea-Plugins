@@ -1,7 +1,0 @@
-military_federation_passive = {
-	members_modifier = {
-		ship_starting_experience_add = 100
-		army_starting_experience_add = 100
-		starbase_shipyard_build_speed_mult = 0.25
-	}
-}

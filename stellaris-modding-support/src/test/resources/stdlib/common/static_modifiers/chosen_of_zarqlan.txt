@@ -1,4 +1,0 @@
-chosen_of_zarqlan = {
-	pop_ethic_spiritualist_attraction_mult = 0.10
-	icon = "gfx/interface/icons/modifiers/mod_country_border_mult.dds"
-}

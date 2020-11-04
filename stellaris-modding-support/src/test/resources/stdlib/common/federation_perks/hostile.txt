@@ -1,5 +1,0 @@
-hostile = {
-	members_modifier = {
-		country_starbase_capacity_add = 1
-	}
-}

@@ -1,5 +1,0 @@
-researcher_rage = {
-	planet_jobs_society_research_produces_mult = -0.50
-	icon = "gfx/interface/icons/planet_modifiers/pm_unrest.dds"
-	icon_frame = 3
-}

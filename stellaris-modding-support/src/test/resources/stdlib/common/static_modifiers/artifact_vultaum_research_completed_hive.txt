@@ -1,3 +1,0 @@
-artifact_vultaum_research_completed_hive = {
-	category_computing_research_speed_mult = 0.15
-}

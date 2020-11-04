@@ -1,9 +1,0 @@
-triggered_negative_opinion_of_exterminators_fe = {
-	trigger = {
-		has_ai_personality = fallen_empire_xenophile
-		FROM = { has_civic = civic_machine_terminator }
-	}
-	opinion = {
-		base = -40
-	}
-}

@@ -1,5 +1,0 @@
-neutron_bombarded = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_atmospheric_hallucinogen.dds"
-	pop_environment_tolerance = -0.30
-	icon_frame = 3
-}

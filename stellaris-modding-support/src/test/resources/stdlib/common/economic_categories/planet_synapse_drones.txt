@@ -1,6 +1,0 @@
-planet_synapse_drones = {
-	parent = planet_jobs
-	generate_mult_modifiers = {
-		produces
-	}
-}

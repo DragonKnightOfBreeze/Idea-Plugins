@@ -1,5 +1,0 @@
-slave_hunger_strike = {
-	planet_jobs_slave_produces_mult = -0.50
-	pop_category_slave_upkeep_mult = -0.50
-	icon = "gfx/interface/icons/planet_modifiers/pm_hunger_strike.dds"
-}

@@ -1,4 +1,0 @@
-infectious_disease = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_atmospheric_aphrodisiac.dds"
-	icon_frame = 3
-}

@@ -1,3 +1,0 @@
-faction_modifier_protected_interests = {
-	faction_approval = 0.15
-}

@@ -1,5 +1,0 @@
-icon = {
-	HIGH = "GFX_alerticon_banner_high"
-	MEDIUM = "GFX_alerticon_banner_med"
-	LOW = "GFX_alerticon_banner_low"
-}

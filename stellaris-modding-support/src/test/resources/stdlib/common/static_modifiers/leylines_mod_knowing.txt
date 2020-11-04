@@ -1,5 +1,0 @@
-leylines_mod_knowing = {
-	country_society_research_produces_mult = 0.06
-	country_engineering_research_produces_mult = 0.02
-	country_unity_produces_mult = 0.15
-}

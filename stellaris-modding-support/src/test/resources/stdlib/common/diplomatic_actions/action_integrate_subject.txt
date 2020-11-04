@@ -1,7 +1,0 @@
-action_integrate_subject = {
-	icon = "GFX_diplomacy_status_being_integrated"
-	auto_accepted = yes
-	requires_recipient_independence = no
-	should_notify_all_communications = yes
-	action_type = neutral
-}

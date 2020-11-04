@@ -1,9 +1,0 @@
-civic_machine_factory_overclock = {
-	icon = "gfx/interface/icons/governments/civics/civic_machine_factory_overclock.dds"
-    potential = { authority = { value = auth_machine_intelligence } }
-    random_weight = { base = 5 }
-    modifier = {
-        leader_skill_levels = 1
-		species_leader_exp_gain = 0.1
-    }
-}

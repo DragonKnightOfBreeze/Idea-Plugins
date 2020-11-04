@@ -1,3 +1,0 @@
-vengralian_sales_contingent = {
-	trade_value_mult = 0.15
-}

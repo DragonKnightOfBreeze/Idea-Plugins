@@ -1,7 +1,0 @@
-station_researchers = {
-	parent = stations
-
-	generate_mult_modifiers = {
-		produces
-	}
-}

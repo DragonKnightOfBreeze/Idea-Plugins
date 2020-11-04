@@ -1,4 +1,0 @@
-skill_ruler = {
-	edict_length_mult = 0.05
-	country_unity_produces_mult = 0.03
-}

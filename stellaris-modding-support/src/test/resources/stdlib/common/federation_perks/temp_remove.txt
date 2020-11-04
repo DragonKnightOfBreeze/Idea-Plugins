@@ -1,5 +1,0 @@
-temp_remove = {
-	members_modifier = {
-		country_trust_growth = 0.05
-	}
-}

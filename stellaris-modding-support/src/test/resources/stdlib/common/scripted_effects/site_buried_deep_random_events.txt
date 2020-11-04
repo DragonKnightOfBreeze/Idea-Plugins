@@ -1,9 +1,0 @@
-site_buried_deep_random_events = {
-	random_list = {
-		10 = { fleet_event = { id = ancrel.8040} }
-		10 = { fleet_event = { id = ancrel.8055} }
-		10 = { fleet_event = { id = ancrel.8070} }
-		10 = { fleet_event = { id = ancrel.8100} }
-		10 = { fleet_event = { id = ancrel.8101} }
-	}
-}

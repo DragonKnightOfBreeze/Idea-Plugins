@@ -1,5 +1,0 @@
-on_becoming_subject = {
-	events = {
-		action.214 # Join Overlord's Federation if laws permit
-	}
-}

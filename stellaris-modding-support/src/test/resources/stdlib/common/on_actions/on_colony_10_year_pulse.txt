@@ -1,5 +1,0 @@
-on_colony_10_year_pulse = {
-	events = {
-		necroids.1 #Apotheosis for non-necrophage pops to necrophage
-	}
-}

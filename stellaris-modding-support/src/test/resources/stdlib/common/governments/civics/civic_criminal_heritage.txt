@@ -1,9 +1,0 @@
-civic_criminal_heritage = {
-	modification = no
-	potential = { authority = { value = auth_corporate } }
-	random_weight = { base = 5 }
-	modifier = {
-	}
-
-	description = "civic_tooltip_criminal_heritage_effects"
-}

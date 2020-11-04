@@ -1,3 +1,0 @@
-arcane_deciphering_cooldown = {
-	icon = "gfx/interface/icons/resources/minor_artifacts.dds"
-}

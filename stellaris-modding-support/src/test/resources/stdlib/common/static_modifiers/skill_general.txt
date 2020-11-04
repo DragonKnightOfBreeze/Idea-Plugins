@@ -1,3 +1,0 @@
-skill_general = {
-	army_damage_mult = 0.05
-}

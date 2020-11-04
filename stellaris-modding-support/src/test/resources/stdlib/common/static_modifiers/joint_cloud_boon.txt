@@ -1,4 +1,0 @@
-joint_cloud_boon = {
-	country_society_research_produces_mult = 0.05
-	country_physics_research_produces_mult = 0.1
-}

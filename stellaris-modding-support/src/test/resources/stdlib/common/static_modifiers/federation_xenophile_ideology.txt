@@ -1,3 +1,0 @@
-federation_xenophile_ideology = {
-	pop_ethic_xenophile_attraction_mult = 0.35
-}

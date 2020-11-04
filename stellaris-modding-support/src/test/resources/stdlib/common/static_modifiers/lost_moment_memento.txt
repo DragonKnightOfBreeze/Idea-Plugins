@@ -1,3 +1,0 @@
-lost_moment_memento = {
-	pop_happiness = 0.05
-}

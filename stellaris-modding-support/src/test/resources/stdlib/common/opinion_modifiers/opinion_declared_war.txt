@@ -1,9 +1,0 @@
-opinion_declared_war = {
-	opinion = {
-		base = -25
-	}
-
-	decay = {
-		base = 1
-	}
-}

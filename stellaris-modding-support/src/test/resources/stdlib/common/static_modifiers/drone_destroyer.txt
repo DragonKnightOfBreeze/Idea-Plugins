@@ -1,3 +1,0 @@
-drone_destroyer = {
-	damage_vs_country_type_drone_mult = 0.1
-}

@@ -1,5 +1,0 @@
-opinion_common_ground = {
-	opinion = {
-		base = 100
-	}
-}

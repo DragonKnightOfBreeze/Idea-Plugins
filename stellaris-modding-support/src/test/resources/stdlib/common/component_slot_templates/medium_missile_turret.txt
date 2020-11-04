@@ -1,9 +1,0 @@
-medium_missile_turret = {
-	size = torpedo
-	component = weapon
-	entities = {
-		weapon_type_explosive = "turret_missile_medium_entity"
-		weapon_type_kinetic = "medium_kinetic_gun_entity" # Failsafe for saved "invalid designs"
-		weapon_type_energy =  "medium_laser_gun_entity" # Failsafe for saved "invalid designs"
-	}
-}

@@ -1,5 +1,0 @@
-starbase_level_swarm = {
-	ship_size = starbase_swarm
-	level_weight = 5
-	ai_weight = { weight = 5 }
-}

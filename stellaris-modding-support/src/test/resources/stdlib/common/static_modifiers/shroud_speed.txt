@@ -1,3 +1,0 @@
-shroud_speed = {
-	ship_speed_mult = 0.4
-}

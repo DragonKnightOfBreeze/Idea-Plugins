@@ -1,4 +1,0 @@
-liquid_sands = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_hazardous_weather.dds"
-	icon_frame = 3
-}

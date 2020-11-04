@@ -1,7 +1,0 @@
-civic_machine_unitary_cohesion = {
-	potential = { authority = { value = auth_machine_intelligence } }
-	random_weight = { base = 5 }
-	modifier = {
-		country_unity_produces_mult = 0.15
-	}
-}

@@ -1,6 +1,0 @@
-trait_thrifty = {
-	cost = 2
-	allowed_archetypes = { BIOLOGICAL LITHOID }
-	opposites = { "trait_hive_mind" }
-	custom_tooltip = TRAIT_THRIFTY_EFFECT
-}

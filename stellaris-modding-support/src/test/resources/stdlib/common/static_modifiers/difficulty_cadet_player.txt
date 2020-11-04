@@ -1,6 +1,0 @@
-difficulty_cadet_player = {
-	stations_produces_mult = 0.5
-	planet_jobs_produces_mult = 0.5
-	country_naval_cap_mult = 0.5
-	planet_stability_add = 10
-}

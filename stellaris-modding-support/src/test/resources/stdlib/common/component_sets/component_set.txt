@@ -1,6 +1,0 @@
-component_set = {
-	key = "NULL_VOID"
-	
-	icon = "GFX_ship_part_null_void_weapon"
-	icon_frame = 1	
-}

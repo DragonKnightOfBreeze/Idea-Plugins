@@ -1,8 +1,0 @@
-protective = {
-	type = protective
-	behaviour = {
-		trade = yes
-		vassalize = yes
-		coexist = yes
-	}
-}

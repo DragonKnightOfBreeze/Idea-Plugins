@@ -1,3 +1,0 @@
-old_colony = {
-	planet_emigration_push_add = 100
-}

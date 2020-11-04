@@ -1,3 +1,0 @@
-ruler_failed_savior = {
-	pop_happiness = -0.1
-}

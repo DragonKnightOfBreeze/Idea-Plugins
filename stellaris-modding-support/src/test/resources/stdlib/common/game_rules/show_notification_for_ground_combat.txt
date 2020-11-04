@@ -1,6 +1,0 @@
-show_notification_for_ground_combat = {
-	NOR = {
-		has_planet_flag = slave_revolt
-		has_planet_flag = revolt_in_progress
-	}
-}

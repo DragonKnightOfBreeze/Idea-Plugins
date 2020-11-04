@@ -1,3 +1,0 @@
-glory_to_the_many = {
-	country_unity_produces_mult = 0.05
-}

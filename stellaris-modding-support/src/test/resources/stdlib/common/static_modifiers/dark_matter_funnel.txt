@@ -1,4 +1,0 @@
-dark_matter_funnel = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_extensive_moon_system.dds"
-	icon_frame = 1
-}

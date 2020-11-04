@@ -1,6 +1,0 @@
-resolution_commerce_holistic_asset_coordination = {
-	trade_value_mult = 0.05
-	local_trade_protection_add = 15
-	country_naval_cap_mult = -0.05
-	diplo_weight_economy_mult = 0.2
-}

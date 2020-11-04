@@ -1,5 +1,0 @@
-machine_empire_mutations = {
-	leader_age = -10
-	pop_growth_speed = -0.10
-	pop_happiness = -0.20
-}

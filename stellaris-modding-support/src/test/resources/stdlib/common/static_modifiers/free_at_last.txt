@@ -1,5 +1,0 @@
-free_at_last = {
-	planet_stability_add = 20
-	icon_frame = 3
-	icon = "gfx/interface/icons/planet_modifiers/pm_unrest.dds"
-}

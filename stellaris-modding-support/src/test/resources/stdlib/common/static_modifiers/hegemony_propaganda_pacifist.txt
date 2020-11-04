@@ -1,3 +1,0 @@
-hegemony_propaganda_pacifist = {
-	pop_ethic_pacifist_attraction_mult = 0.35
-}

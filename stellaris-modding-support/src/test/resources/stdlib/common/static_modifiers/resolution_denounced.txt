@@ -1,3 +1,0 @@
-resolution_denounced = {
-	diplo_weight_mult = -0.25
-}

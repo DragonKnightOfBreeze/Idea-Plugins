@@ -1,4 +1,0 @@
-wraith_frequency_sync = {
-	ship_evasion_mult = -1.0
-	ship_armor_add = -50
-}

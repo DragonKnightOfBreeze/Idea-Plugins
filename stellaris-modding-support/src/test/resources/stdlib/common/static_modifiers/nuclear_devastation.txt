@@ -1,3 +1,0 @@
-nuclear_devastation = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_irradiated.dds"
-}

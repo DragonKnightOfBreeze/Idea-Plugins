@@ -1,3 +1,0 @@
-on_arch_stage_finished = {
-
-}

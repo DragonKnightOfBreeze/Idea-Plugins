@@ -1,5 +1,0 @@
-on_galactic_council_established = {
-	events = {
-		galcom.50
-	}
-}

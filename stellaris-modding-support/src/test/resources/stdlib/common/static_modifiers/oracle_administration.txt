@@ -1,3 +1,0 @@
-oracle_administration = {
-	country_admin_cap_mult = 0.10
-}

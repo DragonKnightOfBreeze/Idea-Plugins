@@ -1,5 +1,0 @@
-depheromoned_1 = {
-	planet_jobs_produces_mult = +0.10
-	icon = "gfx/interface/icons/planet_modifiers/pm_factory.dds"
-	icon_frame = 1
-}

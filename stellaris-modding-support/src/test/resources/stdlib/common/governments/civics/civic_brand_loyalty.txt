@@ -1,7 +1,0 @@
-civic_brand_loyalty = {
-	potential = { authority = { value = auth_corporate } }
-	random_weight = { base = 5 }
-	modifier = {
-		country_unity_produces_mult = 0.15
-	}
-}

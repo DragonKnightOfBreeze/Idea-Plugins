@@ -1,7 +1,0 @@
-can_destroy_planet_general = {
-	is_star = no
-	OR = {
-		NOT = { exists = owner }
-		owner = { is_hostile = from.owner }
-	}
-}

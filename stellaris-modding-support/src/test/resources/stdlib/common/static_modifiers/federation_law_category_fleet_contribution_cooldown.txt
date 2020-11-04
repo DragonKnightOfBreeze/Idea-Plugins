@@ -1,3 +1,0 @@
-federation_law_category_fleet_contribution_cooldown = {
-	icon = "gfx/interface/icons/modifiers/mod_relic_cooldown.dds"
-}

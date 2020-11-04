@@ -1,3 +1,0 @@
-station_observer_missions = {
-	parent = station_observers
-}

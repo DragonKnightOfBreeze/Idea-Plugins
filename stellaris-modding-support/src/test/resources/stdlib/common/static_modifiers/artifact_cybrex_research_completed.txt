@@ -1,3 +1,0 @@
-artifact_cybrex_research_completed = {
-	megastructure_build_speed_mult = 0.10
-}

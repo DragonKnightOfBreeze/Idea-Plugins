@@ -1,5 +1,0 @@
-deviant_interference = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_crime.dds"
-	icon_frame = 3
-	planet_stability_add = -30
-}

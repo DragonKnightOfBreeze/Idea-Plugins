@@ -1,9 +1,0 @@
-opinion_extradited_envoy = {
-	opinion = {
-		base = 20
-	}
-
-	decay = {
-		base = 1
-	}
-}

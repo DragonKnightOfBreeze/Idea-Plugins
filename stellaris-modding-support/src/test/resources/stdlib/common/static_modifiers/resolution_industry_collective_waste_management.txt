@@ -1,7 +1,0 @@
-resolution_industry_collective_waste_management = {
-	diplo_weight_economy_mult = 0.2
-	planet_jobs_worker_produces_mult = 0.025
-	planet_jobs_alloys_produces_mult = 0.05
-	planet_jobs_minerals_produces_mult = 0.1
-	pop_environment_tolerance = -0.03
-}

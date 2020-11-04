@@ -1,3 +1,0 @@
-pop_did_not_kill_stalker = {
-	pop_happiness = -0.2
-}

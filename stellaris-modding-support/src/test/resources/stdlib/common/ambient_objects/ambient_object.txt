@@ -1,6 +1,0 @@
-ambient_object = {
-	name = "extradimensional_2"
-	entity = "extra_dimensional_crisis_core_system_effect_entity"
-	selectable = no
-	show_name = no
-}

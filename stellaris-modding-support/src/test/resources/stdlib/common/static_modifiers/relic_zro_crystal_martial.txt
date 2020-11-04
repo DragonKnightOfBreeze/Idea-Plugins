@@ -1,3 +1,0 @@
-relic_zro_crystal_martial = {
-	ship_weapon_damage = 0.20
-}

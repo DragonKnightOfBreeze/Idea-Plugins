@@ -1,8 +1,0 @@
-civic_ruthless_competition = {
-	potential = { authority = { value = auth_corporate } }
-	random_weight = { base = 5 }
-	modifier = {
-        leader_skill_levels = 1
-		species_leader_exp_gain = 0.1
-    }
-}

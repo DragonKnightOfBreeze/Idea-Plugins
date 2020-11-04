@@ -1,4 +1,0 @@
-left_galactic_community = {
-	icon = "gfx/interface/icons/modifiers/mod_left_galactic_community.dds"
-	diplo_weight_mult = -0.25
-}

@@ -1,5 +1,0 @@
-is_pre_sapient_livestock = {
-	is_sapient = no
-	has_citizenship_type = { type = citizenship_slavery }
-	has_slavery_type = { type = slavery_livestock  }
-}

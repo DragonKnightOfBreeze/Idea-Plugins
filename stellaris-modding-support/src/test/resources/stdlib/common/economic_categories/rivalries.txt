@@ -1,3 +1,0 @@
-rivalries = {
-	parent = diplomacy
-}

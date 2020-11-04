@@ -1,9 +1,0 @@
-resolution_industry_environmental_ordinance_waivers = {
-	diplo_weight_economy_mult = 0.2
-	planet_jobs_worker_produces_mult = 0.025
-	planet_jobs_minerals_produces_mult = 0.05
-	show_only_custom_tooltip = no
-	custom_tooltip = resolution_industry_environmental_ordinance_waivers_tooltip
-	planet_metallurgists_upkeep_mult = -0.1
-	pop_environment_tolerance = -0.1
-}

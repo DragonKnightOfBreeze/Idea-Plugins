@@ -1,4 +1,0 @@
-technosphere_chain = {
-	picture = GFX_evt_technosphere
-	icon = "gfx/interface/icons/situation_log/situation_log_main_quest.dds"
-}

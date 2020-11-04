@@ -1,3 +1,0 @@
-evolved_weapon_boost_2 = {
-	ship_weapon_damage = 2.5
-}

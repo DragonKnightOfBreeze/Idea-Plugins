@@ -1,3 +1,0 @@
-native_indoctrination = {
-	pop_ethics_shift_speed_mult = 3
-}

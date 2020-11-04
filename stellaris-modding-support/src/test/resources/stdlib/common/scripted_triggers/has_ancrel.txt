@@ -1,3 +1,0 @@
-has_ancrel = {
-	host_has_dlc = "Ancient Relics Story Pack"
-}

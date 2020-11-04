@@ -1,3 +1,0 @@
-artifact_zroni_research_completed = {
-	category_psionics_research_speed_mult = 0.10
-}

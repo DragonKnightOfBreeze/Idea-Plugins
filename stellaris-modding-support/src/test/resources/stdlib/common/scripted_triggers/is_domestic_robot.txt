@@ -1,4 +1,0 @@
-is_domestic_robot = {
-	has_citizenship_type = { type = citizenship_robot_servitude }
-	has_trait = trait_robot_domestic_protocols
-}

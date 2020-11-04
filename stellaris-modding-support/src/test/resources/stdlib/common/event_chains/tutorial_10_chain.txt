@@ -1,9 +1,0 @@
-tutorial_10_chain = {
-	icon = "gfx/interface/icons/situation_log/situation_log_tutorial.dds"
-	picture = GFX_evt_physics_research
-	counter = {
-		scientist_assigned = {
-			max = 1
-		}
-	}
-}

@@ -1,3 +1,0 @@
-javorian_pox = {
-	icon = "gfx/interface/icons/modifiers/mod_javorian_pox.dds"
-}

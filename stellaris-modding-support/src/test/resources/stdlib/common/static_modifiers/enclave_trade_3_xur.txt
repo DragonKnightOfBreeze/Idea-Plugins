@@ -1,5 +1,0 @@
-enclave_trade_3_xur = {
-	icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
-	monthly_trades_exotic_gases_produces_add = 3
-	monthly_trades_energy_produces_add = -30
-}

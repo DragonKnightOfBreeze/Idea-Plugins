@@ -1,3 +1,0 @@
-in_paradise = {
-	pop_happiness = 0.10
-}

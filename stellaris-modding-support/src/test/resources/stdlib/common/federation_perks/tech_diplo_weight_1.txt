@@ -1,5 +1,0 @@
-tech_diplo_weight_1 = {
-	leader_modifier = {
-		diplo_weight_technology_mult = 0.20
-	}
-}

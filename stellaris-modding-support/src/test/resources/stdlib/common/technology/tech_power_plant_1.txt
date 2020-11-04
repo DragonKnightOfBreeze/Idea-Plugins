@@ -1,9 +1,0 @@
-tech_power_plant_1 = {
-	cost = 0
-	area = physics
-	tier = 0
-	category = { field_manipulation }
-	start_tech = yes
-
-	## unlock power plant lvl 1
-}

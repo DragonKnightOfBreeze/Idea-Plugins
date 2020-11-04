@@ -1,9 +1,0 @@
-opinion_fanatic_purifiers_vs_xeno = {
-	opinion = {
-		modifier = {
-			add = -1000
-			has_valid_civic = civic_fanatic_purifiers
-			NOT = { is_same_species = FROM }	
-		}		
-	}
-}

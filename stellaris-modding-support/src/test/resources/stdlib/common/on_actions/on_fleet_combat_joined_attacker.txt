@@ -1,4 +1,0 @@
-on_fleet_combat_joined_attacker = {
-	events = {
-	}
-}

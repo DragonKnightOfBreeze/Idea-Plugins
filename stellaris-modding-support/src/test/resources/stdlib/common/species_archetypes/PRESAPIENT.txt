@@ -1,4 +1,0 @@
-PRESAPIENT = {
-	species_trait_points = @species_trait_points
-	species_max_traits = @species_max_traits
-}

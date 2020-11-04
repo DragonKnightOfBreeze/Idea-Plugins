@@ -1,3 +1,0 @@
-artifact_baol_research_completed = {
-	terraforming_cost_mult = -0.15
-}

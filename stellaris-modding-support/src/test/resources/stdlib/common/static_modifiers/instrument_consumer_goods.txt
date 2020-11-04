@@ -1,3 +1,0 @@
-instrument_consumer_goods = {
-	planet_pops_consumer_goods_upkeep_mult = 2.0
-}

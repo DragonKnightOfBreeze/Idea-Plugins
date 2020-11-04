@@ -1,4 +1,0 @@
-yuht_homeworld_chain = {
-	picture = GFX_evt_archaeological_dig
-	icon = "gfx/interface/icons/situation_log/situation_log_precursor.dds"
-}

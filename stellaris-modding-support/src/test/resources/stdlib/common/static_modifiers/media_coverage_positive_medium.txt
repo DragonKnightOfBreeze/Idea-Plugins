@@ -1,3 +1,0 @@
-media_coverage_positive_medium = {
-	pop_happiness = 0.25
-}

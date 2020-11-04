@@ -1,8 +1,0 @@
-agenda_null = {
-	weight_modifier = {
-		weight = 0
-	}
-	
-	modifier = {
-	}
-}

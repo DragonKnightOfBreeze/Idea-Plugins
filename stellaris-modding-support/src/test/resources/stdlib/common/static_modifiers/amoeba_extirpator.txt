@@ -1,3 +1,0 @@
-amoeba_extirpator = {
-	damage_vs_country_type_amoeba_mult = 0.2
-}

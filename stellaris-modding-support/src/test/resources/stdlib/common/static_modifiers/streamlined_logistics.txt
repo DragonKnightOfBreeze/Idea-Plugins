@@ -1,4 +1,0 @@
-streamlined_logistics = {
-	trade_value_mult = 0.1
-	country_consumer_goods_produces_mult = 0.025
-}

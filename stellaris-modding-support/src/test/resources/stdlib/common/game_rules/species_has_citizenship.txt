@@ -1,3 +1,0 @@
-species_has_citizenship = {
-	has_citizenship_type = { type = citizenship_full country = root }
-}

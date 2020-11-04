@@ -1,5 +1,0 @@
-on_destroy_planet_with_PLANET_KILLER_GODRAY = {
-	events = {
-		planet_destruction.400
-	}
-}

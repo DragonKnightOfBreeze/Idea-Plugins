@@ -1,3 +1,0 @@
-has_synthethic_dawn = {
-	host_has_dlc = "Synthetic Dawn Story Pack"
-}

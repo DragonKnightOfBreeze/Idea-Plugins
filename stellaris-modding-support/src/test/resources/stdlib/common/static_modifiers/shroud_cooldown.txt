@@ -1,3 +1,0 @@
-shroud_cooldown = {
-	icon = "gfx/interface/icons/modifiers/mod_shroud_unavailable.dds"
-}

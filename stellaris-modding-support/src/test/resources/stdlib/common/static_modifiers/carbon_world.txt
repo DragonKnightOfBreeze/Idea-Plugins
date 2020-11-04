@@ -1,6 +1,0 @@
-carbon_world = {
-	planet_jobs_minerals_produces_mult = 0.15
-
-	icon = "gfx/interface/icons/planet_modifiers/pm_carbon_world.dds"
-	icon_frame = 1
-}

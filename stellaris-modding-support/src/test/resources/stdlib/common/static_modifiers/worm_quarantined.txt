@@ -1,6 +1,0 @@
-worm_quarantined = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_irradiated.dds"
-	icon_frame = 3
-
-	pop_environment_tolerance = -2
-}

@@ -1,4 +1,0 @@
-covenant_composer_of_strands = {
-	pop_growth_speed = 0.20
-	leader_age = 20
-}

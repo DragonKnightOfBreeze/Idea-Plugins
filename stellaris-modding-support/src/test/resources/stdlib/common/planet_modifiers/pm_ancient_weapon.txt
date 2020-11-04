@@ -1,7 +1,0 @@
-pm_ancient_weapon = {
-	spawn_chance = {
-		#None - From anomaly 
-	}
-	
-	modifier = "ancient_weapon"
-}

@@ -1,6 +1,0 @@
-starbase_level_exd_0 = {
-	ship_size = starbase_exd_0
-	next_level = starbase_level_exd
-	level_weight = 5
-	ai_weight = { weight = 5 }
-}

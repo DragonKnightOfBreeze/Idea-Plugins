@@ -1,8 +1,0 @@
-trait_robot_streamlined_protocols = {
-	cost = 2
-	opposites = { "trait_robot_high_bandwidth" }
-	allowed_archetypes = { ROBOT MACHINE }
-	modifier = {
-		species_empire_size_mult = -0.10
-	}
-}

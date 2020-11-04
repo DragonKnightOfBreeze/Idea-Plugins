@@ -1,4 +1,0 @@
-dismembered_cloud_chain = {
-	icon = "gfx/interface/icons/situation_log/situation_log_federation.dds"
-	picture = GFX_evt_atmospheric_entry
-}

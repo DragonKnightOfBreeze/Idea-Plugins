@@ -1,3 +1,0 @@
-fleet2_reset_journey = {
-	fleet_event = { id = cara.2000 days = 3600 }
-}

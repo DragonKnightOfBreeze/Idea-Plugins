@@ -1,7 +1,0 @@
-opinion_friction = {
-	opinion = {
-		base = -1
-	}
-
-	unique = yes
-}

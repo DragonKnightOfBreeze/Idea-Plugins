@@ -1,4 +1,0 @@
-planet_is_hostile = {
-	exists = owner
-	owner = { is_at_war_with = from.owner }
-}

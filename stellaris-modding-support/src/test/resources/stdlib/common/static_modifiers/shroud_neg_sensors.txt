@@ -1,4 +1,0 @@
-shroud_neg_sensors = {
-	ship_sensor_range_add = -2
-	ship_hyperlane_range_add = -1
-}

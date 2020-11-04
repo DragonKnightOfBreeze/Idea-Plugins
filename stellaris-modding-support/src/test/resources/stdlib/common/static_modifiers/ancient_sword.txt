@@ -1,3 +1,0 @@
-ancient_sword = {
-	ship_speed_mult = 0.25
-}

@@ -1,4 +1,0 @@
-subterranean_expansion = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_hollow_planet.dds"
-	planet_max_districts_add = 3
-}

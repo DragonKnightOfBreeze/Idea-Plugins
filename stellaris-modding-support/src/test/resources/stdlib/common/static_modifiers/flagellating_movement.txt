@@ -1,3 +1,0 @@
-flagellating_movement = {
-	ship_evasion_mult = 0.05
-}

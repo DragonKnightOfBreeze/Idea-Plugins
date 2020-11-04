@@ -1,8 +1,0 @@
-opinion_machine_uprising_machine_comrades_victorious = {
-	opinion = {
-		base = 80
-	}
-	decay = {
-		base = 1
-	}
-}

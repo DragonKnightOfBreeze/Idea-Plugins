@@ -1,3 +1,0 @@
-hatchling_power = {
-
-}

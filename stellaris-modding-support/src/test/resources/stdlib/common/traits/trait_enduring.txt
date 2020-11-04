@@ -1,7 +1,0 @@
-trait_enduring = {
-	cost = 1
-	potential_crossbreeding_chance = 1.0
-	modifier = { leader_age = 20 }
-	opposites = { "trait_venerable" "trait_fleeting" "trait_fleeting_lithoid" }
-	allowed_archetypes = { BIOLOGICAL LITHOID }
-}

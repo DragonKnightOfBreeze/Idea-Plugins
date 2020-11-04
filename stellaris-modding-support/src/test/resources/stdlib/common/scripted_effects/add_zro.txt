@@ -1,7 +1,0 @@
-add_zro = {
-	random_list = {
-		16 = { set_deposit = d_zro_deposit_1 }
-		4 = { set_deposit = d_zro_deposit_2 }
-		1 = { set_deposit = d_zro_deposit_3 }
-	}
-}

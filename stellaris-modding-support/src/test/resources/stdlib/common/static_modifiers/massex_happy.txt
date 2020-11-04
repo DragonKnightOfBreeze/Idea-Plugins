@@ -1,3 +1,0 @@
-massex_happy = {
-	pop_happiness = 0.10
-}

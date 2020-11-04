@@ -1,8 +1,0 @@
-system_blocks_sensors = {
-	OR = {
-		is_inside_nebula = yes
-		has_modifier = space_storm
-		has_star_flag = lcluster
-		has_star_flag = sealed_system
-	}
-}

@@ -1,6 +1,0 @@
-enigmatic = {
-	type = enigmatic
-	behaviour = {
-		trade = yes
-	}
-}

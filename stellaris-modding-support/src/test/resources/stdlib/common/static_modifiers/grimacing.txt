@@ -1,4 +1,0 @@
-grimacing = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_wasteland.dds"
-	icon_frame = 1
-}

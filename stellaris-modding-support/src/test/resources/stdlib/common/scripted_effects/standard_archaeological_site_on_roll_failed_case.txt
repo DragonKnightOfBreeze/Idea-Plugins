@@ -1,7 +1,0 @@
-standard_archaeological_site_on_roll_failed_case = {
-	custom_tooltip = archaeology_roll_header
-	standard_archaeological_site_on_roll_failed_less_than_eq_entry = { MAX=5 CLUES=0 SCORE=$SCORE$ DIE_MIN=1 DIE_MAX=10 }
-	standard_archaeological_site_on_roll_failed_range_entry = { MIN=6 MAX=10 CLUES=1 SCORE=$SCORE$ DIE_MIN=1 DIE_MAX=10 }
-	standard_archaeological_site_on_roll_failed_range_entry = { MIN=11 MAX=13 CLUES=2 SCORE=$SCORE$ DIE_MIN=1 DIE_MAX=10 }
-	standard_archaeological_site_on_roll_failed_greater_than_eq_entry = { MIN=14 SCORE=$SCORE$ DIE_MIN=1 DIE_MAX=10 }
-}

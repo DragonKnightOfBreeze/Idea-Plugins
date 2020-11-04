@@ -1,3 +1,0 @@
-artifact_lgate_insight_cooldown = {
-	icon = "gfx/interface/icons/resources/minor_artifacts.dds"
-}

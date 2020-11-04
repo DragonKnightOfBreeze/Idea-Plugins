@@ -1,7 +1,0 @@
-opinion_claims_on_us = {
-	opinion = {
-		base = -5
-	}
-
-	unique = yes
-}

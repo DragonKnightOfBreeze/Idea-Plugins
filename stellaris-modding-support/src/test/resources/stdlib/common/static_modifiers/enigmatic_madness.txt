@@ -1,3 +1,0 @@
-enigmatic_madness = {
-	pop_happiness = -0.20
-}

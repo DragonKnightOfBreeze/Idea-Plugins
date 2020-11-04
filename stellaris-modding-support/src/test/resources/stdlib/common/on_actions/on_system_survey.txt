@@ -1,8 +1,0 @@
-on_system_survey = {
-	events = {
-		tutorial.18
-		distar.13060 # first wormhole is in foreign territory - apoc.5 duplicate
-		distar.13070 # first gateway is in foreign territory - apoc.1 duplicate
-		distar.13080 # first l-gate is in foreign territory - apoc.3 duplicate
-	}
-}

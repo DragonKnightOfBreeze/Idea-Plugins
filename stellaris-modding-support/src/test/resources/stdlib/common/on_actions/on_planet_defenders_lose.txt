@@ -1,9 +1,0 @@
-on_planet_defenders_lose = {
-	events = {
-		colony.57
-		colony.113
-		colony.154
-		unrest.167
-		ancrel.4063
-	}
-}

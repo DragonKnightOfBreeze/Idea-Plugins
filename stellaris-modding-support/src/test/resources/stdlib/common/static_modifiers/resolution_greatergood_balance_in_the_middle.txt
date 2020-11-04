@@ -1,6 +1,0 @@
-resolution_greatergood_balance_in_the_middle = {
-	diplo_weight_pops_mult = 0.2
-	empire_size_pops_mult = -0.1
-	pop_housing_usage_mult = -0.1
-	pop_cat_worker_political_power = 0.25
-}

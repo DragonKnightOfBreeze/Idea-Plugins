@@ -1,4 +1,0 @@
-suppressed_xenophobe = {
-	pop_ethic_xenophobe_attraction_mult = -0.75
-	country_base_influence_produces_add = -1
-}

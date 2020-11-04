@@ -1,6 +1,0 @@
-deposit_cat_food = { }
-deposit_cat_energy = {}
-deposit_cat_minerals = {}
-deposit_cat_blockers = { 
-	blocker = yes # Counts as blockers
-}

@@ -1,3 +1,0 @@
-pop_saved_from_slavery = {
-	pop_happiness = 0.1
-}

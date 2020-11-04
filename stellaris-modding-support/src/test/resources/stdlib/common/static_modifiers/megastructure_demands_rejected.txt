@@ -1,3 +1,0 @@
-megastructure_demands_rejected = {
-	pop_happiness = -0.2
-}

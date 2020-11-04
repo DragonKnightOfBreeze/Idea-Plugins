@@ -1,3 +1,0 @@
-reality_perforator_1 = {
-	ship_weapon_damage = 0.4
-}

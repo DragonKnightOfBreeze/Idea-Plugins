@@ -1,8 +1,0 @@
-can_use_galactic_market = {
-	is_country_type = default
-	NOR = {
-		has_civic = civic_fanatic_purifiers
-		has_civic = civic_hive_devouring_swarm
-		has_civic = civic_machine_terminator
-	}
-}

@@ -1,4 +1,0 @@
-protege_onboard = {
-	ship_anomaly_research_speed_mult = 0.20
-	ship_anomaly_generation_chance_mult = 0.20
-}

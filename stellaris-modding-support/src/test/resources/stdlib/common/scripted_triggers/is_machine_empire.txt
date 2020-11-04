@@ -1,3 +1,0 @@
-is_machine_empire = {
-	has_authority = auth_machine_intelligence
-}

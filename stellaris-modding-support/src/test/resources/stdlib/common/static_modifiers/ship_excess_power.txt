@@ -1,5 +1,0 @@
-ship_excess_power = {
-	ship_evasion_mult = 0.1
-	ship_speed_mult = 0.1
-	ship_weapon_damage = 0.1
-}

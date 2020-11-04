@@ -1,5 +1,0 @@
-society_research = {
-	ai_weight = {
-		weight = 1
-	}
-}

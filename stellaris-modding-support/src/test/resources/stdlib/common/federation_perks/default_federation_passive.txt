@@ -1,6 +1,0 @@
-default_federation_passive = {
-	federation_modifier = {
-		description = default_federation_passive_effect
-		# TODO
-	}
-}

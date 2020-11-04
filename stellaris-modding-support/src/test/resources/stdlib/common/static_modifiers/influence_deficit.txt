@@ -1,3 +1,0 @@
-influence_deficit = {
-	pop_happiness = -0.20
-}
