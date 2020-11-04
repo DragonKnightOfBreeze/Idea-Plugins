@@ -7,7 +7,10 @@ import com.intellij.psi.PsiElement;
 
 public interface StellarisScriptPropertyKey extends PsiElement {
 
-  @NotNull
+  @Nullable
   PsiElement getPropertyKeyId();
+
+  @Nullable
+  PsiElement getQuotedPropertyKeyId();
 
 }

@@ -29,14 +29,14 @@ public class StellarisScriptStringImpl extends ASTWrapperPsiElement implements S
 
   @Override
   @Nullable
-  public PsiElement getStringToken() {
-    return findChildByType(STRING_TOKEN);
+  public PsiElement getQuotedStringToken() {
+    return findChildByType(QUOTED_STRING_TOKEN);
   }
 
   @Override
   @Nullable
-  public PsiElement getUnquotedStringToken() {
-    return findChildByType(UNQUOTED_STRING_TOKEN);
+  public PsiElement getStringToken() {
+    return findChildByType(STRING_TOKEN);
   }
 
   @Override

@@ -27,9 +27,15 @@ public class StellarisScriptPropertyKeyImpl extends ASTWrapperPsiElement impleme
   }
 
   @Override
-  @NotNull
+  @Nullable
   public PsiElement getPropertyKeyId() {
-    return findNotNullChildByType(PROPERTY_KEY_ID);
+    return findChildByType(PROPERTY_KEY_ID);
+  }
+
+  @Override
+  @Nullable
+  public PsiElement getQuotedPropertyKeyId() {
+    return findChildByType(QUOTED_PROPERTY_KEY_ID);
   }
 
 }

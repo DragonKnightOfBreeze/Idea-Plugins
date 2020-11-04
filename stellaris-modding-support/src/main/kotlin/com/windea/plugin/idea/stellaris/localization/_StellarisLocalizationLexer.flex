@@ -64,7 +64,7 @@ COLOR_CODE=[A-Z]
   {END_OF_LINE_COMMENT}               { return END_OF_LINE_COMMENT; }
   {LOCALE_ID}                         { return LOCALE_ID; }
   {KEY_TOKEN}                         { return PROPERTY_KEY_ID; }
-  {VALUE_TOKEN}                       { return STRING_TOKEN; }
+  {VALUE_TOKEN}                       { return QUOTED_STRING_TOKEN; }
   {PROPERTY_REFERENCE_PARAMETER}      { return PROPERTY_REFERENCE_PARAMETER; }
   {CODE_TEXT}                         { return CODE_TEXT; }
   {ICON_ID}                         { return ICON_ID; }

@@ -9,7 +9,7 @@ class StellarisLocalizationWordScanner: DefaultWordsScanner(
 	StellarisLocalizationLexerAdapter(),
 	TokenSet.create(PROPERTY_KEY_ID),
 	TokenSet.create(COMMENT, ROOT_COMMENT,END_OF_LINE_COMMENT),
-	TokenSet.create(STRING_TOKEN)
+	TokenSet.create(QUOTED_STRING_TOKEN)
 ){
 	init {
 		setMayHaveFileRefsInLiterals(true)

@@ -108,25 +108,23 @@ object StellarisScriptPsiImplUtil {
 
 	//region StellarisScriptBlock
 	@JvmStatic
-	fun isObject(element: StellarisScriptBlock): Boolean {
-		element.forEachChild {
-			when(it){
-				is StellarisScriptProperty ->return true
-				is StellarisScriptItem -> return false
-			}
-		}
-		return false
+	fun isEmpty(element:StellarisScriptBlock):Boolean{
+		return element.children.isEmpty()
+	}
+
+	@JvmStatic
+	fun isNotEmpty(element:StellarisScriptBlock):Boolean{
+		return element.children.isNotEmpty()
+	}
+
+	@JvmStatic
+	fun isOSbject(element: StellarisScriptBlock): Boolean {
+		return element.firstChild is StellarisScriptProperty
 	}
 
 	@JvmStatic
 	fun isArray(element: StellarisScriptBlock): Boolean {
-		element.forEachChild {
-			when(it){
-				is StellarisScriptProperty ->return false
-				is StellarisScriptItem -> return true
-			}
-		}
-		return false
+		return element.firstChild is StellarisScriptItem
 	}
 
 	@JvmStatic

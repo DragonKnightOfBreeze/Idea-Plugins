@@ -40,8 +40,8 @@
 	  COLOR_CODE="regexp:[a-zA-Z]"
 	  COLORFUL_TEXT_END="§!"
 	  //NOTE 实际上双引号不需要转义，但是这里认为是语法错误
-	  //STRING_TOKEN='regexp:[^$£§\[\r\n\\][^"%$£§\[\r\n\\]*'
-	  STRING_TOKEN='regexp:[^"$£§\[\r\n\\][^"%$£§\[\r\n\\]*'
+	  //QUOTED_STRING_TOKEN='regexp:[^$£§\[\r\n\\][^"%$£§\[\r\n\\]*'
+	  QUOTED_STRING_TOKEN='regexp:[^"$£§\[\r\n\\][^"%$£§\[\r\n\\]*'
 	]
 }
 
@@ -73,7 +73,7 @@ property_value ::= LEFT_QUOTE rich_text * RIGHT_QUOTE{
 
 rich_text ::= property_reference | code | icon | serial_number | colorful_text | escape | string
 
-string ::= STRING_TOKEN
+string ::= QUOTED_STRING_TOKEN
 escape ::= VALID_ESCAPE_TOKEN | INVALID_ESCAPE_TOKEN
 property_reference ::= PROPERTY_REFERENCE_START PROPERTY_KEY_ID [PROPERTY_REFERENCE_SEPARATOR [PROPERTY_REFERENCE_PARAMETER]] PROPERTY_REFERENCE_END {
   pin=1

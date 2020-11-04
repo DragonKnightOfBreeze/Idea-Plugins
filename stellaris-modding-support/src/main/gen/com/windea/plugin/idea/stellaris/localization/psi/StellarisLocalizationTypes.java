@@ -48,7 +48,7 @@ public interface StellarisLocalizationTypes {
   IElementType SERIAL_NUMBER_END = new StellarisLocalizationTokenType("%");
   IElementType SERIAL_NUMBER_ID = new StellarisLocalizationTokenType("SERIAL_NUMBER_ID");
   IElementType SERIAL_NUMBER_START = new StellarisLocalizationTokenType("SERIAL_NUMBER_START");
-  IElementType STRING_TOKEN = new StellarisLocalizationTokenType("STRING_TOKEN");
+  IElementType QUOTED_STRING_TOKEN = new StellarisLocalizationTokenType("QUOTED_STRING_TOKEN");
   IElementType VALID_ESCAPE_TOKEN = new StellarisLocalizationTokenType("VALID_ESCAPE_TOKEN");
 
   class Factory {

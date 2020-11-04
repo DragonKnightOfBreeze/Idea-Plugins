@@ -27,11 +27,12 @@
 	  VARIABLE_NAME_ID="regexp:@[a-zA-Z0-9_\-]+"
 	  VARIABLE_REFERENCE_ID="regexp:@[a-zA-Z0-9_\-]+"
 	  PROPERTY_KEY_ID='regexp:[a-zA-Zz0-9_\-.:]+'
+	  QUOTED_PROPERTY_KEY_ID='regexp:"([^"(\r\n\\]|\\.)*?"'
 	  BOOLEAN_TOKEN='regexp:(yes)|(no)'
 	  NUMBER_TOKEN='regexp:-?[0-9]+(\.[0-9]+)?'
-	  UNQUOTED_STRING_TOKEN='regexp:[^@\s\[\]{}="][^\s\[\]{}="]*'
-	  STRING_TOKEN='regexp:"([^"(\r\n\\]|\\.)*?"'
+	  STRING_TOKEN='regexp:[^@\s\[\]{}="][^\s\[\]{}="]*'
 	  COLOR_TOKEN="regexp:(rgb|rgba|hsb|hsv|hsl)[ \t]*\{[^\r\n]*?}"
+	  QUOTED_STRING_TOKEN='regexp:"([^"(\r\n\\]|\\.)*?"'
 	]
 }
 
@@ -51,59 +52,6 @@ variable_definition ::= variable_name variable_definition_separator variable_val
   methods=[getName setName getNameIdentifier getTextOffset getIcon getValue]
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 variable_name ::= VARIABLE_NAME_ID
 variable_definition_separator ::= "="
 variable_value ::= boolean | number | string{
@@ -120,20 +68,19 @@ property ::= property_key property_separator property_value {
   implements="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptNamedElement"
   methods=[getName setName getNameIdentifier getIcon]
 }
-property_key ::= PROPERTY_KEY_ID
+property_key ::= PROPERTY_KEY_ID | QUOTED_PROPERTY_KEY_ID
 property_separator ::= "=" | "<" | ">" | "<=" | ">="
 property_value ::= variable_reference | boolean | number | string | color | block
 
 block ::= "{" block_item * "}" {
   pin=1
   implements="com.intellij.psi.PsiListLikeElement"
-  methods=[isObject isArray getComponents]
+  methods=[isEmpty isNotEmpty isObject isArray getComponents]
 }
 private block_item ::= END_OF_LINE_COMMENT | COMMENT | property | item
 
-item ::= boolean | number | string | color {
-  implements="com.intellij.psi.PsiLiteralValue"
-  methods=[getIcon getValue]
+item ::= boolean | number | string | color | block {
+  methods=[getIcon]
 }
 
 boolean ::= BOOLEAN_TOKEN {
@@ -144,7 +91,7 @@ number ::= NUMBER_TOKEN {
   implements="com.intellij.psi.PsiLiteralValue"
   methods=[getValue]
 }
-string ::= UNQUOTED_STRING_TOKEN | STRING_TOKEN {
+string ::= STRING_TOKEN | QUOTED_STRING_TOKEN {
   implements="com.intellij.psi.PsiLiteralValue"
   methods=[getValue getReference isValidPropertyKey]
 }

@@ -71,9 +71,7 @@ class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
 	private fun getPropertyValueText(property:StellarisScriptProperty):String{
 		return property.propertyValue?.let {
 			when {
-				it.block != null -> "{...}"
-				//it.array != null -> "{...}"
-				//it.`object` != null -> "{...}"
+				it.block != null -> blockFolder
 				else -> it.text.truncate(60)
 			}
 		}.orEmpty()

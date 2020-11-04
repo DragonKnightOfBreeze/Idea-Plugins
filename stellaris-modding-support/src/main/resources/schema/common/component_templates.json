@@ -4,103 +4,103 @@
       "type" : "object",
       "properties" : {
         "key" : {
-          "$ref" : "../core.json#/definitions/loc_reference"
+          "$ref" : "../core.yaml#/definitions/loc_reference"
         },
         "size" : {
-          "$ref" : "../core.json#/definitions/component_size"
+          "$ref" : "../core.yaml#/definitions/component_size"
         },
         "type" : {
-          "$ref" : "../core.json#/definitions/component_type"
+          "$ref" : "../core.yaml#/definitions/component_type"
         },
         "icon" : {
-          "$ref" : "../core.json#/definitions/gfx_reference"
+          "$ref" : "../core.yaml#/definitions/gfx_reference"
         },
         "icon_frame" : {
-          "$ref" : "../core.json#/definitions/int"
+          "$ref" : "../core.yaml#/definitions/int"
         },
         "color" : {
-          "$ref" : "../core.json#/definitions/color"
+          "$ref" : "../core.yaml#/definitions/color"
         },
         "prio_projectile" : {
-          "$ref" : "../core.json#/definitions/boolean"
+          "$ref" : "../core.yaml#/definitions/boolean"
         },
         "hidden" : {
-          "$ref" : "../core.json#/definitions/boolean"
+          "$ref" : "../core.yaml#/definitions/boolean"
         },
         "firing_arc" : {
-          "$ref" : "../core.json#/definitions/float"
+          "$ref" : "../core.yaml#/definitions/float"
         },
         "min_range" : {
-          "$ref" : "../core.json#/definitions/float"
+          "$ref" : "../core.yaml#/definitions/float"
         },
         "power" : {
-          "$ref" : "../core.json#/definitions/int"
+          "$ref" : "../core.yaml#/definitions/int"
         },
         "count" : {
-          "$ref" : "../core.json#/definitions/int"
+          "$ref" : "../core.yaml#/definitions/int"
         },
         "regeneration_per_day" : {
-          "$ref" : "../core.json#/definitions/float"
+          "$ref" : "../core.yaml#/definitions/float"
         },
         "launch_time" : {
-          "$ref" : "../core.json#/definitions/float"
+          "$ref" : "../core.yaml#/definitions/float"
         },
         "damage" : {
-          "$ref" : "../core.json#/definitions/int"
+          "$ref" : "../core.yaml#/definitions/int"
         },
         "cooldown" : {
-          "$ref" : "../core.json#/definitions/int"
+          "$ref" : "../core.yaml#/definitions/int"
         },
         "range" : {
-          "$ref" : "../core.json#/definitions/int"
+          "$ref" : "../core.yaml#/definitions/int"
         },
         "engagement_range" : {
-          "$ref" : "../core.json#/definitions/int"
+          "$ref" : "../core.yaml#/definitions/int"
         },
         "accuracy" : {
-          "$ref" : "../core.json#/definitions/float"
+          "$ref" : "../core.yaml#/definitions/float"
         },
         "tracking" : {
-          "$ref" : "../core.json#/definitions/float"
+          "$ref" : "../core.yaml#/definitions/float"
         },
         "health" : {
-          "$ref" : "../core.json#/definitions/int"
+          "$ref" : "../core.yaml#/definitions/int"
         },
         "armor" : {
-          "$ref" : "../core.json#/definitions/int"
+          "$ref" : "../core.yaml#/definitions/int"
         },
         "shield" : {
-          "$ref" : "../core.json#/definitions/int"
+          "$ref" : "../core.yaml#/definitions/int"
         },
         "evasion" : {
-          "$ref" : "../core.json#/definitions/float"
+          "$ref" : "../core.yaml#/definitions/float"
         },
         "speed" : {
-          "$ref" : "../core.json#/definitions/int"
+          "$ref" : "../core.yaml#/definitions/int"
         },
         "rotation_speed" : {
-          "$ref" : "../core.json#/definitions/float"
+          "$ref" : "../core.yaml#/definitions/float"
         },
         "acceleration" : {
-          "$ref" : "../core.json#/definitions/float"
+          "$ref" : "../core.yaml#/definitions/float"
         },
         "shield_damage" : {
-          "$ref" : "../core.json#/definitions/float"
+          "$ref" : "../core.yaml#/definitions/float"
         },
         "shield_penetration" : {
-          "$ref" : "../core.json#/definitions/float"
+          "$ref" : "../core.yaml#/definitions/float"
         },
         "armor_penetration" : {
-          "$ref" : "../core.json#/definitions/float"
+          "$ref" : "../core.yaml#/definitions/float"
         },
         "ship_behavior" : {
           "$type" : "ship_behavior"
         },
         "weapon_type" : {
-          "$ref" : "../core.json#/definitions/component_type"
+          "$ref" : "../core.yaml#/definitions/component_type"
         },
         "entity" : {
-          "$ref" : "../core.json#/definitions/entity"
+          "$ref" : "../core.yaml#/definitions/entity"
         },
         "prerequisites" : {
           "type" : "array",
@@ -130,7 +130,7 @@
           }
         },
         "resources" : {
-          "$ref" : "../core.json#/definitions/economy_unit"
+          "$ref" : "../core.yaml#/definitions/economy_unit"
         }
       }
     }

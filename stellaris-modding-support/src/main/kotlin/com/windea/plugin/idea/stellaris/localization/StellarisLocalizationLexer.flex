@@ -87,8 +87,8 @@ COLORFUL_TEXT_START="§"
 COLOR_CODE=[a-zA-Z]
 COLORFUL_TEXT_END="§!"
 //NOTE 实际上双引号不需要转义，但是这里认为是语法错误
-//STRING_TOKEN=[^$£§\[\r\n\\][^\"%$£§\[\r\n\\]*
-STRING_TOKEN=[^\"$£§\[\r\n\\][^\"%$£§\[\r\n\\]*
+//QUOTED_STRING_TOKEN=[^$£§\[\r\n\\][^\"%$£§\[\r\n\\]*
+QUOTED_STRING_TOKEN=[^\"$£§\[\r\n\\][^\"%$£§\[\r\n\\]*
 
 %%
 
@@ -143,7 +143,7 @@ STRING_TOKEN=[^\"$£§\[\r\n\\][^\"%$£§\[\r\n\\]*
   //测试下一个元素是否是编号，只有测试通过时才解析为编号
   {IS_SERIAL_NUMBER} { yypushback(yylength()); yybegin(WAITING_SERIAL_NUMEBR_START);}
   //{IS_PROPERTY_VALUE_END} {yypushback(yylength()); yybegin(WAITING_PROPERTY_VALUE_END);}
-  {STRING_TOKEN} {  return STRING_TOKEN;}
+  {QUOTED_STRING_TOKEN} {  return QUOTED_STRING_TOKEN;}
 }
 //<WAITING_PROPERTY_VALUE_END>{
 //  {RIGHT_QUOTE} { yybegin(WAITING_PROPERTY_EOL); return RIGHT_QUOTE;}
@@ -208,7 +208,7 @@ STRING_TOKEN=[^\"$£§\[\r\n\\][^\"%$£§\[\r\n\\]*
   //测试下一个元素是否是编号，只有测试通过时才解析为编号
   {IS_SERIAL_NUMBER} { yypushback(yylength()); yybegin(WAITING_SERIAL_NUMEBR_START);}
   //{IS_PROPERTY_VALUE_END} {yypushback(yylength()); yybegin(WAITING_PROPERTY_VALUE_END);}
-  {STRING_TOKEN} {  return STRING_TOKEN;}
+  {QUOTED_STRING_TOKEN} {  return QUOTED_STRING_TOKEN;}
 }
 <WAITING_PROPERTY_EOL>{
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }

@@ -22,7 +22,7 @@ public class StellarisScriptVisitor extends PsiElementVisitor {
   }
 
   public void visitItem(@NotNull StellarisScriptItem o) {
-    visitPsiLiteralValue(o);
+    visitPsiElement(o);
   }
 
   public void visitNumber(@NotNull StellarisScriptNumber o) {

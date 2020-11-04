@@ -29,7 +29,7 @@ public class StellarisLocalizationStringImpl extends ASTWrapperPsiElement implem
   @Override
   @NotNull
   public PsiElement getStringToken() {
-    return findNotNullChildByType(STRING_TOKEN);
+    return findNotNullChildByType(QUOTED_STRING_TOKEN);
   }
 
 }

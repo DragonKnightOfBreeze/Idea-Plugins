@@ -10,7 +10,7 @@
           "$type" : "initializer"
         },
         "weight_modifier" : {
-          "$ref" : "../core.json#/definitions/weight_modifier"
+          "$ref" : "../core.yaml#/definitions/weight_modifier"
         },
         "create_country_effect" : {
           "$ref" : "#/definitions/create_country_effect"
@@ -24,7 +24,7 @@
           "type" : "object",
           "properties" : {
             "name" : {
-              "oneOf" : [ {
+              "anyOf" : [ {
                 "type" : "string"
               }, {
                 "const" : "random"
@@ -34,24 +34,24 @@
               "$type" : "species_class"
             },
             "portrait" : {
-              "oneOf" : [ {
+              "anyOf" : [ {
                 "$type" : "portrait"
               }, {
                 "const" : "random"
               } ]
             },
             "traits" : {
-              "oneOf" : [ {
+              "anyOf" : [ {
                 "$type" : "trait"
               }, {
                 "const" : "random"
               } ]
             },
             "extra_trait_points" : {
-              "$ref" : "../core.json#/definitions/int"
+              "$ref" : "../core.yaml#/definitions/int"
             },
             "allow_negative_traits" : {
-              "$ref" : "../core.json#/definitions/boolean"
+              "$ref" : "../core.yaml#/definitions/boolean"
             }
           }
         },
@@ -59,7 +59,7 @@
           "type" : "object",
           "properties" : {
             "name" : {
-              "oneOf" : [ {
+              "anyOf" : [ {
                 "type" : "string"
               }, {
                 "const" : "random"
@@ -69,7 +69,7 @@
               "$type" : "country_type"
             },
             "ignore_initial_colony_error" : {
-              "$ref" : "../core.json#/definitions/boolean"
+              "$ref" : "../core.yaml#/definitions/boolean"
             },
             "authority" : {
               "$type" : "authority"
@@ -96,7 +96,7 @@
               }
             },
             "flag" : {
-              "oneOf" : [ {
+              "anyOf" : [ {
                 "$type" : "flag"
               }, {
                 "const" : "random"
@@ -106,7 +106,7 @@
               "$type" : "origin"
             },
             "effect" : {
-              "$ref" : "../core.json#/definitions/effects"
+              "$ref" : "../core.yaml#/definitions/effects"
             }
           }
         }

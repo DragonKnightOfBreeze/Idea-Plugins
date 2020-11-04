@@ -24,8 +24,10 @@ definitions:
   action_type:
     type: string
     enum:
-    - positive
     - negative
+    - neutral
+    - positive
+    - aggressive
 
 type: object
 additionalProperties:

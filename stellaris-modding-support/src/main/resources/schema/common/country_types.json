@@ -4,91 +4,91 @@
       "type" : "object",
       "properties" : {
         "has_difficulty_bonuses" : {
-          "$ref" : "../core.json#/definitions/boolean"
+          "$ref" : "../core.yaml#/definitions/boolean"
         },
         "counts_for_victory" : {
-          "$ref" : "../core.json#/definitions/boolean"
+          "$ref" : "../core.yaml#/definitions/boolean"
         },
         "pop_growth" : {
-          "$ref" : "../core.json#/definitions/boolean"
+          "$ref" : "../core.yaml#/definitions/boolean"
         },
         "playable" : {
-          "$ref" : "../core.json#/definitions/boolean"
+          "$ref" : "../core.yaml#/definitions/boolean"
         },
         "has_pulse_events" : {
-          "$ref" : "../core.json#/definitions/boolean"
+          "$ref" : "../core.yaml#/definitions/boolean"
         },
         "piracy_risk" : {
-          "$ref" : "../core.json#/definitions/boolean"
+          "$ref" : "../core.yaml#/definitions/boolean"
         },
         "randomize_ethos" : {
-          "$ref" : "../core.json#/definitions/boolean"
+          "$ref" : "../core.yaml#/definitions/boolean"
         },
         "shuffle_pop_ethos" : {
-          "$ref" : "../core.json#/definitions/boolean"
+          "$ref" : "../core.yaml#/definitions/boolean"
         },
         "needs_survey" : {
-          "$ref" : "../core.json#/definitions/boolean"
+          "$ref" : "../core.yaml#/definitions/boolean"
         },
         "diplomatic_wars" : {
-          "$ref" : "../core.json#/definitions/boolean"
+          "$ref" : "../core.yaml#/definitions/boolean"
         },
         "ship_disengagement" : {
-          "$ref" : "../core.json#/definitions/boolean"
+          "$ref" : "../core.yaml#/definitions/boolean"
         },
         "army_disengagement" : {
-          "$ref" : "../core.json#/definitions/boolean"
+          "$ref" : "../core.yaml#/definitions/boolean"
         },
         "relations" : {
-          "$ref" : "../core.json#/definitions/boolean"
+          "$ref" : "../core.yaml#/definitions/boolean"
         },
         "observable" : {
-          "$ref" : "../core.json#/definitions/boolean"
+          "$ref" : "../core.yaml#/definitions/boolean"
         },
         "can_use_invalid_technology" : {
-          "$ref" : "../core.json#/definitions/boolean"
+          "$ref" : "../core.yaml#/definitions/boolean"
         },
         "can_receive_envoys" : {
-          "$ref" : "../core.json#/definitions/boolean"
+          "$ref" : "../core.yaml#/definitions/boolean"
         },
         "ai" : {
           "type" : "object",
           "properties" : {
             "enabled" : {
-              "$ref" : "../core.json#/definitions/boolean"
+              "$ref" : "../core.yaml#/definitions/boolean"
             },
             "declare_war" : {
-              "$ref" : "../core.json#/definitions/boolean"
+              "$ref" : "../core.yaml#/definitions/boolean"
             },
             "min_navy_for_wars" : {
-              "$ref" : "../core.json#/definitions/float"
+              "$ref" : "../core.yaml#/definitions/float"
             },
             "min_assault_armies_for_wars" : {
-              "$ref" : "../core.json#/definitions/int"
+              "$ref" : "../core.yaml#/definitions/int"
             },
             "colonizer" : {
-              "$ref" : "../core.json#/definitions/boolean"
+              "$ref" : "../core.yaml#/definitions/boolean"
             },
             "internal_policies" : {
-              "$ref" : "../core.json#/definitions/boolean"
+              "$ref" : "../core.yaml#/definitions/boolean"
             },
             "modification" : {
-              "$ref" : "../core.json#/definitions/boolean"
+              "$ref" : "../core.yaml#/definitions/boolean"
             },
             "government" : {
-              "$ref" : "../core.json#/definitions/boolean"
+              "$ref" : "../core.yaml#/definitions/boolean"
             },
             "tarditions" : {
-              "$ref" : "../core.json#/definitions/boolean"
+              "$ref" : "../core.yaml#/definitions/boolean"
             },
             "construction" : {
-              "$ref" : "../core.json#/definitions/boolean"
+              "$ref" : "../core.yaml#/definitions/boolean"
             },
             "follow" : {
-              "$ref" : "../core.json#/definitions/boolean"
+              "$ref" : "../core.yaml#/definitions/boolean"
             },
             "can_use_market" : {
-              "$ref" : "../core.json#/definitions/boolean"
+              "$ref" : "../core.yaml#/definitions/boolean"
             },
             "modules" : {
               "type" : "array",
@@ -117,7 +117,7 @@
           }
         },
         "trade_route_available" : {
-          "$ref" : "../core.json#/definitions/triggers"
+          "$ref" : "../core.yaml#/definitions/triggers"
         },
         "modules" : {
           "type" : "object",
@@ -126,21 +126,21 @@
           }
         },
         "resources" : {
-          "$ref" : "../core.json#/definitions/economy_unit"
+          "$ref" : "../core.yaml#/definitions/economy_unit"
         },
         "branch_office_resources" : {
-          "$ref" : "../core.json#/definitions/economy_unit"
+          "$ref" : "../core.yaml#/definitions/economy_unit"
         }
       }
     },
     "ship_data" : {
-      "oneOf" : [ {
-        "$ref" : "../core.json#/definitions/uint_range"
+      "anyOf" : [ {
+        "$ref" : "../core.yaml#/definitions/uint_range"
       }, {
         "type" : "object",
         "properties" : {
           "fraction" : {
-            "$ref" : "../core.json#/definitions/modifier_chance"
+            "$ref" : "../core.yaml#/definitions/modifier_chance"
           }
         }
       } ]

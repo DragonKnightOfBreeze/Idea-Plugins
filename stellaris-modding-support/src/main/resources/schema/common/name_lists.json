@@ -7,7 +7,7 @@
           "type" : "string"
         },
         "language" : {
-          "$ref" : "../core.json#/definitions/language"
+          "$ref" : "../core.yaml#/definitions/language"
         },
         "ship_names" : {
           "type" : "object",
@@ -46,12 +46,7 @@
         "fleet_names" : {
           "type" : "object",
           "properties" : {
-            "random_names" : {
-              "$ref" : "#/definitions/string_array"
-            },
-            "sequential_name" : {
-              "$ref" : "#/definitions/string"
-            }
+            "$ref" : "#/definitions/random_or_sequential_names"
           }
         },
         "army_names" : {
@@ -59,7 +54,7 @@
           "anyOf" : [ {
             "properties" : {
               "generic" : {
-                "$ref" : "#/definitions/string_array"
+                "$ref" : "#/definitions/random_or_sequential_names"
               }
             }
           }, {
@@ -67,7 +62,7 @@
               "$type" : "army"
             },
             "additionalProperties" : {
-              "$ref" : "#/definitions/string_array"
+              "$ref" : "#/definitions/random_or_sequential_names"
             }
           } ]
         },
@@ -76,7 +71,7 @@
           "anyOf" : [ {
             "properties" : {
               "generic" : {
-                "$ref" : "#/definitions/string_array"
+                "$ref" : "#/definitions/names"
               }
             }
           }, {
@@ -84,13 +79,13 @@
               "$type" : "plant_class"
             },
             "additionalProperties" : {
-              "$ref" : "#/definitions/string_array"
+              "$ref" : "#/definitions/names"
             }
           } ]
         },
         "character_names" : {
           "type" : "object",
-          "oneOf" : [ {
+          "anyOf" : [ {
             "properties" : {
               "default" : {
                 "$ref" : "#/definitions/character_name_definition"
@@ -102,7 +97,7 @@
               "allOf" : [ {
                 "properties" : {
                   "weight" : {
-                    "$ref" : "../core.json#/definitions/int"
+                    "$ref" : "../core.yaml#/definitions/int"
                   }
                 }
               }, {
@@ -113,7 +108,7 @@
         },
         "ruler_names" : {
           "type" : "object",
-          "oneOf" : [ {
+          "anyOf" : [ {
             "properties" : {
               "default" : {
                 "$ref" : "#/definitions/character_name_definition"
@@ -125,7 +120,7 @@
               "allOf" : [ {
                 "properties" : {
                   "weight" : {
-                    "$ref" : "../core.json#/definitions/int"
+                    "$ref" : "../core.yaml#/definitions/int"
                   }
                 }
               }, {
@@ -161,6 +156,25 @@
           "$ref" : "#/definitions/string_array"
         },
         "regnal_second_names" : {
+          "$ref" : "#/definitions/string_array"
+        }
+      }
+    },
+    "random_or_sequential_names" : {
+      "type" : "object",
+      "properties" : {
+        "random_names" : {
+          "$ref" : "#/definitions/string_array"
+        },
+        "sequential_name" : {
+          "$ref" : "#/definitions/string"
+        }
+      }
+    },
+    "names" : {
+      "type" : "object",
+      "properties" : {
+        "names" : {
           "$ref" : "#/definitions/string_array"
         }
       }

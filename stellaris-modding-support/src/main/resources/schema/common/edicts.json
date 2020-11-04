@@ -4,29 +4,29 @@
       "type" : "object",
       "properties" : {
         "name" : {
-          "$ref" : "../core.json#/definitions/loc_reference"
+          "$ref" : "../core.yaml#/definitions/loc_reference"
         },
         "length" : {
-          "$ref" : "../core.json#/definitions/int"
+          "$ref" : "../core.yaml#/definitions/int"
         },
         "icon" : {
-          "$ref" : "../core.json#/definitions/gfx_reference"
+          "$ref" : "../core.yaml#/definitions/gfx_reference"
         },
         "is_ambition" : {
-          "$ref" : "../core.json#/definitions/boolean"
+          "$ref" : "../core.yaml#/definitions/boolean"
         },
         "edict_cap_usage" : {
-          "$ref" : "../core.json#/definitions/int"
+          "$ref" : "../core.yaml#/definitions/int"
         },
         "resources" : {
-          "$ref" : "../core.json#/definitions/economy_unit"
+          "$ref" : "../core.yaml#/definitions/economy_unit"
         },
         "modifier" : {
-          "$ref" : "../core.json#/definitions/modifier",
+          "$ref" : "../core.yaml#/definitions/modifier",
           "multiple" : true
         },
         "potential" : {
-          "$ref" : "../core.json#/definitions/triggers"
+          "$ref" : "../core.yaml#/definitions/triggers"
         },
         "prerequisites" : {
           "type" : "array",
@@ -35,13 +35,13 @@
           }
         },
         "show_tech_unlock_if" : {
-          "$ref" : "../core.json#/definitions/triggers"
+          "$ref" : "../core.yaml#/definitions/triggers"
         },
         "allow" : {
-          "$ref" : "../core.json#/definitions/effects"
+          "$ref" : "../core.yaml#/definitions/effects"
         },
         "ai_weight" : {
-          "$ref" : "../core.json#/definitions/weight_modifier"
+          "$ref" : "../core.yaml#/definitions/weight_modifier"
         }
       }
     }

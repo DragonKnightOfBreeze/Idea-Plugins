@@ -4,25 +4,25 @@
       "type" : "object",
       "properties" : {
         "rule_title" : {
-          "$ref" : "../core.json#/definitions/loc_reference"
+          "$ref" : "../core.yaml#/definitions/loc_reference"
         },
         "rule_title_female" : {
-          "$ref" : "../core.json#/definitions/loc_reference"
+          "$ref" : "../core.yaml#/definitions/loc_reference"
         },
         "heir_title" : {
-          "$ref" : "../core.json#/definitions/loc_reference"
+          "$ref" : "../core.yaml#/definitions/loc_reference"
         },
         "heir_title_female" : {
-          "$ref" : "../core.json#/definitions/loc_reference"
+          "$ref" : "../core.yaml#/definitions/loc_reference"
         },
         "use_regnal_names" : {
-          "$ref" : "../core.json#/definitions/boolean"
+          "$ref" : "../core.yaml#/definitions/boolean"
         },
         "dynastic_last_names" : {
-          "$ref" : "../core.json#/definitions/boolean"
+          "$ref" : "../core.yaml#/definitions/boolean"
         },
         "should_force_rename" : {
-          "$ref" : "../core.json#/definitions/boolean"
+          "$ref" : "../core.yaml#/definitions/boolean"
         },
         "leader_class" : {
           "$type" : "leader_class"
@@ -31,16 +31,16 @@
           "type" : "object",
           "properties" : {
             "modifier" : {
-              "$ref" : "../core.json#/definitions/modifier",
+              "$ref" : "../core.yaml#/definitions/modifier",
               "multiple" : true
             }
           }
         },
         "possible" : {
-          "$ref" : "../core.json#/definitions/triggers"
+          "$ref" : "../core.yaml#/definitions/triggers"
         },
         "weight" : {
-          "$ref" : "../core.json#/definitions/weight_modifier"
+          "$ref" : "../core.yaml#/definitions/weight_modifier"
         }
       }
     }

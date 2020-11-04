@@ -341,13 +341,13 @@ public class StellarisLocalizationParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // STRING_TOKEN
+  // QUOTED_STRING_TOKEN
   public static boolean string(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "string")) return false;
-    if (!nextTokenIs(b, STRING_TOKEN)) return false;
+    if (!nextTokenIs(b, QUOTED_STRING_TOKEN)) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = consumeToken(b, STRING_TOKEN);
+    r = consumeToken(b, QUOTED_STRING_TOKEN);
     exit_section_(b, m, STRING, r);
     return r;
   }

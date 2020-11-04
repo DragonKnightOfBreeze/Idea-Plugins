@@ -61,6 +61,7 @@ definitions:
     - hive_world
     - machine_world
     - ring_world
+    - city_world
     - habitat
 
 type: object

@@ -4,16 +4,16 @@
       "type" : "object",
       "properties" : {
         "cost" : {
-          "$ref" : "../core.json#/definitions/int"
+          "$ref" : "../core.yaml#/definitions/int"
         },
         "category" : {
           "$ref" : "#/definitions/ethic_category"
         },
         "category_value" : {
-          "$ref" : "../core.json#/definitions/int"
+          "$ref" : "../core.yaml#/definitions/int"
         },
         "category_opposite" : {
-          "$ref" : "../core.json#/definitions/boolean"
+          "$ref" : "../core.yaml#/definitions/boolean"
         },
         "regular_variant" : {
           "$type" : "ethic"
@@ -22,29 +22,29 @@
           "$type" : "ethic"
         },
         "use_for_pops" : {
-          "$ref" : "../core.json#/definitions/boolean"
+          "$ref" : "../core.yaml#/definitions/boolean"
         },
         "country_modifier" : {
-          "$ref" : "../core.json#/definitions/modifier"
+          "$ref" : "../core.yaml#/definitions/modifier"
         },
         "tags" : {
           "type" : "array",
           "items" : {
-            "$ref" : "../core.json#/definitions/loc_reference"
+            "$ref" : "../core.yaml#/definitions/loc_reference"
           }
         },
         "random_weight" : {
-          "$ref" : "../core.json#/definitions/random_weight"
+          "$ref" : "../core.yaml#/definitions/random_weight"
         },
         "pop_attraction_tag" : {
-          "$ref" : "../core.json#/definitions/triggered_desc",
+          "$ref" : "../core.yaml#/definitions/triggered_desc",
           "multiple" : true
         },
         "country_attraction" : {
-          "$ref" : "../core.json#/definitions/modified_attraction"
+          "$ref" : "../core.yaml#/definitions/modified_attraction"
         },
         "pop_attraction" : {
-          "$ref" : "../core.json#/definitions/modified_attraction"
+          "$ref" : "../core.yaml#/definitions/modified_attraction"
         }
       }
     },

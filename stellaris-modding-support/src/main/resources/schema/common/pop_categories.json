@@ -4,50 +4,50 @@
       "type" : "object",
       "properties" : {
         "rank" : {
-          "$ref" : "../core.json#/definitions/int"
+          "$ref" : "../core.yaml#/definitions/int"
         },
         "clothes_texture_index" : {
-          "$ref" : "../core.json#/definitions/int"
+          "$ref" : "../core.yaml#/definitions/int"
         },
         "change_job_threshold" : {
-          "$ref" : "../core.json#/definitions/float"
+          "$ref" : "../core.yaml#/definitions/float"
         },
         "keep_from_former_job" : {
-          "$ref" : "../core.json#/definitions/boolean"
+          "$ref" : "../core.yaml#/definitions/boolean"
         },
         "demotion_time" : {
-          "$ref" : "../core.json#/definitions/int"
+          "$ref" : "../core.yaml#/definitions/int"
         },
         "should_apply_unemployment_penalties" : {
-          "$ref" : "../core.json#/definitions/triggers"
+          "$ref" : "../core.yaml#/definitions/triggers"
         },
         "unemployment_penalties" : {
-          "$ref" : "../core.json#/definitions/modifiers"
+          "$ref" : "../core.yaml#/definitions/modifiers"
         },
         "unemployment_resources" : {
-          "$ref" : "../core.json#/definitions/economy_unit"
+          "$ref" : "../core.yaml#/definitions/economy_unit"
         },
         "triggered_pop_modifier" : {
-          "$ref" : "../core.json#/definitions/modifiers"
+          "$ref" : "../core.yaml#/definitions/modifiers"
         },
         "weight" : {
-          "$ref" : "../core.json#/definitions/weight_modifier"
+          "$ref" : "../core.yaml#/definitions/weight_modifier"
         },
         "pop_modifier" : {
-          "$ref" : "../core.json#/definitions/modifiers"
+          "$ref" : "../core.yaml#/definitions/modifiers"
         },
         "allow_resettlement" : {
-          "$ref" : "../core.json#/definitions/triggers"
+          "$ref" : "../core.yaml#/definitions/triggers"
         },
         "resettlement_cost" : {
-          "$ref" : "../core.json#/definitions/resources_item"
+          "$ref" : "../core.yaml#/definitions/resources_item"
         },
         "triggered_planet_modifier" : {
-          "$ref" : "../core.json#/definitions/modifiers",
+          "$ref" : "../core.yaml#/definitions/modifiers",
           "multiple" : true
         },
         "resources" : {
-          "$ref" : "../core.json#/definitions/economy_unit"
+          "$ref" : "../core.yaml#/definitions/economy_unit"
         }
       }
     }

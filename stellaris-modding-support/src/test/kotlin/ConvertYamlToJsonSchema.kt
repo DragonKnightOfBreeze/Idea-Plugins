@@ -14,13 +14,13 @@ fun main() {
 private fun convertSchemaFiles(schemaPath: String, yamlMapper: YAMLMapper, jsonMapper: ObjectMapper) {
 	File(schemaPath).walk().forEach {
 		runCatching {
-			if(it.isFile && it.extension == "yaml") {
+			if(it.isFile && it.extension == "yml") {
 				//snakeYaml将yes/no识别为布尔值，因此这里需要特殊处理
 				val yaml = it.readText().replace("""\b(yes|no)\b""".toRegex(), "\"$1\"")
 				val data = yamlMapper.readValue(yaml, Any::class.java)
 				val json = jsonMapper.writeValueAsString(data)
-					.replace(".yaml", ".json")
-				File(it.path.replace("\\test", "\\main").replace(".yaml", ".json")).writeText(json)
+					.replace(".yml", ".json")
+				File(it.path.replace("\\test", "\\main").replace(".yml", ".json")).writeText(json)
 			} else {
 				it.copyTo(File(it.path.replace("\\test", "\\main")), true)
 			}

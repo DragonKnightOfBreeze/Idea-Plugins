@@ -4,20 +4,20 @@
       "type" : "object",
       "properties" : {
         "icon" : {
-          "$ref" : "../core.json#/definitions/gfx_reference"
+          "$ref" : "../core.yaml#/definitions/gfx_reference"
         },
         "potential" : {
-          "$ref" : "../core.json#/definitions/triggers"
+          "$ref" : "../core.yaml#/definitions/triggers"
         },
         "allow" : {
-          "$ref" : "../core.json#/definitions/effects"
+          "$ref" : "../core.yaml#/definitions/effects"
         },
         "levels" : {
           "additionalProperties" : {
             "type" : "object",
             "properties" : {
               "experience" : {
-                "$ref" : "../core.json#/definitions/int"
+                "$ref" : "../core.yaml#/definitions/int"
               },
               "perks" : {
                 "type" : "array",
@@ -29,10 +29,10 @@
           }
         },
         "on_create" : {
-          "$ref" : "../core.json#/definitions/effects"
+          "$ref" : "../core.yaml#/definitions/effects"
         },
         "ai_weight" : {
-          "$ref" : "../core.json#/definitions/weight_modifier"
+          "$ref" : "../core.yaml#/definitions/weight_modifier"
         }
       }
     }

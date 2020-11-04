@@ -4,21 +4,21 @@
       "type" : "object",
       "properties" : {
         "show_in_diplomacy" : {
-          "$ref" : "../core.json#/definitions/boolean",
+          "$ref" : "../core.yaml#/definitions/boolean",
           "default" : "yes"
         },
         "show_notification" : {
-          "$ref" : "../core.json#/definitions/boolean",
+          "$ref" : "../core.yaml#/definitions/boolean",
           "default" : "yes"
         },
         "potential" : {
-          "$ref" : "../core.json#/definitions/triggers"
+          "$ref" : "../core.yaml#/definitions/triggers"
         },
         "is_valid" : {
-          "$ref" : "../core.json#/definitions/triggers"
+          "$ref" : "../core.yaml#/definitions/triggers"
         },
         "destroy_if" : {
-          "$ref" : "../core.json#/definitions/triggers"
+          "$ref" : "../core.yaml#/definitions/triggers"
         }
       }
     }

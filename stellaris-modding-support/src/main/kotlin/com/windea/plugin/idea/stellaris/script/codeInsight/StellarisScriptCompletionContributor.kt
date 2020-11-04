@@ -36,8 +36,8 @@ class StellarisScriptCompletionContributor : CompletionContributor() {
 		extend(
 			CompletionType.BASIC,
 			or(
-				psiElement(UNQUOTED_STRING_TOKEN),
-				psiElement().whitespace().afterLeaf(psiElement(UNQUOTED_STRING_TOKEN))
+				psiElement(STRING_TOKEN),
+				psiElement().whitespace().afterLeaf(psiElement(STRING_TOKEN))
 			),
 			BooleanCompletionProvider()
 		)

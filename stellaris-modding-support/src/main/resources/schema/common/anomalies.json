@@ -4,35 +4,35 @@
       "type" : "object",
       "properties" : {
         "should_ai_use" : {
-          "$ref" : "../core.json#/definitions/boolean",
+          "$ref" : "../core.yaml#/definitions/boolean",
           "default" : "no"
         },
         "show_ai_and_humans_use" : {
-          "$ref" : "../core.json#/definitions/boolean",
+          "$ref" : "../core.yaml#/definitions/boolean",
           "default" : "no"
         },
         "desc" : {
-          "$ref" : "../core.json#/definitions/desc"
+          "$ref" : "../core.yaml#/definitions/desc"
         },
         "picture" : {
-          "$ref" : "../core.json#/definitions/gfx_reference"
+          "$ref" : "../core.yaml#/definitions/gfx_reference"
         },
         "level" : {
-          "$ref" : "../core.json#/definitions/int"
+          "$ref" : "../core.yaml#/definitions/int"
         },
         "null_spawn_chance" : {
-          "$ref" : "../core.json#/definitions/float"
+          "$ref" : "../core.yaml#/definitions/float"
         },
         "max_once" : {
-          "$ref" : "../core.json#/definitions/boolean",
+          "$ref" : "../core.yaml#/definitions/boolean",
           "default" : "no"
         },
         "max_once_global" : {
-          "$ref" : "../core.json#/definitions/boolean",
+          "$ref" : "../core.yaml#/definitions/boolean",
           "default" : "no"
         },
         "spawn_chance" : {
-          "$ref" : "../core.json#/definitions/modifier_chance"
+          "$ref" : "../core.yaml#/definitions/modifier_chance"
         },
         "on_spawn" : {
           "$ref" : "#/definitions/anomaly_event"
@@ -43,28 +43,28 @@
       }
     },
     "anomaly_event" : {
-      "oneOf" : [ {
-        "$ref" : "../core.json#/definitions/event_id"
+      "anyOf" : [ {
+        "$ref" : "../core.yaml#/definitions/event_id"
       }, {
         "propertyNames" : {
-          "$ref" : "../core.json#/definitions/nit"
+          "$ref" : "../core.yaml#/definitions/nit"
         },
         "additionalProperties" : {
-          "oneOf" : [ {
-            "$ref" : "../core.json#/definitions/event_id"
+          "anyOf" : [ {
+            "$ref" : "../core.yaml#/definitions/event_id"
           }, {
-            "$ref" : "../core.json#/definitions/modifier",
+            "$ref" : "../core.yaml#/definitions/modifier",
             "properties" : {
               "max_once" : {
-                "$ref" : "../core.json#/definitions/boolean",
+                "$ref" : "../core.yaml#/definitions/boolean",
                 "default" : "yes"
               },
               "max_once_global" : {
-                "$ref" : "../core.json#/definitions/boolean",
+                "$ref" : "../core.yaml#/definitions/boolean",
                 "default" : "no"
               },
               "anomaly_event" : {
-                "$ref" : "../core.json#/definitions/event_id"
+                "$ref" : "../core.yaml#/definitions/event_id"
               }
             }
           } ]

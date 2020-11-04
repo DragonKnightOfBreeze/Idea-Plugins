@@ -9,7 +9,7 @@ class StellarisScriptWordScanner: DefaultWordsScanner(
 	StellarisScriptLexerAdapter(),
 	TokenSet.create(VARIABLE_NAME_ID,VARIABLE_REFERENCE_ID,PROPERTY_KEY_ID),
 	TokenSet.create(COMMENT, END_OF_LINE_COMMENT),
-	TokenSet.create(STRING_TOKEN, UNQUOTED_STRING_TOKEN)
+	TokenSet.create(QUOTED_STRING_TOKEN, STRING_TOKEN)
 ){
 	init {
 		setMayHaveFileRefsInLiterals(true)

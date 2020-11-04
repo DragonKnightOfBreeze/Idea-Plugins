@@ -166,7 +166,7 @@
     },
     "entity" : true,
     "desc" : {
-      "oneOf" : [ {
+      "anyOf" : [ {
         "$ref" : "#/definitions/loc_reference"
       }, {
         "$ref" : "#/definitions/triggered_desc"
@@ -183,7 +183,7 @@
     "modified_attraction" : {
       "properties" : {
         "value" : {
-          "$ref" : "../core.json#/definitions/int"
+          "$ref" : "../core.yaml#/definitions/int"
         },
         "modifier" : {
           "$ref" : "#/definitions/modifier"
@@ -284,7 +284,7 @@
         },
         "modifier" : {
           "allOf" : [ {
-            "oneOf" : [ {
+            "anyOf" : [ {
               "properties" : {
                 "factor" : {
                   "$ref" : "#/definitions/number"
@@ -341,7 +341,7 @@
       }
     },
     "event" : {
-      "oneOf" : [ {
+      "anyOf" : [ {
         "$ref" : "#/definitions/event_id"
       }, {
         "propertyNames" : {
@@ -353,7 +353,7 @@
       } ]
     },
     "event_id" : {
-      "oneOf" : [ {
+      "anyOf" : [ {
         "type" : "string"
       }, {
         "type" : "object",

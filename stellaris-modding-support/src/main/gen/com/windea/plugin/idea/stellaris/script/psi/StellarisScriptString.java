@@ -10,10 +10,10 @@ import com.windea.plugin.idea.stellaris.script.reference.StellarisScriptStringPs
 public interface StellarisScriptString extends PsiLiteralValue {
 
   @Nullable
-  PsiElement getStringToken();
+  PsiElement getQuotedStringToken();
 
   @Nullable
-  PsiElement getUnquotedStringToken();
+  PsiElement getStringToken();
 
   @NotNull
   String getValue();

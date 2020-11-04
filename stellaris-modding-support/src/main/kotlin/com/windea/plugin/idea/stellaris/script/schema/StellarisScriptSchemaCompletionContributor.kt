@@ -252,7 +252,7 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 				}
 				JsonSchemaType._array == type -> {
 					val value = myWalker!!.defaultArrayValue
-					addValueVariant(value, null, "[...]", createArrayOrObjectLiteralInsertHandler(value.length))
+					addValueVariant(value, null, "{...}", createArrayOrObjectLiteralInsertHandler(value.length))
 				}
 				JsonSchemaType._object == type -> {
 					val value = myWalker!!.defaultObjectValue

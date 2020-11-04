@@ -4,11 +4,13 @@ package com.windea.plugin.idea.stellaris.script.psi;
 import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiLiteralValue;
 import com.intellij.openapi.util.Iconable.IconFlags;
 import javax.swing.Icon;
 
-public interface StellarisScriptItem extends PsiLiteralValue {
+public interface StellarisScriptItem extends PsiElement {
+
+  @Nullable
+  StellarisScriptBlock getBlock();
 
   @Nullable
   StellarisScriptBoolean getBoolean();
@@ -24,8 +26,5 @@ public interface StellarisScriptItem extends PsiLiteralValue {
 
   @Nullable
   Icon getIcon(@IconFlags int flags);
-
-  @NotNull
-  String getValue();
 
 }

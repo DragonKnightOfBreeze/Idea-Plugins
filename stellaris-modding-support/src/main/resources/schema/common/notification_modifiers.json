@@ -4,7 +4,7 @@
       "type" : "object",
       "properties" : {
         "icon" : {
-          "$ref" : "../core.json#/definitions/game_path"
+          "$ref" : "../core.yaml#/definitions/game_path"
         }
       }
     }

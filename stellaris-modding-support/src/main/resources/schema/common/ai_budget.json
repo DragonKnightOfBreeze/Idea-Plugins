@@ -13,16 +13,16 @@
           "$ref" : "#/definitions/budget_category"
         },
         "poential" : {
-          "$ref" : "../core.json#/definitions/triggers"
+          "$ref" : "../core.yaml#/definitions/triggers"
         },
         "fraction" : {
-          "$ref" : "../core.json#/definitions/weight_modifier"
+          "$ref" : "../core.yaml#/definitions/weight_modifier"
         },
         "static_min" : {
-          "$ref" : "../core.json#/definitions/modifier_chance"
+          "$ref" : "../core.yaml#/definitions/modifier_chance"
         },
         "static_max" : {
-          "$ref" : "../core.json#/definitions/modifier_chance"
+          "$ref" : "../core.yaml#/definitions/modifier_chance"
         }
       }
     },
@@ -30,7 +30,7 @@
       "enum" : [ "expenditure", "upkeep" ]
     },
     "budget_category" : {
-      "enum" : [ "buffer", "ships", "ship_upgrades", "planets", "starbases", "colonies", "megastructures", "decisions", "trade", "leaders", "deposit_blockers", "campaigns", "..." ]
+      "enum" : [ "armies", "buffer", "ships", "ship_upgrades", "planets", "starbases", "colonies", "megastructures", "decisions", "trade", "leaders", "deposit_blockers", "campaigns", "edicts", "country", "resolutions", "stations", "claims" ]
     }
   },
   "type" : "object",

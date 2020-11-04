@@ -32,6 +32,10 @@ val stellarisScriptDummyText = "dummyText/StellarisScript.txt".toClassPathResour
 val stellarisScriptVariableRegex = "@[a-zA-Z0-9_-]+".toRegex()
 val stellarisScriptPropertyRegex = "[a-z0-9_-]+".toRegex()
 
+const val commentFolder = "#..."
+const val blockFolder = "{...}"
+const val defaultFolder = "<folder>"
+
 //0xef 0xbb 0xbf
 val utf8Bom = byteArrayOf(0xef.toByte(), 0xbb.toByte(), 0xbf.toByte())
 

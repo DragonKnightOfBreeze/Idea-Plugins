@@ -39,8 +39,13 @@ public class StellarisScriptBlockImpl extends ASTWrapperPsiElement implements St
   }
 
   @Override
-  public boolean isObject() {
-    return StellarisScriptPsiImplUtil.isObject(this);
+  public boolean isEmpty() {
+    return StellarisScriptPsiImplUtil.isEmpty(this);
+  }
+
+  @Override
+  public boolean isNotEmpty() {
+    return StellarisScriptPsiImplUtil.isNotEmpty(this);
   }
 
   @Override

@@ -4,13 +4,13 @@
       "type" : "object",
       "properties" : {
         "key" : {
-          "$ref" : "../core.json#/definitions/loc_reference"
+          "$ref" : "../core.yaml#/definitions/loc_reference"
         },
         "icon" : {
-          "$ref" : "../core.json#/definitions/gfx_reference"
+          "$ref" : "../core.yaml#/definitions/gfx_reference"
         },
         "icon_frame" : {
-          "$ref" : "../core.json#/definitions/int"
+          "$ref" : "../core.yaml#/definitions/int"
         }
       }
     }

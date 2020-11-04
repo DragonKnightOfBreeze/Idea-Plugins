@@ -7,10 +7,10 @@
           "$type" : "economic_category"
         },
         "hidden" : {
-          "$ref" : "../core.json#/definitions/boolean"
+          "$ref" : "../core.yaml#/definitions/boolean"
         },
         "use_for_ai_budget" : {
-          "$ref" : "../core.json#/definitions/boolean"
+          "$ref" : "../core.yaml#/definitions/boolean"
         },
         "generate_mult_modifiers" : {
           "type" : "array",
@@ -31,7 +31,7 @@
           }
         },
         "triggered_cost_modifier" : {
-          "$ref" : "../core.json#/definitions/triggered_modifier",
+          "$ref" : "../core.yaml#/definitions/triggered_modifier",
           "modifier" : true
         }
       }

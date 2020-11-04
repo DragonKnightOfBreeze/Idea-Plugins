@@ -14,7 +14,13 @@ public interface StellarisScriptBlock extends PsiListLikeElement {
   @NotNull
   List<StellarisScriptProperty> getPropertyList();
 
-  boolean isObject();
+  boolean isEmpty();
+
+  boolean isNotEmpty();
+
+  //WARNING: isObject(...) is skipped
+  //matching isObject(StellarisScriptBlock, ...)
+  //methods are not found in StellarisScriptPsiImplUtil
 
   boolean isArray();
 

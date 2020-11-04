@@ -4,7 +4,7 @@
       "type" : "object",
       "properties" : {
         "mesh" : {
-          "$ref" : "../core.json#/definitions/gfx_reference"
+          "$ref" : "../core.yaml#/definitions/gfx_reference"
         },
         "shader" : {
           "type" : "string"

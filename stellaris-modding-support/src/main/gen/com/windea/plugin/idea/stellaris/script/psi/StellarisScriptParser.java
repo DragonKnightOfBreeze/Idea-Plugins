@@ -98,7 +98,7 @@ public class StellarisScriptParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // boolean | number | string | color
+  // boolean | number | string | color | block
   public static boolean item(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "item")) return false;
     boolean r;
@@ -107,6 +107,7 @@ public class StellarisScriptParser implements PsiParser, LightPsiParser {
     if (!r) r = number(b, l + 1);
     if (!r) r = string(b, l + 1);
     if (!r) r = color(b, l + 1);
+    if (!r) r = block(b, l + 1);
     exit_section_(b, l, m, r, false, null);
     return r;
   }
@@ -127,9 +128,9 @@ public class StellarisScriptParser implements PsiParser, LightPsiParser {
   // property_key property_separator property_value
   public static boolean property(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "property")) return false;
-    if (!nextTokenIs(b, PROPERTY_KEY_ID)) return false;
+    if (!nextTokenIs(b, "<property>", PROPERTY_KEY_ID, QUOTED_PROPERTY_KEY_ID)) return false;
     boolean r, p;
-    Marker m = enter_section_(b, l, _NONE_, PROPERTY, null);
+    Marker m = enter_section_(b, l, _NONE_, PROPERTY, "<property>");
     r = property_key(b, l + 1);
     p = r; // pin = 1
     r = r && report_error_(b, property_separator(b, l + 1));
@@ -139,14 +140,15 @@ public class StellarisScriptParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // PROPERTY_KEY_ID
+  // PROPERTY_KEY_ID | QUOTED_PROPERTY_KEY_ID
   public static boolean property_key(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "property_key")) return false;
-    if (!nextTokenIs(b, PROPERTY_KEY_ID)) return false;
+    if (!nextTokenIs(b, "<property key>", PROPERTY_KEY_ID, QUOTED_PROPERTY_KEY_ID)) return false;
     boolean r;
-    Marker m = enter_section_(b);
+    Marker m = enter_section_(b, l, _NONE_, PROPERTY_KEY, "<property key>");
     r = consumeToken(b, PROPERTY_KEY_ID);
-    exit_section_(b, m, PROPERTY_KEY, r);
+    if (!r) r = consumeToken(b, QUOTED_PROPERTY_KEY_ID);
+    exit_section_(b, l, m, r, false, null);
     return r;
   }
 
@@ -207,14 +209,14 @@ public class StellarisScriptParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // UNQUOTED_STRING_TOKEN | STRING_TOKEN
+  // STRING_TOKEN | QUOTED_STRING_TOKEN
   public static boolean string(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "string")) return false;
-    if (!nextTokenIs(b, "<string>", STRING_TOKEN, UNQUOTED_STRING_TOKEN)) return false;
+    if (!nextTokenIs(b, "<string>", QUOTED_STRING_TOKEN, STRING_TOKEN)) return false;
     boolean r;
     Marker m = enter_section_(b, l, _NONE_, STRING, "<string>");
-    r = consumeToken(b, UNQUOTED_STRING_TOKEN);
-    if (!r) r = consumeToken(b, STRING_TOKEN);
+    r = consumeToken(b, STRING_TOKEN);
+    if (!r) r = consumeToken(b, QUOTED_STRING_TOKEN);
     exit_section_(b, l, m, r, false, null);
     return r;
   }

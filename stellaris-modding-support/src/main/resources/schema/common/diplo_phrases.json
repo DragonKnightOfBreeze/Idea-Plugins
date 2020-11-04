@@ -3,17 +3,17 @@
     "diplo_phrase" : {
       "type" : "object",
       "propertyNames" : {
-        "$ref" : "../core.json#/definitions/loc_reference"
+        "$ref" : "../core.yaml#/definitions/loc_reference"
       },
       "additionalProperties" : {
         "type" : "object",
         "properties" : {
           "trigger" : {
-            "$ref" : "../core.json#/definitions/triggers",
+            "$ref" : "../core.yaml#/definitions/triggers",
             "multiple" : true
           },
           "weight" : {
-            "$ref" : "../core.json#/definitions/weight"
+            "$ref" : "../core.yaml#/definitions/weight"
           }
         }
       }

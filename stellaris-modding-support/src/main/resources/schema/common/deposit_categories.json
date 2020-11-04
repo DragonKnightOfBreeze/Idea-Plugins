@@ -4,11 +4,11 @@
       "type" : "object",
       "properties" : {
         "blocker" : {
-          "$ref" : "../core.json#/definitions/boolean",
+          "$ref" : "../core.yaml#/definitions/boolean",
           "optional" : true
         },
         "important" : {
-          "$ref" : "../core.json#/definitions/boolean",
+          "$ref" : "../core.yaml#/definitions/boolean",
           "optional" : true
         }
       }

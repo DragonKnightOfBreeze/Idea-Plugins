@@ -56,8 +56,8 @@ KEY_TOKEN=[a-z0-9_]+
   {NUMBER}                        { return NUMBER_TOKEN; }
   {VARIABLE_NAME_TOKEN}           { return VARIABLE_NAME_ID; }
   {VARIABLE_REFERENCE_TOKEN}      { return VARIABLE_REFERENCE_ID; }
-  {STRING}                        { return STRING_TOKEN; }
-  {UNQUOTED_STRING}               { return UNQUOTED_STRING_TOKEN; }
+  {STRING}                        { return QUOTED_STRING_TOKEN; }
+  {UNQUOTED_STRING}               { return STRING_TOKEN; }
   {KEY_TOKEN}                     { return PROPERTY_KEY_ID; }
 
 }

@@ -30,6 +30,12 @@ public class StellarisScriptItemImpl extends ASTWrapperPsiElement implements Ste
 
   @Override
   @Nullable
+  public StellarisScriptBlock getBlock() {
+    return findChildByClass(StellarisScriptBlock.class);
+  }
+
+  @Override
+  @Nullable
   public StellarisScriptBoolean getBoolean() {
     return findChildByClass(StellarisScriptBoolean.class);
   }
@@ -56,12 +62,6 @@ public class StellarisScriptItemImpl extends ASTWrapperPsiElement implements Ste
   @Nullable
   public Icon getIcon(@IconFlags int flags) {
     return StellarisScriptPsiImplUtil.getIcon(this, flags);
-  }
-
-  @Override
-  @NotNull
-  public String getValue() {
-    return StellarisScriptPsiImplUtil.getValue(this);
   }
 
 }

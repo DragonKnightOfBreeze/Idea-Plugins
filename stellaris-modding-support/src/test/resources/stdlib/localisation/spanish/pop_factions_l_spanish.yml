@@ -88,7 +88,7 @@
  SUPREMACIST_CELEBRATE_DIVERSITY:0 "Celebrando debilidad"
  SUPREMACIST_NO_CELEBRATE_DIVERSITY:0 "$SUPREMACIST_CELEBRATE_DIVERSITY$"
  SUPREMACIST_CELEBRATE_DIVERSITY_DESC:0 "Mostrar artefactos menores de civilizaciones inferiores disgustará a los [Root.GetName] por un tiempo."
- 
+
  # XENOISTS
  XENOIST_PASSIVE_STUDY:0 "Xenología indirecta"
  XENOIST_PASSIVE_STUDY_DESC:0 "Limitar la interferencia con los nativos a un estudio pasivo complacerá a los [Root.GetName]."
@@ -276,7 +276,7 @@
  TRADITIONALIST_RELIGIOUS_FINDING:0 "Comodidad en el pasado"
  TRADITIONALIST_NO_RELIGIOUS_FINDING:0 "$TRADITIONALIST_RELIGIOUS_FINDING$"
  TRADITIONALIST_RELIGIOUS_FINDING_DESC:0 "Encontrar un significado religioso a los artefactos menores complacerá a los [Root.GetName] por un tiempo."
- 
+
  # TECHNOLOGISTS
  TECHNOLOGIST_ROBOTS:0 "Amor por las máquinas"
  TECHNOLOGIST_ROBOTS_DESC:0 "Mantener una población de al menos §Y6§! poblaciones robóticas complacerá a los [Root.GetName]."
@@ -298,7 +298,7 @@
  TECHNOLOGIST_DISCOVERY_DESC:0 "Adoptar §Ytradiciones de descubrimiento§! complacerá a los [Root.GetName]."
  TECHNOLOGIST_SECRET_KNOWLEDGE:0 "Conocimiento secreto"
  TECHNOLOGIST_NO_SECRET_KNOWLEDGE:0 "$TECHNOLOGIST_SECRET_KNOWLEDGE$"
- TECHNOLOGIST_SECRET_KNOWLEDGE_DESC:0 "Acceder a conocimientos secretos, ya sea por algún tipo de §información§! o §Yalijo de datos§! ancestral, complacerá a los [Root.GetName]."
+ TECHNOLOGIST_SECRET_KNOWLEDGE_DESC:0 "Acceder a conocimientos secretos, ya sea por algún tipo de §Yinformación§! o §Yalijo de datos§! ancestral, complacerá a los [Root.GetName]."
  TECHNOLOGIST_ARCANA:0 "Conocimiento del pasado"
  TECHNOLOGIST_NO_ARCANA:0 "$TECHNOLOGIST_ARCANA$"
  TECHNOLOGIST_ARCANA_DESC:0 "Estudiar artefactos menores complacerá a los [Root.GetName] por un tiempo."
@@ -431,7 +431,7 @@
  POP_FACTION_NO_EFFECTS_DESC:0 "Los $FACTION$ nunca tendrán efecto alguno."
  POP_FACTION_NO_CURRENT_EFFECTS:0 "Sin efectos actuales"
  POP_FACTION_NO_CURRENT_EFFECTS_DESC:0 "Los $FACTION$ no tienen efectos de momento."
- 
+
  ### SEPARATIST
 
  # Separatist Demands
@@ -439,7 +439,7 @@
  POP_FACTION_SEPARATIST_DEMAND_DESC_1:0 "Funda un nuevo sector con §H[parameter:planet.GetName]§! como capital."
  POP_FACTION_SEPARATIST_DEMAND_TITLE_2:0 "Independencia §H[parameter:planet.GetName]iana§!"
  POP_FACTION_SEPARATIST_DEMAND_DESC_2:0 "Libera a §H[parameter:planet.GetName]§! como capital de un imperio independiente."
- 
+
  ### PLANET SEPARATISTS
  POP_FACTION_PLANET_SEPARATIST_DEMAND_TITLE:0 "[parameter:Planet.GetName] independiente"
  POP_FACTION_PLANET_SEPARATIST_DEMAND_DESC:0 "Los separatistas quieren que §Y[parameter:Planet.GetName]§! sea independiente."
@@ -462,7 +462,7 @@
  POP_FACTION_PLANET_SEPARATIST_RECENT_SABOTAGE:0 "Disturbios recientes"
  POP_FACTION_PLANET_SEPARATIST_SABOTAGE_DESC:0 "Los disturbios del planeta §Rdestruyen§! un edificio."
  POP_FACTION_PLANET_SEPARATIST_NOTHING_TO_RUIN:0 "No hay edificios en ruinas"
- 
+
  ### Sector separatists
  pft_sector_separatists:0 "Separatistas de sector"
  pft_sector_separatists_desc:0 "Los separatistas de sector pueden aparecer en mundos de sectores. Quieren librar a su vecindario estelar del gobierno imperial. Con suficiente apoyo popular, podrían levantarse en armas.\n\n§HLos separatistas de sector nunca aparecen en nuestro sector principal.§!"
@@ -472,9 +472,9 @@
  POP_FACTION_SECTOR_SEPARATIST_GRANT_INDEPENDENCE_DESC:0 "Concede la independencia a las colonias del sector §Y[parameter:sector.GetName]§!"
  POP_FACTION_SECTOR_SEPARATIST_IS_NOT_OCCUPIED:0 "No hay planetas ocupados en el sector"
  POP_FACTION_SECTOR_SEPARATIST_NO_GROUND_COMBAT:0 "No hay planetas con combate terrestre en el sector"
- 
- 
- 
+
+
+
  ### NATIONALISTS
 
  pft_nationalist:0 "Facción de repatriación"
@@ -660,11 +660,11 @@
  POP_FACTION_PRETENDER_DEMAND_DESC:0 "El/La [Root.Owner.GetRulerTitle] §Y[Root.Owner.GetRulerName]§! se exiliará y §Y[parameter:pretender.GetName]§! subirá al trono."
  POP_FACTION_PRETENDER_INSTALL_TITLE:0 "Colocar aspirante"
  POP_FACTION_PRETENDER_INSTALL_DESC:0 "Colocar a §Y[parameter:pretender.GetName]§! como el nuevo gobernante."
- 
+
  ########################################
  # FACTION EVENTS
  ########################################
- 
+
  ### New Events
  factions.1.title:0 "Facción fundada"
  factions.1.desc:0 "Una nueva facción ha estado ganando influencia en el escenario político interno de [Root.Owner.GetName]. Se hacen llamar los [Root.GetName], y bajo el liderazgo de su fundador/a, [Root.Leader.GetTitle] [Root.Leader.GetName], sus miembros han estado presionando para que nos ocupemos de los diversos problemas que les preocupan.\n\nProbablemente veremos más facciones en el futuro, a medida que nuestra población aumente y sus éticas se desvíen en otras direcciones. Una facción descontenta es una fuente de problemas, pero las que aprueban las acciones del gobierno pueden ser útiles."
@@ -679,7 +679,7 @@
  factions.1.desc.totalitarian:0 "Sus miembros buscan la centralización extrema del poder político y militar.\n\n"
  factions.1.desc.traditionalist:0 "Sus miembros apoyan los valores espiritualistas y conservadores.\n\n"
  factions.1.desc.xenoist:0 "Sus miembros buscan el progreso de las relaciones amistosas con las especies alienígenas.\n\n"
- 
+
  factions.2000.title:0 "Cambio de ética de gobierno en los [TargetFaction.Owner.GetName]"
  factions.2000.desc.start:0 "Tras un largo periodo de apoyo constante a los §Y[TargetFaction.GetName]§!, los §Y[TargetFaction.Owner.GetName]§! han adoptado finalmente a la facción, con sus valores principales y políticas."
  factions.2000.desc.imperialist:0 "Como resultado de la incorporación de esta facción en su gobierno, parece que se han vuelto más §Hmilitaristas§!.\n\n"
@@ -691,7 +691,7 @@
  factions.2000.desc.totalitarian:0 "Como resultado de la incorporación de esta facción en su gobierno, parece que se han vuelto más §Hautoritarios§!.\n\n"
  factions.2000.desc.traditionalist:0 "Como resultado de la incorporación de esta facción en su gobierno, parece que se han vuelto más §Hespiritualistas§!.\n\n"
  factions.2000.desc.xenoist:0 "Como resultado de la incorporación de esta facción en su gobierno, parece que se han vuelto más §Hxenófilos§!.\n\n"
- 
+
  ### Loyalists
  faction.4.title:0 "Exigencias de los leales"
  faction.4.desc:0 "Los leales son devotos del/de la [Root.Owner.GetRulerTitle] [Root.Owner.GetRulerName] del [Root.Owner.GetName] y no tienen exigencias."
