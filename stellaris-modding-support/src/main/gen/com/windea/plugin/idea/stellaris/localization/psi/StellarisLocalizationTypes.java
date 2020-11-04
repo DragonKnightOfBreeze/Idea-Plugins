@@ -43,12 +43,12 @@ public interface StellarisLocalizationTypes {
   IElementType PROPERTY_REFERENCE_PARAMETER = new StellarisLocalizationTokenType("PROPERTY_REFERENCE_PARAMETER");
   IElementType PROPERTY_REFERENCE_SEPARATOR = new StellarisLocalizationTokenType("|");
   IElementType PROPERTY_REFERENCE_START = new StellarisLocalizationTokenType("PROPERTY_REFERENCE_START");
+  IElementType QUOTED_STRING_TOKEN = new StellarisLocalizationTokenType("QUOTED_STRING_TOKEN");
   IElementType RIGHT_QUOTE = new StellarisLocalizationTokenType("\"");
   IElementType ROOT_COMMENT = new StellarisLocalizationTokenType("ROOT_COMMENT");
   IElementType SERIAL_NUMBER_END = new StellarisLocalizationTokenType("%");
   IElementType SERIAL_NUMBER_ID = new StellarisLocalizationTokenType("SERIAL_NUMBER_ID");
   IElementType SERIAL_NUMBER_START = new StellarisLocalizationTokenType("SERIAL_NUMBER_START");
-  IElementType QUOTED_STRING_TOKEN = new StellarisLocalizationTokenType("QUOTED_STRING_TOKEN");
   IElementType VALID_ESCAPE_TOKEN = new StellarisLocalizationTokenType("VALID_ESCAPE_TOKEN");
 
   class Factory {

@@ -157,8 +157,8 @@
 
  distar.25.name:0 "Robots rudimentaires"
  distar.25.desc:0 "En étudiant la surface de [From.GetName], l'équipage du [Root.GetName] a découvert les ruines d'une civilisation spatiale primitive. Si aucun membre de cette civilisation n'a survécu, la [From.GetPlanetMoon] est encore habitée par les robots rudimentaires qu'elle avait construits.\n\nCes robots continuent d'accomplir leurs tâches, réparant sans cesse les structures en cours d'effondrement de leurs créateurs morts depuis longtemps.\n\nDe futurs colons pourraient tirer parti de cette main-d'oeuvre robotique. S'ils sont dépourvus de toute autre qualité, le moins que l'on puisse dire est qu'ils sont extrêmement durables."
- distar.25.a.tooltip:0 "§B3 £pops£pops£ robotiques§! sont trouvées sur [From.GetName]."
- distar.25.b.tooltip:0 "§B4 £pops£pops£ robotiques§! sont trouvées sur [From.GetName]."
+ distar.25.a.tooltip:0 "§B3 £pops£ robotiques§! sont trouvées sur [From.GetName]."
+ distar.25.b.tooltip:0 "§B4 £pops£ robotiques§! sont trouvées sur [From.GetName]."
  distar.26.name:0 "$distar.25.name$"
  distar.26.desc:0 "Les colons de [Root.GetName] vont devoir s'occuper des anciens robots se trouvant à la surface de la [Root.GetPlanetMoon], dont on suppose qu'ils ont perduré depuis que leurs créateurs ont subi un sort inconnu qui les a épargnés.\n\nNombre de ces automates dépassés ont réagi à notre présence, posant des questions répétitives dans une langue alien. Il est probable qu'ils attendent des commandes. Ils ne paraissent pas conscients, et il est vraisemblable qu'ils sont dépourvus de fonctions de raisonnement avancées."
  distar.26.a:0 "Mettons-les donc au travail"

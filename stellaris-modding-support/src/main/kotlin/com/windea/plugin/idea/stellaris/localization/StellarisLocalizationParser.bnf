@@ -12,7 +12,7 @@
 
 	tokens=[
 		COLON=":"
-	  NUMBER="regexp:\d"
+	  NUMBER="regexp:\d+"
 	  BLANK="regexp:\s+"
 	  COMMENT="regexp:#[^\r\n]*"
 	  ROOT_COMMENT="regexp:#[^\r\n]*"

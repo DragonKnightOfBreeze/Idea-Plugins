@@ -15,7 +15,7 @@ import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
 class StellarisScriptFoldingBuilder : FoldingBuilder, DumbAware {
 	override fun getPlaceholderText(node: ASTNode): String? {
 		return when(node.elementType){
-			COMMENT -> commenetFolder
+			COMMENT -> commentFolder
 			BLOCK -> blockFolder
 			else -> defaultFolder //不应该出现这种情况
 		}

@@ -8,6 +8,6 @@ import com.intellij.psi.PsiElement;
 public interface StellarisLocalizationString extends PsiElement {
 
   @NotNull
-  PsiElement getStringToken();
+  PsiElement getQuotedStringToken();
 
 }

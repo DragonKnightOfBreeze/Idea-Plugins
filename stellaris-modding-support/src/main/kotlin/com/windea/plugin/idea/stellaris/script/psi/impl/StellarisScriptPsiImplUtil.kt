@@ -118,7 +118,7 @@ object StellarisScriptPsiImplUtil {
 	}
 
 	@JvmStatic
-	fun isOSbject(element: StellarisScriptBlock): Boolean {
+	fun isObject(element: StellarisScriptBlock): Boolean {
 		return element.firstChild is StellarisScriptProperty
 	}
 
