@@ -42,12 +42,12 @@ EOL=\s*\R
 WHITE_SPACE=\s+
 SPACE=[ \t]+
 
-IS_PROEPRTY=[a-zA-Z0-9_\-:]+[ *][=><]
+IS_PROEPRTY=[a-zA-Z0-9_\-.:]+[ \t]*[=><]
 
 COMMENT=#[^\r\n]*
 END_OF_LINE_COMMENT=#[^\r\n]*
 VARIABLE_NAME_ID=@[a-zA-Z0-9_\-]+
-PROPERTY_KEY_ID=[a-zA-Z0-9_\-:]+
+PROPERTY_KEY_ID=[a-zA-Z0-9_\-.:]+
 VARIABLE_REFERENCE_ID=@[a-zA-Z0-9_\-]+
 COLOR_TOKEN=(rgb|rgba|hsb|hsv|hsl)[ \t]*\{[^\r\n]*?}
 BOOLEAN=(yes)|(no)

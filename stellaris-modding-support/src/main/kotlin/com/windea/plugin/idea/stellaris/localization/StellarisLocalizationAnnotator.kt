@@ -44,7 +44,7 @@ class StellarisLocalizationAnnotator : Annotator, DumbAware {
 						.create()
 				}
 			}
-			//如果是颜色文本，则为颜色代码文本加粗，并加上对应的颜色
+			//如果是颜色文本，则为颜色代码文本加上对应的颜色
 			is StellarisLocalizationColorfulText -> {
 				val colorId = element.name ?: return
 				if(element.color == null) {
@@ -56,15 +56,11 @@ class StellarisLocalizationAnnotator : Annotator, DumbAware {
 				}
 			}
 			else -> {
-				//如果是属性引用参数，且长度为1，则认为是颜色码，则加粗，并加上对应的颜色
+				//如果是属性引用参数，且长度为1，则认为可能是颜色码，则加上对应的颜色
 				if(element.elementType == StellarisLocalizationTypes.PROPERTY_REFERENCE_PARAMETER && element.textLength == 1) {
 					val colorId = element.text
 					val color = StellarisColor.map[colorId]
-					if(color == null) {
-						holder.newAnnotation(WARNING, message("stellaris.localization.annotator.unsupportedColor", colorId))
-							.withFix(ChangeColorIntention.instance)
-							.create()
-					} else {
+					if(color != null) {
 						annotateColorForPropertyReferenceParameter(colorId, holder, element)
 					}
 				}

@@ -12,7 +12,7 @@ enum class StellarisLocale(
 	BRAZ_POR("l_braz_por", "Brazil Portuguese"),
 	FRENCH("l_french", "French"),
 	GERMAN("l_german", "German"),
-	PONISH("l_ponish", "Ponish"),
+	PONISH("l_polish", "Polish"),
 	RUSSIAN("l_russian", "Russian"),
 	SPANISH("l_spanish", "Spanish"),
 	DEFAULT("l_default", "Default");

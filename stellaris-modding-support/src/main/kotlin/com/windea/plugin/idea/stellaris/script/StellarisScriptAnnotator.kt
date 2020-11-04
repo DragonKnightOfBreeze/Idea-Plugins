@@ -17,6 +17,7 @@ import com.windea.plugin.idea.stellaris.StellarisBundle.message
 import com.windea.plugin.idea.stellaris.localization.psi.*
 import com.windea.plugin.idea.stellaris.script.highlighter.*
 import com.windea.plugin.idea.stellaris.script.psi.*
+import com.windea.plugin.idea.stellaris.settings.*
 import java.awt.*
 import java.awt.event.*
 
@@ -95,24 +96,27 @@ class StellarisScriptAnnotator : Annotator ,DumbAware{
 			//只显示gutterIcon，不更改文本颜色
 			//本地化属性可以有多个
 			is StellarisScriptString -> {
-				val name = element.text.unquote()
-				val reference = element.reference?:return
-				val resolves = reference.multiResolve(false)
-				when {
-					resolves.isEmpty() -> return
-					reference.resolveAsLocalizationProperty -> {
-						val properties = resolves.mapArray {it.element as StellarisLocalizationProperty}
-						holder.newSilentAnnotation(INFORMATION)
-							.textAttributes(StellarisScriptAttributesKeys.LOCALIZATION_PROPERTY_REFERENCE_KEY)
-							.gutterIconRenderer(LocalizationPropertyGutterIconRenderer(name,*properties))
-							.create()
-					}
-					else -> {
-						val properties = resolves.mapArray {it.element as StellarisScriptProperty}
-						holder.newSilentAnnotation(INFORMATION)
-							.textAttributes(StellarisScriptAttributesKeys.SCRIPT_PROPERTY_REFERENCE_KEY)
-							.gutterIconRenderer(ScriptPropertyGutterIconRenderer(name,*properties))
-							.create()
+				//如果配置解析内部引用 - 否则不解析，提高脚本文件的语法解析速度
+				if(StellarisSettingsState.getInstance().resolveInternalReferences) {
+					val name = element.text.unquote()
+					val reference = element.reference ?: return
+					val resolves = reference.multiResolve(false)
+					when {
+						resolves.isEmpty() -> return
+						reference.resolveAsLocalizationProperty -> {
+							val properties = resolves.mapArray { it.element as StellarisLocalizationProperty }
+							holder.newSilentAnnotation(INFORMATION)
+								.textAttributes(StellarisScriptAttributesKeys.LOCALIZATION_PROPERTY_REFERENCE_KEY)
+								.gutterIconRenderer(LocalizationPropertyGutterIconRenderer(name, *properties))
+								.create()
+						}
+						else -> {
+							val properties = resolves.mapArray { it.element as StellarisScriptProperty }
+							holder.newSilentAnnotation(INFORMATION)
+								.textAttributes(StellarisScriptAttributesKeys.SCRIPT_PROPERTY_REFERENCE_KEY)
+								.gutterIconRenderer(ScriptPropertyGutterIconRenderer(name, *properties))
+								.create()
+						}
 					}
 				}
 			}

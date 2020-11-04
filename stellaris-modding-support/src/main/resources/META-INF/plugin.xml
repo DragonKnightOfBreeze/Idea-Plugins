@@ -27,13 +27,20 @@
       however, some other games may also use such script language and localization language.
     </p>
     <p>
-      Please note that <b>Paradox Interactive</b>'s modding language is actually very complex and even more chaos,
-      so that this plugin maybe have some <i>syntax compatibility problems</i> and <i>reference problems</i>.
-    </p>
-    <p>
       Please note that you should provide the descriptor file aka <code>descriptor.mod</code>,
       this plugin will only recognize script / localization files under a directory,
       which has a descriptor file in it.
+    </p>
+    <p>
+      Yu can configure whether to resolve internal (in project directory) &
+      external (in game / mod directory, <b>NOT IMPLEMENTED YET</b>) references,
+      such as localization & script property references in script files
+      by Edit settings via <b>[Languages & Frameworks / Stellaris Modding Support]</b>.
+      Default all to false.
+    </p>
+    <p>
+      Please note that <b>Paradox Interactive</b>'s modding language is actually very complex and even more chaos,
+      so that this plugin maybe have some <i>syntax compatibility problems</i> and <i>reference problems</i>.
     </p>
     <P>
       You can also write Stellaris mods by VSCode IDE with CWTools plugin,
@@ -73,12 +80,18 @@
       不过，其他游戏可能也会使用到这个插件所支持的脚本语言和本地化语言。
     </p>
     <p>
-      请注意，<b>瑞典蠢驴</b>的模组语言实际上是非常非常复杂的，
-      因此这个插件仍然可能存在一些<i>语法解析兼容性问题</i>以及<i>引用问题</i>。
-    </p>
-    <p>
       请注意，你需要提供描述符文件即<code>descriptor.mod</code>，
       这个插件仅会识别描述符文件所在目录下（及其子目录）的脚本文件和本地化文件。
+    </p>
+    <p>
+      你可以通过设置菜单中的<b>[Languages & Frameworks / Stellaris Modding Support]</b>
+      配置是否解析内部引用（项目目录中）和外部引用（游戏和模组目录中，<b>尚未实现</b>），
+      例如脚本文件中的本地化属性和脚本属性的引用。
+      默认全部不启用。
+    </p>
+    <p>
+      请注意，<b>瑞典蠢驴</b>的模组语言实际上是非常非常复杂的，
+      因此这个插件仍然可能存在一些<i>语法解析兼容性问题</i>以及<i>引用问题</i>。
     </p>
     <P>
       你也可以使用VSCode IDE并配合CWTools插件来进行Stellaris模组编程。

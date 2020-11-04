@@ -37,6 +37,7 @@ public interface StellarisScriptTypes {
   IElementType NUMBER_TOKEN = new StellarisScriptTokenType("NUMBER_TOKEN");
   IElementType PROPERTY_KEY_ID = new StellarisScriptTokenType("PROPERTY_KEY_ID");
   IElementType RIGHT_BRACE = new StellarisScriptTokenType("}");
+  IElementType RIGHT_QUOTE = new StellarisScriptTokenType("\"");
   IElementType STRING_TOKEN = new StellarisScriptTokenType("STRING_TOKEN");
   IElementType UNQUOTED_STRING_TOKEN = new StellarisScriptTokenType("UNQUOTED_STRING_TOKEN");
   IElementType VARIABLE_NAME_ID = new StellarisScriptTokenType("VARIABLE_NAME_ID");

@@ -35,7 +35,7 @@
                   </Item>
                   <Item>
                     <option name="directory" value="true" />
-                    <option name="path" value="stellaris-modding-support/src/main/resources/yamlSchema" />
+                    <option name="path" value="stellaris-modding-support/src/test/resources/schema" />
                     <option name="mappingKind" value="Directory" />
                   </Item>
                 </list>

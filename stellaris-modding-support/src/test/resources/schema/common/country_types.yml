@@ -1,0 +1,101 @@
+definitions:
+  # 国家类型
+  country_type:
+    type: object
+    properties:
+      has_difficulty_bonuses:
+        $ref: "../core.yaml#/definitions/boolean"
+      counts_for_victory:
+        $ref: "../core.yaml#/definitions/boolean"
+      pop_growth:
+        $ref: "../core.yaml#/definitions/boolean"
+      playable:
+        $ref: "../core.yaml#/definitions/boolean"
+      has_pulse_events:
+        $ref: "../core.yaml#/definitions/boolean"
+      piracy_risk:
+        $ref: "../core.yaml#/definitions/boolean"
+      randomize_ethos:
+        $ref: "../core.yaml#/definitions/boolean"
+      shuffle_pop_ethos:
+        $ref: "../core.yaml#/definitions/boolean"
+      needs_survey:
+        $ref: "../core.yaml#/definitions/boolean"
+      diplomatic_wars:
+        $ref: "../core.yaml#/definitions/boolean"
+      ship_disengagement:
+        $ref: "../core.yaml#/definitions/boolean"
+      army_disengagement:
+        $ref: "../core.yaml#/definitions/boolean"
+      relations:
+        $ref: "../core.yaml#/definitions/boolean"
+      observable:
+        $ref: "../core.yaml#/definitions/boolean"
+      can_use_invalid_technology:
+        $ref: "../core.yaml#/definitions/boolean"
+      can_receive_envoys:
+        $ref: "../core.yaml#/definitions/boolean"
+      ai:
+        type: object
+        properties:
+          enabled:
+            $ref: "../core.yaml#/definitions/boolean"
+          declare_war:
+            $ref: "../core.yaml#/definitions/boolean"
+          min_navy_for_wars:
+            $ref: "../core.yaml#/definitions/float"
+          min_assault_armies_for_wars:
+            $ref: "../core.yaml#/definitions/int"
+          colonizer:
+            $ref: "../core.yaml#/definitions/boolean"
+          internal_policies:
+            $ref: "../core.yaml#/definitions/boolean"
+          modification:
+            $ref: "../core.yaml#/definitions/boolean"
+          government:
+            $ref: "../core.yaml#/definitions/boolean"
+          tarditions:
+            $ref: "../core.yaml#/definitions/boolean"
+          construction:
+            $ref: "../core.yaml#/definitions/boolean"
+          follow:
+            $ref: "../core.yaml#/definitions/boolean"
+          can_use_market:
+            $ref: "../core.yaml#/definitions/boolean"
+          modules:
+            type: array
+            items:
+              $type: module
+          ship_data:
+            type: object
+            propertyNames:
+              $type: ship
+            additionalProperties:
+                $ref: "#/definitions/ship_data"
+          army_data:
+            type: object
+            propertyNames:
+              $type: army
+            additionalProperties:
+              $ref: "#/definitions/ship_data"
+      trade_route_available:
+        $ref: "../core.yaml#/definitions/triggers"
+      modules:
+        type: object
+        propertyNames:
+          $type: module
+      resources:
+        $ref: "../core.yaml#/definitions/economy_unit"
+      branch_office_resources:
+        $ref: "../core.yaml#/definitions/economy_unit"
+  ship_data:
+    anyOf:
+    - $ref: "../core.yaml#/definitions/uint_range"
+    - type: object
+      properties:
+        fraction:
+          $ref: "../core.yaml#/definitions/modifier_chance"
+
+type: object
+additionalProperties:
+  $ref: "#/definitions/country_type"

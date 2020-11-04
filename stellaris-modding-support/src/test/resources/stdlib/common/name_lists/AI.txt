@@ -126,7 +126,6 @@ AI = {
 	### CHARACTERS
 
 	character_names = {
-
 		default = {
 			full_names = {
 				"Fleet Array MZ-34" "Fleet Array P2-XR0" "Fleet Array 19-G" "Fleet Array Q-12" "Fleet Array XI-130" "Fleet Array V13" "Fleet Array 44/1" "Fleet Array LFA-5" "Fleet Array 15/57" "Fleet Array J-14" "Fleet Array OR-004" "Fleet Array KT-5" "Fleet Array 0009-X" "Fleet Array Alpha-2" "Fleet Array 388-F" "Fleet Array M8-4" "Fleet Array 54.2" "Fleet Array 54.1" "Fleet Array 48B" "Fleet Array XR-2" "Fleet Array FR-9" "Fleet Array VK-12" "Fleet Array HK-48" "Fleet Array L8P9" "Fleet Array IX-1442" "Fleet Array U-89" "Fleet Array PDX-1" "Fleet Array S09-B" "Fleet Array S0B" "Fleet Array M1D" "Fleet Array F-19" "Fleet Array TLY-68" "Fleet Array 14/2" "Fleet Array BX-4" "Fleet Array Kappa 5" "Fleet Array Sigma" "Fleet Array YT-8" "Fleet Array M4-L" "Fleet Array 38-38" "Fleet Array 8-99"

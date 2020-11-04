@@ -1,0 +1,45 @@
+definitions:
+  # 全局舰船设计
+  global_ship_design:
+    type: object
+    properties:
+      name:
+        $ref: "../core.yaml#/definitions/loc_reference"
+      ship_size:
+        $ype: "ship_size"
+      is_event_design:
+        $ref: "../core.yaml#/definitions/boolean"
+      section:
+        $ref: "#/definitions/section"
+      required_component:
+        $type: component_template.key
+      is_special_buildable:
+        $ref: "../core.yaml#/definitions/boolean"
+      allow_buildable_trigger:
+        anyOf:
+        - $type: trigger
+        - $ref: "../core.yaml#/definitions/triggers"
+  section:
+    type: object
+    properties:
+      template:
+        $type: section_template.key
+      slot:
+        $ref: "#/definitions/slot"
+      component:
+        $ref: "#/definitions/component"
+        multiple: true
+  component:
+    type: object
+    properties:
+      slot:
+        $type: section_template.component_slot.name
+      template:
+        $type: component_template.key
+  # TODO
+  slot:
+    type: string
+
+type: object
+additionalProperties:
+  $ref: "#/definitions/global_ship_design"
