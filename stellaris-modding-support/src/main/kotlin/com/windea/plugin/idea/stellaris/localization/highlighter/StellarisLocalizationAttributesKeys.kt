@@ -5,7 +5,6 @@ import com.intellij.openapi.editor.HighlighterColors.*
 import com.intellij.openapi.editor.colors.TextAttributesKey.*
 import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.StellarisBundle.message
-import java.awt.*
 
 @Suppress("DEPRECATION")
 object StellarisLocalizationAttributesKeys {
@@ -18,7 +17,8 @@ object StellarisLocalizationAttributesKeys {
 	@JvmField val STRING_KEY = createTextAttributesKey(message("stellaris.localization.syntax.string"), STRING)
 	@JvmField val COMMENT_KEY = createTextAttributesKey(message("stellaris.localization.syntax.comment"), LINE_COMMENT)
 	@JvmField val MARKER_KEY = createTextAttributesKey(message("stellaris.localization.syntax.marker"), KEYWORD)
-	@JvmField val PROPERTY_REFERENCE_PARAMETER_KEY = createTextAttributesKey(message("stellaris.localization.syntax.propertyReferenceParameter"), IDENTIFIER)
+	@JvmField val PROPERTY_REFERENCE_KEY = createTextAttributesKey(message("stellaris.localization.syntax.propertyReference"), KEYWORD)
+	@JvmField val PARAMETER_KEY = createTextAttributesKey(message("stellaris.localization.syntax.parameter"), IDENTIFIER)
 	@JvmField val CODE_KEY = createTextAttributesKey(message("stellaris.localization.syntax.code"), IDENTIFIER)
 	@JvmField val ICON_KEY = createTextAttributesKey(message("stellaris.localization.syntax.icon"), IDENTIFIER)
 	@JvmField val SERIAL_NUMBER_ID_KEY = createTextAttributesKey(message("stellaris.localization.syntax.serialNumberId"), IDENTIFIER)

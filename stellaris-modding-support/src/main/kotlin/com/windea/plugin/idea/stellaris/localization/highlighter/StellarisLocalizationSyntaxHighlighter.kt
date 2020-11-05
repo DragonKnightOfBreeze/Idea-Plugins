@@ -18,7 +18,8 @@ class StellarisLocalizationSyntaxHighlighter : SyntaxHighlighterBase() {
 		private val STRING_KEYS = arrayOf(StellarisLocalizationAttributesKeys.STRING_KEY)
 		private val COMMENT_KEYS = arrayOf(StellarisLocalizationAttributesKeys.COMMENT_KEY)
 		private val MARKER_KEYS = arrayOf(StellarisLocalizationAttributesKeys.MARKER_KEY)
-		private val PROPERTY_REFERENCE_PARAMETER_KEYS = arrayOf(StellarisLocalizationAttributesKeys.PROPERTY_REFERENCE_PARAMETER_KEY)
+		private val PARAMETER_KEYS = arrayOf(StellarisLocalizationAttributesKeys.PARAMETER_KEY)
+		private val PROPERTY_REFERENCE_KEYS = arrayOf(StellarisLocalizationAttributesKeys.PROPERTY_REFERENCE_KEY)
 		private val CODE_KEYS = arrayOf(StellarisLocalizationAttributesKeys.CODE_KEY)
 		private val ICON_KEYS = arrayOf(StellarisLocalizationAttributesKeys.ICON_KEY)
 		private val SERIAL_NUMBER_ID_KEYS = arrayOf(StellarisLocalizationAttributesKeys.SERIAL_NUMBER_ID_KEY)
@@ -33,11 +34,12 @@ class StellarisLocalizationSyntaxHighlighter : SyntaxHighlighterBase() {
 		COLON -> COLON_KEYS
 		LOCALE_ID -> LOCALE_KEYS
 		PROPERTY_KEY_ID -> PROPERTY_KEY_KEYS
+		PROPERTY_REFERENCE_ID -> PROPERTY_REFERENCE_KEYS
 		STRING_TOKEN, LEFT_QUOTE, RIGHT_QUOTE -> STRING_KEYS
 		PROPERTY_REFERENCE_START, PARAMETER_SEPARATOR, PROPERTY_REFERENCE_END,
 		CODE_START, CODE_END, ICON_START, ICON_END,
 		SERIAL_NUMBER_START, SERIAL_NUMBER_END, COLORFUL_TEXT_START, COLORFUL_TEXT_END -> MARKER_KEYS
-		PROPERTY_REFERENCE_PARAMETER -> PROPERTY_REFERENCE_PARAMETER_KEYS
+		PROPERTY_REFERENCE_PARAMETER, ICON_PARAMETER -> PARAMETER_KEYS
 		NUMBER -> NUMBER_KEYS
 		CODE_TEXT -> CODE_KEYS
 		ICON_ID -> ICON_KEYS
