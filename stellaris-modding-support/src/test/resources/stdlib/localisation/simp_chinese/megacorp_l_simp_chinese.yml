@@ -972,7 +972,7 @@
  job_telepath_effect_desc:0 "£job_telepath£ $job_telepath_plural$生产 £unity£ §Y$unity$§!并减少£crime£ §Y$PLANET_CRIME_TITLE$§!"
  mod_job_telepath_add:0 "$job_telepath$岗位"
  mod_job_telepath_per_pop:0 "每$VALUE$个人口提供§G+1§!个$job_telepath$岗位"
- mod_job_telepath_per_pop_short:0 "\n每$VALUE$ £pop §G+1§! £mod_job_telepath_add£ "
+ mod_job_telepath_per_pop_short:0 "\n每$VALUE$ £pop£ §G+1§! £mod_job_telepath_add£ "
 
  job_soldier:0 "士兵"
  job_soldier_plural:0 "士兵"
@@ -4127,7 +4127,7 @@
  CREATE_VASSAL_NOT_SECTOR_OWNER:0 "我们并未控制这片区域。"
  CREATE_VASSAL_CORE_SECTOR_INVALID:0 "无法在核心星域建立附庸国。"
  CREATE_VASSAL_WE_ARE_SUBJECT:0 "作为$SUBJECTTYPE$，我们不能创建附庸国。"
- 
+
  TOGGLE_NAVBAR_LOCK:0 "按下以切换导航栏锁定状态"
  NAVBAR_LOCKED:0 "导航栏§Y已锁定§!"
  NAVBAR_UNLOCKED:0 "导航栏§Y已解锁§!"

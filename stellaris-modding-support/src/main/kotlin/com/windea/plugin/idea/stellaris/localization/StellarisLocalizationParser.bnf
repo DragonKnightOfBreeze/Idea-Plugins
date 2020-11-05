@@ -26,7 +26,7 @@
 	  LEFT_QUOTE="\""
 	  RIGHT_QUOTE="\""
 	  PROPERTY_REFERENCE_START="$"
-	  PROPERTY_REFERENCE_ID="regexp:[a-zA-Z0-9_.\-']+"
+	  PROPERTY_REFERENCE_ID="regexp:[a-zA-Z0-9_.\-' \t]+"
     PROPERTY_REFERENCE_PARAMETER='regexp:[^$"\r\n]+'
 	  PROPERTY_REFERENCE_END="$"
 	  ICON_START="£"

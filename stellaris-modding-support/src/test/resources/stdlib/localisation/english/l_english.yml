@@ -849,7 +849,7 @@
  POP_FACTIONS_INFLUENCE_MULT:0 "Multiplied by $VALUE|Y$ due to the §HSupport§! and §HApproval§! level of the faction."
  LOYALIST_FACTION_DESC:1 "The Loyalist faction is the main faction of our Empire. Loyal Pops are satisfied with the status quo, and will not seek radical change."
  FROM_FACTION:0 "Faction Approval: $VALUE|0%Y$"
- APPROVAL_OF_FACTION:0 "£mod_faction_approval  $VALUE$"
+ APPROVAL_OF_FACTION:0 "£mod_faction_approval£ $VALUE$"
  POP_FACTIONS_ATTRACTION_TITLE:0 "Attraction"
  POP_FACTIONS_INFLUENCE:2 "We are currently gaining $VALUE$ from the §HSupport§! and §HApproval§! level of this faction each month."
  POP_FACTIONS_APPROVAL_TITLE:1 "$APPROVAL$"
@@ -6091,7 +6091,7 @@
  slavery_normal_tooltip:1 "§HChattel Slaves§! have increased resource production but cannot be employed in §Y$pop_cat_ruler$§! or §Y$pop_cat_specialist$§! Jobs."
  slavery_normal_tooltip_delayed:0 "§LChattel Slavery is the most common form of slavery in the galaxy. Whether for life or a limited time, unrestricted access to the labor of others is in some parts seen as a privilege with numerous counter-duties attached, and elsewhere considered a self-evident prerequisite for a functioning society.§!"
  slavery_domestic:0 "Domestic Servitude"
- slavery_domestic_tooltip:1 "§HDomestic Servants§! that are not holding another job will be employed as Servants, increases £amenities£ $PLANET_AMENITIES_TITLE$. They cannot perform £pop_cat_ruler£ §Y$pop_cat_ruler$§! or £pop_cat_specialist£ §Y$pop_cat_specialist$§! Jobs, with the sole exception of working as £job_entertainer §Y$job_entertainer_plural$§!."
+ slavery_domestic_tooltip:1 "§HDomestic Servants§! that are not holding another job will be employed as Servants, increases £amenities£ $PLANET_AMENITIES_TITLE$. They cannot perform £pop_cat_ruler£ §Y$pop_cat_ruler$§! or £pop_cat_specialist£ §Y$pop_cat_specialist$§! Jobs, with the sole exception of working as £job_entertainer£ §Y$job_entertainer_plural$§!."
  slavery_domestic_tooltip_delayed:1 "§LDomestic servants spend much of their time tending to the needs of free Pops - some are assigned to individual domiciles, while others tend to public spaces. They tend to live alongside their masters and thus require almost no dedicated housing.§!"
  slavery_military:0 "Battle Thralls"
  slavery_military_tooltip:1 "§HBattle Thralls§! have no bonuses to resource production, but make excellent soldiers for local §HArmies§!."
@@ -11681,4 +11681,4 @@
 
  lesser_space_cloud:0 "$space_cloud$"
  lesser_space_cloud_plural:0 "$space_cloud_plural$"
- 
+

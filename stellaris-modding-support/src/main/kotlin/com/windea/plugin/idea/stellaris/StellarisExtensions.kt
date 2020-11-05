@@ -18,8 +18,6 @@ import com.windea.plugin.idea.stellaris.localization.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
 import com.windea.plugin.idea.stellaris.script.*
 import com.windea.plugin.idea.stellaris.script.psi.*
-import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptParserDefinition.Companion.COMMENTS
-import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
 import java.io.*
 import java.net.*
 import java.util.*
@@ -174,9 +172,14 @@ fun isPreviousComment(element: PsiElement): Boolean {
 
 fun containsBlankLine(text: String): Boolean {
 	var newLine = 0
+	val chars = text.toCharArray()
+	for(i in chars.indices){
+		val char = chars[i]
+		if((char == '\r' && chars[i+1] != '\n') || char == '\n') newLine++
+		if(newLine >= 2) return true
+	}
 	text.forEach {
 		if(it == '\r' || it == '\n') newLine++
-		if(newLine >= 2) return true
 	}
 	return false
 }
@@ -235,19 +238,22 @@ fun selectElement(editor: Editor, element: PsiElement?) {
 //endregion
 
 //region Find Extensions
-fun findLocalizationProperty(name: String, project: Project, globalSearchScope: GlobalSearchScope = GlobalSearchScope.projectScope(project)): StellarisLocalizationProperty? {
-	val files = project.findFiles<StellarisLocalizationFile>(StellarisLocalizationFileType, globalSearchScope)
-	return files.flatMap { it.properties.asSequence() }.find { it.name == name }
+fun findLocalizationProperty(name: String, project: Project,locale:StellarisLocale?=null): StellarisLocalizationProperty? {
+	val files = project.findFiles<StellarisLocalizationFile>(StellarisLocalizationFileType).asSequence()
+	val localedFiles = if(locale != null) files.filter { it.locale?.locale == locale } else files
+	return localedFiles.flatMap { it.properties.asSequence() }.find { it.name == name }
 }
 
-fun findLocalizationProperties(name: String, project: Project, globalSearchScope: GlobalSearchScope = GlobalSearchScope.projectScope(project)): Sequence<StellarisLocalizationProperty> {
-	val files = project.findFiles<StellarisLocalizationFile>(StellarisLocalizationFileType, globalSearchScope)
-	return files.flatMap { it.properties.asSequence() }.filter { it.name == name }
+fun findLocalizationProperties(name: String, project: Project,locale:StellarisLocale? = null): Sequence<StellarisLocalizationProperty> {
+	val files = project.findFiles<StellarisLocalizationFile>(StellarisLocalizationFileType,)
+	val localedFiles = if(locale != null) files.filter { it.locale?.locale == locale } else files
+	return localedFiles.flatMap { it.properties.asSequence() }.filter { it.name == name }
 }
 
-fun findLocalizationProperties(project: Project, globalSearchScope: GlobalSearchScope = GlobalSearchScope.projectScope(project)): Sequence<StellarisLocalizationProperty> {
-	val files = project.findFiles<StellarisLocalizationFile>(StellarisLocalizationFileType, globalSearchScope)
-	return files.flatMap { it.properties.asSequence() }.filterNot { it.name.isNullOrEmpty() }
+fun findLocalizationProperties(project: Project,locale:StellarisLocale?=null): Sequence<StellarisLocalizationProperty> {
+	val files = project.findFiles<StellarisLocalizationFile>(StellarisLocalizationFileType)
+	val localedFiles = if(locale != null) files.filter { it.locale?.locale == locale } else files
+	return localedFiles.flatMap { it.properties.asSequence() }.filterNot { it.name.isNullOrEmpty() }
 }
 
 

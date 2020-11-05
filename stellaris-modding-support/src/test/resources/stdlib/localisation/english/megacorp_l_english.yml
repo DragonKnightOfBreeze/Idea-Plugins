@@ -972,7 +972,7 @@
  job_telepath_effect_desc:0 "£job_telepath£ $job_telepath_plural$ produce £unity£ §Y$unity$§! and decrease £crime£ §Y$PLANET_CRIME_TITLE$§!"
  mod_job_telepath_add:0 "$job_telepath$ Jobs"
  mod_job_telepath_per_pop:0 "§G+1§! $job_telepath$ Job per $VALUE$ Pops"
- mod_job_telepath_per_pop_short:0 "\n§G+1§! £mod_job_telepath_add£ per $VALUE$ £pop"
+ mod_job_telepath_per_pop_short:0 "\n§G+1§! £mod_job_telepath_add£ per $VALUE$ £pop£"
 
  job_soldier:0 "Soldier"
  job_soldier_plural:0 "Soldiers"
@@ -1025,7 +1025,7 @@
  job_head_researcher:0 "Science Director"
  job_head_researcher_plural:0 "Science Directors"
  job_head_researcher_desc:1 "These specialists coordinate and manage the research and development of new technologies."
- job_head_researcher_effect_desc:1 "£job_head_researcher $job_head_researcher_plural$ produce £mod_planet_amenities_add£ §Y$PLANET_AMENITIES_TITLE$§! and £physics£ £society£ £engineering£ §YResearch Points§! for new technologies"
+ job_head_researcher_effect_desc:1 "£job_head_researcher£ $job_head_researcher_plural$ produce £mod_planet_amenities_add£ §Y$PLANET_AMENITIES_TITLE$§! and £physics£ £society£ £engineering£ §YResearch Points§! for new technologies"
  mod_job_head_researcher_add:0 "$job_head_researcher$ Jobs"
  mod_job_head_researcher_per_pop:0 "§G+1§! $job_head_researcher$ Job per $VALUE$ Pops"
  mod_job_head_researcher_per_pop_short:0 "\n§G+1§! £mod_job_head_researcher_add£ per $VALUE$ £pop£"
@@ -1183,21 +1183,21 @@
  job_criminal_desc:1 "These criminals live outside the bounds of legal society, some by choice and some by circumstance."
  mod_job_criminal_add:0 "$job_criminal$ Jobs"
  mod_job_criminal_per_crime:0 "§G+1§! $job_criminal$ Job per $VALUE$ Planet Crime"
- mod_job_criminal_per_crime_short:0 "\n§G+1§! £mod_job_criminal_add£ per $VALUE$ £crime"
+ mod_job_criminal_per_crime_short:0 "\n§G+1§! £mod_job_criminal_add£ per $VALUE$ £crime£"
 
  job_deviant_drone:0 "Deviant Drone"
  job_deviant_drone_plural:0 "Deviant Drones"
  job_deviant_drone_desc:0 "These deviants no longer obey the Hive Mind."
  mod_job_deviant_drone_add:0 "$job_deviant_drone$ Jobs"
  mod_job_deviant_drone_per_crime:0 "§G+1§! $job_deviant_drone$ Job per $VALUE$ Planet Crime"
- mod_job_deviant_drone_per_crime_short:0 "\n§G+1§! £mod_job_deviant_drone_add£ per $VALUE$ £crime"
+ mod_job_deviant_drone_per_crime_short:0 "\n§G+1§! £mod_job_deviant_drone_add£ per $VALUE$ £crime£"
 
  job_corrupt_drone:0 "Corrupt Drone"
  job_corrupt_drone_plural:0 "Corrupt Drones"
  job_corrupt_drone_desc:0 "These drones have been corrupted and no longer obey the directives of the core intelligence."
  mod_job_corrupt_drone_add:0 "$job_corrupt_drone$ Jobs"
  mod_job_corrupt_drone_per_crime:0 "§G+1§! $job_corrupt_drone$ Job per $VALUE$ Planet Crime"
- mod_job_corrupt_drone_per_crime_short:0 "\n§G+1§! £mod_job_corrupt_drone_add£ per $VALUE$ £crime"
+ mod_job_corrupt_drone_per_crime_short:0 "\n§G+1§! £mod_job_corrupt_drone_add£ per $VALUE$ £crime£"
 
  # Primitive Jobs
  job_hunter_gatherer:0 "Hunter-Gatherer"
@@ -3258,7 +3258,7 @@
  fleet3deal4cost3:0 "if you grant us £sr_zro£ §R15§! §Y$sr_zro$§!."
  fleet3deal4product1:0 "This alloy. The weight. The lustre. The glow! Have you ever seen such metallic bonding? Incredible yield strength. Maximum grade. Nominal impurities. We can feel it. It calls to you.\n\nWe will give to you £alloys£ §G2000§! §Y$alloys$§!,"
  fleet3deal4product2:0 "These exotic gases. Effervescent. Compressed to maximum density, for logistical convenience. Highly volatile - careful! You desire them, do you not? For your shields, your plasma cannons? They can be yours.\n\nWe will give you £exotic_gases£§G150§! §Y$exotic_gases$§!,"
- fleet3deal4product3:0 "This metal. It moves. It flows. It reconstructs, §Hkssk!§! We have found many uses for it. We are certain you shall, too.\n\nWe will give you £sr_living_metal  §G40§! §Y$sr_living_metal$§!,"
+ fleet3deal4product3:0 "This metal. It moves. It flows. It reconstructs, §Hkssk!§! We have found many uses for it. We are certain you shall, too.\n\nWe will give you £sr_living_metal£ §G40§! §Y$sr_living_metal$§!,"
  fleet3deal2product1_tooltip:0 "A §GSkill 3§! §HScientist§! joins the [Root.GetName]"
  fleet3deal2product2_tooltip:0 "A §GSkill 3§! §HGovernor§! joins the [Root.GetName]"
  fleet3deal5cost_tooltip:0 "§R-6§! §H$pop_cat_worker$§! £pop£ Pops"
@@ -4127,7 +4127,7 @@
  CREATE_VASSAL_NOT_SECTOR_OWNER:0 "We do not control this sector."
  CREATE_VASSAL_CORE_SECTOR_INVALID:0 "Cannot create vassal from core sector."
  CREATE_VASSAL_WE_ARE_SUBJECT:0 "As a $SUBJECTTYPE$, we cannot create vassals."
- 
+
  TOGGLE_NAVBAR_LOCK:0 "Press to toggle the navigation bar lock"
  NAVBAR_LOCKED:0 "Navigation bar is §Ylocked§!"
  NAVBAR_UNLOCKED:0 "Navigation bar is §Yunlocked§!"
@@ -4138,7 +4138,7 @@
  GROUND_COMBAT_RESERVES:0 "Reserves"
  GROUND_COMBAT_FRONTLINE:0 "Frontline"
 
- ARMY_STRENGTH:0 "£army_power $VALUE|0Y$"
+ ARMY_STRENGTH:0 "£army_power£ $VALUE|0Y$"
  ORBITING_ARMIES:0 "Orbiting Armies"
 
  buildable_colony_ship:0 "Build Colony Ship"

@@ -4138,7 +4138,7 @@
  GROUND_COMBAT_RESERVES:0 "Reserve"
  GROUND_COMBAT_FRONTLINE:0 "Frontlinie"
 
- ARMY_STRENGTH:0 "£army_power $VALUE|0Y$"
+ ARMY_STRENGTH:0 "£army_power£ $VALUE|0Y$"
  ORBITING_ARMIES:0 "Armeen im Orbit"
 
  buildable_colony_ship:0 "Kolonieschiff bauen"

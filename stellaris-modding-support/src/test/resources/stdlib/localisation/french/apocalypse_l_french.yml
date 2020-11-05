@@ -1,11 +1,11 @@
 ﻿l_french:
 
- ###      #        ##      #  #     ###     ###     # #     ###     #       #       ###     ###       ## 
- #  #     #       #  #     ## #     #        #      # #      #      #       #       #       #  #     #   
- ###      #       ####     # ##     ##       #      ##       #      #       #       ##      ###       #  
- #        #       #  #     #  #     #        #      # #      #      #       #       #       #  #       # 
- #        ###     #  #     #  #     ###      #      # #     ###     ###     ###     ###     #  #     ##  
- 
+ ###      #        ##      #  #     ###     ###     # #     ###     #       #       ###     ###       ##
+ #  #     #       #  #     ## #     #        #      # #      #      #       #       #       #  #     #
+ ###      #       ####     # ##     ##       #      ##       #      #       #       ##      ###       #
+ #        #       #  #     #  #     #        #      # #      #      #       #       #       #  #       #
+ #        ###     #  #     #  #     ###      #      # #     ###     ###     ###     ###     #  #     ##
+
  FLEETORDER_DESTROY_PLANET_WITH_PLANET_KILLER_CRACKER:0 "Prépare la destruction de $PLANET|Y$"
  FLEETORDER_DESTROY_PLANET_WITH_PLANET_KILLER_SHIELDER:0 "Prépare l'enveloppement de $PLANET|Y$"
  FLEETORDER_DESTROY_PLANET_WITH_PLANET_KILLER_NUKE:0 "Prépare le bombardement nucléaire de $PLANET|Y$"
@@ -15,9 +15,9 @@
  FLEETORDER_DESTROY_PLANET_WITH_PLANET_KILLER_NANOBOTS:0 "Prépare la cyborgie de $PLANET|Y$"
  FLEETORDER_PLANET_KILLER_WINDUP:0 "Chargement de l'arme : $PROGRESS|Y0%$"
  FLEETORDER_PLANET_KILLER_FIRING:0 "Mise à feu de l'arme : $PROGRESS|Y0%$"
- 
+
  STATUS_QUO_CREATE_NEW_EMPIRE:0 "Un nouvel empire va être créé pour l'espèce $SPECIES|Y$, allié et dépendant de la $ACTOR|Y$, à partir de $SYSTEMS|H$ systèmes occupés de la $TARGET|Y$."
- 
+
  MESSAGE_DESC_FOR_PLANET_KILLER_CRACKER:0 "a été entièrement détruite par la"
  MESSAGE_DESC_FOR_PLANET_KILLER_SHIELDER:0 "a été enveloppée d'un bouclier impénétrable par la"
  MESSAGE_DESC_FOR_PLANET_KILLER_NEUTRON:0 "a été purgée de toute forme de vie supérieure par la"
@@ -95,12 +95,12 @@
  apoc.130.a.weaker:0 "C'est pour le moins alarmant"
  apoc.130.a.stronger:0 "Nous avons donc des concurrents ?"
  apoc.130.a.pacif:0 "C'est une véritable abomination"
- 
-  ##     ###      ##      ###      ###       ##       ##     ###     #   #     ###     ###     #   # 
- #        #      #  #     #  #     #  #     #  #     #       #       #   #      #      #       #   # 
-  #       #      ####     ###      ###      ####      #      ##      #   #      #      ##      # # # 
-   #      #      #  #     #  #     #  #     #  #       #     #        # #       #      #       # # # 
- ##       #      #  #     #  #     ###      #  #     ##      ###       #       ###     ###      # #  
+
+  ##     ###      ##      ###      ###       ##       ##     ###     #   #     ###     ###     #   #
+ #        #      #  #     #  #     #  #     #  #     #       #       #   #      #      #       #   #
+  #       #      ####     ###      ###      ####      #      ##      #   #      #      ##      # # #
+   #      #      #  #     #  #     #  #     #  #       #     #        # #       #      #       # # #
+ ##       #      #  #     #  #     ###      #  #     ##      ###       #       ###     ###      # #
 
  STARBASE_STARBASE_TAB:0 "Base stellaire"
  STARBASE_DEFENSES_TAB:0 "Défenses"
@@ -197,10 +197,10 @@
  STARBASE_BUILDQUEUE_DOWN:0 "§GCliquer pour diminuer la priorité.\nShift + clic pour passer en pied de liste.§!"
  STARBASE_MODIFIER_EFFECTS:0 "Effets des modific."
 
-  ##       ##      ###     ###     #   #      ##      #   #      ## 
- #        #  #      #      #       #   #     #  #      # #      #   
- # ##     ####      #      ##      # # #     ####       #        #  
- #  #     #  #      #      #       # # #     #  #       #         # 
+  ##       ##      ###     ###     #   #      ##      #   #      ##
+ #        #  #      #      #       #   #     #  #      # #      #
+ # ##     ####      #      ##      # # #     ####       #        #
+ #  #     #  #      #      #       # # #     #  #       #         #
   ##      #  #      #      ###      # #      #  #       #       ##
 
  gateway_ruined:0 "Portail désactivé"
@@ -236,7 +236,7 @@
  requires_starhold:0 "§RNécessite une §Y$starbase_starhold$§!.§!"
  requires_starfortress:0 "§RNécessite une §Y$starbase_starfortress$§!.§!"
  requires_citadel:0 "§RNécessite une §Y$starbase_citadel$§!.§!"
- 
+
  requires_colonized_planet:0 "§RNécessite un monde colonisé ou une §Yenclave de Marchands§! dans le système.§!"
  requires_trade_planet:0 "§RNécessite une planète colonisée ou une §Yenclave de marchands§! dans le système.§!"
  requires_black_hole:0 "§RNécessite un §Ytrou noir§! dans le système.§!"
@@ -245,14 +245,14 @@
  requires_curator_agreement:0 "§RNécessite un §Yaccord diplomatique§! avec l'enclave de Conservateurs locale.§!"
  requires_artist_agreement:0 "§RNécessite un §Yaccord diplomatique§! avec l'enclave des Artisans locale.§!"
  requires_artisans:0 "§RNécessite une §Yenclave de la Troupe des Artisans§! dans le système.§!"
-  
+
  requires_technology_gateway_activation:0 "$TRIGGER_FAIL$ Nécessite la technologie £physics£ §Y$tech_gateway_activation$§!."
  requires_technology_gateway_construction:0 "$TRIGGER_FAIL$ Nécessite la technologie £physics£ §Y$tech_gateway_construction$§!."
 
  NAVY_SIZE_STARBASES_TITLE:0 "Du fait des bases stellaires"
  TECH_UNLOCK_STARBASE_MODULE:0 "§HModule de base stellaire§! $NAME$"
  TECH_UNLOCK_STARBASE_BUILDING:0 "§HConstruction de base stellaire§! $NAME$"
- 
+
  tech_ftl_inhibitor:0 "Inhibition PRL"
  tech_ftl_inhibitor_desc:1 "Les projecteurs de puits de gravité peuvent être utilisés pour créer des poches d'espace limitées, où l'entrée en hyperespace est impossible. L'énergie immense alors requise et la taille des projecteurs interdisent néanmoins leur usage sur n'importe quoi qui soit moins vaste qu'une base stellaire."
  ION_CANNON_CORE:0 "Coeur de canon ionique"
@@ -308,7 +308,7 @@
  INCREASE_FM:4 "$INCREASE_HEADER$\n§YCliquer§! §Gpour augmenter le nombre de vaisseaux de ce modèle utilisés par cette flotte.§!\n§YShift + clic§! §Gpour augmenter jusqu'à la prochaine dizaine.§!\n§YCtrl + clic§! §Gpour augmenter jusqu'au maximum possible.§!"
  REINFORCE_ALL_FM:0 "§HTout renforcer§!\n§GCliquer pour renforcer tous les modèles de flottes au maximum de leurs capacités.§!"
  ADD_DESIGN_FM:1 "§HAjouter un modèle de vaisseau à la flotte§!\n§GCliquer pour ajouter un nouveau modèle de vaisseau à cette flotte.§!"
- 
+
  FLEET_VIEW_OPEN_FLEET_MANAGER:1 "§HGestionnaire des flottes§!\n§GCliquer pour ouvrir le gestionnaire pour cette flotte.§!"
  FLEET_VIEW_DESIGN_UPGRADABLE:0 "Ce modèle peut être amélioré."
 
@@ -347,7 +347,7 @@
  uneasy_faith_desc:0 "La population est en partie consciente que la ferveur de sa foi n'est pas de son seul fait."
  neutron_bombarded:0 "Bombardement neutronique"
  neutron_bombarded_desc:0 "L'écosystème de ce monde est toujours en train de se rétablir des conséquences catastrophiques d'un balayage neutronique."
- 
+
  opinion_cracked_my_world:0 "A détruit notre monde"
  opinion_cracked_a_world:0 "A détruit un monde"
  opinion_swept_my_world:0 "A balayé notre monde"
@@ -364,7 +364,7 @@
  opinion_swept_a_primitive_world_phile:0 "$opinion_cracked_a_primitive_world_phile$"
  opinion_assimiliated_a_primitive_world:0 "A assimilé un monde primitif"
  opinion_assimiliated_a_primitive_world_phile:0 "$opinion_cracked_a_primitive_world_phile$"
- 
+
  NUM_HYPERLANES_TOOLTIP:0 "§HDensité des hyperlignes§!\nMultiplie le nombre habituel d'hyperlignes générées dans la galaxie."
  NUM_HYPERLANES:0 "Densité des hyperlignes"
 
@@ -629,7 +629,7 @@
 
  apoc.201.name:0 "Aucun monde sacré possible découvert"
  apoc.201.desc:0 "Nos meilleurs devins ont remis leur rapport, établissant qu'aucun noeud spirituel n'avait pu être découvert parmi les mondes relevant de l'empire."
- apoc.201.a.tooltip:0 "Le coût en £influence£influence£ du décret nous est remboursé."
+ apoc.201.a.tooltip:0 "Le coût en £influence£ du décret nous est remboursé."
 
  holy_player_planet:1 "Monde consacré"
  holy_player_planet_desc:0 "Ce monde n'est souillé par aucune vie intelligente et considéré comme sacré."
@@ -678,7 +678,7 @@
  irassian_minerals_desc:0 "Autrefois l'un des ports d'attache majeurs de la flotte stellaire irassienne, les chantiers navals parsemant l'orbite de ce monde ont déposé un véritable gisement de ressources minérales à sa surface."
  irassian_energy:0 "Site de production énergétique"
  irassian_energy_desc:0 "Cette géante gazeuse était autrefois un site de production énergétique, remontant aux premières phases de l'expansion interstellaire du Pacte irassien. Une ceinture resserrée d'antiques stations de production énergétique entoure toujours cette planète."
- 
+
  ARMIES_LOST:0 "Lassitude de guerre due aux armées perdues"
  ARMIES_LOST_LONG:0 "$ATTR|R$ du fait de $ARMIES|R$ armées perdues"
  SHIPS_LOST:0 "Lassitude de guerre due aux vaisseaux perdus"
@@ -689,7 +689,7 @@
  WAROVERVIEW_BATTLE_THEIR_ARMIES_LOST:0 "$NUM|G$ armées perdues"
  OCCUPATION_SUMMARY:0 "Occupation"
  OCCUPATION_SUMMARY_LONG:0 "Occupation $ATTR|R$ du fait de $SYSTEMS|R$ systèmes et $PLANETS|R$ mondes occupés"
- 
+
  FLEET_TEMPLATE_COMMAND_MAX_MULTIPLE:0 "Ajouter $NUM|Y$ vaisseaux ferait dépasser la limite de limite de commandement de la flotte."
  FLEET_TEMPLATE_COMMAND_MIN_MULTIPLE:0 "Impossible de retirer $NUM|Y$ vaisseaux du modèle de flotte."
 

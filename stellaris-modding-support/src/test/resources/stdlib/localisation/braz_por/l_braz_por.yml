@@ -849,7 +849,7 @@
  POP_FACTIONS_INFLUENCE_MULT:0 "Multiplicado por $VALUE|Y$ devido ao nível de §HApoio§! da facção."
  LOYALIST_FACTION_DESC:0 "A facção Legalista é a principal facção do nosso Império. Pops Leais estão satisfeitos com o status quo, e não buscarão mudanças radicais."
  FROM_FACTION:0 "Felicidade da Facção: $VALUE|0%Y$"
- APPROVAL_OF_FACTION:0 "£mod_faction_approval  $VALUE$"
+ APPROVAL_OF_FACTION:0 "£mod_faction_approval£ $VALUE$"
  POP_FACTIONS_ATTRACTION_TITLE:0 "Atração"
  POP_FACTIONS_INFLUENCE:2 "Atualmente estamos ganhando $VALUE$ do nível de §HApoio§! e §HAprovação§! desta facção a cada mês."
  POP_FACTIONS_APPROVAL_TITLE:1 "$APPROVAL$"
@@ -11679,7 +11679,7 @@
 
  lesser_space_cloud:0 "$space_cloud$"
  lesser_space_cloud_plural:0 "$space_cloud_plural$"
- 
+
 
 # === [LocEditor:OrphanedKeys] Keys that do not exist in English ===
  ACHIEVEMENT_TOOLTIP:0 "Requer Modo Homem de Ferro"

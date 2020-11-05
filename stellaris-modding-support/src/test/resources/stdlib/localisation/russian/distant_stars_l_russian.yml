@@ -1,7 +1,7 @@
 ﻿l_russian:
 
  aianom.0.name:0 "Информация об отладке аномалий ИИ"
- aianom.0.desc:0 "§H[Root.GetName]§! дает:\n\n£minerals£ (единовременная сумма) §Y[Root.GetT1LumpMinerals]§! уровня 1, §Y[Root.GetT2LumpMinerals]§! уровня 2, §Y[Root.GetT3LumpMinerals]§! уровня 3, §Y[Root.GetT4LumpMinerals]§! уровня 4.\n£energy£ (единовременная сумма) §Y[Root.GetT1LumpEnergy]§! уровня 1, §Y[Root.GetT2LumpEnergy]§! уровня 2, §Y[Root.GetT3LumpEnergy]§! уровня 3, §Y[Root.GetT4LumpEnergy]§! уровня 4.\n£physics£ (единовременная сумма) §Y[Root.GetT1LumpPhysics]§! уровня 1, §Y[Root.GetT2LumpPhysics]§! уровня 2, §Y[Root.GetT3LumpPhysics]§! уровня 3, §Y[Root.GetT4LumpPhysics]§! уровня 4.\n£society (единовременная сумма) §Y[Root.GetT1LumpSociety]§! уровня 1, §Y[Root.GetT2LumpSociety]§! уровня 2, §Y[Root.GetT3LumpSociety]§! уровня 3, §Y[Root.GetT4LumpSociety]§! уровня 4.\n£engineering (единовременная сумма) §Y[Root.GetT1LumpEngineering]§! уровня 1, §Y[Root.GetT2LumpEngineering]§! уровня 2, §Y[Root.GetT3LumpEngineering]§! уровня 3, §Y[Root.GetT4LumpEngineering]§! уровня 4.\n\n£minerals£ (депозит) §Y[Root.GetT1DepMinerals]§! уровня 1, §Y[Root.GetT2DepMinerals]§! уровня 2, §Y[Root.GetT3DepMinerals]§! уровня 3, §Y[Root.GetT4DepMinerals]§! уровня 4.\n£energy£ (депозит) §Y[Root.GetT1DepEnergy]§! уровня 1, §Y[Root.GetT2DepEnergy]§! уровня 2, §Y[Root.GetT3DepEnergy]§! уровня 3, §Y[Root.GetT4DepEnergy]§! уровня 4.\n£physics£ (депозит) §Y[Root.GetT1DepPhysics]§! уровня 1, §Y[Root.GetT2DepPhysics]§! уровня 2, §Y[Root.GetT3DepPhysics]§! уровня 3, §Y[Root.GetT4DepPhysics]§! уровня 4.\n£society (депозит) §Y[Root.GetT1DepSociety]§! уровня 1, §Y[Root.GetT2DepSociety]§! уровня 2, §Y[Root.GetT3DepSociety]§! уровня 3, §Y[Root.GetT4DepSociety]§! уровня 4.\n£engineering (депозит) §Y[Root.GetT1DepEngineering]§! уровня 1, §Y[Root.GetT2DepEngineering]§! уровня 2, §Y[Root.GetT3DepEngineering]§! уровня 3, §Y[Root.GetT4DepEngineering]§! уровня 4."
+ aianom.0.desc:0 "§H[Root.GetName]§! дает:\n\n£minerals£ (единовременная сумма) §Y[Root.GetT1LumpMinerals]§! уровня 1, §Y[Root.GetT2LumpMinerals]§! уровня 2, §Y[Root.GetT3LumpMinerals]§! уровня 3, §Y[Root.GetT4LumpMinerals]§! уровня 4.\n£energy£ (единовременная сумма) §Y[Root.GetT1LumpEnergy]§! уровня 1, §Y[Root.GetT2LumpEnergy]§! уровня 2, §Y[Root.GetT3LumpEnergy]§! уровня 3, §Y[Root.GetT4LumpEnergy]§! уровня 4.\n£physics£ (единовременная сумма) §Y[Root.GetT1LumpPhysics]§! уровня 1, §Y[Root.GetT2LumpPhysics]§! уровня 2, §Y[Root.GetT3LumpPhysics]§! уровня 3, §Y[Root.GetT4LumpPhysics]§! уровня 4.\n£society£ (единовременная сумма) §Y[Root.GetT1LumpSociety]§! уровня 1, §Y[Root.GetT2LumpSociety]§! уровня 2, §Y[Root.GetT3LumpSociety]§! уровня 3, §Y[Root.GetT4LumpSociety]§! уровня 4.\n£engineering£ (единовременная сумма) §Y[Root.GetT1LumpEngineering]§! уровня 1, §Y[Root.GetT2LumpEngineering]§! уровня 2, §Y[Root.GetT3LumpEngineering]§! уровня 3, §Y[Root.GetT4LumpEngineering]§! уровня 4.\n\n£minerals£ (депозит) §Y[Root.GetT1DepMinerals]§! уровня 1, §Y[Root.GetT2DepMinerals]§! уровня 2, §Y[Root.GetT3DepMinerals]§! уровня 3, §Y[Root.GetT4DepMinerals]§! уровня 4.\n£energy£ (депозит) §Y[Root.GetT1DepEnergy]§! уровня 1, §Y[Root.GetT2DepEnergy]§! уровня 2, §Y[Root.GetT3DepEnergy]§! уровня 3, §Y[Root.GetT4DepEnergy]§! уровня 4.\n£physics£ (депозит) §Y[Root.GetT1DepPhysics]§! уровня 1, §Y[Root.GetT2DepPhysics]§! уровня 2, §Y[Root.GetT3DepPhysics]§! уровня 3, §Y[Root.GetT4DepPhysics]§! уровня 4.\n£society£ (депозит) §Y[Root.GetT1DepSociety]§! уровня 1, §Y[Root.GetT2DepSociety]§! уровня 2, §Y[Root.GetT3DepSociety]§! уровня 3, §Y[Root.GetT4DepSociety]§! уровня 4.\n£engineering£ (депозит) §Y[Root.GetT1DepEngineering]§! уровня 1, §Y[Root.GetT2DepEngineering]§! уровня 2, §Y[Root.GetT3DepEngineering]§! уровня 3, §Y[Root.GetT4DepEngineering]§! уровня 4."
 
  AIANOM_LUMP_CAT:0 "Обломки на орбите"
  AIANOM_LUMP_CAT_desc:0 "Датчики регистрируют потенциально интересные объекты на орбите планеты [Root.GetName]."
@@ -413,7 +413,7 @@
  distar.137.desc:0 "Когда-то внушительный корпус Мусорщика превратился в обугленные останки искрящихся механизмов и текущих топливопроводов. Когда наши потрепанные боевые корабли делают завершающий заход на ослабевшего робота, он в последний раз пытается задействовать свой гипердвигатель.\n\nК несчастью для робота, урон, нанесенный его основным системам, оказывается слишком серьезным. Его оголившееся ядро испускает обжигающий бело-голубой свет, когда его двигатели запускаются, а затем глохнут, после чего свечение становится все более жарким и интенсивным, пока несколько проломов в ядре не разрывают конструкцию на части.\n\nОборванного правителя системы [From.From.From.GetStarName] больше нет."
  distar.137.a:0 "Проанализировать его останки."
  distar.137.paci:0 "Победа с привкусом горечи. Посмотрим, что можно узнать из останков."
- distar.137.tooltip:0 "Вы получаете две технологии из следующего списка:\n £engineering §Y$tech_ship_armor_5$§!\n £physics£ §Y$tech_shields_5$§!\n £engineering §Y$tech_mass_drivers_5$§!\n £engineering §Y$tech_missiles_5$§!\n £physics£ §Y$tech_lasers_5$§!"
+ distar.137.tooltip:0 "Вы получаете две технологии из следующего списка:\n £engineering£ §Y$tech_ship_armor_5$§!\n £physics£ §Y$tech_shields_5$§!\n £engineering£ §Y$tech_mass_drivers_5$§!\n £engineering£ §Y$tech_missiles_5$§!\n £physics£ §Y$tech_lasers_5$§!"
 
  distar.140.name:0 "Космический алмаз"
  distar.140.desc:0 "Хотя на первый взгляд [From.GetName] кажется обычным белым карликом, эта звезда хранит один интригующий секрет. При изучении пульсаций звезды экипажу корабля [Root.GetName] удалось узнать, что она почти полностью состоит из кристаллизованного углерода. Эта огромная кристаллическая решетка, похоже, образовалась при охлаждении звезды в результате соединения газов в ее ядре, а со временем вышла наружу. [From.GetName] — это алмаз космических размеров, поблескивающий за белой дымкой из кислорода и гелия."
@@ -634,7 +634,7 @@
  distar.262.desc:0 "Теперь, когда мы колонизировали планету [From.GetName], нужно решить, что делать с предразумными грибовидными на поверхности.\n\nВ обычных обстоятельствах нашей политики, касающейся предразумных существ, было бы достаточно, чтобы разобраться с их присутствием в нашей новой колонии. Однако представители расы [livestock_species.GetName] действительно выглядят аппетитно. Благодаря их невероятной покорности, должно быть, будет сравнительно легко загнать их в комплекс переработки..."
  distar.262.a:0 "Заманчиво. Но мы будем придерживаться своей политики."
  distar.262.b:0 "Наши граждане должны быть накормлены!"
- distar.262.b.tooltip:0 "Загнать популяцию расы [livestock_species.GetName] на планете [From.GetName] во всепланетный £building §Y$building_livestock_processing_center$§! (производит: £food£ §Y12§!)."
+ distar.262.b.tooltip:0 "Загнать популяцию расы [livestock_species.GetName] на планете [From.GetName] во всепланетный £building£ §Y$building_livestock_processing_center$§! (производит: £food£ §Y12§!)."
  distar.262.b.tooltip.2:0 "Загнать популяцию расы [livestock_species.GetName] на планете [From.GetName] во всепланетные загоны для переработки (производят: £food£ §Y14§!)."
 
  distar.265.name:0 "Сонифицированная наука"
@@ -1403,7 +1403,7 @@
  SUPERFLARE_PROJECT_DESC:0 "Датчики на планете [Root.GetName] показывают, что на звезде [From.GetStarName] скоро произойдет очередная сверхвспышка, подобная той, что уничтожила древнюю цивилизацию на планете [From.From.GetName]. Нужно найти способ защитить нашу колонию до возникновения вспышки."
 
  PRIMITIVE_ROBOT_PROJECT:0 "Пропавшие создатели"
- PRIMITIVE_ROBOT_PROJECT_DESC:0 "Исследователи сбиты с толку необъяснимым исчезновением предыдущей цивилизации с планеты [From.GetName]. Чтобы попытаться пролить свет на эту тайну, они предлагают провести более интенсивный анализ аппаратного обеспечения оставшихся на планете древних роботов.\n\nНаграда: £society §GСоциологические исследования§!"
+ PRIMITIVE_ROBOT_PROJECT_DESC:0 "Исследователи сбиты с толку необъяснимым исчезновением предыдущей цивилизации с планеты [From.GetName]. Чтобы попытаться пролить свет на эту тайну, они предлагают провести более интенсивный анализ аппаратного обеспечения оставшихся на планете древних роботов.\n\nНаграда: £society£ §GСоциологические исследования§!"
 
  RETROVIRUS_PROJECT:0 "Неуравновешенное поведение на планете"
  RETROVIRUS_PROJECT_DESC:0 "Эпидемия необъяснимого гражданского неповиновения пронеслась по планете [From.GetName]. Колонисты демонстрируют странное неуравновешенное поведение, которому обычно предшествует общая растерянность, со временем переходящая в крайнюю взволнованность и агрессию. Мы должны понять причину такого поведения, пока ситуация не вышла из-под контроля."
@@ -1514,7 +1514,7 @@
  distar.3010.desc:1 "Удивительные данные о наличии жизни на планете [impossible_organism_planet.GetName] приписывают маленькому организму с чрезвычайно высокой живучестью. Экипаж корабля [Root.GetName] не уверен, как классифицировать эту форму жизни, но ее способность выживать, вроде бы без всякого пропитания, поистине поразительна. С учетом возраста планеты, вполне возможно, что этот организм противодействовал токсичности своей среды обитания в течение тысячелетий, хотя это не более чем обоснованное предположение.\n\nВедущий ученый [Root.GetLeaderName] просит разрешения взять образцы этого неизвестного организма для изучения."
  distar.3010.a:0 "Хорошо, возьмите образцы."
  distar.3010.b:0 "Нет. Изучайте его издалека."
- distar.3010.b.tooltip:0 "[From.GetName] получает модификатор §YНевозможный организм§!:\n£society §G+3§!"
+ distar.3010.b.tooltip:0 "[From.GetName] получает модификатор §YНевозможный организм§!:\n£society£ §G+3§!"
  distar.3011.desc:0 "Изучение таинственной формы жизни идет хорошо. Научное сообщество поражено ее потенциалом развития. Она уже видна невооруженным глазом, реагирует на раздражители и, по-видимому, способна поглощать энергию и питание практически из всего, будь то органика или нет.\n\nУвы, но ее генетические, клеточные и биохимические процессы до сих пор недоступны нашему пониманию."
  distar.3011.a:1 "Мы должны продолжить изучение"
  distar.3011.a.phobe:0 "Отвратительно! Надо бы потыкать палочкой..."
@@ -2217,13 +2217,13 @@
  MOD_PLANET_HYPERLANE_RANGE_ADD:0 "Дальность обнаружения гиперкоридоров планетами"
  MOD_SHIP_HYPERLANE_RANGE_ADD:0 "Дальность обнаружения гиперкоридоров кораблями"
 
- liquidated_7:0 "Потраченные §Y$clues$: 7§!\n £engineering Инженерные исследования: §G+3500§!\n £energy£ Энергокредиты: §G+3500§!"
- liquidated_6:0 "Потраченные §Y$clues$: 6§!\n£engineering Инженерные исследования: §G+3000§!\n£energy£ Энергокредиты: §G+3000§!"
- liquidated_5:0 "Потраченные §Y$clues$: 5§!\n £engineering Инженерные исследования: §G+2500§!\n £energy£ Энергокредиты: §G+2500§!"
- liquidated_4:0 "Потраченные §Y$clues$: 4§!\n £engineering Инженерные исследования: §G+2000§!\n £energy£ Энергокредиты: §G+2000§!"
- liquidated_3:0 "Потраченные §Y$clues$: 3§!\n £engineering Инженерные исследования: §G+1500§!\n £energy£ Энергокредиты: §G+1500§!"
- liquidated_2:0 "Потраченные §Y$clues$: 2§!\n £engineering Инженерные исследования: §G+1000§!\n £energy£ Энергокредиты: §G+1000§!"
- liquidated_1:0 "Потраченное §Y$clue$: 1§!\n £engineering Инженерные исследования: §G+500§!\n £energy£ Энергокредиты: §G+500§!"
+ liquidated_7:0 "Потраченные §Y$clues$: 7§!\n £engineering£ Инженерные исследования: §G+3500§!\n £energy£ Энергокредиты: §G+3500§!"
+ liquidated_6:0 "Потраченные §Y$clues$: 6§!\n£engineering£ Инженерные исследования: §G+3000§!\n£energy£ Энергокредиты: §G+3000§!"
+ liquidated_5:0 "Потраченные §Y$clues$: 5§!\n £engineering£ Инженерные исследования: §G+2500§!\n £energy£ Энергокредиты: §G+2500§!"
+ liquidated_4:0 "Потраченные §Y$clues$: 4§!\n £engineering£ Инженерные исследования: §G+2000§!\n £energy£ Энергокредиты: §G+2000§!"
+ liquidated_3:0 "Потраченные §Y$clues$: 3§!\n £engineering£ Инженерные исследования: §G+1500§!\n £energy£ Энергокредиты: §G+1500§!"
+ liquidated_2:0 "Потраченные §Y$clues$: 2§!\n £engineering£ Инженерные исследования: §G+1000§!\n £energy£ Энергокредиты: §G+1000§!"
+ liquidated_1:0 "Потраченное §Y$clue$: 1§!\n £engineering£ Инженерные исследования: §G+500§!\n £energy£ Энергокредиты: §G+500§!"
  liquidated_0:0 "Мы прекратили искать §Y$clues$§!"
  NO_SHIP_TO_UPGRADE:0 "Нет объекта для улучшения"
  CANT_AFFORD_UPGRADE:0 "Нечем оплатить стоимость $COST|R$"

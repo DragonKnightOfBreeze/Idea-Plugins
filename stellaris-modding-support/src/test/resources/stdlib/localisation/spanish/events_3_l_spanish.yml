@@ -1,5 +1,5 @@
 ﻿l_spanish:
- 
+
  ####################################
  # Anomaly Categories
  ####################################
@@ -49,7 +49,7 @@
  NUKE_PLANET_DESC:0 "El páramo nuclear es, evidentemente, signo de una civilización anterior. Nuestros escáneres recogen actividad en ciertos lugares que deberíamos investigar."
  ARID_PLANET_CAT:0 "Yermos áridos"
  ARID_PLANET_DESC:0 "El [From.GetPlanetMoon] no es muy acogedor que digamos, pero a juzgar por nuestros escáneres iniciales, podría tener algunos recursos valiosos."
- 
+
  ####################################
  # Anomaly Events
  ####################################
@@ -149,7 +149,7 @@
  anomaly.4055.a.tooltip:0 "Gana un nuevo líder científico.\n\n$anomaly.4055.base.tooltip$"
  anomaly.4055.b:0 "Que sigan trabajando en el [Root.GetName]"
  anomaly.4055.b.tooltip:2 "\n$anomaly.4055.base.tooltip$"
- anomaly.4055.base.tooltip:2 "Añade recursos a [From.From.GetName]:\n£minerales  §G+6§!"
+ anomaly.4055.base.tooltip:2 "Añade recursos a [From.From.GetName]:\n£minerales£ §G+6§!"
  anomaly.4060.name:0 "El enigma de probabilidad"
  anomaly.4060.desc:0 "Hemos recibido un informe del oficial científico [Root.GetLeaderName]. Parece que un... §Yrecipiente de cerámica§! circunda la estrella [From.GetName]. Muy peculiar.\nObviamente no debería estar allí, pero de algún modo ha logrado entrar en una órbita cercana.\nPodemos preparar un §Sproyecto especial§! para investigar el recipiente y cómo llegó allí."
  anomaly.4060.a:0 "Un enigma que merece investigarse."
@@ -416,7 +416,7 @@
  anomaly_failure.4170.b.tooltip:0 "$anomaly_failure.4170.base.tooltip$ y mata a §R1§! poblaciones"
  anomaly_failure.4170.c.tooltip:0 "$anomaly_failure.4170.base.tooltip$ y mata a §R2§! poblaciones"
  anomaly_failure.4170.d.tooltip:0 "$anomaly_failure.4170.base.tooltip$ y mata a §R3§! poblaciones"
- 
+
  ####################################
  # Colony Events
  ####################################

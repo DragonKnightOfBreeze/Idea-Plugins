@@ -849,7 +849,7 @@
  POP_FACTIONS_INFLUENCE_MULT:0 "Умножается на $VALUE|Y$ в связи с уровнем §Hподдержки§! и §Hодобрения§! фракции."
  LOYALIST_FACTION_DESC:1 "Фракция лоялистов является главной в нашем государстве. Лояльные поселения удовлетворены существующим положением вещей и не стремятся к радикальным переменам."
  FROM_FACTION:0 "Одобрение фракции: $VALUE|0%Y$"
- APPROVAL_OF_FACTION:0 "£mod_faction_approval $VALUE$"
+ APPROVAL_OF_FACTION:0 "£mod_faction_approval£ $VALUE$"
  POP_FACTIONS_ATTRACTION_TITLE:0 "Привлекательность"
  POP_FACTIONS_INFLUENCE:2 "Мы сейчас каждый месяц получаем $VALUE$ за уровень §Hподдержки§! и §Hодобрения§! этой фракции."
  POP_FACTIONS_APPROVAL_TITLE:1 "$APPROVAL$"
@@ -6089,7 +6089,7 @@
  slavery_normal_tooltip:1 "§HРабы-крепостные§! имеют повышенную производительность труда, но не могут быть заняты в таких категориях, как §Y$pop_cat_ruler$§! или §Y$pop_cat_specialist$§!."
  slavery_normal_tooltip_delayed:0 "§LРабы-крепостные — это самая распространенная форма рабства в галактике. Будь это на всю жизнь или на какое-то время, неограниченный доступ к результатам чужого труда в одних местах рассматривается как привилегия с многочисленными встречными обязанностями, а в других считается самоочевидной предпосылкой жизнеспособного общества.§!"
  slavery_domestic:0 "Домашняя прислуга"
- slavery_domestic_tooltip:1 "§HДомашняя прислуга§!, которая не имеет другой работы, относится к категории слуг, повышая £amenities£ $PLANET_AMENITIES_TITLE$. Им недоступна такая деятельность, как £pop_cat_ruler£ §Y$pop_cat_ruler$§! или £pop_cat_specialist£ §Y$pop_cat_specialist$§!, за одним исключением — £job_entertainer §Y$job_entertainer_plural$§!."
+ slavery_domestic_tooltip:1 "§HДомашняя прислуга§!, которая не имеет другой работы, относится к категории слуг, повышая £amenities£ $PLANET_AMENITIES_TITLE$. Им недоступна такая деятельность, как £pop_cat_ruler£ §Y$pop_cat_ruler$§! или £pop_cat_specialist£ §Y$pop_cat_specialist$§!, за одним исключением — £job_entertainer£ §Y$job_entertainer_plural$§!."
  slavery_domestic_tooltip_delayed:1 "§LДомашняя прислуга тратит большую часть своего времени на удовлетворение потребностей свободных поселений: часть из них прикреплены к отдельным жилищам, а другие — к общественным местам. Как правило, они живут у своих хозяев, так что практически не нуждаются в выделении жилья.§!"
  slavery_military:0 "Воины-невольники"
  slavery_military_tooltip:1 "§HВоинам-невольникам§! не свойственна увеличенная производительность труда, но они становятся превосходными солдатами в местных §Hармиях§!."
@@ -11679,4 +11679,4 @@
 
  lesser_space_cloud:0 "$space_cloud$"
  lesser_space_cloud_plural:0 "$space_cloud_plural$"
- 
+

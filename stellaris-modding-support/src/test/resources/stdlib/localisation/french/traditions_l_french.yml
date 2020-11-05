@@ -5,7 +5,7 @@
  UNITY:0 "Unité"
  UNITY_DESC:0 "L'unité est la ressource utilisée pour débloquer des $TRADITIONS$. Elle est générée chaque mois, selon les bâtiments et l'union qui règne au sein de l'empire."
  TRADITIONS:0 "Traditions"
- TRADITIONS_DESC:0 "Les traditions sont des avantages répartis entre diverses branches. Chacune de ces traditions peut être débloquée dès que l'empire a emmagasiné une quantité suffisante d'£unity unité. De nombreux facteurs, tels qu'un nombre important de planètes ou les désaccords éthiques au sein de la population, augmentent le coût nécessaire à l'adoption d'une nouvelle tradition."
+ TRADITIONS_DESC:0 "Les traditions sont des avantages répartis entre diverses branches. Chacune de ces traditions peut être débloquée dès que l'empire a emmagasiné une quantité suffisante d'£unity£ unité. De nombreux facteurs, tels qu'un nombre important de planètes ou les désaccords éthiques au sein de la population, augmentent le coût nécessaire à l'adoption d'une nouvelle tradition."
  TRADITIONS_PROGRESS:0 "Avancées dans les traditions de $KEY$"
  TRADITIONS_PROGRESS_TITLE:0 "Avancées"
  TRADITIONS_PROGRESS_DESC:0 "Il nous faut encore $MISSING|Y$£unity£ avant de pouvoir adopter une nouvelle tradition. Au taux actuel, cela devrait être possible aux alentours du $DATE|Y$."

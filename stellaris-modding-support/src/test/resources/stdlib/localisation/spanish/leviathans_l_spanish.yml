@@ -3,7 +3,7 @@
  ######
  ### GUARDIANS & ENCLAVES (LEVIATHANS)
  ######
- 
+
  station_xs:0 "Centinela antiguo"
  station_xs_plural:0 "Centinelas antiguos"
  station_s:0 "Defensor antiguo"
@@ -74,15 +74,15 @@
  opinion20:0 "Opinión: £opinion£ §G+20§!"
  opinion25:0 "Opinión: £opinion£ §G+25§!"
  opinion-20:0 "Opinión: £opinion£ §R-20§!"
- 
+
  leviathans.102.name:0 "Primer contacto con el [From.GetName]"
  leviathans.102a.desc:2 "Bienvenidos a XuraCorp.\n\nSomos un conglomerado de empresas del sistema [trader_system.GetName] especializado en comercio, los mismísimos ladrillos fundacionales de la civilización, como nos gusta decir en XuraCorp.\n\nPor favor, no dudéis en poneros en contacto con nosotros si os interesa hacer un buen trato."
  leviathans.102b.desc:2 "Hablo en nombre de la Bolsa de Comercio Riggan. Llevamos más de mil de vuestros años facilitando las negociaciones comerciales entre partes interesadas, aquí en nuestra estación, en el sistema [trader_system.GetName].\n\nSi tenéis más recursos de los que necesitáis, estamos más que dispuestos a arrebatároslos. Os compensaremos como es debido, por supuesto."
  leviathans.102c.desc:2 "Bienhallados, amigos. Represento al Gremio de Comerciantes Muutagan. Dejad que sea la primera persona en daros la bienvenida al sistema [trader_system.GetName]. Nuestra organización se compone de cientos de capitanes mercaderes muutagans independientes que recorren el espacio en busca de la siguiente oportunidad de negocio.\n\nEn nuestras instalaciones, podréis cambiar algunos de los recursos que no necesitéis. Si os interesa un trato así, avisadnos."
- 
+
  leviathans.100.a:0 "Queremos hacer un trato."
  leviathans.100.b:0 "Apagad la pantalla."
- 
+
  leviathans.100.name:0 "XuraCorp"
  leviathans.100a.desc:0 "En XuraCorp no discriminamos a los posibles compradores. ¿Quiénes somos nosotros para juzgar la moral de vuestra nación estelar?"
  leviathans.100b.desc:0 "A lo mejor necesitáis minerales para construir naves de guerra. U orfanatos, tal vez. Aquí en XuraCorp, nuestro negocio consiste en no preguntar."
@@ -90,7 +90,7 @@
  leviathans.100d.desc:0 "No hacemos devoluciones. Política de la compañía, no depende de mí."
  leviathans.100e.desc:0 "¿Os interesan algunos minerales? ¿No? ¿Y energía?"
  leviathans.100f.desc:0 "Esto es XuraCorp. ¿En qué podemos ayudaros?"
- 
+
  leviathans.103.name:0 "Bolsa de Comercio Riggan"
  leviathans.103a.desc:0 "Los clientes quedan en el anonimato."
  leviathans.103b.desc:0 "¿De dónde salen nuestros recursos? Creedme... es mejor para todos, incluido el [Root.GetName], que no revelemos esa información..."
@@ -98,7 +98,7 @@
  leviathans.103d.desc:0 "La Bolsa de Comercio Riggan os saluda."
  leviathans.103e.desc:0 "Llevamos mil años en el negocio. Si eso no habla de bien nuestra credibilidad, no sé qué más podría hacerlo."
  leviathans.103f.desc:0 "En nuestra base estelar, varios grupos han expresado su interés en negociar con los [Root.GetName]. ¿Hablamos de negocios?"
- 
+
  leviathans.104.name:0 "Gremio de Comerciantes Muutagan"
  leviathans.104a.desc:0 "Hace miles de años, el Imperio muutagan abarcaba gran parte de la galaxia. Solo quedamos nosotros."
  leviathans.104b.desc:0 "Dicen que un muutagan puede oler un buen trato a doce pársecs de distancia. Eso es una exageración... en verdad, es solo a ocho pársecs."
@@ -106,7 +106,7 @@
  leviathans.104d.desc:0 "Un muutagan y un rixidaran entran en un bar... Da igual, no es apropiado contar un chiste ahora. Perdón."
  leviathans.104e.desc:0 "Saludos, [Root.GetSpeciesNamePlural]. Venís a negociar con nosotros, ¿no?"
  leviathans.104f.desc:0 "Mi pueblo considera que "descuento" es una palabrota muy fea. Tenedlo en cuenta cuando converséis con nosotros."
- 
+
  leviathans.105.a:0 "Nos gustaría intercambiar £minerals£ §Yminerales§!."
  leviathans.105.b:0 "Nos gustaría intercambiar £energy£ §Ycréditos de energía§!."
  leviathans.105.f:0 "Nos gustaría intercambiar £food£ §Yalimentos§!."
@@ -116,7 +116,7 @@
  leviathans.105.c.sr3:0 "Ya tenemos un §YAcuerdo comercial muutagan§!\n"
  leviathans.105.c.trust:0 "Requiere que el §YEnclave de comerciantes§! tenga:\n£opinion£ Opinión +50\n"
  leviathans.105.d:0 "Nada por ahora. Adiós."
- 
+
  leviathans.110.desc:1 "Cambiamos minerales por créditos de energía o alimentos a razón de uno por dos. Estos son los tratos actuales."
  leviathans.110.a:1 "£minerals£ §G10§! por £energy£ §R20§! al mes"
  leviathans.110.b:1 "£minerals£ §G25§! por £energy£ §R50§! al mes"
@@ -129,7 +129,7 @@
  leviathans.110.c.reply:0 "Estáis derrochadores. Parece que hoy cerraremos pronto."
  leviathans.110.d:0 "Nos interesaba otra cosa..."
  leviathans.110.e:0 "No hay trato."
- 
+
  leviathans.120.desc:1 "Cambiamos créditos de energía por minerales o alimentos a razón de uno por dos. Estos son los tratos actuales."
  leviathans.120.a:1 "£energy£ §G10§! por £minerals£ §R20§! al mes"
  leviathans.120.b:1 "£energy£ §G25§! por £minerals£ §R50§! al mes"
@@ -140,7 +140,7 @@
  leviathans.120.a.reply:0 "Aquí tenéis los créditos. Ya hemos dispuesto el traspaso de minerales."
  leviathans.120.b.reply:0 "Excelente. Avisadnos si queréis desprenderos de más minerales en el futuro."
  leviathans.120.c.reply:0 "¡Ojalá todos nuestros clientes negociaran así! Ya os estamos transfiriendo los créditos."
- 
+
  leviathans.125.desc:0 "Cambiamos alimentos por minerales o créditos de energía a razón de uno por dos. Estos son los tratos actuales."
  leviathans.125.minerals.a:0 "£food£ §G10§! por £minerals£ §R20§! al mes"
  leviathans.125.minerals.b:0 "£food£ §G25§! por £minerals£ §R50§! al mes"
@@ -166,7 +166,7 @@
 
  leviathans.141:0 "[From.GetName] destruido"
  leviathans.141.desc:0 "Las naves de nuestra flota han destruido la sede de [From.GetName], y se está intentando recuperar todo lo posible de los restos destrozados de su base estelar. Hemos obtenido una gran cantidad de recursos."
- 
+
  leviathans.142.a.desc:0 "$leviathans.142.desc.first$ $leviathans.142.desc.known$ $leviathans.142.desc.second$"
  leviathans.142.b.desc:0 "$leviathans.142.desc.first$ $leviathans.142.desc.unknown$ $leviathans.142.desc.second$"
  leviathans.142.c.desc:0 "$leviathans.142.desc.first$ $leviathans.142.desc.known$ $leviathans.142.desc.second$\n\n$leviathans.142.desc.trade$"
@@ -178,7 +178,7 @@
  leviathans.142.desc.trade:1 "Por desgracia, todas las instalaciones de producción de gas exótico fueron destruidas con la sede de XuraCorp, y ya no podemos acceder a este canal de recurso estratégico."
  leviathans.142.a:0 "Un golpe al libre comercio."
  leviathans.142.b:1 "¡Pagamos muchos créditos por el gas!"
- 
+
  leviathans.143.a.desc:0 "$leviathans.143.desc.first$ $leviathans.143.desc.known$"
  leviathans.143.b.desc:0 "$leviathans.143.desc.first$ $leviathans.143.desc.unknown$"
  leviathans.143.c.desc:0 "$leviathans.143.desc.first$ $leviathans.143.desc.known$\n\n$leviathans.143.desc.trade$"
@@ -189,7 +189,7 @@
  leviathans.143.desc.trade:1 "Por desgracia, esto ha eliminado una fuente de motas volátiles. Ya no podemos acceder a este canal de recurso estratégico."
  leviathans.143.a:0 "Una consecuencia alarmante."
  leviathans.143.b:0 "¡Habíamos pagado por esa especia!"
- 
+
  leviathans.144.a.desc:0 "$leviathans.144.desc.first$ $leviathans.144.desc.known$ $leviathans.144.desc.second$"
  leviathans.144.b.desc:0 "$leviathans.144.desc.first$ $leviathans.144.desc.unknown$ $leviathans.144.desc.second$"
  leviathans.144.c.desc:0 "$leviathans.144.desc.first$ $leviathans.144.desc.known$ $leviathans.144.desc.second$\n\n$leviathans.144.desc.trade$"
@@ -201,7 +201,7 @@
  leviathans.144.desc.trade:2 "Esto supone el fin de la producción de los cristales raros valiosos. Ya no podemos acceder a este canal de recurso estratégico."
  leviathans.144.a:0 "Una grave disrupción del comercio."
  leviathans.144.b:0 "¡Nuestros cristales! ¡Esto no quedará así!"
- 
+
  leviathans.150.desc:1 "Querido cliente, lamentamos informarte de que el acuerdo comercial que negociamos para la exportación del gas exótico a los mundos de [Root.GetName] ha terminado. Estamos dispuestos a ampliar el acuerdo otros diez años si tienes los créditos energéticos necesarios."
  leviathans.150.a:0 "Está bien. Deseamos ampliar el acuerdo."
  leviathans.150.b:1 "Nos las apañaremos solos por ahora."
@@ -212,7 +212,7 @@
  leviathans.152.desc:1 "El tiempo vuela, ¿verdad, [Root.GetSpeciesName]? Ya han pasado diez años desde que iniciamos nuestro acuerdo comercial de cristales raros. ¿Deseas ampliar el acuerdo otra década?"
  leviathans.152.a:0 "Sí. Sigamos con este acuerdo."
  leviathans.152.b:0 "Por ahora prescindiremos de los cristales."
- 
+
  leviathans.156.desc:0 "Tus insensatos ataques han puesto a XuraCorp y a sus empleados en peligro. No tenemos más remedio que rescindir nuestro acuerdo comercial actual. No habrá devoluciones."
  leviathans.156.a:0 "Fin de las comunicaciones."
  leviathans.157a.desc:0 "Me temo que negociar con piratas va contra la política de la compañía."
@@ -226,7 +226,7 @@
  leviathans.163a.desc:0 "¡Sois unos terroristas! No olvidaremos vuestra agresión contra nuestro pueblo."
  leviathans.163b.desc:0 "Comprobarás que los muutagans tenemos buena memoria, [Root.GetSpeciesName]. Nunca olvidamos una ofensa."
  leviathans.163c.desc:0 "Nunca volveremos a confiar en [Root.GetName]."
- 
+
  ### GUARDIAN 300-399 ARTIST
  leviathans.300.name:0 "La Compañía de Artesanos"
  leviathans.300.desc:1 "Saludos, [my_country.GetRulerName]. Yo, gran maestre/a de la Compañía de Artesanos, os saludo.\n\n¿Qué podemos hacer por vosotros? ¿Una obra de arte para vuestro disfrute? ¿O preferís patrocinarnos para que creemos belleza de otro mundo?"
@@ -287,8 +287,8 @@
  leviathans.321.b.reply:1 "Pero ¿por qué, patrocinador? Sin el boletín no podremos mantenerte al tanto de nuestros últimos logros..."
  leviathans.322.name:0 "Patrocinadores con beneficios"
  leviathans.322.desc:2 "¡Saludos, patrocinador/a [Root.GetRulerName]! Hemos inventado un hermoso nuevo tipo de arquitectura, específicamente diseñada para mejorar el entendimiento mutuo de las masas: un §YMinisterio de Cultura§!. Mezcla el arte y los prejuicios subconscientes de la población, para luego romperlos y presentarlos como una nueva forma de unidad.\n\n¿Deseas comprar este edificio? Seguro que será útil para unificar tu imperio. Y es muy barato, aunque sea yo quien lo diga:\n§R£energy£ -2000§!"
- leviathans.322.a.tooltip:3 "Obtén acceso a un §S£building $building_artist_patron$§! con los siguientes efectos en tu imperio:\n$mod_job_culture_worker_add$: §G+3§!\n$mod_planet_jobs_unity_produces_mult$: §G+15%§!\n"
- leviathans.322.a.tooltip.gesta:0 "Obtén acceso a un §S£building $building_artist_patron$§! con los siguientes efectos en tu imperio:\n$mod_job_coordinator_add$: §G+3§!\n$mod_planet_jobs_unity_produces_mult$: §G+15%§!\n"
+ leviathans.322.a.tooltip:3 "Obtén acceso a un §S£building£ $building_artist_patron$§! con los siguientes efectos en tu imperio:\n$mod_job_culture_worker_add$: §G+3§!\n$mod_planet_jobs_unity_produces_mult$: §G+15%§!\n"
+ leviathans.322.a.tooltip.gesta:0 "Obtén acceso a un §S£building£ $building_artist_patron$§! con los siguientes efectos en tu imperio:\n$mod_job_coordinator_add$: §G+3§!\n$mod_planet_jobs_unity_produces_mult$: §G+15%§!\n"
  leviathans.323.name:0 "Actualización decepcionante"
  leviathans.323.desc:0 "Nuestras disculpas, patrocinador/a [Root.GetRulerName]. Estamos atravesando un bloqueo creativo. El enclave está desorientado y no podemos ofrecer nada en este momento. Agradecemos tu patrocinio, como siempre."
  leviathans.323.a:0 "Esperamos que la situación mejore."
@@ -314,7 +314,7 @@
  leviathans.502a.desc:0 "Saludos, viajeros de las estrellas. Somos los Cuidadores.\n\nNuestra antigua orden la fundaron hace eones las diversas potencias galácticas que había en auge en aquel momento. Nos dedicábamos a la conservación de todo conocimiento, en un esfuerzo por impedir que la galaxia se sumiera en otra era oscura de extinciones en masa y barbarie.\n\nFracasamos.\n\nAhora quedamos pocos, pero no por ello estamos menos comprometidos con la misión que nuestros predecesores. Estamos dispuestos a compartir nuestro conocimiento con vosotros... por un precio."
  leviathans.502b.desc:0 "Bienhallados, exploradores. Habláis con el [From.GetName]. Quizá ya estéis familiarizados con nuestra antigua orden. Como nuestros estimados colegas de otros enclaves de los Cuidadores, estamos dispuestos a daros lo que nos podáis pagar."
  leviathans.502.a:0 "Bienhallados."
- 
+
  leviathans.500b.desc:0 "Habéis dado con los Cuidadores. ¿En qué podemos ayudaros?"
  leviathans.500c.desc:0 "¿Sabíais que esta conversación la están monitorizando de cerca entes de siete reinos subespaciales distintos? Ay, me temo que la tecnología para comunicaros con ellos os supera por mucho y poco podéis hacer al respecto."
  leviathans.500d.desc:0 "No temáis. Hemos actualizado vuestros archivos con información sobre el [Root.GetName] para las generaciones futuras. Se os recordará mucho después de la inevitable caída de vuestra nación estelar."
@@ -326,7 +326,7 @@
  leviathans.500j.desc:0 "Aún hay muchas cosas que desconocéis, [Root.GetSpeciesNamePlural]. Permitid que os eduquemos sobre el universo."
  leviathans.500k.desc:0 "Tenemos cartas estelares detalladas de toda la galaxia, reunidas por exploradores de un centenar de razas distintas. ¿Serían de interés para vosotros?"
  leviathans.500l.desc:0 "El conocimiento lo es todo. Debe conservarse."
- 
+
  leviathans.500.a:0 "Nos interesa conseguir nuevas cartas estelares."
  leviathans.500.b:0 "¿Nos ayudáis en la investigación?"
  leviathans.500.b.alreadyaided:0 "Los Cuidadores ya están mejorando nuestra capacidad de investigación."
@@ -335,7 +335,7 @@
  leviathans.500.d.alreadyrecruited:0 "Ya tenemos un científico Cuidador."
  leviathans.500.d.opinion:0 "Requiere que los §YCuidadores§! tengan:\n£opinion£ Opinión +50"
  leviathans.500.e:0 "Adiós."
- 
+
  leviathans.506.name:0 "Cartas estelares"
  leviathans.506a.desc:0 "Os ofrecemos datos detallados y actualizados de sistemas estelares que ni habéis explorado. ¿Cuántos sistemas os interesan?"
  leviathans.506.a:0 "15 sistemas estelares."
@@ -344,12 +344,12 @@
  leviathans.506.d:0 "¿Qué más nos ofrecéis?"
  leviathans.506.e:0 "Adiós."
  leviathans.506.a.reply:0 "Os estamos trasmitiendo los datos."
- 
+
  leviathans.507.name:0 "Ayuda a la investigación"
  leviathans.507.desc:1 "Por supuesto. Estamos dispuestos a ofreceros un acceso limitado a nuestros bancos de datos por un periodo de diez años estándar. Esto mejorará significativamente las investigaciones de vuestros §Hlaboratorios científicos§! planetarios.\n\nEvidentemente, deberéis compensarnos por este servicio, pero tenemos unos precios muy razonables."
  leviathans.507.a:0 "Nos gustaría adquirir este servicio."
  leviathans.507.a.reply:0 "Buena elección. Que las futuras generaciones de [Root.GetSpeciesNamePlural] no duden en alabaros."
- 
+
  leviathans.508.name:0 "Misterios"
  leviathans.508.desc:0 "Hay entes de un poder abrumador que habitan en ciertos sistemas estelares de nuestra galaxia. A costa de numerosas vidas y recursos, agentes de los Cuidadores han reunido con gran dolor conocimientos que hará que sea más fácil enfrentarse a ellos la próxima vez que os los encontréis."
  leviathans.508.a:0 "Decidnos algo que no sepamos."
@@ -362,7 +362,7 @@
  leviathans.508.g:0 "Háblanos de: $leviathans.535.name$." #infinity machine
  leviathans.508.h:0 "Háblanos de: $leviathans.540.name$." #automated dreadnought
  leviathans.508.i:0 "Háblanos de: $leviathans.545.name$." #wraith
- 
+
  leviathans.590.name:0 "Contratar científico"
  leviathans.590.desc:0 "Estamos dispuestos a ceder a vuestra causa los servicios de uno de nuestros científicos más brillantes. Esto no es una oferta que les hagamos a todos, como comprenderéis.\n\nAntes de preparar el viaje será necesario realizar una... donación apropiada."
  leviathans.590.a:0 "Por supuesto. Tendréis nuestra donación."
@@ -491,7 +491,7 @@
  leviathans.670.desc.gesta:0 "El formidable dragón de éter por fin ha sido abatido.\n\nEl §Hplanetoide§! que la bestia protegía celosamente ya se puede explotar. ¿Qué tesoros habrá amasado la criatura con el paso de los eones?"
  leviathans.670.a:0 "Encomiable."
  leviathans.670.b:0 "Necesario, aunque lamentable."
- 
+
  # STELLARITE
  leviathans.999.name:0 "Estrella menguante"
  leviathans.999.desc:0 "Cuando el [Root.GetName] entra en el sistema [From.GetName], algo no encaja. Parece que el sol, antes registrado como una estrella enana normal, ha encogido y pierde masa a una velocidad alarmante. Por ello, los planetas del sistema han entrado en una Edad de Hielo hace poco."
@@ -662,7 +662,7 @@
  leviathans.2160.name:0 "Fortaleza: reactivación"
  leviathans.2160.desc:0 "Se ha acabado el tiempo. La fortaleza enigmática se ha recuperado del asalto inicial y ha vuelto a montar sus defensas. Las transmisiones del equipo de exploración ya se han cifrado, pero la última indica que han encontrado el destino que estaban preparados para afrontar."
  leviathans.2160.a:0 "Pero que nadie les deseaba."
- 
+
  ### DIMENSIONAL HORROR
  leviathans.3001:0 "Horror en el vacío"
  leviathans.3001.desc:0 "Hemos encontrado una clase de ente enorme cerca de [horror_system.GetName]. Al parecer, solo existe en parte en nuestro universo, mientras la mayor parte de la criatura sigue atrapada en el reino de pesadilla del que salió.\n\nAquí se intuye la mano de una inteligencia maliciosa, más antigua de lo que podemos concebir y completamente alienígena en su diseño. Solo podemos conjeturar su propósito."
@@ -674,7 +674,7 @@
  leviathans.3004b.desc:0 "$leviathans.3004.intro$"
  leviathans.3004.intro:2 "El estudio de las anomalías de energía producida por las grietas dimensionales de [guardians_horror_system.GetName] al fin ha dado resultados. Las energías implicadas en la creación de estos portales son algo que nunca habíamos visto."
  leviathans.3004.jumpdrive:0 "Y lo que es más intrigante aún, los científicos teorizan que es posible ingeniar un nuevo método de viaje interestelar usando estas energías exóticas."
- 
+
  ### AUTOMATED DREADNOUGHT
  leviathans.3100:0 "Acorazado automatizado"
  leviathans.3100.desc:0 "Hemos descubierto una nave de guerra enorme patrullando el sistema [dreadnought_system.GetName]. No se detectan señales de vida en ella, pero deja un rastro energético muy fuerte y parece estar bien provista de armas. No responde a las llamadas.\n\nSe recomienda ir con cuidado."
@@ -696,14 +696,14 @@
  leviathans.3202:0 "Asteroides cristalinos"
  leviathans.3202.desc:0 "El sistema [hiver_system.GetName] alberga un cinturón de asteroides de una densidad inusual y con propiedades únicas. Varios de los asteroides grandes están cubiertos de afloramientos cristalinos que sugieren la presencia de depósitos muy ricos en minerales.\n\nSin embargo, los sensores de largo alcance detectan movimientos esporádicos de lo que parecen ser varios objetos pequeños -o, posiblemente, naves espaciales- de las regiones más densas del cinturón. No podemos fijar su posición, pero los restos de al menos dos estaciones mineras destruidas se pueden ver flotando en el espacio al lado de algunos de los asteroides más grandes."
  leviathans.3202.a:0 "Hay algo que no encaja..."
- 
+
  leviathans.3204:0 "Asteroides colmena derrotados"
  leviathans.3204.desc:0 "Nuestras fuerzas han conseguido aplastar los asteroides colmena alienígenas del sistema [hive_system.GetName]. Vuelven a estar inactivos y no detectamos más de esas feroces naves de ataque.\n\nUno de los asteroides sigue bastante intacto, pese al daño que se le ha infligido. Deberíamos pensar en enviar a un equipo científico para ver qué encontramos en su interior."
  leviathans.3204.a:0 "Preparad el equipo."
- 
+
  leviathans.3205.desc:0 "El equipo científico ha terminado de explorar la enorme red de túneles y cámaras que recorren el asteroide colmena del sistema [hive_system.GetName]. No han encontrado especímenes vivos de las criaturas espaciales que nos atacaron, pero sí que han hallado los restos de alguna clase de cámara de alumbramiento.\n\nEsto nos ha aportado una percepción muy buena del ciclo vital de estos entes, además de permitirnos ampliar nuestra comprensión de la biología galáctica."
 
- 
+
  ### SPECIAL PROJECTS
  INVESTIGATE_ENCLAVE:1 "Investigar [target_enclave.GetName]"
  INVESTIGATE_ENCLAVE_DESC:0 "Necesitamos saber más cosas de los misteriosos alienígenas que viven en el sistema §Y[Prev.From.GetName]§!. Si tienen algún idioma, debemos descifrarlo y comunicarnos con ellos.\n\nRecompensa: £influence£ §GInfluencia§! o §Sproyecto especial§!"
@@ -740,7 +740,7 @@
  TECHNOSPHERE_HACKING_DESC:0 "Al piratear la programación central de la esfera metálica podríamos aprender más de lo que es y lo que hace."
  TECHNOSPHERE_DESTRUCTION:0 "Fractura de esfera"
  TECHNOSPHERE_DESTRUCTION_DESC:0 "Un equipo de expertos en demoliciones debería poder identificar y hacer explotar las fallas de la cubierta de la misteriosa esfera, poniendo fin a la amenaza silenciosa."
- 
+
  #MISC
  building_stellarite_trophy:0 "Trofeo del Devorador de Estrellas"
  building_stellarite_trophy_desc:0 "Un trofeo hecho con los restos del Devorador de Estrellas para recordar al imperio la victoria contra el coloso."
@@ -764,11 +764,11 @@
  dreadnought_object:0 "Acorazado desactivado"
  dreadnought_object_tooltip:0 "El casco de la enorme nave de guerra permanece relativamente intacto pese a haber sufrido una cantidad de daño increíble."
  dreadnought_object_desc:0 "El casco de la enorme nave de guerra permanece relativamente intacto pese a haber sufrido una cantidad de daño increíble."
- 
+
  dormant_hive_base_2_object:0 "Asteroide colmena inactivo"
  dormant_hive_base_2_object_tooltip:0 "Este asteroide colmena rebosaba actividad, pero las armas disparadas lo han dejado inerte. No hay señal alguna de las pequeñas naves de ataque."
  dormant_hive_base_2_object_desc:0 "Este asteroide colmena rebosaba actividad, pero las armas disparadas lo han dejado inerte. No hay señal alguna de las pequeñas naves de ataque."
- 
+
  pc_crystal_asteroid:0 "Asteroide cristalino"
  pc_crystal_asteroid_desc:0 "Un gran asteroide cubierto de una especie de afloramientos cristalinos."
 
@@ -832,7 +832,7 @@
  curator_buff_sphere_desc:0 "El sistema de actualización de amenazas en tiempo real de la Máquina del infinito tiene un punto débil. Los cambios continuos lo desestabilizan. Vamos a asignar un tripulante a cada nave para recalibrar las armas todo el rato."
  mod_damage_vs_country_type_guardian_stellarite_mult:0 "Daño al Devorador de Estrellas"
  mod_damage_vs_country_type_guardian_sphere_mult:0 "Daño a la Máquina del infinito"
- 
+
  curator_poi_chain_title:0 "Los misterios del universo"
  curator_poi_chain_desc:0 "Los Cuidadores se dedican a enterarse de cosas. Podemos comprar información, pero actuar o no según ese conocimiento es cosa nuestra."
  curator_poi_title:0 "Punto de interés"
@@ -840,7 +840,7 @@
 
  technosphere_chain_title:0 "Tecnosfera"
  technosphere_chain_desc:0 "Un orbe de metal reluciente está situado junto al §Yagujero negro Gargantúa§!. De momento permanece en silencio, pero ¿seguirá así siempre?"
- 
+
  STELLARITE_LARGE_MISSILE:0 "Misil estelarita L"
  HIVE_STRIKE_CRAFT:1 "Cazas de enjambre"
 
@@ -879,15 +879,15 @@
  building_guardian_dragon_shrine_desc:0 "Altar a las extintas sierpes del vacío."
  building_guardian_dragon_monument:0 "Monumento al matadragones"
  building_guardian_dragon_monument_desc:0 "Un monumento que conmemora la derrota del dragón del éter."
- 
+
  TECH_UNLOCK_CURATOR_LAB_1_TITLE:0 "$TECH_UNLOCK_COMPONENT_LINE$ $tech_curator_lab$"
  TECH_UNLOCK_CURATOR_LAB_1_DESC:0 "$tech_curator_lab_desc$"
  TECH_UNLOCK_CURATOR_LAB_2_TITLE:0 "$TECH_UNLOCK_COMPONENT_LINE$ $tech_archeology_lab$"
  TECH_UNLOCK_CURATOR_LAB_2_DESC:0 "$tech_archeology_lab_desc$"
- 
+
  opinion1:0 "$OPINION$: £opinion£ §G+5§!"
  opinion7:0 "$OPINION$: £opinion£ §G+7§!"
- 
+
  horror_energy_object:0 "$energy_uninhabitable_category$"
 
  leviathans.506.f:0 "¿Qué tal le iría a nuestra flota actual en un combate en su contra?"
@@ -895,7 +895,7 @@
  leviathans.5106.f2.reply:0 "Recomiendo fervientemente no hacerlo. Vuestros ataques serían más una molestia que una amenaza."
  leviathans.5106.f3.reply:0 "Mmm... sí... sí, supongo que tendríais una oportunidad. Si se combinase toda la flota... no sería un combate fácil, claro, pero la victoria entraría dentro de las posibilidades."
  leviathans.5106.f4.reply:0 "Vuestra flota es poderosa, comparable a algunas de las grandes armadas registradas en los anales de la orden de los Cuidadores. La victoria es ciertamente posible."
- 
+
  leviathans.110.name:0 "Intercambio de mineral"
  leviathans.120.name:0 "Intercambio de energía"
  leviathans.125.name:0 "Intercambio de alimentos"

@@ -15,12 +15,12 @@ class StellarisLocalizationPropertyPsiReference(
 	private val name = rangeInElement.substring(element.text)
 
 	override fun resolve(): PsiElement? {
-		println(element.resolveScope)
-		return findLocalizationProperty(name, element.project)
+		//locale要求是一致的
+		val locale = (element.containingFile as StellarisLocalizationFile).locale?.locale
+		return findLocalizationProperty(name, element.project,locale)
 	}
 
 	override fun multiResolve(incompleteCode: Boolean): Array<out ResolveResult> {
-		println(element.resolveScope)
 		return findLocalizationProperties(name, element.project).mapArray {
 			PsiElementResolveResult(it)
 		}
@@ -28,7 +28,6 @@ class StellarisLocalizationPropertyPsiReference(
 
 	//注意要传入elementName而非element
 	override fun getVariants(): Array<out Any> {
-		println(element.resolveScope)
 		return findLocalizationProperties(element.project).mapArray {
 			LookupElementBuilder.create(it).withIcon(it.getIcon(0)).withTypeText(it.containingFile.name).withPsiElement(it)
 		}

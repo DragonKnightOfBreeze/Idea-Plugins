@@ -849,7 +849,7 @@
  POP_FACTIONS_INFLUENCE_MULT:0 "Multipliziert um $VALUE|Y$, aufgrund der §HUnterstützungs§! und §HZustimmungsstufe§! der Fraktion."
  LOYALIST_FACTION_DESC:1 "Die Loyalistenfraktion ist die Hauptfraktion unseres Reichs. Loyale Bewohner sind mit dem Status quo zufrieden und werden keine radikalen Veränderungen fordern."
  FROM_FACTION:0 "Fraktionszustimmung: $VALUE|0%Y$"
- APPROVAL_OF_FACTION:0 "£mod_faction_approval  $VALUE$"
+ APPROVAL_OF_FACTION:0 "£mod_faction_approval£ $VALUE$"
  POP_FACTIONS_ATTRACTION_TITLE:0 "Attraktivität"
  POP_FACTIONS_INFLUENCE:2 "Wir erlangen derzeit monatlich $VALUE$ von der §HUnterstützungs-§! und §HZustimmungstufe§! dieser Fraktion."
  POP_FACTIONS_APPROVAL_TITLE:1 "$APPROVAL$"
@@ -860,7 +860,7 @@
  POP_FACTIONS_COLUMN_SUPPORT:0 "Beliebtheit"
  POP_FACTIONS_COLUMN_SUPPORT_DESC:1 "Die Beliebtheit einer Fraktion entspricht grob ihrer öffentlichen Unterstützung und beeinflusst den Typ und die Gewichtung der Effekte, die sich ereignen können."
  POP_FACTIONS_COLUMN_DEMANDS:1 "Forderungen"
- POP_FACTIONS_COLUMN_DEMANDS_DESC:3 "Die Forderung einer Fraktion zeigt, was sie von der Regierung des Reiches wollen.\n§Die Zustimmungsstufe einer Fraktion wird dadurch bestimmt, wie sehr ihr Anliegen mit dem Status-Quo im Reich übereinstimmt.§!"
+ POP_FACTIONS_COLUMN_DEMANDS_DESC:3 "Die Forderung einer Fraktion zeigt, was sie von der Regierung des Reiches wollen.\n§HDie Zustimmungsstufe einer Fraktion wird dadurch bestimmt, wie sehr ihr Anliegen mit dem Status-Quo im Reich übereinstimmt.§!"
  POP_FACTIONS_COLUMN_SUPPORT_EFFECTS:0 "Effekte"
  POP_FACTIONS_COLUMN_SUPPORT_EFFECTS_DESC:1 "Die Beliebtheitseffekte zeigen, wie sehr eine Fraktion Ihr Reich beeinflussen kann.\n\n§HNachdem eine ausreichende Beliebtheit erreicht wurde, kann sich jeden Monat mit einer prozentualen Wahrscheinlichkeit ein Effekt ereignen.§!"
  POP_FACTIONS_COLUMN_ACTIONS:0 "Aktionen"
@@ -6089,7 +6089,7 @@
  slavery_normal_tooltip:1 "§HSchuldsklaven§! haben eine erhöhte Ressourcenproduktion, aber können nicht in §Y$pop_cat_ruler$§! oder §Y$pop_cat_specialist$§! beschäftigt werden."
  slavery_normal_tooltip_delayed:0 "§LSchuldsklaverei ist in der Galaxie die häufigste Form der Sklaverei. Unabhängig davon, ob sie lebenslang oder nur für beschränkte Zeit gilt: Der uneingeschränkte Zugriff auf die Arbeitskraft anderer wird in manchen Kreisen als mit zahlreichen Pflichten verbundenes Privileg angesehen, andernorts als offensichtliche Voraussetzung für eine funktionierende Gesellschaft.§!"
  slavery_domestic:0 "Haussklaverei"
- slavery_domestic_tooltip:1 "§HHaussklaven§!, die keiner anderen Arbeit nachgehen, werden als Diener angestellt, was £amenities£ $PLANET_AMENITIES_TITLE$ erhöht. Sie können nicht £pop_cat_ruler£ §Y$pop_cat_ruler$§! oder £pop_cat_specialist£ §Y$pop_cat_specialist$§! ausüben, mit der einzigen Ausnahme eines £job_entertainer §Y$job_entertainer_plural$§!."
+ slavery_domestic_tooltip:1 "§HHaussklaven§!, die keiner anderen Arbeit nachgehen, werden als Diener angestellt, was £amenities£ $PLANET_AMENITIES_TITLE$ erhöht. Sie können nicht £pop_cat_ruler£ §Y$pop_cat_ruler$§! oder £pop_cat_specialist£ §Y$pop_cat_specialist$§! ausüben, mit der einzigen Ausnahme eines £job_entertainer£ §Y$job_entertainer_plural$§!."
  slavery_domestic_tooltip_delayed:1 "§LHausdiener verbringen einen Großteil ihrer Zeit damit, um sich um die Bedürfnisse freier Bewohner zu kümmern. Einigen sind einzelne Wohnungen zugeteilt, während andere eher öffentliche Plätze beanspruchen. Sie neigen dazu neben ihren Meistern zu leben und benötigen daher fast keinen eigenen Wohnraum.§!"
  slavery_military:0 "Kriegsknechte"
  slavery_military_tooltip:1 "§HKriegsknechte§! haben keinen Bonus auf die Ressourcenproduktion, geben aber exzellente Soldaten für lokale §HArmeen§! ab."
@@ -11679,4 +11679,4 @@
 
  lesser_space_cloud:0 "$space_cloud$"
  lesser_space_cloud_plural:0 "$space_cloud_plural$"
- 
+

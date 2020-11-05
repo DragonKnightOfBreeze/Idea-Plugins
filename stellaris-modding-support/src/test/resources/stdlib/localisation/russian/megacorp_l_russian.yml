@@ -972,7 +972,7 @@
  job_telepath_effect_desc:0 "£job_telepath£ $job_telepath_plural$ производят £unity£ §Y$unity$§! и снижают £crime£ §Y$PLANET_CRIME_TITLE$§!"
  mod_job_telepath_add:0 "Деятельность: $job_telepath$"
  mod_job_telepath_per_pop:0 "§G+1§! $job_telepath$ как вид деятельности для $VALUE$ поселений"
- mod_job_telepath_per_pop_short:0 "\n§G+1§! £mod_job_telepath_add£ для $VALUE$ £pop"
+ mod_job_telepath_per_pop_short:0 "\n§G+1§! £mod_job_telepath_add£ для $VALUE$ £pop£"
 
  job_soldier:0 "Солдат"
  job_soldier_plural:0 "Солдаты"
@@ -1025,7 +1025,7 @@
  job_head_researcher:0 "Передовой ученый"
  job_head_researcher_plural:0 "Передовые ученые"
  job_head_researcher_desc:1 "Эти специалисты занимаются координацией и управлением в сфере исследований и развития новых технологий."
- job_head_researcher_effect_desc:1 "£job_head_researcher $job_head_researcher_plural$ производят £mod_planet_amenities_add£ §Y$PLANET_AMENITIES_TITLE$§! и §Yочки исследований§! (£physics£ , £society£ , £engineering£ ) для новых технологий"
+ job_head_researcher_effect_desc:1 "£job_head_researcher£ $job_head_researcher_plural$ производят £mod_planet_amenities_add£ §Y$PLANET_AMENITIES_TITLE$§! и §Yочки исследований§! (£physics£ , £society£ , £engineering£ ) для новых технологий"
  mod_job_head_researcher_add:0 "Деятельность: $job_head_researcher$"
  mod_job_head_researcher_per_pop:0 "§G+1§! $job_head_researcher$ как вид деятельности для $VALUE$ поселений"
  mod_job_head_researcher_per_pop_short:0 "\n§G+1§! £mod_job_head_researcher_add£ для $VALUE$ £pop£"
@@ -1183,7 +1183,7 @@
  job_criminal_desc:1 "Эти преступники живут за рамками правового общества, одни — осознанно, другие — в силу обстоятельств."
  mod_job_criminal_add:0 "Деятельность: $job_criminal$"
  mod_job_criminal_per_crime:0 "§G+1§! $job_criminal$ как вид деятельности на $VALUE$ ед. преступности на планете"
- mod_job_criminal_per_crime_short:0 "\n§G+1§! £mod_job_criminal_add£ для $VALUE$ £crime"
+ mod_job_criminal_per_crime_short:0 "\n§G+1§! £mod_job_criminal_add£ для $VALUE$ £crime£"
 
  job_deviant_drone:0 "Трутень-отступник"
  job_deviant_drone_plural:0 "Трутни-отступники"
@@ -3258,7 +3258,7 @@
  fleet3deal4cost3:0 "если вы дадите нам §R15§! ед. такого ресурса, как £sr_zro£ §Y$sr_zro$§!."
  fleet3deal4product1:0 "Этот сплав. Вес. Блеск. Сияние! Вы когда-нибудь видели такую металлическую связь? Невероятный предел текучести. Максимальное качество. Примеси в пределах нормы. Мы можем его чувствовать. Он взывает к вам.\n\nМы дадим вам £alloys£ §Y$alloys$§! в количестве §G2000§! ед."
  fleet3deal4product2:0 "Эти экзотические газы. Шипучие. Сжатые до максимальной плотности для удобства транспортировки. С высокой летучестью, так что осторожнее! Вы желаете их, да? Для ваших щитов, для ваших плазменных пушек? Они могут стать вашими.\n\nМы дадим вам £exotic_gases£ §Y$exotic_gases$§! в количестве §G150§! ед."
- fleet3deal4product3:0 "Этот металл. Он движется. Он течет. Он перестраивается, §Hкс-ск!§! Мы нашли для него множество применений. Уверены, что и вы найдете.\n\nМы дадим вам £sr_living_metal §Y$sr_living_metal$§! в количестве §G40§! ед."
+ fleet3deal4product3:0 "Этот металл. Он движется. Он течет. Он перестраивается, §Hкс-ск!§! Мы нашли для него множество применений. Уверены, что и вы найдете.\n\nМы дадим вам £sr_living_metal£ §Y$sr_living_metal$§! в количестве §G40§! ед."
  fleet3deal2product1_tooltip:0 "§HУченый§! с §Gуровнем навыка 3§! становится частью государства [Root.GetName]"
  fleet3deal2product2_tooltip:0 "§HГубернатор§! с §Gуровнем навыка 3§! становится частью государства [Root.GetName]"
  fleet3deal5cost_tooltip:0 "§R-6§! £pop£ поселений категории §H$pop_cat_worker$§!"
@@ -4127,7 +4127,7 @@
  CREATE_VASSAL_NOT_SECTOR_OWNER:0 "Мы не контролируем этот сектор."
  CREATE_VASSAL_CORE_SECTOR_INVALID:0 "Нельзя выделить вассала из основного сектора."
  CREATE_VASSAL_WE_ARE_SUBJECT:0 "Мы $SUBJECTTYPE$ и не можем создавать вассалов."
- 
+
  TOGGLE_NAVBAR_LOCK:0 "Нажмите, чтобы заблокировать или разблокировать панель навигации"
  NAVBAR_LOCKED:0 "Панель навигации §Yзаблокирована§!"
  NAVBAR_UNLOCKED:0 "Панель навигации §Yразблокирована§!"

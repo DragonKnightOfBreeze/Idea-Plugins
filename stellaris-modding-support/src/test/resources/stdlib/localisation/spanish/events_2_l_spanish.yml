@@ -1836,7 +1836,7 @@
  nomad.513.b:0 "Aligeraremos vuestra carga con gusto por §Y1500§! £energy£."
  nomad.513.c:0 "Es igual. No podemos permitírnoslo."
  nomad.513.d:0 "Nos haremos cargo por §Y1500§! £minerals£ minerales."
- nomad.513.desc:0 "Esperábamos, por lo menos, recuperar el coste de fabricación, pero podemos daros las naves por §Y2000§! de £minerales y §Y1000§! de £energía."
+ nomad.513.desc:0 "Esperábamos, por lo menos, recuperar el coste de fabricación, pero podemos daros las naves por §Y2000§! de £minerales£ y §Y1000§! de energía."
  nomad.514.desc:0 "¿Las naves se entregarán en vuestro oasis central, [Root.Capital.GetName]? Sí. Se entregarán en §Y30§! días.\n\n[Root.GetRulerName], que siempre sigas el sendero y la sombra te proteja."
  nomad.514.a:0 "Adiós, [contact_speaker_leader.GetName]."
  nomad.514.b:0 "Un placer hacer negocios con vosotros."

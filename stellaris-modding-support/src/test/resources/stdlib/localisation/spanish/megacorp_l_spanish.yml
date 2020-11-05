@@ -972,7 +972,7 @@
  job_telepath_effect_desc:0 "Los £job_telepath£ $job_telepath_plural$ producen £unity£ §Y$unity$§! y reducen £crime£ §Y$PLANET_CRIME_TITLE$§!"
  mod_job_telepath_add:0 "Trabajos de $job_telepath$"
  mod_job_telepath_per_pop:0 "§G+1§! trabajo de $job_telepath$ por $VALUE$ poblaciones"
- mod_job_telepath_per_pop_short:0 "\n§G+1§! £mod_job_telepath_add£ por $VALUE$ £pop"
+ mod_job_telepath_per_pop_short:0 "\n§G+1§! £mod_job_telepath_add£ por $VALUE$ £pop£"
 
  job_soldier:0 "Soldado"
  job_soldier_plural:0 "Soldados"
@@ -4127,7 +4127,7 @@
  CREATE_VASSAL_NOT_SECTOR_OWNER:0 "No controlamos este sector."
  CREATE_VASSAL_CORE_SECTOR_INVALID:0 "No podemos crear un vasallo de un sector central."
  CREATE_VASSAL_WE_ARE_SUBJECT:0 "Como $SUBJECTTYPE$, no podemos crear vasallos."
- 
+
  TOGGLE_NAVBAR_LOCK:0 "Pulsar para (des)bloquear la barra de navegación"
  NAVBAR_LOCKED:0 "La barra de navegación está §Ybloqueada§!"
  NAVBAR_UNLOCKED:0 "La barra de navegación está §Ydesbloqueada§!"

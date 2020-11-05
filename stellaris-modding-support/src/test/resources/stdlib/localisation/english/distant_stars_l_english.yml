@@ -1,7 +1,7 @@
 ﻿l_english:
 
  aianom.0.name:0 "AI Anomaly Debug Info"
- aianom.0.desc:0 "§H[Root.GetName]§! has generated:\n\n£minerals£ (Lump Sum) §Y[Root.GetT1LumpMinerals]§! Tier 1, §Y[Root.GetT2LumpMinerals]§! Tier 2, §Y[Root.GetT3LumpMinerals]§! Tier 3, §Y[Root.GetT4LumpMinerals]§! Tier 4.\n£energy£ (Lump Sum) §Y[Root.GetT1LumpEnergy]§! Tier 1, §Y[Root.GetT2LumpEnergy]§! Tier 2, §Y[Root.GetT3LumpEnergy]§! Tier 3, §Y[Root.GetT4LumpEnergy]§! Tier 4.\n£physics£ (Lump Sum) §Y[Root.GetT1LumpPhysics]§! Tier 1, §Y[Root.GetT2LumpPhysics]§! Tier 2, §Y[Root.GetT3LumpPhysics]§! Tier 3, §Y[Root.GetT4LumpPhysics]§! Tier 4.\n£society  (Lump Sum) §Y[Root.GetT1LumpSociety]§! Tier 1, §Y[Root.GetT2LumpSociety]§! Tier 2, §Y[Root.GetT3LumpSociety]§! Tier 3, §Y[Root.GetT4LumpSociety]§! Tier 4.\n£engineering  (Lump Sum) §Y[Root.GetT1LumpEngineering]§! Tier 1, §Y[Root.GetT2LumpEngineering]§! Tier 2, §Y[Root.GetT3LumpEngineering]§! Tier 3, §Y[Root.GetT4LumpEngineering]§! Tier 4.\n\n£minerals£ (Deposit) §Y[Root.GetT1DepMinerals]§! Tier 1, §Y[Root.GetT2DepMinerals]§! Tier 2, §Y[Root.GetT3DepMinerals]§! Tier 3, §Y[Root.GetT4DepMinerals]§! Tier 4.\n£energy£ (Deposit) §Y[Root.GetT1DepEnergy]§! Tier 1, §Y[Root.GetT2DepEnergy]§! Tier 2, §Y[Root.GetT3DepEnergy]§! Tier 3, §Y[Root.GetT4DepEnergy]§! Tier 4.\n£physics£ (Deposit) §Y[Root.GetT1DepPhysics]§! Tier 1, §Y[Root.GetT2DepPhysics]§! Tier 2, §Y[Root.GetT3DepPhysics]§! Tier 3, §Y[Root.GetT4DepPhysics]§! Tier 4.\n£society  (Deposit) §Y[Root.GetT1DepSociety]§! Tier 1, §Y[Root.GetT2DepSociety]§! Tier 2, §Y[Root.GetT3DepSociety]§! Tier 3, §Y[Root.GetT4DepSociety]§! Tier 4.\n£engineering  (Deposit) §Y[Root.GetT1DepEngineering]§! Tier 1, §Y[Root.GetT2DepEngineering]§! Tier 2, §Y[Root.GetT3DepEngineering]§! Tier 3, §Y[Root.GetT4DepEngineering]§! Tier 4."
+ aianom.0.desc:0 "§H[Root.GetName]§! has generated:\n\n£minerals£ (Lump Sum) §Y[Root.GetT1LumpMinerals]§! Tier 1, §Y[Root.GetT2LumpMinerals]§! Tier 2, §Y[Root.GetT3LumpMinerals]§! Tier 3, §Y[Root.GetT4LumpMinerals]§! Tier 4.\n£energy£ (Lump Sum) §Y[Root.GetT1LumpEnergy]§! Tier 1, §Y[Root.GetT2LumpEnergy]§! Tier 2, §Y[Root.GetT3LumpEnergy]§! Tier 3, §Y[Root.GetT4LumpEnergy]§! Tier 4.\n£physics£ (Lump Sum) §Y[Root.GetT1LumpPhysics]§! Tier 1, §Y[Root.GetT2LumpPhysics]§! Tier 2, §Y[Root.GetT3LumpPhysics]§! Tier 3, §Y[Root.GetT4LumpPhysics]§! Tier 4.\n£society£ (Lump Sum) §Y[Root.GetT1LumpSociety]§! Tier 1, §Y[Root.GetT2LumpSociety]§! Tier 2, §Y[Root.GetT3LumpSociety]§! Tier 3, §Y[Root.GetT4LumpSociety]§! Tier 4.\n£engineering£ (Lump Sum) §Y[Root.GetT1LumpEngineering]§! Tier 1, §Y[Root.GetT2LumpEngineering]§! Tier 2, §Y[Root.GetT3LumpEngineering]§! Tier 3, §Y[Root.GetT4LumpEngineering]§! Tier 4.\n\n£minerals£ (Deposit) §Y[Root.GetT1DepMinerals]§! Tier 1, §Y[Root.GetT2DepMinerals]§! Tier 2, §Y[Root.GetT3DepMinerals]§! Tier 3, §Y[Root.GetT4DepMinerals]§! Tier 4.\n£energy£ (Deposit) §Y[Root.GetT1DepEnergy]§! Tier 1, §Y[Root.GetT2DepEnergy]§! Tier 2, §Y[Root.GetT3DepEnergy]§! Tier 3, §Y[Root.GetT4DepEnergy]§! Tier 4.\n£physics£ (Deposit) §Y[Root.GetT1DepPhysics]§! Tier 1, §Y[Root.GetT2DepPhysics]§! Tier 2, §Y[Root.GetT3DepPhysics]§! Tier 3, §Y[Root.GetT4DepPhysics]§! Tier 4.\n£society£ (Deposit) §Y[Root.GetT1DepSociety]§! Tier 1, §Y[Root.GetT2DepSociety]§! Tier 2, §Y[Root.GetT3DepSociety]§! Tier 3, §Y[Root.GetT4DepSociety]§! Tier 4.\n£engineering£ (Deposit) §Y[Root.GetT1DepEngineering]§! Tier 1, §Y[Root.GetT2DepEngineering]§! Tier 2, §Y[Root.GetT3DepEngineering]§! Tier 3, §Y[Root.GetT4DepEngineering]§! Tier 4."
 
  AIANOM_LUMP_CAT:0 "Orbital Debris"
  AIANOM_LUMP_CAT_desc:0 "Sensors register potentially interesting entities in orbit of [Root.GetName]."
@@ -413,7 +413,7 @@
  distar.137.desc:0 "The once-imposing hulk of the Scavenger has been reduced to a scorched wreck of sparking machinery and hemorrhaging fuel lines. As our battle-wearied combat ships make their finishing passes at the flagging automaton, the Scavenger makes one final attempt to engage its hyperdrive.\n\nUnfortunately for the robot, the damage inflicted upon its central systems appears to have proven too much. Its exposed core glows a blistering blue-white as its engines engage then overload, the luminance rising in heat and intensity until a series of core breaches tear the construct asunder.\n\nThe ragged regent of the [From.From.From.GetStarName] system is no more."
  distar.137.a:0 "Analyze its remains."
  distar.137.paci:0 "A bittersweet victory. See what can be learned from the remains."
- distar.137.tooltip:0 "Gain two of the following Technologies:\n £engineering §Y$tech_ship_armor_5$§!\n £physics£ §Y$tech_shields_5$§!\n £engineering §Y$tech_mass_drivers_5$§!\n £engineering §Y$tech_missiles_5$§!\n £physics£ §Y$tech_lasers_5$§!"
+ distar.137.tooltip:0 "Gain two of the following Technologies:\n £engineering£ §Y$tech_ship_armor_5$§!\n £physics£ §Y$tech_shields_5$§!\n £engineering£ §Y$tech_mass_drivers_5$§!\n £engineering£ §Y$tech_missiles_5$§!\n £physics£ §Y$tech_lasers_5$§!"
 
  distar.140.name:0 "Cosmic Diamond"
  distar.140.desc:0 "While on the surface [From.GetName] appears to be an ordinary white dwarf, the star hides an intriguing secret. By studying [From.GetName]'s pulsations, the [Root.GetName] crew has discovered its composition to be almost entirely crystallized carbon. This astronomical crystal lattice seems to have formed as the star cooled, originating in its gas-fusing core and growing outward over time. [From.GetName] is a diamond of cosmological proportions, glinting behind a white veil of oxygen and helium."
@@ -634,7 +634,7 @@
  distar.262.desc:0 "Now that we have colonized [From.GetName], we should decide what is to be done with the pre-sapient fungoids living on its surface.\n\nIn normal circumstances, our policies regarding pre-sapients would be sufficient in dealing with their presence on our new colony. However, the [livestock_species.GetName]s do look particularly delicious. Due to their incredibly docile nature, it should be relatively easy to round the [livestock_species.GetName]s up into a processing center..."
  distar.262.a:0 "Tempting. But we will adhere to our policies."
  distar.262.b:0 "Our citizens must be fed!"
- distar.262.b.tooltip:0 "Round up the [livestock_species.GetName] populations on [From.GetName] into a planetside £building §Y$building_livestock_processing_center$§! (Produces: £food£ §Y12§!)."
+ distar.262.b.tooltip:0 "Round up the [livestock_species.GetName] populations on [From.GetName] into a planetside £building£ §Y$building_livestock_processing_center$§! (Produces: £food£ §Y12§!)."
  distar.262.b.tooltip.2:0 "Round up the [livestock_species.GetName] populations on [From.GetName] into planetside processor pens. (Produces: £food£ §Y14§!)"
 
  distar.265.name:0 "Sonified Science"
@@ -1403,7 +1403,7 @@
  SUPERFLARE_PROJECT_DESC:0 "Sensors on [Root.GetName] indicate that [From.GetStarName] is preparing for another superflare event, not unlike the one that destroyed the ancient civilization on [From.From.GetName]. We need to find a way to shield our colony before the flare erupts."
 
  PRIMITIVE_ROBOT_PROJECT:0 "Missing Makers"
- PRIMITIVE_ROBOT_PROJECT_DESC:0 "Researchers are baffled by the lack of explanation for the disappearance of the past civilization on [From.GetName]. They propose a more intensive hardware analysis of the ancient robots they left behind, in an attempt to shed some light on this mystery.\n\nReward: £society  §GSociety Research§!"
+ PRIMITIVE_ROBOT_PROJECT_DESC:0 "Researchers are baffled by the lack of explanation for the disappearance of the past civilization on [From.GetName]. They propose a more intensive hardware analysis of the ancient robots they left behind, in an attempt to shed some light on this mystery.\n\nReward: £society£ §GSociety Research§!"
 
  RETROVIRUS_PROJECT:0 "Erratic Planetside Behavior"
  RETROVIRUS_PROJECT_DESC:0 "A streak of unexplained civil disobedience is sweeping across [From.GetName]. Colonists are exhibiting strange, erratic behavior that usually begins with general confusion and escalates over time to extreme agitation and violence. We must find the cause of this behavior, before things get out of hand."
@@ -1514,7 +1514,7 @@
  distar.3010.desc:1 "The surprising life readings from [impossible_organism_planet.GetName] have been attributed to a small organism of exceeding tenacity. The [Root.GetName]'s crew is unsure how to classify the lifeform, but its ability to survive, seemingly without any sustenance, is truly astonishing. Considering the planet's age, it is not impossible that the organism has been fighting its habitat's toxicity for millennia, though this is an educated guess at best.\n\nScience Officer [Root.GetLeaderName] has requested permission to retrieve samples of the unknown organism, so that it may be studied."
  distar.3010.a:0 "Very well, sample it."
  distar.3010.b:0 "No. Study it from afar."
- distar.3010.b.tooltip:0 "Adds the §YImpossible Organism§! modifier to [From.GetName]:\n£society  §G+3§!"
+ distar.3010.b.tooltip:0 "Adds the §YImpossible Organism§! modifier to [From.GetName]:\n£society£ §G+3§!"
  distar.3011.desc:0 "Studies of the mysterious lifeform are progressing well. The scientific community is amazed by its potential for growth. It is already visible to the naked eye and responds to stimuli, and appears able to absorb energy and nutrition from nearly anything, organic or not.\n\nAlas, its genetic, cellular, and biochemical processes remain beyond our understanding."
  distar.3011.a:1 "We should continue to study it."
  distar.3011.a.phobe:0 "Disgusting! Poke it with a stick..."
@@ -2217,13 +2217,13 @@
  MOD_PLANET_HYPERLANE_RANGE_ADD:0 "Planet Hyperlane Detection Range"
  MOD_SHIP_HYPERLANE_RANGE_ADD:0 "Ship Hyperlane Detection Range"
 
- liquidated_7:0 "§Y7 $clues$§! Liquidated:\n §G+3500§! £engineering  Engineering Research\n §G+3500§! £energy£ Energy Credits"
- liquidated_6:0 "§Y6 $clues$§! Liquidated:\n §G+3000§! £engineering  Engineering Research\n §G+3000§! £energy£ Energy Credits"
- liquidated_5:0 "§Y5 $clues$§! Liquidated:\n §G+2500§! £engineering  Engineering Research\n §G+2500§! £energy£ Energy Credits"
- liquidated_4:0 "§Y4 $clues$§! Liquidated:\n §G+2000§! £engineering  Engineering Research\n §G+2000§! £energy£ Energy Credits"
- liquidated_3:0 "§Y3 $clues$§! Liquidated:\n §G+1500§! £engineering  Engineering Research\n §G+1500§! £energy£ Energy Credits"
- liquidated_2:0 "§Y2 $clues$§! Liquidated:\n §G+1000§! £engineering  Engineering Research\n §G+1000§! £energy£ Energy Credits"
- liquidated_1:0 "§Y1 $clue$§! Liquidated:\n §G+500§! £engineering  Engineering Research\n §G+500§! £energy£ Energy Credits"
+ liquidated_7:0 "§Y7 $clues$§! Liquidated:\n §G+3500§! £engineering£ Engineering Research\n §G+3500§! £energy£ Energy Credits"
+ liquidated_6:0 "§Y6 $clues$§! Liquidated:\n §G+3000§! £engineering£ Engineering Research\n §G+3000§! £energy£ Energy Credits"
+ liquidated_5:0 "§Y5 $clues$§! Liquidated:\n §G+2500§! £engineering£ Engineering Research\n §G+2500§! £energy£ Energy Credits"
+ liquidated_4:0 "§Y4 $clues$§! Liquidated:\n §G+2000§! £engineering£ Engineering Research\n §G+2000§! £energy£ Energy Credits"
+ liquidated_3:0 "§Y3 $clues$§! Liquidated:\n §G+1500§! £engineering£ Engineering Research\n §G+1500§! £energy£ Energy Credits"
+ liquidated_2:0 "§Y2 $clues$§! Liquidated:\n §G+1000§! £engineering£ Engineering Research\n §G+1000§! £energy£ Energy Credits"
+ liquidated_1:0 "§Y1 $clue$§! Liquidated:\n §G+500§! £engineering£ Engineering Research\n §G+500§! £energy£ Energy Credits"
  liquidated_0:0 "Search for §Y$clues$§! ended"
  NO_SHIP_TO_UPGRADE:0 "No item requires an upgrade"
  CANT_AFFORD_UPGRADE:0 "Can't afford the cost of $COST|R$"

@@ -9,7 +9,7 @@
  TRADITIONS_PROGRESS:0 "$KEY$ Postępy"
  TRADITIONS_PROGRESS_TITLE:0 "Postępy"
  TRADITIONS_PROGRESS_DESC:0 "Potrzebujesz jeszcze £unity£ $MISSING|Y$, żeby przyjąć nową tradycję. W obecnym tempie dokonasz tego do $DATE|Y$."
- UNLOCK_TRADITION_DESC:0 "Masz wystarczającą ilość £unity, żeby przyjąć nową tradycję."
+ UNLOCK_TRADITION_DESC:0 "Masz wystarczającą ilość £unity£, żeby przyjąć nową tradycję."
  TRADITIONS_TIME_TO_NEXT:0 "Miesiące do zakończenia"
  TRADITIONS_TIME_TO_NEXT_DESC:0 "$MONTHS$ do zakończenia."
  TRADITIONS_UNLOCKED:0 "W tym drzewku złożonym z $MAX|Y$ tradycji udało ci się odblokować $COUNT|Y$ z nich."
