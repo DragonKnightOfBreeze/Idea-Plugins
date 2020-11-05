@@ -31,7 +31,7 @@
 	  BOOLEAN_TOKEN='regexp:(yes)|(no)'
 	  NUMBER_TOKEN='regexp:-?[0-9]+(\.[0-9]+)?'
 	  STRING_TOKEN='regexp:[^@\s{}="][^\s{}="]*'
-	  QUOTED_STRING_TOKEN='regexp:"([^"(\r\n\\]|\\.)*?"'
+	  QUOTED_STRING_TOKEN='regexp:"([^"\r\n\\]|\\.)*?"'
 	  COLOR_TOKEN="regexp:(rgb|rgba|hsb|hsv|hsl)[ \t]*\{[0-9. \t]*}"
 	]
 }

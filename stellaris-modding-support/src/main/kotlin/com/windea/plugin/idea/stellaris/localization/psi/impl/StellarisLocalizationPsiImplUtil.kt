@@ -52,7 +52,7 @@ object StellarisLocalizationPsiImplUtil {
 
 	@JvmStatic
 	fun getReference(element: StellarisLocalizationLocale): StellarisLocalizationLocalePsiReference? {
-		return element.localeId.let{ StellarisLocalizationLocalePsiReference(element, it.textRangeInParent)}
+		return StellarisLocalizationLocalePsiReference(element, element.localeId.textRangeInParent)
 	}
 	//endregion
 
@@ -85,7 +85,7 @@ object StellarisLocalizationPsiImplUtil {
 
 	@JvmStatic
 	fun getValue(element: StellarisLocalizationProperty): String {
-		return element.propertyValue?.text.orEmpty()
+		return element.propertyValue?.text?.unquote().orEmpty()
 	}
 	//endregion
 
@@ -99,18 +99,18 @@ object StellarisLocalizationPsiImplUtil {
 	//region StellarisLocalizationPropertyReference
 	@JvmStatic
 	fun getName(element: StellarisLocalizationPropertyReference): String? {
-		return element.propertyKeyId?.text
+		return element.propertyReferenceId?.text
 	}
 
 	@JvmStatic
 	fun setName(element: StellarisLocalizationPropertyReference, name: String): PsiElement {
-		element.propertyKeyId?.replace(createPropertyReference(element.project, name).propertyKeyId!!)
+		element.propertyReferenceId?.replace(createPropertyReference(element.project, name).propertyReferenceId!!)
 		return element
 	}
 
 	@JvmStatic
 	fun getNameIdentifier(element: StellarisLocalizationPropertyReference): PsiElement? {
-		return element.propertyKeyId
+		return element.propertyReferenceId
 	}
 
 	@JvmStatic
@@ -120,7 +120,7 @@ object StellarisLocalizationPsiImplUtil {
 
 	@JvmStatic
 	fun getReference(element: StellarisLocalizationPropertyReference): StellarisLocalizationPropertyPsiReference? {
-		return element.propertyKeyId?.let{ StellarisLocalizationPropertyPsiReference(element, it.textRangeInParent)}
+		return element.propertyReferenceId?.let{ StellarisLocalizationPropertyPsiReference(element, it.textRangeInParent)}
 	}
 	//endregion
 

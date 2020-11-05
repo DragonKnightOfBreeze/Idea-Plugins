@@ -27,9 +27,8 @@
       however, some other games may also use such script language and localization language.
     </p>
     <p>
-      Please note that you should provide the descriptor file aka <code>descriptor.mod</code>,
-      this plugin will only recognize script / localization files under a directory,
-      which has a descriptor file in it.
+      Please note that this plugin will only recognize script / localization files under a directory,
+      which has <code>stellaris.exe</code> <code>descriptor.mod</code> in it.
     </p>
     <p>
       Yu can configure whether to resolve internal (in project directory) &
@@ -80,8 +79,8 @@
       不过，其他游戏可能也会使用到这个插件所支持的脚本语言和本地化语言。
     </p>
     <p>
-      请注意，你需要提供描述符文件即<code>descriptor.mod</code>，
-      这个插件仅会识别描述符文件所在目录下（及其子目录）的脚本文件和本地化文件。
+      请注意，这个插件仅会识别<code>stellaris.exe</code>或者<code>descriptor.mod</code>
+      所在目录下（及其子目录）的脚本文件和本地化文件。
     </p>
     <p>
       你可以通过设置菜单中的<b>[Languages & Frameworks / Stellaris Modding Support]</b>

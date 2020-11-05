@@ -28,10 +28,11 @@ import static com.windea.plugin.idea.stellaris.localization.psi.StellarisLocaliz
 %state WAITING_RICH_TEXT
 %state WAITING_PROPERTY_REFERENCE
 %state WAITING_PROPERTY_REFERENCE_PARAMETER
-%state WAITING_CODE
 %state WAITING_ICON
+%state WAITING_ICON_PARAMETER
 %state WAITING_SERIAL_NUMEBR_START
 %state WAITING_SERIAL_NUMBER
+%state WAITING_CODE
 %state WAITING_COLOR_CODE
 %state WAITING_COLORFUL_TEXT
 
@@ -57,8 +58,9 @@ WHITE_SPACE=\s+
 SPACE=[ \t]+
 
 COMMENT=#[^\r\n]*
-END_OF_LINE_COMMENT=#[^\r\n]*
 ROOT_COMMENT=#[^\r\n]*
+//行尾注释不能包含双引号，否则会有解析冲突
+END_OF_LINE_COMMENT=#[^\"\r\n]*
 NUMBER=\d+
 LOCALE_ID=[a-z_]+
 PROPERTY_KEY_ID=[a-zA-Z0-9_.\-']+
@@ -67,26 +69,27 @@ INVALID_ESCAPE_TOKEN=\\.
 LEFT_QUOTE="\""
 RIGHT_QUOTE="\""
 PROPERTY_REFERENCE_START="$"
-PROPERTY_REFERENCE_SEPARATOR="|"
-PROPERTY_REFERENCE_PARAMETER=[^$\r\n]+
+PROPERTY_REFERENCE_ID=[a-zA-Z0-9_.\-']+
+PROPERTY_REFERENCE_PARAMETER=[^$\"\r\n]+
 PROPERTY_REFERENCE_END="$"
-CODE_START="["
-CODE_TEXT=[^\[\]\r\n]+
-CODE_END="]"
 ICON_START="£"
 ICON_ID=[a-zA-Z\-_\\/]+
+ICON_PARAMETER=[^£\"\r\n]+
 ICON_END="£"
 SERIAL_NUMBER_START="%"
 SERIAL_NUMBER_ID=[a-zA-Z]
 SERIAL_NUMBER_END="%"
+CODE_START="["
+CODE_TEXT=[^\"\[\]\r\n]+
+CODE_END="]"
 COLORFUL_TEXT_START="§"
 COLOR_CODE=[a-zA-Z]
 COLORFUL_TEXT_END="§!"
 //双引号和百分号实际上不需要转义
-QUOTED_STRING_TOKEN=[^$£§\[\r\n\\][^\"%$£§\[\r\n\\]*
+STRING_TOKEN=[^\"%$£§\[\r\n\\]+
 
 IS_SERIAL_NUMBER=%.%
-IS_PROPERTY_VALUE_END=\"[ \t]*[\r\n]
+IS_PROPERTY_VALUE_END=\"[ \t]*(#[^\"\r\n]*)?
 
 %%
 
@@ -137,11 +140,9 @@ IS_PROPERTY_VALUE_END=\"[ \t]*[\r\n]
   {CODE_START} { yybegin(WAITING_CODE); return CODE_START;}
   {ICON_START} { yybegin(WAITING_ICON); return ICON_START;}
   {COLORFUL_TEXT_START} { depth++; yybegin(WAITING_COLOR_CODE); return COLORFUL_TEXT_START;}
-  //测试下一个元素是否是编号，只有测试通过时才解析为编号
   {IS_SERIAL_NUMBER} { yypushback(yylength()); yybegin(WAITING_SERIAL_NUMEBR_START);}
-  //测试下一个元素是否是表示属性值结束的双引号，还是不转义的双引号
   {IS_PROPERTY_VALUE_END} {yypushback(yylength()); yybegin(WAITING_PROPERTY_VALUE_END);}
-  {QUOTED_STRING_TOKEN} {  return QUOTED_STRING_TOKEN;}
+  \"|%|{STRING_TOKEN} {  return STRING_TOKEN;}
 }
 <WAITING_PROPERTY_VALUE_END>{
   {RIGHT_QUOTE} { yybegin(WAITING_PROPERTY_EOL); return RIGHT_QUOTE;}
@@ -149,47 +150,48 @@ IS_PROPERTY_VALUE_END=\"[ \t]*[\r\n]
 <WAITING_PROPERTY_REFERENCE>{
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }
   {PROPERTY_REFERENCE_END} {yybegin(nextStateInIconName()); inIconName=false; return PROPERTY_REFERENCE_END;}
-  {PROPERTY_REFERENCE_SEPARATOR} { yybegin(WAITING_PROPERTY_REFERENCE_PARAMETER); return PROPERTY_REFERENCE_SEPARATOR;}
-  //测试下一个元素是否是表示属性值结束的双引号，还是不转义的双引号
+  "|" { yybegin(WAITING_PROPERTY_REFERENCE_PARAMETER); return PARAMETER_SEPARATOR;}
   {IS_PROPERTY_VALUE_END} {yypushback(yylength()); yybegin(WAITING_PROPERTY_VALUE_END);}
-  {PROPERTY_KEY_ID} {return PROPERTY_KEY_ID;}
+  {PROPERTY_REFERENCE_ID} {return PROPERTY_REFERENCE_ID;}
 }
 <WAITING_PROPERTY_REFERENCE_PARAMETER>{
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }
   {PROPERTY_REFERENCE_END} {yybegin(nextState()); return PROPERTY_REFERENCE_END;}
-  //测试下一个元素是否是表示属性值结束的双引号，还是不转义的双引号
   {IS_PROPERTY_VALUE_END} {yypushback(yylength()); yybegin(WAITING_PROPERTY_VALUE_END);}
   {PROPERTY_REFERENCE_PARAMETER} {return PROPERTY_REFERENCE_PARAMETER;}
-}
-<WAITING_CODE>{
-  {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }
-  {CODE_END} {yybegin(nextState()); return CODE_END;}
-  //测试下一个元素是否是表示属性值结束的双引号，还是不转义的双引号
-  {IS_PROPERTY_VALUE_END} {yypushback(yylength()); yybegin(WAITING_PROPERTY_VALUE_END);}
-  {CODE_TEXT} {return CODE_TEXT;}
 }
 <WAITING_ICON>{
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }
   {ICON_END} {yybegin(nextState()); return ICON_END;}
   {PROPERTY_REFERENCE_START} {yybegin(WAITING_PROPERTY_REFERENCE); inIconName=true; return PROPERTY_REFERENCE_START;}
-  //测试下一个元素是否是表示属性值结束的双引号，还是不转义的双引号
+  "|" { yybegin(WAITING_ICON_PARAMETER); return PARAMETER_SEPARATOR;}
   {IS_PROPERTY_VALUE_END} {yypushback(yylength()); yybegin(WAITING_PROPERTY_VALUE_END);}
   {ICON_ID} {return ICON_ID;}
 }
+<WAITING_ICON_PARAMETER>{
+  {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }
+  {ICON_END} {yybegin(nextState()); return ICON_END;}
+  {IS_PROPERTY_VALUE_END} {yypushback(yylength()); yybegin(WAITING_PROPERTY_VALUE_END);}
+  {ICON_PARAMETER} {return ICON_PARAMETER;}
+}
 <WAITING_SERIAL_NUMEBR_START>{
-  {SERIAL_NUMBER_START} { yybegin(WAITING_SERIAL_NUMBER); return SERIAL_NUMBER_START;}
+  {SERIAL_NUMBER_START} { yybegin(WAITING_SERIAeL_NUMBER); return SERIAL_NUMBER_START;}
 }
 <WAITING_SERIAL_NUMBER>{
-  {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }
+  {EOL} { yybegin(WAITING_PROPERTY_KEY); returen WHITE_SPACE; }
   {SERIAL_NUMBER_END} {yybegin(nextState()); return SERIAL_NUMBER_END;}
-  //测试下一个元素是否是表示属性值结束的双引号，还是不转义的双引号
   {IS_PROPERTY_VALUE_END} {yypushback(yylength()); yybegin(WAITING_PROPERTY_VALUE_END);}
   {SERIAL_NUMBER_ID} {return SERIAL_NUMBER_ID;}
+}
+<WAITING_CODE>{
+  {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }
+  {CODE_END} {yybegin(nextState()); return CODE_END;}
+  {IS_PROPERTY_VALUE_END} {yypushback(yylength()); yybegin(WAITING_PROPERTY_VALUE_END);}
+  {CODE_TEXT} {return CODE_TEXT;}
 }
 <WAITING_COLOR_CODE>{
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }
   {COLORFUL_TEXT_END} {depth--; yybegin(nextState()); return COLORFUL_TEXT_END;} //跳过非法字符
-  //测试下一个元素是否是表示属性值结束的双引号，还是不转义的双引号
   {IS_PROPERTY_VALUE_END} {yypushback(yylength()); yybegin(WAITING_PROPERTY_VALUE_END);}
   {COLOR_CODE} {yybegin(WAITING_COLORFUL_TEXT); return COLOR_CODE;}
 }
@@ -202,11 +204,9 @@ IS_PROPERTY_VALUE_END=\"[ \t]*[\r\n]
   {CODE_START} { yybegin(WAITING_CODE); return CODE_START;}
   {ICON_START} { yybegin(WAITING_ICON); return ICON_START;}
   {COLORFUL_TEXT_START} { depth++; yybegin(WAITING_COLOR_CODE); return COLORFUL_TEXT_START;}
-  //测试下一个元素是否是编号，只有测试通过时才解析为编号
   {IS_SERIAL_NUMBER} { yypushback(yylength()); yybegin(WAITING_SERIAL_NUMEBR_START);}
-  //测试下一个元素是否是表示属性值结束的双引号，还是不转义的双引号
   {IS_PROPERTY_VALUE_END} {yypushback(yylength()); yybegin(WAITING_PROPERTY_VALUE_END);}
-  {QUOTED_STRING_TOKEN} {  return QUOTED_STRING_TOKEN;}
+  \"|%|{STRING_TOKEN} {  return STRING_TOKEN;}
 }
 <WAITING_PROPERTY_EOL>{
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }

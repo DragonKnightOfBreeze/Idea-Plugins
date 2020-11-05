@@ -11,36 +11,39 @@
 	psiImplUtilClass="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationPsiImplUtil"
 
 	tokens=[
-		COLON=":"
-	  NUMBER="regexp:\d+"
-	  BLANK="regexp:\s+"
-	  COMMENT="regexp:#[^\r\n]*"
-	  ROOT_COMMENT="regexp:#[^\r\n]*"
-	  END_OF_LINE_COMMENT="regexp:#[^\r\n]*"
-	  LOCALE_ID="regexp:[a-z_]+"
+		COLON=':'
+	  PARAMETER_SEPARATOR="|"
+	  NUMBER='regexp:\d+'
+	  BLANK='wregexp:\s+'
+	  COMMENT='regexp:#[^\r\n]*'
+	  ROOT_COMMENT='regexp:#[^\r\n]*'
+	  //行尾注释不能包含双引号，否则会有解析冲突
+	  END_OF_LINE_COMMENT='regexp:#[^"\r\n]*'
+	  LOCALE_ID='regexp:[a-z_]+'
 	  PROPERTY_KEY_ID="regexp:[a-zA-Z0-9_.\-']+"
 	  VALID_ESCAPE_TOKEN='regexp:\\["rn$£§%\[]'
 	  INVALID_ESCAPE_TOKEN='regexp:\\.'
 	  LEFT_QUOTE="\""
 	  RIGHT_QUOTE="\""
 	  PROPERTY_REFERENCE_START="$"
-	  PROPERTY_REFERENCE_SEPARATOR="|"
-    PROPERTY_REFERENCE_PARAMETER="regexp:[^$\r\n]+"
+	  PROPERTY_REFERENCE_ID="regexp:[a-zA-Z0-9_.\-']+"
+    PROPERTY_REFERENCE_PARAMETER='regexp:[^$"\r\n]+'
 	  PROPERTY_REFERENCE_END="$"
-	  CODE_START="["
-	  CODE_TEXT="regexp:[^\[\]\r\n]+"
-	  CODE_END="]"
 	  ICON_START="£"
-	  ICON_ID="regexp:[a-zA-Z\-_\\/]+"
+	  ICON_ID='regexp:[a-zA-Z\-_\\/]+'
+	  ICON_PARAMETER='regexp:[^£"\r\n]+'
 	  ICON_END="£"
 	  SERIAL_NUMBER_START="%"
 	  SERIAL_NUMBER_ID="regexp:[A-Z]"
 	  SERIAL_NUMBER_END="%"
+    CODE_START="["
+    CODE_TEXT='regexp:[^"\[\]\r\n]+'
+    CODE_END="]"
 	  COLORFUL_TEXT_START="§"
 	  COLOR_CODE="regexp:[a-zA-Z]"
 	  COLORFUL_TEXT_END="§!"
 	  //双引号和百分号实际上不需要转义
-	  QUOTED_STRING_TOKEN='regexp:[^£§\[\r\n\\][^"%$£§\[\r\n\\]*'
+	  STRING_TOKEN='regexp:[^£§\[\r\n\\]+'
 	]
 }
 
@@ -72,9 +75,9 @@ property_value ::= LEFT_QUOTE rich_text * RIGHT_QUOTE{
 
 rich_text ::= property_reference | code | icon | serial_number | colorful_text | escape | string
 
-string ::= QUOTED_STRING_TOKEN
+string ::= STRING_TOKEN
 escape ::= VALID_ESCAPE_TOKEN | INVALID_ESCAPE_TOKEN
-property_reference ::= PROPERTY_REFERENCE_START PROPERTY_KEY_ID [PROPERTY_REFERENCE_SEPARATOR [PROPERTY_REFERENCE_PARAMETER]] PROPERTY_REFERENCE_END {
+property_reference ::= PROPERTY_REFERENCE_START [PROPERTY_REFERENCE_ID] [PARAMETER_SEPARATOR [PROPERTY_REFERENCE_PARAMETER]] PROPERTY_REFERENCE_END {
   pin=1
   mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"
   implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"

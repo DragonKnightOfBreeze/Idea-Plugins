@@ -21,10 +21,13 @@ class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider
 	override fun generateDoc(element: PsiElement?, originalElement: PsiElement?): String? {
 		return when {
 			element is StellarisLocalizationProperty -> {
+				val elementName = element.name?:return null
+				val elementValue = element.value
+				val truncatedElementValue = elementValue.truncate(78 - (elementName.length)).quote()
 				buildString {
 					append(DocumentationMarkup.DEFINITION_START)
 					append(getLocationText(element))
-					append("<br><b>",element.name,"</b>: ",element.value.truncate(80-(element.name?.length?:0)))
+					append("<br><b>",elementName,"</b>: ", truncatedElementValue)
 					append(DocumentationMarkup.DEFINITION_END)
 
 					val textAttributesKey = StellarisLocalizationAttributesKeys.COMMENT_KEY
@@ -36,10 +39,38 @@ class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider
 					}
 				}
 			}
-			element is StellarisLocalizationLocale -> element.locale?.documentText?.toDefinitionText()
-			element is StellarisLocalizationIcon ->element.name?.let { name -> "(icon) $name".toDefinitionText() }
-			element is StellarisLocalizationColorfulText -> element.color?.documentText?.toDefinitionText()
-			element is StellarisLocalizationSerialNumber -> element.serialNumber?.documentText?.toDefinitionText()
+			element is StellarisLocalizationLocale -> {
+				val documentText = element.locale?.documentText ?:return null
+				buildString {
+					append(DocumentationMarkup.DEFINITION_START)
+					append(documentText)
+					append(DocumentationMarkup.DEFINITION_END)
+				}
+			}
+			element is StellarisLocalizationIcon -> {
+				val documentText = element.name?.let { name -> "(icon) $name"}?:return null
+				buildString {
+					append(DocumentationMarkup.DEFINITION_START)
+					append(documentText)
+					append(DocumentationMarkup.DEFINITION_END)
+				}
+			}
+			element is StellarisLocalizationColorfulText ->{
+				val documentText = element.color?.documentText ?:return null
+				buildString {
+					append(DocumentationMarkup.DEFINITION_START)
+					append(documentText)
+					append(DocumentationMarkup.DEFINITION_END)
+				}
+			}
+			element is StellarisLocalizationSerialNumber -> {
+				val documentText = element.serialNumber?.documentText ?:return null
+				buildString {
+					append(DocumentationMarkup.DEFINITION_START)
+					append(documentText)
+					append(DocumentationMarkup.DEFINITION_END)
+				}
+			}
 			else -> null
 		}
 	}

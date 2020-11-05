@@ -22,6 +22,7 @@ public interface StellarisLocalizationTypes {
   IElementType SERIAL_NUMBER = new StellarisLocalizationElementType("SERIAL_NUMBER");
   IElementType STRING = new StellarisLocalizationElementType("STRING");
 
+  IElementType BLANK = new StellarisLocalizationTokenType("wregexp:\\s+");
   IElementType CODE_END = new StellarisLocalizationTokenType("]");
   IElementType CODE_START = new StellarisLocalizationTokenType("[");
   IElementType CODE_TEXT = new StellarisLocalizationTokenType("CODE_TEXT");
@@ -33,22 +34,24 @@ public interface StellarisLocalizationTypes {
   IElementType END_OF_LINE_COMMENT = new StellarisLocalizationTokenType("END_OF_LINE_COMMENT");
   IElementType ICON_END = new StellarisLocalizationTokenType("£");
   IElementType ICON_ID = new StellarisLocalizationTokenType("ICON_ID");
+  IElementType ICON_PARAMETER = new StellarisLocalizationTokenType("ICON_PARAMETER");
   IElementType ICON_START = new StellarisLocalizationTokenType("ICON_START");
   IElementType INVALID_ESCAPE_TOKEN = new StellarisLocalizationTokenType("INVALID_ESCAPE_TOKEN");
   IElementType LEFT_QUOTE = new StellarisLocalizationTokenType("LEFT_QUOTE");
   IElementType LOCALE_ID = new StellarisLocalizationTokenType("LOCALE_ID");
   IElementType NUMBER = new StellarisLocalizationTokenType("NUMBER");
+  IElementType PARAMETER_SEPARATOR = new StellarisLocalizationTokenType("|");
   IElementType PROPERTY_KEY_ID = new StellarisLocalizationTokenType("PROPERTY_KEY_ID");
   IElementType PROPERTY_REFERENCE_END = new StellarisLocalizationTokenType("$");
+  IElementType PROPERTY_REFERENCE_ID = new StellarisLocalizationTokenType("PROPERTY_REFERENCE_ID");
   IElementType PROPERTY_REFERENCE_PARAMETER = new StellarisLocalizationTokenType("PROPERTY_REFERENCE_PARAMETER");
-  IElementType PROPERTY_REFERENCE_SEPARATOR = new StellarisLocalizationTokenType("|");
   IElementType PROPERTY_REFERENCE_START = new StellarisLocalizationTokenType("PROPERTY_REFERENCE_START");
-  IElementType QUOTED_STRING_TOKEN = new StellarisLocalizationTokenType("QUOTED_STRING_TOKEN");
   IElementType RIGHT_QUOTE = new StellarisLocalizationTokenType("\"");
   IElementType ROOT_COMMENT = new StellarisLocalizationTokenType("ROOT_COMMENT");
   IElementType SERIAL_NUMBER_END = new StellarisLocalizationTokenType("%");
   IElementType SERIAL_NUMBER_ID = new StellarisLocalizationTokenType("SERIAL_NUMBER_ID");
   IElementType SERIAL_NUMBER_START = new StellarisLocalizationTokenType("SERIAL_NUMBER_START");
+  IElementType STRING_TOKEN = new StellarisLocalizationTokenType("STRING_TOKEN");
   IElementType VALID_ESCAPE_TOKEN = new StellarisLocalizationTokenType("VALID_ESCAPE_TOKEN");
 
   class Factory {

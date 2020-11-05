@@ -95,7 +95,7 @@ fun <T : Any> T?.toSingletonOrEmpty(): MutableCollection<T> {
 }
 //endregion
 
-//region Psi
+//region Intellij
 inline fun PsiElement.forEachChild(block: (PsiElement) -> Unit) {
 	var child = this.firstChild
 	while(child != null) {
@@ -116,6 +116,7 @@ inline fun <reified T : PsiElement> PsiElement.indexOfChild(element: T): Int {
 	}
 	return -1
 }
+
 
 /**得到当前Ast节点的所有非空白子节点。*/
 fun ASTNode.nodesNotWhiteSpace(): List<ASTNode> {
@@ -142,7 +143,7 @@ inline fun <reified T : PsiFile> Project.findFiles(type: LanguageFileType, globa
 fun String.toDefinitionText(): String {
 	return buildString {
 		append(DocumentationMarkup.DEFINITION_START)
-		append(this@toDefinitionText) //我草！！！
+		append(this@toDefinitionText)
 		append(DocumentationMarkup.DEFINITION_END)
 	}
 }
