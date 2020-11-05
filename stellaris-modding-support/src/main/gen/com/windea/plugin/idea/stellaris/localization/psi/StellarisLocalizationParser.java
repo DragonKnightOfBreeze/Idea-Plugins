@@ -104,7 +104,7 @@ public class StellarisLocalizationParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // ICON_START icon_name ICON_END
+  // ICON_START icon_name [PARAMETER_SEPARATOR [ICON_PARAMETER]] ICON_END
   public static boolean icon(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "icon")) return false;
     if (!nextTokenIs(b, ICON_START)) return false;
@@ -113,9 +113,35 @@ public class StellarisLocalizationParser implements PsiParser, LightPsiParser {
     r = consumeToken(b, ICON_START);
     p = r; // pin = 1
     r = r && report_error_(b, icon_name(b, l + 1));
+    r = p && report_error_(b, icon_2(b, l + 1)) && r;
     r = p && consumeToken(b, ICON_END) && r;
     exit_section_(b, l, m, r, p, null);
     return r || p;
+  }
+
+  // [PARAMETER_SEPARATOR [ICON_PARAMETER]]
+  private static boolean icon_2(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "icon_2")) return false;
+    icon_2_0(b, l + 1);
+    return true;
+  }
+
+  // PARAMETER_SEPARATOR [ICON_PARAMETER]
+  private static boolean icon_2_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "icon_2_0")) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeToken(b, PARAMETER_SEPARATOR);
+    r = r && icon_2_0_1(b, l + 1);
+    exit_section_(b, m, null, r);
+    return r;
+  }
+
+  // [ICON_PARAMETER]
+  private static boolean icon_2_0_1(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "icon_2_0_1")) return false;
+    consumeToken(b, ICON_PARAMETER);
+    return true;
   }
 
   /* ********************************************************** */

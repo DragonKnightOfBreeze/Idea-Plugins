@@ -972,7 +972,7 @@
  job_telepath_effect_desc:0 "£job_telepath£ $job_telepath_plural$ produzieren £unity£ §Y$unity$§! und reduzieren £crime£ §Y$PLANET_CRIME_TITLE$§!"
  mod_job_telepath_add:0 "Job $job_telepath$"
  mod_job_telepath_per_pop:0 "§G+1§! $job_telepath$ pro $VALUE$ Bewohner"
- mod_job_telepath_per_pop_short:0 "\n§G+1§! £mod_job_telepath_add£ pro $VALUE$ £pop"
+ mod_job_telepath_per_pop_short:0 "\n§G+1§! £mod_job_telepath_add£ pro $VALUE$ £pop£"
 
  job_soldier:0 "Soldat"
  job_soldier_plural:0 "Soldaten"
@@ -1183,21 +1183,21 @@
  job_criminal_desc:1 "Diese Kriminellen leben außerhalb der Grenzen der legalen Gesellschaft, manche aus freien Stücken und manche nach Umständen."
  mod_job_criminal_add:0 "Job $job_criminal$"
  mod_job_criminal_per_crime:0 "§G+1§! $job_criminal$ pro $VALUE$ planetarer Krimminalität"
- mod_job_criminal_per_crime_short:0 "\n§G+1§! £mod_job_criminal_add£ pro $VALUE$ £crime"
+ mod_job_criminal_per_crime_short:0 "\n§G+1§! £mod_job_criminal_add£ pro $VALUE$ £crime£"
 
  job_deviant_drone:0 "Abtrünnige Drohne"
  job_deviant_drone_plural:0 "Abtrünnige Drohnen"
  job_deviant_drone_desc:0 "Diese Abtrünnigen gehorchen nicht mehr dem Schwarmbewusstsein."
  mod_job_deviant_drone_add:0 "Job $job_deviant_drone$"
  mod_job_deviant_drone_per_crime:0 "§G+1§! $job_deviant_drone$ pro $VALUE$ Planetenkriminalität"
- mod_job_deviant_drone_per_crime_short:0 "\n§G+1§! £mod_job_deviant_drone_add£ pro $VALUE$ £crime"
+ mod_job_deviant_drone_per_crime_short:0 "\n§G+1§! £mod_job_deviant_drone_add£ pro $VALUE$ £crime£"
 
  job_corrupt_drone:0 "Beschädigte Drohne"
  job_corrupt_drone_plural:0 "Beschädigte Drohnen"
  job_corrupt_drone_desc:0 "Diese Drohnen wurden beschädigt und befolgen nicht mehr die Anweisungen der Kernintelligenz."
  mod_job_corrupt_drone_add:0 "Job $job_corrupt_drone$"
  mod_job_corrupt_drone_per_crime:0 "§G+1§! $job_corrupt_drone$ pro $VALUE$ Planetenkriminalität"
- mod_job_corrupt_drone_per_crime_short:0 "\n§G+1§! £mod_job_corrupt_drone_add£ pro $VALUE$ £crime"
+ mod_job_corrupt_drone_per_crime_short:0 "\n§G+1§! £mod_job_corrupt_drone_add£ pro $VALUE$ £crime£"
 
  # Primitive Jobs
  job_hunter_gatherer:0 "Jäger und Sammler"
@@ -3258,7 +3258,7 @@
  fleet3deal4cost3:0 "wenn Ihr uns us £sr_zro£ §R15§! §Y$sr_zro$§! gebt."
  fleet3deal4product1:0 "Diese Legierung. Das Gewicht. Der Glanz. Das Funkeln! Habt ihr jemals solche metallischen Verbindungen gesehen? Unglaubliche Stärke. Höchstnote. Nominale Verunreinigungen. Wir können es fühlen. Es ruft nach euch.\n\nWir geben euch £alloys£ §G2000§! §Y$alloys$§!,"
  fleet3deal4product2:0 "Diese exotischen Gase. Brausend. Komprimiert auf maximale Dichte für logistischen Komfort. Sehr flüchtig, Vorsicht! Ihr begehrt sie, nicht wahr? Für eure Schilde, Eure Plasmakanonen? Sie können euch gehören.\n\nWir geben euch £exotic_gases£§G150§! §Y$exotic_gases$§!,"
- fleet3deal4product3:0 "Dieses Metall. Es bewegt sich. Es fließt. Es rekonstruiert, §Hkssk!§!, wir haben viel Anwendungen dafür gefunden. Wir sind sicher, dass ihr es auch tut.\n\nWir geben euch £sr_living_metal  §G40§! §Y$sr_living_metal$§!,"
+ fleet3deal4product3:0 "Dieses Metall. Es bewegt sich. Es fließt. Es rekonstruiert, §Hkssk!§!, wir haben viel Anwendungen dafür gefunden. Wir sind sicher, dass ihr es auch tut.\n\nWir geben euch £sr_living_metal£  §G40§! §Y$sr_living_metal$§!,"
  fleet3deal2product1_tooltip:0 "Ein §HWissenschaftler§! der §GStufe 3§! kommt nach [Root.GetName]"
  fleet3deal2product2_tooltip:0 "Ein §HGouverneur§! der §GStufe 3§! kommt nach [Root.GetName]"
  fleet3deal5cost_tooltip:0 "§R-6§! §H$pop_cat_worker$§! £pop£ Bewohner"
@@ -4127,7 +4127,7 @@
  CREATE_VASSAL_NOT_SECTOR_OWNER:0 "Wir kontrollieren diesen Sektor nicht."
  CREATE_VASSAL_CORE_SECTOR_INVALID:0 "Es ist nicht möglich einen Vasallen aus dem Kernsektor zu erstellen."
  CREATE_VASSAL_WE_ARE_SUBJECT:0 "Als $SUBJECTTYPE$ können wir keine Vasallen erstellen."
- 
+
  TOGGLE_NAVBAR_LOCK:0 "Klicken, um die Sperrung der Navigationsleiste umzuschalten"
  NAVBAR_LOCKED:0 "Navigationsleiste ist §Ygesperrt§!"
  NAVBAR_UNLOCKED:0 "Navigationsleiste ist §Yentsperrt§!"

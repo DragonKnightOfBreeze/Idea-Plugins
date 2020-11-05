@@ -120,14 +120,6 @@ class StellarisScriptAnnotator : Annotator ,DumbAware{
 					}
 				}
 			}
-			//NOTE 不能这样做：可能是外部变量，而来源难以判断
-			//is StellarisScriptVariableReference -> {
-			//	val resolve = element.reference?.resolve()
-			//	if(resolve == null) {
-			//		holder.newAnnotation(WARNING, message("stellaris.script.annotator.unresolvedVariable"))
-			//		.textAttributes(VARIABLE_KEY).create()
-			//	}
-			//}
 		}
 	}
 }

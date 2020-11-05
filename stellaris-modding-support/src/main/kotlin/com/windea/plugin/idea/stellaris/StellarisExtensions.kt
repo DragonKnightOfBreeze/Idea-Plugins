@@ -10,7 +10,6 @@ import com.intellij.openapi.editor.*
 import com.intellij.openapi.editor.colors.*
 import com.intellij.openapi.fileTypes.*
 import com.intellij.openapi.project.*
-import com.intellij.openapi.vfs.*
 import com.intellij.psi.*
 import com.intellij.psi.search.*
 import com.intellij.psi.search.GlobalSearchScope.*
@@ -168,7 +167,9 @@ fun getDocCommentTextFromPreviousComment(element: PsiElement): String {
 }
 
 fun isPreviousComment(element: PsiElement): Boolean {
-	return element.elementType == StellarisLocalizationTypes.COMMENT || element.elementType == StellarisScriptTypes.COMMENT
+	val elementType = element.elementType
+	return elementType == StellarisLocalizationTypes.COMMENT || elementType == StellarisLocalizationTypes.ROOT_COMMENT
+	       || elementType == StellarisScriptTypes.COMMENT
 }
 
 fun containsBlankLine(text: String): Boolean {
@@ -196,19 +197,21 @@ fun getDocCommentHtmlFromPreviousComment(element: PsiElement, textAttributeKey: 
 	}
 }
 
-/**查找最远的相同类型的兄弟节点。*/
-fun findFurthestSiblingOfSameType(element: PsiElement, after: Boolean): PsiElement? {
+/**查找最远的相同类型的兄弟节点。可指定是否向后查找，以及是否在空行处中断。*/
+fun findFurthestSiblingOfSameType(element: PsiElement, findAfter: Boolean,stopOnBlankLine:Boolean=true): PsiElement? {
 	var node = element.node
 	val expectedType = node.elementType
 	var lastSeen = node
-	loop@ while(node != null) {
+	 while(node != null) {
 		val elementType = node.elementType
 		when {
 			elementType === expectedType -> lastSeen = node
-			elementType === TokenType.WHITE_SPACE -> if(expectedType === COMMENT && node.text.indexOf(10.toChar(), 1) != -1) break@loop
-			!COMMENTS.contains(elementType) || COMMENTS.contains(expectedType) -> break@loop
+			elementType === TokenType.WHITE_SPACE -> {
+				if(stopOnBlankLine && containsBlankLine(element.text)) break
+			}
+			else -> break
 		}
-		node = if(after) node.treeNext else node.treePrev
+		node = if(findAfter) node.treeNext else node.treePrev
 	}
 	return lastSeen.psi
 }

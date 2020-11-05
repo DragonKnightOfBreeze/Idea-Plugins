@@ -56,12 +56,15 @@ class StellarisLocalizationAnnotator : Annotator, DumbAware {
 				}
 			}
 			else -> {
-				//如果是属性引用参数，且长度为1，则认为可能是颜色码，则加上对应的颜色
-				if(element.elementType == StellarisLocalizationTypes.PROPERTY_REFERENCE_PARAMETER && element.textLength == 1) {
-					val colorId = element.text
-					val color = StellarisColor.map[colorId]
-					if(color != null) {
-						annotateColorForPropertyReferenceParameter(colorId, holder, element)
+				//如果是属性引用参数，则认为第一个字符可能是颜色码，则加上对应的颜色
+				if(element.elementType == StellarisLocalizationTypes.PROPERTY_REFERENCE_PARAMETER) {
+					val text = element.text
+					if(text.firstOrNull()?.isUpperCase() == true) {
+						val colorId = text.substring(0,1)
+						val color = StellarisColor.map[colorId]
+						if(color != null) {
+							annotateColorForPropertyReferenceParameter(colorId, holder, element)
+						}
 					}
 				}
 			}

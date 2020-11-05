@@ -12,6 +12,9 @@ public interface StellarisLocalizationIcon extends StellarisLocalizationNamedEle
   StellarisLocalizationIconName getIconName();
 
   @Nullable
+  PsiElement getIconParameter();
+
+  @Nullable
   String getName();
 
   @NotNull

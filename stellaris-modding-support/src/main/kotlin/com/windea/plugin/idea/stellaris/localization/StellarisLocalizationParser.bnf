@@ -30,7 +30,7 @@
     PROPERTY_REFERENCE_PARAMETER='regexp:[^$"\r\n]+'
 	  PROPERTY_REFERENCE_END="$"
 	  ICON_START="£"
-	  ICON_ID='regexp:[a-zA-Z\-_\\/]+'
+	  ICON_ID='regexp:[a-zA-Z0-9\-_\\/]+'
 	  ICON_PARAMETER='regexp:[^£"\r\n]+'
 	  ICON_END="£"
 	  SERIAL_NUMBER_START="%"
@@ -86,7 +86,7 @@ property_reference ::= PROPERTY_REFERENCE_START [PROPERTY_REFERENCE_ID] [PARAMET
 code ::= CODE_START CODE_TEXT? CODE_END{
   pin=1
 }
-icon ::= ICON_START icon_name ICON_END {
+icon ::= ICON_START icon_name [PARAMETER_SEPARATOR [ICON_PARAMETER]] ICON_END {
   pin=1
   mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"
   implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"

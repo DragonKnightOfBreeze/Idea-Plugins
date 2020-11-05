@@ -34,6 +34,12 @@ public class StellarisLocalizationIconImpl extends StellarisLocalizationNamedEle
 
   @Override
   @Nullable
+  public PsiElement getIconParameter() {
+    return findChildByType(ICON_PARAMETER);
+  }
+
+  @Override
+  @Nullable
   public String getName() {
     return StellarisLocalizationPsiImplUtil.getName(this);
   }

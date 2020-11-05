@@ -849,7 +849,7 @@
  POP_FACTIONS_INFLUENCE_MULT:0 "基于受到派系§H支持§!以及§H赞同度§!水平，乘以$VALUE|Y$。"
  LOYALIST_FACTION_DESC:1 "忠诚派系是我们帝国的主要派系。忠诚的人口满足于现状，不会寻求变革。"
  FROM_FACTION:0 "派系认可度：$VALUE|0%Y$"
- APPROVAL_OF_FACTION:0 "£mod_faction_approval  $VALUE$"
+ APPROVAL_OF_FACTION:0 "£mod_faction_approval£  $VALUE$"
  POP_FACTIONS_ATTRACTION_TITLE:0 "吸引力"
  POP_FACTIONS_INFLUENCE:2 "由于该派系的§H支持率§!与§H赞同度§!，我们每月可获得$VALUE$。"
  POP_FACTIONS_APPROVAL_TITLE:1 "$APPROVAL$"
@@ -11679,4 +11679,4 @@
 
  lesser_space_cloud:0 "$space_cloud$"
  lesser_space_cloud_plural:0 "$space_cloud_plural$"
- 
+

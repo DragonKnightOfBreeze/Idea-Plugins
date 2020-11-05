@@ -36,7 +36,6 @@ import static com.windea.plugin.idea.stellaris.localization.psi.StellarisLocaliz
 
 %state WAITING_CHECK_RIGHT_QUOTE
 %state WAITING_CHECK_PERCENT
-%state WAITING_SERIAL_NUMEBR_START
 
 %{
   int depth = 0;
@@ -73,7 +72,7 @@ VALID_ESCAPE_TOKEN=\\[\"rn$£§%\[]
 INVALID_ESCAPE_TOKEN=\\.
 PROPERTY_REFERENCE_ID=[a-zA-Z0-9_.\-']+
 PROPERTY_REFERENCE_PARAMETER=[^$\"\r\n]+
-ICON_ID=[a-zA-Z\-_\\/]+
+ICON_ID=[a-zA-Z0-9\-_\\/]+
 ICON_PARAMETER=[^£\"\r\n]+
 SERIAL_NUMBER_ID=[a-zA-Z]
 CODE_TEXT=[^\"\[\]\r\n]+
@@ -167,9 +166,6 @@ IS_SERIAL_NUMBER=%.%
   \" { yybegin(WAITING_PROPERTY_EOL); return RIGHT_QUOTE;}
   {ICON_PARAMETER} {return ICON_PARAMETER;}
 }
-<WAITING_SERIAL_NUMEBR_START>{
-  "%" { yybegin(WAITING_SERIAL_NUMBER); return SERIAL_NUMBER_START;}
-}
 <WAITING_SERIAL_NUMBER>{
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }
   "%" {yybegin(nextState()); return SERIAL_NUMBER_END;}
@@ -234,6 +230,7 @@ IS_SERIAL_NUMBER=%.%
             yybegin(WAITING_SERIAL_NUMBER);
             return SERIAL_NUMBER_START;
         }else{
+        	  yypushback(yylength()-1);
             yybegin(nextStateForText());
             return STRING_TOKEN;
         }
