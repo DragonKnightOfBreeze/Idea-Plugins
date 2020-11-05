@@ -116,10 +116,6 @@ HIVE = {
 			sequential_name = "%O% 克隆战士无人机"
 		}
 		
-		undead_army = {
-			sequential_name = "%O%恐惧工蜂"
-		}
-
 		robotic_army = {
 			sequential_name = "%O% 机器人战士无人机"
 		}

@@ -91,11 +91,7 @@ REP2 = {
 		clone_army = { 
 			sequential_name = "镜子护卫 %C%"
 		}
-
-		undead_army = {
-			sequential_name = "%O%不死入侵军"
-		}
-
+		
 		robotic_army = {
 			sequential_name = "战斗建筑﻿ %C%"
 		}

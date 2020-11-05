@@ -101,10 +101,6 @@ PLANT2 = {
 		slave_army = {
 			sequential_name = "边界花茎﻿ %C%"
 		}
-
-		undead_army = {
-			sequential_name = "%O%恐惧树干"
-		}
 		
 		clone_army = { 
 			sequential_name = "诸茎 %R%"

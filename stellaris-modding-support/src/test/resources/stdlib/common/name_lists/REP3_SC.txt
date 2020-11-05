@@ -85,11 +85,7 @@ REP3 = {
 		slave_army = {
 			sequential_name = "劳工舱 %C%"
 		}
-
-		undead_army = {
-			sequential_name = "%O%不死战群"
-		}
-
+		
 		clone_army = { 
 			sequential_name = "智能人突击队 %C%"
 		}

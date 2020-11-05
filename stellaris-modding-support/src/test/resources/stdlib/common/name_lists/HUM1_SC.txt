@@ -120,11 +120,7 @@ HUM1 = {
 		clone_army = { 
 			sequential_name = "战斗克隆人 %C%"
 		}
-
-		undead_army = {
-			sequential_name = "%O%恐惧劳工"
-		}
-
+		
 		robotic_army = {
 			sequential_name = "机器枪兵 %C%"
 		}

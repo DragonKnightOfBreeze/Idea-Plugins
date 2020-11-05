@@ -39,9 +39,8 @@
 	  COLORFUL_TEXT_START="§"
 	  COLOR_CODE="regexp:[a-zA-Z]"
 	  COLORFUL_TEXT_END="§!"
-	  //NOTE 实际上双引号不需要转义，但是这里认为是语法错误
-	  //QUOTED_STRING_TOKEN='regexp:[^$£§\[\r\n\\][^"%$£§\[\r\n\\]*'
-	  QUOTED_STRING_TOKEN='regexp:[^"$£§\[\r\n\\][^"%$£§\[\r\n\\]*'
+	  //双引号和百分号实际上不需要转义
+	  QUOTED_STRING_TOKEN='regexp:[^£§\[\r\n\\][^"%$£§\[\r\n\\]*'
 	]
 }
 

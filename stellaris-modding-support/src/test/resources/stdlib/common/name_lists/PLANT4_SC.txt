@@ -115,10 +115,6 @@ PLANT4 = {
 		slave_army = {
 			sequential_name = "卡亚克托种族 %C%"
 		}
-
-		undead_army = {
-			sequential_name = "%O%恐惧针叶"
-		}
 		
 		clone_army = { 
 			sequential_name = "%R% 卡沃利亚种族"

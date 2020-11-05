@@ -161,11 +161,7 @@ HUMAN2 = {
 		clone_army = {
 			sequential_name = "合成军队 %C%"
 		}
-
-		undead_army = {
-			sequential_name = "%O%恐惧军群"
-		}
-
+		
 		robotic_army = {
 			sequential_name = "无人作战小队 %C%"
 		}

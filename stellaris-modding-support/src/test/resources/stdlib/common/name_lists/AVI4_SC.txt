@@ -107,10 +107,6 @@ AVI4 = {
 			sequential_name = "%O% 克隆步兵"
 		}
 		
-		undead_army = {
-			sequential_name = "%O%恐惧部队"
-		}
-
 		robotic_army = {
 			sequential_name = "%O% 机械化推进者"
 		}

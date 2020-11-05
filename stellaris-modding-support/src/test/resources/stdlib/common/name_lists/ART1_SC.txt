@@ -103,11 +103,7 @@ ART1 = {
 		clone_army = {
 			sequential_name = "克隆舱﻿ %C%"
 		}
-
-		undead_army = {
-			sequential_name = "%O%恐惧荚舱"
-		}
-
+		
 		robotic_army = {
 			sequential_name = "智能人舱 %C%"
 		}

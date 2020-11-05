@@ -90,10 +90,6 @@ FUN4 = {
 		clone_army = {
 			sequential_name = "%O% 克隆师"
 		}
-
-		undead_army = {
-			sequential_name = "%O%恐惧师团"
-		}
 		
 		robotic_army = {
 			sequential_name = "%O% 机器人攻击部队"

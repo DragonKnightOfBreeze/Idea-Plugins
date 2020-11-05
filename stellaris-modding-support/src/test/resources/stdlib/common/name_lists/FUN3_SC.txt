@@ -89,11 +89,7 @@ FUN3 = {
 		clone_army = { 
 			sequential_name = "油印小队 %C%"
 		}
-
-		undead_army = {
-			sequential_name = "%O%恐怖战排"
-		}
-
+		
 		robotic_army = {
 			sequential_name = "机器人之帽 %C%"
 		}

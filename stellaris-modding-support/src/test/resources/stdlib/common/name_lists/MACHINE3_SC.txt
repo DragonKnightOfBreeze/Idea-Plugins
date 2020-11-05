@@ -101,10 +101,6 @@ MACHINE3 = {
 		robotic_occupation_army = {
 			sequential_name = "%O% 安卓 加里森波德"
 		}
-
-		undead_army = {
-			sequential_name = "%O%恐惧生命体"
-		}
 		primitive_army = {
 			sequential_name = "原始军队 %C%"
 		}

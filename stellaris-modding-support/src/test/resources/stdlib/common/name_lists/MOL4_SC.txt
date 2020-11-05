@@ -109,10 +109,6 @@ MOL4 = {
 		clone_army = { 
 			sequential_name = "%O% 克隆陆战队"
 		}
-
-		undead_army = {
-			sequential_name = "%O%恐怖陆战队"
-		}
 		
 		robotic_army = {
 			sequential_name = "%O% 机械破壳者"

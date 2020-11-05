@@ -88,7 +88,7 @@
  SUPREMACIST_CELEBRATE_DIVERSITY:0 "Célébration de la faiblesse"
  SUPREMACIST_NO_CELEBRATE_DIVERSITY:0 "$SUPREMACIST_CELEBRATE_DIVERSITY$"
  SUPREMACIST_CELEBRATE_DIVERSITY_DESC:0 "Le [Root.GetName] sera mécontent pendant un temps si nous exposons les artefacts mineurs de civilisations inférieures."
-
+ 
  # XENOISTS
  XENOIST_PASSIVE_STUDY:0 "Xénologie indirecte"
  XENOIST_PASSIVE_STUDY_DESC:0 "Le [Root.GetName] sera satisfait si nous légiférons pour limiter les interférences avec les indigènes à des études passives."
@@ -276,7 +276,7 @@
  TRADITIONALIST_RELIGIOUS_FINDING:0 "Réconfort du passé"
  TRADITIONALIST_NO_RELIGIOUS_FINDING:0 "$TRADITIONALIST_RELIGIOUS_FINDING$"
  TRADITIONALIST_RELIGIOUS_FINDING_DESC:0 "Le [Root.GetName] sera satisfait pour un temps si nous découvrons l'importance religieuse des artefacts mineurs des précurseurs."
-
+ 
  # TECHNOLOGISTS
  TECHNOLOGIST_ROBOTS:0 "Amour des machines"
  TECHNOLOGIST_ROBOTS_DESC:0 "Le [Root.GetName] sera satisfait si nous maintenons une population d'au moins §Y6§! pops robotiques."
@@ -431,7 +431,7 @@
  POP_FACTION_NO_EFFECTS_DESC:0 "Les $FACTION$ n'auront jamais d'effets."
  POP_FACTION_NO_CURRENT_EFFECTS:0 "Pas d'effets en cours"
  POP_FACTION_NO_CURRENT_EFFECTS_DESC:0 "Les $FACTION$ n'ont pas d'effets en cours."
-
+ 
  ### SEPARATIST
 
  # Separatist Demands
@@ -439,7 +439,7 @@
  POP_FACTION_SEPARATIST_DEMAND_DESC_1:0 "Établit un nouveau Secteur avec §H[parameter:planet.GetName]§! comme capitale."
  POP_FACTION_SEPARATIST_DEMAND_TITLE_2:0 "Indépendance de §H[parameter:planet.GetName]§!"
  POP_FACTION_SEPARATIST_DEMAND_DESC_2:0 "Libère §H[parameter:planet.GetName]§! comme capitale d'un empire indépendant"
-
+ 
  ### PLANET SEPARATISTS
  POP_FACTION_PLANET_SEPARATIST_DEMAND_TITLE:1 "Indépendance de [parameter:Planet.GetName]"
  POP_FACTION_PLANET_SEPARATIST_DEMAND_DESC:0 "Les séparatistes exigent l'indépendance de §Y[parameter:Planet.GetName]§!."
@@ -462,7 +462,7 @@
  POP_FACTION_PLANET_SEPARATIST_RECENT_SABOTAGE:0 "Émeutes récentes"
  POP_FACTION_PLANET_SEPARATIST_SABOTAGE_DESC:0 "Les émeutes §Rdétruisent§! un bâtiment sur la planète."
  POP_FACTION_PLANET_SEPARATIST_NOTHING_TO_RUIN:0 "Plus aucun bâtiment n'est intact"
-
+ 
  ### Sector separatists
  pft_sector_separatists:0 "Séparatistes sectoriels"
  pft_sector_separatists_desc:0 "Des séparatistes sectoriels peuvent faire leur apparition sur les mondes des secteurs pour tenter de libérer leurs voisins stellaires du joug impérial. S'ils bénéficient d'un soutien populaire suffisant, ils peuvent même prendre les armes.\n\n§HLes séparatistes sectoriels n'apparaîtront jamais dans notre secteur principal.§!"
@@ -472,9 +472,9 @@
  POP_FACTION_SECTOR_SEPARATIST_GRANT_INDEPENDENCE_DESC:0 "Accordez l'indépendance aux colonies du secteur §Y[parameter:sector.GetName]§!"
  POP_FACTION_SECTOR_SEPARATIST_IS_NOT_OCCUPIED:0 "Aucune planète du secteur n'est occupée"
  POP_FACTION_SECTOR_SEPARATIST_NO_GROUND_COMBAT:0 "Aucun combat au sol sur les planètes du secteur"
-
-
-
+ 
+ 
+ 
  ### NATIONALISTS
 
  pft_nationalist:0 "Faction de rapatriement"
@@ -660,11 +660,11 @@
  POP_FACTION_PRETENDER_DEMAND_DESC:0 "Le [Root.Owner.GetRulerTitle] §Y[Root.Owner.GetRulerName]§! sera exilé et §Y[parameter:pretender.GetName]§! montera sur le trône."
  POP_FACTION_PRETENDER_INSTALL_TITLE:0 "Installer le prétendant"
  POP_FACTION_PRETENDER_INSTALL_DESC:0 "Faites monter §Y[parameter:pretender.GetName]§! sur le trône."
-
+ 
  ########################################
  # FACTION EVENTS
  ########################################
-
+ 
  ### New Events
  factions.1.title:0 "Formation d'une faction"
  factions.1.desc:0 "Une nouvelle faction a récemment suscité une certaine adhésion sur la scène politique [Root.Owner.GetAdj]. Elle s'est elle-même baptisée « [Root.GetName] » et, guidée par son fondateur, notre [Root.Leader.GetTitle] [Root.Leader.GetName], ses membres n'ont cessé de faire pression pour que diverses questions leur tenant à coeur soient réglées.\n\nIl est probable que nous verrons apparaître d'autres factions à l'avenir, à mesure que la population va se multiplier et ses éthiques se disperser dans différentes directions. Une faction mécontente risque de nous causer des ennuis, mais toutes celles qui approuveront les actions du gouvernement pourront s'avérer fort utiles..."
@@ -679,7 +679,7 @@
  factions.1.desc.totalitarian:0 "Ses membres défendent avec ardeur une centralisation poussée à l'extrême du pouvoir politique et militaire.\n\n"
  factions.1.desc.traditionalist:0 "Ses membres sont animés par des valeurs spiritualistes et conservatrices.\n\n"
  factions.1.desc.xenoist:0 "Ses membres militent pour l'ouverture de relations amicales avec les espèces aliens.\n\n"
-
+ 
  factions.2000.title:0 "Changements éthiques dans la [TargetFaction.Owner.GetName]"
  factions.2000.desc.start:0 "Après une longue période de soutien au §Y[TargetFaction.GetName]§!, la §Y[TargetFaction.Owner.GetName]§! a fini par adopter cette faction, faisant siennes toutes les valeurs et politiques qu'elle prônait jusqu'à présent."
  factions.2000.desc.imperialist:0 "En faisant entrer cette faction au sein de son gouvernement, elle est devenue plus ouvertement §Hmilitariste§!.\n\n"
@@ -691,7 +691,7 @@
  factions.2000.desc.totalitarian:0 "En faisant entrer cette faction au sein de son gouvernement, elle est devenue plus ouvertement §Hautoritariste§!.\n\n"
  factions.2000.desc.traditionalist:0 "En faisant entrer cette faction au sein de son gouvernement, elle est devenue plus ouvertement §Hspiritualiste§!.\n\n"
  factions.2000.desc.xenoist:0 "En faisant entrer cette faction au sein de son gouvernement, elle est devenue plus ouvertement §Hxénophile§!.\n\n"
-
+ 
  ### Loyalists
  faction.4.title:0 "Demandes loyalistes"
  faction.4.desc:0 "Les loyalistes sont dévoués au [Root.Owner.GetRulerTitle] [Root.Owner.GetRulerName] de [Root.Owner.GetName], et n'ont pas de demandes."
@@ -783,7 +783,7 @@
  faction.202.title:0 "[parameter:heathens.GetName] insultés"
  faction.202.desc:0 "Suite à une embarrassante faille de sécurité, [Root.GetName] ont bénéficié d'un bref accès à nos canaux de communication diplomatiques. Ils ont utilisé cette opportunité pour condamner et insulter les [parameter:heathens.GetName] pour plusieurs hérésies et carences morales inhérentes à leurs croyances.\n\nL'incident est vraiment mal passé vis à vis de la foi très profonde des [parameter:heathens.GetSpeciesPlural]."
  faction.202.a:0 "Comme c'est embarrassant."
- faction.202.a.tooltip:0 "§Y[parameter:enemy.GetName]§! ajoute le modificateur d'opinion §YInsulte de faction§! envers §Yotre Empire§!"
+ faction.202.a.tooltip:0 "§Y[parameter:enemy.GetName]§! ajoute le modificateur d'opinion §YInsulte de faction§! envers §votre Empire§!"
  faction.203.title:0 "Tentative d'insulte"
  faction.203.desc:0 "Suite à une autre faille de sécurité, encore plus embarrassante, [Root.GetName] ont bénéficié d'un bref accès à nos canaux de communication diplomatiques. Ils ont de nouveau utilisé cette opportunité pour dénigrer les croyances païennes de [parameter:heathens.GetName].\n\nCependant, les [parameter:heathens.GetSpeciesPlural] n'ont cette fois pas été pris par surprise par la répétition de cet incident, et n'en ont pas fait cas."
  faction.203.a:0 "Ouf..."
@@ -824,7 +824,7 @@
  faction.501.title:0 "[parameter:enemy.GetName] insulté"
  faction.501.desc:0 "Suite à une embarrassante faille de sécurité, [Root.GetName] ont bénéficié d'un bref accès à nos canaux de communication diplomatiques. Ils ont utilisé cette opportunité pour gravement insulter [parameter:enemy.GetName] et demandent le retour immédiat de [parameter:planet.GetName].\n\nCela ne s'est pas très bien passé avec les [parameter:enemy.GetSpeciesPlural]."
  faction.501.a:0 "Comme c'est embarrassant."
- faction.501.a.tooltip:0 "§Y[parameter:enemy.GetName]§! ajoute le modificateur d'opinion §YInsulte de faction§! envers §Yotre Empire§!"
+ faction.501.a.tooltip:0 "§Y[parameter:enemy.GetName]§! ajoute le modificateur d'opinion §YInsulte de faction§! envers §votre Empire§!"
  faction.502.title:0 "Tentative d'insulte"
  faction.502.desc:0 "Suite à une autre faille de sécurité, encore plus embarrassante, [Root.GetName] ont bénéficié d'un bref accès à nos canaux de communication diplomatiques. Ils ont utilisé cette opportunité pour à nouveau gravement insulter [parameter:enemy.GetName] et demandent le retour immédiat de [parameter:planet.GetName].\n\nCependant, les [parameter:enemy.GetSpeciesPlural] n'ont pas été pris par surprise par la répétition de cet incident, et n'y ont pas prêté attention."
  faction.502.a:0 "Ouf..."

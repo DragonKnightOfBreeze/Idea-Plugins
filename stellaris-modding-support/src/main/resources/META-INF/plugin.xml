@@ -156,15 +156,15 @@
       implementationClass="com.windea.plugin.idea.stellaris.localization.highlighter.StellarisLocalizationSyntaxHighlighterFactory"/>
     <lang.braceMatcher
       language="Stellaris Localization"
-      implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationBraceMatcher"/>
+      implementationClass="com.windea.plugin.idea.stellaris.localization.editor.StellarisLocalizationBraceMatcher"/>
     <lang.foldingBuilder
       language="Stellaris Localization"
-      implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationFoldingBuilder"/>
+      implementationClass="com.windea.plugin.idea.stellaris.localization.editor.StellarisLocalizationFoldingBuilder"/>
     <colorSettingsPage
       implementation="com.windea.plugin.idea.stellaris.localization.highlighter.StellarisLocalizationColorSettingsPage"/>
     <lang.commenter
       language="Stellaris Localization"
-      implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationCommenter"/>
+      implementationClass="com.windea.plugin.idea.stellaris.localization.editor.StellarisLocalizationCommenter"/>
     <spellchecker.support
       language="Stellaris Localization"
       implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationSpellchecker"/>
@@ -179,10 +179,10 @@
       language="Stellaris Localization"
       implementationClass="com.windea.plugin.idea.stellaris.localization.codeInsight.StellarisLocalizationCompletionContributor"/>
     <liveTemplateContext
-      implementation="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationTemplateContext"/>
+      implementation="com.windea.plugin.idea.stellaris.localization.editor.StellarisLocalizationTemplateContext"/>
     <defaultLiveTemplates file="/liveTemplates/Stellaris Localization.xml"/>
     <breadcrumbsInfoProvider
-      implementation="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationBreadCrumbsProvider"/>
+      implementation="com.windea.plugin.idea.stellaris.localization.editor.StellarisLocalizationBreadCrumbsProvider"/>
     <lang.psiStructureViewFactory
       language="Stellaris Localization"
       implementationClass="com.windea.plugin.idea.stellaris.localization.structureView.StellarisLocalizationStructureViewFactory"/>
@@ -195,12 +195,12 @@
       implementation="com.windea.plugin.idea.stellaris.localization.formatter.StellarisLocalizationLanguageCodeStyleSettingsProvider"/>
     <lang.quoteHandler
       language="Stellaris Localization"
-      implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationQuoteHandler"/>
+      implementationClass="com.windea.plugin.idea.stellaris.localization.editor.StellarisLocalizationQuoteHandler"/>
     <lang.documentationProvider
       language="Stellaris Localization"
-      implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationDocumentationProvider"/>
+      implementationClass="com.windea.plugin.idea.stellaris.localization.editor.StellarisLocalizationDocumentationProvider"/>
     <elementDescriptionProvider
-      implementation="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationDescriptionProvider"/>
+      implementation="com.windea.plugin.idea.stellaris.localization.editor.StellarisLocalizationDescriptionProvider"/>
 
     <lang.findUsagesProvider
       language="Stellaris Localization"
@@ -251,15 +251,15 @@
       implementationClass="com.windea.plugin.idea.stellaris.script.highlighter.StellarisScriptSyntaxHighlighterFactory"/>
     <lang.braceMatcher
       language="Stellaris Script"
-      implementationClass="com.windea.plugin.idea.stellaris.script.StellarisScriptBraceMatcher"/>
+      implementationClass="com.windea.plugin.idea.stellaris.script.editor.StellarisScriptBraceMatcher"/>
     <lang.foldingBuilder
       language="Stellaris Script"
-      implementationClass="com.windea.plugin.idea.stellaris.script.StellarisScriptFoldingBuilder"/>
+      implementationClass="com.windea.plugin.idea.stellaris.script.editor.StellarisScriptFoldingBuilder"/>
     <colorSettingsPage
       implementation="com.windea.plugin.idea.stellaris.script.highlighter.StellarisScriptColorSettingsPage"/>
     <lang.commenter
       language="Stellaris Script"
-      implementationClass="com.windea.plugin.idea.stellaris.script.StellarisScriptCommenter"/>
+      implementationClass="com.windea.plugin.idea.stellaris.script.editor.StellarisScriptCommenter"/>
     <spellchecker.support
       language="Stellaris Script"
       implementationClass="com.windea.plugin.idea.stellaris.script.StellarisScriptSpellchecker"/>
@@ -279,9 +279,9 @@
       language="Stellaris Script"
       implementationClass="com.windea.plugin.idea.stellaris.script.codeInsight.StellarisScriptCompletionContributor"/>
     <breadcrumbsInfoProvider
-      implementation="com.windea.plugin.idea.stellaris.script.StellarisScriptBreadCrumbsProvider"/>
+      implementation="com.windea.plugin.idea.stellaris.script.editor.StellarisScriptBreadCrumbsProvider"/>
     <colorProvider
-      implementation="com.windea.plugin.idea.stellaris.script.StellarisScriptColorProvider"/>
+      implementation="com.windea.plugin.idea.stellaris.script.editor.StellarisScriptColorProvider"/>
     <lang.psiStructureViewFactory
       language="Stellaris Script"
       implementationClass="com.windea.plugin.idea.stellaris.script.structureView.StellarisScriptStructureViewFactory"/>
@@ -294,12 +294,12 @@
       implementation="com.windea.plugin.idea.stellaris.script.formatter.StellarisScriptLanguageCodeStyleSettingsProvider"/>
     <lang.quoteHandler
       language="Stellaris Script"
-      implementationClass="com.windea.plugin.idea.stellaris.script.StellarisScriptQuoteHandler"/>
+      implementationClass="com.windea.plugin.idea.stellaris.script.editor.StellarisScriptQuoteHandler"/>
     <lang.documentationProvider
       language="Stellaris Script"
-      implementationClass="com.windea.plugin.idea.stellaris.script.StellarisScriptDocumentationProvider"/>
+      implementationClass="com.windea.plugin.idea.stellaris.script.editor.StellarisScriptDocumentationProvider"/>
     <elementDescriptionProvider
-      implementation="com.windea.plugin.idea.stellaris.script.StellarisScriptDescriptionProvider"/>
+      implementation="com.windea.plugin.idea.stellaris.script.editor.StellarisScriptDescriptionProvider"/>
 
     <lang.findUsagesProvider
       language="Stellaris Script"

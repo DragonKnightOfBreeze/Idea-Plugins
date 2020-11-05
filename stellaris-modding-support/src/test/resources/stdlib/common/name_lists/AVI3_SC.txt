@@ -146,11 +146,7 @@ AVI3 = {
 		clone_army = { 
 			sequential_name = "克隆军团 %R%"
 		}
-
-		undead_army = {
-			sequential_name = "%O%恐惧飞禽"
-		}
-
+		
 		robotic_army = {
 			sequential_name = "智能人部队 %R%"
 		}

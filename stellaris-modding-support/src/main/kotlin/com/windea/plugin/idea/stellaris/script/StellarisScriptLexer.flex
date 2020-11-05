@@ -42,9 +42,6 @@ EOL=\s*\R
 WHITE_SPACE=\s+
 SPACE=[ \t]+
 
-//IS_PROEPRTY=[a-zA-Z0-9_\-.:]+[ \t]*[=><]
-IS_PROEPRTY=([^\r\n\"]*[=><])|(\"[^\r\n\"]*\"[ \t]*[=><])
-
 COMMENT=#[^\r\n]*
 END_OF_LINE_COMMENT=#[^\r\n]*
 VARIABLE_NAME_ID=@[a-zA-Z0-9_\-]+
@@ -57,6 +54,8 @@ QUOTED_STRING=\"([^\"(\r\n\\]|\\.)*?\"
 STRING=[^@\s\[\]\{\}=\"][^\s\[\]\{\}=\"]*
 COLOR_TOKEN=(rgb|rgba|hsb|hsv|hsl)[ \t]*\{[^\r\n]*?}
 
+IS_PROPERTY=(([a-zA-Z0-9_\-.:]+)|(\"([^\"(\r\n\\]|\\.)*?\"))[ \t]*[=><]
+
 %%
 <YYINITIAL> {
   "}" {depth--;  yybegin(nextState()); return RIGHT_BRACE;}
@@ -65,7 +64,7 @@ COLOR_TOKEN=(rgb|rgba|hsb|hsv|hsl)[ \t]*\{[^\r\n]*?}
   {COMMENT} {return COMMENT; }
   {VARIABLE_NAME_ID} { yybegin(WAITING_VARIABLE_EQUAL_SIGN); return VARIABLE_NAME_ID; }
   //在这里根据后面是否有"="判断是否是property
-  {IS_PROEPRTY} {yypushback(yylength()); yybegin(WAITING_PROPERTY);}
+  {IS_PROPERTY} {yypushback(yylength()); yybegin(WAITING_PROPERTY);}
   {COLOR_TOKEN} {yybegin(WAITING_PROPERTY_EOL); return COLOR_TOKEN;}
   {BOOLEAN} { yybegin(WAITING_PROPERTY_EOL); return BOOLEAN_TOKEN; }
   {NUMBER} { yybegin(WAITING_PROPERTY_EOL); return NUMBER_TOKEN; }
@@ -112,8 +111,7 @@ COLOR_TOKEN=(rgb|rgba|hsb|hsv|hsl)[ \t]*\{[^\r\n]*?}
   "{" {depth++;  yybegin(nextState()); return LEFT_BRACE;}
   {WHITE_SPACE} { return WHITE_SPACE; } //继续解析
   {COMMENT} {  return COMMENT; }
-  //在这里根据后面是否有"="判断是否是property
-  {IS_PROEPRTY} {yypushback(yylength()); yybegin(WAITING_PROPERTY);}
+  {IS_PROPERTY} {yypushback(yylength()); yybegin(WAITING_PROPERTY);}
   {COLOR_TOKEN} {yybegin(WAITING_PROPERTY_EOL); return COLOR_TOKEN;}
   {BOOLEAN} { yybegin(WAITING_PROPERTY_EOL); return BOOLEAN_TOKEN; }
   {NUMBER} { yybegin(WAITING_PROPERTY_EOL); return NUMBER_TOKEN; }
@@ -151,9 +149,7 @@ COLOR_TOKEN=(rgb|rgba|hsb|hsv|hsl)[ \t]*\{[^\r\n]*?}
   {EOL} {  yybegin(nextState()); return WHITE_SPACE; }
   {SPACE} { return WHITE_SPACE; }
   {END_OF_LINE_COMMENT} {  return END_OF_LINE_COMMENT; }
-  //可以在同一行
-  //在这里根据后面是否有"="判断是否是property
-  {IS_PROEPRTY} {yypushback(yylength()); yybegin(WAITING_PROPERTY);}
+  {IS_PROPERTY} {yypushback(yylength()); yybegin(WAITING_PROPERTY);}
   {COLOR_TOKEN} {yybegin(WAITING_PROPERTY_EOL); return COLOR_TOKEN;}
   {BOOLEAN} { return BOOLEAN_TOKEN; }
   {NUMBER} { return NUMBER_TOKEN; }

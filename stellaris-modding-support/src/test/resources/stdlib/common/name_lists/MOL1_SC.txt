@@ -90,11 +90,7 @@ MOL1 = {
 		slave_army = {
 			sequential_name = "劳工部队 %C%"
 		}
-
-		undead_army = {
-			sequential_name = "%O%恐怖虫群"
-		}
-
+		
 		clone_army = {
 			sequential_name = "克隆群 %C%"
 		}

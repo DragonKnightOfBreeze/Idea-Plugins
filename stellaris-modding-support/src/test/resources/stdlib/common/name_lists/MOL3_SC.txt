@@ -92,11 +92,7 @@ MOL3 = {
 		clone_army = { 
 			sequential_name = "幽灵旅 %C%"
 		}
-
-		undead_army = {
-			sequential_name = "%O%恐怖旅团"
-		}
-
+		
 		robotic_army = {
 			sequential_name = "钢铁旅 %C%"
 		}

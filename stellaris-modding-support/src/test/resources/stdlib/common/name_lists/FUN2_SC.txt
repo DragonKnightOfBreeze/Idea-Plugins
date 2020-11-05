@@ -90,11 +90,7 @@ FUN2 = {
 		clone_army = { 
 			sequential_name = "真菌技术融合部队 %C%"
 		}
-
-		undead_army = {
-			sequential_name = "%O%恐惧战队"
-		}
-
+		
 		robotic_army = {
 			sequential_name = "机器蘑菇小组 %C%"
 		}

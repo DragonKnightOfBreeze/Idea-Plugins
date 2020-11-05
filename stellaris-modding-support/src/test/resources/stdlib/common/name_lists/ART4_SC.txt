@@ -92,10 +92,6 @@ ART4 = {
 			sequential_name = "%O%克隆舱"
 		}
 
-		undead_army = {
-			sequential_name = "%O%恐惧荚舱"
-		}
-
 		robotic_army = {
 			sequential_name = "%O%机器人舱"
 		}

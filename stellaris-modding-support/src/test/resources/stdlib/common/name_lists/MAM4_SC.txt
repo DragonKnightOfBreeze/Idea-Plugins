@@ -85,11 +85,7 @@ MAM4 = {
 		slave_army = {
 			sequential_name = "%O% 罪罚纵队"
 		}
-
-		undead_army = {
-			sequential_name = "%O%恐惧纵队"
-		}
-
+		
 		clone_army = { 
 			sequential_name = "模板军队 %R%"
 		}

@@ -109,10 +109,6 @@ REP4 = {
 		clone_army = {
 			sequential_name = "%O% 克隆部队"
 		}
-
-		undead_army = {
-			sequential_name = "%O%恐惧战队"
-		}
 		
 		robotic_army = {
 			sequential_name = "%O% 机器人部队"

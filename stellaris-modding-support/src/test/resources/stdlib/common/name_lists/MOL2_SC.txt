@@ -86,10 +86,6 @@ MOL2 = {
 		clone_army = { 
 			sequential_name = "试管战队 %C%"
 		}
-
-		undead_army = {
-			sequential_name = "%O%恐怖军团"
-		}
 		
 		robotic_army = {
 			sequential_name = "机械兵团﻿ %C%"

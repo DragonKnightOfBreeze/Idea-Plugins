@@ -89,11 +89,7 @@ MAM1 = {
 		slave_army = {
 			sequential_name = "修正纵队 %C%"
 		}
-
-		undead_army = {
-			sequential_name = "%O%恐惧纵队"
-		}
-
+		
 		clone_army = { 
 			sequential_name = "成型部队 %R%"
 		}

@@ -2,6 +2,6 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/starbound-text/src/main/resources/messages/SbTextBundle.properties" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/stellaris-modding-support/src/test/resources/stdlib/common/component_templates/weapon_components.csv" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/stellaris-modding-support/src/test/resources/stdlib/common/component_templates/weapon_components.csv" charset="UTF-8" />
   </component>
 </project>

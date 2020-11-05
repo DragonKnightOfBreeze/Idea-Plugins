@@ -95,11 +95,6 @@ MACHINE2 = {
 		machine_assault_3 = {
 			sequential_name = "%O% 超机械巨兽"
 		}
-
-		undead_army = {
-			sequential_name = "%O%不死塞博族"
-		}
-
 		occupation_army = {
 			sequential_name = "%O% 加里森波德"
 		}

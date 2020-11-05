@@ -91,10 +91,6 @@ LITHOID4 = {
 			sequential_name = "%O% 镜"
 		}
 		
-		undead_army = {
-			sequential_name = "%O%熔炼战岩"
-		}
-
 		robotic_army = {
 			sequential_name = "%O% 岩械兵"
 		}

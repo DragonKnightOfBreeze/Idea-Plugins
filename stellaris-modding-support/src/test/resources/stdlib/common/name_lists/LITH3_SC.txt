@@ -96,10 +96,6 @@ LITHOID3 = {
 		clone_army = {
 			sequential_name = ""
 		}
-
-		undead_army = {
-			sequential_name = "%O%卡耳恩-阿特瓦恩"
-		}
 		
 		robotic_army = {
 			sequential_name = ""

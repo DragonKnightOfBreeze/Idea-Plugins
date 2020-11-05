@@ -93,10 +93,6 @@ MACHINE4 = {
 			sequential_name = "%O% 复制战士军团"
 		}
 
-		undead_army = {
-			sequential_name = "%O%恐怖军团"
-		}
-
 		machine_occupation_army = {
 			sequential_name = "%O% 占领军团"
 		}

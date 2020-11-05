@@ -87,11 +87,7 @@ MAM3 = {
 		clone_army = { 
 			sequential_name = "克隆师﻿ %C%"
 		}
-
-		undead_army = {
-			sequential_name = "%O%恐惧师团"
-		}
-
+		
 		robotic_army = {
 			sequential_name = "机器人师 %C%"
 		}
