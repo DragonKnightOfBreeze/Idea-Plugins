@@ -24,10 +24,6 @@ public class StellarisLocalizationVisitor extends PsiElementVisitor {
     visitNamedElement(o);
   }
 
-  public void visitIconName(@NotNull StellarisLocalizationIconName o) {
-    visitPsiElement(o);
-  }
-
   public void visitLocale(@NotNull StellarisLocalizationLocale o) {
     visitNamedElement(o);
   }

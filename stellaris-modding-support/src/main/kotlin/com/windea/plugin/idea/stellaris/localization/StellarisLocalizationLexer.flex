@@ -1,6 +1,5 @@
 package com.windea.plugin.idea.stellaris.localization.psi;
 
-import com.intellij.lexer.FlexLexer;
 import com.intellij.psi.TokenType;
 import com.intellij.psi.tree.IElementType;
 
@@ -39,19 +38,30 @@ import static com.windea.plugin.idea.stellaris.localization.psi.StellarisLocaliz
 
 %{
   int depth = 0;
+  int codeLocation = 0;
+  int propertyReferenceLocation = 0;
   boolean inIconName = false;
   boolean isColorfulText = false;
 
-  public int nextState(){
-	  return depth <= 0 ? WAITING_RICH_TEXT : WAITING_COLORFUL_TEXT;
+  public int nextStateText(){
+    return depth <= 0 ? WAITING_RICH_TEXT : WAITING_COLORFUL_TEXT;
   }
 
-  public int nextStateInIconName(){
-  	return inIconName? WAITING_ICON: nextState();
+  public int nextStateForCheck(){
+    return isColorfulText?WAITING_COLORFUL_TEXT:WAITING_RICH_TEXT;
   }
 
-  public int nextStateForText(){
-  	return isColorfulText?WAITING_COLORFUL_TEXT:WAITING_RICH_TEXT;
+  public int nextStateForCode(){
+    if(codeLocation == 0) return nextStateText();
+    else if (codeLocation == 1) return WAITING_PROPERTY_REFERENCE;
+    else if (codeLocation == 2) return WAITING_ICON;
+    else return nextStateText();
+  }
+
+  public int nextStateForPropertyReference(){
+    if(codeLocation == 0) return nextStateText();
+    else if (codeLocation == 2) return WAITING_ICON;
+    else return nextStateText();
   }
 %}
 
@@ -130,10 +140,10 @@ IS_SERIAL_NUMBER=%.%
 <WAITING_RICH_TEXT>{
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }
   \" { isColorfulText=false; yypushback(yylength()); yybegin(WAITING_CHECK_RIGHT_QUOTE);}
-  "$" { yybegin(WAITING_PROPERTY_REFERENCE); return PROPERTY_REFERENCE_START;}
-  "[" { yybegin(WAITING_CODE); return CODE_START;}
+  "$" { propertyReferenceLocation=0; yybegin(WAITING_PROPERTY_REFERENCE); return PROPERTY_REFERENCE_START;}
   "£" { yybegin(WAITING_ICON); return ICON_START;}
   "%" { isColorfulText=false; yypushback(yylength()); yybegin(WAITING_CHECK_PERCENT);}
+  "[" { codeLocation=0; yybegin(WAITING_CODE); return CODE_START;}
   "§" { depth++; yybegin(WAITING_COLOR_CODE); return COLORFUL_TEXT_START;}
   {VALID_ESCAPE_TOKEN} {return VALID_ESCAPE_TOKEN;}
   {INVALID_ESCAPE_TOKEN} {return INVALID_ESCAPE_TOKEN;}
@@ -141,58 +151,60 @@ IS_SERIAL_NUMBER=%.%
 }
 <WAITING_PROPERTY_REFERENCE>{
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }
-  "$" {yybegin(nextStateInIconName()); inIconName=false; return PROPERTY_REFERENCE_END;}
+  "$" {yybegin(nextStateForPropertyReference()); return PROPERTY_REFERENCE_END;}
   \" { yybegin(WAITING_PROPERTY_EOL); return RIGHT_QUOTE;}
+  "[" { codeLocation=1; yybegin(WAITING_CODE); return CODE_START;}
   "|" { yybegin(WAITING_PROPERTY_REFERENCE_PARAMETER); return PARAMETER_SEPARATOR;}
   {PROPERTY_REFERENCE_ID} {return PROPERTY_REFERENCE_ID;}
 }
 <WAITING_PROPERTY_REFERENCE_PARAMETER>{
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }
-  "$" {yybegin(nextState()); return PROPERTY_REFERENCE_END;}
+  "$" {yybegin(nextStateForPropertyReference()); return PROPERTY_REFERENCE_END;}
   \" { yybegin(WAITING_PROPERTY_EOL); return RIGHT_QUOTE;}
   {PROPERTY_REFERENCE_PARAMETER} {return PROPERTY_REFERENCE_PARAMETER;}
 }
 <WAITING_ICON>{
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }
-  "£" {yybegin(nextState()); return ICON_END;}
-  "$" {yybegin(WAITING_PROPERTY_REFERENCE); inIconName=true; return PROPERTY_REFERENCE_START;}
+  "£" { yybegin(nextStateText()); return ICON_END;}
+  "$" { propertyReferenceLocation=2; yybegin(WAITING_PROPERTY_REFERENCE); return PROPERTY_REFERENCE_START;}
+  "[" { codeLocation=2; yybegin(WAITING_CODE); return CODE_START;}
   "|" { yybegin(WAITING_ICON_PARAMETER); return PARAMETER_SEPARATOR;}
   \" { yybegin(WAITING_PROPERTY_EOL); return RIGHT_QUOTE;}
   {ICON_ID} {return ICON_ID;}
 }
 <WAITING_ICON_PARAMETER>{
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }
-  "£" {yybegin(nextState()); return ICON_END;}
+  "£" {yybegin(nextStateText()); return ICON_END;}
   \" { yybegin(WAITING_PROPERTY_EOL); return RIGHT_QUOTE;}
   {ICON_PARAMETER} {return ICON_PARAMETER;}
 }
 <WAITING_SERIAL_NUMBER>{
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }
-  "%" {yybegin(nextState()); return SERIAL_NUMBER_END;}
+  "%" {yybegin(nextStateText()); return SERIAL_NUMBER_END;}
   \" { yybegin(WAITING_PROPERTY_EOL); return RIGHT_QUOTE;}
   {SERIAL_NUMBER_ID} {return SERIAL_NUMBER_ID;}
 }
 <WAITING_CODE>{
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }
-  "]" {yybegin(nextState()); return CODE_END;}
+  "]" {yybegin(nextStateForCode()); return CODE_END;}
   \" { yybegin(WAITING_PROPERTY_EOL); return RIGHT_QUOTE;}
   {CODE_TEXT} {return CODE_TEXT;}
 }
 <WAITING_COLOR_CODE>{
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }
-  "§!" {depth--; yybegin(nextState()); return COLORFUL_TEXT_END;} //跳过非法字符
+  "§!" {depth--; yybegin(nextStateText()); return COLORFUL_TEXT_END;} //跳过非法字符
   \" { yybegin(WAITING_PROPERTY_EOL); return RIGHT_QUOTE;}
   {COLOR_CODE} {yybegin(WAITING_COLORFUL_TEXT); return COLOR_CODE;}
 }
 <WAITING_COLORFUL_TEXT>{
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }
   \" { isColorfulText=true; yypushback(yylength()); yybegin(WAITING_CHECK_RIGHT_QUOTE);}
-  "$" { yybegin(WAITING_PROPERTY_REFERENCE); return PROPERTY_REFERENCE_START;}
-  "[" { yybegin(WAITING_CODE); return CODE_START;}
+  "$" { propertyReferenceLocation=0; yybegin(WAITING_PROPERTY_REFERENCE); return PROPERTY_REFERENCE_START;}
   "£" { yybegin(WAITING_ICON); return ICON_START;}
   "%" { isColorfulText=true; yypushback(yylength()); yybegin(WAITING_CHECK_PERCENT);}
+  "[" { codeLocation=0; yybegin(WAITING_CODE); return CODE_START;}
   "§" { depth++; yybegin(WAITING_COLOR_CODE); return COLORFUL_TEXT_START;}
-  "§!" {depth--; yybegin(nextState()); return COLORFUL_TEXT_END;} //跳过非法字符
+  "§!" {depth--; yybegin(nextStateText()); return COLORFUL_TEXT_END;} //跳过非法字符
   {VALID_ESCAPE_TOKEN} {return VALID_ESCAPE_TOKEN;}
   {INVALID_ESCAPE_TOKEN} {return INVALID_ESCAPE_TOKEN;}
   {STRING_TOKEN} {  return STRING_TOKEN;}
@@ -205,36 +217,36 @@ IS_SERIAL_NUMBER=%.%
 
 <WAITING_CHECK_RIGHT_QUOTE>{
   {CHECK_RIGHT_QUOTE} {
-      	//特殊处理
-      	//如果匹配到的字符串不是仅包含双引号，且最后一个字符是双引号，则表示开始的双引号不代表字符串的结束
-      	//否则认为是常规字符串
-      	boolean isRightQuote = yylength() == 1 || yycharat(yylength()-1) != '"';
-      	yypushback(yylength()-1);
-      	if(isRightQuote){
-      	    yybegin(WAITING_PROPERTY_EOL);
-      	    return RIGHT_QUOTE;
-      	}else{
-      		  yybegin(nextStateForText());
-            return STRING_TOKEN;
-      	}
-  }
+          //特殊处理
+          //如果匹配到的字符串不是仅包含双引号，且最后一个字符是双引号，则表示开始的双引号不代表字符串的结束
+          //否则认为是常规字符串
+          boolean isRightQuote = yylength() == 1 || yycharat(yylength()-1) != '"';
+          yypushback(yylength()-1);
+          if(isRightQuote){
+              yybegin(WAITING_PROPERTY_EOL);
+              return RIGHT_QUOTE;
+          }else{
+              yybegin(nextStateForCheck());
+              return STRING_TOKEN;
+          }
+    }
 }
 
 <WAITING_CHECK_PERCENT>{
   {CHECK_PERCENT} {
-        //特殊处理
-        //如果匹配的字符串的第3个字符存在且为百分号，则认为整个字符串代表一个编号
-        //否则认为是常规字符串
-        boolean isSerialNumber = yylength() == 3 && yycharat(2) == '%';
-        if(isSerialNumber){
-            yybegin(WAITING_SERIAL_NUMBER);
-            return SERIAL_NUMBER_START;
-        }else{
-        	  yypushback(yylength()-1);
-            yybegin(nextStateForText());
-            return STRING_TOKEN;
-        }
-  }
+          //特殊处理
+          //如果匹配的字符串的第3个字符存在且为百分号，则认为整个字符串代表一个编号
+          //否则认为是常规字符串
+          boolean isSerialNumber = yylength() == 3 && yycharat(2) == '%';
+          if(isSerialNumber){
+              yybegin(WAITING_SERIAL_NUMBER);
+              return SERIAL_NUMBER_START;
+          }else{
+              yypushback(yylength()-1);
+              yybegin(nextStateForCheck());
+              return STRING_TOKEN;
+          }
+    }
 }
 
 [^] { return TokenType.BAD_CHARACTER; }

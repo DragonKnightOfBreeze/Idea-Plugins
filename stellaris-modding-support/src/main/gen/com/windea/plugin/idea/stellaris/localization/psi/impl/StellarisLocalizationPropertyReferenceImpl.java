@@ -28,6 +28,12 @@ public class StellarisLocalizationPropertyReferenceImpl extends StellarisLocaliz
 
   @Override
   @Nullable
+  public StellarisLocalizationCode getCode() {
+    return findChildByClass(StellarisLocalizationCode.class);
+  }
+
+  @Override
+  @Nullable
   public PsiElement getPropertyReferenceId() {
     return findChildByType(PROPERTY_REFERENCE_ID);
   }

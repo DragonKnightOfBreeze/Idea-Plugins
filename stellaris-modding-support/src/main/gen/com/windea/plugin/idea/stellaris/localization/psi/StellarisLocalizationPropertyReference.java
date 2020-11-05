@@ -9,6 +9,9 @@ import com.windea.plugin.idea.stellaris.localization.reference.StellarisLocaliza
 public interface StellarisLocalizationPropertyReference extends StellarisLocalizationNamedElement {
 
   @Nullable
+  StellarisLocalizationCode getCode();
+
+  @Nullable
   PsiElement getPropertyReferenceId();
 
   @Nullable

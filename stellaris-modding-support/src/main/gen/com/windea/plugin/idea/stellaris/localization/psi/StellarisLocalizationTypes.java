@@ -12,7 +12,6 @@ public interface StellarisLocalizationTypes {
   IElementType COLORFUL_TEXT = new StellarisLocalizationElementType("COLORFUL_TEXT");
   IElementType ESCAPE = new StellarisLocalizationElementType("ESCAPE");
   IElementType ICON = new StellarisLocalizationElementType("ICON");
-  IElementType ICON_NAME = new StellarisLocalizationElementType("ICON_NAME");
   IElementType LOCALE = new StellarisLocalizationElementType("LOCALE");
   IElementType PROPERTY = new StellarisLocalizationElementType("PROPERTY");
   IElementType PROPERTY_KEY = new StellarisLocalizationElementType("PROPERTY_KEY");
@@ -68,9 +67,6 @@ public interface StellarisLocalizationTypes {
       }
       else if (type == ICON) {
         return new StellarisLocalizationIconImpl(node);
-      }
-      else if (type == ICON_NAME) {
-        return new StellarisLocalizationIconNameImpl(node);
       }
       else if (type == LOCALE) {
         return new StellarisLocalizationLocaleImpl(node);
