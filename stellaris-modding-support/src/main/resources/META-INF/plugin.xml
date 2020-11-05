@@ -228,7 +228,7 @@
       language="Stellaris Localization"
       shortName="StellarisLocalizationDuplicatePropertyKeys" bundle="messages.StellarisBundle"
       groupKey="stellaris.localization.inspection" key="stellaris.localization.inspection.duplicatePropertyKeys"
-      enabledByDefault="true" level="ERROR"
+      enabledByDefault="true" level="WARNING"
       implementationClass="com.windea.plugin.idea.stellaris.localization.inspections.DuplicatePropertyKeysInspection"/>
     <localInspection
       language="Stellaris Localization"
@@ -318,7 +318,7 @@
       shortName="StellarisScriptDuplicateVariableDefinitions" bundle="messages.StellarisBundle"
       groupKey="stellaris.script.inspection"
       key="stellaris.script.inspection.duplicateVariableDefinitions"
-      enabledByDefault="true" level="ERROR"
+      enabledByDefault="true" level="WARNING"
       implementationClass="com.windea.plugin.idea.stellaris.script.inspections.DuplicateVariableDefinitionsInspection"/>
     <localInspection
       language="Stellaris Script"

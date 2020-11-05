@@ -14,8 +14,6 @@ class StellarisLocalizationPropertyPsiReference(
 ) : PsiReferenceBase<StellarisLocalizationPropertyReference>(element, rangeInElement), PsiPolyVariantReference {
 	private val name = rangeInElement.substring(element.text)
 
-	//不便于使用缓存：可能存在于当前文件中、当前项目中，甚至是外部目录
-
 	override fun resolve(): PsiElement? {
 		println(element.resolveScope)
 		return findLocalizationProperty(name, element.project)

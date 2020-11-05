@@ -54,9 +54,9 @@ val stellarisScriptItemIcon = AllIcons.Nodes.Constant
 
 val localizationPropertyGutterIcon = IconUtil.toSize(stellarisLocalizationPropertyIcon, 12, 12)
 val scriptPropertyGutterIcon = IconUtil.toSize(stellarisScriptPropertyIcon, 12, 12)
-val eventIdGutterIcon = IconUtil.toSize(AllIcons.Nodes.Protected, 12, 12)
-val gfxKeyGutterIcon = IconUtil.toSize(AllIcons.Nodes.Related, 12, 12)
-val assetKeyGutterIcon = IconUtil.toSize(AllIcons.Nodes.Related, 12, 12)
+//val eventIdGutterIcon = IconUtil.toSize(AllIcons.Nodes.Protected, 12, 12)
+//val gfxKeyGutterIcon = IconUtil.toSize(AllIcons.Nodes.Related, 12, 12)
+//val assetKeyGutterIcon = IconUtil.toSize(AllIcons.Nodes.Related, 12, 12)
 //endregion
 
 //region Caches

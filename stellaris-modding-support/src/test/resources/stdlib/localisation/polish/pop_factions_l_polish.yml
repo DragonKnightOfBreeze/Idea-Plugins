@@ -88,7 +88,7 @@
  SUPREMACIST_CELEBRATE_DIVERSITY:0 "Celebrowanie słabości"
  SUPREMACIST_NO_CELEBRATE_DIVERSITY:0 "$SUPREMACIST_CELEBRATE_DIVERSITY$"
  SUPREMACIST_CELEBRATE_DIVERSITY_DESC:0 "Zorganizowanie wystawy pomniejszych artefaktów słabszych cywilizacji sprawi, że [Root.GetName] będą przez pewien czas niezadowoleni."
- 
+
  # XENOISTS
  XENOIST_PASSIVE_STUDY:0 "Ksenologia pośrednia"
  XENOIST_PASSIVE_STUDY_DESC:0 "Zalegalizowanie postawy biernych badań w kontaktach z tubylcami sprawi, że [Root.GetName] się ucieszą."
@@ -276,7 +276,7 @@
  TRADITIONALIST_RELIGIOUS_FINDING:0 "Pociecha w przeszłości"
  TRADITIONALIST_NO_RELIGIOUS_FINDING:0 "$TRADITIONALIST_RELIGIOUS_FINDING$"
  TRADITIONALIST_RELIGIOUS_FINDING_DESC:0 "Znalezienie religijnego znaczenia pomniejszych artefaktów sprawi, że [Root.GetName] będą przez pewien czas bardziej zadowoleni."
- 
+
  # TECHNOLOGISTS
  TECHNOLOGIST_ROBOTS:0 "Miłość maszyn"
  TECHNOLOGIST_ROBOTS_DESC:0 "Utrzymanie co najmniej §Y6§! populacji robotów sprawi, że [Root.GetName] się ucieszą."
@@ -431,7 +431,7 @@
  POP_FACTION_NO_EFFECTS_DESC:0 "Frakcja $FACTION$ nigdy nie będzie miała efektów."
  POP_FACTION_NO_CURRENT_EFFECTS:0 "Aktualnie brak efektów"
  POP_FACTION_NO_CURRENT_EFFECTS_DESC:0 "W tej chwili frakcja $FACTION$ nie ma efektów."
- 
+
  ### SEPARATIST
 
  # Separatist Demands
@@ -439,7 +439,7 @@
  POP_FACTION_SEPARATIST_DEMAND_DESC_1:0 "Załóż nowy sektor, którego stolicą będzie §H[parameter:planet.GetName]§!."
  POP_FACTION_SEPARATIST_DEMAND_TITLE_2:0 "§H[parameter:planet.GetName]§! - niepodległość"
  POP_FACTION_SEPARATIST_DEMAND_DESC_2:0 "§H[parameter:planet.GetName]§! - uwolnienie jako stolicy niepodległego imperium."
- 
+
  ### PLANET SEPARATISTS
  POP_FACTION_PLANET_SEPARATIST_DEMAND_TITLE:0 "Niepodległa planeta [parameter:Planet.GetName]"
  POP_FACTION_PLANET_SEPARATIST_DEMAND_DESC:0 "Separatyści chcą niepodległej planety §Y[parameter:Planet.GetName]§!."
@@ -462,7 +462,7 @@
  POP_FACTION_PLANET_SEPARATIST_RECENT_SABOTAGE:0 "Niedawne zamieszki"
  POP_FACTION_PLANET_SEPARATIST_SABOTAGE_DESC:0 "Zamieszki na planecie §Rzniszczyły§! budynek."
  POP_FACTION_PLANET_SEPARATIST_NOTHING_TO_RUIN:0 "Brak nietkniętych budynków"
- 
+
  ### Sector separatists
  pft_sector_separatists:0 "Sektorowi separatyści"
  pft_sector_separatists_desc:0 "Sektorowi separatyści mogą pojawiać się na światach w sektorach. Chcą uwolnić swe gwiezdne sąsiedztwo spod władzy imperium. Jeżeli zyskają odpowiednie poparcie, mogą nawet chwycić za broń.\n\n§HSektorowi separatyści nigdy nie pojawią się w naszym głównym sektorze.§!"
@@ -472,9 +472,9 @@
  POP_FACTION_SECTOR_SEPARATIST_GRANT_INDEPENDENCE_DESC:0 "Przyznanie niepodległości koloniom w sektorze §Y[parameter:sector.GetName]§!"
  POP_FACTION_SECTOR_SEPARATIST_IS_NOT_OCCUPIED:0 "Żadna planeta sektora nie jest okupowana."
  POP_FACTION_SECTOR_SEPARATIST_NO_GROUND_COMBAT:0 "Na żadnej planecie sektora nie toczą się walki."
- 
- 
- 
+
+
+
  ### NATIONALISTS
 
  pft_nationalist:0 "Frakcja repatriacji"
@@ -660,11 +660,11 @@
  POP_FACTION_PRETENDER_DEMAND_DESC:0 "[Root.Owner.GetRulerTitle] §Y[Root.Owner.GetRulerName]§! wyruszy na wygnanie, a na tronie zasiądzie §Y[parameter:pretender.GetName]§!."
  POP_FACTION_PRETENDER_INSTALL_TITLE:0 "Umieszczenie pretendenta"
  POP_FACTION_PRETENDER_INSTALL_DESC:0 "Na tronie zasiądzie §Y[parameter:pretender.GetName]§!."
- 
+
  ########################################
  # FACTION EVENTS
  ########################################
- 
+
  ### New Events
  factions.1.title:0 "Założono frakcję"
  factions.1.desc:0 "W ostatnim czasie nowa frakcja zyskuje popularność na scenie polityki wewnętrznej [Root.Owner.GetAdj]. Nazywa się [Root.GetName], [Root.Leader.GetTitle] [Root.Leader.GetName] stoi za jej powstaniem, a jej członkowie mocno naciskają nas w sprawie niepokojących ich problemów.\n\nW przyszłości prawdopodobnie pojawią się kolejne frakcje, ponieważ nasza populacja rośnie i jej etyki podążają w różnych kierunkach. Niezadowolona frakcja może być źródłem kłopotów, natomiast te, które popierają działania rządu, mogą okazać się przydatne..."
@@ -679,19 +679,19 @@
  factions.1.desc.totalitarian:0 "Członkowie nalegają na skrajną centralizację władzy politycznej i wojskowej.\n\n"
  factions.1.desc.traditionalist:0 "Członkowie hołdują wartościom duchowym i konserwatywnym.\n\n"
  factions.1.desc.xenoist:0 "Członkowie nalegają na przyjazne relacje z obcymi gatunkami.\n\n"
- 
+
  factions.2000.title:0 "[TargetFaction.Owner.GetName]: zmiana etyki rządów."
  factions.2000.desc.start:0 "Po długim okresie coraz silniejszego wsparcia dla frakcji §Y[TargetFaction.GetName]§!, §Y[TargetFaction.Owner.GetName]§! postanawia w końcu przyjąć główne wartości i zasady tej frakcji."
  factions.2000.desc.imperialist:0 "Wprowadzenie tej frakcji do ich rządu spowodowało, że stali się bardziej §Hmilitarystyczni§!.\n\n"
  factions.2000.desc.isolationist:0 "Wprowadzenie tej frakcji do ich rządu spowodowało, że stali się bardziej §Hksenofobiczni§!.\n\n"
  factions.2000.desc.progressive:0 "Wprowadzenie tej frakcji do ich rządu spowodowało, że stali się bardziej §Hegalitarni§!.\n\n"
- factions.2000.desc.prosperity:0 "Wprowadzenie tej frakcji do ich rządu spowodowało, że stali się bardziej §pacyfistyczni§!.\n\n"
+ factions.2000.desc.prosperity:0 "Wprowadzenie tej frakcji do ich rządu spowodowało, że stali się bardziej §Hpacyfistyczni§!.\n\n"
  factions.2000.desc.supremacist:0 "Wprowadzenie tej frakcji do ich rządu spowodowało, że stali się bardziej §Hksenofobiczni§!.\n\n"
  factions.2000.desc.technologist:0 "Wprowadzenie tej frakcji do ich rządu spowodowało, że stali się bardziej §Hmaterialistyczni§!.\n\n"
  factions.2000.desc.totalitarian:0 "Wprowadzenie tej frakcji do ich rządu spowodowało, że stali się bardziej §Hautorytarni§!.\n\n"
- factions.2000.desc.traditionalist:0 "Wprowadzenie tej frakcji do ich rządu spowodowało, że stali się bardziej §duchowi§!.\n\n"
- factions.2000.desc.xenoist:0 "Wprowadzenie tej frakcji do ich rządu spowodowało, że stali się bardziej §ksenofilscy§!.\n\n"
- 
+ factions.2000.desc.traditionalist:0 "Wprowadzenie tej frakcji do ich rządu spowodowało, że stali się bardziej §Hduchowi§!.\n\n"
+ factions.2000.desc.xenoist:0 "Wprowadzenie tej frakcji do ich rządu spowodowało, że stali się bardziej §Hksenofilscy§!.\n\n"
+
  ### Loyalists
  faction.4.title:0 "Żądania lojalistów"
  faction.4.desc:0 "[Root.Owner.GetName]: [Root.Owner.GetRulerTitle] [Root.Owner.GetRulerName] może liczyć na poparcie lojalistów, którzy nie mają żadnych żądań."

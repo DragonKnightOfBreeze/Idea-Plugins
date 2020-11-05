@@ -10,7 +10,7 @@ object SbTextPsiImplUtil {
 	//region SbTextColorfulText
 	@JvmStatic
 	fun getName(element:SbTextColorfulText):String?{
-		return element.colorMarker.colorCode?.text?.toLowerCase() //不区分大小写
+		return element.colorMarker.colorCode?.text
 	}
 
 	@JvmStatic

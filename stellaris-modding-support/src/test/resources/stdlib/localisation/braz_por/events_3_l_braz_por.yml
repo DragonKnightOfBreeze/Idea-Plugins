@@ -1,5 +1,5 @@
 ﻿l_braz_por:
- 
+
  ####################################
  # Anomaly Categories
  ####################################
@@ -49,7 +49,7 @@
  NUKE_PLANET_DESC:0 "O deserto nuclear é obviamente o sinal de uma civilização anterior. Nossos scanners estão captando atividades em certos locais que deveríamos investigar."
  ARID_PLANET_CAT:0 "Infértil e Árido"
  ARID_PLANET_DESC:0 "O [From.GetPlanetMoon] não é um dos lugares mais acolhedores, mas nossas análises iniciais mostram que ele poderia ter alguns recursos valiosos."
- 
+
  ####################################
  # Anomaly Events
  ####################################
@@ -307,7 +307,7 @@
  anomaly.4145.a.tooltip:0 "§YSeu Império§! ganha o modificador §R$slavery_bad_juju$§!.\n\n"
  anomaly.4145.b.tooltip:0 "§YSeu Império§! ganha o modificador §R$slavery_very_bad_juju$§!.\n\n"
  anomaly.4150.name:0 "Ensinamentos de Comerciantes"
- anomaly.4150.desc:0 "A superfície de [From.GetName] possui algo §Yincrível§!. Diversas ruínas podem ser encontradas, construídas usando arquiteturas diferentes, porém a partir do mesmo ponto na história. O [From.GetPlanetMoon] deve ter sido um §centro de comércio§!!\n\nAlgumas ruínas armazenam documentos e itens valiosos. Se estudarmos os textos, talvez sejamos capazes de fazer a §Ytradução§! deles e aprender mais sobre as pessoas que colonizaram aqui."
+ anomaly.4150.desc:0 "A superfície de [From.GetName] possui algo §Yincrível§!. Diversas ruínas podem ser encontradas, construídas usando arquiteturas diferentes, porém a partir do mesmo ponto na história. O [From.GetPlanetMoon] deve ter sido um §Ycentro de comércio§!!\n\nAlgumas ruínas armazenam documentos e itens valiosos. Se estudarmos os textos, talvez sejamos capazes de fazer a §Ytradução§! deles e aprender mais sobre as pessoas que colonizaram aqui."
  anomaly.4151.desc:0 "Nossos linguistas mais talentosos estão trabalhando arduamente na §Ytradução§! dos documentos que encontramos em [From.From.From.GetName]. A escriba por trás destes trabalhos é referida como "§YContissa, a Contadora de Contos§!", e parece que ela era altamente reverenciada aqui.\n\n$anomaly.4151.base.desc$"
  anomaly.4151.found.desc:0 "Quem diria? Os textos que encontramos são mais ensinamentos de "§YContissa, a Contadora de Contos§!".\n\n$anomaly.4151.base.desc$"
  anomaly.4151.base.desc:0 "Os documentos que encontramos são uma coleção de anedotas, sugestões e técnicas sobre como participar de maneira otimizada em §Ydiplomacia§! interestelar. Parece que ela acreditava que um bom comércio e comunicação respeitosa alcançariam grandes conquistas sociais para todas as partes."
@@ -416,7 +416,7 @@
  anomaly_failure.4170.b.tooltip:0 "$anomaly_failure.4170.base.tooltip$ e mata §R1§! Pops."
  anomaly_failure.4170.c.tooltip:0 "$anomaly_failure.4170.base.tooltip$ e mata §R2§! Pops."
  anomaly_failure.4170.d.tooltip:0 "$anomaly_failure.4170.base.tooltip$ e mata §R3§! Pops."
- 
+
  ####################################
  # Colony Events
  ####################################

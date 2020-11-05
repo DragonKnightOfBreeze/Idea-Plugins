@@ -195,7 +195,6 @@ fun getDocCommentHtmlFromPreviousComment(element: PsiElement, textAttributeKey: 
 	}
 }
 
-
 /**查找最远的相同类型的兄弟节点。*/
 fun findFurthestSiblingOfSameType(element: PsiElement, after: Boolean): PsiElement? {
 	var node = element.node
@@ -212,7 +211,6 @@ fun findFurthestSiblingOfSameType(element: PsiElement, after: Boolean): PsiEleme
 	}
 	return lastSeen.psi
 }
-
 
 fun LookupElement.withPriority(priority: Double): LookupElement = PrioritizedLookupElement.withPriority(this, priority)
 
@@ -232,9 +230,23 @@ fun selectElement(editor: Editor, element: PsiElement?) {
 
 //endregion
 
-//TODO 使用CachedValue以提高性能
+//region Find Extensions
+fun findLocalizationProperty(name: String, project: Project, globalSearchScope: GlobalSearchScope = GlobalSearchScope.projectScope(project)): StellarisLocalizationProperty? {
+	val files = project.findFiles<StellarisLocalizationFile>(StellarisLocalizationFileType, globalSearchScope)
+	return files.flatMap { it.properties.asSequence() }.find { it.name == name }
+}
 
-//region Stellaris Script
+fun findLocalizationProperties(name: String, project: Project, globalSearchScope: GlobalSearchScope = GlobalSearchScope.projectScope(project)): Sequence<StellarisLocalizationProperty> {
+	val files = project.findFiles<StellarisLocalizationFile>(StellarisLocalizationFileType, globalSearchScope)
+	return files.flatMap { it.properties.asSequence() }.filter { it.name == name }
+}
+
+fun findLocalizationProperties(project: Project, globalSearchScope: GlobalSearchScope = GlobalSearchScope.projectScope(project)): Sequence<StellarisLocalizationProperty> {
+	val files = project.findFiles<StellarisLocalizationFile>(StellarisLocalizationFileType, globalSearchScope)
+	return files.flatMap { it.properties.asSequence() }.filterNot { it.name.isNullOrEmpty() }
+}
+
+
 fun findScriptVariableDefinitionInFile(name: String, file: PsiFile?): StellarisScriptVariableDefinition? {
 	if(file !is StellarisScriptFile) return null
 	return file.variableDefinitions.find { it.name == name }
@@ -273,28 +285,6 @@ fun findScriptProperties(name: String, project: Project, globalSearchScope: Glob
 
 fun findScriptProperties(project: Project, globalSearchScope: GlobalSearchScope = GlobalSearchScope.projectScope(project)): Sequence<StellarisScriptProperty> {
 	val files = project.findFiles<StellarisScriptFile>(StellarisScriptFileType, globalSearchScope)
-	return files.flatMap { it.properties.asSequence() }.filterNot { it.name.isNullOrEmpty() }
-}
-//endregion
-
-//region Stellaris Localization
-fun findLocalizationPropertyInFile(name: String, file: PsiFile): StellarisLocalizationProperty? {
-	if(file !is StellarisLocalizationFile) return null
-	return file.properties.find { it.name == name }
-}
-
-fun findLocalizationProperty(name: String, project: Project, globalSearchScope: GlobalSearchScope = GlobalSearchScope.projectScope(project)): StellarisLocalizationProperty? {
-	val files = project.findFiles<StellarisLocalizationFile>(StellarisLocalizationFileType, globalSearchScope)
-	return files.flatMap { it.properties.asSequence() }.find { it.name == name }
-}
-
-fun findLocalizationProperties(name: String, project: Project, globalSearchScope: GlobalSearchScope = GlobalSearchScope.projectScope(project)): Sequence<StellarisLocalizationProperty> {
-	val files = project.findFiles<StellarisLocalizationFile>(StellarisLocalizationFileType, globalSearchScope)
-	return files.flatMap { it.properties.asSequence() }.filter { it.name == name }
-}
-
-fun findLocalizationProperties(project: Project, globalSearchScope: GlobalSearchScope = GlobalSearchScope.projectScope(project)): Sequence<StellarisLocalizationProperty> {
-	val files = project.findFiles<StellarisLocalizationFile>(StellarisLocalizationFileType, globalSearchScope)
 	return files.flatMap { it.properties.asSequence() }.filterNot { it.name.isNullOrEmpty() }
 }
 //endregion

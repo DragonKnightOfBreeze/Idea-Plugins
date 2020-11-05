@@ -50,9 +50,9 @@ QUOTED_PROPERTY_KEY_ID=\"([^\"(\r\n\\]|\\.)*?\"
 VARIABLE_REFERENCE_ID=@[a-zA-Z0-9_\-]+
 BOOLEAN=(yes)|(no)
 NUMBER=-?[0-9]+(\.[0-9]+)?
+STRING=[^@\s\{\}=\"][^\s\{\}=\"]*
 QUOTED_STRING=\"([^\"(\r\n\\]|\\.)*?\"
-STRING=[^@\s\[\]\{\}=\"][^\s\[\]\{\}=\"]*
-COLOR_TOKEN=(rgb|rgba|hsb|hsv|hsl)[ \t]*\{[^\r\n]*?}
+COLOR_TOKEN=(rgb|rgba|hsb|hsv|hsl)[ \t]*\{[0-9. \t]*}
 
 IS_PROPERTY=(([a-zA-Z0-9_\-.:]+)|(\"([^\"(\r\n\\]|\\.)*?\"))[ \t]*[=><]
 

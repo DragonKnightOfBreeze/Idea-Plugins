@@ -31,7 +31,7 @@ class StellarisLocalizationAnnotator : Annotator, DumbAware {
 			is StellarisLocalizationLocale -> {
 				if(element.locale == null) {
 					val localeId = element.name ?: return
-					holder.newAnnotation(WARNING, message("stellaris.localization.annotator.unsupportedLocale", localeId))
+					holder.newAnnotation(ERROR, message("stellaris.localization.annotator.unsupportedLocale", localeId))
 						.withFix(ChangeLocaleIntention.instance)
 						.create()
 				}
@@ -39,7 +39,7 @@ class StellarisLocalizationAnnotator : Annotator, DumbAware {
 			is StellarisLocalizationSerialNumber -> {
 				if(element.serialNumber == null) {
 					val serialNumberId = element.name ?: return
-					holder.newAnnotation(WARNING, message("stellaris.localization.annotator.unsupportedSerialNumber", serialNumberId))
+					holder.newAnnotation(ERROR, message("stellaris.localization.annotator.unsupportedSerialNumber", serialNumberId))
 						.withFix(ChangeSerialNumberIntention.instance)
 						.create()
 				}
@@ -48,7 +48,7 @@ class StellarisLocalizationAnnotator : Annotator, DumbAware {
 			is StellarisLocalizationColorfulText -> {
 				val colorId = element.name ?: return
 				if(element.color == null) {
-					holder.newAnnotation(WARNING, message("stellaris.localization.annotator.unsupportedColor", colorId))
+					holder.newAnnotation(ERROR, message("stellaris.localization.annotator.unsupportedColor", colorId))
 						.withFix(ChangeColorIntention.instance)
 						.create()
 				} else {

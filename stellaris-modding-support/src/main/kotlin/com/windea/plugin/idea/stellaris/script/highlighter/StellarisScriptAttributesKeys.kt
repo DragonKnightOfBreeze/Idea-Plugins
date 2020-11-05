@@ -11,7 +11,7 @@ object StellarisScriptAttributesKeys {
 	@JvmField val VARIABLE_KEY = createTextAttributesKey(message("stellaris.script.syntax.variable"), INSTANCE_FIELD)
 	@JvmField val PROPERTY_KEY_KEY = createTextAttributesKey(message("stellaris.script.syntax.propertyKey"), KEYWORD)
 	@JvmField val KEYWORD_KEY = createTextAttributesKey(message("stellaris.script.syntax.keyword"), KEYWORD)
-	@JvmField val COLOR_KEY = createTextAttributesKey(message("stellaris.script.syntax.color"), STRING)
+	@JvmField val COLOR_KEY = createTextAttributesKey(message("stellaris.script.syntax.color"), FUNCTION_DECLARATION)
 	@JvmField val NUMBER_KEY = createTextAttributesKey(message("stellaris.script.syntax.number"), NUMBER)
 	@JvmField val STRING_KEY = createTextAttributesKey(message("stellaris.script.syntax.string"), STRING)
 	@JvmField val COMMENT_KEY = createTextAttributesKey(message("stellaris.script.syntax.comment"), LINE_COMMENT)

@@ -17,11 +17,9 @@ import com.windea.plugin.idea.stellaris.localization.psi.*
 class StellarisLocalizationGoToDeclarationHandler : GotoDeclarationHandler{
 	override fun getGotoDeclarationTargets(sourceElement: PsiElement?, offset: Int, editor: Editor?): Array<out PsiElement?>? {
 		return when(sourceElement) {
-			null -> null
 			is StellarisLocalizationProperty -> {
-				//查找当前文件，如果没有，再查找当前项目
 				val name = sourceElement.name?:return null
-				findLocalizationPropertyInFile(name, sourceElement.containingFile)?.toSingletonArray()?.let { return it }
+				//查找当前项目
 				findLocalizationProperties(name, sourceElement.project).toArray()
 			}
 			else -> null

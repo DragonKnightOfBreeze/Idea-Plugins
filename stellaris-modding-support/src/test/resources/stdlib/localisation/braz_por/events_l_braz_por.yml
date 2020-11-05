@@ -1762,7 +1762,7 @@
  observation.3151.desc:0 "Abrimos os olhos dos [From.GetSpeciesNamePlural] para um reino espiritual que eles nunca souberam que existia. Eles finalmente possuem algo no que acreditar, e sua sociedade é mais rica agora por causa disso."
  observation.3153.desc:0 "Fizemos grandes avanços para livrar os [From.GetSpeciesNamePlural] das superstições e crenças primitivas que arruinavam sua sociedade. Eles estão começando a enxergar o valor da ciência e da racionalidade."
 
- 
+
  ####################################
  # Crisis Events
  ####################################
@@ -1804,8 +1804,8 @@
  crisis.30.desc_05:0 "§B<Link Psiônico Estabelecido>§!\n\n§ROS CAÇADORES NÃO VÃO DESISTIR§!"
  crisis.30.desc_06:0 "§B<Link Psiônico Estabelecido>§!\n\n§RPODEMOS SENTIR VOCÊS...§!"
  crisis.30.desc_07:0 "§B<Link Mental Estabelecido>§!\n\n§RELE CONSEGUE ENTENDER?§!"
- crisis.30.desc_08:0 "§B<Link Mental Estabelecido>§!\n\n§OS CAÇADORES NÃO DESISTIRÃO.§!"
- crisis.30.desc_09:0 "§B<Link Mental Estabelecido>§!\n\n§NÓS CONSEGUIMOS SENTIR VOCÊS...§!"
+ crisis.30.desc_08:0 "§B<Link Mental Estabelecido>§!\n\n§ROS CAÇADORES NÃO DESISTIRÃO.§!"
+ crisis.30.desc_09:0 "§B<Link Mental Estabelecido>§!\n\n§RNÓS CONSEGUIMOS SENTIR VOCÊS...§!"
  crisis.30.a:0 "Tela de visão desligada."
  crisis.30.a.2:0 "Quebre o link."
  crisis.30.a.response:0 "JASKA!"
@@ -1882,7 +1882,7 @@
  crisis.211.f:0 "Veremos."
  crisis.211.g:0 "Uma das raças xeno mais cruéis que tivemos o azar de encontrar."
  crisis.211.h:0 "Trágico de certa forma. Eles eram uma forma única de vida."
- 
+
  crisis.234.name:0 "Buraco no Vazio"
  crisis.234.desc:0 "Nos últimos meses, a Rainha Prethoryn que capturamos tem ficado cada vez mais inquieta e desconfortável. Primeiramente, achamos que ela simplesmente estava sentindo falta de sua conexão com o resto de sua raça, até nossos Telepatas nos falarem que ela estava em comunicação com eles, falando sobre um 'Buraco no Vazio'.\n\nO significado disso foi descoberto somente quando uma equipe de cientistas pesquisando os métodos Prethoryn de viagem intergalácticos descobriu uma discrepância em nosso banco de dados astronômico. Enquanto mapeavam o provável caminho que os Prethoryn vinham seguindo, eles descobriram que uma pequena galáxia espiral há uns 30 milhões de anos luz de distância estava... desaparecida.\n\nA galáxia, descoberta e estudada durante a era espacial inicial de nossa espécie, simplesmente não está mais emanando qualquer forma de luz observável pelos nossos instrumentos. Esta descoberta bizarra e inesperada deixou nossos cientistas às pressas para tentar explicar o que poderia fazer com que uma galáxia inteira simplesmente desaparecesse do céu.\n\nDuas explicações surgiram - Ou as estrelas da galáxia simplesmente sumiram, de uma vez só, ou existe algo, algo tão grande para fazer um eclipse na galáxia inteira, impedindo que sua luz chegue até nós. As duas teorias parecem igualmente implausíveis, e muitos simplesmente as classificaram como ridículas, preferindo pensar que a galáxia perdida nunca existiu, sendo inventada pelo uso errôneo de um telescópio primitivo. Mesmo assim, uma sensação palpável de terror cerca todo o incidente..."
  crisis.234.a:0 "Perturbador."
@@ -2493,7 +2493,7 @@
  leader.17.desc:0 "Após liderar [From.From.GetName] para a vitória no sistema [system.GetName], o Almirante [officer.GetName] parece ter ganhado de volta [officer.GetHerHis] confiança. [officer.GetSheHe] agora é capaz de lidar com o volume de trabalho administrativo que vem junto com o comando de uma grande frota."
  leader.18.desc:0 "Enquanto comandava o [Root.GetName], o Almirante [officer.GetName] aprendeu a gerenciar cuidadosamente [officer.GetHisHer] suprimentos para reduzir de maneira significativa os custos gerais de operação."
  leader.19.desc:0 "Após [officer.GetHerHis] varredura recente do sistema [system.GetName], o Almirante [officer.GetName] aprendeu como lançar [officer.GetHerHis] unidades maximizando o alcance dos seus sensores. Poucos comandantes de frota possuem a habilidade de executar manobras tão complexas."
- 
+
  leader.newtrait:0 "Através do trabalho duro e da experiência, o §H[From.From.GetTitle] [From.From.GetName]§! desenvolveu novas habilidades."
  leader.substanceabuser:0 "Recebemos relatos um tanto preocupantes com relação à saúde deteriorante do §H[From.From.GetTitle] [From.From.GetName]§!. A aparência abatida [From.From.GetHerHisCap] faz com que pareça que [From.From.GetSheHe] envelheceu quase vinte anos. O fardo do dever pode ser pesado."
  leader.arresteddevelopment:0 "Apesar das recentes melhorias na habilidade devido à experiência acumulada, o §H[From.From.GetTitle] [From.From.GetName]§! parece estar se aproximando do limite de [From.From.GetHerHis] habilidade."
@@ -2695,11 +2695,11 @@
  diplomatic.1001.desc:0 "Os planos para executar um grande exercício de frota foram cancelados. Atrasos contínuos na movimentação de forças alocadas para a posição significa que proceder agora atrapalharia bastante o nível de prontidão de toda a frota."
  diplomatic.1002.desc:0 "Como o [Root.GetName] agora está envolvido em uma guerra de fato, o grande exercício de frota que havíamos planejado foi cancelado. Nossas tripulações navais terão que ganhar experiência no campo de batalha."
  diplomatic.1002.a:0 "Batismo de Fogo."
- 
+
  diplomatic.1006.name:0 "Atividade Naval em [exercise_system.GetName]"
  diplomatic.1006.desc:0 "Recebemos relatórios de nossa inteligência de movimentos significativos de tropa dentro do [From.Owner.GetName]. Eles parecem estar centralizados no sistema [exercise_system.GetName] - perto demais de nossa fronteira. O que os [From.Owner.GetSpeciesNamePlural] estão planejando?"
  diplomatic.1006.a:0 "Continue monitorando a situação."
- 
+
  diplomatic.1011.name:0 "Manobras da Frota: Colisões"
  diplomatic.1011.desc:0 "As manobras complexas desenvolvidas pelo Almirante [exercise_admiral.GetName] resultaram em diversas pequenas colisões durante os exercícios navais que estão acontecendo no sistema [exercise_system.GetName]. Baixas da tripulação foram mínimas e nenhuma das naves envolvidas sofreu danos críticos, mas elas precisarão de reparos após a conclusão do exercício."
  diplomatic.1011.a:0 "Pelo menos nenhuma nave foi perdida."
