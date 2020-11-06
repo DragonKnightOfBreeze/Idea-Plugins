@@ -10,7 +10,7 @@
           "$type" : "initializer"
         },
         "weight_modifier" : {
-          "$ref" : "../core.yaml#/definitions/weight_modifier"
+          "$ref" : "../core.yml#/definitions/weight_modifier"
         },
         "create_country_effect" : {
           "$ref" : "#/definitions/create_country_effect"
@@ -48,10 +48,10 @@
               } ]
             },
             "extra_trait_points" : {
-              "$ref" : "../core.yaml#/definitions/int"
+              "$ref" : "../core.yml#/definitions/int"
             },
             "allow_negative_traits" : {
-              "$ref" : "../core.yaml#/definitions/boolean"
+              "$ref" : "../core.yml#/definitions/boolean"
             }
           }
         },
@@ -69,7 +69,7 @@
               "$type" : "country_type"
             },
             "ignore_initial_colony_error" : {
-              "$ref" : "../core.yaml#/definitions/boolean"
+              "$ref" : "../core.yml#/definitions/boolean"
             },
             "authority" : {
               "$type" : "authority"
@@ -106,7 +106,7 @@
               "$type" : "origin"
             },
             "effect" : {
-              "$ref" : "../core.yaml#/definitions/effects"
+              "$ref" : "../core.yml#/definitions/effects"
             }
           }
         }

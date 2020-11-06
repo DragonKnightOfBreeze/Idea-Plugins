@@ -4,7 +4,7 @@ definitions:
     type: object
     properties:
       available:
-        $ref: "../core.yaml#/definitions/triggers"
+        $ref: "../core.yml#/definitions/triggers"
       prio_districts:
         type: array
         items:
@@ -12,7 +12,7 @@ definitions:
       buildings:
         type: object
         propertyNames:
-          $ref: "../core.yaml#/definitions/int"
+          $ref: "../core.yml#/definitions/int"
         additionalProperties:
           type: object
           properties:
@@ -20,7 +20,7 @@ definitions:
               $type: building
               multiple: true
             available:
-              $ref: "../core.yaml#/definitions/triggers"
+              $ref: "../core.yml#/definitions/triggers"
 
 type: object
 additionalProperties:

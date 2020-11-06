@@ -6,9 +6,9 @@ definitions:
       parent:
         $type: economic_category
       hidden:
-        $ref: "../core.yaml#/definitions/boolean"
+        $ref: "../core.yml#/definitions/boolean"
       use_for_ai_budget:
-        $ref: "../core.yaml#/definitions/boolean"
+        $ref: "../core.yml#/definitions/boolean"
       # produces, cost
       generate_mult_modifiers:
         type: array
@@ -23,7 +23,7 @@ definitions:
         items:
           $type: resource
       triggered_cost_modifier:
-        $ref: "../core.yaml#/definitions/triggered_modifier"
+        $ref: "../core.yml#/definitions/triggered_modifier"
         modifier: true
 
 type: object

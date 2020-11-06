@@ -6,6 +6,7 @@ import com.intellij.openapi.util.*
 import com.intellij.psi.*
 import com.intellij.refactoring.suggested.*
 import com.windea.plugin.idea.stellaris.*
+import com.windea.plugin.idea.stellaris.localization.psi.*
 import com.windea.plugin.idea.stellaris.script.psi.*
 import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptElementFactory.createPropertyKey
 import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptElementFactory.createVariableName
@@ -109,22 +110,40 @@ object StellarisScriptPsiImplUtil {
 	//region StellarisScriptBlock
 	@JvmStatic
 	fun isEmpty(element:StellarisScriptBlock):Boolean{
-		return element.children.isEmpty()
+		element.forEachChild {
+			if(it is StellarisScriptProperty || it is StellarisLocalizationProperty) return false
+		}
+		return true
 	}
 
 	@JvmStatic
 	fun isNotEmpty(element:StellarisScriptBlock):Boolean{
-		return element.children.isNotEmpty()
+		element.forEachChild {
+			if(it is StellarisScriptProperty || it is StellarisLocalizationProperty) return true
+		}
+		return true
 	}
 
 	@JvmStatic
 	fun isObject(element: StellarisScriptBlock): Boolean {
-		return element.firstChild is StellarisScriptProperty
+		element.forEachChild {
+			when(it){
+				is StellarisScriptProperty ->return true
+				is StellarisScriptItem -> return false
+			}
+		}
+		return false
 	}
 
 	@JvmStatic
 	fun isArray(element: StellarisScriptBlock): Boolean {
-		return element.firstChild is StellarisScriptItem
+		element.forEachChild {
+			when(it){
+				is StellarisScriptProperty ->return false
+				is StellarisScriptItem -> return true
+			}
+		}
+		return false
 	}
 
 	@JvmStatic

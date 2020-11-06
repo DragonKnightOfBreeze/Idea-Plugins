@@ -4,32 +4,32 @@
       "type" : "object",
       "properties" : {
         "base_buildtime" : {
-          "$ref" : "../core.yaml#/definitions/int"
+          "$ref" : "../core.yml#/definitions/int"
         },
         "base_cap_amount" : {
-          "$ref" : "../core.yaml#/definitions/int",
+          "$ref" : "../core.yml#/definitions/int",
           "optional" : true
         },
         "capital" : {
-          "$ref" : "../core.yaml#/definitions/boolean"
+          "$ref" : "../core.yml#/definitions/boolean"
         },
         "can_build" : {
-          "$ref" : "../core.yaml#/definitions/boolean"
+          "$ref" : "../core.yml#/definitions/boolean"
         },
         "can_demolish" : {
-          "$ref" : "../core.yaml#/definitions/boolean"
+          "$ref" : "../core.yml#/definitions/boolean"
         },
         "can_be_ruined" : {
-          "$ref" : "../core.yaml#/definitions/boolean"
+          "$ref" : "../core.yml#/definitions/boolean"
         },
         "can_be_disabled" : {
-          "$ref" : "../core.yaml#/definitions/boolean"
+          "$ref" : "../core.yml#/definitions/boolean"
         },
         "category" : {
           "$ref" : "#/definitions/building_category"
         },
         "potential" : {
-          "$ref" : "../core.yaml#/definitions/triggers"
+          "$ref" : "../core.yml#/definitions/triggers"
         },
         "convert_to" : {
           "type" : "array",
@@ -38,19 +38,19 @@
           }
         },
         "planet_modifier" : {
-          "$ref" : "../core.yaml#/definitions/modifier"
+          "$ref" : "../core.yml#/definitions/modifier"
         },
         "destroy_trigger" : {
-          "$ref" : "../core.yaml#/definitions/triggers"
+          "$ref" : "../core.yml#/definitions/triggers"
         },
         "allow" : {
-          "$ref" : "../core.yaml#/definitions/triggers"
+          "$ref" : "../core.yml#/definitions/triggers"
         },
         "triggered_plant_modifier" : {
-          "$ref" : "../core.yaml#/definitions/triggered_modifier"
+          "$ref" : "../core.yml#/definitions/triggered_modifier"
         },
         "resources" : {
-          "$ref" : "../core.yaml#/definitions/economy_unit"
+          "$ref" : "../core.yml#/definitions/economy_unit"
         },
         "upgrades" : {
           "type" : "array",
@@ -65,23 +65,23 @@
           }
         },
         "triggered_desc" : {
-          "$ref" : "../core.yaml#/definitions/triggered_desc",
+          "$ref" : "../core.yml#/definitions/triggered_desc",
           "multiple" : true
         },
         "on_queued" : {
-          "$ref" : "../core.yaml#/definitions/effects"
+          "$ref" : "../core.yml#/definitions/effects"
         },
         "on_unqueued" : {
-          "$ref" : "../core.yaml#/definitions/effects"
+          "$ref" : "../core.yml#/definitions/effects"
         },
         "on_built" : {
-          "$ref" : "../core.yaml#/definitions/effects"
+          "$ref" : "../core.yml#/definitions/effects"
         },
         "on_destroy" : {
-          "$ref" : "../core.yaml#/definitions/effects"
+          "$ref" : "../core.yml#/definitions/effects"
         },
         "ai_weight" : {
-          "$ref" : "../core.yaml#/definitions/weight_modifier"
+          "$ref" : "../core.yml#/definitions/weight_modifier"
         }
       }
     },

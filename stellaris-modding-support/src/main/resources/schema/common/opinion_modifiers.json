@@ -4,10 +4,10 @@
       "type" : "object",
       "properties" : {
         "trigger" : {
-          "$ref" : "../core.yaml#/definitions/triggers"
+          "$ref" : "../core.yml#/definitions/triggers"
         },
         "opinion" : {
-          "$ref" : "../core.yaml#/definitions/modifier_chance"
+          "$ref" : "../core.yml#/definitions/modifier_chance"
         }
       }
     }

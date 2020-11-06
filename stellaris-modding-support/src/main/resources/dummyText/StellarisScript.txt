@@ -3,8 +3,6 @@
 @var1 = 123
 @var2 = 1
 
-rgb { 142 188 241 }
-
 settings = {
 	variable_value = @var1 # variable reference
 	boolean_value = yes # yes or no
@@ -21,3 +19,7 @@ settings = {
 	}
 	#123
 }
+
+color = rgb { 142 188 241 }
+
+code = @\[2 + ($MAX$ - 1)]

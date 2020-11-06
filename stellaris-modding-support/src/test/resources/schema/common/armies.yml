@@ -4,55 +4,55 @@ definitions:
     type: object
     properties:
       icon_frame:
-        $ref: "../core.yaml#/definitions/int"
+        $ref: "../core.yml#/definitions/int"
       damage:
-        $ref: "../core.yaml#/definitions/float"
+        $ref: "../core.yml#/definitions/float"
       health:
-        $ref: "../core.yaml#/definitions/float"
+        $ref: "../core.yml#/definitions/float"
       morale:
-        $ref: "../core.yaml#/definitions/float"
+        $ref: "../core.yml#/definitions/float"
       morale_damage:
-        $ref: "../core.yaml#/definitions/float"
+        $ref: "../core.yml#/definitions/float"
       has_morale:
-        $ref: "../core.yaml#/definitions/boolean"
+        $ref: "../core.yml#/definitions/boolean"
         default: yes
       collateral_damage:
-        $ref: "../core.yaml#/definitions/float"
+        $ref: "../core.yml#/definitions/float"
       war_exhaustion:
-        $ref: "../core.yaml#/definitions/float"
+        $ref: "../core.yml#/definitions/float"
       time:
-        $ref: "../core.yaml#/definitions/int"
+        $ref: "../core.yml#/definitions/int"
       # category = armies
       resources:
-        $ref: "../core.yaml#/definitions/economy_unit"
+        $ref: "../core.yml#/definitions/economy_unit"
       has_species:
-        $ref: "../core.yaml#/definitions/boolean"
+        $ref: "../core.yml#/definitions/boolean"
         default: yes
       pop_limited:
-        $ref: "../core.yaml#/definitions/boolean"
+        $ref: "../core.yml#/definitions/boolean"
         default: yes
       defensive:
-        $ref: "../core.yaml#/definitions/boolean"
+        $ref: "../core.yml#/definitions/boolean"
       is_pop_spawned:
-        $ref: "../core.yaml#/definitions/boolean"
+        $ref: "../core.yml#/definitions/boolean"
       occupation:
-        $ref: "../core.yaml#/definitions/boolean"
+        $ref: "../core.yml#/definitions/boolean"
       potential:
-        $ref: "../core.yaml#/definitions/triggers"
+        $ref: "../core.yml#/definitions/triggers"
       allow:
-        $ref: "../core.yaml#/definitions/triggers"
+        $ref: "../core.yml#/definitions/triggers"
       on_queued:
-        $ref: "../core.yaml#/definitions/effects"
+        $ref: "../core.yml#/definitions/effects"
       on_unqueued:
-        $ref: "../core.yaml#/definitions/effects"
+        $ref: "../core.yml#/definitions/effects"
       rebel:
-        $ref: "../core.yaml#/definitions/boolean"
+        $ref: "../core.yml#/definitions/boolean"
       prerequisites:
         type: array
         items:
           $type: tech
       show_tech_unlock_if:
-        $ref: "../core.yaml#/definitions/triggers"
+        $ref: "../core.yml#/definitions/triggers"
 
 type: object
 additionalProperties:

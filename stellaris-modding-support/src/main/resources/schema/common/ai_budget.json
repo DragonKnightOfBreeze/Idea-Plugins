@@ -12,17 +12,17 @@
         "category" : {
           "$ref" : "#/definitions/budget_category"
         },
-        "poential" : {
-          "$ref" : "../core.yaml#/definitions/triggers"
+        "potential" : {
+          "$ref" : "../core.yml#/definitions/triggers"
         },
         "fraction" : {
-          "$ref" : "../core.yaml#/definitions/weight_modifier"
+          "$ref" : "../core.yml#/definitions/weight_modifier"
         },
         "static_min" : {
-          "$ref" : "../core.yaml#/definitions/modifier_chance"
+          "$ref" : "../core.yml#/definitions/modifier_chance"
         },
         "static_max" : {
-          "$ref" : "../core.yaml#/definitions/modifier_chance"
+          "$ref" : "../core.yml#/definitions/modifier_chance"
         }
       }
     },

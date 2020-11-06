@@ -4,36 +4,36 @@ definitions:
     type: object
     properties:
       rank:
-        $ref: "../core.yaml#/definitions/int"
+        $ref: "../core.yml#/definitions/int"
       clothes_texture_index:
-        $ref: "../core.yaml#/definitions/int"
+        $ref: "../core.yml#/definitions/int"
       change_job_threshold:
-        $ref: "../core.yaml#/definitions/float"
+        $ref: "../core.yml#/definitions/float"
       keep_from_former_job:
-        $ref: "../core.yaml#/definitions/boolean"
+        $ref: "../core.yml#/definitions/boolean"
       demotion_time:
-        $ref: "../core.yaml#/definitions/int"
+        $ref: "../core.yml#/definitions/int"
       should_apply_unemployment_penalties:
-        $ref: "../core.yaml#/definitions/triggers"
+        $ref: "../core.yml#/definitions/triggers"
       unemployment_penalties:
-        $ref: "../core.yaml#/definitions/modifiers"
+        $ref: "../core.yml#/definitions/modifiers"
       unemployment_resources:
-        $ref: "../core.yaml#/definitions/economy_unit"
+        $ref: "../core.yml#/definitions/economy_unit"
       triggered_pop_modifier:
-        $ref: "../core.yaml#/definitions/modifiers"
+        $ref: "../core.yml#/definitions/modifiers"
       weight:
-        $ref: "../core.yaml#/definitions/weight_modifier"
+        $ref: "../core.yml#/definitions/weight_modifier"
       pop_modifier:
-        $ref: "../core.yaml#/definitions/modifiers"
+        $ref: "../core.yml#/definitions/modifiers"
       allow_resettlement:
-        $ref: "../core.yaml#/definitions/triggers"
+        $ref: "../core.yml#/definitions/triggers"
       resettlement_cost:
-        $ref: "../core.yaml#/definitions/resources_item"
+        $ref: "../core.yml#/definitions/resources_item"
       triggered_planet_modifier:
-        $ref: "../core.yaml#/definitions/modifiers"
+        $ref: "../core.yml#/definitions/modifiers"
         multiple: true
       resources:
-        $ref: "../core.yaml#/definitions/economy_unit"
+        $ref: "../core.yml#/definitions/economy_unit"
 
 type: object
 additionalProperties:

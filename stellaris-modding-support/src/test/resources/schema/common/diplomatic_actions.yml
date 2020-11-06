@@ -4,23 +4,23 @@ definitions:
     type: object
     properties:
       icon:
-        $ref: "../core.yaml#/definitions/gfx_reference"
+        $ref: "../core.yml#/definitions/gfx_reference"
       auto_accepted:
-        $ref: "../core.yaml#/definitions/boolean"
+        $ref: "../core.yml#/definitions/boolean"
       require_envoy:
-        $ref: "../core.yaml#/definitions/boolean"
+        $ref: "../core.yml#/definitions/boolean"
       envoy_assignment:
         additionalProperties: true # TODO
       requires_actor_independence:
-        $ref: "../core.yaml#/definitions/boolean"
+        $ref: "../core.yml#/definitions/boolean"
       requires_recipient_independence:
-        $ref: "../core.yaml#/definitions/boolean"
+        $ref: "../core.yml#/definitions/boolean"
       action_type:
         $ref: "#/definitions/action_type"
       potential:
-        $ref: "../core.yaml#/definitions/triggers"
+        $ref: "../core.yml#/definitions/triggers"
       possible:
-        $ref: "../core.yaml#/definitions/triggers"
+        $ref: "../core.yml#/definitions/triggers"
   action_type:
     type: string
     enum:

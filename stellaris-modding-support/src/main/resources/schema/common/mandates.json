@@ -4,16 +4,16 @@
       "type" : "object",
       "properties" : {
         "valid" : {
-          "$ref" : "../core.yaml#/definitions/triggers"
+          "$ref" : "../core.yml#/definitions/triggers"
         },
         "parameters" : {
           "$ref" : "#/definitions/parameters"
         },
         "on_term_started" : {
-          "$ref" : "../core.yaml#/definitions/effects"
+          "$ref" : "../core.yml#/definitions/effects"
         },
         "on_term_ended" : {
-          "$ref" : "../core.yaml#/definitions/effects"
+          "$ref" : "../core.yml#/definitions/effects"
         }
       }
     },

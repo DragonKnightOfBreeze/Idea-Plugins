@@ -7,64 +7,64 @@
           "$ref" : "#/definitions/entity"
         },
         "icon_frame" : {
-          "$ref" : "../core.yaml#/definitions/int"
+          "$ref" : "../core.yml#/definitions/int"
         },
         "entity_scale" : {
-          "$ref" : "../core.yaml#/definitions/int"
+          "$ref" : "../core.yml#/definitions/int"
         },
         "atmosphere_color" : {
-          "$ref" : "../core.yaml#/definitions/color_type"
+          "$ref" : "../core.yml#/definitions/color_type"
         },
         "atmosphere_intensity" : {
-          "$ref" : "../core.yaml#/definitions/float"
+          "$ref" : "../core.yml#/definitions/float"
         },
         "atmosphere_width" : {
-          "$ref" : "../core.yaml#/definitions/float"
+          "$ref" : "../core.yml#/definitions/float"
         },
         "min_distance_from_sun" : {
-          "$ref" : "../core.yaml#/definitions/int"
+          "$ref" : "../core.yml#/definitions/int"
         },
         "max_distance_from_sun" : {
-          "$ref" : "../core.yaml#/definitions/int"
+          "$ref" : "../core.yml#/definitions/int"
         },
         "spawn_odds" : {
-          "$ref" : "../core.yaml#/definitions/int"
+          "$ref" : "../core.yml#/definitions/int"
         },
         "city_color_lut" : {
-          "$ref" : "../core.yaml#/definitions/game_path"
+          "$ref" : "../core.yml#/definitions/game_path"
         },
         "extra_orbit_size" : {
-          "$ref" : "../core.yaml#/definitions/int"
+          "$ref" : "../core.yml#/definitions/int"
         },
         "extra_planet_count" : {
-          "$ref" : "../core.yaml#/definitions/int"
+          "$ref" : "../core.yml#/definitions/int"
         },
         "can_be_moon" : {
-          "$ref" : "../core.yaml#/definitions/boolean"
+          "$ref" : "../core.yml#/definitions/boolean"
         },
         "chance_of_ring" : {
-          "$ref" : "../core.yaml#/definitions/float"
+          "$ref" : "../core.yml#/definitions/float"
         },
         "planet_size" : {
-          "$ref" : "../core.yaml#/definitions/int_range"
+          "$ref" : "../core.yml#/definitions/int_range"
         },
         "moon_size" : {
-          "$ref" : "../core.yaml#/definitions/int_range"
+          "$ref" : "../core.yml#/definitions/int_range"
         },
         "production_spawn_chance" : {
-          "$ref" : "../core.yaml#/definitions/float"
+          "$ref" : "../core.yml#/definitions/float"
         },
         "colonizable" : {
-          "$ref" : "../core.yaml#/definitions/boolean"
+          "$ref" : "../core.yml#/definitions/boolean"
         },
         "district_set" : {
           "$ref" : "#/definitions/district_set"
         },
         "uses_alternative_skies_for_moons" : {
-          "$ref" : "../core.yaml#/definitions/boolean"
+          "$ref" : "../core.yml#/definitions/boolean"
         },
         "modifier" : {
-          "$ref" : "../core.yaml#/definitions/modifiers"
+          "$ref" : "../core.yml#/definitions/modifiers"
         }
       }
     },
@@ -77,7 +77,7 @@
     },
     "district_set" : {
       "type" : "string",
-      "enum" : [ "standard", "hive_world", "machine_world", "ring_world", "habitat" ]
+      "enum" : [ "standard", "hive_world", "machine_world", "ring_world", "city_world", "habitat" ]
     }
   },
   "type" : "object",

@@ -36,7 +36,7 @@
         "texts" : {
           "type" : "array",
           "items" : {
-            "$ref" : "../core.yaml#/definitions/loc_reference"
+            "$ref" : "../core.yml#/definitions/loc_reference"
           }
         }
       }

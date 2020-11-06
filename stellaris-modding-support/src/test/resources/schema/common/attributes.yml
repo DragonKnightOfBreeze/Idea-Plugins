@@ -13,7 +13,7 @@ definitions:
     propertyNames:
       $ref: "#/definitions/behaviour_name"
     additionalProperties:
-      $ref: "../core.yaml#/definitions/boolean"
+      $ref: "../core.yml#/definitions/boolean"
   # AI关系
   behaviour_name:
     type: string

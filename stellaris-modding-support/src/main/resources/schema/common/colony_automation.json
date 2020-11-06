@@ -4,7 +4,7 @@
       "type" : "object",
       "properties" : {
         "available" : {
-          "$ref" : "../core.yaml#/definitions/triggers"
+          "$ref" : "../core.yml#/definitions/triggers"
         },
         "prio_districts" : {
           "type" : "array",
@@ -15,7 +15,7 @@
         "buildings" : {
           "type" : "object",
           "propertyNames" : {
-            "$ref" : "../core.yaml#/definitions/int"
+            "$ref" : "../core.yml#/definitions/int"
           },
           "additionalProperties" : {
             "type" : "object",
@@ -25,7 +25,7 @@
                 "multiple" : true
               },
               "available" : {
-                "$ref" : "../core.yaml#/definitions/triggers"
+                "$ref" : "../core.yml#/definitions/triggers"
               }
             }
           }

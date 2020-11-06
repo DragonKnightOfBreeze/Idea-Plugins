@@ -4,19 +4,19 @@
       "type" : "object",
       "properties" : {
         "icon" : {
-          "$ref" : "../core.yaml#/definitions/int"
+          "$ref" : "../core.yml#/definitions/int"
         },
         "potential" : {
-          "$ref" : "../core.yaml#/definitions/triggers"
+          "$ref" : "../core.yml#/definitions/triggers"
         },
         "plant_modifier" : {
-          "$ref" : "../core.yaml#/definitions/modifier"
+          "$ref" : "../core.yml#/definitions/modifier"
         },
         "weight_modifier" : {
-          "$ref" : "../core.yaml#/definitions/weight_modifier"
+          "$ref" : "../core.yml#/definitions/weight_modifier"
         },
         "triggered_planet_modifier" : {
-          "$ref" : "../core.yaml#/definitions/triggered_modifier",
+          "$ref" : "../core.yml#/definitions/triggered_modifier",
           "multiple" : true
         }
       }

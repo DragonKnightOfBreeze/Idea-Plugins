@@ -4,15 +4,15 @@ definitions:
     type: object
     properties:
       centralization:
-        $ref: "../core.yaml#/definitions/boolean"
+        $ref: "../core.yml#/definitions/boolean"
       show_succession_date:
-        $ref: "../core.yaml#/definitions/boolean"
+        $ref: "../core.yml#/definitions/boolean"
       laws:
         type: array
         items:
           $type: federation_law
       potential:
-        $ref: "../core.yaml#/definitions/triggers"
+        $ref: "../core.yml#/definitions/triggers"
 
 type: object
 additionalProperties:

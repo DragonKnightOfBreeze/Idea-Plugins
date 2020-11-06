@@ -4,13 +4,13 @@
       "type" : "object",
       "properties" : {
         "name" : {
-          "$ref" : "../core.yaml#/definitions/loc_reference"
+          "$ref" : "../core.yml#/definitions/loc_reference"
         },
         "ship_size" : {
           "$ype" : "ship_size"
         },
         "is_event_design" : {
-          "$ref" : "../core.yaml#/definitions/boolean"
+          "$ref" : "../core.yml#/definitions/boolean"
         },
         "section" : {
           "$ref" : "#/definitions/section"
@@ -19,13 +19,13 @@
           "$type" : "component_template.key"
         },
         "is_special_buildable" : {
-          "$ref" : "../core.yaml#/definitions/boolean"
+          "$ref" : "../core.yml#/definitions/boolean"
         },
         "allow_buildable_trigger" : {
           "anyOf" : [ {
             "$type" : "trigger"
           }, {
-            "$ref" : "../core.yaml#/definitions/triggers"
+            "$ref" : "../core.yml#/definitions/triggers"
           } ]
         }
       }

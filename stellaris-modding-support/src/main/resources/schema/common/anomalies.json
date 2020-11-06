@@ -4,35 +4,35 @@
       "type" : "object",
       "properties" : {
         "should_ai_use" : {
-          "$ref" : "../core.yaml#/definitions/boolean",
+          "$ref" : "../core.yml#/definitions/boolean",
           "default" : "no"
         },
         "show_ai_and_humans_use" : {
-          "$ref" : "../core.yaml#/definitions/boolean",
+          "$ref" : "../core.yml#/definitions/boolean",
           "default" : "no"
         },
         "desc" : {
-          "$ref" : "../core.yaml#/definitions/desc"
+          "$ref" : "../core.yml#/definitions/desc"
         },
         "picture" : {
-          "$ref" : "../core.yaml#/definitions/gfx_reference"
+          "$ref" : "../core.yml#/definitions/gfx_reference"
         },
         "level" : {
-          "$ref" : "../core.yaml#/definitions/int"
+          "$ref" : "../core.yml#/definitions/int"
         },
         "null_spawn_chance" : {
-          "$ref" : "../core.yaml#/definitions/float"
+          "$ref" : "../core.yml#/definitions/float"
         },
         "max_once" : {
-          "$ref" : "../core.yaml#/definitions/boolean",
+          "$ref" : "../core.yml#/definitions/boolean",
           "default" : "no"
         },
         "max_once_global" : {
-          "$ref" : "../core.yaml#/definitions/boolean",
+          "$ref" : "../core.yml#/definitions/boolean",
           "default" : "no"
         },
         "spawn_chance" : {
-          "$ref" : "../core.yaml#/definitions/modifier_chance"
+          "$ref" : "../core.yml#/definitions/modifier_chance"
         },
         "on_spawn" : {
           "$ref" : "#/definitions/anomaly_event"
@@ -44,27 +44,27 @@
     },
     "anomaly_event" : {
       "anyOf" : [ {
-        "$ref" : "../core.yaml#/definitions/event_id"
+        "$ref" : "../core.yml#/definitions/event_id"
       }, {
         "propertyNames" : {
-          "$ref" : "../core.yaml#/definitions/nit"
+          "$ref" : "../core.yml#/definitions/nit"
         },
         "additionalProperties" : {
           "anyOf" : [ {
-            "$ref" : "../core.yaml#/definitions/event_id"
+            "$ref" : "../core.yml#/definitions/event_id"
           }, {
-            "$ref" : "../core.yaml#/definitions/modifier",
+            "$ref" : "../core.yml#/definitions/modifier",
             "properties" : {
               "max_once" : {
-                "$ref" : "../core.yaml#/definitions/boolean",
+                "$ref" : "../core.yml#/definitions/boolean",
                 "default" : "yes"
               },
               "max_once_global" : {
-                "$ref" : "../core.yaml#/definitions/boolean",
+                "$ref" : "../core.yml#/definitions/boolean",
                 "default" : "no"
               },
               "anomaly_event" : {
-                "$ref" : "../core.yaml#/definitions/event_id"
+                "$ref" : "../core.yml#/definitions/event_id"
               }
             }
           } ]

@@ -4,32 +4,32 @@ definitions:
     type: object
     properties:
       base_buildtime:
-        $ref: "../core.yaml#/definitions/int"
+        $ref: "../core.yml#/definitions/int"
       is_capped_by_modifier:
-        $ref: "../core.yaml#/definitions/boolean"
+        $ref: "../core.yml#/definitions/boolean"
       show_on_uncolonized:
-        $ref: "../core.yaml#/definitions/triggers"
+        $ref: "../core.yml#/definitions/triggers"
       potential:
-        $ref: "../core.yaml#/definitions/triggers"
+        $ref: "../core.yml#/definitions/triggers"
       allow:
-        $ref: "../core.yaml#/definitions/triggers"
+        $ref: "../core.yml#/definitions/triggers"
       conversion_ratio:
-        $ref: "../core.yaml#/definitions/float"
+        $ref: "../core.yml#/definitions/float"
       convert_to:
         type: array
         items:
           $type: district
       resources:
-        $ref: "../core.yaml#/definitions/economy_unit"
+        $ref: "../core.yml#/definitions/economy_unit"
       planet_modifier:
-        $ref: "../core.yaml#/definitions/modifier"
+        $ref: "../core.yml#/definitions/modifier"
       # anyOf
       triggered_plant_modifier:
-        $ref: "../core.yaml#/definitions/triggered_modifier"
+        $ref: "../core.yml#/definitions/triggered_modifier"
       ai_weight:
-        $ref: "../core.yaml#/definitions/weight_modifier"
+        $ref: "../core.yml#/definitions/weight_modifier"
       modifier:
-        $ref: "../core.yaml#/definitions/modifier"
+        $ref: "../core.yml#/definitions/modifier"
 
 type: object
 additionalProperties:

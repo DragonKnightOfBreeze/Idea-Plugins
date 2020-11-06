@@ -4,34 +4,34 @@ definitions:
     type: object
     properties:
       cost:
-        $ref: "../core.yaml#/definitions/int"
+        $ref: "../core.yml#/definitions/int"
       category:
         $ref: "#/definitions/ethic_category"
       category_value:
-        $ref: "../core.yaml#/definitions/int"
+        $ref: "../core.yml#/definitions/int"
       category_opposite:
-        $ref: "../core.yaml#/definitions/boolean"
+        $ref: "../core.yml#/definitions/boolean"
       regular_variant:
         $type: ethic
       fanatic_variant:
         $type: ethic
       use_for_pops:
-        $ref: "../core.yaml#/definitions/boolean"
+        $ref: "../core.yml#/definitions/boolean"
       country_modifier:
-        $ref: "../core.yaml#/definitions/modifier"
+        $ref: "../core.yml#/definitions/modifier"
       tags:
         type: array
         items:
-          $ref: "../core.yaml#/definitions/loc_reference"
+          $ref: "../core.yml#/definitions/loc_reference"
       random_weight:
-        $ref: "../core.yaml#/definitions/random_weight"
+        $ref: "../core.yml#/definitions/random_weight"
       pop_attraction_tag:
-        $ref: "../core.yaml#/definitions/triggered_desc"
+        $ref: "../core.yml#/definitions/triggered_desc"
         multiple: true
       country_attraction:
-        $ref: "../core.yaml#/definitions/modified_attraction"
+        $ref: "../core.yml#/definitions/modified_attraction"
       pop_attraction:
-        $ref: "../core.yaml#/definitions/modified_attraction"
+        $ref: "../core.yml#/definitions/modified_attraction"
   ethic_category:
     type: string
     $def: "#/ethic_categories/{ethic_category}"

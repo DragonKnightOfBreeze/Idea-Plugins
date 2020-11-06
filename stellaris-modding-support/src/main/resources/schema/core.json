@@ -183,7 +183,7 @@
     "modified_attraction" : {
       "properties" : {
         "value" : {
-          "$ref" : "../core.yaml#/definitions/int"
+          "$ref" : "../core.yml#/definitions/int"
         },
         "modifier" : {
           "$ref" : "#/definitions/modifier"

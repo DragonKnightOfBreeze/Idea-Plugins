@@ -4,41 +4,41 @@ definitions:
     type: object
     properties:
       icon:
-        $ref: "../core.yaml#/definitions/game_path"
+        $ref: "../core.yml#/definitions/game_path"
       election_term_years:
-        $ref: "../core.yaml#/definitions/boolean"
+        $ref: "../core.yml#/definitions/boolean"
       election_type:
         $ref: "#/definitions/election_type"
       re_election_allowed:
-        $ref: "../core.yaml#/definitions/boolean"
+        $ref: "../core.yml#/definitions/boolean"
       can_have_emergency_elections:
-        $ref: "../core.yaml#/definitions/boolean"
+        $ref: "../core.yml#/definitions/boolean"
       emergency_election_cost:
-        $ref: "../core.yaml#/definitions/int"
+        $ref: "../core.yml#/definitions/int"
       max_election_candidates:
-        $ref: "../core.yaml#/definitions/int"
+        $ref: "../core.yml#/definitions/int"
       has_heir:
-        $ref: "../core.yaml#/definitions/boolean"
+        $ref: "../core.yml#/definitions/boolean"
       has_agendas:
-        $ref: "../core.yaml#/definitions/boolean"
+        $ref: "../core.yml#/definitions/boolean"
       uses_mandates:
-        $ref: "../core.yaml#/definitions/boolean"
+        $ref: "../core.yml#/definitions/boolean"
       has_factions:
-        $ref: "../core.yaml#/definitions/boolean"
+        $ref: "../core.yml#/definitions/boolean"
       can_reform:
-        $ref: "../core.yaml#/definitions/boolean"
+        $ref: "../core.yml#/definitions/boolean"
       localization_postfix:
-        $ref: "../core.yaml#/definitions/loc_reference"
+        $ref: "../core.yml#/definitions/loc_reference"
       valid_for_released_vassal:
-        $ref: "../core.yaml#/definitions/boolean"
+        $ref: "../core.yml#/definitions/boolean"
       playable:
-        $ref: "../core.yaml#/definitions/triggers"
+        $ref: "../core.yml#/definitions/triggers"
       possible:
-        $ref: "../core.yaml#/definitions/triggers"
+        $ref: "../core.yml#/definitions/triggers"
       potential:
-        $ref: "../core.yaml#/definitions/triggers"
+        $ref: "../core.yml#/definitions/triggers"
       random_weight:
-        $ref: "../core.yaml#/definitions/weight_modifier"
+        $ref: "../core.yml#/definitions/weight_modifier"
       traits:
         type: object
         properties:
@@ -46,11 +46,11 @@ definitions:
             $type: trait
             multiple: true
       country_modifier:
-        $ref: "../core.yaml#/definitions/modifier"
+        $ref: "../core.yml#/definitions/modifier"
       tags:
         type: array
         items:
-          $ref: "../core.yaml#/definitions/loc_reference"
+          $ref: "../core.yml#/definitions/loc_reference"
   election_type:
     type: string
     enum:

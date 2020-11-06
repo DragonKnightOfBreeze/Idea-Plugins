@@ -7,23 +7,23 @@
           "type" : "string"
         },
         "income" : {
-          "$ref" : "../core.yaml#/definitions/resources_item"
+          "$ref" : "../core.yml#/definitions/resources_item"
         },
         "focues" : {
-          "$ref" : "../core.yaml#/definitions/resources_item"
+          "$ref" : "../core.yml#/definitions/resources_item"
         },
         "subplan" : {
-          "$ref" : "../core.yaml#/definitions/resources_item",
+          "$ref" : "../core.yml#/definitions/resources_item",
           "multiple" : true
         },
         "pops" : {
-          "$ref" : "../core.yaml#/definitions/int"
+          "$ref" : "../core.yml#/definitions/int"
         },
         "empire_size" : {
-          "$ref" : "../core.yaml#/definitions/float"
+          "$ref" : "../core.yml#/definitions/float"
         },
         "ai_weight" : {
-          "$ref" : "../core.yaml#/definitions/weight_modifier"
+          "$ref" : "../core.yml#/definitions/weight_modifier"
         }
       }
     }

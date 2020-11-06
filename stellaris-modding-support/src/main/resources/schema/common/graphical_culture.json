@@ -4,13 +4,13 @@
       "type" : "object",
       "properties" : {
         "randomized" : {
-          "$ref" : "../core.yaml#/definitions/triggers"
+          "$ref" : "../core.yml#/definitions/triggers"
         },
         "selectable" : {
-          "$ref" : "../core.yaml#/definitions/triggers"
+          "$ref" : "../core.yml#/definitions/triggers"
         },
         "ship_color" : {
-          "$ref" : "../core.yaml#/definitions/boolean"
+          "$ref" : "../core.yml#/definitions/boolean"
         },
         "fallback" : {
           "$type" : "graphical_culture"
@@ -24,43 +24,43 @@
       "type" : "object",
       "properties" : {
         "cam_light_1_dir" : {
-          "$ref" : "../core.yaml#/definitions/color"
+          "$ref" : "../core.yml#/definitions/color"
         },
         "cam_light_2_dir" : {
-          "$ref" : "../core.yaml#/definitions/color"
+          "$ref" : "../core.yml#/definitions/color"
         },
         "cam_light_3_dir" : {
-          "$ref" : "../core.yaml#/definitions/color"
+          "$ref" : "../core.yml#/definitions/color"
         },
         "intensity_near" : {
-          "$ref" : "../core.yaml#/definitions/float"
+          "$ref" : "../core.yml#/definitions/float"
         },
         "intensity_far" : {
-          "$ref" : "../core.yaml#/definitions/float"
+          "$ref" : "../core.yml#/definitions/float"
         },
         "near_value" : {
-          "$ref" : "../core.yaml#/definitions/int"
+          "$ref" : "../core.yml#/definitions/int"
         },
         "far_value" : {
-          "$ref" : "../core.yaml#/definitions/int"
+          "$ref" : "../core.yml#/definitions/int"
         },
         "rim_start_near" : {
-          "$ref" : "../core.yaml#/definitions/float"
+          "$ref" : "../core.yml#/definitions/float"
         },
         "rim_stop_near" : {
-          "$ref" : "../core.yaml#/definitions/float"
+          "$ref" : "../core.yml#/definitions/float"
         },
         "rim_start_far" : {
-          "$ref" : "../core.yaml#/definitions/float"
+          "$ref" : "../core.yml#/definitions/float"
         },
         "rim_stop_far" : {
-          "$ref" : "../core.yaml#/definitions/float"
+          "$ref" : "../core.yml#/definitions/float"
         },
         "ambient_near" : {
-          "$ref" : "../core.yaml#/definitions/float"
+          "$ref" : "../core.yml#/definitions/float"
         },
         "ambient_far" : {
-          "$ref" : "../core.yaml#/definitions/float"
+          "$ref" : "../core.yml#/definitions/float"
         }
       }
     }

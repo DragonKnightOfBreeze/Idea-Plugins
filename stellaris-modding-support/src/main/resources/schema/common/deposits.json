@@ -4,31 +4,31 @@
       "type" : "object",
       "properties" : {
         "is_null" : {
-          "$ref" : "../core.yaml#/definitions/boolean"
+          "$ref" : "../core.yml#/definitions/boolean"
         },
         "time" : {
-          "$ref" : "../core.yaml#/definitions/int"
+          "$ref" : "../core.yml#/definitions/int"
         },
         "is_for_colonizeable" : {
-          "$ref" : "../core.yaml#/definitions/boolean"
+          "$ref" : "../core.yml#/definitions/boolean"
         },
         "category" : {
           "$type" : "deposit_category"
         },
         "resources" : {
-          "$ref" : "../core.yaml#/definitions/economy_unit"
+          "$ref" : "../core.yml#/definitions/economy_unit"
         },
         "potential" : {
-          "$ref" : "../core.yaml#/definitions/triggers"
+          "$ref" : "../core.yml#/definitions/triggers"
         },
         "plant_modifier" : {
-          "$ref" : "../core.yaml#/definitions/modifier"
+          "$ref" : "../core.yml#/definitions/modifier"
         },
         "drop_weight" : {
-          "$ref" : "../core.yaml#/definitions/weight_modifier"
+          "$ref" : "../core.yml#/definitions/weight_modifier"
         },
         "ai_weight" : {
-          "$ref" : "../core.yaml#/definitions/weight_modifier"
+          "$ref" : "../core.yml#/definitions/weight_modifier"
         },
         "prerequisites" : {
           "type" : "array",

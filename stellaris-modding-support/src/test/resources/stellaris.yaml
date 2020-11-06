@@ -51,7 +51,7 @@ common:
       resource: resource
       type: any
       category: any
-      poential: condition
+      potential: condition
       fraction: weight_modifier
       static_min:
         base: int

@@ -4,9 +4,9 @@ definitions:
     type: object
     properties:
       available:
-        $ref: "../core.yaml#/definitions/triggers"
+        $ref: "../core.yml#/definitions/triggers"
       crisis:
-        $ref: "../core.yaml#/definitions/boolean"
+        $ref: "../core.yml#/definitions/boolean"
       prio_districts:
         type: object
         items:
@@ -20,7 +20,7 @@ definitions:
                 $type: building
                 multiple: true
               available:
-                $ref: "../core.yaml#/definitions/triggers"
+                $ref: "../core.yml#/definitions/triggers"
                 multiple: true
 
 type: object

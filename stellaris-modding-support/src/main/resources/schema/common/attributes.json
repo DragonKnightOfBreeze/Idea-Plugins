@@ -17,7 +17,7 @@
         "$ref" : "#/definitions/behaviour_name"
       },
       "additionalProperties" : {
-        "$ref" : "../core.yaml#/definitions/boolean"
+        "$ref" : "../core.yml#/definitions/boolean"
       }
     },
     "behaviour_name" : {

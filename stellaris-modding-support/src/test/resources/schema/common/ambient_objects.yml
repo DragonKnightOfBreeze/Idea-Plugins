@@ -4,20 +4,20 @@ definitions:
     type: object
     properties:
       name:
-        $ref: "../core.yaml#/definitions/loc_reference"
+        $ref: "../core.yml#/definitions/loc_reference"
       entity:
-        $ref: "../core.yaml#/definitions/loc_reference"
+        $ref: "../core.yml#/definitions/loc_reference"
       description:
-        $ref: "../core.yaml#/definitions/loc_reference"
+        $ref: "../core.yml#/definitions/loc_reference"
         optional: true
       tooltip:
-        $ref: "../core.yaml#/definitions/loc_reference"
+        $ref: "../core.yml#/definitions/loc_reference"
         optional: true
       selectable:
-        $ref: "../core.yaml#/definitions/boolean"
+        $ref: "../core.yml#/definitions/boolean"
         optional: true
       show_name:
-        $ref: "../core.yaml#/definitions/boolean"
+        $ref: "../core.yml#/definitions/boolean"
 
 type: object
 additionalProperties:

@@ -8,11 +8,11 @@ definitions:
       construction_entity:
         $type: entity
       portrait:
-        $ref: "../core.yaml#/definitions/gfx_reference"
+        $ref: "../core.yml#/definitions/gfx_reference"
       place_entity_on_planet_plane:
-        $ref: "../core.yaml#/definitions/boolean"
+        $ref: "../core.yml#/definitions/boolean"
       entity_offset:
-        $ref: "../core.yaml#/definitions/vector2"
+        $ref: "../core.yml#/definitions/vector2"
       upgrade_desc:
         type: string
         enum:
@@ -27,36 +27,36 @@ definitions:
         items:
           $type: tech
       potential:
-        $ref: "../core.yaml#/definitions/triggers"
+        $ref: "../core.yml#/definitions/triggers"
       possible:
-        $ref: "../core.yaml#/definitions/triggers"
+        $ref: "../core.yml#/definitions/triggers"
       build_time:
-        $ref: "../core.yaml#/definitions/int"
+        $ref: "../core.yml#/definitions/int"
       build_cost:
-        $ref: "../core.yaml#/definitions/resources_item"
+        $ref: "../core.yml#/definitions/resources_item"
       monthly_production:
-        $ref: "../core.yaml#/definitions/resources_item"
+        $ref: "../core.yml#/definitions/resources_item"
       maintenance:
-        $ref: "../core.yaml#/definitions/resources_item"
+        $ref: "../core.yml#/definitions/resources_item"
       country_modifier:
-        $ref: "../core.yaml#/definitions/modifier"
+        $ref: "../core.yml#/definitions/modifier"
       placement_rules:
         type: object
         properties:
           planet_possible:
-            $ref: "../core.yaml#/definitions/triggers"
+            $ref: "../core.yml#/definitions/triggers"
       on_build_start:
-        $ref: "../core.yaml#/definitions/effects"
+        $ref: "../core.yml#/definitions/effects"
       on_build_cancel:
-        $ref: "../core.yaml#/definitions/effects"
+        $ref: "../core.yml#/definitions/effects"
       on_build_complete:
-        $ref: "../core.yaml#/definitions/effects"
+        $ref: "../core.yml#/definitions/effects"
       ai_weight:
-        $ref: "../core.yaml#/definitions/weight_modifier"
+        $ref: "../core.yml#/definitions/weight_modifier"
       resources:
-        $ref: "../core.yaml#/definitions/economy_unit"
+        $ref: "../core.yml#/definitions/economy_unit"
       construction_blocked_by_others:
-        $ref: "../core.yaml#/definitions/boolean"
+        $ref: "../core.yml#/definitions/boolean"
 
 type: object
 additionalProperties:

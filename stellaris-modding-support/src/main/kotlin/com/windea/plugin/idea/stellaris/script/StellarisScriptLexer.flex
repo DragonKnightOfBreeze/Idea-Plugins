@@ -46,10 +46,10 @@ SPACE=[ \t]+
 
 COMMENT=#[^\r\n]*
 END_OF_LINE_COMMENT=#[^\r\n]*
-VARIABLE_NAME_ID=@[a-zA-Z0-9_\-]+
-PROPERTY_KEY_ID=[a-zA-Z0-9_\-.:$]+
+VARIABLE_NAME_ID=@[a-zA-Z0-9_-]+
+PROPERTY_KEY_ID=[a-zA-Zz0-9.:$_-]+
 QUOTED_PROPERTY_KEY_ID=\"([^\"(\r\n\\]|\\.)*?\"
-VARIABLE_REFERENCE_ID=@[a-zA-Z0-9_\-]+
+VARIABLE_REFERENCE_ID=@[a-zA-Z0-9_-]+
 BOOLEAN=(yes)|(no)
 NUMBER=-?[0-9]+(\.[0-9]+)?
 STRING=[^@\s\{\}=\"][^\s\{\}=\"]*

@@ -5,7 +5,7 @@ definitions:
     properties:
       # anyOf
       mesh:
-        $ref: "../core.yaml#/definitions/gfx_reference"
+        $ref: "../core.yml#/definitions/gfx_reference"
       shader:
         type: string
 

@@ -7,7 +7,7 @@
           "type" : "string"
         },
         "language" : {
-          "$ref" : "../core.yaml#/definitions/language"
+          "$ref" : "../core.yml#/definitions/language"
         },
         "ship_names" : {
           "type" : "object",
@@ -97,7 +97,7 @@
               "allOf" : [ {
                 "properties" : {
                   "weight" : {
-                    "$ref" : "../core.yaml#/definitions/int"
+                    "$ref" : "../core.yml#/definitions/int"
                   }
                 }
               }, {
@@ -120,7 +120,7 @@
               "allOf" : [ {
                 "properties" : {
                   "weight" : {
-                    "$ref" : "../core.yaml#/definitions/int"
+                    "$ref" : "../core.yml#/definitions/int"
                   }
                 }
               }, {

@@ -4,10 +4,10 @@
       "type" : "object",
       "properties" : {
         "weight_modifier" : {
-          "$ref" : "../core.yaml#/definitions/weight_modifier"
+          "$ref" : "../core.yml#/definitions/weight_modifier"
         },
         "modifier" : {
-          "$ref" : "../core.yaml#/definitions/modifier",
+          "$ref" : "../core.yml#/definitions/modifier",
           "multiple" : true
         }
       }

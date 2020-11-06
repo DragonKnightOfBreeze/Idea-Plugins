@@ -4,7 +4,7 @@ definitions:
     type: object
     properties:
       icon:
-        $ref: "../core.yaml#/definitions/game_path"
+        $ref: "../core.yml#/definitions/game_path"
 
 type: object
 additionalProperties:

@@ -4,7 +4,7 @@ definitions:
     type: object
     properties:
       spawn_chance:
-        $ref: "../core.yaml#/definitions/modifier_chance"
+        $ref: "../core.yml#/definitions/modifier_chance"
       modifier:
         $type: modifier
 

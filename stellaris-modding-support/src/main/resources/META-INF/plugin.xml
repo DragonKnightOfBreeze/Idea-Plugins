@@ -44,7 +44,7 @@
     <P>
       You can also write Stellaris mods by VSCode IDE with CWTools plugin,
       but please note that IDEA is undoubtedly more powerful than VSCode.
-      which means that this plugin may support some advance features that CWTTools will never provide.
+      which means that this plugin may support some advance features that CWTools will never provide.
     </P>
     <p>
       This plugin is still in developing,
@@ -95,7 +95,7 @@
     <P>
       你也可以使用VSCode IDE并配合CWTools插件来进行Stellaris模组编程。
       但请注意，IDEA相比VSCode功能无疑更加强大，
-      这意味着这个插件未来可能会提供一些CWTTools所不可能支持的高级功能。
+      这意味着这个插件未来可能会提供一些CWTools所不可能支持的高级功能。
     </P>
     <p>
       这个插件仍然在更新中，如果遇到BUG或问题，欢迎在项目的

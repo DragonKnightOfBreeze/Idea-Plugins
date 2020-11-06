@@ -4,23 +4,23 @@ definitions:
     type: object
     properties:
       icon:
-        $ref: "../core.yaml#/definitions/gfx_reference"
+        $ref: "../core.yml#/definitions/gfx_reference"
       small_icon:
-        $ref: "../core.yaml#/definitions/int"
+        $ref: "../core.yml#/definitions/int"
       planet_modifier:
         $type: plant_modifier
       country_modifier:
         $type: country_modifier
       resources:
-        $ref: "../core.yaml#/definitions/economy_unit"
+        $ref: "../core.yml#/definitions/economy_unit"
       potential:
-        $ref: "../core.yaml#/definitions/triggers"
+        $ref: "../core.yml#/definitions/triggers"
       valid:
-        $ref: "../core.yaml#/definitions/triggers"
+        $ref: "../core.yml#/definitions/triggers"
       ai_weight:
-        $ref: "../core.yaml#/definitions/weight"
+        $ref: "../core.yml#/definitions/weight"
       monthly_progress:
-        $ref: "../core.yaml#/definitions/float"
+        $ref: "../core.yml#/definitions/float"
       completion_event:
         $type: event.id
 

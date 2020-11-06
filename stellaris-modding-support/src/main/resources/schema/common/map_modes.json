@@ -4,19 +4,19 @@
       "type" : "object",
       "properties" : {
         "icon" : {
-          "$ref" : "../core.yaml#/definitions/gfx_reference"
+          "$ref" : "../core.yml#/definitions/gfx_reference"
         },
         "hardcoded_tooltip" : {
           "$type" : "opinion"
         },
         "can_change_point_of_view" : {
-          "$ref" : "../core.yaml#/definitions/boolean"
+          "$ref" : "../core.yml#/definitions/boolean"
         },
         "enable_terra_incognita" : {
-          "$ref" : "../core.yaml#/definitions/boolean"
+          "$ref" : "../core.yml#/definitions/boolean"
         },
         "shortcut" : {
-          "$ref" : "../core.yaml#/definitions/shortcut"
+          "$ref" : "../core.yml#/definitions/shortcut"
         },
         "color" : {
           "$ref" : "#/definitions/color",
@@ -28,16 +28,16 @@
       "type" : "object",
       "properties" : {
         "value" : {
-          "$ref" : "../core.yaml#/definitions/color_type"
+          "$ref" : "../core.yml#/definitions/color_type"
         },
         "custom_tooltip" : {
-          "$ref" : "../core.yaml#/definitions/loc_reference"
+          "$ref" : "../core.yml#/definitions/loc_reference"
         },
         "hardcoded_tooltip" : {
           "type" : "string"
         },
         "condition" : {
-          "$ref" : "../core.yaml#/definitions/triggers"
+          "$ref" : "../core.yml#/definitions/triggers"
         }
       }
     }

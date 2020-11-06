@@ -4,76 +4,76 @@ definitions:
     type: object
     properties:
       key:
-        $ref: "../core.yaml#/definitions/loc_reference"
+        $ref: "../core.yml#/definitions/loc_reference"
       size:
-        $ref: "../core.yaml#/definitions/component_size"
+        $ref: "../core.yml#/definitions/component_size"
       type:
-        $ref: "../core.yaml#/definitions/component_type"
+        $ref: "../core.yml#/definitions/component_type"
       icon:
-        $ref: "../core.yaml#/definitions/gfx_reference"
+        $ref: "../core.yml#/definitions/gfx_reference"
       icon_frame:
-        $ref: "../core.yaml#/definitions/int"
+        $ref: "../core.yml#/definitions/int"
       color:
-        $ref: "../core.yaml#/definitions/color"
+        $ref: "../core.yml#/definitions/color"
       prio_projectile:
-        $ref: "../core.yaml#/definitions/boolean"
+        $ref: "../core.yml#/definitions/boolean"
       hidden:
-        $ref: "../core.yaml#/definitions/boolean"
+        $ref: "../core.yml#/definitions/boolean"
       firing_arc:
-        $ref: "../core.yaml#/definitions/float"
+        $ref: "../core.yml#/definitions/float"
       min_range:
-        $ref: "../core.yaml#/definitions/float"
+        $ref: "../core.yml#/definitions/float"
       power:
-        $ref: "../core.yaml#/definitions/int"
+        $ref: "../core.yml#/definitions/int"
       count:
-        $ref: "../core.yaml#/definitions/int"
+        $ref: "../core.yml#/definitions/int"
       regeneration_per_day:
-        $ref: "../core.yaml#/definitions/float"
+        $ref: "../core.yml#/definitions/float"
       launch_time:
-        $ref: "../core.yaml#/definitions/float"
+        $ref: "../core.yml#/definitions/float"
       damage:
-        $ref: "../core.yaml#/definitions/int"
+        $ref: "../core.yml#/definitions/int"
       cooldown:
-        $ref: "../core.yaml#/definitions/int"
+        $ref: "../core.yml#/definitions/int"
       range:
-        $ref: "../core.yaml#/definitions/int"
+        $ref: "../core.yml#/definitions/int"
       engagement_range:
-        $ref: "../core.yaml#/definitions/int"
+        $ref: "../core.yml#/definitions/int"
       accuracy:
-        $ref: "../core.yaml#/definitions/float"
+        $ref: "../core.yml#/definitions/float"
       tracking:
-        $ref: "../core.yaml#/definitions/float"
+        $ref: "../core.yml#/definitions/float"
 
       health:
-        $ref: "../core.yaml#/definitions/int"
+        $ref: "../core.yml#/definitions/int"
       armor:
-        $ref: "../core.yaml#/definitions/int"
+        $ref: "../core.yml#/definitions/int"
       shield:
-        $ref: "../core.yaml#/definitions/int"
+        $ref: "../core.yml#/definitions/int"
       evasion:
-        $ref: "../core.yaml#/definitions/float"
+        $ref: "../core.yml#/definitions/float"
 
       speed:
-        $ref: "../core.yaml#/definitions/int"
+        $ref: "../core.yml#/definitions/int"
       rotation_speed:
-        $ref: "../core.yaml#/definitions/float"
+        $ref: "../core.yml#/definitions/float"
       acceleration:
-        $ref: "../core.yaml#/definitions/float"
+        $ref: "../core.yml#/definitions/float"
 
       shield_damage:
-        $ref: "../core.yaml#/definitions/float"
+        $ref: "../core.yml#/definitions/float"
       shield_penetration:
-        $ref: "../core.yaml#/definitions/float"
+        $ref: "../core.yml#/definitions/float"
       armor_penetration:
-        $ref: "../core.yaml#/definitions/float"
+        $ref: "../core.yml#/definitions/float"
 
       ship_behavior:
         $type: ship_behavior
 
       weapon_type:
-        $ref: "../core.yaml#/definitions/component_type"
+        $ref: "../core.yml#/definitions/component_type"
       entity:
-        $ref: "../core.yaml#/definitions/entity"
+        $ref: "../core.yml#/definitions/entity"
       prerequisites:
         type: array
         items:
@@ -93,7 +93,7 @@ definitions:
         items:
           $type: component_tag
       resources:
-        $ref: "../core.yaml#/definitions/economy_unit"
+        $ref: "../core.yml#/definitions/economy_unit"
 
 type: object
 additionalProperties:
