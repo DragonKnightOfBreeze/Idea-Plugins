@@ -254,4 +254,11 @@ object StellarisScriptPsiImplUtil {
 
 	private fun Color.toColorHsv() = ColorConversions.convertRGBtoHSV(this.rgb)
 	//endregion
+
+	//region StellarisScriptCode
+	@JvmStatic
+	fun getValue(element: StellarisScriptCode): String? {
+		return element.text
+	}
+	//endregion
 }

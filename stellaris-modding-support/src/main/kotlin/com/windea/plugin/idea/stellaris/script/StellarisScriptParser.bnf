@@ -18,6 +18,8 @@
 	  GE_SIGN=">="
 	  LEFT_BRACE="{"
 	  RIGHT_BRACE="}"
+	  CODE_START="@\["
+	  CODE_END="]"
 	  LEFT_QUOTE='"'
 	  RIGHT_QUOTE='"'
 	  EOL="regexp:\R"
@@ -26,13 +28,14 @@
 	  END_OF_LINE_COMMENT="regexp:#[^\r\n]*"
 	  VARIABLE_NAME_ID="regexp:@[a-zA-Z0-9_\-]+"
 	  VARIABLE_REFERENCE_ID="regexp:@[a-zA-Z0-9_\-]+"
-	  PROPERTY_KEY_ID='regexp:[a-zA-Zz0-9_\-.:]+'
+	  PROPERTY_KEY_ID='regexp:[a-zA-Zz0-9_\-.:$]+'
 	  QUOTED_PROPERTY_KEY_ID='regexp:"([^"(\r\n\\]|\\.)*?"'
 	  BOOLEAN_TOKEN='regexp:(yes)|(no)'
 	  NUMBER_TOKEN='regexp:-?[0-9]+(\.[0-9]+)?'
 	  STRING_TOKEN='regexp:[^@\s{}="][^\s{}="]*'
 	  QUOTED_STRING_TOKEN='regexp:"([^"\r\n\\]|\\.)*?"'
 	  COLOR_TOKEN="regexp:(rgb|rgba|hsb|hsv|hsl)[ \t]*\{[0-9. \t]*}"
+    CODE_TEXT_TOKEN="regexp:[^\r\n\]}]+"
 	]
 }
 
@@ -70,7 +73,7 @@ property ::= property_key property_separator property_value {
 }
 property_key ::= PROPERTY_KEY_ID | QUOTED_PROPERTY_KEY_ID
 property_separator ::= "=" | "<" | ">" | "<=" | ">="
-property_value ::= variable_reference | boolean | number | string | color | block
+property_value ::= variable_reference | boolean | number | color | code | string | block
 
 block ::= "{" block_item * "}" {
   pin=1
@@ -79,7 +82,7 @@ block ::= "{" block_item * "}" {
 }
 private block_item ::= END_OF_LINE_COMMENT | COMMENT | property | item
 
-item ::= boolean | number | string | color | block {
+item ::= boolean | number | color | string | block {
   methods=[getIcon]
 }
 
@@ -99,3 +102,9 @@ color ::= COLOR_TOKEN {
   implements="com.intellij.psi.PsiLiteralValue"
   methods=[getValue getColor setColor]
 }
+code ::= CODE_START code_text CODE_END{
+  pin=1
+  implements="com.intellij.psi.PsiLiteralValue"
+  methods=[getValue]
+}
+private code_text ::= CODE_TEXT_TOKEN

@@ -86,6 +86,27 @@ public class StellarisScriptParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
+  // CODE_START code_text CODE_END
+  public static boolean code(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "code")) return false;
+    if (!nextTokenIs(b, CODE_START)) return false;
+    boolean r, p;
+    Marker m = enter_section_(b, l, _NONE_, CODE, null);
+    r = consumeToken(b, CODE_START);
+    p = r; // pin = 1
+    r = r && report_error_(b, code_text(b, l + 1));
+    r = p && consumeToken(b, CODE_END) && r;
+    exit_section_(b, l, m, r, p, null);
+    return r || p;
+  }
+
+  /* ********************************************************** */
+  // CODE_TEXT_TOKEN
+  static boolean code_text(PsiBuilder b, int l) {
+    return consumeToken(b, CODE_TEXT_TOKEN);
+  }
+
+  /* ********************************************************** */
   // COLOR_TOKEN
   public static boolean color(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "color")) return false;
@@ -98,15 +119,15 @@ public class StellarisScriptParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // boolean | number | string | color | block
+  // boolean | number | color | string | block
   public static boolean item(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "item")) return false;
     boolean r;
     Marker m = enter_section_(b, l, _NONE_, ITEM, "<item>");
     r = boolean_$(b, l + 1);
     if (!r) r = number(b, l + 1);
-    if (!r) r = string(b, l + 1);
     if (!r) r = color(b, l + 1);
+    if (!r) r = string(b, l + 1);
     if (!r) r = block(b, l + 1);
     exit_section_(b, l, m, r, false, null);
     return r;
@@ -168,7 +189,7 @@ public class StellarisScriptParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // variable_reference | boolean | number | string | color | block
+  // variable_reference | boolean | number | color | code | string | block
   public static boolean property_value(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "property_value")) return false;
     boolean r;
@@ -176,8 +197,9 @@ public class StellarisScriptParser implements PsiParser, LightPsiParser {
     r = variable_reference(b, l + 1);
     if (!r) r = boolean_$(b, l + 1);
     if (!r) r = number(b, l + 1);
-    if (!r) r = string(b, l + 1);
     if (!r) r = color(b, l + 1);
+    if (!r) r = code(b, l + 1);
+    if (!r) r = string(b, l + 1);
     if (!r) r = block(b, l + 1);
     exit_section_(b, l, m, r, false, null);
     return r;

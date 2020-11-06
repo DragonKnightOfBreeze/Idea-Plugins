@@ -10,6 +10,7 @@ public interface StellarisScriptTypes {
 
   IElementType BLOCK = new StellarisScriptElementType("BLOCK");
   IElementType BOOLEAN = new StellarisScriptElementType("BOOLEAN");
+  IElementType CODE = new StellarisScriptElementType("CODE");
   IElementType COLOR = new StellarisScriptElementType("COLOR");
   IElementType ITEM = new StellarisScriptElementType("ITEM");
   IElementType NUMBER = new StellarisScriptElementType("NUMBER");
@@ -25,6 +26,9 @@ public interface StellarisScriptTypes {
   IElementType VARIABLE_VALUE = new StellarisScriptElementType("VARIABLE_VALUE");
 
   IElementType BOOLEAN_TOKEN = new StellarisScriptTokenType("BOOLEAN_TOKEN");
+  IElementType CODE_END = new StellarisScriptTokenType("]");
+  IElementType CODE_START = new StellarisScriptTokenType("@\\[");
+  IElementType CODE_TEXT_TOKEN = new StellarisScriptTokenType("CODE_TEXT_TOKEN");
   IElementType COLOR_TOKEN = new StellarisScriptTokenType("COLOR_TOKEN");
   IElementType COMMENT = new StellarisScriptTokenType("COMMENT");
   IElementType END_OF_LINE_COMMENT = new StellarisScriptTokenType("END_OF_LINE_COMMENT");
@@ -52,6 +56,9 @@ public interface StellarisScriptTypes {
       }
       else if (type == BOOLEAN) {
         return new StellarisScriptBooleanImpl(node);
+      }
+      else if (type == CODE) {
+        return new StellarisScriptCodeImpl(node);
       }
       else if (type == COLOR) {
         return new StellarisScriptColorImpl(node);

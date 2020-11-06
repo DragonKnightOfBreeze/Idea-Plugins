@@ -24,7 +24,7 @@ public interface StellarisLocalizationTypes {
   IElementType BLANK = new StellarisLocalizationTokenType("wregexp:\\s+");
   IElementType CODE_END = new StellarisLocalizationTokenType("]");
   IElementType CODE_START = new StellarisLocalizationTokenType("[");
-  IElementType CODE_TEXT = new StellarisLocalizationTokenType("CODE_TEXT");
+  IElementType CODE_TEXT_TOKEN = new StellarisLocalizationTokenType("CODE_TEXT_TOKEN");
   IElementType COLON = new StellarisLocalizationTokenType(":");
   IElementType COLORFUL_TEXT_END = new StellarisLocalizationTokenType("§!");
   IElementType COLORFUL_TEXT_START = new StellarisLocalizationTokenType("§");

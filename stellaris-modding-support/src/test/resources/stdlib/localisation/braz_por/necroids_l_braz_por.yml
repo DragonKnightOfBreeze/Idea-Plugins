@@ -7,7 +7,7 @@
 
  origin_necrophage:0 "Necrófago"
  origin_necrophage_desc:0 "Esta civilização evoluiu como um parasita, se alimentando de outras formas de vida sapientes para crescimento. Conforme ela se estende pela galáxia, outras espécies serão vistas ou como aprendizes a serem integradas, ou simplesmente como alimento para sustentar seu poder crescente."
- civic_tooltip_necrophage_effects:0 "- Pode converter £pops£ pops de outras espécies para a §Hespécie primária§!.\n- Somente pops Necrófagos podem ser §Hlíderes§! or ocupar §Hempregos de líder§!.\n- Começa com §H12§! £pops£ pops de uma espécie secundária pré-patente.\n- Planetas habitáveis garantidos na verdade são §Hcivilizações primitivas§!."
+ civic_tooltip_necrophage_effects:0 "- Pode converter £pops£pops de outras espécies para a §Hespécie primária§!.\n- Somente pops Necrófagos podem ser §Hlíderes§! or ocupar §Hempregos de líder§!.\n- Começa com §H12§! £pops£pops de uma espécie secundária pré-patente.\n- Planetas habitáveis garantidos na verdade são §Hcivilizações primitivas§!."
  civic_necrophage_secondary_species:0 "Espécie pré-patente"
  trait_necrophage:0 "Necrófago"
  trait_necrophage_desc:0 "Esta espécie de quase-imortais procria ao consumir pops de outras espécies."

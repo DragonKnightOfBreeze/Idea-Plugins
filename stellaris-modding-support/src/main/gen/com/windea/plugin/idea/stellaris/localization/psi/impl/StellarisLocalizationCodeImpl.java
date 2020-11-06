@@ -28,8 +28,8 @@ public class StellarisLocalizationCodeImpl extends ASTWrapperPsiElement implemen
 
   @Override
   @Nullable
-  public PsiElement getCodeText() {
-    return findChildByType(CODE_TEXT);
+  public PsiElement getCodeTextToken() {
+    return findChildByType(CODE_TEXT_TOKEN);
   }
 
 }

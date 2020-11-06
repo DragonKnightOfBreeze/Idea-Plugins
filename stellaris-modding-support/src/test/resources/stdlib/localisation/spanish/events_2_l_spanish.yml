@@ -1855,7 +1855,7 @@
  nomad.522.c.reply:0 "Tenemos accesos privilegiados a las configuraciones del autopiloto en los astilleros de la caravana. Nos es indiferente ordenar a las naves que se dirijan a [Root.Capital.GetName] en lugar de enviar a la mitad de ellas al orbe [other_empire.GetAdj] de [other_empire.Capital.GetName]. No podrían pillarnos."
  nomad.522.d:0 "¿Qué queréis a cambio?"
  nomad.522.e:0 "No nos interesa."
- nomad.523.desc:0 "Necesitaríamos algo para justificarlo. Solo §Y1000§! de £energía ya sería más que lo que se llevaría la flota de los habitantes del orbe [other_empire.GetAdj]."
+ nomad.523.desc:0 "Necesitaríamos algo para justificarlo. Solo §Y1000§! de energía ya sería más que lo que se llevaría la flota de los habitantes del orbe [other_empire.GetAdj]."
  nomad.523.c:0 "Trato hecho."
  nomad.523.a:0 "No hay trato."
  nomad.523.b:0 "No podemos permitírnoslo."

@@ -58,9 +58,9 @@ public class StellarisLocalizationParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // CODE_TEXT
+  // CODE_TEXT_TOKEN
   static boolean code_text(PsiBuilder b, int l) {
-    return consumeToken(b, CODE_TEXT);
+    return consumeToken(b, CODE_TEXT_TOKEN);
   }
 
   /* ********************************************************** */

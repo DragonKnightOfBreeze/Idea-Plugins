@@ -25,6 +25,8 @@ import static com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
 %state WAITING_PROPERTY_VALUE
 %state WAITING_PROPERTY_EOL
 
+%state WAITING_CODE
+
 %{
   int depth = 0;
 
@@ -45,7 +47,7 @@ SPACE=[ \t]+
 COMMENT=#[^\r\n]*
 END_OF_LINE_COMMENT=#[^\r\n]*
 VARIABLE_NAME_ID=@[a-zA-Z0-9_\-]+
-PROPERTY_KEY_ID=[a-zA-Z0-9_\-.:]+
+PROPERTY_KEY_ID=[a-zA-Z0-9_\-.:$]+
 QUOTED_PROPERTY_KEY_ID=\"([^\"(\r\n\\]|\\.)*?\"
 VARIABLE_REFERENCE_ID=@[a-zA-Z0-9_\-]+
 BOOLEAN=(yes)|(no)
@@ -53,6 +55,7 @@ NUMBER=-?[0-9]+(\.[0-9]+)?
 STRING=[^@\s\{\}=\"][^\s\{\}=\"]*
 QUOTED_STRING=\"([^\"\r\n\\]|\\.)*?\"
 COLOR_TOKEN=(rgb|rgba|hsb|hsv|hsl)[ \t]*\{[0-9. \t]*}
+CODE_TEXT_TOKEN=[^\r\n\]}]+
 
 IS_PROPERTY=(([a-zA-Z0-9_\-.:]+)|(\"([^\"(\r\n\\]|\\.)*?\"))[ \t]*[=><]
 
@@ -133,6 +136,7 @@ IS_PROPERTY=(([a-zA-Z0-9_\-.:]+)|(\"([^\"(\r\n\\]|\\.)*?\"))[ \t]*[=><]
 <WAITING_PROPERTY_VALUE>{
   "}" {depth--;  yybegin(nextState()); return RIGHT_BRACE;}
   "{" {depth++;  yybegin(nextState()); return LEFT_BRACE;}
+  "@\[" {yybegin(WAITING_CODE); return CODE_START;}
   {EOL} {  yybegin(nextState()); return WHITE_SPACE; } //跳过非法字符
   {SPACE} { return WHITE_SPACE; }
   {END_OF_LINE_COMMENT} {  return END_OF_LINE_COMMENT; }
@@ -155,6 +159,14 @@ IS_PROPERTY=(([a-zA-Z0-9_\-.:]+)|(\"([^\"(\r\n\\]|\\.)*?\"))[ \t]*[=><]
   {NUMBER} { return NUMBER_TOKEN; }
   {QUOTED_STRING} { return QUOTED_STRING_TOKEN;}
   {STRING} {return STRING_TOKEN;}
+}
+
+<WAITING_CODE>{
+  "}" {depth--;  yybegin(nextState()); return RIGHT_BRACE;}
+  "{" {depth++;  yybegin(nextState()); return LEFT_BRACE;}
+  "]" {yybegin(WAITING_PROPERTY_EOL); return CODE_END; }
+  {EOL} {  yybegin(nextState()); return WHITE_SPACE; }
+  {CODE_TEXT_TOKEN} {return CODE_TEXT_TOKEN;}
 }
 
 [^] { return BAD_CHARACTER; }
