@@ -49,7 +49,7 @@ val stellarisLocalizationPropertyIcon = AllIcons.Nodes.PropertyRead
 val stellarisScriptFileIcon = IconLoader.findIcon("/icons/stellaris_script.png")
 val stellarisScriptVariableIcon = AllIcons.Nodes.Variable
 val stellarisScriptPropertyIcon = AllIcons.Nodes.Property
-val stellarisScriptItemIcon = AllIcons.Nodes.Constant
+val stellarisScriptValueIcon = AllIcons.Nodes.Constant
 
 val localizationPropertyGutterIcon = IconUtil.toSize(stellarisLocalizationPropertyIcon, 12, 12)
 val scriptPropertyGutterIcon = IconUtil.toSize(stellarisScriptPropertyIcon, 12, 12)

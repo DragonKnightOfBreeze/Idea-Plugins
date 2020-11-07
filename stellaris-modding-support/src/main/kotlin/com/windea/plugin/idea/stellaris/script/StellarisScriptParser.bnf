@@ -47,7 +47,7 @@
 //DONE 分隔符可以是比较运算符
 
 root ::= root_item *
-private root_item ::= END_OF_LINE_COMMENT | COMMENT | variable_definition | property | item
+private root_item ::= END_OF_LINE_COMMENT | COMMENT | variable_definition | property | value
 variable_definition ::= variable_name variable_definition_separator variable_value {
   pin=1
   mixin="com.windea.plugin.idea.stellaris.script.psi.impl.StellarisScriptNamedElementImpl"
@@ -58,9 +58,6 @@ variable_definition ::= variable_name variable_definition_separator variable_val
 variable_name ::= VARIABLE_NAME_ID
 variable_definition_separator ::= "="
 variable_value ::= boolean | number | string
-variable_reference ::= VARIABLE_REFERENCE_ID {
-  methods=[getReference]
-}
 
 property ::= property_key property_separator property_value {
   pin=1
@@ -73,6 +70,10 @@ property_separator ::= "=" | "<" | ">" | "<=" | ">="
 property_value ::= value
 
 value ::= variable_reference | boolean | number | string_value | block
+variable_reference ::= VARIABLE_REFERENCE_ID {
+  extends=value
+  methods=[getReference]
+}
 boolean ::= BOOLEAN_TOKEN {
   extends=value
   implements="com.intellij.psi.PsiLiteralValue"
@@ -84,13 +85,13 @@ number ::= NUMBER_TOKEN {
   methods=[getValue]
 }
 string_value ::= color | code | string{
-  implements="com.intellij.psi.PsiLiteralValue"
   extends=value
+  implements="com.intellij.psi.PsiLiteralValue"
   methods=[getValue]
 }
 string ::= STRING_TOKEN | QUOTED_STRING_TOKEN {
   extends=string_value
-  methods=[getValue getReference isValidPropertyKey]
+  methods=[getValue getReference]
 }
 color ::= COLOR_TOKEN {
   extends=string_value
@@ -108,5 +109,4 @@ block ::= "{" block_item * "}" {
   implements="com.intellij.psi.PsiListLikeElement"
   methods=[isEmpty isNotEmpty isObject isArray getComponents]
 }
-private block_item ::= END_OF_LINE_COMMENT | COMMENT | property | item
-item ::= value
+private block_item ::= END_OF_LINE_COMMENT | COMMENT | property | value

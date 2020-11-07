@@ -107,61 +107,10 @@ object StellarisScriptPsiImplUtil {
 	}
 	//endregion
 
-	//region StellarisScriptBlock
+	//region StellarisScriptValue
 	@JvmStatic
-	fun isEmpty(element:StellarisScriptBlock):Boolean{
-		element.forEachChild {
-			if(it is StellarisScriptProperty || it is StellarisLocalizationProperty) return false
-		}
-		return true
-	}
-
-	@JvmStatic
-	fun isNotEmpty(element:StellarisScriptBlock):Boolean{
-		element.forEachChild {
-			if(it is StellarisScriptProperty || it is StellarisLocalizationProperty) return true
-		}
-		return true
-	}
-
-	@JvmStatic
-	fun isObject(element: StellarisScriptBlock): Boolean {
-		element.forEachChild {
-			when(it){
-				is StellarisScriptProperty ->return true
-				is StellarisScriptItem -> return false
-			}
-		}
-		return false
-	}
-
-	@JvmStatic
-	fun isArray(element: StellarisScriptBlock): Boolean {
-		element.forEachChild {
-			when(it){
-				is StellarisScriptProperty ->return false
-				is StellarisScriptItem -> return true
-			}
-		}
-		return false
-	}
-
-	@JvmStatic
-	fun getComponents(element: StellarisScriptBlock): List<PsiElement> {
-		//如果存在元素为property，则认为所有合法的元素都是property
-		return if(element.isObject) element.propertyList else element.itemList
-	}
-	//endregion
-
-	//region StellarisScriptItem
-	@JvmStatic
-	fun getIcon(element: StellarisScriptItem, @Iconable.IconFlags flags: Int): Icon? {
-		return stellarisScriptItemIcon
-	}
-
-	@JvmStatic
-	fun getValue(element: StellarisScriptItem): String {
-		return element.text.unquote()
+	fun getIcon(element: StellarisScriptValue, @Iconable.IconFlags flags: Int): Icon? {
+		return stellarisScriptValueIcon
 	}
 	//endregion
 
@@ -179,7 +128,7 @@ object StellarisScriptPsiImplUtil {
 	}
 	//endregion
 
-	//region
+	//region StellarisScriptStringValue
 	@JvmStatic
 	fun getValue(element: StellarisScriptStringValue): String {
 		return element.text.unquote()
@@ -195,14 +144,8 @@ object StellarisScriptPsiImplUtil {
 	@JvmStatic
 	fun getReference(element: StellarisScriptString): StellarisScriptStringPsiReference? {
 		//只有可能是属性的键的情况下才有可能是引用
-		if(!element.isValidPropertyKey) return null
+		if(element.value.containsBlank()) return null
 		return StellarisScriptStringPsiReference(element, TextRange(0, element.textLength))
-	}
-
-	//不包含空格的情况下才有可能是属性的键
-	@JvmStatic
-	fun isValidPropertyKey(element: StellarisScriptString): Boolean {
-		return !element.value.any { it.isWhitespace() }
 	}
 	//endregion
 
@@ -271,6 +214,52 @@ object StellarisScriptPsiImplUtil {
 	@JvmStatic
 	fun getValue(element: StellarisScriptCode): String? {
 		return element.text
+	}
+	//endregion
+
+	//region StellarisScriptBlock
+	@JvmStatic
+	fun isEmpty(element:StellarisScriptBlock):Boolean{
+		element.forEachChild {
+			if(it is StellarisScriptProperty || it is StellarisLocalizationProperty) return false
+		}
+		return true
+	}
+
+	@JvmStatic
+	fun isNotEmpty(element:StellarisScriptBlock):Boolean{
+		element.forEachChild {
+			if(it is StellarisScriptProperty || it is StellarisLocalizationProperty) return true
+		}
+		return true
+	}
+
+	@JvmStatic
+	fun isObject(element: StellarisScriptBlock): Boolean {
+		element.forEachChild {
+			when(it){
+				is StellarisScriptProperty ->return true
+				is StellarisScriptValue -> return false
+			}
+		}
+		return false
+	}
+
+	@JvmStatic
+	fun isArray(element: StellarisScriptBlock): Boolean {
+		element.forEachChild {
+			when(it){
+				is StellarisScriptProperty ->return false
+				is StellarisScriptValue -> return true
+			}
+		}
+		return false
+	}
+
+	@JvmStatic
+	fun getComponents(element: StellarisScriptBlock): List<PsiElement> {
+		//如果存在元素为property，则认为所有合法的元素都是property
+		return if(element.isObject) element.propertyList else element.valueList
 	}
 	//endregion
 }

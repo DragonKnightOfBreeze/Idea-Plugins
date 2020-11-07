@@ -6,7 +6,7 @@ import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 import com.windea.plugin.idea.stellaris.script.reference.StellarisScriptVariablePsiReference;
 
-public interface StellarisScriptVariableReference extends PsiElement {
+public interface StellarisScriptVariableReference extends StellarisScriptValue {
 
   @NotNull
   PsiElement getVariableReferenceId();

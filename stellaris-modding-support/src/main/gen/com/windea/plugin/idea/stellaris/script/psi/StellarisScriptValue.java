@@ -7,7 +7,4 @@ import com.intellij.psi.PsiElement;
 
 public interface StellarisScriptValue extends PsiElement {
 
-  @Nullable
-  StellarisScriptVariableReference getVariableReference();
-
 }

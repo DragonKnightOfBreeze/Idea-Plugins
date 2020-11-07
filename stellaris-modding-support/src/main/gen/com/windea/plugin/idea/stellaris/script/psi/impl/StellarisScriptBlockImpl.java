@@ -27,14 +27,14 @@ public class StellarisScriptBlockImpl extends StellarisScriptValueImpl implement
 
   @Override
   @NotNull
-  public List<StellarisScriptItem> getItemList() {
-    return PsiTreeUtil.getChildrenOfTypeAsList(this, StellarisScriptItem.class);
+  public List<StellarisScriptProperty> getPropertyList() {
+    return PsiTreeUtil.getChildrenOfTypeAsList(this, StellarisScriptProperty.class);
   }
 
   @Override
   @NotNull
-  public List<StellarisScriptProperty> getPropertyList() {
-    return PsiTreeUtil.getChildrenOfTypeAsList(this, StellarisScriptProperty.class);
+  public List<StellarisScriptValue> getValueList() {
+    return PsiTreeUtil.getChildrenOfTypeAsList(this, StellarisScriptValue.class);
   }
 
   @Override

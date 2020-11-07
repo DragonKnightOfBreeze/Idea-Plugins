@@ -1,4 +1,4 @@
-package com.windea.plugin.idea.stellaris.schema
+package com.windea.plugin.idea.stellaris.script.schema
 
 import com.intellij.codeInspection.*
 import com.intellij.codeInspection.ui.*

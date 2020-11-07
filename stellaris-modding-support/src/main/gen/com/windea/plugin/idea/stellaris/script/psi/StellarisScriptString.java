@@ -20,6 +20,4 @@ public interface StellarisScriptString extends StellarisScriptStringValue {
   @Nullable
   StellarisScriptStringPsiReference getReference();
 
-  boolean isValidPropertyKey();
-
 }

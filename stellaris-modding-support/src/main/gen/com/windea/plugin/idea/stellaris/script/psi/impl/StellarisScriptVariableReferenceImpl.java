@@ -8,11 +8,10 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
 import static com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*;
-import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.windea.plugin.idea.stellaris.script.psi.*;
 import com.windea.plugin.idea.stellaris.script.reference.StellarisScriptVariablePsiReference;
 
-public class StellarisScriptVariableReferenceImpl extends ASTWrapperPsiElement implements StellarisScriptVariableReference {
+public class StellarisScriptVariableReferenceImpl extends StellarisScriptValueImpl implements StellarisScriptVariableReference {
 
   public StellarisScriptVariableReferenceImpl(@NotNull ASTNode node) {
     super(node);

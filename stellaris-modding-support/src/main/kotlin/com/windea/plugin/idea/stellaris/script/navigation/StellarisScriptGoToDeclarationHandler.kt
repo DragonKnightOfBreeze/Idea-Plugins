@@ -26,10 +26,10 @@ class StellarisScriptGoToDeclarationHandler:  GotoDeclarationHandler {
 			}
 			//字符串可以是脚本文件属性，也可以是本地化文件属性
 			is StellarisScriptString -> {
-				if(!sourceElement.isValidPropertyKey) return null
-
 				//查找当前项目的本地化文件属性，如果没有，再查找当前项目的本地化文件属性
 				val name = sourceElement.value
+				//如果包含空格则跳过，不可能是合法的属性键
+				if(name.containsBlank()) return null
 				val project = sourceElement.project
 				findScriptProperties(name, project).toArray().let { if(it.isNotEmpty()) return it }
 				findLocalizationProperties(name, project).toArray()

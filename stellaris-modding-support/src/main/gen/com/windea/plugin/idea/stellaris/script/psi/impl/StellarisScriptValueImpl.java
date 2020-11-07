@@ -11,7 +11,7 @@ import static com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.windea.plugin.idea.stellaris.script.psi.*;
 
-public class StellarisScriptValueImpl extends ASTWrapperPsiElement implements StellarisScriptValue {
+public abstract class StellarisScriptValueImpl extends ASTWrapperPsiElement implements StellarisScriptValue {
 
   public StellarisScriptValueImpl(@NotNull ASTNode node) {
     super(node);
@@ -24,12 +24,6 @@ public class StellarisScriptValueImpl extends ASTWrapperPsiElement implements St
   public void accept(@NotNull PsiElementVisitor visitor) {
     if (visitor instanceof StellarisScriptVisitor) accept((StellarisScriptVisitor)visitor);
     else super.accept(visitor);
-  }
-
-  @Override
-  @Nullable
-  public StellarisScriptVariableReference getVariableReference() {
-    return findChildByClass(StellarisScriptVariableReference.class);
   }
 
 }

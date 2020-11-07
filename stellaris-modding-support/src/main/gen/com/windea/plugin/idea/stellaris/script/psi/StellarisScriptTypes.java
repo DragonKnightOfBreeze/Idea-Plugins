@@ -12,7 +12,6 @@ public interface StellarisScriptTypes {
   IElementType BOOLEAN = new StellarisScriptElementType("BOOLEAN");
   IElementType CODE = new StellarisScriptElementType("CODE");
   IElementType COLOR = new StellarisScriptElementType("COLOR");
-  IElementType ITEM = new StellarisScriptElementType("ITEM");
   IElementType NUMBER = new StellarisScriptElementType("NUMBER");
   IElementType PROPERTY = new StellarisScriptElementType("PROPERTY");
   IElementType PROPERTY_KEY = new StellarisScriptElementType("PROPERTY_KEY");
@@ -65,9 +64,6 @@ public interface StellarisScriptTypes {
       else if (type == COLOR) {
         return new StellarisScriptColorImpl(node);
       }
-      else if (type == ITEM) {
-        return new StellarisScriptItemImpl(node);
-      }
       else if (type == NUMBER) {
         return new StellarisScriptNumberImpl(node);
       }
@@ -85,9 +81,6 @@ public interface StellarisScriptTypes {
       }
       else if (type == STRING) {
         return new StellarisScriptStringImpl(node);
-      }
-      else if (type == VALUE) {
-        return new StellarisScriptValueImpl(node);
       }
       else if (type == VARIABLE_DEFINITION) {
         return new StellarisScriptVariableDefinitionImpl(node);

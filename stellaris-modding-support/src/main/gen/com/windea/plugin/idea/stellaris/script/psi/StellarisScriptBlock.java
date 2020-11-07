@@ -9,10 +9,10 @@ import com.intellij.psi.PsiListLikeElement;
 public interface StellarisScriptBlock extends StellarisScriptValue, PsiListLikeElement {
 
   @NotNull
-  List<StellarisScriptItem> getItemList();
+  List<StellarisScriptProperty> getPropertyList();
 
   @NotNull
-  List<StellarisScriptProperty> getPropertyList();
+  List<StellarisScriptValue> getValueList();
 
   boolean isEmpty();
 

@@ -7,7 +7,10 @@ import com.windea.plugin.idea.stellaris.script.psi.*
 
 class StellarisScriptBraceMatcher : PairedBraceMatcher {
 	companion object{
-		private val bracePairs = arrayOf(BracePair(StellarisScriptTypes.LEFT_BRACE, StellarisScriptTypes.RIGHT_BRACE, true))
+		private val bracePairs = arrayOf(
+			BracePair(StellarisScriptTypes.LEFT_BRACE, StellarisScriptTypes.RIGHT_BRACE, true),
+			BracePair(StellarisScriptTypes.CODE_START, StellarisScriptTypes.CODE_END, true)
+		)
 	}
 
 	override fun getPairs(): Array<BracePair> = bracePairs

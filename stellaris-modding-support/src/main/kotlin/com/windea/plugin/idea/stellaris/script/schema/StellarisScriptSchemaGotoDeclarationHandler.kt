@@ -1,4 +1,4 @@
-package com.windea.plugin.idea.stellaris.schema
+package com.windea.plugin.idea.stellaris.script.schema
 
 import com.intellij.codeInsight.navigation.actions.*
 import com.intellij.json.pointer.*

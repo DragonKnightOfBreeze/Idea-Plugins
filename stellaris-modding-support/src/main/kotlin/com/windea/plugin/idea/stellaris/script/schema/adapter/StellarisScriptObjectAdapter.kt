@@ -1,4 +1,4 @@
-package com.windea.plugin.idea.stellaris.schema.adapter
+package com.windea.plugin.idea.stellaris.script.schema.adapter
 
 import com.jetbrains.jsonSchema.extension.adapters.*
 import com.windea.plugin.idea.stellaris.script.psi.*

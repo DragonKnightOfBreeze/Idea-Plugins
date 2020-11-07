@@ -1,4 +1,4 @@
-package com.windea.plugin.idea.stellaris.schema
+package com.windea.plugin.idea.stellaris.script.schema
 
 import com.intellij.json.pointer.*
 import com.intellij.psi.*
@@ -9,17 +9,18 @@ import com.jetbrains.jsonSchema.extension.adapters.*
 import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.schema.adapter.*
 import com.windea.plugin.idea.stellaris.script.psi.*
+import com.windea.plugin.idea.stellaris.script.schema.adapter.*
 
 object StellarisScriptJsonLikePsiWalker : JsonLikePsiWalker {
 	override fun findElementToCheck(element: PsiElement): PsiElement? {
 		//得到需要检查的元素
 		var current = element
-		//TODO 是否仍有必要？
-		//如果是item，则得到父元素（限于语法解析）
-		//如果是空白，判断之前的元素是否是item，若是则得到之前的元素
+		//如果是空白且之前的元素是String或者Number，则表示正在输入的可能是属性名，则向上查找
 		if(current is PsiWhiteSpace){
 			val prev = current.prevSibling
-			if(prev is StellarisScriptItem) current = prev
+			if(prev is StellarisScriptString || prev is StellarisScriptNumber){
+				current = prev.parent
+			}
 		}
 		//向上查找直到psiFile，如果是property/propertyKey/value，则认为已找到
 		while(current !is PsiFile){
@@ -28,17 +29,19 @@ object StellarisScriptJsonLikePsiWalker : JsonLikePsiWalker {
 				else -> current = current.parent
 			}
 		}
-		return null
+		return current
 	}
 
 	override fun isName(element: PsiElement): ThreeState {
 		//将所有YES改为UNSURE
-		return when(element.parent) {
+		return when(element) {
 			is StellarisScriptProperty -> ThreeState.UNSURE
 			is StellarisScriptPropertyKey -> ThreeState.YES
 			is StellarisScriptPropertyValue -> ThreeState.NO
-			is StellarisScriptItem -> ThreeState.UNSURE
-			else -> ThreeState.UNSURE
+			is StellarisScriptNumber -> ThreeState.UNSURE
+			is StellarisScriptString -> ThreeState.UNSURE
+			is StellarisScriptFile -> ThreeState.UNSURE
+			else -> ThreeState.NO
 		}
 	}
 
@@ -75,7 +78,7 @@ object StellarisScriptJsonLikePsiWalker : JsonLikePsiWalker {
 		return when(property) {
 			is StellarisScriptProperty -> property.propertyKey
 			//首先会识别item而非property，因此这里是必须的
-			is StellarisScriptItem -> if(property.value is StellarisScriptString) property else null
+			is StellarisScriptNumber, is StellarisScriptString ->  property
 			else -> null
 		}
 	}
@@ -92,7 +95,6 @@ object StellarisScriptJsonLikePsiWalker : JsonLikePsiWalker {
 	override fun createValueAdapter(element: PsiElement): JsonValueAdapter? {
 		return when(element) {
 			is StellarisScriptPropertyValue -> StellarisScriptValueAdapter(element.value)
-			is StellarisScriptItem -> StellarisScriptValueAdapter(element.value)
 			is StellarisScriptValue -> StellarisScriptValueAdapter(element)
 			else -> null
 		}
@@ -109,7 +111,7 @@ object StellarisScriptJsonLikePsiWalker : JsonLikePsiWalker {
 					position.addPrecedingStep(name)
 					current = current.parent
 				}
-				is StellarisScriptItem ->{
+				is StellarisScriptValue ->{
 					val parent = current.parent
 					val index = parent.indexOfChild(current)
 					position.addPrecedingStep(index)
@@ -122,35 +124,19 @@ object StellarisScriptJsonLikePsiWalker : JsonLikePsiWalker {
 		}
 	}
 
-	override fun acceptsEmptyRoot(): Boolean {
-		return true
-	}
+	override fun acceptsEmptyRoot() = true
 
-	override fun allowsSingleQuotes(): Boolean {
-		return false
-	}
+	override fun allowsSingleQuotes() = false
 
-	override fun requiresNameQuotes(): Boolean {
-		return false
-	}
+	override fun requiresNameQuotes() = false
 
-	override fun requiresValueQuotes(): Boolean {
-		return false
-	}
+	override fun requiresValueQuotes() = false
 
-	override fun getDefaultObjectValue(): String {
-		return "{}"
-	}
+	override fun getDefaultObjectValue() = "{}"
 
-	override fun getDefaultArrayValue(): String {
-		return "{}"
-	}
+	override fun getDefaultArrayValue() = "{}"
 
-	override fun hasWhitespaceDelimitedCodeBlocks(): Boolean {
-		return false
-	}
+	override fun hasWhitespaceDelimitedCodeBlocks() = false
 
-	override fun hasMissingCommaAfter(element: PsiElement): Boolean {
-		return false
-	}
+	override fun hasMissingCommaAfter(element: PsiElement) = false
 }

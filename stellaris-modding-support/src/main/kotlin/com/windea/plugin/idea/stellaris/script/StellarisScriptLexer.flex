@@ -63,6 +63,7 @@ IS_PROPERTY=(([a-zA-Z0-9_\-.:]+)|(\"([^\"(\r\n\\]|\\.)*?\"))[ \t]*[=><]
 <YYINITIAL> {
   "}" {depth--;  yybegin(nextState()); return RIGHT_BRACE;}
   "{" {depth++;  yybegin(nextState()); return LEFT_BRACE;}
+  "@\\[" {yybegin(WAITING_CODE); return CODE_START;} //这里的反斜线需要转义
   {WHITE_SPACE} { return WHITE_SPACE; } //继续解析
   {COMMENT} {return COMMENT; }
   {VARIABLE_NAME_ID} { yybegin(WAITING_VARIABLE_EQUAL_SIGN); return VARIABLE_NAME_ID; }
@@ -112,6 +113,7 @@ IS_PROPERTY=(([a-zA-Z0-9_\-.:]+)|(\"([^\"(\r\n\\]|\\.)*?\"))[ \t]*[=><]
 <WAITING_PROPERTY_KEY> {
   "}" {depth--;  yybegin(nextState()); return RIGHT_BRACE;}
   "{" {depth++;  yybegin(nextState()); return LEFT_BRACE;}
+  "@\\[" {yybegin(WAITING_CODE); return CODE_START;} //这里的反斜线需要转义
   {WHITE_SPACE} { return WHITE_SPACE; } //继续解析
   {COMMENT} {  return COMMENT; }
   {IS_PROPERTY} {yypushback(yylength()); yybegin(WAITING_PROPERTY);}
@@ -136,7 +138,7 @@ IS_PROPERTY=(([a-zA-Z0-9_\-.:]+)|(\"([^\"(\r\n\\]|\\.)*?\"))[ \t]*[=><]
 <WAITING_PROPERTY_VALUE>{
   "}" {depth--;  yybegin(nextState()); return RIGHT_BRACE;}
   "{" {depth++;  yybegin(nextState()); return LEFT_BRACE;}
-  "@\[" {yybegin(WAITING_CODE); return CODE_START;}
+  "@\\[" {yybegin(WAITING_CODE); return CODE_START;} //这里的反斜线需要转义
   {EOL} {  yybegin(nextState()); return WHITE_SPACE; } //跳过非法字符
   {SPACE} { return WHITE_SPACE; }
   {END_OF_LINE_COMMENT} {  return END_OF_LINE_COMMENT; }
@@ -151,14 +153,8 @@ IS_PROPERTY=(([a-zA-Z0-9_\-.:]+)|(\"([^\"(\r\n\\]|\\.)*?\"))[ \t]*[=><]
   "}" {depth--;  yybegin(nextState()); return RIGHT_BRACE;}
   "{" {depth++;  yybegin(nextState()); return LEFT_BRACE;}
   {EOL} {  yybegin(nextState()); return WHITE_SPACE; }
-  {SPACE} { return WHITE_SPACE; }
+  {SPACE} { yybegin(nextState()); return WHITE_SPACE; } //只要有空白相间隔，就可以在写同一行
   {END_OF_LINE_COMMENT} {  return END_OF_LINE_COMMENT; }
-  {IS_PROPERTY} {yypushback(yylength()); yybegin(WAITING_PROPERTY);}
-  {COLOR_TOKEN} {yybegin(WAITING_PROPERTY_EOL); return COLOR_TOKEN;}
-  {BOOLEAN} { return BOOLEAN_TOKEN; }
-  {NUMBER} { return NUMBER_TOKEN; }
-  {QUOTED_STRING} { return QUOTED_STRING_TOKEN;}
-  {STRING} {return STRING_TOKEN;}
 }
 
 <WAITING_CODE>{

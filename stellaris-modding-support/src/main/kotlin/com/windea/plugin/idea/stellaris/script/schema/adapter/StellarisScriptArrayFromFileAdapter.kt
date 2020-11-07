@@ -1,4 +1,4 @@
-package com.windea.plugin.idea.stellaris.schema.adapter
+package com.windea.plugin.idea.stellaris.script.schema.adapter
 
 import com.jetbrains.jsonSchema.extension.adapters.*
 import com.windea.plugin.idea.stellaris.script.psi.*
@@ -8,7 +8,7 @@ class StellarisScriptArrayFromFileAdapter(
 ): JsonArrayValueAdapter {
 	override fun getDelegate() = element
 
-	override fun getElements() = element.items.map{ StellarisScriptValueAdapter(it.value) }
+	override fun getElements() = element.values.map{ StellarisScriptValueAdapter(it) }
 
 	override fun isBooleanLiteral() = false
 

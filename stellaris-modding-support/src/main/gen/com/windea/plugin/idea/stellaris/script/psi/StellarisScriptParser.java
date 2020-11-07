@@ -37,7 +37,8 @@ public class StellarisScriptParser implements PsiParser, LightPsiParser {
 
   public static final TokenSet[] EXTENDS_SETS_ = new TokenSet[] {
     create_token_set_(BLOCK, BOOLEAN, CODE, COLOR,
-      NUMBER, STRING, STRING_VALUE, VALUE),
+      NUMBER, STRING, STRING_VALUE, VALUE,
+      VARIABLE_REFERENCE),
   };
 
   /* ********************************************************** */
@@ -67,14 +68,14 @@ public class StellarisScriptParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // END_OF_LINE_COMMENT | COMMENT | property | item
+  // END_OF_LINE_COMMENT | COMMENT | property | value
   static boolean block_item(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "block_item")) return false;
     boolean r;
     r = consumeToken(b, END_OF_LINE_COMMENT);
     if (!r) r = consumeToken(b, COMMENT);
     if (!r) r = property(b, l + 1);
-    if (!r) r = item(b, l + 1);
+    if (!r) r = value(b, l + 1);
     return r;
   }
 
@@ -120,17 +121,6 @@ public class StellarisScriptParser implements PsiParser, LightPsiParser {
     Marker m = enter_section_(b);
     r = consumeToken(b, COLOR_TOKEN);
     exit_section_(b, m, COLOR, r);
-    return r;
-  }
-
-  /* ********************************************************** */
-  // value
-  public static boolean item(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "item")) return false;
-    boolean r;
-    Marker m = enter_section_(b, l, _NONE_, ITEM, "<item>");
-    r = value(b, l + 1);
-    exit_section_(b, l, m, r, false, null);
     return r;
   }
 
@@ -213,7 +203,7 @@ public class StellarisScriptParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // END_OF_LINE_COMMENT | COMMENT | variable_definition | property | item
+  // END_OF_LINE_COMMENT | COMMENT | variable_definition | property | value
   static boolean root_item(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "root_item")) return false;
     boolean r;
@@ -221,7 +211,7 @@ public class StellarisScriptParser implements PsiParser, LightPsiParser {
     if (!r) r = consumeToken(b, COMMENT);
     if (!r) r = variable_definition(b, l + 1);
     if (!r) r = property(b, l + 1);
-    if (!r) r = item(b, l + 1);
+    if (!r) r = value(b, l + 1);
     return r;
   }
 

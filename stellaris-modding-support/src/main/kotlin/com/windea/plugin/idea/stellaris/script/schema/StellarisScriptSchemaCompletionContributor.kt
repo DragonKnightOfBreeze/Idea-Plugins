@@ -1,6 +1,6 @@
 @file:Suppress("NAME_SHADOWING", "UNUSED_PARAMETER", "MapGetWithNotNullAssertionOperator")
 
-package com.windea.plugin.idea.stellaris.schema
+package com.windea.plugin.idea.stellaris.script.schema
 
 import com.intellij.codeInsight.*
 import com.intellij.codeInsight.completion.*
@@ -29,7 +29,7 @@ import com.jetbrains.jsonSchema.extension.*
 import com.jetbrains.jsonSchema.extension.adapters.*
 import com.jetbrains.jsonSchema.ide.*
 import com.jetbrains.jsonSchema.impl.*
-import org.jetbrains.annotations.*
+import com.windea.plugin.idea.stellaris.*
 import java.util.*
 import java.util.HashSet
 import javax.swing.*
@@ -46,23 +46,23 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 	}
 
 	override fun fillCompletionVariants(parameters: CompletionParameters, result: CompletionResultSet) {
-		val prefix = parameters.position.prevSibling?.text
+		val position = parameters.position
+		val prefix = position.prevSibling?.text
 		val resultWithPrefix = if(prefix == null) result else result.withPrefixMatcher(prefix)
-		val jsonPointerPosition = parameters.position
-		val jsonSchemaService = JsonSchemaService.Impl.get(jsonPointerPosition.project)
+		val jsonSchemaService = JsonSchemaService.Impl.get(position.project)
 		val schemaObject = jsonSchemaService.getSchemaObject(parameters.originalFile) ?: return
 		doCompletion(parameters, resultWithPrefix, schemaObject, false)
 	}
 
-	private class Worker internal constructor(private val myRootSchema: JsonSchemaObject, private val myPosition: PsiElement,
+	private class Worker(private val myRootSchema: JsonSchemaObject, private val myPosition: PsiElement,
 		private val myOriginalPosition: PsiElement, resultConsumer: Consumer<LookupElement>) {
 		private val myResultConsumer: Consumer<LookupElement> = resultConsumer
-		private val myWrapInQuotes: Boolean
-		private val myInsideStringLiteral: Boolean
+		private val myWrapInQuotes: Boolean = myPosition.parent !is JsonStringLiteral
+		private val myInsideStringLiteral: Boolean = myPosition.parent is JsonStringLiteral
 
 		// we need this set to filter same-named suggestions (they can be suggested by several matching schemes)
-		private val myVariants: MutableSet<LookupElement>
-		private val myWalker: JsonLikePsiWalker?
+		private val myVariants: MutableSet<LookupElement> = HashSet()
+		private val myWalker: JsonLikePsiWalker? = JsonLikePsiWalker.getWalker(myPosition, myRootSchema)
 		private val myProject: Project = myOriginalPosition.project
 
 		fun work() {
@@ -72,13 +72,13 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 			val position = myWalker.findPosition(checkable, isName == ThreeState.NO)
 			if(position == null || position.isEmpty && isName == ThreeState.NO) return
 			val schemas = JsonSchemaResolver(myProject, myRootSchema, position).resolve()
-			val knownNames: MutableSet<String> = HashSet()
+			val knownNames = HashSet<String>()
 			// too long here, refactor further
-			schemas.forEach(java.util.function.Consumer { schema: JsonSchemaObject ->
+			schemas.forEach { schema ->
 				if(isName != ThreeState.NO) {
 					val insertComma = myWalker.hasMissingCommaAfter(myPosition)
 					val hasValue = myWalker.isPropertyWithValue(checkable)
-					val properties: Collection<String> = myWalker.getPropertyNamesOfParentObject(myOriginalPosition, myPosition)
+					val properties = myWalker.getPropertyNamesOfParentObject(myOriginalPosition, myPosition)
 					val adapter = myWalker.getParentPropertyAdapter(myOriginalPosition)
 					val schemaProperties = schema.properties
 					addAllPropertyVariants(insertComma, hasValue, properties, adapter, schemaProperties, knownNames)
@@ -88,7 +88,7 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 				if(isName != ThreeState.YES) {
 					suggestValues(schema, isName == ThreeState.NO)
 				}
-			})
+			}
 			for(variant in myVariants) {
 				myResultConsumer.consume(variant)
 			}
@@ -100,7 +100,7 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 			for(o in anEnum) {
 				if(o !is String) continue
 				var key: String? = o
-				key = if(!shouldWrapInQuotes(key, false)) key else StringUtil.wrapWithDoubleQuote(key!!)
+				key = if(!shouldWrapInQuotes(key)) key else StringUtil.wrapWithDoubleQuote(key!!)
 				myVariants.add(LookupElementBuilder.create(StringUtil.unquoteString(key!!)))
 			}
 		}
@@ -291,29 +291,24 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 
 		private fun addPossibleBooleanValue(type: JsonSchemaType) {
 			if(JsonSchemaType._boolean == type) {
-				addValueVariant("true", null)
-				addValueVariant("false", null)
+				addValueVariant("yes", null)
+				addValueVariant("no", null)
 			}
 		}
 
-		private fun addValueVariant(
-			key: String,
-			description: String?,
-			altText: String? = null,
-			handler: InsertHandler<LookupElement>? = null
-		) {
+		private fun addValueVariant(key: String, description: String?, altText: String? = null,
+			handler: InsertHandler<LookupElement>? = null) {
 			val unquoted = StringUtil.unquoteString(key)
-			var builder = LookupElementBuilder.create(if(!shouldWrapInQuotes(unquoted, true)) unquoted else key)
+			var builder = LookupElementBuilder.create(if(!shouldWrapInQuotes(unquoted)) unquoted else key)
 			if(altText != null) builder = builder.withPresentableText(altText)
 			if(description != null) builder = builder.withTypeText(description)
 			if(handler != null) builder = builder.withInsertHandler(handler)
 			myVariants.add(builder)
 		}
 
-		private fun shouldWrapInQuotes(key: String?, isValue: Boolean): Boolean {
-			return myWrapInQuotes && myWalker != null && (isValue && myWalker.requiresValueQuotes()
-			                                              || !isValue && myWalker.requiresNameQuotes()
-			                                              || !myWalker.isValidIdentifier(key, myProject))
+		private fun shouldWrapInQuotes(key: String?): Boolean {
+			//当提示的字符串包含空格时，才由双引号包围
+			return key != null && key.containsBlank()
 		}
 
 		private fun addPropertyVariant(key: String, jsonSchemaObject: JsonSchemaObject, hasValue: Boolean, insertComma: Boolean) {
@@ -321,7 +316,7 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 			var jsonSchemaObject = jsonSchemaObject
 			val variants = JsonSchemaResolver(myProject, jsonSchemaObject).resolve()
 			jsonSchemaObject = ObjectUtils.coalesce(ContainerUtil.getFirstItem(variants), jsonSchemaObject)
-			key = if(!shouldWrapInQuotes(key, false)) key else StringUtil.wrapWithDoubleQuote(key)
+			key = if(!shouldWrapInQuotes(key)) key else StringUtil.wrapWithDoubleQuote(key)
 			var builder = LookupElementBuilder.create(key)
 			val typeText = JsonSchemaDocumentationProvider.getBestDocumentation(true, jsonSchemaObject)
 			if(!StringUtil.isEmptyOrSpaces(typeText)) {
@@ -356,8 +351,7 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 			}
 			val deprecationMessage = jsonSchemaObject.deprecationMessage
 			if(deprecationMessage != null) {
-				builder = builder
-					.withTailText(JsonBundle.message("schema.documentation.deprecated.postfix"), true)
+				builder = builder.withTailText(JsonBundle.message("schema.documentation.deprecated.postfix"), true)
 					.withStrikeoutness(true)
 			}
 			myVariants.add(builder)
@@ -497,8 +491,7 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 			}
 		}
 
-		private fun handleInsideQuotesInsertion(context: InsertionContext, editor: Editor,
-			hasValue: Boolean): Boolean {
+		private fun handleInsideQuotesInsertion(context: InsertionContext, editor: Editor, hasValue: Boolean): Boolean {
 			if(myInsideStringLiteral) {
 				val offset = editor.caretModel.offset
 				val element = context.file.findElementAt(offset)
@@ -523,11 +516,13 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 
 		companion object {
 			// some schemas provide empty array / empty object in enum values...
-			private val filtered = ContainerUtil.set("[]", "{}", "[ ]", "{ }")
+			private val filtered = ContainerUtil.set("{}", "{ }")
+
 			private fun getIcon(type: JsonSchemaType?): Icon {
-				return if(type == null) AllIcons.Nodes.Property else when(type) {
-					JsonSchemaType._object -> AllIcons.Json.Object
-					JsonSchemaType._array -> AllIcons.Json.Array
+				return  when {
+					type == null -> AllIcons.Nodes.Property
+					type == JsonSchemaType._object -> AllIcons.Json.Object
+					type == JsonSchemaType._array -> AllIcons.Json.Array
 					else -> AllIcons.Nodes.Property
 				}
 			}
@@ -578,13 +573,6 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 				return type
 			}
 		}
-
-		init {
-			myVariants = HashSet()
-			myWalker = JsonLikePsiWalker.getWalker(myPosition, myRootSchema)
-			myWrapInQuotes = myPosition.parent !is JsonStringLiteral
-			myInsideStringLiteral = myPosition.parent is JsonStringLiteral
-		}
 	}
 
 	companion object {
@@ -602,10 +590,9 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 			if(stop) result.stopHere()
 		}
 
-		@TestOnly
 		fun getCompletionVariants(schema: JsonSchemaObject, position: PsiElement, originalPosition: PsiElement): List<LookupElement> {
 			val result: MutableList<LookupElement> = ArrayList()
-			Worker(schema, position, originalPosition, Consumer { element: LookupElement -> result.add(element) }).work()
+			Worker(schema, position, originalPosition) { element: LookupElement -> result.add(element) }.work()
 			return result
 		}
 

@@ -42,12 +42,7 @@ object StellarisScriptElementFactory {
 	}
 
 	@JvmStatic
-	fun createItem(project:Project,value:String):StellarisScriptItem{
-		return createDummyFile(project,value).firstChild as StellarisScriptItem
-	}
-
-	@JvmStatic
 	fun createValue(project:Project,value:String):StellarisScriptValue{
-		return createItem(project,value).value
+		return createDummyFile(project,value).firstChild as StellarisScriptValue
 	}
 }

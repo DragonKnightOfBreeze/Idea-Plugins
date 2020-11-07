@@ -16,6 +16,9 @@ class StellarisScriptVariablePsiReference(
 	}
 
 	override fun multiResolve(incompleteCode: Boolean): Array<out ResolveResult> {
+		//首先尝试从当前文档中查找引用
+		resolve()?.let{  return arrayOf(PsiElementResolveResult(it)) }
+
 		return findScriptVariableDefinitions(name, element.project).mapArray {
 			PsiElementResolveResult(it)
 		}

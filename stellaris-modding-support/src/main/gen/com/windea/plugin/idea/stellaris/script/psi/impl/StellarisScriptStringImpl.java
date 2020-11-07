@@ -49,10 +49,4 @@ public class StellarisScriptStringImpl extends StellarisScriptStringValueImpl im
   public StellarisScriptStringPsiReference getReference() {
     return StellarisScriptPsiImplUtil.getReference(this);
   }
-
-  @Override
-  public boolean isValidPropertyKey() {
-    return StellarisScriptPsiImplUtil.isValidPropertyKey(this);
-  }
-
 }
