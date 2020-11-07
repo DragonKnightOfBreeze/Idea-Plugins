@@ -4,15 +4,21 @@
       "type" : "object",
       "properties" : {
         "key" : {
-          "$ref" : "../core.json#/definitions/loc_reference"
+          "$ref" : "#/definitions/loc_reference"
         },
         "icon" : {
-          "$ref" : "../core.json#/definitions/gfx_reference"
+          "$ref" : "#/definitions/gfx_reference"
         },
         "icon_frame" : {
           "type" : "integer"
         }
       }
+    },
+    "loc_reference" : {
+      "type" : "string"
+    },
+    "gfx_reference" : {
+      "type" : "string"
     }
   },
   "type" : "object",

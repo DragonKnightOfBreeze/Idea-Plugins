@@ -1,6 +1,6 @@
 definitions:
   # 法令
-  edicc:
+  edict:
     type: object
     properties:
       name:

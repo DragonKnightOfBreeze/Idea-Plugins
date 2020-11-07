@@ -4,17 +4,17 @@
       "type" : "object",
       "properties" : {
         "name" : {
-          "$ref" : "../core.json#/definitions/loc_reference"
+          "$ref" : "#/definitions/loc_reference"
         },
         "entity" : {
-          "$ref" : "../core.json#/definitions/loc_reference"
+          "$ref" : "#/definitions/loc_reference"
         },
         "description" : {
-          "$ref" : "../core.json#/definitions/loc_reference",
+          "$ref" : "#/definitions/loc_reference",
           "optional" : true
         },
         "tooltip" : {
-          "$ref" : "../core.json#/definitions/loc_reference",
+          "$ref" : "#/definitions/loc_reference",
           "optional" : true
         },
         "selectable" : {
@@ -25,6 +25,9 @@
           "type" : "boolean"
         }
       }
+    },
+    "loc_reference" : {
+      "type" : "string"
     }
   },
   "type" : "object",

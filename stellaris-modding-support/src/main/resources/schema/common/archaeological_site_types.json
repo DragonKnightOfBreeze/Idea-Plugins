@@ -4,10 +4,10 @@
       "type" : "object",
       "properties" : {
         "desc" : {
-          "$ref" : "../core.json#/definitions/desc"
+          "$ref" : "#/definitions/desc"
         },
         "picture" : {
-          "$ref" : "../core.json#/definitions/gfx_reference"
+          "$ref" : "#/definitions/gfx_reference"
         },
         "stages" : {
           "type" : "integer"
@@ -16,26 +16,26 @@
           "type" : "integer"
         },
         "weight" : {
-          "$ref" : "../core.json#/definitions/weight_modifier"
+          "$ref" : "#/definitions/weight_modifier"
         },
         "potential" : {
-          "$ref" : "../core.json#/definitions/triggers"
+          "$ref" : "#/definitions/triggers"
         },
         "allow" : {
-          "$ref" : "../core.json#/definitions/triggers"
+          "$ref" : "#/definitions/triggers"
         },
         "visible" : {
-          "$ref" : "../core.json#/definitions/triggers"
+          "$ref" : "#/definitions/triggers"
         },
         "on_visible" : {
-          "$ref" : "../core.json#/definitions/effects"
+          "$ref" : "#/definitions/effects"
         },
         "state" : {
           "$ref" : "#/definitions/state",
           "multiple" : true
         },
         "on_roll_failed" : {
-          "$ref" : "../core.json#/definitions/effects"
+          "$ref" : "#/definitions/effects"
         }
       }
     },
@@ -43,15 +43,183 @@
       "type" : "object",
       "properties" : {
         "difficulty" : {
-          "$ref" : "../core.json#/definitions/difficulty"
+          "$ref" : "#/definitions/difficulty"
         },
         "icon" : {
-          "$ref" : "../core.json#/definitions/gfx_reference"
+          "$ref" : "#/definitions/gfx_reference"
         },
         "event" : {
-          "$ref" : "../core.json#/definitions/event"
+          "$ref" : "#/definitions/event"
         }
       }
+    },
+    "difficulty" : {
+      "type" : "integer",
+      "default" : 1,
+      "minimum" : 1
+    },
+    "gfx_reference" : {
+      "type" : "string"
+    },
+    "desc" : {
+      "anyOf" : [ {
+        "$ref" : "#/definitions/loc_reference"
+      }, {
+        "$ref" : "#/definitions/triggered_desc"
+      } ]
+    },
+    "triggers" : {
+      "type" : "object",
+      "anyOf" : [ {
+        "$ref" : "#/definitions/condition_expressions"
+      }, {
+        "$ref" : "#/definitions/boolean_expressions"
+      }, {
+        "$ref" : "#/definitions/scope_expressions"
+      }, {
+        "$ref" : "#/definitions/scripted_triggers"
+      } ]
+    },
+    "effects" : {
+      "type" : "object",
+      "anyOf" : [ {
+        "$ref" : "#/definitions/condition_expressions"
+      }, {
+        "$ref" : "#/definitions/boolean_expressions"
+      }, {
+        "$ref" : "#/definitions/scope_expressions"
+      }, {
+        "$ref" : "#/definitions/scripted_triggers"
+      } ]
+    },
+    "weight_modifier" : {
+      "type" : "object",
+      "properties" : {
+        "base" : {
+          "$ref" : "#/definitions/int"
+        },
+        "modifier" : {
+          "allOf" : [ {
+            "anyOf" : [ {
+              "properties" : {
+                "factor" : {
+                  "$ref" : "#/definitions/number"
+                }
+              }
+            }, {
+              "properties" : {
+                "add" : {
+                  "$ref" : "#/definitions/number"
+                }
+              }
+            } ]
+          }, {
+            "$ref" : "#/definitions/modifier"
+          } ],
+          "multiple" : true
+        }
+      }
+    },
+    "event" : {
+      "anyOf" : [ {
+        "$ref" : "#/definitions/event_id"
+      }, {
+        "propertyNames" : {
+          "$ref" : "#/definitions/event_type"
+        },
+        "additionalProperties" : {
+          "$ref" : "#/definitions/event_id"
+        }
+      } ]
+    },
+    "int" : {
+      "type" : "integer",
+      "default" : 0
+    },
+    "number" : {
+      "type" : "number",
+      "default" : 0.0
+    },
+    "loc_reference" : {
+      "type" : "string"
+    },
+    "triggered_desc" : {
+      "$ref" : "#/definitions/triggers",
+      "properties" : {
+        "text" : {
+          "$ref" : "#/definitions/loc_reference"
+        }
+      }
+    },
+    "condition_expressions" : {
+      "type" : "object",
+      "propertyNames" : {
+        "$ref" : "#/definitions/condition_expression_name"
+      },
+      "properties" : {
+        "limit" : {
+          "$ref" : "#/definitions/triggers"
+        }
+      },
+      "additionalProperties" : {
+        "$ref" : "#/definitions/triggers"
+      }
+    },
+    "boolean_expressions" : {
+      "type" : "object",
+      "propertyNames" : {
+        "$ref" : "#/definitions/boolean_expression_name"
+      },
+      "additionalProperties" : {
+        "$ref" : "#/definitions/triggers"
+      }
+    },
+    "scope_expressions" : {
+      "type" : "object",
+      "propertyNames" : {
+        "$ref" : "#/definitions/scope_name"
+      },
+      "additionalProperties" : {
+        "$ref" : "#/definitions/triggers"
+      }
+    },
+    "scripted_triggers" : {
+      "type" : "object",
+      "additionalProperties" : true,
+      "$type" : "scripted_trigger"
+    },
+    "modifier" : {
+      "type" : "object",
+      "additionalProperties" : true
+    },
+    "event_id" : {
+      "anyOf" : [ {
+        "type" : "string"
+      }, {
+        "type" : "object",
+        "$ref" : "#/definitions/modifier",
+        "properties" : {
+          "id" : {
+            "type" : "string"
+          }
+        },
+        "additionalProperties" : true
+      } ]
+    },
+    "event_type" : {
+      "type" : "string"
+    },
+    "condition_expression_name" : {
+      "type" : "string",
+      "enum" : [ "AND", "OR", "NOT", "NAND", "NOR" ]
+    },
+    "boolean_expression_name" : {
+      "type" : "string",
+      "enum" : [ "if", "else", "else_if", "AND", "OR", "NOT", "NAND", "NOR" ]
+    },
+    "scope_name" : {
+      "type" : "string",
+      "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     }
   },
   "type" : "object",

@@ -4,7 +4,7 @@
       "type" : "object",
       "properties" : {
         "name" : {
-          "$ref" : "../core.json#/definitions/loc_reference"
+          "$ref" : "#/definitions/loc_reference"
         },
         "is_pathfind" : {
           "type" : "boolean"
@@ -34,22 +34,22 @@
           "type" : "boolean"
         },
         "galactic_map_tooltip_header" : {
-          "$ref" : "../core.json#/definitions/loc_reference"
+          "$ref" : "#/definitions/loc_reference"
         },
         "galactic_map_tooltip_desc" : {
-          "$ref" : "../core.json#/definitions/loc_reference"
+          "$ref" : "#/definitions/loc_reference"
         },
         "connection_type" : {
           "$ref" : "#/definitions/connection_type"
         },
         "ftl_ship_effect" : {
-          "$ref" : "../core.json#/definitions/assert_reference"
+          "$ref" : "#/definitions/assert_reference"
         },
         "ftl_bypass_effect" : {
-          "$ref" : "../core.json#/definitions/assert_reference"
+          "$ref" : "#/definitions/assert_reference"
         },
         "bypass_effect" : {
-          "$ref" : "../core.json#/definitions/assert_reference"
+          "$ref" : "#/definitions/assert_reference"
         },
         "animation_time" : {
           "type" : "integer"
@@ -61,10 +61,10 @@
           }
         },
         "on_pre_explore" : {
-          "$ref" : "../core.json#/definitions/effects"
+          "$ref" : "#/definitions/effects"
         },
         "country_can_use" : {
-          "$ref" : "../core.json#/definitions/triggers"
+          "$ref" : "#/definitions/triggers"
         },
         "on_action" : {
           "$type" : "on_action"
@@ -81,12 +81,91 @@
     "scripted_connection" : {
       "properties" : {
         "nodes" : {
-          "$ref" : "../core.json#/definitions/triggers"
+          "$ref" : "#/definitions/triggers"
         },
         "nexus" : {
-          "$ref" : "../core.json#/definitions/triggers"
+          "$ref" : "#/definitions/triggers"
         }
       }
+    },
+    "loc_reference" : {
+      "type" : "string"
+    },
+    "assert_reference" : {
+      "type" : "string"
+    },
+    "triggers" : {
+      "type" : "object",
+      "anyOf" : [ {
+        "$ref" : "#/definitions/condition_expressions"
+      }, {
+        "$ref" : "#/definitions/boolean_expressions"
+      }, {
+        "$ref" : "#/definitions/scope_expressions"
+      }, {
+        "$ref" : "#/definitions/scripted_triggers"
+      } ]
+    },
+    "effects" : {
+      "type" : "object",
+      "anyOf" : [ {
+        "$ref" : "#/definitions/condition_expressions"
+      }, {
+        "$ref" : "#/definitions/boolean_expressions"
+      }, {
+        "$ref" : "#/definitions/scope_expressions"
+      }, {
+        "$ref" : "#/definitions/scripted_triggers"
+      } ]
+    },
+    "condition_expressions" : {
+      "type" : "object",
+      "propertyNames" : {
+        "$ref" : "#/definitions/condition_expression_name"
+      },
+      "properties" : {
+        "limit" : {
+          "$ref" : "#/definitions/triggers"
+        }
+      },
+      "additionalProperties" : {
+        "$ref" : "#/definitions/triggers"
+      }
+    },
+    "boolean_expressions" : {
+      "type" : "object",
+      "propertyNames" : {
+        "$ref" : "#/definitions/boolean_expression_name"
+      },
+      "additionalProperties" : {
+        "$ref" : "#/definitions/triggers"
+      }
+    },
+    "scope_expressions" : {
+      "type" : "object",
+      "propertyNames" : {
+        "$ref" : "#/definitions/scope_name"
+      },
+      "additionalProperties" : {
+        "$ref" : "#/definitions/triggers"
+      }
+    },
+    "scripted_triggers" : {
+      "type" : "object",
+      "additionalProperties" : true,
+      "$type" : "scripted_trigger"
+    },
+    "condition_expression_name" : {
+      "type" : "string",
+      "enum" : [ "AND", "OR", "NOT", "NAND", "NOR" ]
+    },
+    "boolean_expression_name" : {
+      "type" : "string",
+      "enum" : [ "if", "else", "else_if", "AND", "OR", "NOT", "NAND", "NOR" ]
+    },
+    "scope_name" : {
+      "type" : "string",
+      "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     }
   },
   "type" : "object",

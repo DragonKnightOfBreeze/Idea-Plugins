@@ -4,10 +4,10 @@
       "type" : "object",
       "properties" : {
         "icon" : {
-          "$ref" : "../core.json#/definitions/game_path"
+          "$ref" : "#/definitions/game_path"
         },
         "picture" : {
-          "$ref" : "../core.json#/definitions/gfx_reference"
+          "$ref" : "#/definitions/gfx_reference"
         },
         "counter" : {
           "type" : "object",
@@ -21,6 +21,12 @@
           }
         }
       }
+    },
+    "gfx_reference" : {
+      "type" : "string"
+    },
+    "game_path" : {
+      "type" : "string"
     }
   },
   "type" : "object",

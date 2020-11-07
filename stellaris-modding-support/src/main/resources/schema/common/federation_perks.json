@@ -4,36 +4,126 @@
       "type" : "object",
       "properties" : {
         "federation_modifier" : {
-          "$ref" : "../core.json#/definitions/modifier"
+          "$ref" : "#/definitions/modifier"
         },
         "federation_triggered_modifier" : {
-          "$ref" : "../core.json#/definitions/triggered_modifier"
+          "$ref" : "#/definitions/triggered_modifier"
         },
         "members_modifier" : {
-          "$ref" : "../core.json#/definitions/modifier"
+          "$ref" : "#/definitions/modifier"
         },
         "members_triggered_modifier" : {
-          "$ref" : "../core.json#/definitions/triggered_modifier"
+          "$ref" : "#/definitions/triggered_modifier"
         },
         "leader_modifier" : {
-          "$ref" : "../core.json#/definitions/modifier"
+          "$ref" : "#/definitions/modifier"
         },
         "leader_triggered_modifier" : {
-          "$ref" : "../core.json#/definitions/triggered_modifier"
+          "$ref" : "#/definitions/triggered_modifier"
         },
         "envoy_modifier" : {
-          "$ref" : "../core.json#/definitions/modifier"
+          "$ref" : "#/definitions/modifier"
         },
         "envoy_triggered_modifier" : {
-          "$ref" : "../core.json#/definitions/triggered_modifier"
+          "$ref" : "#/definitions/triggered_modifier"
         },
         "on_activate" : {
-          "$ref" : "../core.json#/definitions/effects"
+          "$ref" : "#/definitions/effects"
         },
         "on_deactivate" : {
-          "$ref" : "../core.json#/definitions/effects"
+          "$ref" : "#/definitions/effects"
         }
       }
+    },
+    "effects" : {
+      "type" : "object",
+      "anyOf" : [ {
+        "$ref" : "#/definitions/condition_expressions"
+      }, {
+        "$ref" : "#/definitions/boolean_expressions"
+      }, {
+        "$ref" : "#/definitions/scope_expressions"
+      }, {
+        "$ref" : "#/definitions/scripted_triggers"
+      } ]
+    },
+    "modifier" : {
+      "type" : "object",
+      "additionalProperties" : true
+    },
+    "triggered_modifier" : {
+      "type" : "object",
+      "properties" : {
+        "potential" : {
+          "$ref" : "#/definitions/triggers"
+        }
+      },
+      "$ref" : "#/definitions/modifiers"
+    },
+    "condition_expressions" : {
+      "type" : "object",
+      "propertyNames" : {
+        "$ref" : "#/definitions/condition_expression_name"
+      },
+      "properties" : {
+        "limit" : {
+          "$ref" : "#/definitions/triggers"
+        }
+      },
+      "additionalProperties" : {
+        "$ref" : "#/definitions/triggers"
+      }
+    },
+    "boolean_expressions" : {
+      "type" : "object",
+      "propertyNames" : {
+        "$ref" : "#/definitions/boolean_expression_name"
+      },
+      "additionalProperties" : {
+        "$ref" : "#/definitions/triggers"
+      }
+    },
+    "scope_expressions" : {
+      "type" : "object",
+      "propertyNames" : {
+        "$ref" : "#/definitions/scope_name"
+      },
+      "additionalProperties" : {
+        "$ref" : "#/definitions/triggers"
+      }
+    },
+    "triggers" : {
+      "type" : "object",
+      "anyOf" : [ {
+        "$ref" : "#/definitions/condition_expressions"
+      }, {
+        "$ref" : "#/definitions/boolean_expressions"
+      }, {
+        "$ref" : "#/definitions/scope_expressions"
+      }, {
+        "$ref" : "#/definitions/scripted_triggers"
+      } ]
+    },
+    "scripted_triggers" : {
+      "type" : "object",
+      "additionalProperties" : true,
+      "$type" : "scripted_trigger"
+    },
+    "modifiers" : {
+      "type" : "object",
+      "additionalProperties" : true
+    },
+    "condition_expression_name" : {
+      "type" : "string",
+      "enum" : [ "AND", "OR", "NOT", "NAND", "NOR" ]
+    },
+    "boolean_expression_name" : {
+      "type" : "string",
+      "enum" : [ "if", "else", "else_if", "AND", "OR", "NOT", "NAND", "NOR" ]
+    },
+    "scope_name" : {
+      "type" : "string",
+      "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     }
   },
   "type" : "object",

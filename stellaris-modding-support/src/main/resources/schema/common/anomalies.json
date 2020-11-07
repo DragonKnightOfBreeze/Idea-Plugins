@@ -12,10 +12,10 @@
           "default" : false
         },
         "desc" : {
-          "$ref" : "../core.json#/definitions/desc"
+          "$ref" : "#/definitions/desc"
         },
         "picture" : {
-          "$ref" : "../core.json#/definitions/gfx_reference"
+          "$ref" : "#/definitions/gfx_reference"
         },
         "level" : {
           "type" : "integer"
@@ -32,7 +32,7 @@
           "default" : false
         },
         "spawn_chance" : {
-          "$ref" : "../core.json#/definitions/modifier_chance"
+          "$ref" : "#/definitions/modifier_chance"
         },
         "on_spawn" : {
           "$ref" : "#/definitions/anomaly_event"
@@ -44,16 +44,16 @@
     },
     "anomaly_event" : {
       "anyOf" : [ {
-        "$ref" : "../core.json#/definitions/event_id"
+        "$ref" : "#/definitions/event_id"
       }, {
         "propertyNames" : {
           "type" : "integer"
         },
         "additionalProperties" : {
           "anyOf" : [ {
-            "$ref" : "../core.json#/definitions/event_id"
+            "$ref" : "#/definitions/event_id"
           }, {
-            "$ref" : "../core.json#/definitions/modifier",
+            "$ref" : "#/definitions/modifier",
             "properties" : {
               "max_once" : {
                 "type" : "boolean",
@@ -64,12 +64,127 @@
                 "default" : false
               },
               "anomaly_event" : {
-                "$ref" : "../core.json#/definitions/event_id"
+                "$ref" : "#/definitions/event_id"
               }
             }
           } ]
         }
       } ]
+    },
+    "gfx_reference" : {
+      "type" : "string"
+    },
+    "desc" : {
+      "anyOf" : [ {
+        "$ref" : "#/definitions/loc_reference"
+      }, {
+        "$ref" : "#/definitions/triggered_desc"
+      } ]
+    },
+    "modifier" : {
+      "type" : "object",
+      "additionalProperties" : true
+    },
+    "modifier_chance" : {
+      "type" : "object",
+      "properties" : {
+        "base" : {
+          "$ref" : "#/definitions/int"
+        },
+        "modifier" : {
+          "$ref" : "#/definitions/modifier"
+        }
+      }
+    },
+    "event_id" : {
+      "anyOf" : [ {
+        "type" : "string"
+      }, {
+        "type" : "object",
+        "$ref" : "#/definitions/modifier",
+        "properties" : {
+          "id" : {
+            "type" : "string"
+          }
+        },
+        "additionalProperties" : true
+      } ]
+    },
+    "int" : {
+      "type" : "integer",
+      "default" : 0
+    },
+    "loc_reference" : {
+      "type" : "string"
+    },
+    "triggered_desc" : {
+      "$ref" : "#/definitions/triggers",
+      "properties" : {
+        "text" : {
+          "$ref" : "#/definitions/loc_reference"
+        }
+      }
+    },
+    "triggers" : {
+      "type" : "object",
+      "anyOf" : [ {
+        "$ref" : "#/definitions/condition_expressions"
+      }, {
+        "$ref" : "#/definitions/boolean_expressions"
+      }, {
+        "$ref" : "#/definitions/scope_expressions"
+      }, {
+        "$ref" : "#/definitions/scripted_triggers"
+      } ]
+    },
+    "condition_expressions" : {
+      "type" : "object",
+      "propertyNames" : {
+        "$ref" : "#/definitions/condition_expression_name"
+      },
+      "properties" : {
+        "limit" : {
+          "$ref" : "#/definitions/triggers"
+        }
+      },
+      "additionalProperties" : {
+        "$ref" : "#/definitions/triggers"
+      }
+    },
+    "boolean_expressions" : {
+      "type" : "object",
+      "propertyNames" : {
+        "$ref" : "#/definitions/boolean_expression_name"
+      },
+      "additionalProperties" : {
+        "$ref" : "#/definitions/triggers"
+      }
+    },
+    "scope_expressions" : {
+      "type" : "object",
+      "propertyNames" : {
+        "$ref" : "#/definitions/scope_name"
+      },
+      "additionalProperties" : {
+        "$ref" : "#/definitions/triggers"
+      }
+    },
+    "scripted_triggers" : {
+      "type" : "object",
+      "additionalProperties" : true,
+      "$type" : "scripted_trigger"
+    },
+    "condition_expression_name" : {
+      "type" : "string",
+      "enum" : [ "AND", "OR", "NOT", "NAND", "NOR" ]
+    },
+    "boolean_expression_name" : {
+      "type" : "string",
+      "enum" : [ "if", "else", "else_if", "AND", "OR", "NOT", "NAND", "NOR" ]
+    },
+    "scope_name" : {
+      "type" : "string",
+      "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     }
   },
   "type" : "object",

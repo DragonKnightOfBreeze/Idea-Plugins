@@ -25,26 +25,26 @@
           "type" : "boolean"
         },
         "country_modifier" : {
-          "$ref" : "../core.json#/definitions/modifier"
+          "$ref" : "#/definitions/modifier"
         },
         "tags" : {
           "type" : "array",
           "items" : {
-            "$ref" : "../core.json#/definitions/loc_reference"
+            "$ref" : "#/definitions/loc_reference"
           }
         },
         "random_weight" : {
-          "$ref" : "../core.json#/definitions/random_weight"
+          "$ref" : "#/definitions/random_weight"
         },
         "pop_attraction_tag" : {
-          "$ref" : "../core.json#/definitions/triggered_desc",
+          "$ref" : "#/definitions/triggered_desc",
           "multiple" : true
         },
         "country_attraction" : {
-          "$ref" : "../core.json#/definitions/modified_attraction"
+          "$ref" : "#/definitions/modified_attraction"
         },
         "pop_attraction" : {
-          "$ref" : "../core.json#/definitions/modified_attraction"
+          "$ref" : "#/definitions/modified_attraction"
         }
       }
     },
@@ -52,6 +52,104 @@
       "type" : "string",
       "$def" : "#/ethic_categories/{ethic_category}",
       "enum" : [ "col", "xen", "mil", "spi", "hive" ]
+    },
+    "loc_reference" : {
+      "type" : "string"
+    },
+    "triggered_desc" : {
+      "$ref" : "#/definitions/triggers",
+      "properties" : {
+        "text" : {
+          "$ref" : "#/definitions/loc_reference"
+        }
+      }
+    },
+    "modified_attraction" : {
+      "properties" : {
+        "value" : {
+          "type" : "integer"
+        },
+        "modifier" : {
+          "$ref" : "#/definitions/modifier"
+        }
+      }
+    },
+    "random_weight" : {
+      "type" : "object",
+      "properties" : {
+        "value" : {
+          "$ref" : "#/definitions/int"
+        }
+      }
+    },
+    "modifier" : {
+      "type" : "object",
+      "additionalProperties" : true
+    },
+    "int" : {
+      "type" : "integer",
+      "default" : 0
+    },
+    "triggers" : {
+      "type" : "object",
+      "anyOf" : [ {
+        "$ref" : "#/definitions/condition_expressions"
+      }, {
+        "$ref" : "#/definitions/boolean_expressions"
+      }, {
+        "$ref" : "#/definitions/scope_expressions"
+      }, {
+        "$ref" : "#/definitions/scripted_triggers"
+      } ]
+    },
+    "condition_expressions" : {
+      "type" : "object",
+      "propertyNames" : {
+        "$ref" : "#/definitions/condition_expression_name"
+      },
+      "properties" : {
+        "limit" : {
+          "$ref" : "#/definitions/triggers"
+        }
+      },
+      "additionalProperties" : {
+        "$ref" : "#/definitions/triggers"
+      }
+    },
+    "boolean_expressions" : {
+      "type" : "object",
+      "propertyNames" : {
+        "$ref" : "#/definitions/boolean_expression_name"
+      },
+      "additionalProperties" : {
+        "$ref" : "#/definitions/triggers"
+      }
+    },
+    "scope_expressions" : {
+      "type" : "object",
+      "propertyNames" : {
+        "$ref" : "#/definitions/scope_name"
+      },
+      "additionalProperties" : {
+        "$ref" : "#/definitions/triggers"
+      }
+    },
+    "scripted_triggers" : {
+      "type" : "object",
+      "additionalProperties" : true,
+      "$type" : "scripted_trigger"
+    },
+    "condition_expression_name" : {
+      "type" : "string",
+      "enum" : [ "AND", "OR", "NOT", "NAND", "NOR" ]
+    },
+    "boolean_expression_name" : {
+      "type" : "string",
+      "enum" : [ "if", "else", "else_if", "AND", "OR", "NOT", "NAND", "NOR" ]
+    },
+    "scope_name" : {
+      "type" : "string",
+      "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     }
   },
   "type" : "object",

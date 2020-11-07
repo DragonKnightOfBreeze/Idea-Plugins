@@ -21,7 +21,7 @@
           } ]
         },
         "weight" : {
-          "$ref" : "../core.json#/definitions/weight_modifier"
+          "$ref" : "#/definitions/weight_modifier"
         },
         "graphical_culture_for_random_empire" : {
           "type" : "object",
@@ -32,13 +32,53 @@
             "type" : "object",
             "property" : {
               "modifier" : {
-                "$ref" : "../core.json#/definitions/modifier",
+                "$ref" : "#/definitions/modifier",
                 "multiple" : true
               }
             }
           }
         }
       }
+    },
+    "weight_modifier" : {
+      "type" : "object",
+      "properties" : {
+        "base" : {
+          "$ref" : "#/definitions/int"
+        },
+        "modifier" : {
+          "allOf" : [ {
+            "anyOf" : [ {
+              "properties" : {
+                "factor" : {
+                  "$ref" : "#/definitions/number"
+                }
+              }
+            }, {
+              "properties" : {
+                "add" : {
+                  "$ref" : "#/definitions/number"
+                }
+              }
+            } ]
+          }, {
+            "$ref" : "#/definitions/modifier"
+          } ],
+          "multiple" : true
+        }
+      }
+    },
+    "modifier" : {
+      "type" : "object",
+      "additionalProperties" : true
+    },
+    "int" : {
+      "type" : "integer",
+      "default" : 0
+    },
+    "number" : {
+      "type" : "number",
+      "default" : 0.0
     }
   },
   "type" : "object",

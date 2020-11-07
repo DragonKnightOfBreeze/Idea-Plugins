@@ -28,9 +28,7 @@ definitions:
           additionalProperties:
             $ref: "#/definitions/string_array"
       fleet_names:
-        type: object
-        properties:
-          $ref: "#/definitions/random_or_sequential_names"
+        $ref: "#/definitions/random_or_sequential_names"
       army_names:
         type: object
         anyOf:

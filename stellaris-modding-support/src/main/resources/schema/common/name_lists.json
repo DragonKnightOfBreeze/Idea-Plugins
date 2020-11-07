@@ -7,7 +7,7 @@
           "type" : "string"
         },
         "language" : {
-          "$ref" : "../core.json#/definitions/language"
+          "$ref" : "#/definitions/language"
         },
         "ship_names" : {
           "type" : "object",
@@ -44,10 +44,7 @@
           } ]
         },
         "fleet_names" : {
-          "type" : "object",
-          "properties" : {
-            "$ref" : "#/definitions/random_or_sequential_names"
-          }
+          "$ref" : "#/definitions/random_or_sequential_names"
         },
         "army_names" : {
           "type" : "object",
@@ -178,6 +175,10 @@
           "$ref" : "#/definitions/string_array"
         }
       }
+    },
+    "language" : {
+      "type" : "string",
+      "enum" : [ "l_simp_chinese", "l_english", "l_braz_por", "l_french", "l_german", "l_ponish", "l_russian", "l_spanish", "l_default" ]
     }
   },
   "type" : "object",

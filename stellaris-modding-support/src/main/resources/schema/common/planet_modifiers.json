@@ -4,12 +4,31 @@
       "type" : "object",
       "properties" : {
         "spawn_chance" : {
-          "$ref" : "../core.json#/definitions/modifier_chance"
+          "$ref" : "#/definitions/modifier_chance"
         },
         "modifier" : {
           "$type" : "modifier"
         }
       }
+    },
+    "modifier_chance" : {
+      "type" : "object",
+      "properties" : {
+        "base" : {
+          "$ref" : "#/definitions/int"
+        },
+        "modifier" : {
+          "$ref" : "#/definitions/modifier"
+        }
+      }
+    },
+    "int" : {
+      "type" : "integer",
+      "default" : 0
+    },
+    "modifier" : {
+      "type" : "object",
+      "additionalProperties" : true
     }
   },
   "type" : "object",

@@ -13,7 +13,7 @@
           "type" : "integer"
         },
         "atmosphere_color" : {
-          "$ref" : "../core.json#/definitions/color_type"
+          "$ref" : "#/definitions/color_type"
         },
         "atmosphere_intensity" : {
           "type" : "number"
@@ -31,7 +31,7 @@
           "type" : "integer"
         },
         "city_color_lut" : {
-          "$ref" : "../core.json#/definitions/game_path"
+          "$ref" : "#/definitions/game_path"
         },
         "extra_orbit_size" : {
           "type" : "integer"
@@ -46,10 +46,10 @@
           "type" : "number"
         },
         "planet_size" : {
-          "$ref" : "../core.json#/definitions/int_range"
+          "$ref" : "#/definitions/int_range"
         },
         "moon_size" : {
-          "$ref" : "../core.json#/definitions/int_range"
+          "$ref" : "#/definitions/int_range"
         },
         "production_spawn_chance" : {
           "type" : "number"
@@ -64,7 +64,7 @@
           "type" : "boolean"
         },
         "modifier" : {
-          "$ref" : "../core.json#/definitions/modifiers"
+          "$ref" : "#/definitions/modifiers"
         }
       }
     },
@@ -78,6 +78,31 @@
     "district_set" : {
       "type" : "string",
       "enum" : [ "standard", "hive_world", "machine_world", "ring_world", "city_world", "habitat" ]
+    },
+    "color_type" : {
+      "type" : "string"
+    },
+    "int_range" : {
+      "type" : "object",
+      "properties" : {
+        "min" : {
+          "$ref" : "#/definitions/int"
+        },
+        "max" : {
+          "$ref" : "#/definitions/int"
+        }
+      }
+    },
+    "modifiers" : {
+      "type" : "object",
+      "additionalProperties" : true
+    },
+    "game_path" : {
+      "type" : "string"
+    },
+    "int" : {
+      "type" : "integer",
+      "default" : 0
     }
   },
   "type" : "object",

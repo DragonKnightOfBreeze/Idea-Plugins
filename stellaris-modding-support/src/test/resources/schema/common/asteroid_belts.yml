@@ -11,4 +11,4 @@ definitions:
 
 type: object
 additionalProperties:
-  $ref: "#/definitions/asteroid_belts"
+  $ref: "#/definitions/asteroid_belt"

@@ -36,10 +36,13 @@
         "texts" : {
           "type" : "array",
           "items" : {
-            "$ref" : "../core.json#/definitions/loc_reference"
+            "$ref" : "#/definitions/loc_reference"
           }
         }
       }
+    },
+    "loc_reference" : {
+      "type" : "string"
     }
   },
   "type" : "object",

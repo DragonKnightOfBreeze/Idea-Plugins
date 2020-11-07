@@ -4,9 +4,12 @@
       "type" : "object",
       "properties" : {
         "icon" : {
-          "$ref" : "../core.json#/definitions/game_path"
+          "$ref" : "#/definitions/game_path"
         }
       }
+    },
+    "game_path" : {
+      "type" : "string"
     }
   },
   "type" : "object",
