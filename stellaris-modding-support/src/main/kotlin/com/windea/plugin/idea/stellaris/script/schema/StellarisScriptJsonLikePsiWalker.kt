@@ -7,7 +7,6 @@ import com.intellij.util.*
 import com.jetbrains.jsonSchema.extension.*
 import com.jetbrains.jsonSchema.extension.adapters.*
 import com.windea.plugin.idea.stellaris.*
-import com.windea.plugin.idea.stellaris.schema.adapter.*
 import com.windea.plugin.idea.stellaris.script.psi.*
 import com.windea.plugin.idea.stellaris.script.schema.adapter.*
 
