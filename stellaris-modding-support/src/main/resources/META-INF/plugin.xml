@@ -22,17 +22,15 @@
       </li>
     </ul>
     <p>
-      Please note that why I develop this plugin is simply: to write Stellaris mods easily
-      (and take the first step ),
+      Please note that why I develop this plugin is simply: to write Stellaris mods easily (and take the first step ),
       however, some other games may also use such script language and localization language.
     </p>
     <p>
       Please note that this plugin will only recognize script / localization files
-      which is under a directory which has <code>stellaris.exe</code> <code>descriptor.mod</code> in it
-      and whose file name is <code>snake_case</code> rather than <code>SCREAM_SNAKE_CASE</code>.
+      under a directory which has <code>stellaris.exe</code> <code>descriptor.mod</code> in it.
     </p>
     <p>
-      Yu can configure whether to resolve internal (in project directory) &
+      You can configure whether to resolve internal (in project directory) &
       external (in game / mod directory, <b>NOT IMPLEMENTED YET</b>) references,
       such as localization & script property references in script files
       by Edit settings via <b>[Languages & Frameworks / Stellaris Modding Support]</b>.
@@ -80,8 +78,8 @@
       不过，其他游戏可能也会使用到这个插件所支持的脚本语言和本地化语言。
     </p>
     <p>
-      请注意，这个插件仅会识别文件名格式为<code>snake_case</code>而非<code>SCREAM_SNAKE_CASE</code>，
-      且位于文件<code>stellaris.exe</code>或者<code>descriptor.mod</code>所在目录下（及其子目录）的脚本文件和本地化文件。
+      请注意，这个插件仅会识别文件<code>stellaris.exe</code>或者<code>descriptor.mod</code>
+      所在目录下（及其子目录）的脚本文件和本地化文件。
     </p>
     <p>
       你可以通过设置菜单中的<b>[Languages & Frameworks / Stellaris Modding Support]</b>

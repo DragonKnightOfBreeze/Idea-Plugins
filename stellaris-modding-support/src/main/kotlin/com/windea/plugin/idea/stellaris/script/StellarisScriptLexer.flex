@@ -51,7 +51,7 @@ PROPERTY_KEY_ID=[a-zA-Zz0-9.:$_-]+
 QUOTED_PROPERTY_KEY_ID=\"([^\"(\r\n\\]|\\.)*?\"
 VARIABLE_REFERENCE_ID=@[a-zA-Z0-9_-]+
 BOOLEAN=(yes)|(no)
-NUMBER=-?[0-9]+(\.[0-9]+)?
+NUMBER=0|[+-]?[1-9][0-9]*|[+-]?[0-9]+\.[0-9]+
 STRING=[^@\s\{\}=\"][^\s\{\}=\"]*
 QUOTED_STRING=\"([^\"\r\n\\]|\\.)*?\"
 COLOR_TOKEN=(rgb|rgba|hsb|hsv|hsl)[ \t]*\{[0-9. \t]*}

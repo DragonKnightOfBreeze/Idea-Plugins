@@ -58,7 +58,8 @@ object StellarisScriptJsonLikePsiWalker : JsonLikePsiWalker {
 	}
 
 	override fun getRoots(file: PsiFile): Collection<PsiElement> {
-		return  PsiTreeUtil.findChildOfType(file,StellarisScriptValue::class.java).toSingletonOrEmpty()
+		//可以是value也可以是file
+		return listOfNotNull(PsiTreeUtil.findChildOfType(file,StellarisScriptValue::class.java),file)
 	}
 
 	override fun getParentPropertyAdapter(element: PsiElement): JsonPropertyAdapter? {
@@ -86,6 +87,7 @@ object StellarisScriptJsonLikePsiWalker : JsonLikePsiWalker {
 
 	override fun createValueAdapter(element: PsiElement): JsonValueAdapter? {
 		return when(element) {
+			is StellarisScriptFile -> StellarisScriptArrayFromFileAdapter(element)
 			is StellarisScriptPropertyValue -> StellarisScriptValueAdapter(element.value)
 			is StellarisScriptValue -> StellarisScriptValueAdapter(element)
 			else -> null

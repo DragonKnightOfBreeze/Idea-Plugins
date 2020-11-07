@@ -28,7 +28,7 @@
           "type" : "integer"
         },
         "spawn_odds" : {
-          "type" : "integer"
+          "type" : "number"
         },
         "city_color_lut" : {
           "$ref" : "#/definitions/game_path"
@@ -46,10 +46,10 @@
           "type" : "number"
         },
         "planet_size" : {
-          "$ref" : "#/definitions/int_range"
+          "type" : "integer"
         },
         "moon_size" : {
-          "$ref" : "#/definitions/int_range"
+          "type" : "integer"
         },
         "production_spawn_chance" : {
           "type" : "number"
@@ -60,11 +60,29 @@
         "district_set" : {
           "$ref" : "#/definitions/district_set"
         },
+        "modifier" : {
+          "$ref" : "#/definitions/modifiers"
+        },
         "uses_alternative_skies_for_moons" : {
           "type" : "boolean"
         },
-        "modifier" : {
-          "$ref" : "#/definitions/modifiers"
+        "show_health_bar_in_planet_view" : {
+          "type" : "boolean"
+        },
+        "starting_planet" : {
+          "type" : "boolean"
+        },
+        "orbit_lines" : {
+          "type" : "boolean"
+        },
+        "has_colonization_influence_cost" : {
+          "type" : "boolean"
+        },
+        "is_artificial_planet" : {
+          "type" : "boolean"
+        },
+        "default_planet_selection" : {
+          "type" : "boolean"
         }
       }
     },
@@ -82,27 +100,12 @@
     "color_type" : {
       "type" : "string"
     },
-    "int_range" : {
-      "type" : "object",
-      "properties" : {
-        "min" : {
-          "$ref" : "#/definitions/int"
-        },
-        "max" : {
-          "$ref" : "#/definitions/int"
-        }
-      }
-    },
     "modifiers" : {
       "type" : "object",
       "additionalProperties" : true
     },
     "game_path" : {
       "type" : "string"
-    },
-    "int" : {
-      "type" : "integer",
-      "default" : 0
     }
   },
   "type" : "object",

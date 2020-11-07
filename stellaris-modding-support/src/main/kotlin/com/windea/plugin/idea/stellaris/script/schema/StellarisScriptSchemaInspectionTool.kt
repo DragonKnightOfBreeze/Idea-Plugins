@@ -15,14 +15,15 @@ import javax.swing.*
 //org.jetbrains.yaml.schema.YamlJsonSchemaHighlightingInspection
 
 class StellarisScriptSchemaInspectionTool : LocalInspectionTool() {
-	@JvmField
-	public var caseInsensitiveEnum = false
+	private val walker = StellarisScriptJsonLikePsiWalker
+
+	@JvmField public var caseInsensitiveEnum = false
 
 	override fun buildVisitor(holder: ProblemsHolder, isOnTheFly: Boolean, session: LocalInspectionToolSession): PsiElementVisitor {
 		val file = holder.file
 		if(file !is StellarisScriptFile) return PsiElementVisitor.EMPTY_VISITOR
 
-		val roots: Collection<PsiElement> = StellarisScriptJsonLikePsiWalker.getRoots(file)
+		val roots = walker.getRoots(file)
 		if(roots.isEmpty()) return PsiElementVisitor.EMPTY_VISITOR
 
 		val service = JsonSchemaService.Impl.get(file.project)
@@ -37,7 +38,6 @@ class StellarisScriptSchemaInspectionTool : LocalInspectionTool() {
 		return object : StellarisScriptVisitor() {
 			override fun visitElement(element: PsiElement) {
 				if(element in roots) {
-					val walker = JsonLikePsiWalker.getWalker(element, schemaObject) ?: return
 					JsonSchemaComplianceChecker(schemaObject, holder, walker, session, options, "Schema validation: ").annotate(element)
 				}
 				super.visitElement(element)
