@@ -21,6 +21,9 @@
         "color" : {
           "$ref" : "#/definitions/color"
         },
+        "use_ship_kill_target" : {
+          "type" : "boolean"
+        },
         "prio_projectile" : {
           "type" : "boolean"
         },
@@ -46,10 +49,10 @@
           "type" : "number"
         },
         "damage" : {
-          "type" : "integer"
+          "$ref" : "#/definitions/damage"
         },
         "cooldown" : {
-          "type" : "integer"
+          "type" : "number"
         },
         "range" : {
           "type" : "integer"
@@ -142,6 +145,17 @@
       "minItems" : 3,
       "maxItems" : 3
     },
+    "damage" : {
+      "type" : "object",
+      "properties" : {
+        "min" : {
+          "type" : "integer"
+        },
+        "max" : {
+          "type" : "integer"
+        }
+      }
+    },
     "loc_reference" : {
       "type" : "string"
     },
@@ -168,11 +182,11 @@
     "entity" : true,
     "component_size" : {
       "type" : "string",
-      "enum" : [ "small", "medium", "large", "extra_large", "point_defence", "torpedo", "titanic", "planet_killer" ]
+      "enum" : [ "small", "medium", "large", "extra_large", "point_defence", "torpedo", "titanic", "planet_killer", "aux" ]
     },
     "component_type" : {
       "type" : "string",
-      "enum" : [ "instant", "missile", "point_defence" ]
+      "enum" : [ "instant", "missile", "point_defence", "planet_killer" ]
     },
     "resources_category" : true,
     "resources_item" : {

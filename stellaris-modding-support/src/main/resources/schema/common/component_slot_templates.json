@@ -32,11 +32,11 @@
     "entity" : true,
     "component_size" : {
       "type" : "string",
-      "enum" : [ "small", "medium", "large", "extra_large", "point_defence", "torpedo", "titanic", "planet_killer" ]
+      "enum" : [ "small", "medium", "large", "extra_large", "point_defence", "torpedo", "titanic", "planet_killer", "aux" ]
     },
     "component_type" : {
       "type" : "string",
-      "enum" : [ "instant", "missile", "point_defence" ]
+      "enum" : [ "instant", "missile", "point_defence", "planet_killer" ]
     }
   },
   "type" : "object",

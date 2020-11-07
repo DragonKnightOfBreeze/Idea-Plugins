@@ -5,6 +5,7 @@ import com.intellij.openapi.fileTypes.impl.*
 import com.intellij.openapi.vfs.*
 import com.windea.plugin.idea.stellaris.localization.*
 import com.windea.plugin.idea.stellaris.script.*
+import java.util.concurrent.*
 
 @Suppress("UnstableApiUsage")
 class StellarisFileTypeOverrider : FileTypeOverrider {
@@ -16,11 +17,12 @@ class StellarisFileTypeOverrider : FileTypeOverrider {
 		private val scriptFileExtensions = arrayOf("txt","mod","gfx","gui","asset")
 	}
 
-	//仅当找到descriptor.mod文件时，才有可能将所在目录（以及子目录）下的文件识别为Stellaris本地化文件和脚本文件
+	//仅当文件名不是SNAKE_CASE，并且从所在目录下找到stellaris.exe或者descriptor.mod文件时
+	//才有可能将所在目录（以及子目录）下的文件识别为Stellaris本地化文件和脚本文件
 
 	override fun getOverriddenFileType(file: VirtualFile): FileType? {
-		val fileExtension = file.extension
-		if(fileExtension !in fileExtensions) return null
+		val isValid = isValidFileNameForOverridden(file.name)
+		if(!isValid) return null
 
 		var currentFile: VirtualFile? = file.parent
 		while(currentFile != null) {
@@ -37,5 +39,14 @@ class StellarisFileTypeOverrider : FileTypeOverrider {
 			currentFile = currentFile.parent
 		}
 		return null
+	}
+
+	private fun isValidFileNameForOverridden(fileName:String):Boolean{
+		val index = fileName.lastIndexOf('.')
+		if(index == -1) return false
+		val shortFileName = fileName.substring(0,index)
+		if(shortFileName.all { it.isUpperCase() || !it.isLetter() }) return false
+		val fileExtension = fileName.substring(index+1,fileName.length)
+		return fileExtension in fileExtensions
 	}
 }

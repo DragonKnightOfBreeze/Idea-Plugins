@@ -1,7 +1,7 @@
 ﻿l_polish:
 
  SITLOG:0 "Zaktualizowano rejestr sytuacyjny."
- 
+
  ####################################
  # Advisor Tutorial Messages
  ####################################
@@ -163,7 +163,7 @@
  advisor.1.desc_28:0 "Witaj, wodzu.\n\nJestem VIR, prototypowa sztuczna inteligencja stworzona w najściślejszej tajemnicy przez wojskowych ekspertów. Naczelne dowództwo uruchomiło mnie, bym był twoim doradcą i analitykiem strategicznym.\n\n$advisor.1.desc_filler$"
  advisor.1.desc_29:0 "Witaj, rzeczniku klanu.\n\nJestem VIR, prototypowa sztuczna inteligencja stworzona w najściślejszej tajemnicy przez wojskowych ekspertów. Naczelne dowództwo uruchomiło mnie, bym był twoim doradcą i analitykiem strategicznym.\n\n$advisor.1.desc_filler$"
  advisor.1.desc_30:0 "Niech cię Najwyższy błogosławi, Wasza Świątobliwość.\n\nJestem VIR, prototypowa sztuczna inteligencja. Konklawe nakazało, abym został twym wiernym sługą i doradcą wspierającym twoje kroki na świętej drodze ku gwiazdom.\n\n$advisor.1.desc_filler$"
- 
+
  advisor.1.desc_filler:0 "Można zmienić poziom samouczka w dowolnym momencie w menu Ustawienia."
  advisor.1.a:0 "Powiedz mi wszystko. §G(PEŁNY SAMOUCZEK)§!"
  advisor.1.b:0 "Przyda mi się parę rad. §Y(TYLKO PODPOWIEDZI)§!"
@@ -303,7 +303,7 @@
  tutorial.560.desc:5 "Dzięki niedawno opracowanej technologii istniejąca już §Sstacja górnicza§! może już wydobywać §Szasób strategiczny§!. Te rzadkie zasoby zapewniają duże premie i są cennymi towarami handlowymi. Dwie metaforyczne pieczenie alegorycznie upieczone na wymyślonym ogniu.\n\nWięcej informacji można przez pewien czas znaleźć w §Srejestrze sytuacyjnym§!. W całej galaktyce czeka na odkrycie znacznie więcej §Szasobów strategicznych§!, więc kontynuuj badania!"
  tutorial.57.name:0 "Samouczek: przyspieszenie"
  tutorial.57.desc.notech:0 "Odkryliśmy wysoko rozwiniętą faunę! Mając §Sodpowiednią technologię§!, moglibyśmy §Sprzyspieszyć§! te istoty - dać im świadomość i inteligencję, a przynajmniej to, co uchodzi za inteligencję wśród stworzeń organicznych.\n\nMoże warto przyjrzeć się naszym badaniom i nakierować je na §Saktywatory epigenetyczne§!, jeśli nadarzy się taka okazja."
- tutorial.57.desc.yestech:0 "Odkryliśmy wysoko rozwiniętą faunę! Mając §Sodpowiednią technologię§!, moglibyśmy §Aprzyspieszyć§! te istoty - dać im świadomość i inteligencję, a przynajmniej to, co uchodzi za inteligencję wśród stworzeń organicznych.\n\nOch.\n\nNasza technologia §Saktywatorów epigenetycznych§! powinna to umożliwić. Jesteśmy gotowi wprowadzić te istoty w nowy, wspaniały świat niepokojów egzystencjalnych."
+ tutorial.57.desc.yestech:0 "Odkryliśmy wysoko rozwiniętą faunę! Mając §Sodpowiednią technologię§!, moglibyśmy §Sprzyspieszyć§! te istoty - dać im świadomość i inteligencję, a przynajmniej to, co uchodzi za inteligencję wśród stworzeń organicznych.\n\nOch.\n\nNasza technologia §Saktywatorów epigenetycznych§! powinna to umożliwić. Jesteśmy gotowi wprowadzić te istoty w nowy, wspaniały świat niepokojów egzystencjalnych."
  tutorial.58.name:0 "Przyspieszono przedrozumnych"
  tutorial.58.desc:0 "Wielki sukces! Te prymitywne zwierzęta zostały przyspieszone i stały się mniej prymitywnymi zwierzętami. Teraz to dumni obywatele naszego kwitnącego imperium."
  tutorial.59.name:0 "Samouczek: pierwszy kontakt"

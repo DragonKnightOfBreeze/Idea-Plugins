@@ -1,7 +1,7 @@
 ﻿l_spanish:
 
  SITLOG:0 "Diario de situación actualizado"
- 
+
  ####################################
  # Advisor Tutorial Messages
  ####################################
@@ -163,7 +163,7 @@
  advisor.1.desc_28:0 "Se te da la bienvenida, señor(a) de la guerra.\n\nSoy VIR, un prototipo de inteligencia sintética desarrollado en completo secreto por los militares. El alto mando me ha activado para hacerte de asesor y analista estratégico.\n\n$advisor.1.desc_filler$"
  advisor.1.desc_29:0 "Se te da la bienvenida, portavoz del clan.\n\nSoy VIR, un prototipo de inteligencia sintética desarrollado en completo secreto por los militares. El alto mando me ha activado para hacerte de asesor y analista estratégico.\n\n$advisor.1.desc_filler$"
  advisor.1.desc_30:0 "Que el Todo te bendiga, Santidad.\n\nSoy VIR, un prototipo de inteligencia sintética. El clero me ha investido para que sea tu fiel servidor y asesor y te ayude en nuestra divina senda hacia las estrellas.\n\n$advisor.1.desc_filler$"
- 
+
  advisor.1.desc_filler:0 "Se puede cambiar el nivel de tutorial en cualquier momento en el menú de Configuración."
  advisor.1.a:0 "Cuéntamelo todo. §G(TUTORIAL COMPLETO)§!"
  advisor.1.b:0 "Dame alguna indicación. §Y(SOLO CONSEJOS)§!"
@@ -303,7 +303,7 @@
  tutorial.560.desc:5 "Utilizando una tecnología recién desarrollada, una §Sestación minera§! ya existente puede extraer ahora un §Srecurso estratégico§!. Estos raros recursos otorgan poderosas bonificaciones y se pueden intercambiar por bienes valiosos. Dos metafóricos aviarioides, alegóricamente abatidos por un proyectil imaginario.\n\nEncontrarás más información en el §Sdiario de situación§!. Hay muchos más §Srecursos estratégicos§! por descubrir en la galaxia, ¡así que sigue investigando!"
  tutorial.57.name:0 "Tutorial: ascenso"
  tutorial.57.desc.notech:0 "Hemos descubierto vida animal muy evolucionada. Con la §Stecnología adecuada§!, quizá podríamos §Sevolucionar§! a estos seres a la consciencia y la inteligencia, o lo que tienen por inteligencia los orgánicos.\n\nSería aconsejable no perder de vista nuestra investigación y dirigirla hacia los §Sactivadores epigenéticos§! si tenemos oportunidad."
- tutorial.57.desc.yestech:0 "Hemos descubierto vida animal muy evolucionada. Con la §Stecnología adecuada§!, quizá podríamos §Aevolucionar§! a estos seres a la consciencia y la inteligencia, o lo que tienen por inteligencia los orgánicos.\n\nOh.\n\nNuestra tecnología de §Sactivadores epigenéticos§! debería bastar y, de hecho, ya estamos listos para elevar a estas criaturas a un nuevo mundo feliz de angustia existencial."
+ tutorial.57.desc.yestech:0 "Hemos descubierto vida animal muy evolucionada. Con la §Stecnología adecuada§!, quizá podríamos §Sevolucionar§! a estos seres a la consciencia y la inteligencia, o lo que tienen por inteligencia los orgánicos.\n\nOh.\n\nNuestra tecnología de §Sactivadores epigenéticos§! debería bastar y, de hecho, ya estamos listos para elevar a estas criaturas a un nuevo mundo feliz de angustia existencial."
  tutorial.58.name:0 "Preinteligentes evolucionados"
  tutorial.58.desc:0 "¡Un gran éxito! Hemos evolucionado a estas pobres bestias para que sean menos bestias, y ahora son ciudadanos orgullosos de nuestro próspero imperio."
  tutorial.59.name:0 "Tutorial: primer contacto"

@@ -1,7 +1,7 @@
 ﻿l_english:
 
  SITLOG:0 "Situation Log Updated"
- 
+
  ####################################
  # Advisor Tutorial Messages
  ####################################
@@ -163,7 +163,7 @@
  advisor.1.desc_28:0 "Welcome, Warlord.\n\nI am VIR, a prototype synthetic intelligence developed under utmost secrecy by the military. High Command has activated me to serve as your advisor and strategic analyst.\n\n$advisor.1.desc_filler$"
  advisor.1.desc_29:0 "Welcome, Clan Speaker.\n\nI am VIR, a prototype synthetic intelligence developed under utmost secrecy by the military. High Command has activated me to serve as your advisor and strategic analyst.\n\n$advisor.1.desc_filler$"
  advisor.1.desc_30:0 "Blessings upon you, Your Holiness.\n\nI am VIR, a prototype synthetic intelligence. The Priesthood has ordained me to act as your faithful servant and advisor, so that I may aid you on our divine path to the stars.\n\n$advisor.1.desc_filler$"
- 
+
  advisor.1.desc_filler:0 "You can change the tutorial level at any time in the §HSettings§! menu."
  advisor.1.a:0 "Tell me everything. §G(FULL TUTORIAL)§!"
  advisor.1.b:0 "I could use some advice. §Y(TIPS ONLY)§!"
@@ -303,7 +303,7 @@
  tutorial.560.desc:5 "Using recently-developed technology, an already-extant §SMining Station§! can now mine a §SStrategic Resource§!. These rare resources confer powerful bonuses and make for valuable trade goods. Two metaphorical avians, allegorically struck down by an imaginary projectile.\n\nMore information can be found in the §SSituation Log§! for a time. There are many more §SStrategic Resources§! left to discover in the galaxy, so keep on researching!"
  tutorial.57.name:0 "Tutorial: Uplift"
  tutorial.57.desc.notech:0 "We have discovered highly-evolved animal life! With the §Sright technology§!, we may eventually be able to §SUplift§! these beings to sapience and intelligence - or what passes for intelligence among organics.\n\nIt would perhaps be wise to keep an eye on our research, and direct it towards §SEpigenetic Triggers§! if given the opportunity."
- tutorial.57.desc.yestech:0 "We have discovered highly-evolved animal life! With the §Sright technology§!, we may eventually be able to §AUplift§! these beings to sapience and intelligence - or what passes for intelligence among organics.\n\nOh.\n\nOur §SEpigenetic Triggers§! technology should fit the bill, and we are in fact ready to elevate these creatures into a brave new world of existential angst."
+ tutorial.57.desc.yestech:0 "We have discovered highly-evolved animal life! With the §Sright technology§!, we may eventually be able to §SUplift§! these beings to sapience and intelligence - or what passes for intelligence among organics.\n\nOh.\n\nOur §SEpigenetic Triggers§! technology should fit the bill, and we are in fact ready to elevate these creatures into a brave new world of existential angst."
  tutorial.58.name:0 "Pre-Sapients Uplifted"
  tutorial.58.desc:0 "A rousing success! The lowly beasts have been uplifted to become less lowly beasts, and are now proud citizens of our burgeoning empire."
  tutorial.59.name:0 "Tutorial: First Contact"

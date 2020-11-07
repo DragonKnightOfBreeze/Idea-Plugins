@@ -1,5 +1,5 @@
 ﻿l_french:
- 
+
  ####################################
  # Anomaly Categories
  ####################################
@@ -49,7 +49,7 @@
  NUKE_PLANET_DESC:0 "Le désert nucléaire prouve qu'une civilisation s'est autrefois développée ici. Nos scanners ont détecté des signes d'activité qu'il serait intéressant d'étudier."
  ARID_PLANET_CAT:0 "Désert aride"
  ARID_PLANET_DESC:0 "La [From.GetPlanetMoon] n'est pas très accueillante, mais nos analyses préliminaires montrent qu'elle pourrait renfermer de précieuses ressources."
- 
+
  ####################################
  # Anomaly Events
  ####################################
@@ -108,7 +108,7 @@
  anomaly.4038.a:0 "Nous avons percé les secrets des soleils."
  anomaly.4038.b:0 "Nous élucidons progressivement les mystères de l'univers."
  anomaly.4040.name:0 "Péchés commis par un soleil"
- anomaly.4040.desc:0 "Les rayonnements ionisants de [From.GetName] sont §anormalement élevés§!. De deux choses l'une : soit la [From.GetPlanetMoon] a récemment été bombardée d'ogives nucléaires, §Ysoit§! elle a été exposée à une forte concentration de rayonnements cosmiques, peut-être libérés par une supernova voisine. L'officier scientifique [Root.GetLeaderName] n'en sait pas plus."
+ anomaly.4040.desc:0 "Les rayonnements ionisants de [From.GetName] sont §Yanormalement élevés§!. De deux choses l'une : soit la [From.GetPlanetMoon] a récemment été bombardée d'ogives nucléaires, §Ysoit§! elle a été exposée à une forte concentration de rayonnements cosmiques, peut-être libérés par une supernova voisine. L'officier scientifique [Root.GetLeaderName] n'en sait pas plus."
  anomaly.4040.a.tooltip:1 "Confère le modificateur §RDésert irradié§! à [From.GetName] :\n§R+6§! £blocker£ Déserts radioactifs\n§G+3§!£physics£ "
  anomaly.4045.name:0 "Échos venant des profondeurs"
  anomaly.4045.desc:0 "En dépit de ses efforts, l'équipage du [Root.GetName] n'a rien détecté d'autre qu'un faible §Y"écho"§! émanant des profondeurs de [From.GetName].\n\nCet écho ressemble à la §Ysignature d'un être vivant§!, mais compte tenu de son éloignement, nous ignorons s'il est réel ou s'il provient de variations aléatoires dues aux instruments. L'équipage de l'officier scientifique [Root.GetLeaderName] n'en peut plus de ces longues heures de travail §Ysans repos§!."
@@ -416,7 +416,7 @@
  anomaly_failure.4170.b.tooltip:0 "$anomaly_failure.4170.base.tooltip$ et tue §R1§! pop."
  anomaly_failure.4170.c.tooltip:0 "$anomaly_failure.4170.base.tooltip$ et tue §R2§! pops."
  anomaly_failure.4170.d.tooltip:0 "$anomaly_failure.4170.base.tooltip$ et tue §R3§! pops."
- 
+
  ####################################
  # Colony Events
  ####################################

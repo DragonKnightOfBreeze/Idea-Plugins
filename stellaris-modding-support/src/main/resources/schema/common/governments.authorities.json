@@ -7,7 +7,7 @@
           "$ref" : "#/definitions/game_path"
         },
         "election_term_years" : {
-          "type" : "boolean"
+          "type" : "integer"
         },
         "election_type" : {
           "$ref" : "#/definitions/election_type"

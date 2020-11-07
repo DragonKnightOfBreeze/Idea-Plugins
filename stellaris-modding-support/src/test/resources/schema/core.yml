@@ -301,6 +301,7 @@ definitions:
     - torpedo
     - titanic
     - planet_killer
+    - aux
 
   component_type:
     type: string
@@ -308,4 +309,5 @@ definitions:
     - instant
     - missile
     - point_defence
+    - planet_killer
 

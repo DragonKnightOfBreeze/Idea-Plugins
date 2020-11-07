@@ -10,7 +10,7 @@
           "type" : "integer"
         },
         "entity_scale" : {
-          "type" : "integer"
+          "type" : "number"
         },
         "atmosphere_color" : {
           "$ref" : "#/definitions/color_type"

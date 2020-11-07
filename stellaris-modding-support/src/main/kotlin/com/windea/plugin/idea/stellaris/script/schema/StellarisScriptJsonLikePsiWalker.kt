@@ -14,13 +14,6 @@ object StellarisScriptJsonLikePsiWalker : JsonLikePsiWalker {
 	override fun findElementToCheck(element: PsiElement): PsiElement? {
 		//得到需要检查的元素
 		var current = element
-		//如果是空白且之前的元素是String或者Number，则表示正在输入的可能是属性名，则向上查找
-		if(current is PsiWhiteSpace){
-			val prev = current.prevSibling
-			if(prev is StellarisScriptString || prev is StellarisScriptNumber){
-				current = prev.parent
-			}
-		}
 		//向上查找直到psiFile，如果是property/propertyKey/value，则认为已找到
 		while(current !is PsiFile){
 			when(current) {
@@ -112,8 +105,11 @@ object StellarisScriptJsonLikePsiWalker : JsonLikePsiWalker {
 				}
 				is StellarisScriptValue ->{
 					val parent = current.parent
-					val index = parent.indexOfChild(current)
-					position.addPrecedingStep(index)
+					//如果在数组中
+					if(parent is StellarisScriptBlock || parent is StellarisScriptFile) {
+						val index = parent.indexOfChild(current)
+						position.addPrecedingStep(index)
+					}
 					current = parent
 				}
 				else -> {

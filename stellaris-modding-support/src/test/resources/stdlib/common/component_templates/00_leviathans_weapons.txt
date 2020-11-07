@@ -233,7 +233,7 @@ weapon_component_template = {
 
 strike_craft_component_template = {
 	key = "HIVE_STRIKE_CRAFT"
-	size = LARGE
+	size = large
 	entity = "hive_asteroid_05_entity"
 	resources = {
 		category = ship_components

@@ -8,7 +8,7 @@ definitions:
       icon_frame:
         type: integer
       entity_scale:
-        type: integer
+        type: number
       atmosphere_color:
         $ref: "../core.yml#/definitions/color_type"
       atmosphere_intensity:
@@ -20,7 +20,7 @@ definitions:
       max_distance_from_sun:
         type: integer
       spawn_odds:
-        type: integer
+        type: number
       city_color_lut:
         $ref: "../core.yml#/definitions/game_path"
       extra_orbit_size:
@@ -32,19 +32,31 @@ definitions:
       chance_of_ring:
         type: number
       planet_size:
-        $ref: "../core.yml#/definitions/int_range"
+        type: integer
       moon_size:
-        $ref: "../core.yml#/definitions/int_range"
+        type: integer
       production_spawn_chance:
         type: number
       colonizable:
         type: boolean
       district_set:
         $ref: "#/definitions/district_set"
-      uses_alternative_skies_for_moons:
-        type: boolean
       modifier:
         $ref: "../core.yml#/definitions/modifiers"
+      uses_alternative_skies_for_moons:
+        type: boolean
+      show_health_bar_in_planet_view:
+        type: boolean
+      starting_planet:
+        type: boolean
+      orbit_lines:
+        type: boolean
+      has_colonization_influence_cost:
+        type: boolean
+      is_artificial_planet:
+        type: boolean
+      default_planet_selection:
+        type: boolean
 
   entity:
     type: string

@@ -59,7 +59,9 @@ fun String.containsBlank() = this.any { it.isWhitespace() }
 
 fun String.quote() = if(startsWith('"') && endsWith('"')) this else "\"$this\""
 
-fun String.quoteIfNecessary() = if(contains("\\s".toRegex())) quote() else this
+fun String.quoteIfNecessary() = if(this.containsBlank()) quote() else this
+
+fun String.onlyQuoteIfNecessary() = this.unquote().quoteIfNecessary()
 
 fun String.unquote() = if(startsWith('"') && endsWith('"')) substring(1, length - 1) else this
 

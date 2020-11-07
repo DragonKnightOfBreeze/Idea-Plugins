@@ -57,7 +57,7 @@ QUOTED_STRING=\"([^\"\r\n\\]|\\.)*?\"
 COLOR_TOKEN=(rgb|rgba|hsb|hsv|hsl)[ \t]*\{[0-9. \t]*}
 CODE_TEXT_TOKEN=[^\r\n\]}]+
 
-IS_PROPERTY=(([a-zA-Z0-9_\-.:]+)|(\"([^\"(\r\n\\]|\\.)*?\"))[ \t]*[=><]
+IS_PROPERTY=(([a-zA-Zz0-9.:$_-])|(\"([^\"(\r\n\\]|\\.)*?\"))[ \t]*[=><]
 
 %%
 <YYINITIAL> {

@@ -49,4 +49,5 @@ public class StellarisScriptStringImpl extends StellarisScriptStringValueImpl im
   public StellarisScriptStringPsiReference getReference() {
     return StellarisScriptPsiImplUtil.getReference(this);
   }
+
 }
