@@ -5,7 +5,7 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
-public interface StellarisLocalizationEscape extends PsiElement {
+public interface StellarisLocalizationEscape extends StellarisLocalizationRichText {
 
   @Nullable
   PsiElement getInvalidEscapeToken();

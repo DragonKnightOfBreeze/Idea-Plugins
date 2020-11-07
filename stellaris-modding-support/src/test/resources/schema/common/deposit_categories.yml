@@ -4,10 +4,10 @@ definitions:
     type: object
     properties:
       blocker:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
         optional: true
       important:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
         optional: true
 
 type: object

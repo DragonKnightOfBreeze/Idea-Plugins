@@ -4,10 +4,10 @@ definitions:
     type: object
     properties:
       show_in_diplomacy:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
         default: yes
       show_notification:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
         default: yes
       potential:
         $ref: "../core.yml#/definitions/triggers"

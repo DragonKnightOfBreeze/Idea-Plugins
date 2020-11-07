@@ -330,14 +330,14 @@
 
     <!--region Stellaris Script Schema-->
     <json.jsonSchemaEnabler
-      implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaEnabler"/>
+      implementation="com.windea.plugin.idea.stellaris.schema.StellarisScriptSchemaEnabler"/>
     <completion.contributor
       language="Stellaris Script"
-      implementationClass="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaCompletionContributor"/>
+      implementationClass="com.windea.plugin.idea.stellaris.schema.StellarisScriptSchemaCompletionContributor"/>
     <gotoDeclarationHandler
-      implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaGotoDeclarationHandler"/>
+      implementation="com.windea.plugin.idea.stellaris.schema.StellarisScriptSchemaGotoDeclarationHandler"/>
     <json.jsonLikePsiWalkerFactory
-      implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptJsonLikePsiWalkerFactory"/>
+      implementation="com.windea.plugin.idea.stellaris.schema.StellarisScriptJsonLikePsiWalkerFactory"/>
     <!--<documentationProvider
       implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaDocumentationProvider"/>-->
 
@@ -349,12 +349,12 @@
       shortName="StellarisScriptSchemaValidation" bundle="messages.StellarisBundle"
       groupKey="stellaris.script.inspection" key="stellaris.script.inspection.schemaValidation"
       enabledByDefault="true" level="ERROR"
-      implementationClass="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaInspectionTool"/>
+      implementationClass="com.windea.plugin.idea.stellaris.schema.StellarisScriptSchemaInspectionTool"/>
     <!--endregion-->
   </extensions>
 
   <extensions defaultExtensionNs="JavaScript">
     <JsonSchema.ProviderFactory
-      implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaProviderFactory"/>
+      implementation="com.windea.plugin.idea.stellaris.schema.StellarisScriptSchemaProviderFactory"/>
   </extensions>
 </idea-plugin>

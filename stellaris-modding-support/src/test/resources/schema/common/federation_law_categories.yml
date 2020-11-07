@@ -4,9 +4,9 @@ definitions:
     type: object
     properties:
       centralization:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       show_succession_date:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       laws:
         type: array
         items:

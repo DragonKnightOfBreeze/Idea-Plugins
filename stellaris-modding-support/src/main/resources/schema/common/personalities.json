@@ -4,120 +4,120 @@
       "type" : "object",
       "properties" : {
         "aggressiveness" : {
-          "$ref" : "../core.yml#/definitions/float"
+          "type" : "number"
         },
         "trade_willingness" : {
-          "$ref" : "../core.yml#/definitions/float"
+          "type" : "number"
         },
         "bravery" : {
-          "$ref" : "../core.yml#/definitions/float"
+          "type" : "number"
         },
         "combat_bravery" : {
-          "$ref" : "../core.yml#/definitions/float"
+          "type" : "number"
         },
         "military_spending" : {
-          "$ref" : "../core.yml#/definitions/float"
+          "type" : "number"
         },
         "colony_spending" : {
-          "$ref" : "../core.yml#/definitions/float"
+          "type" : "number"
         },
         "federation_acceptance" : {
-          "$ref" : "../core.yml#/definitions/int"
+          "type" : "integer"
         },
         "nap_acceptance" : {
-          "$ref" : "../core.yml#/definitions/int"
+          "type" : "integer"
         },
         "commercial_pact_acceptance" : {
-          "$ref" : "../core.yml#/definitions/int"
+          "type" : "integer"
         },
         "defensive_pact_acceptance" : {
-          "$ref" : "../core.yml#/definitions/int"
+          "type" : "integer"
         },
         "migration_pact_acceptance" : {
-          "$ref" : "../core.yml#/definitions/int"
+          "type" : "integer"
         },
         "advanced_start_chance" : {
-          "$ref" : "../core.yml#/definitions/int"
+          "type" : "integer"
         },
         "weapon_preferences" : {
           "$type" : "weapon_type"
         },
         "armor_ratio" : {
-          "$ref" : "../core.yml#/definitions/float"
+          "type" : "number"
         },
         "shields_ratio" : {
-          "$ref" : "../core.yml#/definitions/float"
+          "type" : "number"
         },
         "hull_ratio" : {
-          "$ref" : "../core.yml#/definitions/float"
+          "type" : "number"
         },
         "threat_modifier" : {
-          "$ref" : "../core.yml#/definitions/float"
+          "type" : "number"
         },
         "threat_others_modifier" : {
-          "$ref" : "../core.yml#/definitions/float"
+          "type" : "number"
         },
         "friction_modifier" : {
-          "$ref" : "../core.yml#/definitions/float"
+          "type" : "number"
         },
         "claims_modifier" : {
-          "$ref" : "../core.yml#/definitions/float"
+          "type" : "number"
         },
         "behaviour" : {
           "type" : "object",
           "properties" : {
             "conqueror" : {
-              "$ref" : "../core.yml#/definitions/boolean"
+              "type" : "boolean"
             },
             "subjugator" : {
-              "$ref" : "../core.yml#/definitions/boolean"
+              "type" : "boolean"
             },
             "liberator" : {
-              "$ref" : "../core.yml#/definitions/boolean"
+              "type" : "boolean"
             },
             "opportunist" : {
-              "$ref" : "../core.yml#/definitions/boolean"
+              "type" : "boolean"
             },
             "slaver" : {
-              "$ref" : "../core.yml#/definitions/boolean"
+              "type" : "boolean"
             },
             "uplifter" : {
-              "$ref" : "../core.yml#/definitions/boolean"
+              "type" : "boolean"
             },
             "purger" : {
-              "$ref" : "../core.yml#/definitions/boolean"
+              "type" : "boolean"
             },
             "displacer" : {
-              "$ref" : "../core.yml#/definitions/boolean"
+              "type" : "boolean"
             },
             "infiltrator" : {
-              "$ref" : "../core.yml#/definitions/boolean"
+              "type" : "boolean"
             },
             "dominator" : {
-              "$ref" : "../core.yml#/definitions/boolean"
+              "type" : "boolean"
             },
             "robot_exploiter" : {
-              "$ref" : "../core.yml#/definitions/boolean"
+              "type" : "boolean"
             },
             "robot_liberator" : {
-              "$ref" : "../core.yml#/definitions/boolean"
+              "type" : "boolean"
             },
             "propagator" : {
-              "$ref" : "../core.yml#/definitions/boolean"
+              "type" : "boolean"
             },
             "multispecies" : {
-              "$ref" : "../core.yml#/definitions/boolean"
+              "type" : "boolean"
             },
             "crisis_fighter" : {
-              "$ref" : "../core.yml#/definitions/boolean"
+              "type" : "boolean"
             }
           }
         },
         "allow" : {
-          "$ref" : "../core.yml#/definitions/triggers"
+          "$ref" : "../core.json#/definitions/triggers"
         },
         "weight_modifier" : {
-          "$ref" : "../core.yml#/definitions/weight_modifier"
+          "$ref" : "../core.json#/definitions/weight_modifier"
         }
       }
     }

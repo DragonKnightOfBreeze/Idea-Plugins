@@ -4,20 +4,20 @@ definitions:
     type: object
     properties:
       base_buildtime:
-        $ref: "../core.yml#/definitions/int"
+        type: integer
       base_cap_amount:
-        $ref: "../core.yml#/definitions/int"
+        type: integer
         optional: true
       capital:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       can_build:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       can_demolish:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       can_be_ruined:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       can_be_disabled:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       category:
         $ref: "#/definitions/building_category"
       potential:

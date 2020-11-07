@@ -27,45 +27,9 @@ public class StellarisScriptPropertyValueImpl extends ASTWrapperPsiElement imple
   }
 
   @Override
-  @Nullable
-  public StellarisScriptBlock getBlock() {
-    return findChildByClass(StellarisScriptBlock.class);
-  }
-
-  @Override
-  @Nullable
-  public StellarisScriptBoolean getBoolean() {
-    return findChildByClass(StellarisScriptBoolean.class);
-  }
-
-  @Override
-  @Nullable
-  public StellarisScriptCode getCode() {
-    return findChildByClass(StellarisScriptCode.class);
-  }
-
-  @Override
-  @Nullable
-  public StellarisScriptColor getColor() {
-    return findChildByClass(StellarisScriptColor.class);
-  }
-
-  @Override
-  @Nullable
-  public StellarisScriptNumber getNumber() {
-    return findChildByClass(StellarisScriptNumber.class);
-  }
-
-  @Override
-  @Nullable
-  public StellarisScriptString getString() {
-    return findChildByClass(StellarisScriptString.class);
-  }
-
-  @Override
-  @Nullable
-  public StellarisScriptVariableReference getVariableReference() {
-    return findChildByClass(StellarisScriptVariableReference.class);
+  @NotNull
+  public StellarisScriptValue getValue() {
+    return findNotNullChildByClass(StellarisScriptValue.class);
   }
 
 }

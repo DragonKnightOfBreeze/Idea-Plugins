@@ -21,7 +21,7 @@
           } ]
         },
         "weight" : {
-          "$ref" : "../core.yml#/definitions/weight_modifier"
+          "$ref" : "../core.json#/definitions/weight_modifier"
         },
         "graphical_culture_for_random_empire" : {
           "type" : "object",
@@ -32,7 +32,7 @@
             "type" : "object",
             "property" : {
               "modifier" : {
-                "$ref" : "../core.yml#/definitions/modifier",
+                "$ref" : "../core.json#/definitions/modifier",
                 "multiple" : true
               }
             }

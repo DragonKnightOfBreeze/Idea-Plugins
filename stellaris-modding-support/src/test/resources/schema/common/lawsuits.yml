@@ -7,7 +7,7 @@ definitions:
       cost:
         $ref: "../core.yml#/definitions/economy_unit"
       duration:
-        $ref: "../core.yml#/definitions/float"
+        type: number
 
 type: object
 additionalProperties:

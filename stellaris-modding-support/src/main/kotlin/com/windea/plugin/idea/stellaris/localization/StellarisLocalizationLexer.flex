@@ -227,9 +227,9 @@ CHECK_RIGHT_QUOTE=\"[^\"\r\n]*\"?
 <WAITING_CHECK_ICON_START>{
   {CHECK_ICON_START} {
     //特殊处理
-    //如果匹配的字符串的第2个字符存在且为字母或数字，则认为代表图标的开始
+    //如果匹配的字符串的第2个字符存在且不为空白或双引号，则认为代表图标的开始
     //否则认为是常规字符串
-    boolean isIconStart = yylength() == 2 && Character.isLetterOrDigit(yycharat(1));
+    boolean isIconStart = yylength() == 2 && !Character.isWhitespace(yycharat(1)) && yycharat(1) != '"' ;
     yypushback(yylength()-1);
     if(isIconStart){
     	  yybegin(WAITING_ICON);
@@ -259,9 +259,9 @@ CHECK_RIGHT_QUOTE=\"[^\"\r\n]*\"?
 <WAITING_CHECK_COLORFUL_TEXT_START>{
   {CHECK_COLORFUL_TEXT_START} {
     //特殊处理
-    //如果匹配的字符串的第2个字符存在且为字母或数字，则认为代表彩色文本的开始
+    //如果匹配的字符串的第2个字符存在且不为空白或双引号，则认为代表彩色文本的开始
     //否则认为是常规字符串
-    boolean isColorfulTextStart = yylength() == 2 && Character.isLetterOrDigit(yycharat(1));
+    boolean isColorfulTextStart = yylength() == 2 && !Character.isWhitespace(yycharat(1)) && yycharat(1) != '"' ;
     yypushback(yylength()-1);
     if(isColorfulTextStart){
         yybegin(WAITING_COLOR_CODE);

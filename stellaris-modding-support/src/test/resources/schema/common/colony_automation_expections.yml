@@ -6,7 +6,7 @@ definitions:
       available:
         $ref: "../core.yml#/definitions/triggers"
       crisis:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       prio_districts:
         type: object
         items:

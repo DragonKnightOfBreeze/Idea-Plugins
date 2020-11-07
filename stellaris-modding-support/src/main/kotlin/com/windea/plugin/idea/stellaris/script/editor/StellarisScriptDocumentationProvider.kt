@@ -61,13 +61,13 @@ class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
 	}
 
 	private fun getVariableValueText(variable: StellarisScriptVariableDefinition):String{
-		return variable.variableValue?.text.orEmpty()
+		return variable.variableValue?.text?.truncate(60).orEmpty()
 	}
 
 	private fun getPropertyValueText(property: StellarisScriptProperty):String{
-		return property.propertyValue?.let {
+		return property.propertyValue?.value?.let {
 			when {
-				it.block != null -> blockFolder
+				it is StellarisScriptBlock -> blockFolder
 				else -> it.text.truncate(60)
 			}
 		}.orEmpty()

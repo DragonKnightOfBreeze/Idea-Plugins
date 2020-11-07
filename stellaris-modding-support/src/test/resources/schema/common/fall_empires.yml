@@ -33,9 +33,9 @@ definitions:
             - $type: trait
             - const: random
           extra_trait_points:
-            $ref: "../core.yml#/definitions/int"
+            type: integer
           allow_negative_traits:
-            $ref: "../core.yml#/definitions/boolean"
+            type: boolean
       create_country:
         type: object
         properties:
@@ -46,7 +46,7 @@ definitions:
           type:
             $type: country_type
           ignore_initial_colony_error:
-            $ref: "../core.yml#/definitions/boolean"
+            type: boolean
           authority:
             $type: authority
           civics:

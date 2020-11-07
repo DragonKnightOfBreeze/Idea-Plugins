@@ -4,19 +4,19 @@ definitions:
     type: object
     properties:
       cost:
-        $ref: "../core.yml#/definitions/int"
+        type: integer
       category:
         $ref: "#/definitions/ethic_category"
       category_value:
-        $ref: "../core.yml#/definitions/int"
+        type: integer
       category_opposite:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       regular_variant:
         $type: ethic
       fanatic_variant:
         $type: ethic
       use_for_pops:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       country_modifier:
         $ref: "../core.yml#/definitions/modifier"
       tags:

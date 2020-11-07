@@ -141,7 +141,7 @@ definitions:
   modified_attraction:
     properties:
       value:
-        $ref: "../core.yml#/definitions/int"
+        type: integer
       # anyOf
       modifier:
         $ref: "#/definitions/modifier"

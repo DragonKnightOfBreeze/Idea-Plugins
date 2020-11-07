@@ -4,11 +4,11 @@ definitions:
     type: object
     properties:
       display_level:
-        $ref: "../core.yml#/definitions/int"
+        type: integer
       unlocks_centralization:
-        $ref: "../core.yml#/definitions/int"
+        type: integer
       cohesion_growth:
-        $ref: "../core.yml#/definitions/int"
+        type: integer
       allow:
         $ref: "../core.yml#/definitions/effects"
       on_enact:

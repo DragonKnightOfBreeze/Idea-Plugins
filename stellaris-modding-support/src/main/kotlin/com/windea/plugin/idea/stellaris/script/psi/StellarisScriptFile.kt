@@ -12,4 +12,6 @@ class StellarisScriptFile(
 	val variableDefinitions get() = findChildrenByClass(StellarisScriptVariableDefinition::class.java)
 
 	val properties get() = findChildrenByClass(StellarisScriptProperty::class.java)
+
+	val items get() = findChildrenByClass(StellarisScriptItem::class.java)
 }

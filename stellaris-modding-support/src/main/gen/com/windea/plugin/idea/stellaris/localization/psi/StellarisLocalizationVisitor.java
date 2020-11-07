@@ -9,19 +9,22 @@ import com.intellij.psi.PsiLiteralValue;
 public class StellarisLocalizationVisitor extends PsiElementVisitor {
 
   public void visitCode(@NotNull StellarisLocalizationCode o) {
-    visitPsiElement(o);
+    visitRichText(o);
+    // visitRichText(o);
   }
 
   public void visitColorfulText(@NotNull StellarisLocalizationColorfulText o) {
-    visitNamedElement(o);
+    visitRichText(o);
+    // visitNamedElement(o);
   }
 
   public void visitEscape(@NotNull StellarisLocalizationEscape o) {
-    visitPsiElement(o);
+    visitRichText(o);
   }
 
   public void visitIcon(@NotNull StellarisLocalizationIcon o) {
-    visitNamedElement(o);
+    visitRichText(o);
+    // visitNamedElement(o);
   }
 
   public void visitLocale(@NotNull StellarisLocalizationLocale o) {
@@ -37,7 +40,8 @@ public class StellarisLocalizationVisitor extends PsiElementVisitor {
   }
 
   public void visitPropertyReference(@NotNull StellarisLocalizationPropertyReference o) {
-    visitNamedElement(o);
+    visitRichText(o);
+    // visitNamedElement(o);
   }
 
   public void visitPropertyValue(@NotNull StellarisLocalizationPropertyValue o) {
@@ -49,11 +53,12 @@ public class StellarisLocalizationVisitor extends PsiElementVisitor {
   }
 
   public void visitSerialNumber(@NotNull StellarisLocalizationSerialNumber o) {
-    visitNamedElement(o);
+    visitRichText(o);
+    // visitNamedElement(o);
   }
 
   public void visitString(@NotNull StellarisLocalizationString o) {
-    visitPsiElement(o);
+    visitRichText(o);
   }
 
   public void visitPsiLiteralValue(@NotNull PsiLiteralValue o) {

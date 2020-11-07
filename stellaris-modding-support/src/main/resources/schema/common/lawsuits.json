@@ -4,13 +4,13 @@
       "type" : "object",
       "properties" : {
         "effect" : {
-          "$ref" : "../core.yml#/definitions/effects"
+          "$ref" : "../core.json#/definitions/effects"
         },
         "cost" : {
-          "$ref" : "../core.yml#/definitions/economy_unit"
+          "$ref" : "../core.json#/definitions/economy_unit"
         },
         "duration" : {
-          "$ref" : "../core.yml#/definitions/float"
+          "type" : "number"
         }
       }
     }

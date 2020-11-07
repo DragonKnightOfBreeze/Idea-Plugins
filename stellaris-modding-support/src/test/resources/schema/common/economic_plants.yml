@@ -13,9 +13,9 @@ definitions:
         $ref: "../core.yml#/definitions/resources_item"
         multiple: true
       pops:
-        $ref: "../core.yml#/definitions/int"
+        type: integer
       empire_size:
-        $ref: "../core.yml#/definitions/float"
+        type: number
       ai_weight:
         $ref: "../core.yml#/definitions/weight_modifier"
 

@@ -9,23 +9,23 @@ definitions:
         $ref: "../core.yml#/definitions/triggers"
       # = fleet
       icon_frame:
-        $ref: "../core.yml#/definitions/int"
+        type: integer
       default:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       stop_when_armies_dead:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
         default: no
       abduct_pops:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
         default: no
       plant_damage:
-        $ref: "../core.yml#/definitions/float"
+        type: number
       army_damage:
-        $ref: "../core.yml#/definitions/float"
+        type: number
       kill_pop_chance:
         $ref: "../core.yml#/definitions/modifier_chance"
       min_pop_to_kill_pop:
-        $ref: "../core.yml#/definitions/int"
+        type: integer
       root:
         type: string
       # = planet

@@ -4,34 +4,34 @@
       "type" : "object",
       "properties" : {
         "federation_modifier" : {
-          "$ref" : "../core.yml#/definitions/modifier"
+          "$ref" : "../core.json#/definitions/modifier"
         },
         "federation_triggered_modifier" : {
-          "$ref" : "../core.yml#/definitions/triggered_modifier"
+          "$ref" : "../core.json#/definitions/triggered_modifier"
         },
         "members_modifier" : {
-          "$ref" : "../core.yml#/definitions/modifier"
+          "$ref" : "../core.json#/definitions/modifier"
         },
         "members_triggered_modifier" : {
-          "$ref" : "../core.yml#/definitions/triggered_modifier"
+          "$ref" : "../core.json#/definitions/triggered_modifier"
         },
         "leader_modifier" : {
-          "$ref" : "../core.yml#/definitions/modifier"
+          "$ref" : "../core.json#/definitions/modifier"
         },
         "leader_triggered_modifier" : {
-          "$ref" : "../core.yml#/definitions/triggered_modifier"
+          "$ref" : "../core.json#/definitions/triggered_modifier"
         },
         "envoy_modifier" : {
-          "$ref" : "../core.yml#/definitions/modifier"
+          "$ref" : "../core.json#/definitions/modifier"
         },
         "envoy_triggered_modifier" : {
-          "$ref" : "../core.yml#/definitions/triggered_modifier"
+          "$ref" : "../core.json#/definitions/triggered_modifier"
         },
         "on_activate" : {
-          "$ref" : "../core.yml#/definitions/effects"
+          "$ref" : "../core.json#/definitions/effects"
         },
         "on_deactivate" : {
-          "$ref" : "../core.yml#/definitions/effects"
+          "$ref" : "../core.json#/definitions/effects"
         }
       }
     }

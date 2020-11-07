@@ -4,9 +4,8 @@ package com.windea.plugin.idea.stellaris.script.psi;
 import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiLiteralValue;
 
-public interface StellarisScriptCode extends PsiLiteralValue {
+public interface StellarisScriptCode extends StellarisScriptStringValue {
 
   @Nullable
   PsiElement getCodeTextToken();

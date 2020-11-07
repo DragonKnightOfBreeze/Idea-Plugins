@@ -6,43 +6,43 @@ definitions:
       entity:
         $ref: "#/definitions/entity"
       icon_frame:
-        $ref: "../core.yml#/definitions/int"
+        type: integer
       entity_scale:
-        $ref: "../core.yml#/definitions/int"
+        type: integer
       atmosphere_color:
         $ref: "../core.yml#/definitions/color_type"
       atmosphere_intensity:
-        $ref: "../core.yml#/definitions/float"
+        type: number
       atmosphere_width:
-        $ref: "../core.yml#/definitions/float"
+        type: number
       min_distance_from_sun:
-        $ref: "../core.yml#/definitions/int"
+        type: integer
       max_distance_from_sun:
-        $ref: "../core.yml#/definitions/int"
+        type: integer
       spawn_odds:
-        $ref: "../core.yml#/definitions/int"
+        type: integer
       city_color_lut:
         $ref: "../core.yml#/definitions/game_path"
       extra_orbit_size:
-        $ref: "../core.yml#/definitions/int"
+        type: integer
       extra_planet_count:
-        $ref: "../core.yml#/definitions/int"
+        type: integer
       can_be_moon:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       chance_of_ring:
-        $ref: "../core.yml#/definitions/float"
+        type: number
       planet_size:
         $ref: "../core.yml#/definitions/int_range"
       moon_size:
         $ref: "../core.yml#/definitions/int_range"
       production_spawn_chance:
-        $ref: "../core.yml#/definitions/float"
+        type: number
       colonizable:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       district_set:
         $ref: "#/definitions/district_set"
       uses_alternative_skies_for_moons:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       modifier:
         $ref: "../core.yml#/definitions/modifiers"
 

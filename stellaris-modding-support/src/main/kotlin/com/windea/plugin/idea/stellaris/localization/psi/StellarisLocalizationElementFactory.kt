@@ -2,7 +2,6 @@ package com.windea.plugin.idea.stellaris.localization.psi
 
 import com.intellij.openapi.project.*
 import com.intellij.psi.*
-import com.jetbrains.rd.util.*
 import com.windea.plugin.idea.stellaris.localization.*
 
 object StellarisLocalizationElementFactory {
@@ -32,23 +31,23 @@ object StellarisLocalizationElementFactory {
 	}
 
 	@JvmStatic
-	fun createPropertyReference(project: Project, value: String): StellarisLocalizationPropertyReference {
-		return createPropertyValue(project, "$$value$").richTextList.first().propertyReference!!
+	fun createPropertyReference(project: Project, name: String): StellarisLocalizationPropertyReference {
+		return createPropertyValue(project, "$$name$").richTextList.first() as StellarisLocalizationPropertyReference
 	}
 
 	@JvmStatic
-	fun createIcon(project: Project, value: String): StellarisLocalizationIcon {
-		return createPropertyValue(project, "£$value£").richTextList.first().icon!!
+	fun createIcon(project: Project, name: String): StellarisLocalizationIcon {
+		return createPropertyValue(project, "£$name£").richTextList.first() as StellarisLocalizationIcon
 	}
 
 	@JvmStatic
-	fun createSerialNumber(project: Project, value: String): StellarisLocalizationSerialNumber {
-		return createPropertyValue(project, "%$value%").richTextList.first().serialNumber!!
+	fun createSerialNumber(project: Project, name: String): StellarisLocalizationSerialNumber {
+		return createPropertyValue(project, "%$name%").richTextList.first() as StellarisLocalizationSerialNumber
 	}
 
 	@JvmStatic
-	fun createColorfulText(project: Project, value: String): StellarisLocalizationColorfulText {
-		return createPropertyValue(project, "§$value §!").richTextList.first().colorfulText!!
+	fun createColorfulText(project: Project, name: String,value:String = ""): StellarisLocalizationColorfulText {
+		return createPropertyValue(project, "§$name$value§!").richTextList.first() as StellarisLocalizationColorfulText
 	}
 }
 

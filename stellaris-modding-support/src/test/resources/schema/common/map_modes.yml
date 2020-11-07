@@ -8,9 +8,9 @@ definitions:
       hardcoded_tooltip:
         $type: opinion
       can_change_point_of_view:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       enable_terra_incognita:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       shortcut:
         $ref: "../core.yml#/definitions/shortcut"
       color:

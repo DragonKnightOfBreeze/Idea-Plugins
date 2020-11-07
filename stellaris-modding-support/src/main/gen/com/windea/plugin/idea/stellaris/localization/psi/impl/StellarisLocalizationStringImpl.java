@@ -8,10 +8,9 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
 import static com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationTypes.*;
-import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.windea.plugin.idea.stellaris.localization.psi.*;
 
-public class StellarisLocalizationStringImpl extends ASTWrapperPsiElement implements StellarisLocalizationString {
+public class StellarisLocalizationStringImpl extends StellarisLocalizationRichTextImpl implements StellarisLocalizationString {
 
   public StellarisLocalizationStringImpl(@NotNull ASTNode node) {
     super(node);

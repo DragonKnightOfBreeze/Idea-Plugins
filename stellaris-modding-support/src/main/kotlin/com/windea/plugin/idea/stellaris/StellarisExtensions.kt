@@ -87,8 +87,8 @@ fun <T> T.toSingletonList(): List<T> {
 	return Collections.singletonList(this)
 }
 
-fun <T : Any> T?.toSingletonOrEmpty(): MutableCollection<T> {
-	return if(this == null) Collections.emptySet() else Collections.singleton(this)
+fun <T : Any> T?.toSingletonOrEmpty(): Collection<T> {
+	return if(this == null) Collections.emptyList() else Collections.singletonList(this)
 }
 //endregion
 
@@ -137,6 +137,11 @@ inline fun <reified T : PsiFile> Project.findFiles(type: LanguageFileType, globa
 //endregion
 
 //region Generic
+fun String.isBoolean() = this == "yes" || this == "no"
+
+private val numberRegex = """-?[0-9]+(\.[0-9]+)?""".toRegex()
+fun String.isNumber() = this.matches(numberRegex)
+
 fun String.toDefinitionText(): String {
 	return buildString {
 		append(DocumentationMarkup.DEFINITION_START)
@@ -245,7 +250,7 @@ fun findLocalizationProperty(name: String, project: Project,locale:StellarisLoca
 }
 
 fun findLocalizationProperties(name: String, project: Project,locale:StellarisLocale? = null): Sequence<StellarisLocalizationProperty> {
-	val files = project.findFiles<StellarisLocalizationFile>(StellarisLocalizationFileType,)
+	val files = project.findFiles<StellarisLocalizationFile>(StellarisLocalizationFileType)
 	val localedFiles = if(locale != null) files.filter { it.locale?.locale == locale } else files
 	return localedFiles.flatMap { it.properties.asSequence() }.filter { it.name == name }
 }

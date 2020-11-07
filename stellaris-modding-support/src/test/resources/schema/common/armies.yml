@@ -4,39 +4,39 @@ definitions:
     type: object
     properties:
       icon_frame:
-        $ref: "../core.yml#/definitions/int"
+        type: integer
       damage:
-        $ref: "../core.yml#/definitions/float"
+        type: number
       health:
-        $ref: "../core.yml#/definitions/float"
+        type: number
       morale:
-        $ref: "../core.yml#/definitions/float"
+        type: number
       morale_damage:
-        $ref: "../core.yml#/definitions/float"
+        type: number
       has_morale:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
         default: yes
       collateral_damage:
-        $ref: "../core.yml#/definitions/float"
+        type: number
       war_exhaustion:
-        $ref: "../core.yml#/definitions/float"
+        type: number
       time:
-        $ref: "../core.yml#/definitions/int"
+        type: integer
       # category = armies
       resources:
         $ref: "../core.yml#/definitions/economy_unit"
       has_species:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
         default: yes
       pop_limited:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
         default: yes
       defensive:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       is_pop_spawned:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       occupation:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       potential:
         $ref: "../core.yml#/definitions/triggers"
       allow:
@@ -46,7 +46,7 @@ definitions:
       on_unqueued:
         $ref: "../core.yml#/definitions/effects"
       rebel:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       prerequisites:
         type: array
         items:

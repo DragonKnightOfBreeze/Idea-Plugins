@@ -4,19 +4,19 @@
       "type" : "object",
       "properties" : {
         "potential" : {
-          "$ref" : "../core.yml#/definitions/triggers"
+          "$ref" : "../core.json#/definitions/triggers"
         },
         "possible" : {
-          "$ref" : "../core.yml#/definitions/triggers"
+          "$ref" : "../core.json#/definitions/triggers"
         },
         "on_enabled" : {
-          "$ref" : "../core.yml#/definitions/effects"
+          "$ref" : "../core.json#/definitions/effects"
         },
         "modifier" : {
-          "$ref" : "../core.yml#/definitions/modifier"
+          "$ref" : "../core.json#/definitions/modifier"
         },
         "ai_weight" : {
-          "$ref" : "../core.yml#/definitions/weight_modifier"
+          "$ref" : "../core.json#/definitions/weight_modifier"
         }
       }
     }

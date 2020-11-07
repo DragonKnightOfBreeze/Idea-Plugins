@@ -6,7 +6,7 @@ definitions:
       icon:
         $ref: "../core.yml#/definitions/gfx_reference"
       small_icon:
-        $ref: "../core.yml#/definitions/int"
+        type: integer
       planet_modifier:
         $type: plant_modifier
       country_modifier:
@@ -20,7 +20,7 @@ definitions:
       ai_weight:
         $ref: "../core.yml#/definitions/weight"
       monthly_progress:
-        $ref: "../core.yml#/definitions/float"
+        type: number
       completion_event:
         $type: event.id
 

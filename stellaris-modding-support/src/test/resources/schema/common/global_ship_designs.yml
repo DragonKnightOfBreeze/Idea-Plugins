@@ -8,13 +8,13 @@ definitions:
       ship_size:
         $ype: "ship_size"
       is_event_design:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       section:
         $ref: "#/definitions/section"
       required_component:
         $type: component_template.key
       is_special_buildable:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       allow_buildable_trigger:
         anyOf:
         - $type: trigger

@@ -4,26 +4,26 @@ definitions:
     type: object
     properties:
       can_lead_navy:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       can_lead_army:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       can_research:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       can_govern_planet:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       can_rule_empire:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       can_be_envoy:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       max_traint_points:
-        $ref: "../core.yml#/definitions/int"
+        type: integer
       resources:
         $ref: "../core.yml#/definitions/economy_unit"
       default_category:
         type: string
       # for evoy
       assignment_cooldown:
-        $ref: "../core.yml#/definitions/int"
+        type: integer
 
 type: object
 additionalProperties:

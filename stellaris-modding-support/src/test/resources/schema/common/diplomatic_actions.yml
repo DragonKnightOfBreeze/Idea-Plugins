@@ -6,15 +6,15 @@ definitions:
       icon:
         $ref: "../core.yml#/definitions/gfx_reference"
       auto_accepted:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       require_envoy:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       envoy_assignment:
         additionalProperties: true # TODO
       requires_actor_independence:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       requires_recipient_independence:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       action_type:
         $ref: "#/definitions/action_type"
       potential:

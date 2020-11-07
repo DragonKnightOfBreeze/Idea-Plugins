@@ -21,7 +21,7 @@ public class StellarisLocalizationParser implements PsiParser, LightPsiParser {
 
   public void parseLight(IElementType t, PsiBuilder b) {
     boolean r;
-    b = adapt_builder_(t, b, this, null);
+    b = adapt_builder_(t, b, this, EXTENDS_SETS_);
     Marker m = enter_section_(b, 0, _COLLAPSE_, null);
     r = parse_root_(t, b);
     exit_section_(b, 0, m, t, r, true, TRUE_CONDITION);
@@ -34,6 +34,11 @@ public class StellarisLocalizationParser implements PsiParser, LightPsiParser {
   static boolean parse_root_(IElementType t, PsiBuilder b, int l) {
     return root(b, l + 1);
   }
+
+  public static final TokenSet[] EXTENDS_SETS_ = new TokenSet[] {
+    create_token_set_(CODE, COLORFUL_TEXT, ESCAPE, ICON,
+      PROPERTY_REFERENCE, RICH_TEXT, SERIAL_NUMBER, STRING),
+  };
 
   /* ********************************************************** */
   // CODE_START code_text? CODE_END
@@ -310,7 +315,7 @@ public class StellarisLocalizationParser implements PsiParser, LightPsiParser {
   public static boolean rich_text(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "rich_text")) return false;
     boolean r;
-    Marker m = enter_section_(b, l, _NONE_, RICH_TEXT, "<rich text>");
+    Marker m = enter_section_(b, l, _COLLAPSE_, RICH_TEXT, "<rich text>");
     r = property_reference(b, l + 1);
     if (!r) r = code(b, l + 1);
     if (!r) r = icon(b, l + 1);

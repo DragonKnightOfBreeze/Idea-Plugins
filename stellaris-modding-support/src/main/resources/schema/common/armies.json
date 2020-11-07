@@ -4,67 +4,67 @@
       "type" : "object",
       "properties" : {
         "icon_frame" : {
-          "$ref" : "../core.yml#/definitions/int"
+          "type" : "integer"
         },
         "damage" : {
-          "$ref" : "../core.yml#/definitions/float"
+          "type" : "number"
         },
         "health" : {
-          "$ref" : "../core.yml#/definitions/float"
+          "type" : "number"
         },
         "morale" : {
-          "$ref" : "../core.yml#/definitions/float"
+          "type" : "number"
         },
         "morale_damage" : {
-          "$ref" : "../core.yml#/definitions/float"
+          "type" : "number"
         },
         "has_morale" : {
-          "$ref" : "../core.yml#/definitions/boolean",
-          "default" : "yes"
+          "type" : "boolean",
+          "default" : true
         },
         "collateral_damage" : {
-          "$ref" : "../core.yml#/definitions/float"
+          "type" : "number"
         },
         "war_exhaustion" : {
-          "$ref" : "../core.yml#/definitions/float"
+          "type" : "number"
         },
         "time" : {
-          "$ref" : "../core.yml#/definitions/int"
+          "type" : "integer"
         },
         "resources" : {
-          "$ref" : "../core.yml#/definitions/economy_unit"
+          "$ref" : "../core.json#/definitions/economy_unit"
         },
         "has_species" : {
-          "$ref" : "../core.yml#/definitions/boolean",
-          "default" : "yes"
+          "type" : "boolean",
+          "default" : true
         },
         "pop_limited" : {
-          "$ref" : "../core.yml#/definitions/boolean",
-          "default" : "yes"
+          "type" : "boolean",
+          "default" : true
         },
         "defensive" : {
-          "$ref" : "../core.yml#/definitions/boolean"
+          "type" : "boolean"
         },
         "is_pop_spawned" : {
-          "$ref" : "../core.yml#/definitions/boolean"
+          "type" : "boolean"
         },
         "occupation" : {
-          "$ref" : "../core.yml#/definitions/boolean"
+          "type" : "boolean"
         },
         "potential" : {
-          "$ref" : "../core.yml#/definitions/triggers"
+          "$ref" : "../core.json#/definitions/triggers"
         },
         "allow" : {
-          "$ref" : "../core.yml#/definitions/triggers"
+          "$ref" : "../core.json#/definitions/triggers"
         },
         "on_queued" : {
-          "$ref" : "../core.yml#/definitions/effects"
+          "$ref" : "../core.json#/definitions/effects"
         },
         "on_unqueued" : {
-          "$ref" : "../core.yml#/definitions/effects"
+          "$ref" : "../core.json#/definitions/effects"
         },
         "rebel" : {
-          "$ref" : "../core.yml#/definitions/boolean"
+          "type" : "boolean"
         },
         "prerequisites" : {
           "type" : "array",
@@ -73,7 +73,7 @@
           }
         },
         "show_tech_unlock_if" : {
-          "$ref" : "../core.yml#/definitions/triggers"
+          "$ref" : "../core.json#/definitions/triggers"
         }
       }
     }

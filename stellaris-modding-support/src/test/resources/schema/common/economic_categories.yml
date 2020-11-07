@@ -6,9 +6,9 @@ definitions:
       parent:
         $type: economic_category
       hidden:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       use_for_ai_budget:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       # produces, cost
       generate_mult_modifiers:
         type: array

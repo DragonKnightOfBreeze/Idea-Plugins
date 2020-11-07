@@ -4,55 +4,55 @@
       "type" : "object",
       "properties" : {
         "name" : {
-          "$ref" : "../core.yml#/definitions/loc_reference"
+          "$ref" : "../core.json#/definitions/loc_reference"
         },
         "is_pathfind" : {
-          "$ref" : "../core.yml#/definitions/boolean"
+          "type" : "boolean"
         },
         "use_action" : {
-          "$ref" : "../core.yml#/definitions/boolean"
+          "type" : "boolean"
         },
         "always_active" : {
-          "$ref" : "../core.yml#/definitions/boolean"
+          "type" : "boolean"
         },
         "windup_time" : {
-          "$ref" : "../core.yml#/definitions/int"
+          "type" : "integer"
         },
         "winddown_time" : {
-          "$ref" : "../core.yml#/definitions/int"
+          "type" : "integer"
         },
         "ftl_multiplier" : {
-          "$ref" : "../core.yml#/definitions/int"
+          "type" : "integer"
         },
         "extends_sensors" : {
-          "$ref" : "../core.yml#/definitions/boolean"
+          "type" : "boolean"
         },
         "icon_frame" : {
-          "$ref" : "../core.yml#/definitions/int"
+          "type" : "integer"
         },
         "remember_instances" : {
-          "$ref" : "../core.yml#/definitions/boolean"
+          "type" : "boolean"
         },
         "galactic_map_tooltip_header" : {
-          "$ref" : "../core.yml#/definitions/loc_reference"
+          "$ref" : "../core.json#/definitions/loc_reference"
         },
         "galactic_map_tooltip_desc" : {
-          "$ref" : "../core.yml#/definitions/loc_reference"
+          "$ref" : "../core.json#/definitions/loc_reference"
         },
         "connection_type" : {
           "$ref" : "#/definitions/connection_type"
         },
         "ftl_ship_effect" : {
-          "$ref" : "../core.yml#/definitions/assert_reference"
+          "$ref" : "../core.json#/definitions/assert_reference"
         },
         "ftl_bypass_effect" : {
-          "$ref" : "../core.yml#/definitions/assert_reference"
+          "$ref" : "../core.json#/definitions/assert_reference"
         },
         "bypass_effect" : {
-          "$ref" : "../core.yml#/definitions/assert_reference"
+          "$ref" : "../core.json#/definitions/assert_reference"
         },
         "animation_time" : {
-          "$ref" : "../core.yml#/definitions/int"
+          "type" : "integer"
         },
         "prerequisites" : {
           "type" : "array",
@@ -61,10 +61,10 @@
           }
         },
         "on_pre_explore" : {
-          "$ref" : "../core.yml#/definitions/effects"
+          "$ref" : "../core.json#/definitions/effects"
         },
         "country_can_use" : {
-          "$ref" : "../core.yml#/definitions/triggers"
+          "$ref" : "../core.json#/definitions/triggers"
         },
         "on_action" : {
           "$type" : "on_action"
@@ -81,10 +81,10 @@
     "scripted_connection" : {
       "properties" : {
         "nodes" : {
-          "$ref" : "../core.yml#/definitions/triggers"
+          "$ref" : "../core.json#/definitions/triggers"
         },
         "nexus" : {
-          "$ref" : "../core.yml#/definitions/triggers"
+          "$ref" : "../core.json#/definitions/triggers"
         }
       }
     }

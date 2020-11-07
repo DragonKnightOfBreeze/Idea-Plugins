@@ -62,7 +62,7 @@ definitions:
             allOf:
             - properties:
                 weight:
-                  $ref: "../core.yml#/definitions/int"
+                  type: integer
             - $ref: "#/definitions/character_name_definition"
       ruler_names:
         type: object
@@ -75,7 +75,7 @@ definitions:
             allOf:
             - properties:
                 weight:
-                  $ref: "../core.yml#/definitions/int"
+                  type: integer
             - $ref: "#/definitions/character_name_definition"
   string:
     type: string

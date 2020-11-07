@@ -83,9 +83,6 @@ public interface StellarisLocalizationTypes {
       else if (type == PROPERTY_VALUE) {
         return new StellarisLocalizationPropertyValueImpl(node);
       }
-      else if (type == RICH_TEXT) {
-        return new StellarisLocalizationRichTextImpl(node);
-      }
       else if (type == SERIAL_NUMBER) {
         return new StellarisLocalizationSerialNumberImpl(node);
       }

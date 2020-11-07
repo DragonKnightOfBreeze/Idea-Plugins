@@ -12,7 +12,7 @@ definitions:
       buildings:
         type: object
         propertyNames:
-          $ref: "../core.yml#/definitions/int"
+          type: integer
         additionalProperties:
           type: object
           properties:

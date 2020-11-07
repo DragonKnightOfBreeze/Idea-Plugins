@@ -10,13 +10,13 @@
           "$type" : "entity"
         },
         "portrait" : {
-          "$ref" : "../core.yml#/definitions/gfx_reference"
+          "$ref" : "../core.json#/definitions/gfx_reference"
         },
         "place_entity_on_planet_plane" : {
-          "$ref" : "../core.yml#/definitions/boolean"
+          "type" : "boolean"
         },
         "entity_offset" : {
-          "$ref" : "../core.yml#/definitions/vector2"
+          "$ref" : "../core.json#/definitions/vector2"
         },
         "upgrade_desc" : {
           "type" : "string",
@@ -35,51 +35,51 @@
           }
         },
         "potential" : {
-          "$ref" : "../core.yml#/definitions/triggers"
+          "$ref" : "../core.json#/definitions/triggers"
         },
         "possible" : {
-          "$ref" : "../core.yml#/definitions/triggers"
+          "$ref" : "../core.json#/definitions/triggers"
         },
         "build_time" : {
-          "$ref" : "../core.yml#/definitions/int"
+          "type" : "integer"
         },
         "build_cost" : {
-          "$ref" : "../core.yml#/definitions/resources_item"
+          "$ref" : "../core.json#/definitions/resources_item"
         },
         "monthly_production" : {
-          "$ref" : "../core.yml#/definitions/resources_item"
+          "$ref" : "../core.json#/definitions/resources_item"
         },
         "maintenance" : {
-          "$ref" : "../core.yml#/definitions/resources_item"
+          "$ref" : "../core.json#/definitions/resources_item"
         },
         "country_modifier" : {
-          "$ref" : "../core.yml#/definitions/modifier"
+          "$ref" : "../core.json#/definitions/modifier"
         },
         "placement_rules" : {
           "type" : "object",
           "properties" : {
             "planet_possible" : {
-              "$ref" : "../core.yml#/definitions/triggers"
+              "$ref" : "../core.json#/definitions/triggers"
             }
           }
         },
         "on_build_start" : {
-          "$ref" : "../core.yml#/definitions/effects"
+          "$ref" : "../core.json#/definitions/effects"
         },
         "on_build_cancel" : {
-          "$ref" : "../core.yml#/definitions/effects"
+          "$ref" : "../core.json#/definitions/effects"
         },
         "on_build_complete" : {
-          "$ref" : "../core.yml#/definitions/effects"
+          "$ref" : "../core.json#/definitions/effects"
         },
         "ai_weight" : {
-          "$ref" : "../core.yml#/definitions/weight_modifier"
+          "$ref" : "../core.json#/definitions/weight_modifier"
         },
         "resources" : {
-          "$ref" : "../core.yml#/definitions/economy_unit"
+          "$ref" : "../core.json#/definitions/economy_unit"
         },
         "construction_blocked_by_others" : {
-          "$ref" : "../core.yml#/definitions/boolean"
+          "type" : "boolean"
         }
       }
     }

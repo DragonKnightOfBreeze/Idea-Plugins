@@ -4,34 +4,34 @@
       "type" : "object",
       "properties" : {
         "icon" : {
-          "$ref" : "../core.yml#/definitions/game_path"
+          "$ref" : "../core.json#/definitions/game_path"
         },
         "description" : {
-          "$ref" : "../core.yml#/definitions/loc_reference"
+          "$ref" : "../core.json#/definitions/loc_reference"
         },
         "modification" : {
-          "$ref" : "../core.yml#/definitions/boolean"
+          "type" : "boolean"
         },
         "playable" : {
-          "$ref" : "../core.yml#/definitions/triggers"
+          "$ref" : "../core.json#/definitions/triggers"
         },
         "potential" : {
-          "$ref" : "../core.yml#/definitions/triggers"
+          "$ref" : "../core.json#/definitions/triggers"
         },
         "possible" : {
-          "$ref" : "../core.yml#/definitions/triggers"
+          "$ref" : "../core.json#/definitions/triggers"
         },
         "random_weight" : {
-          "$ref" : "../core.yml#/definitions/weight_modifier"
+          "$ref" : "../core.json#/definitions/weight_modifier"
         },
         "modifier" : {
-          "$ref" : "../core.yml#/definitions/modifier"
+          "$ref" : "../core.json#/definitions/modifier"
         },
         "has_secondary_species" : {
           "type" : "object",
           "properties" : {
             "title" : {
-              "$ref" : "../core.yml#/definitions/loc_reference"
+              "$ref" : "../core.json#/definitions/loc_reference"
             },
             "traits" : {
               "type" : "object",
@@ -54,16 +54,16 @@
           }
         },
         "is_origin" : {
-          "$ref" : "../core.yml#/definitions/boolean"
+          "type" : "boolean"
         },
         "picture" : {
-          "$ref" : "../core.yml#/definitions/gfx_reference"
+          "$ref" : "../core.json#/definitions/gfx_reference"
         },
         "max_once_global" : {
-          "$ref" : "../core.yml#/definitions/boolean"
+          "type" : "boolean"
         },
         "advanced_start" : {
-          "$ref" : "../core.yml#/definitions/boolean"
+          "type" : "boolean"
         },
         "starting_colony" : {
           "$type" : "plant_class"
@@ -72,7 +72,7 @@
           "$type" : "plant_class"
         },
         "preferred_planet_class_neighbor" : {
-          "$ref" : "../core.yml#/definitions/boolean"
+          "type" : "boolean"
         },
         "flags" : {
           "type" : "array",

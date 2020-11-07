@@ -4,25 +4,25 @@
       "type" : "object",
       "properties" : {
         "name" : {
-          "$ref" : "../core.yml#/definitions/loc_reference"
+          "$ref" : "../core.json#/definitions/loc_reference"
         },
         "entity" : {
-          "$ref" : "../core.yml#/definitions/loc_reference"
+          "$ref" : "../core.json#/definitions/loc_reference"
         },
         "description" : {
-          "$ref" : "../core.yml#/definitions/loc_reference",
+          "$ref" : "../core.json#/definitions/loc_reference",
           "optional" : true
         },
         "tooltip" : {
-          "$ref" : "../core.yml#/definitions/loc_reference",
+          "$ref" : "../core.json#/definitions/loc_reference",
           "optional" : true
         },
         "selectable" : {
-          "$ref" : "../core.yml#/definitions/boolean",
+          "type" : "boolean",
           "optional" : true
         },
         "show_name" : {
-          "$ref" : "../core.yml#/definitions/boolean"
+          "type" : "boolean"
         }
       }
     }

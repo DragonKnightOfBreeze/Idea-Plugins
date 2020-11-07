@@ -7,7 +7,7 @@ import com.intellij.psi.PsiElement;
 import com.windea.plugin.idea.stellaris.StellarisColor;
 import com.windea.plugin.idea.stellaris.localization.reference.StellarisLocalizationColorfulTextPsiReference;
 
-public interface StellarisLocalizationColorfulText extends StellarisLocalizationNamedElement {
+public interface StellarisLocalizationColorfulText extends StellarisLocalizationRichText, StellarisLocalizationNamedElement {
 
   @NotNull
   List<StellarisLocalizationRichText> getRichTextList();

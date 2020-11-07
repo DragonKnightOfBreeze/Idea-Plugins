@@ -10,7 +10,7 @@ definitions:
       portrait:
         $ref: "../core.yml#/definitions/gfx_reference"
       place_entity_on_planet_plane:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       entity_offset:
         $ref: "../core.yml#/definitions/vector2"
       upgrade_desc:
@@ -31,7 +31,7 @@ definitions:
       possible:
         $ref: "../core.yml#/definitions/triggers"
       build_time:
-        $ref: "../core.yml#/definitions/int"
+        type: integer
       build_cost:
         $ref: "../core.yml#/definitions/resources_item"
       monthly_production:
@@ -56,7 +56,7 @@ definitions:
       resources:
         $ref: "../core.yml#/definitions/economy_unit"
       construction_blocked_by_others:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
 
 type: object
 additionalProperties:

@@ -4,15 +4,15 @@ definitions:
     type: object
     properties:
       rank:
-        $ref: "../core.yml#/definitions/int"
+        type: integer
       clothes_texture_index:
-        $ref: "../core.yml#/definitions/int"
+        type: integer
       change_job_threshold:
-        $ref: "../core.yml#/definitions/float"
+        type: number
       keep_from_former_job:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       demotion_time:
-        $ref: "../core.yml#/definitions/int"
+        type: integer
       should_apply_unemployment_penalties:
         $ref: "../core.yml#/definitions/triggers"
       unemployment_penalties:

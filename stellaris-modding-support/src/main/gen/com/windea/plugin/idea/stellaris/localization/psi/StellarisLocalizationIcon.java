@@ -6,13 +6,10 @@ import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 import com.windea.plugin.idea.stellaris.localization.reference.StellarisLocalizationIconPsiReference;
 
-public interface StellarisLocalizationIcon extends StellarisLocalizationNamedElement {
+public interface StellarisLocalizationIcon extends StellarisLocalizationRichText, StellarisLocalizationNamedElement {
 
   @Nullable
-  StellarisLocalizationCode getCode();
-
-  @Nullable
-  StellarisLocalizationPropertyReference getPropertyReference();
+  StellarisLocalizationRichText getRichText();
 
   @Nullable
   PsiElement getIconId();

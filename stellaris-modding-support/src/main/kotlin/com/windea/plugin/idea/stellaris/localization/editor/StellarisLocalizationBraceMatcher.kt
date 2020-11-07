@@ -8,7 +8,6 @@ import com.windea.plugin.idea.stellaris.localization.psi.*
 class StellarisLocalizationBraceMatcher : PairedBraceMatcher {
 	companion object{
 		private val bracePairs = arrayOf(
-			BracePair(StellarisLocalizationTypes.LEFT_QUOTE, StellarisLocalizationTypes.RIGHT_QUOTE, true),
 			BracePair(StellarisLocalizationTypes.CODE_START, StellarisLocalizationTypes.CODE_END, true),
 			BracePair(StellarisLocalizationTypes.COLORFUL_TEXT_START, StellarisLocalizationTypes.COLORFUL_TEXT_END, true),
 			BracePair(StellarisLocalizationTypes.ICON_START, StellarisLocalizationTypes.ICON_END, true),

@@ -5,7 +5,7 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
-public interface StellarisLocalizationString extends PsiElement {
+public interface StellarisLocalizationString extends StellarisLocalizationRichText {
 
   @NotNull
   PsiElement getStringToken();

@@ -4,10 +4,10 @@
       "type" : "object",
       "properties" : {
         "icon" : {
-          "$ref" : "../core.yml#/definitions/gfx_reference"
+          "$ref" : "../core.json#/definitions/gfx_reference"
         },
         "small_icon" : {
-          "$ref" : "../core.yml#/definitions/int"
+          "type" : "integer"
         },
         "planet_modifier" : {
           "$type" : "plant_modifier"
@@ -16,19 +16,19 @@
           "$type" : "country_modifier"
         },
         "resources" : {
-          "$ref" : "../core.yml#/definitions/economy_unit"
+          "$ref" : "../core.json#/definitions/economy_unit"
         },
         "potential" : {
-          "$ref" : "../core.yml#/definitions/triggers"
+          "$ref" : "../core.json#/definitions/triggers"
         },
         "valid" : {
-          "$ref" : "../core.yml#/definitions/triggers"
+          "$ref" : "../core.json#/definitions/triggers"
         },
         "ai_weight" : {
-          "$ref" : "../core.yml#/definitions/weight"
+          "$ref" : "../core.json#/definitions/weight"
         },
         "monthly_progress" : {
-          "$ref" : "../core.yml#/definitions/float"
+          "type" : "number"
         },
         "completion_event" : {
           "$type" : "event.id"

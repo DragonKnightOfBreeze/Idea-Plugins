@@ -4,24 +4,24 @@ definitions:
     type: object
     properties:
       should_ai_use:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
         default: no
       show_ai_and_humans_use:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
         default: no
       desc:
         $ref: "../core.yml#/definitions/desc"
       picture:
         $ref: "../core.yml#/definitions/gfx_reference"
       level:
-        $ref: "../core.yml#/definitions/int"
+        type: integer
       null_spawn_chance:
-        $ref: "../core.yml#/definitions/float"
+        type: number
       max_once:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
         default: no
       max_once_global:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
         default: no
       spawn_chance:
         $ref: "../core.yml#/definitions/modifier_chance"
@@ -33,17 +33,17 @@ definitions:
     anyOf:
     - $ref: "../core.yml#/definitions/event_id"
     - propertyNames:
-        $ref: "../core.yml#/definitions/nit"
+        type: integer
       additionalProperties:
         anyOf:
         - $ref: "../core.yml#/definitions/event_id"
         - $ref: "../core.yml#/definitions/modifier"
           properties:
             max_once:
-              $ref: "../core.yml#/definitions/boolean"
+              type: boolean
               default: yes
             max_once_global:
-              $ref: "../core.yml#/definitions/boolean"
+              type: boolean
               default: no
             anomaly_event:
               $ref: "../core.yml#/definitions/event_id"

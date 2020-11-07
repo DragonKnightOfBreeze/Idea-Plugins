@@ -4,10 +4,9 @@ package com.windea.plugin.idea.stellaris.script.psi;
 import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiLiteralValue;
 import java.awt.Color;
 
-public interface StellarisScriptColor extends PsiLiteralValue {
+public interface StellarisScriptColor extends StellarisScriptStringValue {
 
   @NotNull
   PsiElement getColorToken();

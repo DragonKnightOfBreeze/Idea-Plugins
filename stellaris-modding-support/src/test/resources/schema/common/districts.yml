@@ -4,9 +4,9 @@ definitions:
     type: object
     properties:
       base_buildtime:
-        $ref: "../core.yml#/definitions/int"
+        type: integer
       is_capped_by_modifier:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       show_on_uncolonized:
         $ref: "../core.yml#/definitions/triggers"
       potential:
@@ -14,7 +14,7 @@ definitions:
       allow:
         $ref: "../core.yml#/definitions/triggers"
       conversion_ratio:
-        $ref: "../core.yml#/definitions/float"
+        type: number
       convert_to:
         type: array
         items:

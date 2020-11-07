@@ -6,13 +6,13 @@ definitions:
       name:
         $ref: "../core.yml#/definitions/loc_reference"
       length:
-        $ref: "../core.yml#/definitions/int"
+        type: integer
       icon:
         $ref: "../core.yml#/definitions/gfx_reference"
       is_ambition:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       edict_cap_usage:
-        $ref: "../core.yml#/definitions/int"
+        type: integer
       resources:
         $ref: "../core.yml#/definitions/economy_unit"
       modifier:

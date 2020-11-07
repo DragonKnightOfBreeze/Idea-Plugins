@@ -87,7 +87,7 @@ object StellarisScriptPsiImplUtil {
 	//region StellarisScriptProperty
 	@JvmStatic
 	fun getName(element: StellarisScriptProperty): String? {
-		return element.propertyKey.text
+		return element.propertyKey.text.unquote()
 	}
 
 	@JvmStatic
@@ -153,21 +153,7 @@ object StellarisScriptPsiImplUtil {
 	}
 	//endregion
 
-	////region StellarisScriptArray
-	//@JvmStatic
-	//fun getComponents(element: StellarisScriptArray): List<PsiElement> {
-	//	return  element.stringList
-	//}
-	////endregion
-	//
-	////region StellarisScriptObject
-	//@JvmStatic
-	//fun getComponents(element: StellarisScriptObject): List<PsiElement> {
-	//	return element.propertyList
-	//}
-	//endregion
-
-	//region StellarisScriptItem,
+	//region StellarisScriptItem
 	@JvmStatic
 	fun getIcon(element: StellarisScriptItem, @Iconable.IconFlags flags: Int): Icon? {
 		return stellarisScriptItemIcon
@@ -190,6 +176,13 @@ object StellarisScriptPsiImplUtil {
 	@JvmStatic
 	fun getValue(element: StellarisScriptNumber): String {
 		return element.text
+	}
+	//endregion
+
+	//region
+	@JvmStatic
+	fun getValue(element: StellarisScriptStringValue): String {
+		return element.text.unquote()
 	}
 	//endregion
 
@@ -260,8 +253,8 @@ object StellarisScriptPsiImplUtil {
 			//	"hsl" -> "hsl { ${color.toColorHsl().run { "$H $S $L" }} }"
 			//	else -> "rgba { ${color.run { "$red $green $blue $alpha" }} }"
 			//}
-
-			element.replace(StellarisScriptElementFactory.createColor(element.project, newText))
+			val newColor = StellarisScriptElementFactory.createValue(element.project, newText) as? StellarisScriptColor
+			if(newColor != null) element.replace(newColor)
 		}
 	}
 

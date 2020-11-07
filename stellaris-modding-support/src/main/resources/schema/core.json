@@ -9,7 +9,7 @@
       "default" : 0.0
     },
     "boolean" : {
-      "enum" : [ "yes", "no" ]
+      "enum" : [ true, false ]
     },
     "color_type" : {
       "type" : "string"
@@ -183,7 +183,7 @@
     "modified_attraction" : {
       "properties" : {
         "value" : {
-          "$ref" : "../core.yml#/definitions/int"
+          "type" : "integer"
         },
         "modifier" : {
           "$ref" : "#/definitions/modifier"

@@ -10,19 +10,21 @@ import com.intellij.psi.PsiListLikeElement;
 public class StellarisScriptVisitor extends PsiElementVisitor {
 
   public void visitBlock(@NotNull StellarisScriptBlock o) {
-    visitPsiListLikeElement(o);
+    visitValue(o);
+    // visitPsiListLikeElement(o);
   }
 
   public void visitBoolean(@NotNull StellarisScriptBoolean o) {
-    visitPsiLiteralValue(o);
+    visitValue(o);
+    // visitPsiLiteralValue(o);
   }
 
   public void visitCode(@NotNull StellarisScriptCode o) {
-    visitPsiLiteralValue(o);
+    visitStringValue(o);
   }
 
   public void visitColor(@NotNull StellarisScriptColor o) {
-    visitPsiLiteralValue(o);
+    visitStringValue(o);
   }
 
   public void visitItem(@NotNull StellarisScriptItem o) {
@@ -30,7 +32,8 @@ public class StellarisScriptVisitor extends PsiElementVisitor {
   }
 
   public void visitNumber(@NotNull StellarisScriptNumber o) {
-    visitPsiLiteralValue(o);
+    visitValue(o);
+    // visitPsiLiteralValue(o);
   }
 
   public void visitProperty(@NotNull StellarisScriptProperty o) {
@@ -50,7 +53,16 @@ public class StellarisScriptVisitor extends PsiElementVisitor {
   }
 
   public void visitString(@NotNull StellarisScriptString o) {
-    visitPsiLiteralValue(o);
+    visitStringValue(o);
+  }
+
+  public void visitStringValue(@NotNull StellarisScriptStringValue o) {
+    visitValue(o);
+    // visitPsiLiteralValue(o);
+  }
+
+  public void visitValue(@NotNull StellarisScriptValue o) {
+    visitPsiElement(o);
   }
 
   public void visitVariableDefinition(@NotNull StellarisScriptVariableDefinition o) {
@@ -70,15 +82,7 @@ public class StellarisScriptVisitor extends PsiElementVisitor {
   }
 
   public void visitVariableValue(@NotNull StellarisScriptVariableValue o) {
-    visitPsiLiteralValue(o);
-  }
-
-  public void visitPsiListLikeElement(@NotNull PsiListLikeElement o) {
-    visitElement(o);
-  }
-
-  public void visitPsiLiteralValue(@NotNull PsiLiteralValue o) {
-    visitElement(o);
+    visitPsiElement(o);
   }
 
   public void visitNamedElement(@NotNull StellarisScriptNamedElement o) {

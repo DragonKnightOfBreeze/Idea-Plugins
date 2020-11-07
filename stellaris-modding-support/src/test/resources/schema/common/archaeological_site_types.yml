@@ -8,9 +8,9 @@ definitions:
       picture:
         $ref: "../core.yml#/definitions/gfx_reference"
       stages:
-        $ref: "../core.yml#/definitions/int"
+        type: integer
       max_instance:
-        $ref: "../core.yml#/definitions/int"
+        type: integer
       weight:
         $ref: "../core.yml#/definitions/weight_modifier"
       potential:

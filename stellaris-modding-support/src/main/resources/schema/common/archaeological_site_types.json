@@ -4,38 +4,38 @@
       "type" : "object",
       "properties" : {
         "desc" : {
-          "$ref" : "../core.yml#/definitions/desc"
+          "$ref" : "../core.json#/definitions/desc"
         },
         "picture" : {
-          "$ref" : "../core.yml#/definitions/gfx_reference"
+          "$ref" : "../core.json#/definitions/gfx_reference"
         },
         "stages" : {
-          "$ref" : "../core.yml#/definitions/int"
+          "type" : "integer"
         },
         "max_instance" : {
-          "$ref" : "../core.yml#/definitions/int"
+          "type" : "integer"
         },
         "weight" : {
-          "$ref" : "../core.yml#/definitions/weight_modifier"
+          "$ref" : "../core.json#/definitions/weight_modifier"
         },
         "potential" : {
-          "$ref" : "../core.yml#/definitions/triggers"
+          "$ref" : "../core.json#/definitions/triggers"
         },
         "allow" : {
-          "$ref" : "../core.yml#/definitions/triggers"
+          "$ref" : "../core.json#/definitions/triggers"
         },
         "visible" : {
-          "$ref" : "../core.yml#/definitions/triggers"
+          "$ref" : "../core.json#/definitions/triggers"
         },
         "on_visible" : {
-          "$ref" : "../core.yml#/definitions/effects"
+          "$ref" : "../core.json#/definitions/effects"
         },
         "state" : {
           "$ref" : "#/definitions/state",
           "multiple" : true
         },
         "on_roll_failed" : {
-          "$ref" : "../core.yml#/definitions/effects"
+          "$ref" : "../core.json#/definitions/effects"
         }
       }
     },
@@ -43,13 +43,13 @@
       "type" : "object",
       "properties" : {
         "difficulty" : {
-          "$ref" : "../core.yml#/definitions/difficulty"
+          "$ref" : "../core.json#/definitions/difficulty"
         },
         "icon" : {
-          "$ref" : "../core.yml#/definitions/gfx_reference"
+          "$ref" : "../core.json#/definitions/gfx_reference"
         },
         "event" : {
-          "$ref" : "../core.yml#/definitions/event"
+          "$ref" : "../core.json#/definitions/event"
         }
       }
     }

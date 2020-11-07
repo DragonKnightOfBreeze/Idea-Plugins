@@ -1,6 +1,6 @@
 @file:Suppress("NAME_SHADOWING", "UNUSED_PARAMETER", "MapGetWithNotNullAssertionOperator")
 
-package com.windea.plugin.idea.stellaris.script.schema
+package com.windea.plugin.idea.stellaris.schema
 
 import com.intellij.codeInsight.*
 import com.intellij.codeInsight.completion.*

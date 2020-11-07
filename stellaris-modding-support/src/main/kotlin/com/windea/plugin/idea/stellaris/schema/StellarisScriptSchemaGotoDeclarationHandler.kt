@@ -1,4 +1,4 @@
-package com.windea.plugin.idea.stellaris.script.schema
+package com.windea.plugin.idea.stellaris.schema
 
 import com.intellij.codeInsight.navigation.actions.*
 import com.intellij.json.pointer.*
@@ -27,7 +27,7 @@ class StellarisScriptSchemaGotoDeclarationHandler:GotoDeclarationHandler {
 		val file = sourceElement.containingFile?:return null
 		val service = JsonSchemaService.Impl.get(sourceElement.project)
 		if(service.isApplicableToFile(file.virtualFile)){
-			val steps = StellarisScriptJsonLikePsiWalker.findPosition(sourceElement,true)?:return null
+			val steps = StellarisScriptJsonLikePsiWalker.findPosition(sourceElement, true) ?: return null
 			val schemaObject = service.getSchemaObject(file)?:return null
 			val target = JsonSchemaResolver(sourceElement.project,schemaObject,steps).findNavigationTarget(sourceElement)?:return null
 			return arrayOf(target)

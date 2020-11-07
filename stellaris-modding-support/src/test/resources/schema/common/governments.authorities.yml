@@ -6,31 +6,31 @@ definitions:
       icon:
         $ref: "../core.yml#/definitions/game_path"
       election_term_years:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       election_type:
         $ref: "#/definitions/election_type"
       re_election_allowed:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       can_have_emergency_elections:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       emergency_election_cost:
-        $ref: "../core.yml#/definitions/int"
+        type: integer
       max_election_candidates:
-        $ref: "../core.yml#/definitions/int"
+        type: integer
       has_heir:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       has_agendas:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       uses_mandates:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       has_factions:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       can_reform:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       localization_postfix:
         $ref: "../core.yml#/definitions/loc_reference"
       valid_for_released_vassal:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       playable:
         $ref: "../core.yml#/definitions/triggers"
       possible:

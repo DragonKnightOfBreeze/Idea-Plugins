@@ -53,13 +53,15 @@
 
 root ::= ROOT_COMMENT * [root_item]
 private root_item ::= locale property_list *
+private property_list ::= END_OF_LINE_COMMENT | COMMENT | property
+
 locale ::= LOCALE_ID ":" {
   pin=1
   mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"
   implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
   methods=[getName setName getNameIdentifier getIcon getLocale getReference]
 }
-private property_list ::= END_OF_LINE_COMMENT | COMMENT | property
+
 property ::= property_key ":" [NUMBER] property_value {
   pin=1
 	mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"
@@ -75,10 +77,15 @@ property_value ::= LEFT_QUOTE rich_text * RIGHT_QUOTE{
 
 rich_text ::= property_reference | code | icon | serial_number | colorful_text | escape | string
 
-string ::= STRING_TOKEN
-escape ::= VALID_ESCAPE_TOKEN | INVALID_ESCAPE_TOKEN
+string ::= STRING_TOKEN{
+  extends=rich_text
+}
+escape ::= VALID_ESCAPE_TOKEN | INVALID_ESCAPE_TOKEN{
+  extends=rich_text
+}
 property_reference ::= PROPERTY_REFERENCE_START [property_reference_name] [PARAMETER_SEPARATOR [PROPERTY_REFERENCE_PARAMETER]] PROPERTY_REFERENCE_END {
   pin=1
+  extends=rich_text
   mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"
   implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
   methods=[getName setName getNameIdentifier getTextOffset getReference]
@@ -86,6 +93,7 @@ property_reference ::= PROPERTY_REFERENCE_START [property_reference_name] [PARAM
 private property_reference_name ::= code | PROPERTY_REFERENCE_ID
 icon ::= ICON_START icon_name [PARAMETER_SEPARATOR [ICON_PARAMETER]] ICON_END {
   pin=1
+  extends=rich_text
   mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"
   implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
   methods=[getName setName getNameIdentifier getTextOffset  getReference]
@@ -93,16 +101,20 @@ icon ::= ICON_START icon_name [PARAMETER_SEPARATOR [ICON_PARAMETER]] ICON_END {
 private icon_name ::= code | property_reference | ICON_ID
 serial_number ::= SERIAL_NUMBER_START SERIAL_NUMBER_ID SERIAL_NUMBER_END {
   pin=1
+  extends=rich_text
   mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"
   implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
   methods=[getName setName getNameIdentifier getTextOffset getSerialNumber getReference]
 }
 code ::= CODE_START code_text? CODE_END{
   pin=1
+  extends=rich_text
+  implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationRichText"
 }
 private code_text ::= CODE_TEXT_TOKEN
 colorful_text ::= COLORFUL_TEXT_START COLOR_CODE rich_text* [COLORFUL_TEXT_END]{
   pin=1
+  extends=rich_text
   mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"
   implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
   methods=[getName setName getNameIdentifier getTextOffset getColor getReference]

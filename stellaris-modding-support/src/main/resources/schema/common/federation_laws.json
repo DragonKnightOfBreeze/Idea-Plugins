@@ -4,22 +4,22 @@
       "type" : "object",
       "properties" : {
         "display_level" : {
-          "$ref" : "../core.yml#/definitions/int"
+          "type" : "integer"
         },
         "unlocks_centralization" : {
-          "$ref" : "../core.yml#/definitions/int"
+          "type" : "integer"
         },
         "cohesion_growth" : {
-          "$ref" : "../core.yml#/definitions/int"
+          "type" : "integer"
         },
         "allow" : {
-          "$ref" : "../core.yml#/definitions/effects"
+          "$ref" : "../core.json#/definitions/effects"
         },
         "on_enact" : {
-          "$ref" : "../core.yml#/definitions/effects"
+          "$ref" : "../core.json#/definitions/effects"
         },
         "ai_weight" : {
-          "$ref" : "../core.yml#/definitions/weight_modifier"
+          "$ref" : "../core.json#/definitions/weight_modifier"
         }
       }
     }

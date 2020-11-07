@@ -8,7 +8,7 @@ definitions:
       icon:
         $ref: "../core.yml#/definitions/gfx_reference"
       icon_frame:
-        $ref: "../core.yml#/definitions/int"
+        type: integer
 
 type: object
 additionalProperties:

@@ -8,7 +8,7 @@ definitions:
       description:
         $ref: "../core.yml#/definitions/loc_reference"
       modification:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       playable:
         $ref: "../core.yml#/definitions/triggers"
       potential:
@@ -38,19 +38,19 @@ definitions:
             multiple: true
       # for origins
       is_origin:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       picture:
         $ref: "../core.yml#/definitions/gfx_reference"
       max_once_global:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       advanced_start:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       starting_colony:
         $type: plant_class
       habitability_preference:
         $type: plant_class
       preferred_planet_class_neighbor:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       flags:
         type: array
         items:

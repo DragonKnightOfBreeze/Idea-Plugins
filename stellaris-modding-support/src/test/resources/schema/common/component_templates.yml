@@ -12,60 +12,60 @@ definitions:
       icon:
         $ref: "../core.yml#/definitions/gfx_reference"
       icon_frame:
-        $ref: "../core.yml#/definitions/int"
+        type: integer
       color:
         $ref: "../core.yml#/definitions/color"
       prio_projectile:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       hidden:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       firing_arc:
-        $ref: "../core.yml#/definitions/float"
+        type: number
       min_range:
-        $ref: "../core.yml#/definitions/float"
+        type: number
       power:
-        $ref: "../core.yml#/definitions/int"
+        type: integer
       count:
-        $ref: "../core.yml#/definitions/int"
+        type: integer
       regeneration_per_day:
-        $ref: "../core.yml#/definitions/float"
+        type: number
       launch_time:
-        $ref: "../core.yml#/definitions/float"
+        type: number
       damage:
-        $ref: "../core.yml#/definitions/int"
+        type: integer
       cooldown:
-        $ref: "../core.yml#/definitions/int"
+        type: integer
       range:
-        $ref: "../core.yml#/definitions/int"
+        type: integer
       engagement_range:
-        $ref: "../core.yml#/definitions/int"
+        type: integer
       accuracy:
-        $ref: "../core.yml#/definitions/float"
+        type: number
       tracking:
-        $ref: "../core.yml#/definitions/float"
+        type: number
 
       health:
-        $ref: "../core.yml#/definitions/int"
+        type: integer
       armor:
-        $ref: "../core.yml#/definitions/int"
+        type: integer
       shield:
-        $ref: "../core.yml#/definitions/int"
+        type: integer
       evasion:
-        $ref: "../core.yml#/definitions/float"
+        type: number
 
       speed:
-        $ref: "../core.yml#/definitions/int"
+        type: integer
       rotation_speed:
-        $ref: "../core.yml#/definitions/float"
+        type: number
       acceleration:
-        $ref: "../core.yml#/definitions/float"
+        type: number
 
       shield_damage:
-        $ref: "../core.yml#/definitions/float"
+        type: number
       shield_penetration:
-        $ref: "../core.yml#/definitions/float"
+        type: number
       armor_penetration:
-        $ref: "../core.yml#/definitions/float"
+        type: number
 
       ship_behavior:
         $type: ship_behavior

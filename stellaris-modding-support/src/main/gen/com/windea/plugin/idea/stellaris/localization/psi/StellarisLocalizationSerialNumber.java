@@ -7,7 +7,7 @@ import com.intellij.psi.PsiElement;
 import com.windea.plugin.idea.stellaris.StellarisSerialNumber;
 import com.windea.plugin.idea.stellaris.localization.reference.StellarisLocalizationSerialNumberPsiReference;
 
-public interface StellarisLocalizationSerialNumber extends StellarisLocalizationNamedElement {
+public interface StellarisLocalizationSerialNumber extends StellarisLocalizationRichText, StellarisLocalizationNamedElement {
 
   @Nullable
   PsiElement getSerialNumberId();

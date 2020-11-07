@@ -4,91 +4,91 @@
       "type" : "object",
       "properties" : {
         "has_difficulty_bonuses" : {
-          "$ref" : "../core.yml#/definitions/boolean"
+          "type" : "boolean"
         },
         "counts_for_victory" : {
-          "$ref" : "../core.yml#/definitions/boolean"
+          "type" : "boolean"
         },
         "pop_growth" : {
-          "$ref" : "../core.yml#/definitions/boolean"
+          "type" : "boolean"
         },
         "playable" : {
-          "$ref" : "../core.yml#/definitions/boolean"
+          "type" : "boolean"
         },
         "has_pulse_events" : {
-          "$ref" : "../core.yml#/definitions/boolean"
+          "type" : "boolean"
         },
         "piracy_risk" : {
-          "$ref" : "../core.yml#/definitions/boolean"
+          "type" : "boolean"
         },
         "randomize_ethos" : {
-          "$ref" : "../core.yml#/definitions/boolean"
+          "type" : "boolean"
         },
         "shuffle_pop_ethos" : {
-          "$ref" : "../core.yml#/definitions/boolean"
+          "type" : "boolean"
         },
         "needs_survey" : {
-          "$ref" : "../core.yml#/definitions/boolean"
+          "type" : "boolean"
         },
         "diplomatic_wars" : {
-          "$ref" : "../core.yml#/definitions/boolean"
+          "type" : "boolean"
         },
         "ship_disengagement" : {
-          "$ref" : "../core.yml#/definitions/boolean"
+          "type" : "boolean"
         },
         "army_disengagement" : {
-          "$ref" : "../core.yml#/definitions/boolean"
+          "type" : "boolean"
         },
         "relations" : {
-          "$ref" : "../core.yml#/definitions/boolean"
+          "type" : "boolean"
         },
         "observable" : {
-          "$ref" : "../core.yml#/definitions/boolean"
+          "type" : "boolean"
         },
         "can_use_invalid_technology" : {
-          "$ref" : "../core.yml#/definitions/boolean"
+          "type" : "boolean"
         },
         "can_receive_envoys" : {
-          "$ref" : "../core.yml#/definitions/boolean"
+          "type" : "boolean"
         },
         "ai" : {
           "type" : "object",
           "properties" : {
             "enabled" : {
-              "$ref" : "../core.yml#/definitions/boolean"
+              "type" : "boolean"
             },
             "declare_war" : {
-              "$ref" : "../core.yml#/definitions/boolean"
+              "type" : "boolean"
             },
             "min_navy_for_wars" : {
-              "$ref" : "../core.yml#/definitions/float"
+              "type" : "number"
             },
             "min_assault_armies_for_wars" : {
-              "$ref" : "../core.yml#/definitions/int"
+              "type" : "integer"
             },
             "colonizer" : {
-              "$ref" : "../core.yml#/definitions/boolean"
+              "type" : "boolean"
             },
             "internal_policies" : {
-              "$ref" : "../core.yml#/definitions/boolean"
+              "type" : "boolean"
             },
             "modification" : {
-              "$ref" : "../core.yml#/definitions/boolean"
+              "type" : "boolean"
             },
             "government" : {
-              "$ref" : "../core.yml#/definitions/boolean"
+              "type" : "boolean"
             },
             "tarditions" : {
-              "$ref" : "../core.yml#/definitions/boolean"
+              "type" : "boolean"
             },
             "construction" : {
-              "$ref" : "../core.yml#/definitions/boolean"
+              "type" : "boolean"
             },
             "follow" : {
-              "$ref" : "../core.yml#/definitions/boolean"
+              "type" : "boolean"
             },
             "can_use_market" : {
-              "$ref" : "../core.yml#/definitions/boolean"
+              "type" : "boolean"
             },
             "modules" : {
               "type" : "array",
@@ -117,7 +117,7 @@
           }
         },
         "trade_route_available" : {
-          "$ref" : "../core.yml#/definitions/triggers"
+          "$ref" : "../core.json#/definitions/triggers"
         },
         "modules" : {
           "type" : "object",
@@ -126,21 +126,21 @@
           }
         },
         "resources" : {
-          "$ref" : "../core.yml#/definitions/economy_unit"
+          "$ref" : "../core.json#/definitions/economy_unit"
         },
         "branch_office_resources" : {
-          "$ref" : "../core.yml#/definitions/economy_unit"
+          "$ref" : "../core.json#/definitions/economy_unit"
         }
       }
     },
     "ship_data" : {
       "anyOf" : [ {
-        "$ref" : "../core.yml#/definitions/uint_range"
+        "$ref" : "../core.json#/definitions/uint_range"
       }, {
         "type" : "object",
         "properties" : {
           "fraction" : {
-            "$ref" : "../core.yml#/definitions/modifier_chance"
+            "$ref" : "../core.json#/definitions/modifier_chance"
           }
         }
       } ]

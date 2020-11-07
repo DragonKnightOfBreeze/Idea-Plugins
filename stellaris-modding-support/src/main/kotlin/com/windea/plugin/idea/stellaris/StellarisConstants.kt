@@ -36,7 +36,6 @@ const val commentFolder = "#..."
 const val blockFolder = "{...}"
 const val defaultFolder = "<folder>"
 
-//0xef 0xbb 0xbf
 val utf8Bom = byteArrayOf(0xef.toByte(), 0xbb.toByte(), 0xbf.toByte())
 
 const val stellarisBundleName = "messages.StellarisBundle"

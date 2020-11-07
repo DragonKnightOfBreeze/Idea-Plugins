@@ -14,10 +14,10 @@ definitions:
         $ref: "../core.yml#/definitions/loc_reference"
         optional: true
       selectable:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
         optional: true
       show_name:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
 
 type: object
 additionalProperties:

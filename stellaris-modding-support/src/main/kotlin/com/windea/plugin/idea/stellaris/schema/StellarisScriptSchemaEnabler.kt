@@ -1,4 +1,4 @@
-package com.windea.plugin.idea.stellaris.script.schema
+package com.windea.plugin.idea.stellaris.schema
 
 import com.intellij.ide.scratch.*
 import com.intellij.openapi.fileTypes.*

@@ -7,25 +7,4 @@ import com.intellij.psi.PsiElement;
 
 public interface StellarisLocalizationRichText extends PsiElement {
 
-  @Nullable
-  StellarisLocalizationCode getCode();
-
-  @Nullable
-  StellarisLocalizationColorfulText getColorfulText();
-
-  @Nullable
-  StellarisLocalizationEscape getEscape();
-
-  @Nullable
-  StellarisLocalizationIcon getIcon();
-
-  @Nullable
-  StellarisLocalizationPropertyReference getPropertyReference();
-
-  @Nullable
-  StellarisLocalizationSerialNumber getSerialNumber();
-
-  @Nullable
-  StellarisLocalizationString getString();
-
 }

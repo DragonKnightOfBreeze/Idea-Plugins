@@ -4,26 +4,26 @@
       "type" : "object",
       "properties" : {
         "size" : {
-          "$ref" : "../core.yml#/definitions/component_size"
+          "$ref" : "../core.json#/definitions/component_size"
         },
         "component" : {
-          "$ref" : "../core.yml#/definitions/component_type"
+          "$ref" : "../core.json#/definitions/component_type"
         },
         "is_fixed" : {
-          "$ref" : "../core.yml#/definitions/boolean",
+          "type" : "boolean",
           "optional" : true
         },
         "entities" : {
           "type" : "object",
           "properties" : {
             "weapon_type_kinetic" : {
-              "$ref" : "../core.yml#/definitions/entity"
+              "$ref" : "../core.json#/definitions/entity"
             },
             "weapon_type_energy" : {
-              "$ref" : "../core.yml#/definitions/entity"
+              "$ref" : "../core.json#/definitions/entity"
             },
             "weapon_type_explosive" : {
-              "$ref" : "../core.yml#/definitions/entity"
+              "$ref" : "../core.json#/definitions/entity"
             }
           }
         }

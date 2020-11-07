@@ -47,7 +47,7 @@ object StellarisScriptElementFactory {
 	}
 
 	@JvmStatic
-	fun createColor(project:Project,value:String):StellarisScriptColor{
-		return createItem(project,value).color!!
+	fun createValue(project:Project,value:String):StellarisScriptValue{
+		return createItem(project,value).value
 	}
 }

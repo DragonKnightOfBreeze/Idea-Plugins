@@ -4,10 +4,10 @@
       "type" : "object",
       "properties" : {
         "icon" : {
-          "$ref" : "../core.yml#/definitions/game_path"
+          "$ref" : "../core.json#/definitions/game_path"
         },
         "picture" : {
-          "$ref" : "../core.yml#/definitions/gfx_reference"
+          "$ref" : "../core.json#/definitions/gfx_reference"
         },
         "counter" : {
           "type" : "object",
@@ -16,7 +16,7 @@
           },
           "additionalProperties" : {
             "max" : {
-              "$ref" : "../core.yml#/definitions/int"
+              "type" : "integer"
             }
           }
         }

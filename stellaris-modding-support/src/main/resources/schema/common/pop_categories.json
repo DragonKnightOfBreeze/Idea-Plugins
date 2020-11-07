@@ -4,50 +4,50 @@
       "type" : "object",
       "properties" : {
         "rank" : {
-          "$ref" : "../core.yml#/definitions/int"
+          "type" : "integer"
         },
         "clothes_texture_index" : {
-          "$ref" : "../core.yml#/definitions/int"
+          "type" : "integer"
         },
         "change_job_threshold" : {
-          "$ref" : "../core.yml#/definitions/float"
+          "type" : "number"
         },
         "keep_from_former_job" : {
-          "$ref" : "../core.yml#/definitions/boolean"
+          "type" : "boolean"
         },
         "demotion_time" : {
-          "$ref" : "../core.yml#/definitions/int"
+          "type" : "integer"
         },
         "should_apply_unemployment_penalties" : {
-          "$ref" : "../core.yml#/definitions/triggers"
+          "$ref" : "../core.json#/definitions/triggers"
         },
         "unemployment_penalties" : {
-          "$ref" : "../core.yml#/definitions/modifiers"
+          "$ref" : "../core.json#/definitions/modifiers"
         },
         "unemployment_resources" : {
-          "$ref" : "../core.yml#/definitions/economy_unit"
+          "$ref" : "../core.json#/definitions/economy_unit"
         },
         "triggered_pop_modifier" : {
-          "$ref" : "../core.yml#/definitions/modifiers"
+          "$ref" : "../core.json#/definitions/modifiers"
         },
         "weight" : {
-          "$ref" : "../core.yml#/definitions/weight_modifier"
+          "$ref" : "../core.json#/definitions/weight_modifier"
         },
         "pop_modifier" : {
-          "$ref" : "../core.yml#/definitions/modifiers"
+          "$ref" : "../core.json#/definitions/modifiers"
         },
         "allow_resettlement" : {
-          "$ref" : "../core.yml#/definitions/triggers"
+          "$ref" : "../core.json#/definitions/triggers"
         },
         "resettlement_cost" : {
-          "$ref" : "../core.yml#/definitions/resources_item"
+          "$ref" : "../core.json#/definitions/resources_item"
         },
         "triggered_planet_modifier" : {
-          "$ref" : "../core.yml#/definitions/modifiers",
+          "$ref" : "../core.json#/definitions/modifiers",
           "multiple" : true
         },
         "resources" : {
-          "$ref" : "../core.yml#/definitions/economy_unit"
+          "$ref" : "../core.json#/definitions/economy_unit"
         }
       }
     }

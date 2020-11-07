@@ -6,7 +6,7 @@ import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 import com.windea.plugin.idea.stellaris.localization.reference.StellarisLocalizationPropertyPsiReference;
 
-public interface StellarisLocalizationPropertyReference extends StellarisLocalizationNamedElement {
+public interface StellarisLocalizationPropertyReference extends StellarisLocalizationRichText, StellarisLocalizationNamedElement {
 
   @Nullable
   StellarisLocalizationCode getCode();

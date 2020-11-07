@@ -14,7 +14,7 @@ definitions:
           type: object
           properties:
             experience:
-              $ref: "../core.yml#/definitions/int"
+              type: integer
             perks:
               type: array
               items:

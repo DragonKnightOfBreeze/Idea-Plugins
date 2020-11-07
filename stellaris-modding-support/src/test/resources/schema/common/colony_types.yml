@@ -4,7 +4,7 @@ definitions:
     type: object
     properties:
       icon:
-        $ref: "../core.yml#/definitions/int"
+        type: integer
       potential:
         $ref: "../core.yml#/definitions/triggers"
       plant_modifier:

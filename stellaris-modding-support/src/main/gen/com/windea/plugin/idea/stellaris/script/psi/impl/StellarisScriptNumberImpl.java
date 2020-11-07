@@ -8,10 +8,9 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
 import static com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*;
-import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.windea.plugin.idea.stellaris.script.psi.*;
 
-public class StellarisScriptNumberImpl extends ASTWrapperPsiElement implements StellarisScriptNumber {
+public class StellarisScriptNumberImpl extends StellarisScriptValueImpl implements StellarisScriptNumber {
 
   public StellarisScriptNumberImpl(@NotNull ASTNode node) {
     super(node);

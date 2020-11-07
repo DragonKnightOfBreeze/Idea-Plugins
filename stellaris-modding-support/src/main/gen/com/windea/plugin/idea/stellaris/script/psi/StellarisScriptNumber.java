@@ -6,7 +6,7 @@ import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiLiteralValue;
 
-public interface StellarisScriptNumber extends PsiLiteralValue {
+public interface StellarisScriptNumber extends StellarisScriptValue, PsiLiteralValue {
 
   @NotNull
   PsiElement getNumberToken();

@@ -1,4 +1,4 @@
-package com.windea.plugin.idea.stellaris.script.schema
+package com.windea.plugin.idea.stellaris.schema
 
 import com.intellij.psi.*
 import com.jetbrains.jsonSchema.extension.*

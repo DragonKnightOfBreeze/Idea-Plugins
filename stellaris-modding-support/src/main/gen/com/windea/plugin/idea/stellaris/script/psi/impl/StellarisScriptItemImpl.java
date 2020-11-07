@@ -10,8 +10,6 @@ import com.intellij.psi.util.PsiTreeUtil;
 import static com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.windea.plugin.idea.stellaris.script.psi.*;
-import com.intellij.openapi.util.Iconable.IconFlags;
-import javax.swing.Icon;
 
 public class StellarisScriptItemImpl extends ASTWrapperPsiElement implements StellarisScriptItem {
 
@@ -29,39 +27,9 @@ public class StellarisScriptItemImpl extends ASTWrapperPsiElement implements Ste
   }
 
   @Override
-  @Nullable
-  public StellarisScriptBlock getBlock() {
-    return findChildByClass(StellarisScriptBlock.class);
-  }
-
-  @Override
-  @Nullable
-  public StellarisScriptBoolean getBoolean() {
-    return findChildByClass(StellarisScriptBoolean.class);
-  }
-
-  @Override
-  @Nullable
-  public StellarisScriptColor getColor() {
-    return findChildByClass(StellarisScriptColor.class);
-  }
-
-  @Override
-  @Nullable
-  public StellarisScriptNumber getNumber() {
-    return findChildByClass(StellarisScriptNumber.class);
-  }
-
-  @Override
-  @Nullable
-  public StellarisScriptString getString() {
-    return findChildByClass(StellarisScriptString.class);
-  }
-
-  @Override
-  @Nullable
-  public Icon getIcon(@IconFlags int flags) {
-    return StellarisScriptPsiImplUtil.getIcon(this, flags);
+  @NotNull
+  public StellarisScriptValue getValue() {
+    return findNotNullChildByClass(StellarisScriptValue.class);
   }
 
 }

@@ -4,11 +4,11 @@ definitions:
     type: object
     properties:
       is_null:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       time:
-        $ref: "../core.yml#/definitions/int"
+        type: integer
       is_for_colonizeable:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       category:
         $type: deposit_category
       resources:

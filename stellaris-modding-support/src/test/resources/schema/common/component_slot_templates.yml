@@ -8,7 +8,7 @@ definitions:
       component:
         $ref: "../core.yml#/definitions/component_type"
       is_fixed:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
         optional: true
       entities:
         type: object

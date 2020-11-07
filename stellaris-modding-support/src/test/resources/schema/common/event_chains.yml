@@ -13,7 +13,7 @@ definitions:
           $type: counter
         additionalProperties:
           max:
-            $ref: "../core.yml#/definitions/int"
+            type: integer
 
 type: object
 additionalProperties:

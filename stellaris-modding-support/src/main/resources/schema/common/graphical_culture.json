@@ -4,13 +4,13 @@
       "type" : "object",
       "properties" : {
         "randomized" : {
-          "$ref" : "../core.yml#/definitions/triggers"
+          "$ref" : "../core.json#/definitions/triggers"
         },
         "selectable" : {
-          "$ref" : "../core.yml#/definitions/triggers"
+          "$ref" : "../core.json#/definitions/triggers"
         },
         "ship_color" : {
-          "$ref" : "../core.yml#/definitions/boolean"
+          "type" : "boolean"
         },
         "fallback" : {
           "$type" : "graphical_culture"
@@ -24,43 +24,43 @@
       "type" : "object",
       "properties" : {
         "cam_light_1_dir" : {
-          "$ref" : "../core.yml#/definitions/color"
+          "$ref" : "../core.json#/definitions/color"
         },
         "cam_light_2_dir" : {
-          "$ref" : "../core.yml#/definitions/color"
+          "$ref" : "../core.json#/definitions/color"
         },
         "cam_light_3_dir" : {
-          "$ref" : "../core.yml#/definitions/color"
+          "$ref" : "../core.json#/definitions/color"
         },
         "intensity_near" : {
-          "$ref" : "../core.yml#/definitions/float"
+          "type" : "number"
         },
         "intensity_far" : {
-          "$ref" : "../core.yml#/definitions/float"
+          "type" : "number"
         },
         "near_value" : {
-          "$ref" : "../core.yml#/definitions/int"
+          "type" : "integer"
         },
         "far_value" : {
-          "$ref" : "../core.yml#/definitions/int"
+          "type" : "integer"
         },
         "rim_start_near" : {
-          "$ref" : "../core.yml#/definitions/float"
+          "type" : "number"
         },
         "rim_stop_near" : {
-          "$ref" : "../core.yml#/definitions/float"
+          "type" : "number"
         },
         "rim_start_far" : {
-          "$ref" : "../core.yml#/definitions/float"
+          "type" : "number"
         },
         "rim_stop_far" : {
-          "$ref" : "../core.yml#/definitions/float"
+          "type" : "number"
         },
         "ambient_near" : {
-          "$ref" : "../core.yml#/definitions/float"
+          "type" : "number"
         },
         "ambient_far" : {
-          "$ref" : "../core.yml#/definitions/float"
+          "type" : "number"
         }
       }
     }

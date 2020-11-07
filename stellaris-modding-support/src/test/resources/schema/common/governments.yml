@@ -12,11 +12,11 @@ definitions:
       heir_title_female:
         $ref: "../core.yml#/definitions/loc_reference"
       use_regnal_names:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       dynastic_last_names:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       should_force_rename:
-        $ref: "../core.yml#/definitions/boolean"
+        type: boolean
       leader_class:
         $type: leader_class
       election_candidates:
