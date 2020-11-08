@@ -209,6 +209,9 @@
       language="Stellaris Localization"
       implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationAnnotator"/>
 
+    <additionalTextAttributes scheme="Default" file="colorSchemes/StellarisScriptDefault.xml"/>
+    <additionalTextAttributes scheme="Darcula" file="colorSchemes/StellarisScriptDarcula.xml"/>
+
     <intentionAction>
       <className>com.windea.plugin.idea.stellaris.localization.intentions.ChangeLocaleIntention</className>
       <category>Stellaris localization</category>
@@ -327,29 +330,26 @@
       implementationClass="com.windea.plugin.idea.stellaris.script.inspections.InvalidFileEncodingInspection"/>
     <!--endregion-->
 
-    <!--&lt;!&ndash;region Stellaris Script Schema&ndash;&gt;-->
-    <!--<json.jsonSchemaEnabler-->
-    <!--  implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaEnabler"/>-->
-    <!--<completion.contributor-->
-    <!--  language="Stellaris Script"-->
-    <!--  implementationClass="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaCompletionContributor"/>-->
-    <!--<gotoDeclarationHandler-->
-    <!--  implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaGotoDeclarationHandler"/>-->
-    <!--<json.jsonLikePsiWalkerFactory-->
-    <!--  implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptJsonLikePsiWalkerFactory"/>-->
-    <!--&lt;!&ndash;<documentationProvider-->
-    <!--  implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaDocumentationProvider"/>&ndash;&gt;-->
+    <!--region Stellaris Script Schema-->
+    <json.jsonSchemaEnabler
+      implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaEnabler"/>
+    <completion.contributor
+      language="Stellaris Script"
+      implementationClass="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaCompletionContributor"/>
+    <gotoDeclarationHandler
+      implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaGotoDeclarationHandler"/>
+    <json.jsonLikePsiWalkerFactory
+      implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptJsonLikePsiWalkerFactory"/>
+    <!--<documentationProvider
+      implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaDocumentationProvider"/>-->
 
-    <!--<additionalTextAttributes scheme="Default" file="colorSchemes/StellarisScriptDefault.xml"/>-->
-    <!--<additionalTextAttributes scheme="Darcula" file="colorSchemes/StellarisScriptDarcula.xml"/>-->
-
-    <!--<localInspection-->
-    <!--  language="Stellaris Script"-->
-    <!--  shortName="StellarisScriptSchemaValidation" bundle="messages.StellarisBundle"-->
-    <!--  groupKey="stellaris.script.inspection" key="stellaris.script.inspection.schemaValidation"-->
-    <!--  enabledByDefault="true" level="ERROR"-->
-    <!--  implementationClass="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaInspectionTool"/>-->
-    <!--&lt;!&ndash;endregion&ndash;&gt;-->
+    <localInspection
+      language="Stellaris Script"
+      shortName="StellarisScriptSchemaValidation" bundle="messages.StellarisBundle"
+      groupKey="stellaris.script.inspection" key="stellaris.script.inspection.schemaValidation"
+      enabledByDefault="true" level="ERROR"
+      implementationClass="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaInspectionTool"/>
+    <!--endregion-->
   </extensions>
 
   <extensions defaultExtensionNs="JavaScript">
