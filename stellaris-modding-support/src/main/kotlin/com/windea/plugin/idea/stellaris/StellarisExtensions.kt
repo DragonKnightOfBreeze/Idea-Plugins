@@ -227,9 +227,9 @@ fun findFurthestSiblingOfSameType(element: PsiElement, findAfter: Boolean, stopO
 	while(node != null) {
 		val elementType = node.elementType
 		when {
-			elementType === expectedType -> lastSeen = node
-			elementType === TokenType.WHITE_SPACE -> {
-				if(stopOnBlankLine && element.text.containsBlankLine()) break
+			elementType == expectedType -> lastSeen = node
+			elementType == TokenType.WHITE_SPACE -> {
+				if(stopOnBlankLine && node.text.containsBlankLine()) break
 			}
 			else -> break
 		}
