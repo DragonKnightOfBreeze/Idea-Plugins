@@ -55,9 +55,7 @@ class StellarisScriptBlock(
 	override fun getIndent(): Indent? {
 		return when{
 			//block中的直接子节点需要缩进
-			myNode.treeParent.elementType == BLOCK -> Indent.getNormalIndent()
-			//空白不需要缩进
-			myNode.elementType == WHITE_SPACE -> Indent.getNoneIndent()
+			myNode.treeParent?.elementType == BLOCK -> Indent.getNormalIndent()
 			else -> Indent.getNoneIndent()
 		}
 	}

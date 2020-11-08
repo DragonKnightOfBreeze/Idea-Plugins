@@ -134,7 +134,16 @@ inline fun <reified T : PsiElement> PsiElement.indexOfChild(element: T): Int {
 }
 
 
-/**得到当前Ast节点的所有子节点。*/
+/**当道当前AST节点或者之前的节点，直到类型不是whiteSpace位置。*/
+val ASTNode?.elementTypeOrPrevNotWhiteSpace:ASTNode? get() {
+	var current = this
+	while(current != null && current.elementType != TokenType.WHITE_SPACE){
+		current = current.treePrev
+	}
+	return	current
+}
+
+/**得到当前AST节点的所有子节点。*/
 fun ASTNode.nodes(): List<ASTNode> {
 	val result = mutableListOf<ASTNode>()
 	var child = this.firstChildNode

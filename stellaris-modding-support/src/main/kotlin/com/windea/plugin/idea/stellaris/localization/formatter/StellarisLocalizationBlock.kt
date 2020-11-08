@@ -58,13 +58,15 @@ class StellarisLocalizationBlock(
 	}
 
 	override fun getIndent(): Indent? {
-		return when(myNode.elementType) {
-			//空白不需要缩进
-			TokenType.WHITE_SPACE -> Indent.getNoneIndent()
-			//属性之前适用缩进
-			PROPERTY -> Indent.getNormalIndent()
-			//头部之后的注释之前适用缩进
-			COMMENT -> Indent.getNormalIndent()
+		val node = node.elementTypeOrPrevNotWhiteSpace
+		val elementType = node?.elementType
+		return when {
+			//语言区域之后要缩进
+			elementType == LOCALE -> Indent.getNormalIndent()
+			//属性之后要缩进
+			elementType == PROPERTY -> Indent.getNormalIndent()
+			//非头部、非行尾注释之后要缩进
+			elementType == COMMENT -> Indent.getNormalIndent()
 			else -> Indent.getNoneIndent()
 		}
 	}

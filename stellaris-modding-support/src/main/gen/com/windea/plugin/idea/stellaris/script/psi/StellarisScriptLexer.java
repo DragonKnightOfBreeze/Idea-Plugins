@@ -643,7 +643,7 @@ public class StellarisScriptLexer implements FlexLexer {
             // fall through
           case 37: break;
           case 7: 
-            { yybegin(WAITING_PROPERTY_KEY); return RIGHT_BRACE;
+            { yybegin(WAITING_PROPERTY_EOL); return RIGHT_BRACE;
             } 
             // fall through
           case 38: break;

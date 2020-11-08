@@ -55,8 +55,8 @@ IS_PROPERTY=(([a-zA-Z0-9.:$_-]+)|(\"([^\"(\r\n\\]|\\.)*?\"))[ \t]*[=><]
 %%
 
 <YYINITIAL> {
-  "}" {yybegin(WAITING_PROPERTY_KEY); return RIGHT_BRACE;}
-  "{" {yybegin(WAITING_PROPERTY_KEY); return LEFT_BRACE;}
+  "}" { yybegin(WAITING_PROPERTY_EOL); return RIGHT_BRACE;}
+  "{" { yybegin(WAITING_PROPERTY_KEY); return LEFT_BRACE;}
   "@\\[" {yybegin(WAITING_CODE); return CODE_START;} //这里的反斜线需要转义
   {WHITE_SPACE} { return WHITE_SPACE; } //继续解析
   {COMMENT} {return COMMENT; }
@@ -70,7 +70,7 @@ IS_PROPERTY=(([a-zA-Z0-9.:$_-]+)|(\"([^\"(\r\n\\]|\\.)*?\"))[ \t]*[=><]
   {QUOTED_STRING} {yybegin(WAITING_PROPERTY_EOL); return QUOTED_STRING_TOKEN;}
 }
 <WAITING_VARIABLE_EQUAL_SIGN> {
-  "}" {  yybegin(WAITING_PROPERTY_KEY); return RIGHT_BRACE;}
+  "}" {  yybegin(WAITING_PROPERTY_EOL); return RIGHT_BRACE;}
   "{" {  yybegin(WAITING_PROPERTY_KEY); return LEFT_BRACE;}
   "=" {yybegin(WAITING_VARIABLE_VALUE); return EQUAL_SIGN;}
   {EOL} { yybegin(YYINITIAL); return WHITE_SPACE; } //跳过非法字符
@@ -78,7 +78,7 @@ IS_PROPERTY=(([a-zA-Z0-9.:$_-]+)|(\"([^\"(\r\n\\]|\\.)*?\"))[ \t]*[=><]
   {END_OF_LINE_COMMENT} {  return END_OF_LINE_COMMENT; }
 }
 <WAITING_VARIABLE_VALUE> {
-  "}" {  yybegin(WAITING_PROPERTY_KEY); return RIGHT_BRACE;}
+  "}" {  yybegin(WAITING_PROPERTY_EOL); return RIGHT_BRACE;}
   "{" {  yybegin(WAITING_PROPERTY_KEY); return LEFT_BRACE;}
   {BOOLEAN} { yybegin(WAITING_VARIABLE_EOL); return BOOLEAN_TOKEN; }
   {NUMBER} {yybegin(WAITING_VARIABLE_EOL); return NUMBER_TOKEN; }
@@ -89,7 +89,7 @@ IS_PROPERTY=(([a-zA-Z0-9.:$_-]+)|(\"([^\"(\r\n\\]|\\.)*?\"))[ \t]*[=><]
   {END_OF_LINE_COMMENT} {  return END_OF_LINE_COMMENT; }
 }
 <WAITING_VARIABLE_EOL> {
-  "}" {  yybegin(WAITING_PROPERTY_KEY); return RIGHT_BRACE;}
+  "}" {  yybegin(WAITING_PROPERTY_EOL); return RIGHT_BRACE;}
   "{" {  yybegin(WAITING_PROPERTY_KEY); return LEFT_BRACE;}
   {EOL} { yybegin(YYINITIAL); return WHITE_SPACE; }
   {SPACE} { return WHITE_SPACE; } //继续解析
@@ -97,7 +97,7 @@ IS_PROPERTY=(([a-zA-Z0-9.:$_-]+)|(\"([^\"(\r\n\\]|\\.)*?\"))[ \t]*[=><]
 }
 
 <WAITING_PROPERTY>{
-  "}" {  yybegin(WAITING_PROPERTY_KEY); return RIGHT_BRACE;}
+  "}" {  yybegin(WAITING_PROPERTY_EOL); return RIGHT_BRACE;}
   "{" {  yybegin(WAITING_PROPERTY_KEY); return LEFT_BRACE;}
   {PROPERTY_KEY_ID} {yybegin(WATIING_PROPERTY_SEPARATOR); return PROPERTY_KEY_ID;}
   {QUOTED_PROPERTY_KEY_ID} {yybegin(WATIING_PROPERTY_SEPARATOR); return QUOTED_PROPERTY_KEY_ID;}
@@ -105,7 +105,7 @@ IS_PROPERTY=(([a-zA-Z0-9.:$_-]+)|(\"([^\"(\r\n\\]|\\.)*?\"))[ \t]*[=><]
   {COMMENT} {  return COMMENT; }
 }
 <WAITING_PROPERTY_KEY> {
-  "}" {  yybegin(WAITING_PROPERTY_KEY); return RIGHT_BRACE;}
+  "}" {  yybegin(WAITING_PROPERTY_EOL); return RIGHT_BRACE;}
   "{" {  yybegin(WAITING_PROPERTY_KEY); return LEFT_BRACE;}
   "@\\[" {yybegin(WAITING_CODE); return CODE_START;} //这里的反斜线需要转义
   {WHITE_SPACE} { return WHITE_SPACE; } //继续解析
@@ -118,7 +118,7 @@ IS_PROPERTY=(([a-zA-Z0-9.:$_-]+)|(\"([^\"(\r\n\\]|\\.)*?\"))[ \t]*[=><]
   {QUOTED_STRING} {yybegin(WAITING_PROPERTY_EOL); return QUOTED_STRING_TOKEN;}
 }
 <WATIING_PROPERTY_SEPARATOR> {
-  "}" {  yybegin(WAITING_PROPERTY_KEY); return RIGHT_BRACE;}
+  "}" {  yybegin(WAITING_PROPERTY_EOL); return RIGHT_BRACE;}
   "{" {  yybegin(WAITING_PROPERTY_KEY); return LEFT_BRACE;}
   "=" {yybegin(WAITING_PROPERTY_VALUE); return EQUAL_SIGN;}
   "<" {yybegin(WAITING_PROPERTY_VALUE); return LT_SIGN;}
@@ -130,7 +130,7 @@ IS_PROPERTY=(([a-zA-Z0-9.:$_-]+)|(\"([^\"(\r\n\\]|\\.)*?\"))[ \t]*[=><]
   {END_OF_LINE_COMMENT} {  return END_OF_LINE_COMMENT; }
 }
 <WAITING_PROPERTY_VALUE>{
-  "}" {  yybegin(WAITING_PROPERTY_KEY); return RIGHT_BRACE;}
+  "}" {  yybegin(WAITING_PROPERTY_EOL); return RIGHT_BRACE;}
   "{" {  yybegin(WAITING_PROPERTY_KEY); return LEFT_BRACE;}
   "@\\[" {yybegin(WAITING_CODE); return CODE_START;} //这里的反斜线需要转义
   {EOL} {  yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
@@ -144,7 +144,7 @@ IS_PROPERTY=(([a-zA-Z0-9.:$_-]+)|(\"([^\"(\r\n\\]|\\.)*?\"))[ \t]*[=><]
   {STRING} { yybegin(WAITING_PROPERTY_EOL); return STRING_TOKEN; }
 }
 <WAITING_PROPERTY_EOL> {
-  "}" {  yybegin(WAITING_PROPERTY_KEY); return RIGHT_BRACE;}
+  "}" {  yybegin(WAITING_PROPERTY_EOL); return RIGHT_BRACE;}
   "{" {  yybegin(WAITING_PROPERTY_KEY); return LEFT_BRACE;}
   {EOL} {  yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }
   {SPACE} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //只要有空白相间隔，就可以在写同一行
@@ -152,7 +152,7 @@ IS_PROPERTY=(([a-zA-Z0-9.:$_-]+)|(\"([^\"(\r\n\\]|\\.)*?\"))[ \t]*[=><]
 }
 
 <WAITING_CODE>{
-  "}" {  yybegin(WAITING_PROPERTY_KEY); return RIGHT_BRACE;}
+  "}" {  yybegin(WAITING_PROPERTY_EOL); return RIGHT_BRACE;}
   "{" {  yybegin(WAITING_PROPERTY_KEY); return LEFT_BRACE;}
   "]" {yybegin(WAITING_PROPERTY_EOL); return CODE_END; }
   {EOL} {  yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }

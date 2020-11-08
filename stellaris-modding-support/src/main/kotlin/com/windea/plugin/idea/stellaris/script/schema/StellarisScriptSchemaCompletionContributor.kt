@@ -19,7 +19,6 @@ import com.intellij.openapi.util.text.*
 import com.intellij.openapi.vfs.*
 import com.intellij.openapi.vfs.impl.http.*
 import com.intellij.psi.*
-import com.intellij.psi.codeStyle.*
 import com.intellij.psi.impl.source.tree.*
 import com.intellij.psi.injection.*
 import com.intellij.psi.util.*
@@ -50,18 +49,17 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 		var position = parameters.position
 		var prefix:String? = null
 		if(position is PsiWhiteSpace){
-			val prev = position.prevSibling
-			val next = position.nextSibling
-			val prevElementType = position.prevSibling.elementType
-			val nextElementType = position.nextSibling.elementType
 			when {
-				prevElementType == ROOT_BLOCK -> position = prev
-				nextElementType == ROOT_BLOCK -> position = next
-				prevElementType == STRING || prevElementType == NUMBER-> {
+				position.prevSibling.elementType == ROOT_BLOCK -> position = position.prevSibling
+				position.nextSibling.elementType == ROOT_BLOCK -> position = position.nextSibling
+			}
+			val prev = if(position.elementType == ROOT_BLOCK) position.lastChild else position.prevSibling
+			when{
+				prev.elementType == STRING || prev.elementType == NUMBER-> {
 					prefix = prev.text
 					position = prev
 				}
-				else -> position = prev.parent
+				prev.elementType == PROPERTY -> position = prev.parent
 			}
 		}
 		val resultWithPrefix = if(prefix == null) result else result.withPrefixMatcher(prefix)
@@ -376,7 +374,6 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 						// inserting longer string for proper formatting
 						val stringToInsert = "${SEPARATOR}1"
 						EditorModificationUtil.insertStringAtCaret(editor, stringToInsert, false, true, SEPARATOR_LENGTH)
-						formatInsertedString(context, stringToInsert.length)
 						offset = editor.caretModel.offset
 						context.document.deleteString(offset, offset + 1)
 					}
@@ -438,9 +435,6 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 								EditorActionUtil.moveCaretToLineEnd(editor, false, false)
 							}
 							PsiDocumentManager.getInstance(project).commitDocument(editor.document)
-							if(!hadEnter && stringToInsert != null) {
-								formatInsertedString(context, stringToInsert.length)
-							}
 							if(stringToInsert != null && !invokeEnter) {
 								invokeEnterHandler(editor)
 							}
@@ -450,7 +444,6 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 							stringToInsert = (if(insertSeparator) SEPARATOR else " ") + value
 							val model = editor.selectionModel
 							EditorModificationUtil.insertStringAtCaret(editor, stringToInsert, false, true, stringToInsert.length)
-							formatInsertedString(context, stringToInsert.length)
 							val start = editor.selectionModel.selectionStart
 							model.setSelection(start - value.length, start)
 							AutoPopupController.getInstance(context.project).autoPopupMemberLookup(context.editor, null)
@@ -470,9 +463,6 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 								EditorActionUtil.moveCaretToLineEnd(editor, false, false)
 							}
 							PsiDocumentManager.getInstance(project).commitDocument(editor.document)
-							if(stringToInsert != null) {
-								formatInsertedString(context, stringToInsert.length)
-							}
 						}
 						JsonSchemaType._string, JsonSchemaType._integer, JsonSchemaType._number -> {
 							insertPropertyWithEnum(context, editor, defaultValueString, values, finalType, insertSeparator)
@@ -618,8 +608,8 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 			val charSequence = editor.document.charsSequence
 			val ws = if(charSequence.length > offset && charSequence[offset] == ' ') "" else " "
 			val separatorWs = if(insertSeparator) SEPARATOR else ws
-			val stringToInsert = separatorWs + (if(hasDefaultValue) defaultValue else if(hasQuotes) "" else "\"\"")
-			EditorModificationUtil.insertStringAtCaret(editor, stringToInsert, false, true, if(insertSeparator) SEPARATOR_LENGTH else 1)
+			val stringToInsert = separatorWs + if(hasDefaultValue) defaultValue else ""
+			EditorModificationUtil.insertStringAtCaret(editor, stringToInsert, false, true, 1)
 			if(!hasQuotes || hasDefaultValue) {
 				val model = editor.selectionModel
 				val caretStart = model.selectionStart
@@ -628,19 +618,9 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 				model.setSelection(if(hasQuotes) caretStart else caretStart + SEPARATOR_LENGTH, newOffset)
 				editor.caretModel.moveToOffset(newOffset)
 			}
-			if(!walker.hasWhitespaceDelimitedCodeBlocks() && stringToInsert != separatorWs) {
-				formatInsertedString(context, stringToInsert.length)
-			}
 			if(hasValues) {
 				AutoPopupController.getInstance(context.project).autoPopupMemberLookup(context.editor, null)
 			}
-		}
-
-		fun formatInsertedString(context: InsertionContext, offset: Int) {
-			val project = context.project
-			PsiDocumentManager.getInstance(project).commitDocument(context.document)
-			val codeStyleManager = CodeStyleManager.getInstance(project)
-			codeStyleManager.reformatText(context.file, context.startOffset, context.tailOffset + offset)
 		}
 	}
 }
