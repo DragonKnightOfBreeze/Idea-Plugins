@@ -13,21 +13,15 @@ import com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationTy
 
 class StellarisLocalizationBlock(
 	node: ASTNode,
-	private val settings: CodeStyleSettings
-) : AbstractBlock(node, createWrap(), createAlignment(node)) {
+	private val settings: CodeStyleSettings,
+) : AbstractBlock(node, createWrap(), createAlignment()) {
 	companion object {
 		private fun createWrap(): Wrap? {
 			return null
 		}
 
-		private fun createAlignment(node: ASTNode): Alignment? {
-			return when(node.elementType) {
-				//属性需要对齐
-				PROPERTY -> Alignment.createAlignment()
-				//非头部、非行尾注释要对齐
-				COMMENT -> Alignment.createAlignment()
-				else -> null
-			}
+		private fun createAlignment(): Alignment? {
+			return null
 		}
 
 		private fun createSpacingBuilder(settings: CodeStyleSettings): SpacingBuilder {
@@ -46,11 +40,9 @@ class StellarisLocalizationBlock(
 	}
 
 	override fun getIndent(): Indent? {
-		return when {
-			//属性要缩进
-			myNode.elementType == PROPERTY -> Indent.getNormalIndent()
-			//非头部、非行尾注释要缩进
-			myNode.elementType == COMMENT -> Indent.getNormalIndent()
+		return when(myNode.elementType) {
+			//属性和非头部非行尾注释要缩进
+			COMMENT, PROPERTY -> Indent.getNormalIndent()
 			else -> Indent.getNoneIndent()
 		}
 	}

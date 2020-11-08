@@ -3,8 +3,6 @@ package com.windea.plugin.idea.stellaris.script.formatter
 import com.intellij.formatting.*
 import com.intellij.formatting.Indent
 import com.intellij.lang.*
-import com.intellij.psi.*
-import com.intellij.psi.TokenType.*
 import com.intellij.psi.codeStyle.*
 import com.intellij.psi.formatter.common.*
 import com.windea.plugin.idea.stellaris.*
@@ -15,18 +13,15 @@ import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
 
 class StellarisScriptBlock(
 	node: ASTNode,
-	private val settings: CodeStyleSettings
-) : AbstractBlock(node, createWrap(), createAlignment(node)) {
+	private val settings: CodeStyleSettings,
+) : AbstractBlock(node, createWrap(), createAlignment()) {
 	companion object {
 		private fun createWrap(): Wrap? {
 			return null
 		}
 
-		private fun createAlignment(node: ASTNode): Alignment? {
-			return when(node.elementType) {
-				VARIABLE -> Alignment.createAlignment()
-				else -> null
-			}
+		private fun createAlignment(): Alignment? {
+			return null
 		}
 
 		private fun createSpacingBuilder(settings: CodeStyleSettings): SpacingBuilder {
@@ -51,14 +46,10 @@ class StellarisScriptBlock(
 	}
 
 	override fun getIndent(): Indent? {
-		val elementType = myNode.elementType
-		val parentElementType = myNode.treeParent?.elementType
-		return when{
-			//block中的属性、值、注释需要缩进
-			parentElementType != BLOCK -> Indent.getNoneIndent()
-			elementType == PROPERTY -> Indent.getNormalIndent()
-			elementType == VALUE -> Indent.getNormalIndent()
-			elementType == COMMENT -> Indent.getNormalIndent()
+		//block中的属性、值、注释需要缩进
+		if(myNode.treeParent?.elementType != BLOCK) return Indent.getNoneIndent()
+		return when(myNode.elementType) {
+			COMMENT, PROPERTY, VALUE, BOOLEAN, NUMBER, STRING, COLOR, CODE -> Indent.getNormalIndent()
 			else -> Indent.getNoneIndent()
 		}
 	}
