@@ -609,7 +609,8 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 			val ws = if(charSequence.length > offset && charSequence[offset] == ' ') "" else " "
 			val separatorWs = if(insertSeparator) SEPARATOR else ws
 			val stringToInsert = separatorWs + if(hasDefaultValue) defaultValue else ""
-			EditorModificationUtil.insertStringAtCaret(editor, stringToInsert, false, true, 1)
+			val caretShift = if(insertSeparator) SEPARATOR_LENGTH else 1
+			EditorModificationUtil.insertStringAtCaret(editor, stringToInsert, false, true, caretShift)
 			if(!hasQuotes || hasDefaultValue) {
 				val model = editor.selectionModel
 				val caretStart = model.selectionStart
