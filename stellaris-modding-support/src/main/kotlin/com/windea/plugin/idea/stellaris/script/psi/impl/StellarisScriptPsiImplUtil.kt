@@ -16,35 +16,35 @@ import java.awt.*
 import javax.swing.*
 
 object StellarisScriptPsiImplUtil {
-	//region StellarisScriptVariableDefinition
+	//region StellarisScriptVariable
 	@JvmStatic
-	fun getName(element: StellarisScriptVariableDefinition): String? {
+	fun getName(element: StellarisScriptVariable): String? {
 		return element.variableName.text
 	}
 
 	@JvmStatic
-	fun setName(element: StellarisScriptVariableDefinition, name: String): PsiElement {
+	fun setName(element: StellarisScriptVariable, name: String): PsiElement {
 		element.variableName.replace(createVariableName(element.project, name))
 		return element
 	}
 
 	@JvmStatic
-	fun getNameIdentifier(element: StellarisScriptVariableDefinition): PsiElement? {
+	fun getNameIdentifier(element: StellarisScriptVariable): PsiElement? {
 		return element.variableName
 	}
 
 	@JvmStatic
-	fun getTextOffset(element: StellarisScriptVariableDefinition): Int {
+	fun getTextOffset(element: StellarisScriptVariable): Int {
 		return element.startOffset
 	}
 
 	@JvmStatic
-	fun getIcon(element: StellarisScriptVariableDefinition, @Iconable.IconFlags flags: Int): Icon? {
+	fun getIcon(element: StellarisScriptVariable, @Iconable.IconFlags flags: Int): Icon? {
 		return stellarisScriptVariableIcon
 	}
 
 	@JvmStatic
-	fun getValue(element: StellarisScriptVariableDefinition): String? {
+	fun getValue(element: StellarisScriptVariable): String? {
 		return element.variableValue?.text
 	}
 	//endregion

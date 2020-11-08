@@ -17,7 +17,7 @@ import com.windea.plugin.idea.stellaris.script.formatter.StellarisScriptCodeStyl
 //* USE_TAB_CHARACTER
 //SPACING_SETTINGS
 //* SPACE_WITHIN_BRACES
-//* SPACE_AROUND_VARIABLE_DEFINITION_SEPARATOR
+//* SPACE_AROUND_VARIABLE_SEPARATOR
 //* SPACE_AROUND_PROPERTY_SEPARATOR
 
 class StellarisScriptLanguageCodeStyleSettingsProvider : LanguageCodeStyleSettingsProvider() {
@@ -58,7 +58,7 @@ class StellarisScriptLanguageCodeStyleSettingsProvider : LanguageCodeStyleSettin
 				)
 				consumer.showCustomOption(
 					StellarisScriptCodeStyleSettings::class.java,
-					Option.SPACE_AROUND_VARIABLE_DEFINITION_SEPARATOR.name,
+					Option.SPACE_AROUND_VARIABLE_SEPARATOR.name,
 					message("stellaris.script.codeStyle.spaceAroundVariableDefinitionSeparator"),
 					SPACES_AROUND_OPERATORS
 				)

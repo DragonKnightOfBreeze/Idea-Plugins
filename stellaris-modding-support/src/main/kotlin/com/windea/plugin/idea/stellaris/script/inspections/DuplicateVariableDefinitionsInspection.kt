@@ -26,8 +26,8 @@ class DuplicateVariableDefinitionsInspection :LocalInspectionTool(){
 	) : StellarisLocalizationVisitor() {
 		override fun visitFile(element: PsiFile) {
 			val file = element as? StellarisScriptFile ?: return
-			val variableDefinitionGroup = file.variableDefinitions.groupBy { it.name }
-			for((name, values) in variableDefinitionGroup) {
+			val variableGroup = file.variables.groupBy { it.name }
+			for((name, values) in variableGroup) {
 				if(name == null || values.size <= 1) continue
 				for(value in values) {
 					val quickFix = NavigateToDuplicates(name, value, values)
@@ -41,8 +41,8 @@ class DuplicateVariableDefinitionsInspection :LocalInspectionTool(){
 
 	private class NavigateToDuplicates(
 		private val key:String,
-		property: StellarisScriptVariableDefinition,
-		duplicates :List<StellarisScriptVariableDefinition>
+		property: StellarisScriptVariable,
+		duplicates :List<StellarisScriptVariable>
 	): LocalQuickFixAndIntentionActionOnPsiElement(property) {
 		private val pointers = ContainerUtil.map(duplicates){SmartPointerManager.createPointer(it)}
 
@@ -71,15 +71,15 @@ class DuplicateVariableDefinitionsInspection :LocalInspectionTool(){
 		}
 
 		private class Popup(
-			values: List<StellarisScriptVariableDefinition>,
+			values: List<StellarisScriptVariable>,
 			private val key: String,
 			private val editor: Editor
-		) : BaseListPopupStep<StellarisScriptVariableDefinition>(message("stellaris.script.quickFix.navigateToDuplicates.header", key), values) {
-			override fun getIconFor(aValue: StellarisScriptVariableDefinition): Icon {
+		) : BaseListPopupStep<StellarisScriptVariable>(message("stellaris.script.quickFix.navigateToDuplicates.header", key), values) {
+			override fun getIconFor(aValue: StellarisScriptVariable): Icon {
 				return PlatformIcons.VARIABLE_ICON
 			}
 
-			override fun getTextFor(value: StellarisScriptVariableDefinition): String {
+			override fun getTextFor(value: StellarisScriptVariable): String {
 				return message("stellaris.script.quickFix.navigateToDuplicates.text", key, editor.document.getLineNumber(value.textOffset))
 			}
 
@@ -87,7 +87,7 @@ class DuplicateVariableDefinitionsInspection :LocalInspectionTool(){
 				return 0
 			}
 
-			override fun onChosen(selectedValue: StellarisScriptVariableDefinition, finalChoice: Boolean): PopupStep<*>? {
+			override fun onChosen(selectedValue: StellarisScriptVariable, finalChoice: Boolean): PopupStep<*>? {
 				navigateToElement(editor, selectedValue)
 				return PopupStep.FINAL_CHOICE
 			}

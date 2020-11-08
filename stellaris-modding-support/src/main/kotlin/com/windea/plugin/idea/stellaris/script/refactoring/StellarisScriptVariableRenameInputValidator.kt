@@ -17,7 +17,7 @@ class StellarisScriptVariableRenameInputValidator : RenameInputValidatorEx {
 	}
 
 	override fun getPattern(): ElementPattern<out PsiElement> {
-		return psiElement(VARIABLE_DEFINITION).andOr(psiElement(VARIABLE_REFERENCE))
+		return psiElement(VARIABLE).andOr(psiElement(VARIABLE_REFERENCE))
 	}
 
 	override fun getErrorMessage(newName: String, project: Project): String? {

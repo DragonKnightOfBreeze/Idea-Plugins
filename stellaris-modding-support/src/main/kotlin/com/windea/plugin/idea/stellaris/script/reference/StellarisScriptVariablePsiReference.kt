@@ -12,14 +12,14 @@ class StellarisScriptVariablePsiReference(
 	private val name = rangeInElement.substring(element.text)
 
 	override fun resolve(): PsiElement? {
-		return findScriptVariableDefinitionInFile(name,element.containingFile)
+		return findScriptVariableInFile(name,element.containingFile)
 	}
 
 	override fun multiResolve(incompleteCode: Boolean): Array<out ResolveResult> {
 		//首先尝试从当前文档中查找引用
 		resolve()?.let{  return arrayOf(PsiElementResolveResult(it)) }
 
-		return findScriptVariableDefinitions(name, element.project).mapArray {
+		return findScriptVariables(name, element.project).mapArray {
 			PsiElementResolveResult(it)
 		}
 	}
@@ -27,7 +27,7 @@ class StellarisScriptVariablePsiReference(
 	//用于代码补全
 	//TODO 认为只有在特定的作用域内才提示变量
 	override fun getVariants(): Array<out Any> {
-		return findAllScriptVariableDefinitions(element.project).mapArray {
+		return findAllScriptVariables(element.project).mapArray {
 			LookupElementBuilder.create(it.name!!).withIcon(it.getIcon(0)).withTypeText(it.containingFile.name)
 				.withPsiElement(it)
 		}

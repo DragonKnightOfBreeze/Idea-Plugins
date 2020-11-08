@@ -11,23 +11,38 @@ import com.windea.plugin.idea.stellaris.StellarisBundle.message
 import com.windea.plugin.idea.stellaris.localization.highlighter.*
 import com.windea.plugin.idea.stellaris.localization.intentions.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
+import com.windea.plugin.idea.stellaris.script.*
 
 class StellarisLocalizationAnnotator : Annotator, DumbAware {
-	class ColorGutterIconRenderer(
-		private val color: StellarisColor
-	) : GutterIconRenderer(), DumbAware {
-		override fun getIcon() = color.gutterIcon
+	class LocalizationPropertyGutterIconRenderer(
+		private val name:String
+	): GutterIconRenderer(),DumbAware {
+		private val tooltip = message("stellaris.localization.annotator.localizationProperty",name)
+		private val title = message("stellaris.localization.annotator.localizationProperty.title")
+
+		override fun getIcon() = localizationPropertyGutterIcon
+
+		override fun getTooltipText() = tooltip
+
+		override fun getClickAction() = null //TODO
 
 		override fun isNavigateAction() = true
 
-		override fun equals(other: Any?) = other is ColorGutterIconRenderer && color == other.color
+		override fun equals(other: Any?) = other is LocalizationPropertyGutterIconRenderer  && name == other.name
 
-		override fun hashCode() = color.hashCode()
+		override fun hashCode() = name.hashCode()
 	}
 
 	override fun annotate(element: PsiElement, holder: AnnotationHolder) {
 		when(element) {
-			//如果有无法解析的枚举项，则报错
+			//如果是本地化属性，则加上gutterIcon
+			//TODO 可以点击gutterIcon导航到相同名字不同语言区域的本地化属性
+			is StellarisLocalizationProperty ->{
+				val name = element.name?:return
+				holder.newSilentAnnotation(INFORMATION)
+					.gutterIconRenderer(LocalizationPropertyGutterIconRenderer(name))
+					.create()
+			}
 			is StellarisLocalizationLocale -> {
 				if(element.locale == null) {
 					val localeId = element.name ?: return
@@ -74,7 +89,6 @@ class StellarisLocalizationAnnotator : Annotator, DumbAware {
 	private fun annotateColor(colorId: String, holder: AnnotationHolder, element: StellarisLocalizationColorfulText) {
 		val attributesKey = StellarisLocalizationAttributesKeys.COLOR_ID_KEYS[colorId] ?: return
 		holder.newSilentAnnotation(INFORMATION)
-			//.gutterIconRenderer(ColorGutterIconRenderer(element.color!!))
 			.range(element.nameIdentifier!!).textAttributes(attributesKey)
 			.create()
 	}
@@ -82,7 +96,6 @@ class StellarisLocalizationAnnotator : Annotator, DumbAware {
 	private fun annotateColorForPropertyReferenceParameter(colorId: String, holder: AnnotationHolder, element: PsiElement) {
 		val attributesKey = StellarisLocalizationAttributesKeys.COLOR_ID_KEYS[colorId] ?: return
 		holder.newSilentAnnotation(INFORMATION)
-			//.gutterIconRenderer(ColorGutterIconRenderer(element.color!!))
 			.range(element).textAttributes(attributesKey)
 			.create()
 	}

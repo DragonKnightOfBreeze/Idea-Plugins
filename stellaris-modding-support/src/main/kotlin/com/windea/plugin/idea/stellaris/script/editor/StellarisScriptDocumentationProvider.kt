@@ -9,7 +9,7 @@ import com.windea.plugin.idea.stellaris.script.psi.*
 class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
 	override fun getQuickNavigateInfo(element: PsiElement?, originalElement: PsiElement?): String? {
 		return when(element) {
-			is StellarisScriptVariableDefinition -> "${getLocationText(element)}<br>${element.name}"
+			is StellarisScriptVariable -> "${getLocationText(element)}<br>${element.name}"
 			is StellarisScriptProperty -> "${getLocationText(element)}<br>${element.name}"
 			else -> null
 		}
@@ -21,7 +21,7 @@ class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
 			is StellarisScriptVariableName -> {
 				generateDoc(element.parent,originalElement)
 			}
-			is StellarisScriptVariableDefinition -> {
+			is StellarisScriptVariable -> {
 				buildString {
 					append(DocumentationMarkup.DEFINITION_START)
 					append("${getLocationText(element)}<br><b>${element.name}</b> = ${getVariableValueText(element)}")
@@ -60,7 +60,7 @@ class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
 		return "[${file.name}]"
 	}
 
-	private fun getVariableValueText(variable: StellarisScriptVariableDefinition):String{
+	private fun getVariableValueText(variable: StellarisScriptVariable):String{
 		return variable.variableValue?.text?.truncate(60).orEmpty()
 	}
 

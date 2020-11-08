@@ -14,7 +14,7 @@ class StellarisScriptFindUsagesProvider : FindUsagesProvider {
 
 	override fun getType(element: PsiElement): String {
 		return when(element) {
-			is StellarisScriptVariableDefinition -> StellarisBundle.message("stellaris.script.findUsages.variable")
+			is StellarisScriptVariable -> StellarisBundle.message("stellaris.script.findUsages.variable")
 			is StellarisScriptProperty -> StellarisBundle.message("stellaris.script.findUsages.property")
 			else -> ""
 		}

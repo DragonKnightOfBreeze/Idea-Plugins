@@ -70,9 +70,8 @@ import static com.windea.plugin.idea.stellaris.localization.psi.StellarisLocaliz
 
 //不要使用\R：可能不合法
 
-EOL=\s*\R
-WHITE_SPACE=\s+
-SPACE=[ \t]+
+EOL=\s*\R\s*
+WHITE_SPACE=[ \t]+
 
 COMMENT=#[^\r\n]*
 ROOT_COMMENT=#[^\r\n]*
@@ -105,41 +104,44 @@ CHECK_RIGHT_QUOTE=\"[^\"\r\n]*\"?
 <YYINITIAL> {
   {ROOT_COMMENT} {  return ROOT_COMMENT; }
   {LOCALE_ID} { yybegin(WAITING_LOCALE_COLON); return LOCALE_ID; }
+  {EOL} { return WHITE_SPACE; }
   {WHITE_SPACE} { return WHITE_SPACE; } //继续解析
 }
-
 <WAITING_LOCALE_COLON>{
   ":" { yybegin(WAITING_LOCALE_EOL); return COLON; }
-  {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
+  {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }
+  {WHITE_SPACE} { return WHITE_SPACE; }
 }
 <WAITING_LOCALE_EOL>{
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }
-  {SPACE} { return WHITE_SPACE; }
+  {WHITE_SPACE} { return WHITE_SPACE; }
   {END_OF_LINE_COMMENT} {  return END_OF_LINE_COMMENT; }
 }
 
 <WAITING_PROPERTY_KEY> {
   {COMMENT} { return COMMENT; }
-  {WHITE_SPACE} { return WHITE_SPACE; } //继续解析
+  {EOL} { return WHITE_SPACE; }
+  {WHITE_SPACE} { return WHITE_SPACE; }
   {PROPERTY_KEY_ID} { yybegin(WAITING_PROPERTY_COLON); return PROPERTY_KEY_ID; }
 }
 <WAITING_PROPERTY_COLON>{
   ":" {yybegin(WAITING_PROPERTY_NUMBER); return COLON; }
-  {SPACE} { return WHITE_SPACE;}
-  {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
+  {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }
+  {WHITE_SPACE} { return WHITE_SPACE;}
 }
 <WAITING_PROPERTY_NUMBER>{
   {NUMBER} {yybegin(WAITING_PROPERTY_SPACE); return NUMBER;}
-  {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
-  {SPACE} {yybegin(WAITING_PROPERTY_VALUE); return WHITE_SPACE;}
+  {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }
+  {WHITE_SPACE} {yybegin(WAITING_PROPERTY_VALUE); return WHITE_SPACE;}
 }
 <WAITING_PROPERTY_SPACE>{
-  {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
-  {SPACE} {yybegin(WAITING_PROPERTY_VALUE); return WHITE_SPACE;}
+  {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }
+  {WHITE_SPACE} {yybegin(WAITING_PROPERTY_VALUE); return WHITE_SPACE;}
 }
 <WAITING_PROPERTY_VALUE> {
   \" { yybegin(WAITING_RICH_TEXT); return LEFT_QUOTE; }
-  {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //跳过非法字符
+  {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }
+  {WHITE_SPACE} { return WHITE_SPACE;}
 }
 <WAITING_RICH_TEXT>{
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }
@@ -168,7 +170,7 @@ CHECK_RIGHT_QUOTE=\"[^\"\r\n]*\"?
   "$" {yybegin(nextStateForPropertyReference()); return PROPERTY_REFERENCE_END;}
   \" { yybegin(WAITING_PROPERTY_EOL); return RIGHT_QUOTE;}
   {PROPERTY_REFERENCE_PARAMETER} {return PROPERTY_REFERENCE_PARAMETER;}
-  {SPACE} {yybegin(nextStateForText()); return WHITE_SPACE; } //继续解析
+  {WHITE_SPACE} {yybegin(nextStateForText()); return WHITE_SPACE; } //继续解析
 }
 <WAITING_ICON>{
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }
@@ -178,7 +180,7 @@ CHECK_RIGHT_QUOTE=\"[^\"\r\n]*\"?
   "|" { yybegin(WAITING_ICON_PARAMETER); return PARAMETER_SEPARATOR;}
   \" { yybegin(WAITING_PROPERTY_EOL); return RIGHT_QUOTE;}
   {ICON_ID} {return ICON_ID;}
-  {SPACE} {yybegin(nextStateForText()); return WHITE_SPACE; } //继续解析
+  {WHITE_SPACE} {yybegin(nextStateForText()); return WHITE_SPACE; } //继续解析
 }
 <WAITING_ICON_PARAMETER>{
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }
@@ -191,7 +193,7 @@ CHECK_RIGHT_QUOTE=\"[^\"\r\n]*\"?
   "%" {yybegin(nextStateForText()); return SERIAL_NUMBER_END;}
   \" { yybegin(WAITING_PROPERTY_EOL); return RIGHT_QUOTE;}
   {SERIAL_NUMBER_ID} {return SERIAL_NUMBER_ID;}
-  {SPACE} {yybegin(nextStateForText()); return WHITE_SPACE; } //继续解析
+  {WHITE_SPACE} {yybegin(nextStateForText()); return WHITE_SPACE; } //继续解析
 }
 <WAITING_CODE>{
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }
@@ -201,7 +203,7 @@ CHECK_RIGHT_QUOTE=\"[^\"\r\n]*\"?
 }
 <WAITING_COLOR_CODE>{
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }
-  "§!" {depth--; yybegin(nextStateForText()); return COLORFUL_TEXT_END;} //跳过非法字符
+  "§!" {depth--; yybegin(nextStateForText()); return COLORFUL_TEXT_END;}
   \" { yybegin(WAITING_PROPERTY_EOL); return RIGHT_QUOTE;}
   {COLOR_CODE} {yybegin(WAITING_COLORFUL_TEXT); return COLOR_CODE;}
 }
@@ -213,14 +215,14 @@ CHECK_RIGHT_QUOTE=\"[^\"\r\n]*\"?
   "%" { isColorfulText=true; yypushback(yylength()); yybegin(WAITING_CHECK_SERIAL_NUMBER_START);}
   "[" { codeLocation=0; yybegin(WAITING_CODE); return CODE_START;}
   "§" { isColorfulText=true; yypushback(yylength()); yybegin(WAITING_CHECK_COLORFUL_TEXT_START);}
-  "§!" {depth--; yybegin(nextStateForText()); return COLORFUL_TEXT_END;} //跳过非法字符
+  "§!" {depth--; yybegin(nextStateForText()); return COLORFUL_TEXT_END;}
   {VALID_ESCAPE_TOKEN} {return VALID_ESCAPE_TOKEN;}
   {INVALID_ESCAPE_TOKEN} {return INVALID_ESCAPE_TOKEN;}
   {STRING_TOKEN} {  return STRING_TOKEN;}
 }
 <WAITING_PROPERTY_EOL>{
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }
-  {SPACE} { return WHITE_SPACE; } //继续解析
+  {WHITE_SPACE} { return WHITE_SPACE; } //继续解析
   {END_OF_LINE_COMMENT} {  return END_OF_LINE_COMMENT; }
 }
 

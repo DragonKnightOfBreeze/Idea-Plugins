@@ -21,10 +21,10 @@ public interface StellarisScriptTypes {
   IElementType STRING = new StellarisScriptElementType("STRING");
   IElementType STRING_VALUE = new StellarisScriptElementType("STRING_VALUE");
   IElementType VALUE = new StellarisScriptElementType("VALUE");
-  IElementType VARIABLE_DEFINITION = new StellarisScriptElementType("VARIABLE_DEFINITION");
-  IElementType VARIABLE_DEFINITION_SEPARATOR = new StellarisScriptElementType("VARIABLE_DEFINITION_SEPARATOR");
+  IElementType VARIABLE = new StellarisScriptElementType("VARIABLE");
   IElementType VARIABLE_NAME = new StellarisScriptElementType("VARIABLE_NAME");
   IElementType VARIABLE_REFERENCE = new StellarisScriptElementType("VARIABLE_REFERENCE");
+  IElementType VARIABLE_SEPARATOR = new StellarisScriptElementType("VARIABLE_SEPARATOR");
   IElementType VARIABLE_VALUE = new StellarisScriptElementType("VARIABLE_VALUE");
 
   IElementType BOOLEAN_TOKEN = new StellarisScriptTokenType("BOOLEAN_TOKEN");
@@ -86,17 +86,17 @@ public interface StellarisScriptTypes {
       else if (type == STRING) {
         return new StellarisScriptStringImpl(node);
       }
-      else if (type == VARIABLE_DEFINITION) {
-        return new StellarisScriptVariableDefinitionImpl(node);
-      }
-      else if (type == VARIABLE_DEFINITION_SEPARATOR) {
-        return new StellarisScriptVariableDefinitionSeparatorImpl(node);
+      else if (type == VARIABLE) {
+        return new StellarisScriptVariableImpl(node);
       }
       else if (type == VARIABLE_NAME) {
         return new StellarisScriptVariableNameImpl(node);
       }
       else if (type == VARIABLE_REFERENCE) {
         return new StellarisScriptVariableReferenceImpl(node);
+      }
+      else if (type == VARIABLE_SEPARATOR) {
+        return new StellarisScriptVariableSeparatorImpl(node);
       }
       else if (type == VARIABLE_VALUE) {
         return new StellarisScriptVariableValueImpl(node);

@@ -191,7 +191,7 @@ public class StellarisScriptParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // (END_OF_LINE_COMMENT | COMMENT | variable_definition ) * root_block
+  // (END_OF_LINE_COMMENT | COMMENT | variable ) * root_block
   static boolean root(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "root")) return false;
     boolean r;
@@ -202,7 +202,7 @@ public class StellarisScriptParser implements PsiParser, LightPsiParser {
     return r;
   }
 
-  // (END_OF_LINE_COMMENT | COMMENT | variable_definition ) *
+  // (END_OF_LINE_COMMENT | COMMENT | variable ) *
   private static boolean root_0(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "root_0")) return false;
     while (true) {
@@ -213,13 +213,13 @@ public class StellarisScriptParser implements PsiParser, LightPsiParser {
     return true;
   }
 
-  // END_OF_LINE_COMMENT | COMMENT | variable_definition
+  // END_OF_LINE_COMMENT | COMMENT | variable
   private static boolean root_0_0(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "root_0_0")) return false;
     boolean r;
     r = consumeToken(b, END_OF_LINE_COMMENT);
     if (!r) r = consumeToken(b, COMMENT);
-    if (!r) r = variable_definition(b, l + 1);
+    if (!r) r = variable(b, l + 1);
     return r;
   }
 
@@ -290,30 +290,18 @@ public class StellarisScriptParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // variable_name variable_definition_separator variable_value
-  public static boolean variable_definition(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "variable_definition")) return false;
+  // variable_name variable_separator variable_value
+  public static boolean variable(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "variable")) return false;
     if (!nextTokenIs(b, VARIABLE_NAME_ID)) return false;
     boolean r, p;
-    Marker m = enter_section_(b, l, _NONE_, VARIABLE_DEFINITION, null);
+    Marker m = enter_section_(b, l, _NONE_, VARIABLE, null);
     r = variable_name(b, l + 1);
     p = r; // pin = 1
-    r = r && report_error_(b, variable_definition_separator(b, l + 1));
+    r = r && report_error_(b, variable_separator(b, l + 1));
     r = p && variable_value(b, l + 1) && r;
     exit_section_(b, l, m, r, p, null);
     return r || p;
-  }
-
-  /* ********************************************************** */
-  // "="
-  public static boolean variable_definition_separator(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "variable_definition_separator")) return false;
-    if (!nextTokenIs(b, EQUAL_SIGN)) return false;
-    boolean r;
-    Marker m = enter_section_(b);
-    r = consumeToken(b, EQUAL_SIGN);
-    exit_section_(b, m, VARIABLE_DEFINITION_SEPARATOR, r);
-    return r;
   }
 
   /* ********************************************************** */
@@ -337,6 +325,18 @@ public class StellarisScriptParser implements PsiParser, LightPsiParser {
     Marker m = enter_section_(b);
     r = consumeToken(b, VARIABLE_REFERENCE_ID);
     exit_section_(b, m, VARIABLE_REFERENCE, r);
+    return r;
+  }
+
+  /* ********************************************************** */
+  // "="
+  public static boolean variable_separator(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "variable_separator")) return false;
+    if (!nextTokenIs(b, EQUAL_SIGN)) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeToken(b, EQUAL_SIGN);
+    exit_section_(b, m, VARIABLE_SEPARATOR, r);
     return r;
   }
 

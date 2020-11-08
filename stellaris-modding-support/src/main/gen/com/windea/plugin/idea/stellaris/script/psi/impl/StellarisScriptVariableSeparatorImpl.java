@@ -11,14 +11,14 @@ import static com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.windea.plugin.idea.stellaris.script.psi.*;
 
-public class StellarisScriptVariableDefinitionSeparatorImpl extends ASTWrapperPsiElement implements StellarisScriptVariableDefinitionSeparator {
+public class StellarisScriptVariableSeparatorImpl extends ASTWrapperPsiElement implements StellarisScriptVariableSeparator {
 
-  public StellarisScriptVariableDefinitionSeparatorImpl(@NotNull ASTNode node) {
+  public StellarisScriptVariableSeparatorImpl(@NotNull ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull StellarisScriptVisitor visitor) {
-    visitor.visitVariableDefinitionSeparator(this);
+    visitor.visitVariableSeparator(this);
   }
 
   public void accept(@NotNull PsiElementVisitor visitor) {

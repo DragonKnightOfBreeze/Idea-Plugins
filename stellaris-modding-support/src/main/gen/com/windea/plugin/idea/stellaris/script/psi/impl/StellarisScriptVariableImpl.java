@@ -12,14 +12,14 @@ import com.windea.plugin.idea.stellaris.script.psi.*;
 import com.intellij.openapi.util.Iconable.IconFlags;
 import javax.swing.Icon;
 
-public class StellarisScriptVariableDefinitionImpl extends StellarisScriptNamedElementImpl implements StellarisScriptVariableDefinition {
+public class StellarisScriptVariableImpl extends StellarisScriptNamedElementImpl implements StellarisScriptVariable {
 
-  public StellarisScriptVariableDefinitionImpl(@NotNull ASTNode node) {
+  public StellarisScriptVariableImpl(@NotNull ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull StellarisScriptVisitor visitor) {
-    visitor.visitVariableDefinition(this);
+    visitor.visitVariable(this);
   }
 
   public void accept(@NotNull PsiElementVisitor visitor) {
@@ -28,15 +28,15 @@ public class StellarisScriptVariableDefinitionImpl extends StellarisScriptNamedE
   }
 
   @Override
-  @Nullable
-  public StellarisScriptVariableDefinitionSeparator getVariableDefinitionSeparator() {
-    return findChildByClass(StellarisScriptVariableDefinitionSeparator.class);
-  }
-
-  @Override
   @NotNull
   public StellarisScriptVariableName getVariableName() {
     return findNotNullChildByClass(StellarisScriptVariableName.class);
+  }
+
+  @Override
+  @Nullable
+  public StellarisScriptVariableSeparator getVariableSeparator() {
+    return findChildByClass(StellarisScriptVariableSeparator.class);
   }
 
   @Override

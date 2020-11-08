@@ -26,7 +26,7 @@ class StellarisScriptStructureViewModel(
 	companion object {
 		private val defaultSuitableClasses = arrayOf(
 			StellarisScriptFile::class.java,
-			StellarisScriptVariableDefinition::class.java,
+			StellarisScriptVariable::class.java,
 			StellarisScriptProperty::class.java,
 			StellarisScriptPropertyValue::class.java,
 			StellarisScriptValue::class.java

@@ -24,9 +24,7 @@ class StellarisScriptBlock(
 
 		private fun createAlignment(node: ASTNode): Alignment? {
 			return when(node.elementType) {
-				COMMENT -> Alignment.createAlignment()
-				VARIABLE_DEFINITION -> Alignment.createAlignment()
-				PROPERTY -> Alignment.createAlignment()
+				VARIABLE -> Alignment.createAlignment()
 				else -> null
 			}
 		}
@@ -35,13 +33,13 @@ class StellarisScriptBlock(
 			//变量声明分隔符周围的空格，属性分隔符周围的空格
 			val customSettings = settings.getCustomSettings(StellarisScriptCodeStyleSettings::class.java)
 			val spaceWithinBraces = customSettings.SPACE_WITHIN_BRACES
-			val spaceVariableDefinitionSeparator = customSettings.SPACE_AROUND_VARIABLE_DEFINITION_SEPARATOR
+			val spaceVariableDefinitionSeparator = customSettings.SPACE_AROUND_VARIABLE_SEPARATOR
 			val spacePropertySeparator = customSettings.SPACE_AROUND_PROPERTY_SEPARATOR
 			return SpacingBuilder(settings, StellarisLocalizationLanguage)
 				.between(LEFT_BRACE, RIGHT_BRACE).spaces(0)
 				.after(LEFT_BRACE).spaceIf(spaceWithinBraces)
 				.before(RIGHT_BRACE).spaceIf(spaceWithinBraces)
-				.around(VARIABLE_DEFINITION_SEPARATOR).spaces(spaceVariableDefinitionSeparator.toInt())
+				.around(VARIABLE_SEPARATOR).spaces(spaceVariableDefinitionSeparator.toInt())
 				.around(PROPERTY_SEPARATOR).spaces(spacePropertySeparator.toInt())
 		}
 	}
@@ -53,9 +51,14 @@ class StellarisScriptBlock(
 	}
 
 	override fun getIndent(): Indent? {
+		val elementType = myNode.elementType
+		val parentElementType = myNode.treeParent?.elementType
 		return when{
-			//block中的直接子节点需要缩进
-			myNode.treeParent?.elementType == BLOCK -> Indent.getNormalIndent()
+			//block中的属性、值、注释需要缩进
+			parentElementType != BLOCK -> Indent.getNoneIndent()
+			elementType == PROPERTY -> Indent.getNormalIndent()
+			elementType == VALUE -> Indent.getNormalIndent()
+			elementType == COMMENT -> Indent.getNormalIndent()
 			else -> Indent.getNoneIndent()
 		}
 	}

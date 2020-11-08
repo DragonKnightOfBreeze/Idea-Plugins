@@ -9,7 +9,7 @@ class StellarisScriptFile(
 ) : PsiFileBase(viewProvider, StellarisScriptLanguage) {
 	override fun getFileType() = StellarisScriptFileType
 
-	val variableDefinitions get() = findChildrenByClass(StellarisScriptVariableDefinition::class.java)
+	val variables get() = findChildrenByClass(StellarisScriptVariable::class.java)
 
 	val rootBlock get() = findChildByClass(StellarisScriptRootBlock::class.java)
 

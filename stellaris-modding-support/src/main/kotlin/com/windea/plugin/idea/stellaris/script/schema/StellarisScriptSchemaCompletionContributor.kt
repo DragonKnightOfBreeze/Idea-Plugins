@@ -59,7 +59,7 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 					prefix = prev.text
 					position = prev
 				}
-				prev.elementType == PROPERTY -> position = prev.parent
+				prev.elementType == PROPERTY -> return //如果捕捉到属性，则不进行代码提示
 			}
 		}
 		val resultWithPrefix = if(prefix == null) result else result.withPrefixMatcher(prefix)

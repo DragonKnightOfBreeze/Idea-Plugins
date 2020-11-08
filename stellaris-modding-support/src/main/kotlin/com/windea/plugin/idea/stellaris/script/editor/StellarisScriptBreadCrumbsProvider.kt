@@ -17,7 +17,7 @@ class StellarisScriptBreadCrumbsProvider : BreadcrumbsProvider {
 
 	override fun getElementInfo(element: PsiElement): String {
 		return when(element){
-			is StellarisScriptVariableDefinition -> element.name
+			is StellarisScriptVariable -> element.name
 			is StellarisScriptProperty -> element.name
 			is StellarisScriptBoolean -> element.value
 			is StellarisScriptNumber -> element.value
@@ -27,7 +27,7 @@ class StellarisScriptBreadCrumbsProvider : BreadcrumbsProvider {
 	}
 
 	override fun acceptElement(element: PsiElement): Boolean {
-		return element is StellarisScriptVariableDefinition
+		return element is StellarisScriptVariable
 		       || element is StellarisScriptProperty
 		       || element is StellarisScriptBoolean
 		       || element is StellarisScriptNumber

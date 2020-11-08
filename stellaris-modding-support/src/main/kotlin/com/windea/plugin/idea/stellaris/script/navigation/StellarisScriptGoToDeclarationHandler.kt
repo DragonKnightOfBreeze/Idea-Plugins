@@ -18,11 +18,11 @@ class StellarisScriptGoToDeclarationHandler:  GotoDeclarationHandler {
 	override fun getGotoDeclarationTargets(sourceElement: PsiElement?, offset: Int, editor: Editor?): Array<out PsiElement?>? {
 		return when(sourceElement) {
 			null -> null
-			is StellarisScriptVariableDefinition -> {
+			is StellarisScriptVariable -> {
 				//查找当前文件，如果没有，再查找当前项目
 				val name = sourceElement.name ?:return null
-				findScriptVariableDefinitionInFile(name,sourceElement.containingFile)?.toSingletonArray()?.let { return it }
-				findScriptVariableDefinitions(name,sourceElement.project).toArray()
+				findScriptVariableInFile(name,sourceElement.containingFile)?.toSingletonArray()?.let { return it }
+				findScriptVariables(name, sourceElement.project).toArray()
 			}
 			//字符串可以是脚本文件属性，也可以是本地化文件属性
 			is StellarisScriptString -> {

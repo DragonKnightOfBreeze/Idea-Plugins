@@ -12,4 +12,3 @@ l_english:
  KEY_WITH_SERIAL_NUMBER:0 "Serial number: %R%"
  KEY_WITH_COLORFUL_TEXT:0 "Colorful text: §RRed text§!"
  EMPTY:0 ""
- 

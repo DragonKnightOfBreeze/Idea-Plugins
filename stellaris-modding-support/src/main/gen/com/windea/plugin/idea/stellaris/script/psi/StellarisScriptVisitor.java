@@ -65,12 +65,8 @@ public class StellarisScriptVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
-  public void visitVariableDefinition(@NotNull StellarisScriptVariableDefinition o) {
+  public void visitVariable(@NotNull StellarisScriptVariable o) {
     visitNamedElement(o);
-  }
-
-  public void visitVariableDefinitionSeparator(@NotNull StellarisScriptVariableDefinitionSeparator o) {
-    visitPsiElement(o);
   }
 
   public void visitVariableName(@NotNull StellarisScriptVariableName o) {
@@ -79,6 +75,10 @@ public class StellarisScriptVisitor extends PsiElementVisitor {
 
   public void visitVariableReference(@NotNull StellarisScriptVariableReference o) {
     visitValue(o);
+  }
+
+  public void visitVariableSeparator(@NotNull StellarisScriptVariableSeparator o) {
+    visitPsiElement(o);
   }
 
   public void visitVariableValue(@NotNull StellarisScriptVariableValue o) {

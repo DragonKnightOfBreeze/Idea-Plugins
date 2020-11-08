@@ -3,7 +3,6 @@ package com.windea.plugin.idea.stellaris.localization.formatter
 import com.intellij.formatting.*
 import com.intellij.formatting.Indent
 import com.intellij.lang.*
-import com.intellij.psi.*
 import com.intellij.psi.codeStyle.*
 import com.intellij.psi.formatter.common.*
 import com.windea.plugin.idea.stellaris.*
@@ -17,26 +16,16 @@ class StellarisLocalizationBlock(
 	private val settings: CodeStyleSettings
 ) : AbstractBlock(node, createWrap(), createAlignment(node)) {
 	companion object {
-		//wrap和alignment可为null，没事随便不要赋值！！！
-		//其中alignment默认是和父节点的左边的那个元素向左对齐
-
 		private fun createWrap(): Wrap? {
 			return null
 		}
 
-		//让语言区域之后每一行都基于缩进对齐
 		private fun createAlignment(node: ASTNode): Alignment? {
-			//DELAY 不清楚是否允许这种语法
-			//val customSettings = settings.getCustomSettings(StellarisLocalizationCodeStyleSettings::class.java)
-			//return when{
-			//	//可以对齐分隔符，然后前面的属性键向左对齐
-			//	node.elementType == COLON && customSettings.ALIGN_PROPERTY_VALUES -> Alignment.createAlignment(true, Anchor.LEFT)
-			//	else -> Alignment.createAlignment()
-			//}
-			//return null
 			return when(node.elementType) {
-				ROOT_COMMENT, COMMENT -> Alignment.createAlignment()
-				LOCALE, LOCALE_ID -> Alignment.createAlignment()
+				//属性需要对齐
+				PROPERTY -> Alignment.createAlignment()
+				//非头部、非行尾注释要对齐
+				COMMENT -> Alignment.createAlignment()
 				else -> null
 			}
 		}
@@ -51,22 +40,17 @@ class StellarisLocalizationBlock(
 
 	private val spacingBuilder = createSpacingBuilder(settings)
 
-
 	//收集所有节点
 	override fun buildChildren(): List<Block> {
 		return myNode.nodes().map { StellarisLocalizationBlock(it, settings) }
 	}
 
 	override fun getIndent(): Indent? {
-		val node = node.elementTypeOrPrevNotWhiteSpace
-		val elementType = node?.elementType
 		return when {
-			//语言区域之后要缩进
-			elementType == LOCALE -> Indent.getNormalIndent()
-			//属性之后要缩进
-			elementType == PROPERTY -> Indent.getNormalIndent()
-			//非头部、非行尾注释之后要缩进
-			elementType == COMMENT -> Indent.getNormalIndent()
+			//属性要缩进
+			myNode.elementType == PROPERTY -> Indent.getNormalIndent()
+			//非头部、非行尾注释要缩进
+			myNode.elementType == COMMENT -> Indent.getNormalIndent()
 			else -> Indent.getNoneIndent()
 		}
 	}

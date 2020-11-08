@@ -7,13 +7,13 @@ import com.intellij.psi.PsiElement;
 import com.intellij.openapi.util.Iconable.IconFlags;
 import javax.swing.Icon;
 
-public interface StellarisScriptVariableDefinition extends StellarisScriptNamedElement {
-
-  @Nullable
-  StellarisScriptVariableDefinitionSeparator getVariableDefinitionSeparator();
+public interface StellarisScriptVariable extends StellarisScriptNamedElement {
 
   @NotNull
   StellarisScriptVariableName getVariableName();
+
+  @Nullable
+  StellarisScriptVariableSeparator getVariableSeparator();
 
   @Nullable
   StellarisScriptVariableValue getVariableValue();

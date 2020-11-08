@@ -2,7 +2,6 @@ package com.windea.plugin.idea.stellaris.script.psi
 
 import com.intellij.openapi.project.*
 import com.intellij.psi.*
-import com.jetbrains.rd.util.*
 import com.windea.plugin.idea.stellaris.script.*
 
 object StellarisScriptElementFactory {
@@ -12,8 +11,8 @@ object StellarisScriptElementFactory {
 	}
 
 	@JvmStatic
-	fun createVariableDefinition(project: Project, name: String, value: String): StellarisScriptVariableDefinition {
-		return createDummyFile(project, "$name=$value").firstChild as StellarisScriptVariableDefinition
+	fun createVariableDefinition(project: Project, name: String, value: String): StellarisScriptVariable {
+		return createDummyFile(project, "$name=$value").firstChild as StellarisScriptVariable
 	}
 
 	@JvmStatic

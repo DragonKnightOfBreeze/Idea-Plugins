@@ -8,7 +8,7 @@ import com.windea.plugin.idea.stellaris.script.psi.*
 class StellarisScriptDescriptionProvider: ElementDescriptionProvider {
 	override fun getElementDescription(element: PsiElement, location: ElementDescriptionLocation): String? {
 		return when(element) {
-			is StellarisScriptVariableDefinition ->{
+			is StellarisScriptVariable ->{
 				if(location == UsageViewTypeLocation.INSTANCE) StellarisBundle.message("stellaris.script.description.variable")
 				else element.name
 			}

@@ -10,6 +10,7 @@ import com.intellij.openapi.editor.*
 import com.intellij.openapi.editor.colors.*
 import com.intellij.openapi.fileTypes.*
 import com.intellij.openapi.project.*
+import com.intellij.openapi.util.*
 import com.intellij.psi.*
 import com.intellij.psi.search.*
 import com.intellij.psi.search.GlobalSearchScope.*
@@ -134,21 +135,22 @@ inline fun <reified T : PsiElement> PsiElement.indexOfChild(element: T): Int {
 }
 
 
-/**当道当前AST节点或者之前的节点，直到类型不是whiteSpace位置。*/
-val ASTNode?.elementTypeOrPrevNotWhiteSpace:ASTNode? get() {
-	var current = this
-	while(current != null && current.elementType != TokenType.WHITE_SPACE){
-		current = current.treePrev
-	}
-	return	current
-}
+///**当道当前AST节点或者之前的节点，直到类型不是whiteSpace位置。*/
+//val ASTNode?.elementTypeOrPrevNotWhiteSpace:ASTNode? get() {
+//	var current = this
+//	while(current != null){
+//		if(current.elementType != TokenType.WHITE_SPACE) break
+//		current = current.treePrev
+//	}
+//	return	current
+//}
 
-/**得到当前AST节点的所有子节点。*/
+/**得到当前AST节点的除了空白节点之外的所有子节点。*/
 fun ASTNode.nodes(): List<ASTNode> {
 	val result = mutableListOf<ASTNode>()
 	var child = this.firstChildNode
 	while(child != null) {
-		result += child
+		if(child.elementType !== TokenType.WHITE_SPACE) result += child
 		child = child.treeNext
 	}
 	return result
@@ -255,63 +257,98 @@ fun selectElement(editor: Editor, element: PsiElement?) {
 //endregion
 
 //region Find Extensions
+private val localizationPropertyCachedKey = Key<CachedValue<Sequence<StellarisLocalizationProperty>>>("LocalizationPropertyCache")
+
 fun findLocalizationProperty(name: String, project: Project, locale: StellarisLocale? = null): StellarisLocalizationProperty? {
-	val files = project.findFiles<StellarisLocalizationFile>(StellarisLocalizationFileType).asSequence()
+	val files = project.findFiles<StellarisLocalizationFile>(StellarisLocalizationFileType)
 	val localedFiles = if(locale != null) files.filter { it.locale?.locale == locale } else files
-	return localedFiles.flatMap { it.properties.asSequence() }.find { it.name == name }
+	return localedFiles.flatMap {file->
+		CachedValuesManager.getCachedValue(file, localizationPropertyCachedKey){
+			CachedValueProvider.Result.create(file.properties.asSequence(),file)
+		}
+	}.find{it.name == name}
 }
 
 fun findLocalizationProperties(name: String, project: Project, locale: StellarisLocale? = null): Sequence<StellarisLocalizationProperty> {
 	val files = project.findFiles<StellarisLocalizationFile>(StellarisLocalizationFileType)
 	val localedFiles = if(locale != null) files.filter { it.locale?.locale == locale } else files
-	return localedFiles.flatMap { it.properties.asSequence() }.filter { it.name == name }
+	return localedFiles.flatMap {file->
+		CachedValuesManager.getCachedValue(file, localizationPropertyCachedKey){
+			CachedValueProvider.Result.create(file.properties.asSequence(),file)
+		}
+	}.filter{it.name == name}
 }
 
 fun findLocalizationProperties(project: Project, locale: StellarisLocale? = null): Sequence<StellarisLocalizationProperty> {
 	val files = project.findFiles<StellarisLocalizationFile>(StellarisLocalizationFileType)
 	val localedFiles = if(locale != null) files.filter { it.locale?.locale == locale } else files
-	return localedFiles.flatMap { it.properties.asSequence() }.filterNot { it.name.isNullOrEmpty() }
+	return localedFiles.flatMap {file->
+		CachedValuesManager.getCachedValue(file, localizationPropertyCachedKey){
+			CachedValueProvider.Result.create(file.properties.asSequence(),file)
+		}
+	}.filterNot { it.name.isNullOrEmpty() }
 }
 
+private val scriptVariableCachedKey = Key<CachedValue<Sequence<StellarisScriptVariable>>>("ScriptVariableCache")
 
-fun findScriptVariableDefinitionInFile(name: String, file: PsiFile?): StellarisScriptVariableDefinition? {
+fun findScriptVariableInFile(name: String, file: PsiFile?): StellarisScriptVariable? {
 	if(file !is StellarisScriptFile) return null
-	return file.variableDefinitions.find { it.name == name }
+	return file.variables.find { it.name == name }
 }
 
-fun findScriptVariableDefinition(name: String, project: Project, globalSearchScope: GlobalSearchScope = GlobalSearchScope.projectScope(project)): StellarisScriptVariableDefinition? {
-	val files = project.findFiles<StellarisScriptFile>(StellarisScriptFileType, globalSearchScope)
-	return files.flatMap { it.variableDefinitions.asSequence() }.find { it.name == name }
+fun findScriptVariable(name: String, project: Project): StellarisScriptVariable? {
+	val files = project.findFiles<StellarisScriptFile>(StellarisScriptFileType)
+	return files.flatMap {file->
+		CachedValuesManager.getCachedValue(file, scriptVariableCachedKey){
+			CachedValueProvider.Result.create(file.variables.asSequence(),file)
+		}
+	}.find{it.name == name}
 }
 
-fun findScriptVariableDefinitions(name: String, project: Project, globalSearchScope: GlobalSearchScope = GlobalSearchScope.projectScope(project)): Sequence<StellarisScriptVariableDefinition> {
-	val files = project.findFiles<StellarisScriptFile>(StellarisScriptFileType, globalSearchScope)
-	return files.flatMap { it.variableDefinitions.asSequence() }.filter { it.name == name }
+fun findScriptVariables(name: String, project: Project): Sequence<StellarisScriptVariable> {
+	val files = project.findFiles<StellarisScriptFile>(StellarisScriptFileType)
+	return files.flatMap {file->
+		CachedValuesManager.getCachedValue(file, scriptVariableCachedKey){
+			CachedValueProvider.Result.create(file.variables.asSequence(),file)
+		}
+	}.filter{it.name == name}
 }
 
-fun findAllScriptVariableDefinitions(project: Project, globalSearchScope: GlobalSearchScope = GlobalSearchScope.projectScope(project)): Sequence<StellarisScriptVariableDefinition> {
-	val files = project.findFiles<StellarisScriptFile>(StellarisScriptFileType, globalSearchScope)
-	return files.flatMap { it.variableDefinitions.asSequence() }.filterNot { it.name.isNullOrEmpty() }
+fun findAllScriptVariables(project: Project): Sequence<StellarisScriptVariable> {
+	val files = project.findFiles<StellarisScriptFile>(StellarisScriptFileType)
+	return files.flatMap {file->
+		CachedValuesManager.getCachedValue(file, scriptVariableCachedKey){
+			CachedValueProvider.Result.create(file.variables.asSequence(),file)
+		}
+	}.filterNot { it.name.isNullOrEmpty() }
 }
 
+private val scriptPropertyCachedKey = Key<CachedValue<Sequence<StellarisScriptProperty>>>("ScriptPropertyCache")
 
-fun findScriptPropertyInFile(name: String, file: PsiFile): StellarisScriptProperty? {
-	if(file !is StellarisScriptFile) return null
-	return file.properties.find { it.name == name }
+fun findScriptProperty(name: String, project: Project): StellarisScriptProperty? {
+	val files = project.findFiles<StellarisScriptFile>(StellarisScriptFileType)
+	return files.flatMap {file->
+		CachedValuesManager.getCachedValue(file, scriptPropertyCachedKey){
+			CachedValueProvider.Result.create(file.properties.asSequence(),file)
+		}
+	}.find{it.name == name}
 }
 
-fun findScriptProperty(name: String, project: Project, globalSearchScope: GlobalSearchScope = GlobalSearchScope.projectScope(project)): StellarisScriptProperty? {
-	val files = project.findFiles<StellarisScriptFile>(StellarisScriptFileType, globalSearchScope)
-	return files.flatMap { it.properties.asSequence() }.find { it.name == name }
+fun findScriptProperties(name: String, project: Project): Sequence<StellarisScriptProperty> {
+	val files = project.findFiles<StellarisScriptFile>(StellarisScriptFileType)
+	return files.flatMap {file->
+		CachedValuesManager.getCachedValue(file, scriptPropertyCachedKey){
+			CachedValueProvider.Result.create(file.properties.asSequence(),file)
+		}
+	}.filter{it.name == name}
 }
 
-fun findScriptProperties(name: String, project: Project, globalSearchScope: GlobalSearchScope = GlobalSearchScope.projectScope(project)): Sequence<StellarisScriptProperty> {
-	val files = project.findFiles<StellarisScriptFile>(StellarisScriptFileType, globalSearchScope)
-	return files.flatMap { it.properties.asSequence() }.filter { it.name == name }
-}
-
-fun findScriptProperties(project: Project, globalSearchScope: GlobalSearchScope = GlobalSearchScope.projectScope(project)): Sequence<StellarisScriptProperty> {
-	val files = project.findFiles<StellarisScriptFile>(StellarisScriptFileType, globalSearchScope)
-	return files.flatMap { it.properties.asSequence() }.filterNot { it.name.isNullOrEmpty() }
+fun findScriptProperties(project: Project): Sequence<StellarisScriptProperty> {
+	val files = project.findFiles<StellarisScriptFile>(StellarisScriptFileType)
+	return files.flatMap {file->
+		CachedValuesManager.getCachedValue(file, scriptPropertyCachedKey){
+			CachedValueProvider.Result.create(file.properties.asSequence(),file)
+		}
+	}.filterNot { it.name.isNullOrEmpty() }
 }
 //endregion
