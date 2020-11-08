@@ -204,10 +204,10 @@
 * [X] 脚本文件：Number的整数位不能以0开头（视为字符串）
 * [X] 修复代码重构后出现的若干bug（代码补全，结构视图，定位定义，注释折叠，格式化的缩进等）
 * [X] 修复关于代码补全的位置的bug
-* [ ] 修复关于格式化的缩进的bug(本地化文件：rootComment和locale之后有8个空格，脚本文件：rootComment和variable和rootProperty后有4个空格）
-* [ ] 无法验证array
-* [ ] 字符串数组持续输入会卡住
-* [ ] CachedValue相关问题
+* [ ] 修复关于格式化的缩进的bug(本地化文件：rootComment、locale、comment和property之后有8个空格，脚本文件：rootComment和variable和rootProperty后有4个空格）
+* [ ] 修复无法验证array的bug
+* [ ] 修复字符串数组持续输入会卡住的bug
+* [X] 修复CachedValue相关问题
 * [ ] Schema：解决空对象/空数组的相关问题（都表示为`{}`，如何区分，是否需要修改原始的jsonSchema相关文件？）
 * [ ] Schema：完善代码补全功能。
 * [ ] Schema：为脚本文件提供较为完善的Schema文件

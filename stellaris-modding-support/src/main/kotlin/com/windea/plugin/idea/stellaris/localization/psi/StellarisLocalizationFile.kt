@@ -12,6 +12,6 @@ class StellarisLocalizationFile(
 	val locale: StellarisLocalizationLocale?
 		get() = findChildByClass(StellarisLocalizationLocale::class.java)
 
-	val properties: Array<StellarisLocalizationProperty>
-		get() = findChildrenByClass(StellarisLocalizationProperty::class.java)
+	val properties: List<StellarisLocalizationProperty>
+		get() = findChildrenByClass(StellarisLocalizationProperty::class.java).toList()
 }

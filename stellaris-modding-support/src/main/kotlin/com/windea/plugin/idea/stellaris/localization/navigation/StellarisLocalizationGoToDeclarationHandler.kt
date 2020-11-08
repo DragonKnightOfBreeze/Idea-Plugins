@@ -20,7 +20,7 @@ class StellarisLocalizationGoToDeclarationHandler : GotoDeclarationHandler{
 			is StellarisLocalizationProperty -> {
 				val name = sourceElement.name?:return null
 				//查找当前项目
-				findLocalizationProperties(name, sourceElement.project).toArray()
+				findLocalizationProperties(name, sourceElement.project).toTypedArray()
 			}
 			else -> null
 		}

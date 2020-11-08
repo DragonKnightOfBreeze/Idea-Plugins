@@ -20,6 +20,9 @@ class StellarisLocalizationBlock(
 			return null
 		}
 
+		private val rootAlignment = Alignment.createAlignment()
+		private val alignment =  Alignment.createAlignment()
+
 		private fun createAlignment(): Alignment? {
 			return null
 		}
@@ -43,7 +46,7 @@ class StellarisLocalizationBlock(
 		return when(myNode.elementType) {
 			//属性和非头部非行尾注释要缩进
 			COMMENT, PROPERTY -> Indent.getNormalIndent()
-			else -> Indent.getNoneIndent()
+			else -> Indent.getSpaceIndent(0)
 		}
 	}
 

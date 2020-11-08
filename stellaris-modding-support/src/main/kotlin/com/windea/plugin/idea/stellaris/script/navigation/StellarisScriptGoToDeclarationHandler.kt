@@ -22,7 +22,7 @@ class StellarisScriptGoToDeclarationHandler:  GotoDeclarationHandler {
 				//查找当前文件，如果没有，再查找当前项目
 				val name = sourceElement.name ?:return null
 				findScriptVariableInFile(name,sourceElement.containingFile)?.toSingletonArray()?.let { return it }
-				findScriptVariables(name, sourceElement.project).toArray()
+				findScriptVariables(name, sourceElement.project).toTypedArray()
 			}
 			//字符串可以是脚本文件属性，也可以是本地化文件属性
 			is StellarisScriptString -> {
@@ -31,8 +31,8 @@ class StellarisScriptGoToDeclarationHandler:  GotoDeclarationHandler {
 				//如果包含空格则跳过，不可能是合法的属性键
 				if(name.containsBlank()) return null
 				val project = sourceElement.project
-				findScriptProperties(name, project).toArray().let { if(it.isNotEmpty()) return it }
-				findLocalizationProperties(name, project).toArray()
+				findScriptProperties(name, project).toTypedArray().let { if(it.isNotEmpty()) return it }
+				findLocalizationProperties(name, project).toTypedArray()
 			}
 			else -> null
 		}
