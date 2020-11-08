@@ -29,7 +29,7 @@
 	  END_OF_LINE_COMMENT="regexp:#[^\r\n]*"
 	  VARIABLE_NAME_ID="regexp:@[a-zA-Z0-9_-]+"
 	  VARIABLE_REFERENCE_ID="regexp:@[a-zA-Z0-9_-]+"
-	  PROPERTY_KEY_ID='regexp:[a-zA-Zz0-9.:$_-]+'
+	  PROPERTY_KEY_ID='regexp:[a-zA-Z0-9.:$_-]+'
 	  QUOTED_PROPERTY_KEY_ID='regexp:"([^"(\r\n\\]|\\.)*?"'
 	  BOOLEAN_TOKEN='regexp:(yes)|(no)'
 	  NUMBER_TOKEN='regexp:0|[+-]?[1-9][0-9]*|[+-]?[0-9]+\.[0-9]+'
@@ -47,8 +47,13 @@
 //DONE 列表的元素可以是字符串
 //DONE 分隔符可以是比较运算符
 
-root ::= root_item *
-private root_item ::= END_OF_LINE_COMMENT | COMMENT | variable_definition | property | value
+//root_block也是block，但不能直接extends，否则root下面会是value而非root_block
+root ::= (END_OF_LINE_COMMENT | COMMENT | variable_definition ) * root_block
+root_block ::= ( END_OF_LINE_COMMENT | COMMENT | property | value) * {
+  implements="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptBlock"
+  methods=[isEmpty isNotEmpty isObject isArray getComponents getIcon]
+}
+
 variable_definition ::= variable_name variable_definition_separator variable_value {
   pin=1
   mixin="com.windea.plugin.idea.stellaris.script.psi.impl.StellarisScriptNamedElementImpl"
@@ -70,7 +75,9 @@ property_key ::= PROPERTY_KEY_ID | QUOTED_PROPERTY_KEY_ID
 property_separator ::= "=" | "<" | ">" | "<=" | ">="
 property_value ::= value
 
-value ::= variable_reference | boolean | number | string_value | block
+value ::= variable_reference | boolean | number | string_value | block{
+  methods=[getIcon]
+}
 variable_reference ::= VARIABLE_REFERENCE_ID {
   extends=value
   methods=[getReference]

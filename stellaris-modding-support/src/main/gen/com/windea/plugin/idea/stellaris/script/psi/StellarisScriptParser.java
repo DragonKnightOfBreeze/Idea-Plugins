@@ -191,25 +191,58 @@ public class StellarisScriptParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // root_item *
+  // (END_OF_LINE_COMMENT | COMMENT | variable_definition ) * root_block
   static boolean root(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "root")) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = root_0(b, l + 1);
+    r = r && root_block(b, l + 1);
+    exit_section_(b, m, null, r);
+    return r;
+  }
+
+  // (END_OF_LINE_COMMENT | COMMENT | variable_definition ) *
+  private static boolean root_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "root_0")) return false;
     while (true) {
       int c = current_position_(b);
-      if (!root_item(b, l + 1)) break;
-      if (!empty_element_parsed_guard_(b, "root", c)) break;
+      if (!root_0_0(b, l + 1)) break;
+      if (!empty_element_parsed_guard_(b, "root_0", c)) break;
     }
     return true;
   }
 
-  /* ********************************************************** */
-  // END_OF_LINE_COMMENT | COMMENT | variable_definition | property | value
-  static boolean root_item(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "root_item")) return false;
+  // END_OF_LINE_COMMENT | COMMENT | variable_definition
+  private static boolean root_0_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "root_0_0")) return false;
     boolean r;
     r = consumeToken(b, END_OF_LINE_COMMENT);
     if (!r) r = consumeToken(b, COMMENT);
     if (!r) r = variable_definition(b, l + 1);
+    return r;
+  }
+
+  /* ********************************************************** */
+  // ( END_OF_LINE_COMMENT | COMMENT | property | value) *
+  public static boolean root_block(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "root_block")) return false;
+    Marker m = enter_section_(b, l, _NONE_, ROOT_BLOCK, "<root block>");
+    while (true) {
+      int c = current_position_(b);
+      if (!root_block_0(b, l + 1)) break;
+      if (!empty_element_parsed_guard_(b, "root_block", c)) break;
+    }
+    exit_section_(b, l, m, true, false, null);
+    return true;
+  }
+
+  // END_OF_LINE_COMMENT | COMMENT | property | value
+  private static boolean root_block_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "root_block_0")) return false;
+    boolean r;
+    r = consumeToken(b, END_OF_LINE_COMMENT);
+    if (!r) r = consumeToken(b, COMMENT);
     if (!r) r = property(b, l + 1);
     if (!r) r = value(b, l + 1);
     return r;

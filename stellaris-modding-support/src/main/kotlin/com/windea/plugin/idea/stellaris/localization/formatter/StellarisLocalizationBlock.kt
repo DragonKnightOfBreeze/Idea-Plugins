@@ -1,15 +1,16 @@
-@file:Suppress("HasPlatformType")
-
 package com.windea.plugin.idea.stellaris.localization.formatter
 
 import com.intellij.formatting.*
 import com.intellij.formatting.Indent
 import com.intellij.lang.*
+import com.intellij.psi.*
 import com.intellij.psi.codeStyle.*
 import com.intellij.psi.formatter.common.*
 import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.localization.*
 import com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationTypes.*
+
+//调试没有问题就不要随便修改
 
 class StellarisLocalizationBlock(
 	node: ASTNode,
@@ -53,11 +54,13 @@ class StellarisLocalizationBlock(
 
 	//收集所有节点
 	override fun buildChildren(): List<Block> {
-		return myNode.nodesNotWhiteSpace().map { StellarisLocalizationBlock(it, settings) }
+		return myNode.nodes().map { StellarisLocalizationBlock(it, settings) }
 	}
 
 	override fun getIndent(): Indent? {
 		return when(myNode.elementType) {
+			//空白不需要缩进
+			TokenType.WHITE_SPACE -> Indent.getNoneIndent()
 			//属性之前适用缩进
 			PROPERTY -> Indent.getNormalIndent()
 			//头部之后的注释之前适用缩进

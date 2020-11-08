@@ -22,6 +22,7 @@ import com.intellij.psi.*
 import com.intellij.psi.codeStyle.*
 import com.intellij.psi.impl.source.tree.*
 import com.intellij.psi.injection.*
+import com.intellij.psi.util.*
 import com.intellij.util.*
 import com.intellij.util.containers.*
 import com.jetbrains.jsonSchema.extension.*
@@ -30,6 +31,7 @@ import com.jetbrains.jsonSchema.ide.*
 import com.jetbrains.jsonSchema.impl.*
 import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.script.psi.*
+import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
 import java.util.*
 import javax.swing.*
 
@@ -44,32 +46,43 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 	}
 
 	override fun fillCompletionVariants(parameters: CompletionParameters, result: CompletionResultSet) {
-		var position = parameters.originalPosition?: parameters.position
-		//如果当前位置是whiteSpace，则前移
-		if(position is PsiWhiteSpace) position = position.prevSibling
-
-		val prefix = if(position is PsiWhiteSpace) position.prevSibling?.text else null
+		//如果当前位置是whiteSpace，且前一个叶子节点是STRING_TOKEN或者NUMBER，则前移
+		var position = parameters.position
+		var prefix:String? = null
+		if(position is PsiWhiteSpace){
+			val prev = position.prevSibling
+			val next = position.nextSibling
+			val prevElementType = position.prevSibling.elementType
+			val nextElementType = position.nextSibling.elementType
+			when {
+				prevElementType == ROOT_BLOCK -> position = prev
+				nextElementType == ROOT_BLOCK -> position = next
+				prevElementType == STRING || prevElementType == NUMBER-> {
+					prefix = prev.text
+					position = prev
+				}
+				else -> position = prev.parent
+			}
+		}
 		val resultWithPrefix = if(prefix == null) result else result.withPrefixMatcher(prefix)
 		val jsonSchemaService = JsonSchemaService.Impl.get(position.project)
 		val schemaObject = jsonSchemaService.getSchemaObject(parameters.originalFile) ?: return
-		Worker(schemaObject, parameters.position, position, resultWithPrefix).work()
+		Worker(schemaObject, position, resultWithPrefix).work()
 	}
 
 	private class Worker(
 		private val rootSchema: JsonSchemaObject,
 		private val position: PsiElement,
-		private val originalPosition: PsiElement,
 		private val resultConsumer: Consumer<LookupElement>,
 	) {
-		private val project = originalPosition.project
-		private val walker = StellarisScriptJsonLikePsiWalker
+		private val project = position.project
 
 		// we need this set to filter same-named suggestions (they can be suggested by several matching schemes)
 		private val variants = mutableSetOf<LookupElement>()
 		private val isInsideStringLiteral = position.parent is StellarisScriptStringValue
 
 		fun work() {
-			//注意：如果matchedElement是string或number且parent是array或者file，表示用户可能正在输入一个propertyName
+			//注意：如果matchedElement是string或number且parent是block，表示用户可能正在输入一个propertyKey
 			val checkable = walker.findElementToCheck(position) ?: return
 			val isName = walker.isName(checkable)
 			val checkablePosition = walker.findPosition(checkable, isName == ThreeState.NO)
@@ -77,8 +90,8 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 			//直接通过直接得到的jsonPointer查找schema
 			//如果结果为空，且用户可能正在输入一个propertyKey，需要移除jsonPointer的最后一个path继续查找schema
 			val schemas = JsonSchemaResolver(project, rootSchema, checkablePosition).resolve()
-			if(schemas.isEmpty() && mayBePropertyKey(checkable) && !checkablePosition.isEmpty){
-				schemas.addAll(JsonSchemaResolver(project,rootSchema,checkablePosition.trimTail(1)!!).resolve())
+			if(schemas.isEmpty() && mayBePropertyKey(checkable) && !checkablePosition.isEmpty) {
+				schemas.addAll(JsonSchemaResolver(project, rootSchema, checkablePosition.trimTail(1)!!).resolve())
 			}
 			//TODO 表示已经存在的属性名，需要定制规则当属性名已存在时仍然可以进行补全
 			val knownNames = mutableSetOf<String>()
@@ -86,8 +99,8 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 			schemas.forEach { schema ->
 				if(isName != ThreeState.NO) {
 					val hasValue = walker.isPropertyWithValue(checkable)
-					val propertieNames = walker.getPropertyNamesOfParentObject(originalPosition, position)
-					val adapter = walker.getParentPropertyAdapter(originalPosition)
+					val propertieNames = walker.getPropertyNamesOfParentObject(position, position)
+					val adapter = walker.getParentPropertyAdapter(position)
 					addPropertyNameSchemaVariants(schema)
 					addAllPropertyVariants(hasValue, propertieNames, adapter, schema.properties, knownNames)
 					addIfThenElsePropertyNameVariants(schema, hasValue, propertieNames, adapter, knownNames)
@@ -138,7 +151,7 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 						val schemaThen = ifThenElse.then ?: return
 						addAllPropertyVariants(hasValue, properties, adapter, schemaThen.properties, knownNames)
 					} else {
-						val schemaElse = ifThenElse.`else`?:return
+						val schemaElse = ifThenElse.`else` ?: return
 						addAllPropertyVariants(hasValue, properties, adapter, schemaElse.properties, knownNames)
 					}
 				} catch(e: Exception) {
@@ -194,7 +207,7 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 
 		private fun suggestSpecialValues(type: JsonSchemaType?) {
 			if(JsonSchemaVersion.isSchemaSchemaId(rootSchema.id) && type == JsonSchemaType._string) {
-				val propertyAdapter = walker.getParentPropertyAdapter(originalPosition) ?: return
+				val propertyAdapter = walker.getParentPropertyAdapter(position) ?: return
 				val name = propertyAdapter.name ?: return
 				when(name) {
 					"required" -> addRequiredPropVariants()
@@ -259,14 +272,14 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 
 		//schema中存在默认值时添加默认值提示
 		private fun addPossibleStringValue(schema: JsonSchemaObject) {
-			val defaultValue = schema.default?.toString()?:return
+			val defaultValue = schema.default?.toString() ?: return
 			addStringVariant(defaultValue)
 		}
 
 		//添加字符串提示，去除双引号，但必要时用双引号包围
 		private fun addStringVariant(defaultValueString: String) {
 			if(defaultValueString.isEmpty()) return
-			addValueVariant(defaultValueString.unquote().quoteIfNecessary(), null)
+			addValueVariant(defaultValueString.unquote().onlyQuoteIfNecessary(), null)
 		}
 
 		//为schema提供建议的值
@@ -287,8 +300,10 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 		}
 
 		//添加值提示
-		private fun addValueVariant(key: String, description: String?, altText: String? = null,
-			handler: InsertHandler<LookupElement>? = null) {
+		private fun addValueVariant(
+			key: String, description: String?, altText: String? = null,
+			handler: InsertHandler<LookupElement>? = null,
+		) {
 			var builder = LookupElementBuilder.create(key.onlyQuoteIfNecessary())
 			if(altText != null) builder = builder.withPresentableText(altText)
 			if(description != null) builder = builder.withTypeText(description)
@@ -384,9 +399,12 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 			var type = jsonSchemaObject.guessType()
 			val values = jsonSchemaObject.enum
 			if(type == null && values != null && values.isNotEmpty()) type = detectType(values)
-			val defaultValueAsString = when(val defaultValue = jsonSchemaObject.default) {
-				null, is JsonSchemaObject -> null
-				is String -> "\"" + defaultValue + "\""
+			val defaultValue = jsonSchemaObject.default
+			val defaultValueString = when {
+				defaultValue == null -> null
+				defaultValue is JsonSchemaObject -> null
+				defaultValue is Boolean -> defaultValue.toStringYesNo()
+				defaultValue is String -> defaultValue.toString().onlyQuoteIfNecessary()
 				else -> defaultValue.toString()
 			}
 			val finalType = type
@@ -428,7 +446,7 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 							}
 						}
 						JsonSchemaType._boolean -> {
-							val value = (java.lang.Boolean.TRUE.toString() == defaultValueAsString).toString()
+							val value = defaultValueString?:"no"
 							stringToInsert = (if(insertSeparator) SEPARATOR else " ") + value
 							val model = editor.selectionModel
 							EditorModificationUtil.insertStringAtCaret(editor, stringToInsert, false, true, stringToInsert.length)
@@ -457,12 +475,13 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 							}
 						}
 						JsonSchemaType._string, JsonSchemaType._integer, JsonSchemaType._number -> {
-							insertPropertyWithEnum(context, editor, defaultValueAsString, values, finalType, walker, insertSeparator)
+							insertPropertyWithEnum(context, editor, defaultValueString, values, finalType, insertSeparator)
 						}
-						else -> {}
+						else -> {
+						}
 					}
 				} else {
-					insertPropertyWithEnum(context, editor, defaultValueAsString, values, null, walker, insertSeparator)
+					insertPropertyWithEnum(context, editor, defaultValueString, values, null, insertSeparator)
 				}
 			}
 		}
@@ -493,7 +512,7 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 			private val filtered = ContainerUtil.set("{}", "{ }")
 
 			private fun getIcon(type: JsonSchemaType?): Icon {
-				return  when {
+				return when {
 					type == null -> AllIcons.Nodes.Property
 					type == JsonSchemaType._object -> AllIcons.Json.Object
 					type == JsonSchemaType._array -> AllIcons.Json.Array
@@ -557,9 +576,11 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 		private const val USER_USAGE_KEY = "user"
 		private const val REMOTE_USAGE_KEY = "remote"
 
-		fun getCompletionVariants(schema: JsonSchemaObject, position: PsiElement, originalPosition: PsiElement): List<LookupElement> {
+		private val walker = StellarisScriptJsonLikePsiWalker
+
+		fun getCompletionVariants(schema: JsonSchemaObject, position: PsiElement): List<LookupElement> {
 			val result: MutableList<LookupElement> = ArrayList()
-			Worker(schema, position, originalPosition) { element: LookupElement -> result.add(element) }.work()
+			Worker(schema, position) { element: LookupElement -> result.add(element) }.work()
 			return result
 		}
 
@@ -586,23 +607,18 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 			defaultValue: String?,
 			values: List<Any>?,
 			type: JsonSchemaType?,
-			walker: JsonLikePsiWalker?,
-			insertSeparator: Boolean
+			insertSeparator: Boolean,
 		) {
-			var defaultValue = defaultValue
-			if(!walker!!.requiresValueQuotes() && defaultValue != null) {
-				defaultValue = StringUtil.unquoteString(defaultValue)
-			}
 			val isNumber = type != null && (JsonSchemaType._integer == type || JsonSchemaType._number == type) || type == null
 			               && (defaultValue != null && !StringUtil.isQuotedString(defaultValue) || values != null && ContainerUtil.and(values) { it !is String })
-			val hasValues = !ContainerUtil.isEmpty(values)
-			val hasDefaultValue = !StringUtil.isEmpty(defaultValue)
-			val hasQuotes = isNumber || !walker.requiresValueQuotes()
+			val hasValues = values!= null && values.isNotEmpty()
+			val hasDefaultValue = defaultValue!= null && defaultValue.isNotEmpty()
+			val hasQuotes = isNumber || ! walker.requiresValueQuotes()
 			val offset = editor.caretModel.offset
 			val charSequence = editor.document.charsSequence
 			val ws = if(charSequence.length > offset && charSequence[offset] == ' ') "" else " "
-			val colonWs = if(insertSeparator) SEPARATOR else ws
-			val stringToInsert = colonWs + (if(hasDefaultValue) defaultValue else if(hasQuotes) "" else "\"\"")
+			val separatorWs = if(insertSeparator) SEPARATOR else ws
+			val stringToInsert = separatorWs + (if(hasDefaultValue) defaultValue else if(hasQuotes) "" else "\"\"")
 			EditorModificationUtil.insertStringAtCaret(editor, stringToInsert, false, true, if(insertSeparator) SEPARATOR_LENGTH else 1)
 			if(!hasQuotes || hasDefaultValue) {
 				val model = editor.selectionModel
@@ -612,7 +628,7 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 				model.setSelection(if(hasQuotes) caretStart else caretStart + SEPARATOR_LENGTH, newOffset)
 				editor.caretModel.moveToOffset(newOffset)
 			}
-			if(!walker.hasWhitespaceDelimitedCodeBlocks() && stringToInsert != colonWs ) {
+			if(!walker.hasWhitespaceDelimitedCodeBlocks() && stringToInsert != separatorWs) {
 				formatInsertedString(context, stringToInsert.length)
 			}
 			if(hasValues) {

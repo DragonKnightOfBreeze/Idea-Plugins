@@ -22,7 +22,6 @@ class StellarisScriptPropertyAdapter(
 		val parent = element.parent
 		return when{
 			parent is StellarisScriptBlock -> StellarisScriptObjectAdapter(parent)
-			parent is StellarisScriptFile -> StellarisScriptObjectFromFileAdapter(parent)
 			else ->  null
 		}
 	}

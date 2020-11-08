@@ -25,14 +25,13 @@ object StellarisScriptJsonLikePsiWalker : JsonLikePsiWalker {
 	}
 
 	override fun isName(element: PsiElement): ThreeState {
-		//将所有YES改为UNSURE
 		return when(element) {
+			is StellarisScriptBlock -> ThreeState.UNSURE
 			is StellarisScriptProperty -> ThreeState.UNSURE
 			is StellarisScriptPropertyKey -> ThreeState.YES
 			is StellarisScriptPropertyValue -> ThreeState.NO
 			is StellarisScriptNumber -> ThreeState.UNSURE
 			is StellarisScriptString -> ThreeState.UNSURE
-			is StellarisScriptFile -> ThreeState.UNSURE
 			else -> ThreeState.NO
 		}
 	}
@@ -79,15 +78,12 @@ object StellarisScriptJsonLikePsiWalker : JsonLikePsiWalker {
 	override fun getPropertyNamesOfParentObject(originalPosition: PsiElement, computedPosition: PsiElement?): MutableSet<String> {
 		return when(val parent = originalPosition.parent) {
 			is StellarisScriptBlock -> parent.propertyList.mapNotNullTo(mutableSetOf()) { it.name }
-			//也可以是file，这也合法
-			is StellarisScriptFile -> parent.properties.mapNotNullTo(mutableSetOf()){it.name}
 			else -> mutableSetOf()
 		}
 	}
 
 	override fun createValueAdapter(element: PsiElement): JsonValueAdapter? {
 		return when(element) {
-			is StellarisScriptFile -> StellarisScriptArrayFromFileAdapter(element)
 			is StellarisScriptPropertyValue -> StellarisScriptValueAdapter(element.value)
 			is StellarisScriptValue -> StellarisScriptValueAdapter(element)
 			else -> null
@@ -97,9 +93,8 @@ object StellarisScriptJsonLikePsiWalker : JsonLikePsiWalker {
 	override fun findPosition(element: PsiElement, forceLastTransition: Boolean): JsonPointerPosition? {
 		val position = JsonPointerPosition()
 		var current = element
-		while(true) {
+		while(current !is PsiFile) {
 			when(current){
-				is PsiFile -> return position
 				is StellarisScriptProperty -> {
 					val name = current.name
 					position.addPrecedingStep(name)
@@ -108,7 +103,7 @@ object StellarisScriptJsonLikePsiWalker : JsonLikePsiWalker {
 				is StellarisScriptValue ->{
 					val parent = current.parent
 					//如果在数组中
-					if(parent is StellarisScriptBlock || parent is StellarisScriptFile) {
+					if(parent is StellarisScriptBlock) {
 						val index = parent.indexOfChild(current)
 						position.addPrecedingStep(index)
 					}
@@ -119,6 +114,7 @@ object StellarisScriptJsonLikePsiWalker : JsonLikePsiWalker {
 				}
 			}
 		}
+		return position
 	}
 
 	override fun acceptsEmptyRoot() = true

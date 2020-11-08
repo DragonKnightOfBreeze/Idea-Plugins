@@ -7,7 +7,24 @@ import com.intellij.psi.PsiElement;
 import com.intellij.openapi.util.Iconable.IconFlags;
 import javax.swing.Icon;
 
-public interface StellarisScriptValue extends PsiElement {
+public interface StellarisScriptRootBlock extends StellarisScriptBlock {
+
+  @NotNull
+  List<StellarisScriptProperty> getPropertyList();
+
+  @NotNull
+  List<StellarisScriptValue> getValueList();
+
+  boolean isEmpty();
+
+  boolean isNotEmpty();
+
+  boolean isObject();
+
+  boolean isArray();
+
+  @NotNull
+  List<PsiElement> getComponents();
 
   @Nullable
   Icon getIcon(@IconFlags int flags);

@@ -31,7 +31,7 @@ private val classPathLocationClass = StellarisBundle.javaClass
 
 private val defaultClassLoader = runCatching {
 	classPathLocationClass.classLoader
-}.recoverCatching{
+}.recoverCatching {
 	ClassLoader.getSystemClassLoader()
 }.recoverCatching {
 	ClassLoader.getPlatformClassLoader()
@@ -55,7 +55,23 @@ inline fun <T, reified R> Sequence<T>.mapArray(block: (T) -> R): Array<R> {
 }
 
 
+fun Boolean.toStringYesNo() = if(this) "yes" else "no"
+
 fun String.containsBlank() = this.any { it.isWhitespace() }
+
+fun String.containsBlankLine(): Boolean {
+	var newLine = 0
+	val chars = toCharArray()
+	for(i in chars.indices) {
+		val char = chars[i]
+		if((char == '\r' && chars[i + 1] != '\n') || char == '\n') newLine++
+		if(newLine >= 2) return true
+	}
+	forEach {
+		if(it == '\r' || it == '\n') newLine++
+	}
+	return false
+}
 
 fun String.quote() = if(startsWith('"') && endsWith('"')) this else "\"$this\""
 
@@ -118,14 +134,12 @@ inline fun <reified T : PsiElement> PsiElement.indexOfChild(element: T): Int {
 }
 
 
-/**得到当前Ast节点的所有非空白子节点。*/
-fun ASTNode.nodesNotWhiteSpace(): List<ASTNode> {
+/**得到当前Ast节点的所有子节点。*/
+fun ASTNode.nodes(): List<ASTNode> {
 	val result = mutableListOf<ASTNode>()
 	var child = this.firstChildNode
 	while(child != null) {
-		if(child.elementType !== TokenType.WHITE_SPACE) {
-			result += child
-		}
+		result += child
 		child = child.treeNext
 	}
 	return result
@@ -165,7 +179,7 @@ fun getDocCommentTextFromPreviousComment(element: PsiElement): String {
 				if(length != 0) insert(0, "\n")
 				insert(0, text.trimStart('#').trim())
 			} else {
-				if(containsBlankLine(text)) break
+				if(text.containsBlankLine()) break
 			}
 			prevElement = prevElement.prevSibling
 		}
@@ -176,20 +190,6 @@ fun isPreviousComment(element: PsiElement): Boolean {
 	val elementType = element.elementType
 	return elementType == StellarisLocalizationTypes.COMMENT || elementType == StellarisLocalizationTypes.ROOT_COMMENT
 	       || elementType == StellarisScriptTypes.COMMENT
-}
-
-fun containsBlankLine(text: String): Boolean {
-	var newLine = 0
-	val chars = text.toCharArray()
-	for(i in chars.indices){
-		val char = chars[i]
-		if((char == '\r' && chars[i+1] != '\n') || char == '\n') newLine++
-		if(newLine >= 2) return true
-	}
-	text.forEach {
-		if(it == '\r' || it == '\n') newLine++
-	}
-	return false
 }
 
 /**得到指定元素之前的所有直接的注释的Html文本，作为文档注释，跳过空白。*/
@@ -209,16 +209,16 @@ fun getDocCommentHtmlFromPreviousComment(element: PsiElement, textAttributeKey: 
 }
 
 /**查找最远的相同类型的兄弟节点。可指定是否向后查找，以及是否在空行处中断。*/
-fun findFurthestSiblingOfSameType(element: PsiElement, findAfter: Boolean,stopOnBlankLine:Boolean=true): PsiElement? {
+fun findFurthestSiblingOfSameType(element: PsiElement, findAfter: Boolean, stopOnBlankLine: Boolean = true): PsiElement? {
 	var node = element.node
 	val expectedType = node.elementType
 	var lastSeen = node
-	 while(node != null) {
+	while(node != null) {
 		val elementType = node.elementType
 		when {
 			elementType === expectedType -> lastSeen = node
 			elementType === TokenType.WHITE_SPACE -> {
-				if(stopOnBlankLine && containsBlankLine(element.text)) break
+				if(stopOnBlankLine && element.text.containsBlankLine()) break
 			}
 			else -> break
 		}
@@ -246,19 +246,19 @@ fun selectElement(editor: Editor, element: PsiElement?) {
 //endregion
 
 //region Find Extensions
-fun findLocalizationProperty(name: String, project: Project,locale:StellarisLocale?=null): StellarisLocalizationProperty? {
+fun findLocalizationProperty(name: String, project: Project, locale: StellarisLocale? = null): StellarisLocalizationProperty? {
 	val files = project.findFiles<StellarisLocalizationFile>(StellarisLocalizationFileType).asSequence()
 	val localedFiles = if(locale != null) files.filter { it.locale?.locale == locale } else files
 	return localedFiles.flatMap { it.properties.asSequence() }.find { it.name == name }
 }
 
-fun findLocalizationProperties(name: String, project: Project,locale:StellarisLocale? = null): Sequence<StellarisLocalizationProperty> {
+fun findLocalizationProperties(name: String, project: Project, locale: StellarisLocale? = null): Sequence<StellarisLocalizationProperty> {
 	val files = project.findFiles<StellarisLocalizationFile>(StellarisLocalizationFileType)
 	val localedFiles = if(locale != null) files.filter { it.locale?.locale == locale } else files
 	return localedFiles.flatMap { it.properties.asSequence() }.filter { it.name == name }
 }
 
-fun findLocalizationProperties(project: Project,locale:StellarisLocale?=null): Sequence<StellarisLocalizationProperty> {
+fun findLocalizationProperties(project: Project, locale: StellarisLocale? = null): Sequence<StellarisLocalizationProperty> {
 	val files = project.findFiles<StellarisLocalizationFile>(StellarisLocalizationFileType)
 	val localedFiles = if(locale != null) files.filter { it.locale?.locale == locale } else files
 	return localedFiles.flatMap { it.properties.asSequence() }.filterNot { it.name.isNullOrEmpty() }

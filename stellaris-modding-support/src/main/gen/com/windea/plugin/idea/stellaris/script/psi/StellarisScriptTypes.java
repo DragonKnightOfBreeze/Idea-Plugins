@@ -17,6 +17,7 @@ public interface StellarisScriptTypes {
   IElementType PROPERTY_KEY = new StellarisScriptElementType("PROPERTY_KEY");
   IElementType PROPERTY_SEPARATOR = new StellarisScriptElementType("PROPERTY_SEPARATOR");
   IElementType PROPERTY_VALUE = new StellarisScriptElementType("PROPERTY_VALUE");
+  IElementType ROOT_BLOCK = new StellarisScriptElementType("ROOT_BLOCK");
   IElementType STRING = new StellarisScriptElementType("STRING");
   IElementType STRING_VALUE = new StellarisScriptElementType("STRING_VALUE");
   IElementType VALUE = new StellarisScriptElementType("VALUE");
@@ -78,6 +79,9 @@ public interface StellarisScriptTypes {
       }
       else if (type == PROPERTY_VALUE) {
         return new StellarisScriptPropertyValueImpl(node);
+      }
+      else if (type == ROOT_BLOCK) {
+        return new StellarisScriptRootBlockImpl(node);
       }
       else if (type == STRING) {
         return new StellarisScriptStringImpl(node);

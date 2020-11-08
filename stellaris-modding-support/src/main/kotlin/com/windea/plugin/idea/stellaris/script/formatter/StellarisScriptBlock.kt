@@ -3,16 +3,19 @@ package com.windea.plugin.idea.stellaris.script.formatter
 import com.intellij.formatting.*
 import com.intellij.formatting.Indent
 import com.intellij.lang.*
+import com.intellij.psi.*
+import com.intellij.psi.TokenType.*
 import com.intellij.psi.codeStyle.*
 import com.intellij.psi.formatter.common.*
 import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.localization.*
 import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
 
+//调试没有问题就不要随便修改
+
 class StellarisScriptBlock(
 	node: ASTNode,
-	private val settings: CodeStyleSettings,
-	private val shouldIndent: Boolean = false
+	private val settings: CodeStyleSettings
 ) : AbstractBlock(node, createWrap(), createAlignment(node)) {
 	companion object {
 		private fun createWrap(): Wrap? {
@@ -46,25 +49,15 @@ class StellarisScriptBlock(
 	private val spacingBuilder = createSpacingBuilder(settings)
 
 	override fun buildChildren(): List<Block> {
-		//如果已经需要缩进，或者是list的子节点，则注意需要缩进
-		return myNode.nodesNotWhiteSpace().map {
-			when {
-				shouldIndent -> StellarisScriptBlock(it, settings, true)
-				it.treeParent.elementType == BLOCK -> StellarisScriptBlock(it, settings, true)
-				//it.treeParent.elementType == OBJECT -> StellarisScriptBlock(it, settings, true)
-				//it.treeParent.elementType == ARRAY -> StellarisScriptBlock(it, settings, true)
-				else -> StellarisScriptBlock(it, settings)
-			}
-		}
+		return myNode.nodes().map { StellarisScriptBlock(it, settings) }
 	}
 
 	override fun getIndent(): Indent? {
-		if(!shouldIndent) return Indent.getNoneIndent()
-		//list下面的所有属性和非行尾注释都要缩进
-		return when(myNode.elementType) {
-			VALUE -> Indent.getNormalIndent()
-			PROPERTY -> Indent.getNormalIndent()
-			COMMENT -> Indent.getNormalIndent()
+		return when{
+			//block中的直接子节点需要缩进
+			myNode.treeParent.elementType == BLOCK -> Indent.getNormalIndent()
+			//空白不需要缩进
+			myNode.elementType == WHITE_SPACE -> Indent.getNoneIndent()
 			else -> Indent.getNoneIndent()
 		}
 	}

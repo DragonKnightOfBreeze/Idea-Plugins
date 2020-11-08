@@ -33,6 +33,7 @@ val stellarisScriptVariableRegex = "@[a-zA-Z0-9_-]+".toRegex()
 val stellarisScriptPropertyRegex = "[a-z0-9_-]+".toRegex()
 
 const val commentFolder = "#..."
+const val rootBlockFolder = "<root block>"
 const val blockFolder = "{...}"
 const val defaultFolder = "<folder>"
 
@@ -48,6 +49,8 @@ val stellarisLocalizationPropertyIcon = AllIcons.Nodes.PropertyRead
 
 val stellarisScriptFileIcon = IconLoader.findIcon("/icons/stellaris_script.png")
 val stellarisScriptVariableIcon = AllIcons.Nodes.Variable
+val stellarisScriptArrayIcon = AllIcons.Json.Array
+val stellarisScriptObjectIcon = AllIcons.Json.Object
 val stellarisScriptPropertyIcon = AllIcons.Nodes.Property
 val stellarisScriptValueIcon = AllIcons.Nodes.Constant
 

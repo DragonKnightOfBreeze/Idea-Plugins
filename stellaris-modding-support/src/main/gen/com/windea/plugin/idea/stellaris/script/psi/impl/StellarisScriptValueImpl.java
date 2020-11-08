@@ -10,6 +10,8 @@ import com.intellij.psi.util.PsiTreeUtil;
 import static com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.windea.plugin.idea.stellaris.script.psi.*;
+import com.intellij.openapi.util.Iconable.IconFlags;
+import javax.swing.Icon;
 
 public abstract class StellarisScriptValueImpl extends ASTWrapperPsiElement implements StellarisScriptValue {
 
@@ -24,6 +26,12 @@ public abstract class StellarisScriptValueImpl extends ASTWrapperPsiElement impl
   public void accept(@NotNull PsiElementVisitor visitor) {
     if (visitor instanceof StellarisScriptVisitor) accept((StellarisScriptVisitor)visitor);
     else super.accept(visitor);
+  }
+
+  @Override
+  @Nullable
+  public Icon getIcon(@IconFlags int flags) {
+    return StellarisScriptPsiImplUtil.getIcon(this, flags);
   }
 
 }

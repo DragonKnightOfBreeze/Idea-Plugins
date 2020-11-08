@@ -48,6 +48,10 @@ public class StellarisScriptVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
+  public void visitRootBlock(@NotNull StellarisScriptRootBlock o) {
+    visitBlock(o);
+  }
+
   public void visitString(@NotNull StellarisScriptString o) {
     visitStringValue(o);
   }

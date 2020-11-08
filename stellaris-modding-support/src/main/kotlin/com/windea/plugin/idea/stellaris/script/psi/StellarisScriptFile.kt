@@ -11,7 +11,9 @@ class StellarisScriptFile(
 
 	val variableDefinitions get() = findChildrenByClass(StellarisScriptVariableDefinition::class.java)
 
-	val properties get() = findChildrenByClass(StellarisScriptProperty::class.java)
+	val rootBlock get() = findChildByClass(StellarisScriptRootBlock::class.java)
 
-	val values get() = findChildrenByClass(StellarisScriptValue::class.java)
+	val properties get() =  rootBlock?.propertyList?:listOf()
+
+	val values get() = rootBlock?.valueList?:listOf()
 }
