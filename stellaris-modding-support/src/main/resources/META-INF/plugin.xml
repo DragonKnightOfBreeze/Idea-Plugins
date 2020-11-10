@@ -18,39 +18,32 @@
       <li>
         All planned language feature are listed in the
         <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/README.md">README</a>
-        document of this project. (Simple Chinese)
+        document written by Simple Chinese.
       </li>
     </ul>
     <p>
-      Please note that why I develop this plugin is simply: to write Stellaris mods easily (and take the first step ),
-      however, some other games may also use such script language and localization language.
-    </p>
-    <p>
-      Please note that this plugin will only recognize script / localization files
+      This plugin will only recognize script and localization files
       under a directory which has <code>stellaris.exe</code> <code>descriptor.mod</code> in it.
     </p>
     <p>
-      You can configure whether to resolve internal (in project directory) &
-      external (in game / mod directory, <b>NOT IMPLEMENTED YET</b>) references,
-      such as localization & script property references in script files
+      You can configure whether to resolve
+      internal (in project directory) & external (in game / mod directory, <b>NOT IMPLEMENTED YET</b>) references,
+      such as localization and script property references in script files
       by Edit settings via <b>[Languages & Frameworks / Stellaris Modding Support]</b>.
       Default all to false.
     </p>
     <p>
-      Please note that <b>Paradox Interactive</b>'s modding language is actually very complex and even more chaos,
-      so that this plugin maybe have some <i>syntax compatibility problems</i> and <i>reference problems</i>.
-    </p>
-    <P>
       You can also write Stellaris mods by VSCode IDE with CWTools plugin,
       but please note that IDEA is undoubtedly more powerful than VSCode.
       which means that this plugin may support some advance features that CWTools will never provide.
-    </P>
+    </p>
     <p>
       This plugin is still in developing,
-      if you have found any bugs or problems, feel free to report them in project's
-      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/issues">Github Issue Page</a>.
-      (With label <i>stellaris-modding-support</i>)
+      if you have found any bugs or problems, feel free to report them in
+      project's <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/issues">Github Issue Page</a>
+      with label <i>stellaris-modding-support</i>.
     </p>
+
     <p>
       Welcome to have a look at
       <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/tree/master/stellaris-modding-support">this project</a>,
@@ -68,17 +61,13 @@
       <li>已实现扩展的语言特性。（如，查找使用，定位到定义）</li>
       <li>正在实现更加复杂的语言特性。（如，验证脚本文件）</li>
       <li>
-        所有计划中的语言特性都已在项目的
+        所有计划中的语言特性都已在
         <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/README.md">README</a>
-        文档中列出。（中文）
+        文档中列出。
       </li>
     </ul>
     <p>
-      请注意，我开发这个插件的目的仅仅只是为了便于开发Stellaris的mod（以及熟悉IDEA插件开发），
-      不过，其他游戏可能也会使用到这个插件所支持的脚本语言和本地化语言。
-    </p>
-    <p>
-      请注意，这个插件仅会识别文件<code>stellaris.exe</code>或者<code>descriptor.mod</code>
+      这个插件仅会识别文件<code>stellaris.exe</code>或者<code>descriptor.mod</code>
       所在目录下（及其子目录）的脚本文件和本地化文件。
     </p>
     <p>
@@ -88,19 +77,16 @@
       默认全部不启用。
     </p>
     <p>
-      请注意，<b>瑞典蠢驴</b>的模组语言实际上是非常非常复杂的，
-      因此这个插件仍然可能存在一些<i>语法解析兼容性问题</i>以及<i>引用问题</i>。
-    </p>
-    <P>
-      你也可以使用VSCode IDE并配合CWTools插件来进行Stellaris模组编程。
+      你也可以使用VSCode IDE并配合CWTools插件进行Stellaris模组编程。
       但请注意，IDEA相比VSCode功能无疑更加强大，
       这意味着这个插件未来可能会提供一些CWTools所不可能支持的高级功能。
     </P>
     <p>
-      这个插件仍然在更新中，如果遇到BUG或问题，欢迎在项目的
-      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/issues">Github Issue页面</a>
-      中提出。（附带标签<i>stellaris-modding-support</i>）
+      这个插件仍在开发中，如果遇到BUG或问题，欢迎在
+      项目的<a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/issues">Github Issue页面</a>中提出，
+      附带标签<i>stellaris-modding-support</i>。
     </p>
+
     <p>
       欢迎查看
       <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/tree/master/stellaris-modding-support">本项目</a>，
@@ -111,19 +97,17 @@
 
   <change-notes><![CDATA[
     <p>
-      See the whole changelog at the
-      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/README.md">README</a> and
+      Please see the
       <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/CHANGELOG.md">CHANGELOG</a>
-      document of this project. (Simple Chinese)
+      document written by Simple Chinese.
     </p>
 
     <br>
 
     <p>
-      通过项目的
-      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/README.md">README</a> 文档和
-      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/CHANGELOG.md">CHANGELOG</a> 文档
-      查看完整的更新日志。（中文）
+      请查看
+      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/CHANGELOG.md">CHANGELOG</a>
+      文档。
     </p>
     ]]></change-notes>
 

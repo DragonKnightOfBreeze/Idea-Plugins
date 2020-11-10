@@ -18,11 +18,15 @@ import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
 //pattern是通过调试确定的
 
 class StellarisScriptCompletionContributor : CompletionContributor() {
+	override fun beforeCompletion(context: CompletionInitializationContext) {
+		context.dummyIdentifier = ""
+	}
+
 	class BooleanCompletionProvider : CompletionProvider<CompletionParameters>() {
 		private val values = arrayOf("yes", "no")
 
 		override fun addCompletions(parameters: CompletionParameters, context: ProcessingContext, result: CompletionResultSet) {
-			//基础的代码提示,仅提示布尔值
+			//当用户正在输入一个string时提示
 			val position = parameters.position
 			val resultWithPrefix = if(position is PsiWhiteSpace) result.withPrefixMatcher(position.prevLeaf()?.text.orEmpty()) else result
 			for(value in values) {

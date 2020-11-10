@@ -14,6 +14,7 @@ import com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationTy
 class StellarisLocalizationCompletionContributor : CompletionContributor() {
 	class LocaleCompletionProvider : CompletionProvider<CompletionParameters>() {
 		override fun addCompletions(parameters: CompletionParameters, context: ProcessingContext, result: CompletionResultSet) {
+			//当用户正在输入一个locale时提示
 			//当在文档开始（忽略注释）处输入时，认为正在输入语言区域，因此需要进行代码提示
 			//由于用户已经输入了一个字符，因此不能直接补全，需要添加一个前缀，一般是"l"
 			val prefix = parameters.position.prevSibling?.text

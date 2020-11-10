@@ -45,27 +45,27 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 	}
 
 	override fun fillCompletionVariants(parameters: CompletionParameters, result: CompletionResultSet) {
-		//如果当前位置是whiteSpace，且前一个叶子节点是STRING_TOKEN或者NUMBER，则前移
+		//当用户正在输入一个string或number，或者将要输入一个propertyKey时提示
 		var position = parameters.position
-		var prefix:String? = null
+		var prefix = ""
+		//重新定位position
 		if(position is PsiWhiteSpace){
-			when {
-				position.prevSibling.elementType == ROOT_BLOCK -> position = position.prevSibling
-				position.nextSibling.elementType == ROOT_BLOCK -> position = position.nextSibling
+			position =  when {
+				position.prevSibling.elementType == ROOT_BLOCK ->  position.prevSibling.lastChild
+				position.nextSibling.elementType == ROOT_BLOCK -> position.nextSibling.lastChild
+				else -> position.prevSibling
 			}
-			val prev = if(position.elementType == ROOT_BLOCK) position.lastChild else position.prevSibling
-			when{
-				prev.elementType == STRING || prev.elementType == NUMBER-> {
-					prefix = prev.text
-					position = prev
-				}
-				prev.elementType == PROPERTY -> return //如果捕捉到属性，则不进行代码提示
+			when(position.elementType) {
+				//如果position是string或number，则将其文本作为result的前缀
+				STRING, NUMBER -> prefix = position.text
+				//如果position是property，则直接返回
+				PROPERTY -> return
 			}
 		}
-		val resultWithPrefix = if(prefix == null) result else result.withPrefixMatcher(prefix)
 		val jsonSchemaService = JsonSchemaService.Impl.get(position.project)
 		val schemaObject = jsonSchemaService.getSchemaObject(parameters.originalFile) ?: return
-		Worker(schemaObject, position, resultWithPrefix).work()
+		val fqResult = if(prefix.isEmpty()) result else result.withPrefixMatcher(prefix)
+		Worker(schemaObject, position, fqResult).work()
 	}
 
 	private class Worker(
