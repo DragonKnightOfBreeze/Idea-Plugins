@@ -14,14 +14,14 @@ object StellarisScriptJsonLikePsiWalker : JsonLikePsiWalker {
 	override fun findElementToCheck(element: PsiElement): PsiElement? {
 		//得到需要检查的元素
 		var current = element
-		//向上查找直到psiFile，如果是property/propertyKey/value，则认为已找到
+		//向上查找直到psiFile，如果是property/value，则认为已找到
 		while(current !is PsiFile){
 			when(current) {
-				is StellarisScriptProperty, is StellarisScriptPropertyKey, is StellarisScriptValue -> return current
-				else -> current = current.parent
+				is StellarisScriptProperty, is StellarisScriptValue -> return current
+				else -> current = current.parent?:return null
 			}
 		}
-		return current
+		return null
 	}
 
 	override fun isName(element: PsiElement): ThreeState {
@@ -37,8 +37,7 @@ object StellarisScriptJsonLikePsiWalker : JsonLikePsiWalker {
 	}
 
 	override fun isTopJsonElement(element: PsiElement): Boolean {
-		//可能是psiFile，也可能子元素是psiFile，因为底层逻辑是判断root的父元素是否是topJsonElement
-		return element is StellarisScriptFile || element is PsiDirectory
+		return element is StellarisScriptFile
 	}
 
 	override fun isPropertyWithValue(element: PsiElement): Boolean {
@@ -57,13 +56,16 @@ object StellarisScriptJsonLikePsiWalker : JsonLikePsiWalker {
 	}
 
 	override fun getRoots(file: PsiFile): Collection<PsiElement> {
-		//可以是value也可以是file
-		return listOfNotNull(PsiTreeUtil.findChildOfType(file,StellarisScriptValue::class.java),file)
+		return PsiTreeUtil.findChildOfType(file,StellarisScriptValue::class.java).toSingletonOrEmpty()
 	}
 
 	override fun getParentPropertyAdapter(element: PsiElement): JsonPropertyAdapter? {
-		val parent = element.parentOfType<StellarisScriptProperty>(true)
-		return if(parent != null) StellarisScriptPropertyAdapter(parent) else null
+		var current = element
+		while(current !is PsiFile){
+			if(current is StellarisScriptProperty) return StellarisScriptPropertyAdapter(current)
+			current = current.parent ?:return null
+		}
+		return null
 	}
 
 	override fun getPropertyNameElement(property: PsiElement?): PsiElement? {
@@ -95,14 +97,15 @@ object StellarisScriptJsonLikePsiWalker : JsonLikePsiWalker {
 		var current = element
 		while(current !is PsiFile) {
 			when(current){
+				//如果是属性
 				is StellarisScriptProperty -> {
 					val name = current.name
 					position.addPrecedingStep(name)
-					current = current.parent
+					current = current.parent?:return null
 				}
+				//如果是指并且在数组中
 				is StellarisScriptValue ->{
-					val parent = current.parent
-					//如果在数组中
+					val parent = current.parent?:return null
 					if(parent is StellarisScriptBlock) {
 						val index = parent.indexOfChild(current)
 						position.addPrecedingStep(index)
@@ -110,14 +113,12 @@ object StellarisScriptJsonLikePsiWalker : JsonLikePsiWalker {
 					current = parent
 				}
 				else -> {
-					current = current.parent
+					current = current.parent?:return null
 				}
 			}
 		}
 		return position
 	}
-
-	override fun acceptsEmptyRoot() = true
 
 	override fun allowsSingleQuotes() = false
 

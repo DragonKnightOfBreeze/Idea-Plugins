@@ -40,10 +40,6 @@ import javax.swing.*
 //TODO 重构和完善
 
 class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
-	override fun beforeCompletion(context: CompletionInitializationContext) {
-		context.dummyIdentifier = ""
-	}
-
 	override fun fillCompletionVariants(parameters: CompletionParameters, result: CompletionResultSet) {
 		//当用户正在输入一个string或number，或者将要输入一个propertyKey时提示
 		var position = parameters.position

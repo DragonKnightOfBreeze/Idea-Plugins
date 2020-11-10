@@ -16,9 +16,16 @@ class StellarisScriptValueAdapter(
 
 	override fun isStringLiteral() = element is StellarisScriptStringValue
 
-	override fun isArray() = element is StellarisScriptBlock && element.isArray //忽略空数组的情况
+	//TODO isArray和isObject两者只能有一个是true，如果block是空的，需要推断到底是array还是object
+	//TODO 首先得到rootSchema，然后得到jsonPosition，然后再得到需要的schema，根据schema.typeVariants进行推断
 
-	override fun isObject() = element is StellarisScriptBlock && element.isObject //忽略空对象的情况
+	override fun isArray() = element is StellarisScriptBlock && element.isArray
+
+	override fun isObject() = element is StellarisScriptBlock && element.isObject
+
+	private fun isArrayWhenEmpty() :Boolean{
+		TODO()
+	}
 
 	override fun getAsArray() = if(isArray) StellarisScriptArrayAdapter(element as StellarisScriptBlock) else null
 

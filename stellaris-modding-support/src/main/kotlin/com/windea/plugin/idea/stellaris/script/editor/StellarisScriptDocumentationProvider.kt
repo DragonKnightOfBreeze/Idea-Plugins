@@ -9,6 +9,8 @@ import com.windea.plugin.idea.stellaris.script.psi.*
 class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
 	override fun getQuickNavigateInfo(element: PsiElement?, originalElement: PsiElement?): String? {
 		return when(element) {
+			//防止意外情况
+			is StellarisScriptVariableName -> getQuickNavigateInfo(element.parent,originalElement)
 			is StellarisScriptVariable -> "${getLocationText(element)}<br>${element.name}"
 			is StellarisScriptProperty -> "${getLocationText(element)}<br>${element.name}"
 			else -> null

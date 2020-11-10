@@ -18,10 +18,6 @@ import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
 //pattern是通过调试确定的
 
 class StellarisScriptCompletionContributor : CompletionContributor() {
-	override fun beforeCompletion(context: CompletionInitializationContext) {
-		context.dummyIdentifier = ""
-	}
-
 	class BooleanCompletionProvider : CompletionProvider<CompletionParameters>() {
 		private val values = arrayOf("yes", "no")
 
