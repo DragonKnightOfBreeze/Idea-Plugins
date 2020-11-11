@@ -207,6 +207,7 @@
 * [X] Schema：完善代码补全功能
 * [X] 修复关于格式化换行自动缩进的bug（重载`block.getChildAttributes`）
 * [X] 修复字符串数组持续输入会卡住的bug（`StellarisScriptJsonLikePsiWalker.findPosition`中的bug）
+* [X] 完善代码补全功能
 * [ ] Schema：解决空对象/空数组的相关问题（都表示为`{}`，如何区分，是否需要修改原始的jsonSchema相关文件？）
 * [ ] Schema：为脚本文件提供较为完善的Schema文件
 * [ ] ~~本地化文件的图标的参数必须是正整数（搁置）~~
