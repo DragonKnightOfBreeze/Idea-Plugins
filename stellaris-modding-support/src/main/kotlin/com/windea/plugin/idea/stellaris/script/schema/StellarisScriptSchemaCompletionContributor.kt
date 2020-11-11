@@ -415,6 +415,34 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 				if(finalType != null) {
 					var hadEnter: Boolean
 					when(finalType) {
+						JsonSchemaType._boolean -> {
+							val value = defaultValueString?:"no"
+							stringToInsert = (if(insertSeparator) SEPARATOR else " ") + value
+							val model = editor.selectionModel
+							EditorModificationUtil.insertStringAtCaret(editor, stringToInsert, false, true, stringToInsert.length)
+							val start = editor.selectionModel.selectionStart
+							model.setSelection(start - value.length, start)
+							AutoPopupController.getInstance(context.project).autoPopupMemberLookup(context.editor, null)
+						}
+						JsonSchemaType._string, JsonSchemaType._integer, JsonSchemaType._number -> {
+							insertPropertyWithEnum(context, editor, defaultValueString, values, finalType, insertSeparator)
+						}
+						JsonSchemaType._array -> {
+							EditorModificationUtil.insertStringAtCaret(editor, if(insertSeparator) SEPARATOR else " ", false, true, if(insertSeparator) SEPARATOR_LENGTH else 1)
+							hadEnter = false
+							if(insertSeparator && walker.hasWhitespaceDelimitedCodeBlocks()) {
+								invokeEnterHandler(editor)
+								hadEnter = true
+							}
+							if(insertSeparator) {
+								stringToInsert = walker.defaultArrayValue
+								EditorModificationUtil.insertStringAtCaret(editor, stringToInsert, false, true, if(hadEnter) 0 else 1)
+							}
+							if(hadEnter) {
+								EditorActionUtil.moveCaretToLineEnd(editor, false, false)
+							}
+							PsiDocumentManager.getInstance(project).commitDocument(editor.document)
+						}
 						JsonSchemaType._object -> {
 							EditorModificationUtil.insertStringAtCaret(editor, if(insertSeparator) SEPARATOR else " ", false, true, if(insertSeparator) SEPARATOR_LENGTH else 1)
 							hadEnter = false
@@ -434,34 +462,6 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 							if(stringToInsert != null && !invokeEnter) {
 								invokeEnterHandler(editor)
 							}
-						}
-						JsonSchemaType._boolean -> {
-							val value = defaultValueString?:"no"
-							stringToInsert = (if(insertSeparator) SEPARATOR else " ") + value
-							val model = editor.selectionModel
-							EditorModificationUtil.insertStringAtCaret(editor, stringToInsert, false, true, stringToInsert.length)
-							val start = editor.selectionModel.selectionStart
-							model.setSelection(start - value.length, start)
-							AutoPopupController.getInstance(context.project).autoPopupMemberLookup(context.editor, null)
-						}
-						JsonSchemaType._array -> {
-							EditorModificationUtil.insertStringAtCaret(editor, if(insertSeparator) SEPARATOR else " ", false, true, if(insertSeparator) SEPARATOR_LENGTH else 1)
-							hadEnter = false
-							if(insertSeparator && walker.hasWhitespaceDelimitedCodeBlocks()) {
-								invokeEnterHandler(editor)
-								hadEnter = true
-							}
-							if(insertSeparator) {
-								stringToInsert = walker.defaultArrayValue
-								EditorModificationUtil.insertStringAtCaret(editor, stringToInsert, false, true, if(hadEnter) 0 else 1)
-							}
-							if(hadEnter) {
-								EditorActionUtil.moveCaretToLineEnd(editor, false, false)
-							}
-							PsiDocumentManager.getInstance(project).commitDocument(editor.document)
-						}
-						JsonSchemaType._string, JsonSchemaType._integer, JsonSchemaType._number -> {
-							insertPropertyWithEnum(context, editor, defaultValueString, values, finalType, insertSeparator)
 						}
 						else -> {
 						}

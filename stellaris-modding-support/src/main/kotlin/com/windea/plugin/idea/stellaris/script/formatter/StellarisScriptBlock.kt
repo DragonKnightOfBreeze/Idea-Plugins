@@ -3,6 +3,7 @@ package com.windea.plugin.idea.stellaris.script.formatter
 import com.intellij.formatting.*
 import com.intellij.formatting.Indent
 import com.intellij.lang.*
+import com.intellij.psi.*
 import com.intellij.psi.codeStyle.*
 import com.intellij.psi.formatter.common.*
 import com.windea.plugin.idea.stellaris.*
@@ -46,11 +47,22 @@ class StellarisScriptBlock(
 	}
 
 	override fun getIndent(): Indent? {
+		//配置缩进
 		//block中的属性、值、注释需要缩进
 		if(myNode.treeParent?.elementType != BLOCK) return Indent.getNoneIndent()
 		return when(myNode.elementType) {
 			COMMENT, PROPERTY, VALUE, BOOLEAN, NUMBER, STRING, COLOR, CODE -> Indent.getNormalIndent()
 			else -> Indent.getNoneIndent()
+		}
+	}
+
+	override fun getChildIndent(): Indent? {
+		//配置换行时的自动缩进
+		//在psiFile中不要缩进，在block中要缩进
+		return when{
+			myNode.psi is PsiFile -> Indent.getNoneIndent()
+			myNode.elementType == BLOCK -> Indent.getNormalIndent()
+			else -> null
 		}
 	}
 
