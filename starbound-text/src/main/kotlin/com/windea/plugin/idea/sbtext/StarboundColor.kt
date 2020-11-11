@@ -42,6 +42,7 @@ enum class StarboundColor(
 	fun formatRemain(text: String) = "^$key;$text"
 
 	companion object{
+		val values = values()
 		val map = StarboundColor.values().associateBy { it.key }
 	}
 }

@@ -40,28 +40,19 @@ import javax.swing.*
 //TODO 重构和完善
 
 class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
+	private val mayBePropertyKeyTypes = arrayOf(STRING_TOKEN,NUMBER_TOKEN)
+
 	override fun fillCompletionVariants(parameters: CompletionParameters, result: CompletionResultSet) {
-		//当用户正在输入一个string或number，或者将要输入一个propertyKey时提示
-		var position = parameters.position
-		var prefix = ""
-		//重新定位position
-		if(position is PsiWhiteSpace){
-			position =  when {
-				position.prevSibling.elementType == ROOT_BLOCK ->  position.prevSibling.lastChild
-				position.nextSibling.elementType == ROOT_BLOCK -> position.nextSibling.lastChild
-				else -> position.prevSibling
-			}
-			when(position.elementType) {
-				//如果position是string或number，则将其文本作为result的前缀
-				STRING, NUMBER -> prefix = position.text
-				//如果position是property，则直接返回
-				PROPERTY -> return
-			}
-		}
+		//当用户正在输入一个string或number，但之前的节点不是string或number时提示
+		val position = parameters.position
+		val elementType = position.elementType
+		if(elementType !in mayBePropertyKeyTypes) return
+		val prevElementType = position.parent?.prevSibling?.firstChild?.elementType?:return
+		if(prevElementType in mayBePropertyKeyTypes) return
+
 		val jsonSchemaService = JsonSchemaService.Impl.get(position.project)
 		val schemaObject = jsonSchemaService.getSchemaObject(parameters.originalFile) ?: return
-		val fqResult = if(prefix.isEmpty()) result else result.withPrefixMatcher(prefix)
-		Worker(schemaObject, position, fqResult).work()
+		Worker(schemaObject, position, result).work()
 	}
 
 	private class Worker(

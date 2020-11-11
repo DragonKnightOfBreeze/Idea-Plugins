@@ -15,35 +15,19 @@ import com.windea.plugin.idea.stellaris.localization.psi.*
 import com.windea.plugin.idea.stellaris.script.psi.*
 import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
 
-//pattern是通过调试确定的
-
 class StellarisScriptCompletionContributor : CompletionContributor() {
 	class BooleanCompletionProvider : CompletionProvider<CompletionParameters>() {
-		private val values = arrayOf("yes", "no")
+		private val lookupElements = booleanValues.map{value->
+			LookupElementBuilder.create(value).bold().withPriority(80.0)
+		}
 
 		override fun addCompletions(parameters: CompletionParameters, context: ProcessingContext, result: CompletionResultSet) {
-			//当用户正在输入一个string时提示
-			val position = parameters.position
-			val resultWithPrefix = if(position is PsiWhiteSpace) result.withPrefixMatcher(position.prevLeaf()?.text.orEmpty()) else result
-			for(value in values) {
-				val lookupElement = LookupElementBuilder.create(value).bold().withPriority(80.0)
-				resultWithPrefix.addElement(lookupElement)
-			}
+			result.addAllElements(lookupElements)
 		}
 	}
 
 	init {
-		extend(
-			CompletionType.BASIC,
-			or(
-				psiElement(STRING_TOKEN),
-				psiElement().whitespace().afterLeaf(psiElement(STRING_TOKEN))
-			),
-			BooleanCompletionProvider()
-		)
-	}
-
-	override fun fillCompletionVariants(parameters: CompletionParameters, result: CompletionResultSet) {
-		super.fillCompletionVariants(parameters, result)
+		//当用户正在输入一个string时提示
+		extend(CompletionType.BASIC, psiElement(STRING_TOKEN), BooleanCompletionProvider())
 	}
 }

@@ -13,7 +13,7 @@ import com.windea.plugin.idea.sbtext.*
 class SbTextCompletionContributor : CompletionContributor() {
 	class ColorCodeCompletionProvider : CompletionProvider<CompletionParameters>() {
 		override fun addCompletions(parameters: CompletionParameters, context: ProcessingContext, result: CompletionResultSet) {
-			for(color in StarboundColor.values()) {
+			for(color in StarboundColor.values) {
 				result.addElement(LookupElementBuilder.create(color.key).withIcon(color.icon))
 			}
 			result.addElement(LookupElementBuilder.create("reset"))
