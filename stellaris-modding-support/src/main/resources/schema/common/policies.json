@@ -21,6 +21,9 @@
             "potential" : {
               "$ref" : "#/definitions/triggers"
             },
+            "valid" : {
+              "$ref" : "#/definitions/triggers"
+            },
             "policy_flags" : {
               "type" : "array",
               "items" : {
@@ -60,7 +63,7 @@
       "type" : "object",
       "properties" : {
         "base" : {
-          "type" : "integer"
+          "type" : "number"
         },
         "modifier" : {
           "allOf" : [ {

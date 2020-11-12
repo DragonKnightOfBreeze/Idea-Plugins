@@ -16,6 +16,8 @@ definitions:
             $ref: "../core.yml#/definitions/gfx_reference"
           potential:
             $ref: "../core.yml#/definitions/triggers"
+          valid:
+            $ref: "../core.yml#/definitions/triggers"
           policy_flags:
             type: array
             items:

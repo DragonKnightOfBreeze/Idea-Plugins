@@ -4,7 +4,6 @@ package com.windea.plugin.idea.stellaris.localization.codeInsight
 
 import com.intellij.codeInsight.completion.*
 import com.intellij.codeInsight.lookup.*
-import com.intellij.openapi.roots.ui.configuration.*
 import com.intellij.patterns.PlatformPatterns.*
 import com.intellij.util.*
 import com.windea.plugin.idea.stellaris.*
@@ -17,7 +16,9 @@ class StellarisLocalizationCompletionContributor : CompletionContributor() {
 		}
 
 		override fun addCompletions(parameters: CompletionParameters, context: ProcessingContext, result: CompletionResultSet) {
-			result.addAllElements(lookupElements)
+			val prefix = parameters.position.prevSibling?.text
+			val fqResult = if(prefix != null) result.withPrefixMatcher(prefix) else result
+			fqResult.addAllElements(lookupElements)
 		}
 	}
 

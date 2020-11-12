@@ -39,7 +39,7 @@ definitions:
             $type: army
           additionalProperties:
             $ref: "#/definitions/random_or_sequential_names"
-      plant_names:
+      planet_names:
         type: object
         anyOf:
         - properties:

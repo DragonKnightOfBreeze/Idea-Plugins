@@ -65,7 +65,7 @@
       "type" : "object",
       "properties" : {
         "base" : {
-          "type" : "integer"
+          "type" : "number"
         },
         "modifier" : {
           "allOf" : [ {

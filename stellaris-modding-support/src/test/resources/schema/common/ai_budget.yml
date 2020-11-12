@@ -14,9 +14,9 @@ definitions:
       fraction:
         $ref: "../core.yml#/definitions/weight_modifier"
       static_min:
-        $ref: "../core.yml#/definitions/modifier_chance"
+        $ref: "../core.yml#/definitions/weight_modifier"
       static_max:
-        $ref: "../core.yml#/definitions/modifier_chance"
+        $ref: "../core.yml#/definitions/weight_modifier"
   budget_type:
     enum:
     - expenditure

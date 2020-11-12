@@ -8,7 +8,7 @@ definitions:
       opinion:
         oneOf:
         - type: integer
-        - $ref: "../core.yml#/definitions/modifier_chance"
+        - $ref: "../core.yml#/definitions/weight_modifier"
 
 type: object
 additionalProperties:

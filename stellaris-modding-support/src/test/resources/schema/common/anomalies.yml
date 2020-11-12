@@ -24,7 +24,7 @@ definitions:
         type: boolean
         default: no
       spawn_chance:
-        $ref: "../core.yml#/definitions/modifier_chance"
+        $ref: "../core.yml#/definitions/weight_modifier"
       on_spawn:
         $ref: "#/definitions/anomaly_event"
       on_success:

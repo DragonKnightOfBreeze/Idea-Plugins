@@ -159,15 +159,7 @@ definitions:
       base:
         type: number
       modifier:
-        allOf:
-        - anyOf:
-          - properties:
-              factor:
-                type: number
-          - properties:
-              add:
-                type: number
-        - $ref: "#/definitions/modifier"
+        $ref: "#/definitions/modifier"
         multiple: true
   random_weight:
     type: object
@@ -187,14 +179,7 @@ definitions:
       potential:
         $ref: "#/definitions/triggers"
     $ref: "#/definitions/modifiers"
-  modifier_chance:
-    type: object
-    properties:
-      base:
-        type: integer
-      # anyOf
-      modifier:
-        $ref: "#/definitions/modifier"
+
   event:
     anyOf:
     - $ref: "#/definitions/event_id"

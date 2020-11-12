@@ -1101,7 +1101,6 @@ interference = {
 }
 
 enlightenment = {
-
 	potential = {
 		has_met_primitives = yes
 	}

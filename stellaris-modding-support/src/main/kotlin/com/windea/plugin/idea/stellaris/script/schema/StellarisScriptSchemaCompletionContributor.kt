@@ -47,8 +47,8 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 		val position = parameters.position
 		val elementType = position.elementType
 		if(elementType !in mayBePropertyKeyTypes) return
-		val prevElementType = position.parent?.prevSibling?.firstChild?.elementType?:return
-		if(prevElementType in mayBePropertyKeyTypes) return
+		val prevElementType = position.parent?.prevSibling?.firstChild?.elementType
+		if(prevElementType != null && prevElementType in mayBePropertyKeyTypes) return
 
 		val jsonSchemaService = JsonSchemaService.Impl.get(position.project)
 		val schemaObject = jsonSchemaService.getSchemaObject(parameters.originalFile) ?: return

@@ -63,7 +63,7 @@
             }
           } ]
         },
-        "plant_names" : {
+        "planet_names" : {
           "type" : "object",
           "anyOf" : [ {
             "properties" : {

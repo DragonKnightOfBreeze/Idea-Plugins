@@ -21,7 +21,7 @@ definitions:
       army_damage:
         type: number
       kill_pop_chance:
-        $ref: "../core.yml#/definitions/modifier_chance"
+        $ref: "../core.yml#/definitions/weight_modifier"
       min_pop_to_kill_pop:
         type: integer
       root:
