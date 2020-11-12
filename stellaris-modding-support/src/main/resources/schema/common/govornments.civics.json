@@ -104,20 +104,20 @@
       "type" : "object",
       "properties" : {
         "base" : {
-          "$ref" : "#/definitions/int"
+          "type" : "integer"
         },
         "modifier" : {
           "allOf" : [ {
             "anyOf" : [ {
               "properties" : {
                 "factor" : {
-                  "$ref" : "#/definitions/number"
+                  "type" : "number"
                 }
               }
             }, {
               "properties" : {
                 "add" : {
-                  "$ref" : "#/definitions/number"
+                  "type" : "number"
                 }
               }
             } ]
@@ -134,14 +134,6 @@
     },
     "game_path" : {
       "type" : "string"
-    },
-    "int" : {
-      "type" : "integer",
-      "default" : 0
-    },
-    "number" : {
-      "type" : "number",
-      "default" : 0.0
     },
     "condition_expressions" : {
       "type" : "object",

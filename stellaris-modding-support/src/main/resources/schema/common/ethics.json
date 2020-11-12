@@ -78,17 +78,13 @@
       "type" : "object",
       "properties" : {
         "value" : {
-          "$ref" : "#/definitions/int"
+          "type" : "integer"
         }
       }
     },
     "modifier" : {
       "type" : "object",
       "additionalProperties" : true
-    },
-    "int" : {
-      "type" : "integer",
-      "default" : 0
     },
     "triggers" : {
       "type" : "object",

@@ -10,7 +10,7 @@ definitions:
       entity_scale:
         type: number
       atmosphere_color:
-        $ref: "../core.yml#/definitions/color_type"
+        $ref: "../core.yml#/definitions/color_reference"
       atmosphere_intensity:
         type: number
       atmosphere_width:
@@ -32,9 +32,13 @@ definitions:
       chance_of_ring:
         type: number
       planet_size:
-        type: integer
+        oneOf:
+        - type: integer
+        - $ref: "../core.yml#/definitions/integer_range"
       moon_size:
-        type: integer
+        oneOf:
+        - type: integer
+        - $ref: "../core.yml#/definitions/integer_range"
       production_spawn_chance:
         type: number
       colonizable:

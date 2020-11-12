@@ -49,7 +49,7 @@
           "type" : "number"
         },
         "damage" : {
-          "$ref" : "#/definitions/damage"
+          "$ref" : "#/definitions/integer_range"
         },
         "cooldown" : {
           "type" : "number"
@@ -137,15 +137,7 @@
         }
       }
     },
-    "color" : {
-      "type" : "array",
-      "items" : {
-        "type" : "integer"
-      },
-      "minItems" : 3,
-      "maxItems" : 3
-    },
-    "damage" : {
+    "integer_range" : {
       "type" : "object",
       "properties" : {
         "min" : {
@@ -155,6 +147,14 @@
           "type" : "integer"
         }
       }
+    },
+    "color" : {
+      "type" : "array",
+      "items" : {
+        "type" : "integer"
+      },
+      "minItems" : 3,
+      "maxItems" : 3
     },
     "loc_reference" : {
       "type" : "string"
@@ -186,7 +186,7 @@
     },
     "component_type" : {
       "type" : "string",
-      "enum" : [ "instant", "missile", "point_defence", "planet_killer" ]
+      "enum" : [ "weapon", "instant", "missile", "point_defence", "planet_killer" ]
     },
     "resources_category" : true,
     "resources_item" : {
@@ -202,13 +202,9 @@
           "$type" : "resource"
         },
         "additionalProperties" : {
-          "$ref" : "#/definitions/int"
+          "type" : "integer"
         }
       } ]
-    },
-    "int" : {
-      "type" : "integer",
-      "default" : 0
     },
     "triggers" : {
       "type" : "object",

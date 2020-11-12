@@ -77,20 +77,20 @@
       "type" : "object",
       "properties" : {
         "base" : {
-          "$ref" : "#/definitions/int"
+          "type" : "integer"
         },
         "modifier" : {
           "allOf" : [ {
             "anyOf" : [ {
               "properties" : {
                 "factor" : {
-                  "$ref" : "#/definitions/number"
+                  "type" : "number"
                 }
               }
             }, {
               "properties" : {
                 "add" : {
-                  "$ref" : "#/definitions/number"
+                  "type" : "number"
                 }
               }
             } ]
@@ -114,14 +114,6 @@
       },
       "$ref" : "#/definitions/modifiers"
     },
-    "int" : {
-      "type" : "integer",
-      "default" : 0
-    },
-    "number" : {
-      "type" : "number",
-      "default" : 0.0
-    },
     "resources_category" : true,
     "resources_item" : {
       "type" : "object",
@@ -136,7 +128,7 @@
           "$type" : "resource"
         },
         "additionalProperties" : {
-          "$ref" : "#/definitions/int"
+          "type" : "integer"
         }
       } ]
     },

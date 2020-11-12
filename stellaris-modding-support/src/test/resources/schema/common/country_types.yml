@@ -90,7 +90,7 @@ definitions:
         $ref: "../core.yml#/definitions/economy_unit"
   ship_data:
     anyOf:
-    - $ref: "../core.yml#/definitions/uint_range"
+    - $ref: "../core.yml#/definitions/integer_range"
     - type: object
       properties:
         fraction:

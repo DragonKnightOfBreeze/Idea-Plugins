@@ -37,13 +37,9 @@
       "type" : "object",
       "properties" : {
         "weight" : {
-          "$ref" : "#/definitions/int"
+          "type" : "number"
         }
       }
-    },
-    "int" : {
-      "type" : "integer",
-      "default" : 0
     },
     "condition_expressions" : {
       "type" : "object",

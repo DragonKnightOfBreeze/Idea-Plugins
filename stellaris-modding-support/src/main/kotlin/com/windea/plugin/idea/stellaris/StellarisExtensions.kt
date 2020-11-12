@@ -267,6 +267,7 @@ private fun <F:PsiFile,T> getCachedValue(file: F,key:Key<CachedValue<T>>,block:(
 
 private val localizationPropertyCachedKey = Key<CachedValue<List<StellarisLocalizationProperty>>>("LocalizationPropertyCache")
 
+
 fun findLocalizationProperty(name: String, project: Project, locale: StellarisLocale? = null): StellarisLocalizationProperty? {
 	val files = project.findFiles<StellarisLocalizationFile>(StellarisLocalizationFileType)
 	val localedFiles = if(locale != null) files.filter { it.locale?.locale == locale } else files

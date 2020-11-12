@@ -1,38 +1,24 @@
 {
   "definitions" : {
-    "int" : {
-      "type" : "integer",
-      "default" : 0
-    },
-    "float" : {
-      "type" : "number",
-      "default" : 0.0
-    },
-    "boolean" : {
-      "enum" : [ true, false ]
-    },
-    "color_type" : {
-      "type" : "string"
-    },
-    "int_range" : {
+    "integer_range" : {
       "type" : "object",
       "properties" : {
         "min" : {
-          "$ref" : "#/definitions/int"
+          "type" : "integer"
         },
         "max" : {
-          "$ref" : "#/definitions/int"
+          "type" : "integer"
         }
       }
     },
-    "float_range" : {
+    "number_range" : {
       "type" : "object",
       "properties" : {
         "min" : {
-          "$ref" : "#/definitions/float"
+          "type" : "number"
         },
         "max" : {
-          "$ref" : "#/definitions/float"
+          "type" : "number"
         }
       }
     },
@@ -40,10 +26,10 @@
       "type" : "object",
       "properties" : {
         "x" : {
-          "$ref" : "#/definitions/int"
+          "type" : "integer"
         },
         "y" : {
-          "$ref" : "#/definitions/int"
+          "type" : "integer"
         }
       }
     },
@@ -51,55 +37,15 @@
       "type" : "object",
       "properties" : {
         "x" : {
-          "$ref" : "#/definitions/int"
+          "type" : "integer"
         },
         "y" : {
-          "$ref" : "#/definitions/int"
+          "type" : "integer"
         },
         "z" : {
-          "$ref" : "#/definitions/int"
+          "type" : "integer"
         }
       }
-    },
-    "uint" : {
-      "type" : "integer",
-      "minimum" : 0,
-      "default" : 0
-    },
-    "number" : {
-      "type" : "number",
-      "default" : 0.0
-    },
-    "uint_range" : {
-      "type" : "object",
-      "properties" : {
-        "min" : {
-          "$ref" : "#/definitions/uint"
-        },
-        "max" : {
-          "$ref" : "#/definitions/uint"
-        }
-      }
-    },
-    "level" : {
-      "type" : "integer",
-      "default" : 1,
-      "minimum" : 1
-    },
-    "difficulty" : {
-      "type" : "integer",
-      "default" : 1,
-      "minimum" : 1
-    },
-    "chance" : {
-      "type" : "number",
-      "minimum" : 0.0,
-      "default" : 1.0
-    },
-    "factor" : {
-      "type" : "number",
-      "minimum" : 0.0,
-      "default" : 1.0
     },
     "color" : {
       "type" : "array",
@@ -109,16 +55,8 @@
       "minItems" : 3,
       "maxItems" : 3
     },
-    "damage" : {
-      "type" : "object",
-      "properties" : {
-        "min" : {
-          "type" : "integer"
-        },
-        "max" : {
-          "type" : "integer"
-        }
-      }
+    "color_reference" : {
+      "type" : "string"
     },
     "loc_reference" : {
       "type" : "string"
@@ -160,7 +98,7 @@
           "$type" : "resource"
         },
         "additionalProperties" : {
-          "$ref" : "#/definitions/int"
+          "type" : "integer"
         }
       } ]
     },
@@ -272,7 +210,7 @@
       "type" : "object",
       "properties" : {
         "weight" : {
-          "$ref" : "#/definitions/int"
+          "type" : "number"
         }
       }
     },
@@ -280,20 +218,20 @@
       "type" : "object",
       "properties" : {
         "base" : {
-          "$ref" : "#/definitions/int"
+          "type" : "integer"
         },
         "modifier" : {
           "allOf" : [ {
             "anyOf" : [ {
               "properties" : {
                 "factor" : {
-                  "$ref" : "#/definitions/number"
+                  "type" : "number"
                 }
               }
             }, {
               "properties" : {
                 "add" : {
-                  "$ref" : "#/definitions/number"
+                  "type" : "number"
                 }
               }
             } ]
@@ -308,7 +246,7 @@
       "type" : "object",
       "properties" : {
         "value" : {
-          "$ref" : "#/definitions/int"
+          "type" : "integer"
         }
       }
     },
@@ -333,7 +271,7 @@
       "type" : "object",
       "properties" : {
         "base" : {
-          "$ref" : "#/definitions/int"
+          "type" : "integer"
         },
         "modifier" : {
           "$ref" : "#/definitions/modifier"
@@ -391,7 +329,7 @@
     },
     "component_type" : {
       "type" : "string",
-      "enum" : [ "instant", "missile", "point_defence", "planet_killer" ]
+      "enum" : [ "weapon", "instant", "missile", "point_defence", "planet_killer" ]
     }
   }
 }

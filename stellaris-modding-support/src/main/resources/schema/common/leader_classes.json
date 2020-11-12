@@ -66,13 +66,9 @@
           "$type" : "resource"
         },
         "additionalProperties" : {
-          "$ref" : "#/definitions/int"
+          "type" : "integer"
         }
       } ]
-    },
-    "int" : {
-      "type" : "integer",
-      "default" : 0
     },
     "triggers" : {
       "type" : "object",

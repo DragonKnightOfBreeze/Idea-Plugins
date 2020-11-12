@@ -13,7 +13,7 @@
           "type" : "number"
         },
         "atmosphere_color" : {
-          "$ref" : "#/definitions/color_type"
+          "$ref" : "#/definitions/color_reference"
         },
         "atmosphere_intensity" : {
           "type" : "number"
@@ -46,10 +46,18 @@
           "type" : "number"
         },
         "planet_size" : {
-          "type" : "integer"
+          "oneOf" : [ {
+            "type" : "integer"
+          }, {
+            "$ref" : "#/definitions/integer_range"
+          } ]
         },
         "moon_size" : {
-          "type" : "integer"
+          "oneOf" : [ {
+            "type" : "integer"
+          }, {
+            "$ref" : "#/definitions/integer_range"
+          } ]
         },
         "production_spawn_chance" : {
           "type" : "number"
@@ -97,7 +105,18 @@
       "type" : "string",
       "enum" : [ "standard", "hive_world", "machine_world", "ring_world", "city_world", "habitat" ]
     },
-    "color_type" : {
+    "integer_range" : {
+      "type" : "object",
+      "properties" : {
+        "min" : {
+          "type" : "integer"
+        },
+        "max" : {
+          "type" : "integer"
+        }
+      }
+    },
+    "color_reference" : {
       "type" : "string"
     },
     "modifiers" : {

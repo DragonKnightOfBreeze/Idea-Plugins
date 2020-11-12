@@ -28,7 +28,7 @@
       "type" : "object",
       "properties" : {
         "value" : {
-          "$ref" : "#/definitions/color_type"
+          "$ref" : "#/definitions/color_reference"
         },
         "custom_tooltip" : {
           "$ref" : "#/definitions/loc_reference"
@@ -41,7 +41,7 @@
         }
       }
     },
-    "color_type" : {
+    "color_reference" : {
       "type" : "string"
     },
     "loc_reference" : {

@@ -1,96 +1,43 @@
 definitions:
-  int:
-    type: integer
-    default: 0
-  float:
-    type: number
-    default: 0.0
-  boolean:
-    enum: [yes, no]
-  color_type:
-    type: string
-
-  int_range:
+  integer_range:
     type: object
     properties:
       min:
-        $ref: "#/definitions/int"
+        type: integer
       max:
-        $ref: "#/definitions/int"
-  float_range:
+        type: integer
+  number_range:
     type: object
     properties:
       min:
-        $ref: "#/definitions/float"
+        type: number
       max:
-        $ref: "#/definitions/float"
-
+        type: number
   vector2:
     type: object
     properties:
       x:
-        $ref: "#/definitions/int"
+        type: integer
       y:
-        $ref: "#/definitions/int"
+        type: integer
   vector3:
     type: object
     properties:
       x:
-        $ref: "#/definitions/int"
+        type: integer
       y:
-        $ref: "#/definitions/int"
+        type: integer
       z:
-        $ref: "#/definitions/int"
-
-  uint:
-    type: integer
-    minimum: 0
-    default: 0
-  number:
-    type: number
-    default: 0.0
-
-  uint_range:
-    type: object
-    properties:
-      min:
-        $ref: "#/definitions/uint"
-      max:
-        $ref: "#/definitions/uint"
-
-  level:
-    type: integer
-    default: 1
-    minimum: 1
-    # maximum: 10 # 为了兼容mod
-  difficulty:
-    type: integer
-    default: 1
-    minimum: 1
-    # maximum: 10 # 为了兼容mod
-  chance:
-    type: number
-    minimum: 0.0
-    default: 1.00
-  factor:
-    type: number
-    minimum: 0.0
-    default: 1.00
+        type: integer
   color:
     type: array
     items:
       type: integer
     minItems: 3
     maxItems: 3
-  damage:
-    type: object
-    properties:
-      min:
-        type: integer
-      max:
-        type: integer
 
-  # 总是也可以是单纯的字符串
+  color_reference:
+    type: string
   loc_reference:
     type: string
   gfx_reference:
@@ -124,7 +71,7 @@ definitions:
     - propertyNames:
         $type: resource
       additionalProperties:
-        $ref: "#/definitions/int"
+        type: integer
 
   entity: true
 
@@ -157,7 +104,7 @@ definitions:
       $ref: "#/definitions/triggers"
   condition_expression_name:
     type: string
-    enum: [AND, OR, NOT, NAND, NOR]
+    enum: [ AND, OR, NOT, NAND, NOR ]
   boolean_expressions:
     type: object
     propertyNames:
@@ -166,7 +113,7 @@ definitions:
       $ref: "#/definitions/triggers"
   boolean_expression_name:
     type: string
-    enum: [if, else, else_if, AND, OR, NOT, NAND, NOR]
+    enum: [ if, else, else_if, AND, OR, NOT, NAND, NOR ]
   scope_expressions:
     type: object
     propertyNames:
@@ -175,7 +122,7 @@ definitions:
       $ref: "#/definitions/triggers"
   scope_name:
     type: string
-    enum: [capital, controller, root, from, owner, planet, prev, random, this, pop]
+    enum: [ capital, controller, root, from, owner, planet, prev, random, this, pop ]
 
   triggers:
     type: object
@@ -205,28 +152,29 @@ definitions:
     type: object
     properties:
       weight:
-        $ref: "#/definitions/int"
+        type: number
   weight_modifier:
     type: object
     properties:
       base:
-        $ref: "#/definitions/int"
+        type: number
       modifier:
         allOf:
         - anyOf:
           - properties:
               factor:
-                $ref: "#/definitions/number"
+                type: number
           - properties:
               add:
-                $ref: "#/definitions/number"
+                type: number
         - $ref: "#/definitions/modifier"
         multiple: true
   random_weight:
     type: object
     properties:
       value:
-        $ref: "#/definitions/int"
+        type: integer
+
   modifiers:
     type: object
     additionalProperties: true
@@ -243,7 +191,7 @@ definitions:
     type: object
     properties:
       base:
-        $ref: "#/definitions/int"
+        type: integer
       # anyOf
       modifier:
         $ref: "#/definitions/modifier"
@@ -273,7 +221,6 @@ definitions:
 
   game_path:
     type: string
-
   shortcut:
     type: string
 
@@ -289,7 +236,6 @@ definitions:
     - l_russian
     - l_spanish
     - l_default
-
   component_size:
     type: string
     enum:
@@ -302,10 +248,10 @@ definitions:
     - titanic
     - planet_killer
     - aux
-
   component_type:
     type: string
     enum:
+    - weapon
     - instant
     - missile
     - point_defence

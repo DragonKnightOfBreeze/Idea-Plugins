@@ -12,7 +12,9 @@ definitions:
       max_instance:
         type: integer
       weight:
-        $ref: "../core.yml#/definitions/weight_modifier"
+        oneOf:
+        - type: integer
+        - $ref: "../core.yml#/definitions/weight_modifier"
       potential:
         $ref: "../core.yml#/definitions/triggers"
       allow:
@@ -30,7 +32,7 @@ definitions:
     type: object
     properties:
       difficulty:
-        $ref: "../core.yml#/definitions/difficulty"
+        type: integer
       icon:
         $ref: "../core.yml#/definitions/gfx_reference"
       event:

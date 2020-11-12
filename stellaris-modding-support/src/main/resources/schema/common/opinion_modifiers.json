@@ -7,7 +7,11 @@
           "$ref" : "#/definitions/triggers"
         },
         "opinion" : {
-          "$ref" : "#/definitions/modifier_chance"
+          "oneOf" : [ {
+            "type" : "integer"
+          }, {
+            "$ref" : "#/definitions/modifier_chance"
+          } ]
         }
       }
     },
@@ -27,16 +31,12 @@
       "type" : "object",
       "properties" : {
         "base" : {
-          "$ref" : "#/definitions/int"
+          "type" : "integer"
         },
         "modifier" : {
           "$ref" : "#/definitions/modifier"
         }
       }
-    },
-    "int" : {
-      "type" : "integer",
-      "default" : 0
     },
     "condition_expressions" : {
       "type" : "object",

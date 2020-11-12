@@ -25,9 +25,5 @@ class StellarisLocalizationCompletionContributor : CompletionContributor() {
 		//当用户正在输入一个locale时提示
 		extend(CompletionType.BASIC, psiElement().afterSibling(psiElement(LOCALE)), LocaleCompletionProvider())
 	}
-
-	override fun fillCompletionVariants(parameters: CompletionParameters, result: CompletionResultSet) {
-		super.fillCompletionVariants(parameters, result)
-	}
 }
 

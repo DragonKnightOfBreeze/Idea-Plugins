@@ -89,7 +89,7 @@
       "type" : "object",
       "properties" : {
         "base" : {
-          "$ref" : "#/definitions/int"
+          "type" : "integer"
         },
         "modifier" : {
           "$ref" : "#/definitions/modifier"
@@ -109,10 +109,6 @@
         },
         "additionalProperties" : true
       } ]
-    },
-    "int" : {
-      "type" : "integer",
-      "default" : 0
     },
     "loc_reference" : {
       "type" : "string"

@@ -16,7 +16,11 @@
           "type" : "integer"
         },
         "weight" : {
-          "$ref" : "#/definitions/weight_modifier"
+          "oneOf" : [ {
+            "type" : "integer"
+          }, {
+            "$ref" : "#/definitions/weight_modifier"
+          } ]
         },
         "potential" : {
           "$ref" : "#/definitions/triggers"
@@ -43,7 +47,7 @@
       "type" : "object",
       "properties" : {
         "difficulty" : {
-          "$ref" : "#/definitions/difficulty"
+          "type" : "integer"
         },
         "icon" : {
           "$ref" : "#/definitions/gfx_reference"
@@ -52,11 +56,6 @@
           "$ref" : "#/definitions/event"
         }
       }
-    },
-    "difficulty" : {
-      "type" : "integer",
-      "default" : 1,
-      "minimum" : 1
     },
     "gfx_reference" : {
       "type" : "string"
@@ -96,20 +95,20 @@
       "type" : "object",
       "properties" : {
         "base" : {
-          "$ref" : "#/definitions/int"
+          "type" : "integer"
         },
         "modifier" : {
           "allOf" : [ {
             "anyOf" : [ {
               "properties" : {
                 "factor" : {
-                  "$ref" : "#/definitions/number"
+                  "type" : "number"
                 }
               }
             }, {
               "properties" : {
                 "add" : {
-                  "$ref" : "#/definitions/number"
+                  "type" : "number"
                 }
               }
             } ]
@@ -131,14 +130,6 @@
           "$ref" : "#/definitions/event_id"
         }
       } ]
-    },
-    "int" : {
-      "type" : "integer",
-      "default" : 0
-    },
-    "number" : {
-      "type" : "number",
-      "default" : 0.0
     },
     "loc_reference" : {
       "type" : "string"

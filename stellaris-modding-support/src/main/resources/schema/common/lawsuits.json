@@ -57,7 +57,7 @@
           "$type" : "resource"
         },
         "additionalProperties" : {
-          "$ref" : "#/definitions/int"
+          "type" : "integer"
         }
       } ]
     },
@@ -97,10 +97,6 @@
       "type" : "object",
       "additionalProperties" : true,
       "$type" : "scripted_trigger"
-    },
-    "int" : {
-      "type" : "integer",
-      "default" : 0
     },
     "condition_expression_name" : {
       "type" : "string",

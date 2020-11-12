@@ -135,7 +135,7 @@
     },
     "ship_data" : {
       "anyOf" : [ {
-        "$ref" : "#/definitions/uint_range"
+        "$ref" : "#/definitions/integer_range"
       }, {
         "type" : "object",
         "properties" : {
@@ -145,14 +145,14 @@
         }
       } ]
     },
-    "uint_range" : {
+    "integer_range" : {
       "type" : "object",
       "properties" : {
         "min" : {
-          "$ref" : "#/definitions/uint"
+          "type" : "integer"
         },
         "max" : {
-          "$ref" : "#/definitions/uint"
+          "type" : "integer"
         }
       }
     },
@@ -189,21 +189,12 @@
       "type" : "object",
       "properties" : {
         "base" : {
-          "$ref" : "#/definitions/int"
+          "type" : "integer"
         },
         "modifier" : {
           "$ref" : "#/definitions/modifier"
         }
       }
-    },
-    "int" : {
-      "type" : "integer",
-      "default" : 0
-    },
-    "uint" : {
-      "type" : "integer",
-      "minimum" : 0,
-      "default" : 0
     },
     "resources_category" : true,
     "resources_item" : {
@@ -219,7 +210,7 @@
           "$type" : "resource"
         },
         "additionalProperties" : {
-          "$ref" : "#/definitions/int"
+          "type" : "integer"
         }
       } ]
     },

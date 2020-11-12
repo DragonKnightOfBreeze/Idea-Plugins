@@ -81,7 +81,7 @@
           "$type" : "resource"
         },
         "additionalProperties" : {
-          "$ref" : "#/definitions/int"
+          "type" : "integer"
         }
       } ]
     },
@@ -101,20 +101,20 @@
       "type" : "object",
       "properties" : {
         "base" : {
-          "$ref" : "#/definitions/int"
+          "type" : "integer"
         },
         "modifier" : {
           "allOf" : [ {
             "anyOf" : [ {
               "properties" : {
                 "factor" : {
-                  "$ref" : "#/definitions/number"
+                  "type" : "number"
                 }
               }
             }, {
               "properties" : {
                 "add" : {
-                  "$ref" : "#/definitions/number"
+                  "type" : "number"
                 }
               }
             } ]
@@ -128,14 +128,6 @@
     "modifiers" : {
       "type" : "object",
       "additionalProperties" : true
-    },
-    "int" : {
-      "type" : "integer",
-      "default" : 0
-    },
-    "number" : {
-      "type" : "number",
-      "default" : 0.0
     },
     "resources_category" : true,
     "condition_expressions" : {

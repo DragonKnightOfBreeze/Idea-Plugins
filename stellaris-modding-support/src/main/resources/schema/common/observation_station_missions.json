@@ -71,13 +71,9 @@
       "type" : "object",
       "properties" : {
         "weight" : {
-          "$ref" : "#/definitions/int"
+          "type" : "number"
         }
       }
-    },
-    "int" : {
-      "type" : "integer",
-      "default" : 0
     },
     "resources_category" : true,
     "resources_item" : {
@@ -93,7 +89,7 @@
           "$type" : "resource"
         },
         "additionalProperties" : {
-          "$ref" : "#/definitions/int"
+          "type" : "integer"
         }
       } ]
     },

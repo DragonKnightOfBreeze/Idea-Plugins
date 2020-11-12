@@ -34,7 +34,7 @@ definitions:
       launch_time:
         type: number
       damage:
-        $ref: "../core.yml#/definitions/damage"
+        $ref: "../core.yml#/definitions/integer_range"
       cooldown:
         type: number
       range:

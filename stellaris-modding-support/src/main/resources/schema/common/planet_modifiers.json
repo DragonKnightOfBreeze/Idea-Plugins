@@ -15,16 +15,12 @@
       "type" : "object",
       "properties" : {
         "base" : {
-          "$ref" : "#/definitions/int"
+          "type" : "integer"
         },
         "modifier" : {
           "$ref" : "#/definitions/modifier"
         }
       }
-    },
-    "int" : {
-      "type" : "integer",
-      "default" : 0
     },
     "modifier" : {
       "type" : "object",

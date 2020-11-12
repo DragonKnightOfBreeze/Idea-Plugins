@@ -20,7 +20,7 @@ definitions:
     type: object
     properties:
       value:
-        $ref: "../core.yml#/definitions/color_type"
+        $ref: "../core.yml#/definitions/color_reference"
       custom_tooltip:
         $ref: "../core.yml#/definitions/loc_reference"
       hardcoded_tooltip:
