@@ -22,6 +22,7 @@ import com.windea.plugin.idea.stellaris.script.psi.*
 import java.io.*
 import java.net.*
 import java.util.*
+import java.util.function.Function
 
 //region Stdlib
 fun Boolean.toInt() = if(this) 1 else 0
@@ -258,10 +259,10 @@ fun selectElement(editor: Editor, element: PsiElement?) {
 
 //region Find Extensions
 //使用CachedValue以提高性能
-//provider需要提取到一个静态方法，否则会报错
-private fun <F:PsiFile,T> getCachedValue(file: F,key:Key<CachedValue<T>>,block:(F)->T): T {
+//这个过程中避免使用匿名lambda，因为需要检查可相等性
+private fun <F:PsiFile,T> getCachedValue(file: F,key:Key<CachedValue<T>>,block:Function<F,T>): T {
 	return CachedValuesManager.getCachedValue(file, key) {
-		CachedValueProvider.Result.create(block(file), file)
+		CachedValueProvider.Result.create(block.apply(file), file)
 	}
 }
 
@@ -308,7 +309,7 @@ fun findScriptVariables(name: String, project: Project): List<StellarisScriptVar
 		.filter{it.name == name}
 }
 
-fun findAllScriptVariables(project: Project): List<StellarisScriptVariable> {
+fun findScriptVariables(project: Project): List<StellarisScriptVariable> {
 	val files = project.findFiles<StellarisScriptFile>(StellarisScriptFileType)
 	return files.flatMap {file-> getCachedValue(file,scriptVariableCachedKey){ it.variables } }
 		.filterNot { it.name.isNullOrEmpty() }

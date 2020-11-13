@@ -10,13 +10,11 @@ import com.intellij.json.psi.*
 import com.intellij.lang.*
 import com.intellij.openapi.application.*
 import com.intellij.openapi.editor.*
-import com.intellij.openapi.editor.actions.*
 import com.intellij.openapi.project.*
 import com.intellij.openapi.util.text.*
 import com.intellij.openapi.vfs.*
 import com.intellij.openapi.vfs.impl.http.*
 import com.intellij.psi.*
-import com.intellij.psi.codeStyle.*
 import com.intellij.psi.impl.source.tree.*
 import com.intellij.psi.injection.*
 import com.intellij.psi.util.*
@@ -33,6 +31,7 @@ import java.util.*
 import javax.swing.*
 
 //TODO 重构和完善
+//TODO 实现自定义规则multiple，表示属性名可以重复
 
 class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 	private val mayBePropertyKeyTypes = arrayOf(STRING_TOKEN, NUMBER_TOKEN)
@@ -71,7 +70,7 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 			if(schemas.isEmpty() && mayBePropertyKey(checkable) && !checkablePosition.isEmpty) {
 				schemas.addAll(JsonSchemaResolver(project, rootSchema, checkablePosition.trimTail(1)!!).resolve())
 			}
-			//TODO 表示已经存在的属性名，需要定制规则当属性名已存在时仍然可以进行补全
+			//表示已经存在的属性名
 			val knownNames = mutableSetOf<String>()
 			//开始适用所有匹配到的schema规则
 			schemas.forEach { schema ->
@@ -246,7 +245,7 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 		//添加字符串提示，去除双引号，但必要时用双引号包围
 		private fun addStringVariant(defaultValueString: String) {
 			if(defaultValueString.isEmpty()) return
-			addValueVariant(defaultValueString.unquote().onlyQuoteIfNecessary(), null)
+			addValueVariant(defaultValueString.onlyQuoteIfNecessary(), null)
 		}
 
 		//为schema提供建议的值
@@ -322,7 +321,6 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 					ApplicationManager.getApplication().assertWriteAccessAllowed()
 					val editor = context.editor
 					val project = context.project
-					if(handleInsideQuotesInsertion(context, editor, hasValue)) return
 					var offset = editor.caretModel.offset
 					val initialOffset = offset
 					val docChars = context.document.charsSequence
@@ -378,8 +376,7 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 				ApplicationManager.getApplication().assertWriteAccessAllowed()
 				val editor = context.editor
 				val project = context.project
-				var stringToInsert: String? = null
-				if(handleInsideQuotesInsertion(context, editor, hasValue)) return@InsertHandler
+				var stringToInsert = ""
 				val element = context.file.findElementAt(editor.caretModel.offset)
 				val insertSeparator = element == null || SEPARATOR != element.text
 				if(!insertSeparator) {
@@ -413,26 +410,24 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 							}
 							PsiDocumentManager.getInstance(project).commitDocument(editor.document)
 							//则格式化插入字符串
-							if(stringToInsert != null && stringToInsert.isNotEmpty()) {
+							if(stringToInsert.isNotEmpty()) {
 								formatInsertedString(context, stringToInsert.length)
 							}
 						}
 						JsonSchemaType._object -> {
-							EditorModificationUtil.insertStringAtCaret(editor, if(insertSeparator) SEPARATOR else " ", false, true, if(insertSeparator) SEPARATOR_LENGTH else 1)
+							EditorModificationUtil.insertStringAtCaret(editor, if(insertSeparator) SEPARATOR else "", false, true, if(insertSeparator) SEPARATOR_LENGTH else 1)
 							if(insertSeparator) {
 								stringToInsert = walker.defaultObjectValue
 								EditorModificationUtil.insertStringAtCaret(editor, stringToInsert, false, true, 1)
 							}
-							if(!insertSeparator) {
-								EditorActionUtil.moveCaretToLineEnd(editor, false, false)
-							}
 							PsiDocumentManager.getInstance(project).commitDocument(editor.document)
 							//格式化插入字符串
-							if(stringToInsert != null && stringToInsert.isNotEmpty()) {
+							if(stringToInsert.isNotEmpty()) {
 								formatInsertedString(context, stringToInsert.length)
 							}
 						}
 						else -> {
+							insertPropertyWithEnum(context, editor, defaultValueString, values, finalType, insertSeparator)
 						}
 					}
 				} else {
@@ -440,28 +435,30 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 				}
 			}
 		}
-
-		private fun handleInsideQuotesInsertion(context: InsertionContext, editor: Editor, hasValue: Boolean): Boolean {
-			if(isInsideStringLiteral) {
-				val offset = editor.caretModel.offset
-				val element = context.file.findElementAt(offset)
-				val tailOffset = context.tailOffset
-				val guessEndOffset = tailOffset + 1
-				if(element is LeafPsiElement) {
-					if(handleIncompleteString(editor, element)) return false
-					val endOffset = element.getTextRange().endOffset
-					if(endOffset > tailOffset) {
-						context.document.deleteString(tailOffset, endOffset - 1)
-					}
-				}
-				if(hasValue) return true
-				editor.caretModel.moveToOffset(guessEndOffset)
-			} else {
-				editor.caretModel.moveToOffset(context.tailOffset)
+		
+		private fun insertPropertyWithEnum(context: InsertionContext, editor: Editor, defaultValue: String?,
+			values: List<Any>?, type: JsonSchemaType?, insertSeparator: Boolean) {
+			val hasValues = values != null && values.isNotEmpty()
+			val hasDefaultValue = defaultValue != null && defaultValue.isNotEmpty()
+			val stringToInsert = SEPARATOR + if(hasDefaultValue) defaultValue else ""
+			val caretShift = if(insertSeparator) SEPARATOR_LENGTH else 0
+			EditorModificationUtil.insertStringAtCaret(editor, stringToInsert, false, true, caretShift)
+			//如果有默认值，则插入并选中默认值
+			if(hasDefaultValue) {
+				val selectionModel = editor.selectionModel
+				val selectionStart = selectionModel.selectionStart
+				selectionModel.setSelection(selectionStart, selectionStart + defaultValue!!.length)
 			}
-			return false
+			//格式化插入字符串
+			if(insertSeparator || hasDefaultValue) {
+				formatInsertedString(context, stringToInsert.length)
+			}
+			//如果有枚举值，则弹出popup
+			if(hasValues) {
+				AutoPopupController.getInstance(context.project).autoPopupMemberLookup(context.editor, null)
+			}
 		}
-
+		
 		companion object {
 			// some schemas provide empty array / empty object in enum values...
 			private val filtered = setOf("{}", "{ }")
@@ -544,41 +541,12 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 					SchemaType.remoteSchema -> JsonSchemaUsageTriggerCollector.trigger(REMOTE_USAGE_KEY)
 				}
 			}
-
-			private fun insertPropertyWithEnum(context: InsertionContext, editor: Editor, defaultValue: String?,
-				values: List<Any>?, type: JsonSchemaType?, insertSeparator: Boolean) {
-				val hasValues = values != null && values.isNotEmpty()
-				val hasDefaultValue = defaultValue != null && defaultValue.isNotEmpty()
-				val offset = editor.caretModel.offset
-				val charSequence = editor.document.charsSequence
-				val ws = if(charSequence.length > offset && charSequence[offset] == ' ') "" else " "
-				val separatorWs = if(insertSeparator) SEPARATOR else ws
-				val stringToInsert = separatorWs + if(hasDefaultValue) defaultValue else ""
-				val caretShift = if(insertSeparator) SEPARATOR_LENGTH else 1
-				EditorModificationUtil.insertStringAtCaret(editor, stringToInsert, false, true, caretShift)
-				if(hasDefaultValue) {
-					val model = editor.selectionModel
-					val caretStart = model.selectionStart
-					var newOffset = caretStart + if(hasDefaultValue) defaultValue!!.length else SEPARATOR_LENGTH
-					if(hasDefaultValue) newOffset--
-					model.setSelection(caretStart + SEPARATOR_LENGTH, newOffset)
-					editor.caretModel.moveToOffset(newOffset)
-				}
-				//格式化插入字符串
-				if(stringToInsert.isNotEmpty()) {
-					formatInsertedString(context, stringToInsert.length)
-				}
-				//如果有默认值，则弹出popup
-				if(hasValues) {
-					AutoPopupController.getInstance(context.project).autoPopupMemberLookup(context.editor, null)
-				}
-			}
-
+			
 			fun formatInsertedString(context: InsertionContext, offset: Int) {
-				val project = context.project
-				PsiDocumentManager.getInstance(project).commitDocument(context.document)
-				val codeStyleManager = CodeStyleManager.getInstance(project)
-				codeStyleManager.reformatText(context.file, context.startOffset, context.tailOffset + offset)
+				//val project = context.project
+				//PsiDocumentManager.getInstance(project).commitDocument(context.document)
+				//val codeStyleManager = CodeStyleManager.getInstance(project)
+				//codeStyleManager.reformatText(context.file, context.startOffset, context.tailOffset + offset)
 			}
 		}
 	}

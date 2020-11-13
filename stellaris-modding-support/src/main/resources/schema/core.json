@@ -221,23 +221,7 @@
           "type" : "number"
         },
         "modifier" : {
-          "allOf" : [ {
-            "anyOf" : [ {
-              "properties" : {
-                "factor" : {
-                  "type" : "number"
-                }
-              }
-            }, {
-              "properties" : {
-                "add" : {
-                  "type" : "number"
-                }
-              }
-            } ]
-          }, {
-            "$ref" : "#/definitions/modifier"
-          } ],
+          "$ref" : "#/definitions/modifier",
           "multiple" : true
         }
       }
@@ -266,17 +250,6 @@
         }
       },
       "$ref" : "#/definitions/modifiers"
-    },
-    "modifier_chance" : {
-      "type" : "object",
-      "properties" : {
-        "base" : {
-          "type" : "number"
-        },
-        "modifier" : {
-          "$ref" : "#/definitions/modifier"
-        }
-      }
     },
     "event" : {
       "anyOf" : [ {
@@ -329,7 +302,7 @@
     },
     "component_type" : {
       "type" : "string",
-      "enum" : [ "weapon", "instant", "missile", "point_defence", "planet_killer" ]
+      "enum" : [ "weapon", "instant", "missile", "strike_craft", "point_defence", "planet_killer" ]
     }
   }
 }

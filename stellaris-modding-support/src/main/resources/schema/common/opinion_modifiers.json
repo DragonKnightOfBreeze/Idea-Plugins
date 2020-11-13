@@ -10,7 +10,7 @@
           "oneOf" : [ {
             "type" : "integer"
           }, {
-            "$ref" : "#/definitions/modifier_chance"
+            "$ref" : "#/definitions/weight_modifier"
           } ]
         }
       }
@@ -27,14 +27,15 @@
         "$ref" : "#/definitions/scripted_triggers"
       } ]
     },
-    "modifier_chance" : {
+    "weight_modifier" : {
       "type" : "object",
       "properties" : {
         "base" : {
           "type" : "number"
         },
         "modifier" : {
-          "$ref" : "#/definitions/modifier"
+          "$ref" : "#/definitions/modifier",
+          "multiple" : true
         }
       }
     },

@@ -19,10 +19,10 @@
           "$ref" : "#/definitions/weight_modifier"
         },
         "static_min" : {
-          "$ref" : "#/definitions/modifier_chance"
+          "$ref" : "#/definitions/weight_modifier"
         },
         "static_max" : {
-          "$ref" : "#/definitions/modifier_chance"
+          "$ref" : "#/definitions/weight_modifier"
         }
       }
     },
@@ -51,35 +51,8 @@
           "type" : "number"
         },
         "modifier" : {
-          "allOf" : [ {
-            "anyOf" : [ {
-              "properties" : {
-                "factor" : {
-                  "type" : "number"
-                }
-              }
-            }, {
-              "properties" : {
-                "add" : {
-                  "type" : "number"
-                }
-              }
-            } ]
-          }, {
-            "$ref" : "#/definitions/modifier"
-          } ],
+          "$ref" : "#/definitions/modifier",
           "multiple" : true
-        }
-      }
-    },
-    "modifier_chance" : {
-      "type" : "object",
-      "properties" : {
-        "base" : {
-          "type" : "number"
-        },
-        "modifier" : {
-          "$ref" : "#/definitions/modifier"
         }
       }
     },

@@ -27,7 +27,7 @@
           "type" : "number"
         },
         "kill_pop_chance" : {
-          "$ref" : "#/definitions/modifier_chance"
+          "$ref" : "#/definitions/weight_modifier"
         },
         "min_pop_to_kill_pop" : {
           "type" : "integer"
@@ -62,35 +62,8 @@
           "type" : "number"
         },
         "modifier" : {
-          "allOf" : [ {
-            "anyOf" : [ {
-              "properties" : {
-                "factor" : {
-                  "type" : "number"
-                }
-              }
-            }, {
-              "properties" : {
-                "add" : {
-                  "type" : "number"
-                }
-              }
-            } ]
-          }, {
-            "$ref" : "#/definitions/modifier"
-          } ],
+          "$ref" : "#/definitions/modifier",
           "multiple" : true
-        }
-      }
-    },
-    "modifier_chance" : {
-      "type" : "object",
-      "properties" : {
-        "base" : {
-          "type" : "number"
-        },
-        "modifier" : {
-          "$ref" : "#/definitions/modifier"
         }
       }
     },

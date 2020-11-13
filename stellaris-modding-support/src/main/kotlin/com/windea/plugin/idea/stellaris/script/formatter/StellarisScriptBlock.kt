@@ -58,9 +58,10 @@ class StellarisScriptBlock(
 
 	override fun getChildIndent(): Indent? {
 		//配置换行时的自动缩进
-		//在psiFile中不要缩进，在block中要缩进
+		//在file和rootBlock中不要缩进，在block中要缩进
 		return when{
 			myNode.psi is PsiFile -> Indent.getNoneIndent()
+			myNode.elementType == ROOT_BLOCK -> Indent.getNoneIndent()
 			myNode.elementType == BLOCK -> Indent.getNormalIndent()
 			else -> null
 		}

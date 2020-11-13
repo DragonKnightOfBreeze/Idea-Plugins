@@ -27,7 +27,7 @@ class StellarisScriptVariablePsiReference(
 	//用于代码补全
 	//TODO 认为只有在特定的作用域内才提示变量
 	override fun getVariants(): Array<out Any> {
-		return findAllScriptVariables(element.project).mapArray {
+		return findScriptVariables(element.project).mapArray {
 			LookupElementBuilder.create(it.name!!).withIcon(it.getIcon(0)).withTypeText(it.containingFile.name)
 				.withPsiElement(it)
 		}

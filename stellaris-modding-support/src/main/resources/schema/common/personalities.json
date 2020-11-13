@@ -140,23 +140,7 @@
           "type" : "number"
         },
         "modifier" : {
-          "allOf" : [ {
-            "anyOf" : [ {
-              "properties" : {
-                "factor" : {
-                  "type" : "number"
-                }
-              }
-            }, {
-              "properties" : {
-                "add" : {
-                  "type" : "number"
-                }
-              }
-            } ]
-          }, {
-            "$ref" : "#/definitions/modifier"
-          } ],
+          "$ref" : "#/definitions/modifier",
           "multiple" : true
         }
       }

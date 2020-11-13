@@ -186,7 +186,7 @@
     },
     "component_type" : {
       "type" : "string",
-      "enum" : [ "weapon", "instant", "missile", "point_defence", "planet_killer" ]
+      "enum" : [ "weapon", "instant", "missile", "strike_craft", "point_defence", "planet_killer" ]
     },
     "resources_category" : true,
     "resources_item" : {
