@@ -6,19 +6,17 @@ import com.intellij.codeInsight.*
 import com.intellij.codeInsight.completion.*
 import com.intellij.codeInsight.lookup.*
 import com.intellij.icons.*
-import com.intellij.ide.*
 import com.intellij.json.psi.*
 import com.intellij.lang.*
-import com.intellij.openapi.actionSystem.*
 import com.intellij.openapi.application.*
 import com.intellij.openapi.editor.*
-import com.intellij.openapi.editor.actionSystem.*
 import com.intellij.openapi.editor.actions.*
 import com.intellij.openapi.project.*
 import com.intellij.openapi.util.text.*
 import com.intellij.openapi.vfs.*
 import com.intellij.openapi.vfs.impl.http.*
 import com.intellij.psi.*
+import com.intellij.psi.codeStyle.*
 import com.intellij.psi.impl.source.tree.*
 import com.intellij.psi.injection.*
 import com.intellij.psi.util.*
@@ -34,13 +32,10 @@ import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
 import java.util.*
 import javax.swing.*
 
-//com.jetbrains.jsonSchema.impl.JsonSchemaCompletionContributor
-//org.jetbrains.yaml.schema.YamlJsonSchemaCompletionContributor
-
 //TODO 重构和完善
 
 class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
-	private val mayBePropertyKeyTypes = arrayOf(STRING_TOKEN,NUMBER_TOKEN)
+	private val mayBePropertyKeyTypes = arrayOf(STRING_TOKEN, NUMBER_TOKEN)
 
 	override fun fillCompletionVariants(parameters: CompletionParameters, result: CompletionResultSet) {
 		//当用户正在输入一个string或number，但之前的节点不是string或number时提示
@@ -61,8 +56,6 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 		private val resultConsumer: Consumer<LookupElement>,
 	) {
 		private val project = position.project
-
-		// we need this set to filter same-named suggestions (they can be suggested by several matching schemes)
 		private val variants = mutableSetOf<LookupElement>()
 		private val isInsideStringLiteral = position.parent is StellarisScriptStringValue
 
@@ -114,13 +107,8 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 			}
 		}
 
-		private fun addIfThenElsePropertyNameVariants(
-			schema: JsonSchemaObject,
-			hasValue: Boolean,
-			properties: Collection<String>,
-			adapter: JsonPropertyAdapter?,
-			knownNames: MutableSet<String>,
-		) {
+		private fun addIfThenElsePropertyNameVariants(schema: JsonSchemaObject, hasValue: Boolean,
+			properties: Collection<String>, adapter: JsonPropertyAdapter?, knownNames: MutableSet<String>) {
 			val ifThenElseList = schema.ifThenElse ?: return
 			val propertyAdapter = walker.getParentPropertyAdapter(position) ?: return
 			val parentObject = propertyAdapter.parentObject ?: return
@@ -145,23 +133,17 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 			}
 		}
 
-		private fun addAllPropertyVariants(
-			hasValue: Boolean,
-			propertyNames: Collection<String>,
-			adapter: JsonPropertyAdapter?,
-			schemaProperties: Map<String, JsonSchemaObject>,
-			knownNames: MutableSet<String>,
-		) {
-			val toCompletepropertyNames = schemaProperties.keys.filter { name ->
+		private fun addAllPropertyVariants(hasValue: Boolean, propertyNames: Collection<String>,
+			adapter: JsonPropertyAdapter?, schemaProperties: Map<String, JsonSchemaObject>, knownNames: MutableSet<String>) {
+			val unknownNames = schemaProperties.keys.filter { name ->
 				!propertyNames.contains(name) && !knownNames.contains(name) || adapter != null && (name == adapter.name)
 			}
-			for(name in toCompletepropertyNames) {
+			for(name in unknownNames) {
 				knownNames.add(name)
 				addPropertyVariant(name, schemaProperties[name]!!, hasValue)
 			}
 		}
 
-		//TODO 可能有bug
 		private fun suggestValues(schema: JsonSchemaObject, isSurelyValue: Boolean) {
 			suggestValuesForSchemaVariants(schema.anyOf, isSurelyValue)
 			suggestValuesForSchemaVariants(schema.oneOf, isSurelyValue)
@@ -404,15 +386,20 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 					editor.caretModel.moveToOffset(editor.caretModel.offset + 1)
 				}
 				if(finalType != null) {
-					var hadEnter: Boolean
 					when(finalType) {
 						JsonSchemaType._boolean -> {
-							val value = defaultValueString?:"no"
+							val value = defaultValueString ?: "no"
 							stringToInsert = (if(insertSeparator) SEPARATOR else " ") + value
 							val model = editor.selectionModel
 							EditorModificationUtil.insertStringAtCaret(editor, stringToInsert, false, true, stringToInsert.length)
+							//格式化插入字符串
+							if(stringToInsert.isNotEmpty()) {
+								formatInsertedString(context, stringToInsert.length)
+							}
+							//选中默认值
 							val start = editor.selectionModel.selectionStart
 							model.setSelection(start - value.length, start)
+							//弹出默认值的popup
 							AutoPopupController.getInstance(context.project).autoPopupMemberLookup(context.editor, null)
 						}
 						JsonSchemaType._string, JsonSchemaType._integer, JsonSchemaType._number -> {
@@ -420,38 +407,29 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 						}
 						JsonSchemaType._array -> {
 							EditorModificationUtil.insertStringAtCaret(editor, if(insertSeparator) SEPARATOR else " ", false, true, if(insertSeparator) SEPARATOR_LENGTH else 1)
-							hadEnter = false
-							if(insertSeparator && walker.hasWhitespaceDelimitedCodeBlocks()) {
-								invokeEnterHandler(editor)
-								hadEnter = true
-							}
 							if(insertSeparator) {
 								stringToInsert = walker.defaultArrayValue
-								EditorModificationUtil.insertStringAtCaret(editor, stringToInsert, false, true, if(hadEnter) 0 else 1)
-							}
-							if(hadEnter) {
-								EditorActionUtil.moveCaretToLineEnd(editor, false, false)
+								EditorModificationUtil.insertStringAtCaret(editor, stringToInsert, false, true, 1)
 							}
 							PsiDocumentManager.getInstance(project).commitDocument(editor.document)
+							//则格式化插入字符串
+							if(stringToInsert != null && stringToInsert.isNotEmpty()) {
+								formatInsertedString(context, stringToInsert.length)
+							}
 						}
 						JsonSchemaType._object -> {
 							EditorModificationUtil.insertStringAtCaret(editor, if(insertSeparator) SEPARATOR else " ", false, true, if(insertSeparator) SEPARATOR_LENGTH else 1)
-							hadEnter = false
-							val invokeEnter = walker.hasWhitespaceDelimitedCodeBlocks()
-							if(insertSeparator && invokeEnter) {
-								invokeEnterHandler(editor)
-								hadEnter = true
-							}
 							if(insertSeparator) {
 								stringToInsert = walker.defaultObjectValue
-								EditorModificationUtil.insertStringAtCaret(editor, stringToInsert, false, true, if(hadEnter) 0 else 1)
+								EditorModificationUtil.insertStringAtCaret(editor, stringToInsert, false, true, 1)
 							}
-							if(hadEnter || !insertSeparator) {
+							if(!insertSeparator) {
 								EditorActionUtil.moveCaretToLineEnd(editor, false, false)
 							}
 							PsiDocumentManager.getInstance(project).commitDocument(editor.document)
-							if(stringToInsert != null && !invokeEnter) {
-								invokeEnterHandler(editor)
+							//格式化插入字符串
+							if(stringToInsert != null && stringToInsert.isNotEmpty()) {
+								formatInsertedString(context, stringToInsert.length)
 							}
 						}
 						else -> {
@@ -486,7 +464,16 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 
 		companion object {
 			// some schemas provide empty array / empty object in enum values...
-			private val filtered = ContainerUtil.set("{}", "{ }")
+			private val filtered = setOf("{}", "{ }")
+			private val walker = StellarisScriptJsonLikePsiWalker
+
+			private const val SEPARATOR = " = "
+			private const val SEPARATOR_LENGTH = SEPARATOR.length
+			private const val SEPARATOR_CHAR = '='
+			private const val BUILTIN_USAGE_KEY = "builtin"
+			private const val SCHEMA_USAGE_KEY = "jsonSchema"
+			private const val USER_USAGE_KEY = "user"
+			private const val REMOTE_USAGE_KEY = "remote"
 
 			private fun getIcon(type: JsonSchemaType?): Icon {
 				return when {
@@ -507,13 +494,6 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 					EditorModificationUtil.moveCaretRelatively(editor, -1)
 					AutoPopupController.getInstance(context.project).autoPopupMemberLookup(editor, null)
 				}
-			}
-
-			private fun invokeEnterHandler(editor: Editor) {
-				val handler = EditorActionManager.getInstance().getActionHandler(IdeActions.ACTION_EDITOR_ENTER)
-				val caret = editor.caretModel.currentCaret
-				val context = CaretSpecificDataContext(DataManager.getInstance().getDataContext(editor.contentComponent), caret)
-				handler.execute(editor, caret, context)
 			}
 
 			private fun handleIncompleteString(editor: Editor, element: PsiElement): Boolean {
@@ -541,73 +521,64 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 				}
 				return type
 			}
-		}
-	}
 
-	companion object {
-		private const val SEPARATOR = " = "
-		private const val SEPARATOR_LENGTH = SEPARATOR.length
-		private const val SEPARATOR_CHAR = '='
-		private const val BUILTIN_USAGE_KEY = "builtin"
-		private const val SCHEMA_USAGE_KEY = "jsonSchema"
-		private const val USER_USAGE_KEY = "user"
-		private const val REMOTE_USAGE_KEY = "remote"
+			fun getCompletionVariants(schema: JsonSchemaObject, position: PsiElement): List<LookupElement> {
+				val result: MutableList<LookupElement> = ArrayList()
+				Worker(schema, position) { element: LookupElement -> result.add(element) }.work()
+				return result
+			}
 
-		private val walker = StellarisScriptJsonLikePsiWalker
-
-		fun getCompletionVariants(schema: JsonSchemaObject, position: PsiElement): List<LookupElement> {
-			val result: MutableList<LookupElement> = ArrayList()
-			Worker(schema, position) { element: LookupElement -> result.add(element) }.work()
-			return result
-		}
-
-		private fun updateStat(provider: JsonSchemaFileProvider?, schemaFile: VirtualFile?) {
-			if(provider == null) {
-				if(schemaFile is HttpVirtualFile) {
-					// auto-detected and auto-downloaded JSON schemas
-					JsonSchemaUsageTriggerCollector.trigger(REMOTE_USAGE_KEY)
+			private fun updateStat(provider: JsonSchemaFileProvider?, schemaFile: VirtualFile?) {
+				if(provider == null) {
+					if(schemaFile is HttpVirtualFile) {
+						// auto-detected and auto-downloaded JSON schemas
+						JsonSchemaUsageTriggerCollector.trigger(REMOTE_USAGE_KEY)
+					}
+					return
 				}
-				return
+				when(provider.schemaType) {
+					SchemaType.schema -> JsonSchemaUsageTriggerCollector.trigger(SCHEMA_USAGE_KEY)
+					SchemaType.userSchema -> JsonSchemaUsageTriggerCollector.trigger(USER_USAGE_KEY)
+					SchemaType.embeddedSchema -> JsonSchemaUsageTriggerCollector.trigger(BUILTIN_USAGE_KEY)
+					// this works only for user-specified remote schemas in our settings, but not for auto-detected remote schemas
+					SchemaType.remoteSchema -> JsonSchemaUsageTriggerCollector.trigger(REMOTE_USAGE_KEY)
+				}
 			}
-			when(provider.schemaType) {
-				SchemaType.schema -> JsonSchemaUsageTriggerCollector.trigger(SCHEMA_USAGE_KEY)
-				SchemaType.userSchema -> JsonSchemaUsageTriggerCollector.trigger(USER_USAGE_KEY)
-				SchemaType.embeddedSchema -> JsonSchemaUsageTriggerCollector.trigger(BUILTIN_USAGE_KEY)
-				// this works only for user-specified remote schemas in our settings, but not for auto-detected remote schemas
-				SchemaType.remoteSchema -> JsonSchemaUsageTriggerCollector.trigger(REMOTE_USAGE_KEY)
-			}
-		}
 
-		private fun insertPropertyWithEnum(
-			context: InsertionContext,
-			editor: Editor,
-			defaultValue: String?,
-			values: List<Any>?,
-			type: JsonSchemaType?,
-			insertSeparator: Boolean,
-		) {
-			val isNumber = type != null && (JsonSchemaType._integer == type || JsonSchemaType._number == type) || type == null
-			               && (defaultValue != null && !StringUtil.isQuotedString(defaultValue) || values != null && ContainerUtil.and(values) { it !is String })
-			val hasValues = values!= null && values.isNotEmpty()
-			val hasDefaultValue = defaultValue!= null && defaultValue.isNotEmpty()
-			val hasQuotes = isNumber || ! walker.requiresValueQuotes()
-			val offset = editor.caretModel.offset
-			val charSequence = editor.document.charsSequence
-			val ws = if(charSequence.length > offset && charSequence[offset] == ' ') "" else " "
-			val separatorWs = if(insertSeparator) SEPARATOR else ws
-			val stringToInsert = separatorWs + if(hasDefaultValue) defaultValue else ""
-			val caretShift = if(insertSeparator) SEPARATOR_LENGTH else 1
-			EditorModificationUtil.insertStringAtCaret(editor, stringToInsert, false, true, caretShift)
-			if(!hasQuotes || hasDefaultValue) {
-				val model = editor.selectionModel
-				val caretStart = model.selectionStart
-				var newOffset = caretStart + if(hasDefaultValue) defaultValue!!.length else SEPARATOR_LENGTH
-				if(hasDefaultValue && !hasQuotes) newOffset--
-				model.setSelection(if(hasQuotes) caretStart else caretStart + SEPARATOR_LENGTH, newOffset)
-				editor.caretModel.moveToOffset(newOffset)
+			private fun insertPropertyWithEnum(context: InsertionContext, editor: Editor, defaultValue: String?,
+				values: List<Any>?, type: JsonSchemaType?, insertSeparator: Boolean) {
+				val hasValues = values != null && values.isNotEmpty()
+				val hasDefaultValue = defaultValue != null && defaultValue.isNotEmpty()
+				val offset = editor.caretModel.offset
+				val charSequence = editor.document.charsSequence
+				val ws = if(charSequence.length > offset && charSequence[offset] == ' ') "" else " "
+				val separatorWs = if(insertSeparator) SEPARATOR else ws
+				val stringToInsert = separatorWs + if(hasDefaultValue) defaultValue else ""
+				val caretShift = if(insertSeparator) SEPARATOR_LENGTH else 1
+				EditorModificationUtil.insertStringAtCaret(editor, stringToInsert, false, true, caretShift)
+				if(hasDefaultValue) {
+					val model = editor.selectionModel
+					val caretStart = model.selectionStart
+					var newOffset = caretStart + if(hasDefaultValue) defaultValue!!.length else SEPARATOR_LENGTH
+					if(hasDefaultValue) newOffset--
+					model.setSelection(caretStart + SEPARATOR_LENGTH, newOffset)
+					editor.caretModel.moveToOffset(newOffset)
+				}
+				//格式化插入字符串
+				if(stringToInsert.isNotEmpty()) {
+					formatInsertedString(context, stringToInsert.length)
+				}
+				//如果有默认值，则弹出popup
+				if(hasValues) {
+					AutoPopupController.getInstance(context.project).autoPopupMemberLookup(context.editor, null)
+				}
 			}
-			if(hasValues) {
-				AutoPopupController.getInstance(context.project).autoPopupMemberLookup(context.editor, null)
+
+			fun formatInsertedString(context: InsertionContext, offset: Int) {
+				val project = context.project
+				PsiDocumentManager.getInstance(project).commitDocument(context.document)
+				val codeStyleManager = CodeStyleManager.getInstance(project)
+				codeStyleManager.reformatText(context.file, context.startOffset, context.tailOffset + offset)
 			}
 		}
 	}

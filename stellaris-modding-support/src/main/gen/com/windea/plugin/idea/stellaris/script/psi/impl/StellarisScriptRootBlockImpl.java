@@ -41,6 +41,12 @@ public class StellarisScriptRootBlockImpl extends ASTWrapperPsiElement implement
   }
 
   @Override
+  @NotNull
+  public List<StellarisScriptVariable> getVariableList() {
+    return PsiTreeUtil.getChildrenOfTypeAsList(this, StellarisScriptVariable.class);
+  }
+
+  @Override
   public boolean isEmpty() {
     return StellarisScriptPsiImplUtil.isEmpty(this);
   }

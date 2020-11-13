@@ -15,6 +15,9 @@ public interface StellarisScriptRootBlock extends StellarisScriptBlock {
   @NotNull
   List<StellarisScriptValue> getValueList();
 
+  @NotNull
+  List<StellarisScriptVariable> getVariableList();
+
   boolean isEmpty();
 
   boolean isNotEmpty();

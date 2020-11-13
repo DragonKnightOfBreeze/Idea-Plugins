@@ -28,7 +28,11 @@ import static com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
 %state WAITING_CODE
 
 %{
+  int depth = 0;
 
+  public int nextState(){
+	  return depth <= 0 ? YYINITIAL : WAITING_PROPERTY_KEY;
+  }
 %}
 
 EOL=\s*\R\s*
@@ -52,8 +56,8 @@ IS_PROPERTY=(([a-zA-Z0-9.:$_-]+)|(\"([^\"(\r\n\\]|\\.)*?\"))[ \t]*[=><]
 %%
 
 <YYINITIAL> {
-  "}" { yybegin(WAITING_PROPERTY_EOL); return RIGHT_BRACE;}
-  "{" { yybegin(WAITING_PROPERTY_KEY); return LEFT_BRACE;}
+  "}" {depth--;  yybegin(nextState()); return RIGHT_BRACE;}
+  "{" {depth++;  yybegin(nextState()); return LEFT_BRACE;}
   "@\\[" {yybegin(WAITING_CODE); return CODE_START;} //这里的反斜线需要转义
   {EOL} { return WHITE_SPACE; }
   {WHITE_SPACE} { return WHITE_SPACE; }
@@ -68,16 +72,16 @@ IS_PROPERTY=(([a-zA-Z0-9.:$_-]+)|(\"([^\"(\r\n\\]|\\.)*?\"))[ \t]*[=><]
   {QUOTED_STRING} {yybegin(WAITING_PROPERTY_EOL); return QUOTED_STRING_TOKEN;}
 }
 <WAITING_VARIABLE_EQUAL_SIGN> {
-  "}" {  yybegin(WAITING_PROPERTY_EOL); return RIGHT_BRACE;}
-  "{" {  yybegin(WAITING_PROPERTY_KEY); return LEFT_BRACE;}
+  "}" {depth--;  yybegin(nextState()); return RIGHT_BRACE;}
+  "{" {depth++;  yybegin(nextState()); return LEFT_BRACE;}
   "=" {yybegin(WAITING_VARIABLE_VALUE); return EQUAL_SIGN;}
   {EOL} { yybegin(YYINITIAL); return WHITE_SPACE; }
   {WHITE_SPACE} { return WHITE_SPACE; }
   {END_OF_LINE_COMMENT} {  return END_OF_LINE_COMMENT; }
 }
 <WAITING_VARIABLE_VALUE> {
-  "}" {  yybegin(WAITING_PROPERTY_EOL); return RIGHT_BRACE;}
-  "{" {  yybegin(WAITING_PROPERTY_KEY); return LEFT_BRACE;}
+  "}" {depth--;  yybegin(nextState()); return RIGHT_BRACE;}
+  "{" {depth++;  yybegin(nextState()); return LEFT_BRACE;}
   {BOOLEAN} { yybegin(WAITING_VARIABLE_EOL); return BOOLEAN_TOKEN; }
   {NUMBER} {yybegin(WAITING_VARIABLE_EOL); return NUMBER_TOKEN; }
   {STRING} {yybegin(WAITING_VARIABLE_EOL); return STRING_TOKEN;}
@@ -87,16 +91,16 @@ IS_PROPERTY=(([a-zA-Z0-9.:$_-]+)|(\"([^\"(\r\n\\]|\\.)*?\"))[ \t]*[=><]
   {END_OF_LINE_COMMENT} {  return END_OF_LINE_COMMENT; }
 }
 <WAITING_VARIABLE_EOL> {
-  "}" {  yybegin(WAITING_PROPERTY_EOL); return RIGHT_BRACE;}
-  "{" {  yybegin(WAITING_PROPERTY_KEY); return LEFT_BRACE;}
+  "}" {depth--;  yybegin(nextState()); return RIGHT_BRACE;}
+  "{" {depth++;  yybegin(nextState()); return LEFT_BRACE;}
   {EOL} { yybegin(YYINITIAL); return WHITE_SPACE; }
   {WHITE_SPACE} { return WHITE_SPACE; }
   {END_OF_LINE_COMMENT} { return END_OF_LINE_COMMENT; }
 }
 
 <WAITING_PROPERTY_KEY> {
-  "}" {  yybegin(WAITING_PROPERTY_EOL); return RIGHT_BRACE;}
-  "{" {  yybegin(WAITING_PROPERTY_KEY); return LEFT_BRACE;}
+  "}" {depth--;  yybegin(nextState()); return RIGHT_BRACE;}
+  "{" {depth++;  yybegin(nextState()); return LEFT_BRACE;}
   "@\\[" {yybegin(WAITING_CODE); return CODE_START;} //这里的反斜线需要转义
   {EOL} { return WHITE_SPACE; }
   {WHITE_SPACE} { return WHITE_SPACE; }
@@ -113,22 +117,22 @@ IS_PROPERTY=(([a-zA-Z0-9.:$_-]+)|(\"([^\"(\r\n\\]|\\.)*?\"))[ \t]*[=><]
   {QUOTED_PROPERTY_KEY_ID} {yybegin(WATIING_PROPERTY_SEPARATOR); return QUOTED_PROPERTY_KEY_ID;}
 }
 <WATIING_PROPERTY_SEPARATOR> {
-  "}" {  yybegin(WAITING_PROPERTY_EOL); return RIGHT_BRACE;}
-  "{" {  yybegin(WAITING_PROPERTY_KEY); return LEFT_BRACE;}
+  "}" {depth--;  yybegin(nextState()); return RIGHT_BRACE;}
+  "{" {depth++;  yybegin(nextState()); return LEFT_BRACE;}
   "=" {yybegin(WAITING_PROPERTY_VALUE); return EQUAL_SIGN;}
   "<" {yybegin(WAITING_PROPERTY_VALUE); return LT_SIGN;}
   ">" {yybegin(WAITING_PROPERTY_VALUE); return GT_SIGN;}
   "<=" {yybegin(WAITING_PROPERTY_VALUE); return LE_SIGN;}
   ">=" {yybegin(WAITING_PROPERTY_VALUE); return GE_SIGN;}
-  {EOL} {  yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }
+  {EOL} {  yybegin(nextState()); return WHITE_SPACE; }
   {WHITE_SPACE} { return WHITE_SPACE; }
   {END_OF_LINE_COMMENT} {  return END_OF_LINE_COMMENT; }
 }
 <WAITING_PROPERTY_VALUE>{
-  "}" {  yybegin(WAITING_PROPERTY_EOL); return RIGHT_BRACE;}
-  "{" {  yybegin(WAITING_PROPERTY_KEY); return LEFT_BRACE;}
+  "}" {depth--;  yybegin(nextState()); return RIGHT_BRACE;}
+  "{" {depth++;  yybegin(nextState()); return LEFT_BRACE;}
   "@\\[" {yybegin(WAITING_CODE); return CODE_START;} //这里的反斜线需要转义
-  {EOL} {  yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }
+  {EOL} {  yybegin(nextState()); return WHITE_SPACE; }
   {WHITE_SPACE} { return WHITE_SPACE; }
   {END_OF_LINE_COMMENT} {  return END_OF_LINE_COMMENT; }
   {VARIABLE_REFERENCE_ID} {yybegin(WAITING_PROPERTY_EOL); return VARIABLE_REFERENCE_ID;}
@@ -139,18 +143,18 @@ IS_PROPERTY=(([a-zA-Z0-9.:$_-]+)|(\"([^\"(\r\n\\]|\\.)*?\"))[ \t]*[=><]
   {STRING} { yybegin(WAITING_PROPERTY_EOL); return STRING_TOKEN; }
 }
 <WAITING_PROPERTY_EOL> {
-  "}" {  yybegin(WAITING_PROPERTY_EOL); return RIGHT_BRACE;}
-  "{" {  yybegin(WAITING_PROPERTY_KEY); return LEFT_BRACE;}
-  {EOL} {  yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }
+  "}" {depth--;  yybegin(nextState()); return RIGHT_BRACE;}
+  "{" {depth++;  yybegin(nextState()); return LEFT_BRACE;}
+  {EOL} {  yybegin(nextState()); return WHITE_SPACE; }
   {WHITE_SPACE} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; } //只要有空白相间隔，就可以在写同一行
   {END_OF_LINE_COMMENT} {  return END_OF_LINE_COMMENT; }
 }
 
 <WAITING_CODE>{
-  "}" {  yybegin(WAITING_PROPERTY_EOL); return RIGHT_BRACE;}
-  "{" {  yybegin(WAITING_PROPERTY_KEY); return LEFT_BRACE;}
+  "}" {depth--;  yybegin(nextState()); return RIGHT_BRACE;}
+  "{" {depth++;  yybegin(nextState()); return LEFT_BRACE;}
   "]" {yybegin(WAITING_PROPERTY_EOL); return CODE_END; }
-  {EOL} {  yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }
+  {EOL} {  yybegin(nextState()); return WHITE_SPACE; }
   {CODE_TEXT_TOKEN} {return CODE_TEXT_TOKEN;}
 }
 

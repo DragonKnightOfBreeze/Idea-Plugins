@@ -80,12 +80,12 @@ public class StellarisScriptLexer implements FlexLexer {
     "\2\1\1\5\2\1\1\5\1\2\2\1\1\6\1\7"+
     "\1\2\1\10\1\3\1\11\1\12\2\13\1\2\2\13"+
     "\1\14\1\13\1\14\1\15\3\2\1\16\1\3\1\17"+
-    "\1\20\1\21\2\2\2\1\2\5\2\1\1\16\2\22"+
-    "\1\16\1\6\1\23\1\0\1\24\2\0\2\25\1\0"+
-    "\1\26\2\0\1\1\1\27\5\1\2\0\1\30\1\0"+
-    "\1\13\1\31\2\13\1\0\1\32\2\0\1\33\1\34"+
-    "\1\35\1\26\1\0\1\1\1\27\3\1\1\36\1\5"+
-    "\2\1\1\14\1\5\2\1\3\0\1\37";
+    "\1\20\1\21\2\2\2\1\2\5\2\1\1\22\2\23"+
+    "\1\16\1\6\1\24\1\0\1\25\2\0\2\26\1\0"+
+    "\1\27\2\0\1\1\1\30\5\1\2\0\1\31\1\0"+
+    "\1\13\1\32\2\13\1\0\1\33\2\0\1\34\1\35"+
+    "\1\36\1\27\1\0\1\1\1\30\3\1\1\37\1\5"+
+    "\2\1\1\14\1\5\2\1\3\0\1\40";
 
   private static int [] zzUnpackAction() {
     int [] result = new int[116];
@@ -365,7 +365,11 @@ public class StellarisScriptLexer implements FlexLexer {
   private boolean zzEOFDone;
 
   /* user code: */
+  int depth = 0;
 
+  public int nextState(){
+	  return depth <= 0 ? YYINITIAL : WAITING_PROPERTY_KEY;
+  }
 
 
   /**
@@ -616,157 +620,162 @@ public class StellarisScriptLexer implements FlexLexer {
             { yybegin(WAITING_PROPERTY_EOL); return STRING_TOKEN;
             } 
             // fall through
-          case 32: break;
+          case 33: break;
           case 2: 
             { return BAD_CHARACTER;
             } 
             // fall through
-          case 33: break;
+          case 34: break;
           case 3: 
             { return WHITE_SPACE;
             } 
             // fall through
-          case 34: break;
+          case 35: break;
           case 4: 
             { return COMMENT;
             } 
             // fall through
-          case 35: break;
+          case 36: break;
           case 5: 
             { yybegin(WAITING_PROPERTY_EOL); return NUMBER_TOKEN;
             } 
             // fall through
-          case 36: break;
-          case 6: 
-            { yybegin(WAITING_PROPERTY_KEY); return LEFT_BRACE;
-            } 
-            // fall through
           case 37: break;
-          case 7: 
-            { yybegin(WAITING_PROPERTY_EOL); return RIGHT_BRACE;
+          case 6: 
+            { depth++;  yybegin(nextState()); return LEFT_BRACE;
             } 
             // fall through
           case 38: break;
+          case 7: 
+            { depth--;  yybegin(nextState()); return RIGHT_BRACE;
+            } 
+            // fall through
+          case 39: break;
           case 8: 
             { yybegin(YYINITIAL); return WHITE_SPACE;
             } 
             // fall through
-          case 39: break;
+          case 40: break;
           case 9: 
             { return END_OF_LINE_COMMENT;
             } 
             // fall through
-          case 40: break;
+          case 41: break;
           case 10: 
             { yybegin(WAITING_VARIABLE_VALUE); return EQUAL_SIGN;
             } 
             // fall through
-          case 41: break;
+          case 42: break;
           case 11: 
             { yybegin(WAITING_VARIABLE_EOL); return STRING_TOKEN;
             } 
             // fall through
-          case 42: break;
+          case 43: break;
           case 12: 
             { yybegin(WAITING_VARIABLE_EOL); return NUMBER_TOKEN;
             } 
             // fall through
-          case 43: break;
+          case 44: break;
           case 13: 
             { yybegin(WATIING_PROPERTY_SEPARATOR); return PROPERTY_KEY_ID;
             } 
             // fall through
-          case 44: break;
+          case 45: break;
           case 14: 
-            { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE;
+            { yybegin(nextState()); return WHITE_SPACE;
             } 
             // fall through
-          case 45: break;
+          case 46: break;
           case 15: 
             { yybegin(WAITING_PROPERTY_VALUE); return EQUAL_SIGN;
             } 
             // fall through
-          case 46: break;
+          case 47: break;
           case 16: 
             { yybegin(WAITING_PROPERTY_VALUE); return GT_SIGN;
             } 
             // fall through
-          case 47: break;
+          case 48: break;
           case 17: 
             { yybegin(WAITING_PROPERTY_VALUE); return LT_SIGN;
             } 
             // fall through
-          case 48: break;
-          case 18: 
-            { return CODE_TEXT_TOKEN;
-            } 
-            // fall through
           case 49: break;
-          case 19: 
-            { yybegin(WAITING_PROPERTY_EOL); return CODE_END;
+          case 18: 
+            { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE;
             } 
             // fall through
           case 50: break;
-          case 20: 
-            { yybegin(WAITING_VARIABLE_EQUAL_SIGN); return VARIABLE_NAME_ID;
+          case 19: 
+            { return CODE_TEXT_TOKEN;
             } 
             // fall through
           case 51: break;
-          case 21: 
-            { yypushback(yylength()); yybegin(WAITING_PROPERTY);
+          case 20: 
+            { yybegin(WAITING_PROPERTY_EOL); return CODE_END;
             } 
             // fall through
           case 52: break;
-          case 22: 
-            { yybegin(WAITING_PROPERTY_EOL); return QUOTED_STRING_TOKEN;
+          case 21: 
+            { yybegin(WAITING_VARIABLE_EQUAL_SIGN); return VARIABLE_NAME_ID;
             } 
             // fall through
           case 53: break;
-          case 23: 
-            { yybegin(WAITING_PROPERTY_EOL); return BOOLEAN_TOKEN;
+          case 22: 
+            { yypushback(yylength()); yybegin(WAITING_PROPERTY);
             } 
             // fall through
           case 54: break;
-          case 24: 
-            { yybegin(WAITING_VARIABLE_EOL); return QUOTED_STRING_TOKEN;
+          case 23: 
+            { yybegin(WAITING_PROPERTY_EOL); return QUOTED_STRING_TOKEN;
             } 
             // fall through
           case 55: break;
-          case 25: 
-            { yybegin(WAITING_VARIABLE_EOL); return BOOLEAN_TOKEN;
+          case 24: 
+            { yybegin(WAITING_PROPERTY_EOL); return BOOLEAN_TOKEN;
             } 
             // fall through
           case 56: break;
-          case 26: 
-            { yybegin(WATIING_PROPERTY_SEPARATOR); return QUOTED_PROPERTY_KEY_ID;
+          case 25: 
+            { yybegin(WAITING_VARIABLE_EOL); return QUOTED_STRING_TOKEN;
             } 
             // fall through
           case 57: break;
-          case 27: 
-            { yybegin(WAITING_PROPERTY_VALUE); return GE_SIGN;
+          case 26: 
+            { yybegin(WAITING_VARIABLE_EOL); return BOOLEAN_TOKEN;
             } 
             // fall through
           case 58: break;
-          case 28: 
-            { yybegin(WAITING_PROPERTY_VALUE); return LE_SIGN;
+          case 27: 
+            { yybegin(WATIING_PROPERTY_SEPARATOR); return QUOTED_PROPERTY_KEY_ID;
             } 
             // fall through
           case 59: break;
-          case 29: 
-            { yybegin(WAITING_PROPERTY_EOL); return VARIABLE_REFERENCE_ID;
+          case 28: 
+            { yybegin(WAITING_PROPERTY_VALUE); return GE_SIGN;
             } 
             // fall through
           case 60: break;
-          case 30: 
-            { yybegin(WAITING_CODE); return CODE_START;
+          case 29: 
+            { yybegin(WAITING_PROPERTY_VALUE); return LE_SIGN;
             } 
             // fall through
           case 61: break;
-          case 31: 
-            { yybegin(WAITING_PROPERTY_EOL); return COLOR_TOKEN;
+          case 30: 
+            { yybegin(WAITING_PROPERTY_EOL); return VARIABLE_REFERENCE_ID;
             } 
             // fall through
           case 62: break;
+          case 31: 
+            { yybegin(WAITING_CODE); return CODE_START;
+            } 
+            // fall through
+          case 63: break;
+          case 32: 
+            { yybegin(WAITING_PROPERTY_EOL); return COLOR_TOKEN;
+            } 
+            // fall through
+          case 64: break;
           default:
             zzScanError(ZZ_NO_MATCH);
           }

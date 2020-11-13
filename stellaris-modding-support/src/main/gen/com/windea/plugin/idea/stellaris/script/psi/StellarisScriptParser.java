@@ -191,40 +191,13 @@ public class StellarisScriptParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // (END_OF_LINE_COMMENT | COMMENT | variable ) * root_block
+  // root_block
   static boolean root(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "root")) return false;
-    boolean r;
-    Marker m = enter_section_(b);
-    r = root_0(b, l + 1);
-    r = r && root_block(b, l + 1);
-    exit_section_(b, m, null, r);
-    return r;
-  }
-
-  // (END_OF_LINE_COMMENT | COMMENT | variable ) *
-  private static boolean root_0(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "root_0")) return false;
-    while (true) {
-      int c = current_position_(b);
-      if (!root_0_0(b, l + 1)) break;
-      if (!empty_element_parsed_guard_(b, "root_0", c)) break;
-    }
-    return true;
-  }
-
-  // END_OF_LINE_COMMENT | COMMENT | variable
-  private static boolean root_0_0(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "root_0_0")) return false;
-    boolean r;
-    r = consumeToken(b, END_OF_LINE_COMMENT);
-    if (!r) r = consumeToken(b, COMMENT);
-    if (!r) r = variable(b, l + 1);
-    return r;
+    return root_block(b, l + 1);
   }
 
   /* ********************************************************** */
-  // ( END_OF_LINE_COMMENT | COMMENT | property | value) *
+  // ( END_OF_LINE_COMMENT | COMMENT | variable | property | value) *
   public static boolean root_block(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "root_block")) return false;
     Marker m = enter_section_(b, l, _NONE_, ROOT_BLOCK, "<root block>");
@@ -237,12 +210,13 @@ public class StellarisScriptParser implements PsiParser, LightPsiParser {
     return true;
   }
 
-  // END_OF_LINE_COMMENT | COMMENT | property | value
+  // END_OF_LINE_COMMENT | COMMENT | variable | property | value
   private static boolean root_block_0(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "root_block_0")) return false;
     boolean r;
     r = consumeToken(b, END_OF_LINE_COMMENT);
     if (!r) r = consumeToken(b, COMMENT);
+    if (!r) r = variable(b, l + 1);
     if (!r) r = property(b, l + 1);
     if (!r) r = value(b, l + 1);
     return r;

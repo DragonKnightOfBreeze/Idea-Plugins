@@ -239,6 +239,7 @@ definitions:
     - weapon
     - instant
     - missile
+    - strike_craft
     - point_defence
     - planet_killer
 

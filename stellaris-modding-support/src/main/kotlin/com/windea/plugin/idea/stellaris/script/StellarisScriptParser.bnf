@@ -48,8 +48,8 @@
 //DONE 分隔符可以是比较运算符
 
 //root_block也是block，但不能直接extends，否则root下面会是value而非root_block
-root ::= (END_OF_LINE_COMMENT | COMMENT | variable ) * root_block
-root_block ::= ( END_OF_LINE_COMMENT | COMMENT | property | value) * {
+root ::= root_block
+root_block ::= ( END_OF_LINE_COMMENT | COMMENT | variable | property | value) * {
   implements="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptBlock"
   methods=[isEmpty isNotEmpty isObject isArray getComponents getIcon]
 }
