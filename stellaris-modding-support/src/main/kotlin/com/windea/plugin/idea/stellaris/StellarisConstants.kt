@@ -42,7 +42,6 @@ const val defaultFolder = "<folder>"
 val utf8Bom = byteArrayOf(0xef.toByte(), 0xbb.toByte(), 0xbf.toByte())
 
 val booleanValues = arrayOf("yes", "no")
-val prefixSeparators = charArrayOf('_','.')
 
 const val stellarisBundleName = "messages.StellarisBundle"
 

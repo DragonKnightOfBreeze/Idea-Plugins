@@ -102,7 +102,7 @@ class StellarisScriptAnnotator : Annotator, DumbAware {
 						val name = element.name ?: return
 						val propertyGroups = findLocalizationProperties(element.project).filter {
 							val propertyName = it.name ?: return@filter false
-							name.isPrefixOf(propertyName)
+							name.equalsOrIsPrefixOf(propertyName)
 						}.groupBy{ it.name!! }
 						for((n,props) in propertyGroups) {
 							val properties = props.toTypedArray()
@@ -143,7 +143,7 @@ class StellarisScriptAnnotator : Annotator, DumbAware {
 		}
 	}
 	
-	private fun String.isPrefixOf(value:String):Boolean{
-		return value == this || value.contains(this) && value[this.length] in prefixSeparators
+	private fun String.equalsOrIsPrefixOf(value:String):Boolean{
+		return value == this || value.startsWith(this) && value[this.length] == '_'
 	}
 }

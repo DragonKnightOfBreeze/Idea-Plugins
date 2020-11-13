@@ -51,6 +51,9 @@
         "can_receive_envoys" : {
           "type" : "boolean"
         },
+        "hide_names_if_no_communication" : {
+          "type" : "boolean"
+        },
         "ai" : {
           "type" : "object",
           "properties" : {
@@ -116,14 +119,34 @@
             }
           }
         },
-        "trade_route_available" : {
-          "$ref" : "#/definitions/triggers"
+        "faction" : {
+          "type" : "object",
+          "properties" : {
+            "hostile" : {
+              "type" : "boolean"
+            },
+            "primitive" : {
+              "type" : "boolean"
+            },
+            "needs_border_access" : {
+              "type" : "boolean"
+            },
+            "generate_borders" : {
+              "type" : "boolean"
+            },
+            "needs_colony" : {
+              "type" : "boolean"
+            }
+          }
         },
         "modules" : {
           "type" : "object",
           "propertyNames" : {
             "$type" : "module"
           }
+        },
+        "trade_route_available" : {
+          "$ref" : "#/definitions/triggers"
         },
         "resources" : {
           "$ref" : "#/definitions/economy_unit"
