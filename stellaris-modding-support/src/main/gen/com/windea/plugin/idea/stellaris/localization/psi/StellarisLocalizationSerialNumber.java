@@ -24,7 +24,7 @@ public interface StellarisLocalizationSerialNumber extends StellarisLocalization
   int getTextOffset();
 
   @Nullable
-  StellarisSerialNumber getSerialNumber();
+  StellarisSerialNumber getStellarisSerialNumber();
 
   @Nullable
   StellarisLocalizationSerialNumberPsiReference getReference();

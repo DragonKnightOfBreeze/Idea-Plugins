@@ -46,7 +46,7 @@ object StellarisLocalizationPsiImplUtil {
 	}
 
 	@JvmStatic
-	fun getLocale(element: StellarisLocalizationLocale): StellarisLocale? {
+	fun getStellarisLocale(element: StellarisLocalizationLocale): StellarisLocale? {
 		return StellarisLocale.map[element.name]
 	}
 
@@ -86,6 +86,11 @@ object StellarisLocalizationPsiImplUtil {
 	@JvmStatic
 	fun getValue(element: StellarisLocalizationProperty): String {
 		return element.propertyValue?.text?.unquote().orEmpty()
+	}
+	
+	@JvmStatic
+	fun getStellarisLocale(element:StellarisLocalizationProperty): StellarisLocale? {
+		return (element.containingFile as? StellarisLocalizationFile)?.stellarisLocale
 	}
 	//endregion
 
@@ -175,7 +180,7 @@ object StellarisLocalizationPsiImplUtil {
 	}
 
 	@JvmStatic
-	fun getSerialNumber(element: StellarisLocalizationSerialNumber): StellarisSerialNumber? {
+	fun getStellarisSerialNumber(element: StellarisLocalizationSerialNumber): StellarisSerialNumber? {
 		return element.name?.let { name -> StellarisSerialNumber.map[name] }
 	}
 
@@ -208,7 +213,7 @@ object StellarisLocalizationPsiImplUtil {
 	}
 
 	@JvmStatic
-	fun getColor(element: StellarisLocalizationColorfulText): StellarisColor? {
+	fun getStellarisColor(element: StellarisLocalizationColorfulText): StellarisColor? {
 		return element.name?.let { name -> StellarisColor.map[name] }
 	}
 

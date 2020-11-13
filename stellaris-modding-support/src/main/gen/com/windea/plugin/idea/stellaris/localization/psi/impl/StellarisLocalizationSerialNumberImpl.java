@@ -58,8 +58,8 @@ public class StellarisLocalizationSerialNumberImpl extends StellarisLocalization
 
   @Override
   @Nullable
-  public StellarisSerialNumber getSerialNumber() {
-    return StellarisLocalizationPsiImplUtil.getSerialNumber(this);
+  public StellarisSerialNumber getStellarisSerialNumber() {
+    return StellarisLocalizationPsiImplUtil.getStellarisSerialNumber(this);
   }
 
   @Override

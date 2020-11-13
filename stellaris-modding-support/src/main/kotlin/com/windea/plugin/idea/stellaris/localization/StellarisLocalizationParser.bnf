@@ -52,21 +52,21 @@
 //即使idea提示不需要转义，一些字符在regexp中仍然需要转义
 
 root ::= ROOT_COMMENT * [root_item]
-private root_item ::= locale property_list *
+private root_item ::= [locale] property_list * //locale尽管实际上是必须的，为了兼容快速导航功能，改为可选
 private property_list ::= END_OF_LINE_COMMENT | COMMENT | property
 
 locale ::= LOCALE_ID ":" {
   pin=1
   mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"
   implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
-  methods=[getName setName getNameIdentifier getIcon getLocale getReference]
+  methods=[getName setName getNameIdentifier getIcon getReference getStellarisLocale]
 }
 
 property ::= property_key ":" [NUMBER] property_value {
   pin=1
 	mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"
 	implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
-	methods=[getName setName getNameIdentifier getIcon getKey getValue  ]
+	methods=[getName setName getNameIdentifier getIcon getKey getValue getStellarisLocale]
 }
 property_key ::= PROPERTY_KEY_ID
 property_value ::= LEFT_QUOTE rich_text * RIGHT_QUOTE{
@@ -104,7 +104,7 @@ serial_number ::= SERIAL_NUMBER_START SERIAL_NUMBER_ID SERIAL_NUMBER_END {
   extends=rich_text
   mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"
   implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
-  methods=[getName setName getNameIdentifier getTextOffset getSerialNumber getReference]
+  methods=[getName setName getNameIdentifier getTextOffset getStellarisSerialNumber getReference]
 }
 code ::= CODE_START code_text? CODE_END{
   pin=1
@@ -117,5 +117,5 @@ colorful_text ::= COLORFUL_TEXT_START COLOR_CODE rich_text* [COLORFUL_TEXT_END]{
   extends=rich_text
   mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"
   implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
-  methods=[getName setName getNameIdentifier getTextOffset getColor getReference]
+  methods=[getName setName getNameIdentifier getTextOffset getStellarisColor getReference]
 }

@@ -40,7 +40,7 @@ class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider
 				}
 			}
 			element is StellarisLocalizationLocale -> {
-				val documentText = element.locale?.documentText ?:return null
+				val documentText = element.stellarisLocale?.documentText ?: return null
 				buildString {
 					append(DocumentationMarkup.DEFINITION_START)
 					append(documentText)
@@ -56,7 +56,7 @@ class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider
 				}
 			}
 			element is StellarisLocalizationColorfulText ->{
-				val documentText = element.color?.documentText ?:return null
+				val documentText = element.stellarisColor?.documentText ?: return null
 				buildString {
 					append(DocumentationMarkup.DEFINITION_START)
 					append(documentText)
@@ -64,7 +64,7 @@ class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider
 				}
 			}
 			element is StellarisLocalizationSerialNumber -> {
-				val documentText = element.serialNumber?.documentText ?:return null
+				val documentText = element.stellarisSerialNumber?.documentText ?: return null
 				buildString {
 					append(DocumentationMarkup.DEFINITION_START)
 					append(documentText)
@@ -76,7 +76,6 @@ class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider
 	}
 
 	private fun getLocationText(element: PsiElement): String {
-		val file = element.containingFile ?: return ""
-		return "[${file.name}]"
+		return "[${element.filePath}]"
 	}
 }

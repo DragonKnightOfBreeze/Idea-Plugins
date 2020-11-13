@@ -64,8 +64,8 @@ public class StellarisLocalizationColorfulTextImpl extends StellarisLocalization
 
   @Override
   @Nullable
-  public StellarisColor getColor() {
-    return StellarisLocalizationPsiImplUtil.getColor(this);
+  public StellarisColor getStellarisColor() {
+    return StellarisLocalizationPsiImplUtil.getStellarisColor(this);
   }
 
   @Override

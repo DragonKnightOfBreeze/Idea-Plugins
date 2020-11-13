@@ -27,7 +27,7 @@ public interface StellarisLocalizationColorfulText extends StellarisLocalization
   int getTextOffset();
 
   @Nullable
-  StellarisColor getColor();
+  StellarisColor getStellarisColor();
 
   @Nullable
   StellarisLocalizationColorfulTextPsiReference getReference();

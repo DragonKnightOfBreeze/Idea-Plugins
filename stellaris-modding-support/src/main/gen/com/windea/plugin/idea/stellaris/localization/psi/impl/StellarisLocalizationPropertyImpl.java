@@ -10,6 +10,7 @@ import com.intellij.psi.util.PsiTreeUtil;
 import static com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationTypes.*;
 import com.windea.plugin.idea.stellaris.localization.psi.*;
 import com.intellij.openapi.util.Iconable.IconFlags;
+import com.windea.plugin.idea.stellaris.StellarisLocale;
 import javax.swing.Icon;
 
 public class StellarisLocalizationPropertyImpl extends StellarisLocalizationNamedElementImpl implements StellarisLocalizationProperty {
@@ -79,6 +80,12 @@ public class StellarisLocalizationPropertyImpl extends StellarisLocalizationName
   @NotNull
   public String getValue() {
     return StellarisLocalizationPsiImplUtil.getValue(this);
+  }
+
+  @Override
+  @Nullable
+  public StellarisLocale getStellarisLocale() {
+    return StellarisLocalizationPsiImplUtil.getStellarisLocale(this);
   }
 
 }

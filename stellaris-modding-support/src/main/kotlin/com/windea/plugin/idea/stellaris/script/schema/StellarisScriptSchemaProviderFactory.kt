@@ -32,8 +32,8 @@ class StellarisScriptSchemaProviderFactory : JsonSchemaProviderFactory {
 					addProviders(it, providers, path)
 				}
 				//如果是描述符文件
-				it.nameWithoutExtension == "descriptor" -> {
-					providers += StellarisScriptSchemaProvider("descriptor.mod", false, it)
+				it.name == descriptorModFileName -> {
+					providers += StellarisScriptSchemaProvider(descriptorModFileName, false, it)
 				}
 				//如果是json schema文件，需要添加provider，并且将短名称中的"."替换成"/"
 				//TODO 等待Schema文件编写完毕

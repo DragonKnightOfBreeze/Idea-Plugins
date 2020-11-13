@@ -58,8 +58,7 @@ class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
 	}
 
 	private fun getLocationText(element: PsiElement): String {
-		val file = element.containingFile ?: return ""
-		return "[${file.name}]"
+		return "[${element.filePath}]"
 	}
 
 	private fun getVariableValueText(variable: StellarisScriptVariable):String{

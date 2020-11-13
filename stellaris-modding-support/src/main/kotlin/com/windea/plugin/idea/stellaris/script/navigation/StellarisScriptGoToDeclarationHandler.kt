@@ -32,7 +32,8 @@ class StellarisScriptGoToDeclarationHandler:  GotoDeclarationHandler {
 				if(name.containsBlank()) return null
 				val project = sourceElement.project
 				findScriptProperties(name, project).toTypedArray().let { if(it.isNotEmpty()) return it }
-				findLocalizationProperties(name, project).toTypedArray()
+				//寻找推断的语言区域的本地化属性
+				findLocalizationProperties(name, project, inferedStellarisLocale).toTypedArray()
 			}
 			else -> null
 		}

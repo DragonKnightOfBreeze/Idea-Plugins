@@ -5,6 +5,7 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 import com.intellij.openapi.util.Iconable.IconFlags;
+import com.windea.plugin.idea.stellaris.StellarisLocale;
 import javax.swing.Icon;
 
 public interface StellarisLocalizationProperty extends StellarisLocalizationNamedElement {
@@ -35,5 +36,8 @@ public interface StellarisLocalizationProperty extends StellarisLocalizationName
 
   @NotNull
   String getValue();
+
+  @Nullable
+  StellarisLocale getStellarisLocale();
 
 }

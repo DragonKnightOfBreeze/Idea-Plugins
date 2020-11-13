@@ -3,8 +3,10 @@ package com.windea.plugin.idea.stellaris
 import com.intellij.icons.*
 import com.intellij.openapi.project.*
 import com.intellij.openapi.util.*
+import com.intellij.openapi.vfs.*
 import com.intellij.util.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
+import java.util.*
 import java.util.concurrent.*
 
 //region Strings
@@ -39,9 +41,30 @@ const val defaultFolder = "<folder>"
 
 val utf8Bom = byteArrayOf(0xef.toByte(), 0xbb.toByte(), 0xbf.toByte())
 
-val booleanValues = arrayOf("yes","no")
+val booleanValues = arrayOf("yes", "no")
+val prefixSeparators = charArrayOf('_','.')
 
 const val stellarisBundleName = "messages.StellarisBundle"
+
+const val stellarisExeFileName = "stellaris.exe"
+const val descriptorModFileName = "descriptor.mod"
+const val anonymous =  "(anonymous)"
+
+val fileExtensions = arrayOf("yml", "txt", "mod", "gui", "gfx", "asset")
+val localizationFileExtensions = arrayOf("yml", "yaml")
+val scriptFileExtensions = arrayOf("txt", "mod", "gfx", "gui", "asset")
+
+val inferedStellarisLocale = when(System.getProperty("user.language")){
+	"zh"-> StellarisLocale.SIMP_CHINESE
+	"en" -> StellarisLocale.ENGLISH
+	"pt" -> StellarisLocale.BRAZ_POR
+	"fr" -> StellarisLocale.FRENCH
+	"de" -> StellarisLocale.GERMAN
+	"pl" -> StellarisLocale.PONISH
+	"ru" -> StellarisLocale.RUSSIAN
+	"es" -> StellarisLocale.SPANISH
+	else -> null
+}
 //endregion
 
 //region Resources
@@ -64,6 +87,8 @@ val scriptPropertyGutterIcon = IconUtil.toSize(stellarisScriptPropertyIcon, 12, 
 //endregion
 
 //region Caches
+val filePathCache = ConcurrentHashMap<VirtualFile,String>()
+
 val localizationLocaleCache = ConcurrentHashMap<Project, Array<StellarisLocalizationLocale>>()
 fun MutableMap<Project, Array<StellarisLocalizationLocale>>.register(project: Project) = this.getOrPut(project) {
 	StellarisLocale.keys.mapArray { e -> StellarisLocalizationElementFactory.createLocale(project, e) }

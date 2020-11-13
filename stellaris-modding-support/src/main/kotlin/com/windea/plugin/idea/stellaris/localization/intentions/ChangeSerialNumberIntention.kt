@@ -38,7 +38,7 @@ class ChangeSerialNumberIntention : IntentionAction {
 		private val value: StellarisLocalizationSerialNumber,
 		values: Array<StellarisLocalizationSerialNumber>
 	) : BaseListPopupStep<StellarisLocalizationSerialNumber>(StellarisBundle.message("stellaris.localization.intention.changeSerialNumber.title"), *values){
-		override fun getTextFor(value: StellarisLocalizationSerialNumber) = value.serialNumber!!.popupText
+		override fun getTextFor(value: StellarisLocalizationSerialNumber) = value.stellarisSerialNumber!!.popupText
 
 		override fun getDefaultOptionIndex() = 0
 

@@ -39,7 +39,7 @@ class ChangeLocaleIntention : IntentionAction {
 		private val value: StellarisLocalizationLocale,
 		values: Array<StellarisLocalizationLocale>
 	) : BaseListPopupStep<StellarisLocalizationLocale>(message("stellaris.localization.intention.changeLocale.title"), *values) {
-		override fun getTextFor(value: StellarisLocalizationLocale) = value.locale!!.popupText
+		override fun getTextFor(value: StellarisLocalizationLocale) = value.stellarisLocale!!.popupText
 
 		override fun getDefaultOptionIndex() = 0
 

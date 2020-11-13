@@ -27,9 +27,9 @@ public interface StellarisLocalizationLocale extends StellarisLocalizationNamedE
   Icon getIcon(@IconFlags int flags);
 
   @Nullable
-  StellarisLocale getLocale();
+  StellarisLocalizationLocalePsiReference getReference();
 
   @Nullable
-  StellarisLocalizationLocalePsiReference getReference();
+  StellarisLocale getStellarisLocale();
 
 }

@@ -358,16 +358,22 @@ public class StellarisLocalizationParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // locale property_list *
+  // [locale] property_list *
   static boolean root_item(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "root_item")) return false;
-    if (!nextTokenIs(b, LOCALE_ID)) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = locale(b, l + 1);
+    r = root_item_0(b, l + 1);
     r = r && root_item_1(b, l + 1);
     exit_section_(b, m, null, r);
     return r;
+  }
+
+  // [locale]
+  private static boolean root_item_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "root_item_0")) return false;
+    locale(b, l + 1);
+    return true;
   }
 
   // property_list *

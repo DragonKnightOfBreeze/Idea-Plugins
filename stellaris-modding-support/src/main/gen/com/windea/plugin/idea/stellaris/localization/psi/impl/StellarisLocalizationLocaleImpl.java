@@ -61,14 +61,14 @@ public class StellarisLocalizationLocaleImpl extends StellarisLocalizationNamedE
 
   @Override
   @Nullable
-  public StellarisLocale getLocale() {
-    return StellarisLocalizationPsiImplUtil.getLocale(this);
+  public StellarisLocalizationLocalePsiReference getReference() {
+    return StellarisLocalizationPsiImplUtil.getReference(this);
   }
 
   @Override
   @Nullable
-  public StellarisLocalizationLocalePsiReference getReference() {
-    return StellarisLocalizationPsiImplUtil.getReference(this);
+  public StellarisLocale getStellarisLocale() {
+    return StellarisLocalizationPsiImplUtil.getStellarisLocale(this);
   }
 
 }

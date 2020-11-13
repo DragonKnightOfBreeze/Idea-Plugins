@@ -70,7 +70,7 @@ class StellarisLocalizationAnnotator : Annotator, DumbAware {
 					.create()
 			}
 			is StellarisLocalizationLocale -> {
-				if(element.locale == null) {
+				if(element.stellarisLocale == null) {
 					val localeId = element.name ?: return
 					holder.newAnnotation(ERROR, message("stellaris.localization.annotator.unsupportedLocale", localeId))
 						.withFix(ChangeLocaleIntention.instance)
@@ -78,7 +78,7 @@ class StellarisLocalizationAnnotator : Annotator, DumbAware {
 				}
 			}
 			is StellarisLocalizationSerialNumber -> {
-				if(element.serialNumber == null) {
+				if(element.stellarisSerialNumber == null) {
 					val serialNumberId = element.name ?: return
 					holder.newAnnotation(ERROR, message("stellaris.localization.annotator.unsupportedSerialNumber", serialNumberId))
 						.withFix(ChangeSerialNumberIntention.instance)
@@ -88,7 +88,7 @@ class StellarisLocalizationAnnotator : Annotator, DumbAware {
 			//如果是颜色文本，则为颜色代码文本加上对应的颜色
 			is StellarisLocalizationColorfulText -> {
 				val colorId = element.name ?: return
-				if(element.color == null) {
+				if(element.stellarisColor == null) {
 					holder.newAnnotation(ERROR, message("stellaris.localization.annotator.unsupportedColor", colorId))
 						.withFix(ChangeColorIntention.instance)
 						.create()

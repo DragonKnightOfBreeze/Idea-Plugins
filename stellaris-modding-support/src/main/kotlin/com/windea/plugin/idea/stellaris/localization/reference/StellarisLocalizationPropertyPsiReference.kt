@@ -13,7 +13,7 @@ class StellarisLocalizationPropertyPsiReference(
 	rangeInElement: TextRange
 ) : PsiReferenceBase<StellarisLocalizationPropertyReference>(element, rangeInElement), PsiPolyVariantReference {
 	private val name = rangeInElement.substring(element.text)
-	private val locale = (element.containingFile as? StellarisLocalizationFile)?.locale?.locale
+	private val locale = (element.containingFile as? StellarisLocalizationFile)?.locale?.stellarisLocale
 
 	//只解析相同语言类型的引用
 

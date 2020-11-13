@@ -41,9 +41,9 @@ class ChangeColorIntention : IntentionAction {
 		private val value: StellarisLocalizationColorfulText,
 		values: Array<StellarisLocalizationColorfulText>
 	) : BaseListPopupStep<StellarisLocalizationColorfulText>(StellarisBundle.message("stellaris.localization.intention.changeColor.title"), *values) {
-		override fun getIconFor(value: StellarisLocalizationColorfulText) = value.color!!.icon
+		override fun getIconFor(value: StellarisLocalizationColorfulText) = value.stellarisColor!!.icon
 
-		override fun getTextFor(value: StellarisLocalizationColorfulText) = value.color!!.popupText
+		override fun getTextFor(value: StellarisLocalizationColorfulText) = value.stellarisColor!!.popupText
 
 		override fun getDefaultOptionIndex() = 0
 

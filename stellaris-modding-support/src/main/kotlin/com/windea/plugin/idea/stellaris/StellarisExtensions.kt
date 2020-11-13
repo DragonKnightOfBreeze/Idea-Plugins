@@ -255,12 +255,18 @@ fun selectElement(editor: Editor, element: PsiElement?) {
 	editor.selectionModel.setSelection(range.startOffset, range.endOffset)
 }
 
+/**相对于游戏目录或模组目录的文件路径*/
+val PsiElement.filePath: String
+	get() {
+		val file = this.containingFile?.virtualFile ?: anonymous
+		return filePathCache[file] ?: anonymous
+	}
 //endregion
 
 //region Find Extensions
 //使用CachedValue以提高性能
 //这个过程中避免使用匿名lambda，因为需要检查可相等性
-private fun <F:PsiFile,T> getCachedValue(file: F,key:Key<CachedValue<T>>,block:Function<F,T>): T {
+private fun <F : PsiFile, T> getCachedValue(file: F, key: Key<CachedValue<T>>, block: Function<F, T>): T {
 	return CachedValuesManager.getCachedValue(file, key) {
 		CachedValueProvider.Result.create(block.apply(file), file)
 	}
@@ -268,26 +274,24 @@ private fun <F:PsiFile,T> getCachedValue(file: F,key:Key<CachedValue<T>>,block:F
 
 private val localizationPropertyCachedKey = Key<CachedValue<List<StellarisLocalizationProperty>>>("LocalizationPropertyCache")
 
-
 fun findLocalizationProperty(name: String, project: Project, locale: StellarisLocale? = null): StellarisLocalizationProperty? {
 	val files = project.findFiles<StellarisLocalizationFile>(StellarisLocalizationFileType)
-	val localedFiles = if(locale != null) files.filter { it.locale?.locale == locale } else files
-	return localedFiles.flatMap {file-> getCachedValue(file,localizationPropertyCachedKey){ it.properties } }
-		.find{it.name == name}
+	val localedFiles = if(locale != null) files.filter { it.stellarisLocale == locale } else files
+	return localedFiles.flatMap { file -> getCachedValue(file, localizationPropertyCachedKey) { it.properties } }
+		.find { it.name == name }
 }
 
 fun findLocalizationProperties(name: String, project: Project, locale: StellarisLocale? = null): List<StellarisLocalizationProperty> {
 	val files = project.findFiles<StellarisLocalizationFile>(StellarisLocalizationFileType)
-	val localedFiles = if(locale != null) files.filter { it.locale?.locale == locale } else files
-	return localedFiles.flatMap {file-> getCachedValue(file,localizationPropertyCachedKey){ it.properties } }
-		.filter{it.name == name}
+	val localedFiles = if(locale != null) files.filter { it.stellarisLocale == locale } else files
+	return localedFiles.flatMap { file -> getCachedValue(file, localizationPropertyCachedKey) { it.properties } }
+		.filter { it.name == name }
 }
 
 fun findLocalizationProperties(project: Project, locale: StellarisLocale? = null): List<StellarisLocalizationProperty> {
 	val files = project.findFiles<StellarisLocalizationFile>(StellarisLocalizationFileType)
-	val localedFiles = if(locale != null) files.filter { it.locale?.locale == locale } else files
-	return localedFiles.flatMap {file-> getCachedValue(file,localizationPropertyCachedKey){ it.properties } }
-		.filterNot { it.name.isNullOrEmpty() }
+	val localedFiles = if(locale != null) files.filter { it.stellarisLocale == locale } else files
+	return localedFiles.flatMap { file -> getCachedValue(file, localizationPropertyCachedKey) { it.properties } }
 }
 
 private val scriptVariableCachedKey = Key<CachedValue<List<StellarisScriptVariable>>>("ScriptVariableCache")
@@ -299,39 +303,37 @@ fun findScriptVariableInFile(name: String, file: PsiFile?): StellarisScriptVaria
 
 fun findScriptVariable(name: String, project: Project): StellarisScriptVariable? {
 	val files = project.findFiles<StellarisScriptFile>(StellarisScriptFileType)
-	return files.flatMap {file-> getCachedValue(file,scriptVariableCachedKey){ it.variables } }
-		.find{it.name == name}
+	return files.flatMap { file -> getCachedValue(file, scriptVariableCachedKey) { it.variables } }
+		.find { it.name == name }
 }
 
 fun findScriptVariables(name: String, project: Project): List<StellarisScriptVariable> {
 	val files = project.findFiles<StellarisScriptFile>(StellarisScriptFileType)
-	return files.flatMap {file-> getCachedValue(file,scriptVariableCachedKey){ it.variables } }
-		.filter{it.name == name}
+	return files.flatMap { file -> getCachedValue(file, scriptVariableCachedKey) { it.variables } }
+		.filter { it.name == name }
 }
 
 fun findScriptVariables(project: Project): List<StellarisScriptVariable> {
 	val files = project.findFiles<StellarisScriptFile>(StellarisScriptFileType)
-	return files.flatMap {file-> getCachedValue(file,scriptVariableCachedKey){ it.variables } }
-		.filterNot { it.name.isNullOrEmpty() }
+	return files.flatMap { file -> getCachedValue(file, scriptVariableCachedKey) { it.variables } }
 }
 
 private val scriptPropertyCachedKey = Key<CachedValue<List<StellarisScriptProperty>>>("ScriptPropertyCache")
 
 fun findScriptProperty(name: String, project: Project): StellarisScriptProperty? {
 	val files = project.findFiles<StellarisScriptFile>(StellarisScriptFileType)
-	return files.flatMap {file-> getCachedValue(file,scriptPropertyCachedKey){ it.properties } }
-		.find{it.name == name}
+	return files.flatMap { file -> getCachedValue(file, scriptPropertyCachedKey) { it.properties } }
+		.find { it.name == name }
 }
 
 fun findScriptProperties(name: String, project: Project): List<StellarisScriptProperty> {
 	val files = project.findFiles<StellarisScriptFile>(StellarisScriptFileType)
-	return files.flatMap {file-> getCachedValue(file,scriptPropertyCachedKey){ it.properties } }
-		.filter{it.name == name}
+	return files.flatMap { file -> getCachedValue(file, scriptPropertyCachedKey) { it.properties } }
+		.filter { it.name == name }
 }
 
 fun findScriptProperties(project: Project): List<StellarisScriptProperty> {
 	val files = project.findFiles<StellarisScriptFile>(StellarisScriptFileType)
-	return files.flatMap {file-> getCachedValue(file,scriptPropertyCachedKey){ it.properties } }
-		.filterNot { it.name.isNullOrEmpty() }
+	return files.flatMap { file -> getCachedValue(file, scriptPropertyCachedKey) { it.properties } }
 }
 //endregion
