@@ -56,9 +56,10 @@ class StellarisScriptAnnotator : Annotator, DumbAware {
 		private val names:Array<String>,
 		private val properties: Array<StellarisLocalizationProperty>,
 	) : GutterIconRenderer(), DumbAware {
-		private val tooltip = message("stellaris.script.annotator.localizationProperties") +
-		                      names.joinToString(", "," ")
-		private val title = message("stellaris.script.annotator.localizationProperties.title")
+		private val tooltip = names.joinToString("<br>") { name ->
+			message("stellaris.script.annotator.localizationProperty", name)
+		}
+		private val title = message("stellaris.script.annotator.localizationProperty.title")
 		
 		override fun getIcon() = localizationPropertyGutterIcon
 		override fun getTooltipText() = tooltip

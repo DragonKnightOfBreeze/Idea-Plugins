@@ -21,6 +21,7 @@ class StellarisFileTypeOverrider : FileTypeOverrider {
 					 it.name == descriptorModFileName || it.name == stellarisExeFileName
 				}
 			if(isGameOrModDirectory) {
+				gameOrModDirectoryCache.add(currentFile)
 				when(file.extension) {
 					in localizationFileExtensions -> {
 						filePathCache[file] = path
@@ -31,6 +32,8 @@ class StellarisFileTypeOverrider : FileTypeOverrider {
 						return StellarisScriptFileType
 					}
 				}
+			}else{
+				gameOrModDirectoryCache.remove(currentFile)
 			}
 			path = currentFile.name + "/" + path
 			currentFile = currentFile.parent

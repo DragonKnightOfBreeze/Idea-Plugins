@@ -4,6 +4,7 @@ import com.intellij.icons.*
 import com.intellij.openapi.project.*
 import com.intellij.openapi.util.*
 import com.intellij.openapi.vfs.*
+import com.intellij.psi.search.*
 import com.intellij.util.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
 import java.util.*
@@ -86,6 +87,7 @@ val scriptPropertyGutterIcon = IconUtil.toSize(stellarisScriptPropertyIcon, 12, 
 //endregion
 
 //region Caches
+val gameOrModDirectoryCache = CopyOnWriteArraySet<VirtualFile>()
 val filePathCache = ConcurrentHashMap<VirtualFile,String>()
 
 val localizationLocaleCache = ConcurrentHashMap<Project, Array<StellarisLocalizationLocale>>()
