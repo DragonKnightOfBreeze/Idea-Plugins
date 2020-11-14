@@ -1,0 +1,61 @@
+definitions:
+  # 人口派系类型
+  pop_faction_type:
+    type: object
+    properties:
+      election_header:
+        $ref: "../core.yml#/definitions/gfx_reference"
+      guiding_ethic:
+        $type: ethic
+      unique:
+        type: boolean
+      support_multiplier:
+        type: integer
+      resources:
+        $ref: "../core.yml#/definitions/economy_unit"
+      is_potential:
+        $ref: "../core.yml#/definitions/triggers"
+      parameters:
+        $ref: "#/definitions/parameters"
+      can_join_pre_triggers:
+        $ref: "../core.yml#/definitions/triggers"
+      can_join_faction:
+        $ref: "../core.yml#/definitions/triggers"
+      attraction:
+        $ref: "../core.yml#/definitions/weight_modifier"
+      leader:
+        $ref: "../core.yml#/definitions/weight_modifier"
+      demand:
+        $ref: "#/definitions/demand"
+  parameters:
+    type: object
+    properties:
+      empire:
+        type: object
+        properties:
+          type:
+            type: string
+            # TODO
+          valid_objects:
+            $ref: "../core.yml#/definitions/triggers"
+  demand:
+    type: object
+    properties:
+      title:
+        $ref: "../core.yml#/definitions/loc_reference"
+      unfulfilled_title:
+        $ref: "../core.yml#/definitions/loc_reference"
+      desc:
+        $ref: "../core.yml#/definitions/loc_reference"
+      fulfilled_effect:
+        type: number
+      unfulfilled_effect:
+        type: number
+      potential:
+        $ref: "../core.yml#/definitions/triggers"
+      trigger:
+        $ref: "../core.yml#/definitions/triggers"
+
+type: object
+additionalProperties:
+  $ref: "#/definitions/pop_faction_type"

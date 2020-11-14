@@ -12,5 +12,3 @@ definitions:
 type: object
 additionalProperties:
   $ref: "#/definitions/agenda"
-
-

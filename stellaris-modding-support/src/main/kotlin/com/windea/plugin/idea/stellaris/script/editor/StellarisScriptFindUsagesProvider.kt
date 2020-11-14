@@ -1,4 +1,4 @@
-package com.windea.plugin.idea.stellaris.script.navigation
+package com.windea.plugin.idea.stellaris.script.editor
 
 import com.intellij.lang.*
 import com.intellij.lang.cacheBuilder.*

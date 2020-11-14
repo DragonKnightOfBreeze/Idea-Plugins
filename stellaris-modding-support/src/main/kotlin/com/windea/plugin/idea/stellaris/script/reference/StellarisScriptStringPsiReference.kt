@@ -20,7 +20,7 @@ class StellarisScriptStringPsiReference(
 			val scriptProperty = findScriptProperty(name, element.project)
 			if(scriptProperty != null) return scriptProperty
 			
-			val localizationProperty = findLocalizationProperty(name, element.project)
+			val localizationProperty = findLocalizationProperty(name, element.project, inferedStellarisLocale)
 			if(localizationProperty != null) return localizationProperty
 		}
 		return null
@@ -36,7 +36,7 @@ class StellarisScriptStringPsiReference(
 				return scriptProperties
 			}
 			
-			val localizationProeprties = findLocalizationProperties(name, element.project).mapArray { PsiElementResolveResult(it) }
+			val localizationProeprties = findLocalizationProperties(name, element.project).pin().mapArray { PsiElementResolveResult(it) }
 			if(localizationProeprties.isNotEmpty()) {
 				return localizationProeprties
 			}

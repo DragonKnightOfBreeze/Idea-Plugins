@@ -294,9 +294,9 @@
 
     <lang.findUsagesProvider
       language="Stellaris Script"
-      implementationClass="com.windea.plugin.idea.stellaris.script.navigation.StellarisScriptFindUsagesProvider"/>
+      implementationClass="com.windea.plugin.idea.stellaris.script.editor.StellarisScriptFindUsagesProvider"/>
     <gotoDeclarationHandler
-      implementation="com.windea.plugin.idea.stellaris.script.navigation.StellarisScriptGoToDeclarationHandler"/>
+      implementation="com.windea.plugin.idea.stellaris.script.editor.StellarisScriptGoToDeclarationHandler"/>
     <annotator
       language="Stellaris Script"
       implementationClass="com.windea.plugin.idea.stellaris.script.StellarisScriptAnnotator"/>

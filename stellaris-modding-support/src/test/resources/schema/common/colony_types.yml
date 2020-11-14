@@ -12,7 +12,7 @@ definitions:
       weight_modifier:
         $ref: "../core.yml#/definitions/weight_modifier"
       triggered_planet_modifier:
-        $ref: "../core.yml#/definitions/triggered_modifier"
+        $ref: "../core.yml#/definitions/triggered_modifiers"
         multiple: true
 
 type: object

@@ -117,7 +117,7 @@ class StellarisScriptAnnotator : Annotator, DumbAware {
 							isMatched
 						}
 						if(unsortedProperties.isNotEmpty()) {
-							val properties = unsortedProperties.sortedBy { it.name!! }.toTypedArray()
+							val properties = unsortedProperties.sortedBy { it.name!! }.pin().toTypedArray()
 							val names = unsortedNames.sorted().toTypedArray()
 							holder.newSilentAnnotation(INFORMATION)
 								.gutterIconRenderer(LocalizationPropertiesGutterIconRenderer(names, properties))

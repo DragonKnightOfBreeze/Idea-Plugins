@@ -1,0 +1,43 @@
+definitions:
+  # 人口职业
+  pop_job:
+    type: object
+    properties:
+      category:
+        $type: pop_category
+      is_capped_by_modifier:
+        type: boolean
+      can_set_priority:
+        type: boolean
+      building_icon:
+        $type: building
+      contributes_to_diplo_weight:
+        type: boolean
+      clothes_texture_index:
+        type: integer
+      icon:
+        $type: pop_job
+      possible_pre_triggers:
+        $ref: "../core.yml#/definitions/triggers"
+      possible:
+        $ref: "../core.yml#/definitions/triggers"
+      resources:
+        $ref: "../core.yml#/definitions/economy_unit"
+      pop_modifier:
+        $ref: "../core.yml#/definitions/modifiers"
+        multiple: true
+      triggered_pop_modifier:
+        $ref: "../core.yml#/definitions/triggered_modifiers"
+        multiple: true
+      planet_modifier:
+        $ref: "../core.yml#/definitions/modifiers"
+        multiple: true
+      triggered_planet_modifier:
+        $ref: "../core.yml#/definitions/triggered_modifiers"
+        multiple: true
+      weight:
+        $ref: "../core.yml#/definitions/weight"
+
+type: object
+additionalProperties:
+  $ref: "#/definitions/pop_job"

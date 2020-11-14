@@ -23,7 +23,7 @@ definitions:
         items:
           $type: resource
       triggered_cost_modifier:
-        $ref: "../core.yml#/definitions/triggered_modifier"
+        $ref: "../core.yml#/definitions/triggered_modifiers"
         modifier: true
 
 type: object

@@ -169,11 +169,11 @@ definitions:
 
   modifiers:
     type: object
-    additionalProperties: true
+    # TODO
   modifier:
     type: object
-    additionalProperties: true
-  triggered_modifier:
+    # TODO
+  triggered_modifiers:
     type: object
     properties:
       potential:
@@ -196,9 +196,9 @@ definitions:
         id:
           type: string
       additionalProperties: true # args
-  # TODO
   event_type:
     type: string
+    # TODO
   triggered_tooltip:
     $ref: "#/definitions/triggers"
     fail_text:

@@ -415,10 +415,7 @@ fun findLocalizationProperties(name: String, project: Project, locale: Stellaris
 	return findLocalizationFiles(project).flatMapNotNullFilter({ file ->
 		if(locale != null && locale != file.stellarisLocale) return@flatMapNotNullFilter null
 		getCachedValue(file, localizationPropertyCachedKey) { it.properties }
-	}, { it.name == name }).let{ list ->
-		//如果locale是null，需要把推断的locale对应的属性放到查询结果的最前面
-		if(locale == null) list.pushByLocale(inferedStellarisLocale) else list
-	}
+	}, { it.name == name })
 }
 
 fun findLocalizationProperties(project: Project, locale: StellarisLocale? = null): List<StellarisLocalizationProperty> {
@@ -428,11 +425,12 @@ fun findLocalizationProperties(project: Project, locale: StellarisLocale? = null
 	}
 }
 
-fun List<StellarisLocalizationProperty>.pushByLocale(locale:StellarisLocale):List<StellarisLocalizationProperty>{
+/**将推断的用户语言区域对应的localizationProperty放到列表的最前面。*/
+fun List<StellarisLocalizationProperty>.pin():List<StellarisLocalizationProperty>{
 	val result = mutableListOf<StellarisLocalizationProperty>()
 	var index = 0
 	for(property in this) {
-		if(property.stellarisLocale == locale) {
+		if(property.stellarisLocale == inferedStellarisLocale) {
 			result.add(index,property)
 			index++
 		} else {

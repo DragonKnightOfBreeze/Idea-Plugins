@@ -25,7 +25,7 @@ definitions:
         $ref: "../core.yml#/definitions/modifier"
       # anyOf
       triggered_plant_modifier:
-        $ref: "../core.yml#/definitions/triggered_modifier"
+        $ref: "../core.yml#/definitions/triggered_modifiers"
       ai_weight:
         $ref: "../core.yml#/definitions/weight_modifier"
       modifier:

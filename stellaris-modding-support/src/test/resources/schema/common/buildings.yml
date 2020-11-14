@@ -34,7 +34,7 @@ definitions:
         $ref: "../core.yml#/definitions/triggers"
       # anyOf
       triggered_plant_modifier:
-        $ref: "../core.yml#/definitions/triggered_modifier"
+        $ref: "../core.yml#/definitions/triggered_modifiers"
       resources:
         $ref: "../core.yml#/definitions/economy_unit"
       upgrades:

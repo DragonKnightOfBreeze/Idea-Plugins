@@ -1,6 +1,6 @@
 definitions:
-  # 先驱者文明
-  precursor_civillization:
+  # 随机名字
+  random_name:
     type: object
     properties:
       size:
@@ -10,4 +10,4 @@ definitions:
 
 type: object
 additionalProperties:
-  $ref: "#/definitions/precursor_civillization"
+  $ref: "#/definitions/random_name"

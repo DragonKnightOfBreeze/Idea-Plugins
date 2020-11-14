@@ -1,0 +1,21 @@
+definitions:
+  # 随机名字
+  random_name:
+    type: object
+    properties:
+      key:
+        $type: random_name_key
+      parts:
+        type: object
+        propertyNames:
+          $ref: "../core.yml#/definitions/loc_reference"
+        additionalProperties:
+          type: integer
+      format:
+        $ref: "../core.yml#/definitions/loc_reference" # synced
+      noun:
+        $type: random_name_key_placeholder
+
+type: object
+additionalProperties:
+  $ref: "#/definitions/random_name"
