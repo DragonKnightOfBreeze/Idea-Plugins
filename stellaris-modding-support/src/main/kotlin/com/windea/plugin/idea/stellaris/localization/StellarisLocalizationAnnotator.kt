@@ -26,28 +26,21 @@ class StellarisLocalizationAnnotator : Annotator, DumbAware {
 		private val title = message("stellaris.localization.annotator.localizationProperty.title")
 
 		override fun getIcon() = localizationPropertyGutterIcon
-
 		override fun getTooltipText() = tooltip
-
-		override fun getClickAction() = NavigateAction(title,name,project)
-
+		override fun getClickAction() = LocalizationPropertyNavigateAction(title,name,project)
 		override fun isNavigateAction() = true
-
 		override fun equals(other: Any?) = other is LocalizationPropertyGutterIconRenderer  && name == other.name
-
 		override fun hashCode() = name.hashCode()
 	}
 
 	@Suppress("ComponentNotRegistered")
-	class NavigateAction(
+	class LocalizationPropertyNavigateAction(
 		private val title: String,
 		private val name:String,
 		private val project:Project
 	) : AnAction() {
 		//懒加载
-		private val elements:Array<NavigatablePsiElement> by lazy{
-			findLocalizationProperties(name,project).toTypedArray()
-		}
+		private val elements by lazy{ findLocalizationProperties(name,project).toTypedArray() }
 
 		override fun actionPerformed(e: AnActionEvent) {
 			//如果只有一个，则直接导航，否则弹出popup再导航

@@ -8,9 +8,11 @@ definitions:
       unlocks_centralization:
         type: integer
       cohesion_growth:
-        type: integer
+        type: number
       allow:
         $ref: "../core.yml#/definitions/effects"
+      modifier:
+        $ref: "../core.yml#/definitions/modifiers"
       on_enact:
         $ref: "../core.yml#/definitions/effects"
       ai_weight:

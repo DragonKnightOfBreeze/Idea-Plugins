@@ -10,10 +10,13 @@
           "type" : "integer"
         },
         "cohesion_growth" : {
-          "type" : "integer"
+          "type" : "number"
         },
         "allow" : {
           "$ref" : "#/definitions/effects"
+        },
+        "modifier" : {
+          "$ref" : "#/definitions/modifiers"
         },
         "on_enact" : {
           "$ref" : "#/definitions/effects"
@@ -46,6 +49,10 @@
           "multiple" : true
         }
       }
+    },
+    "modifiers" : {
+      "type" : "object",
+      "additionalProperties" : true
     },
     "condition_expressions" : {
       "type" : "object",

@@ -38,6 +38,24 @@
                     <option name="path" value="stellaris-modding-support/src/test/resources/schema" />
                     <option name="mappingKind" value="Directory" />
                   </Item>
+                  <Item>
+                    <option name="path" value="stellaris-modding-support/src/test/resources/test_schema.json" />
+                  </Item>
+                </list>
+              </option>
+            </SchemaInfo>
+          </value>
+        </entry>
+        <entry key="test_schema">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="test_schema" />
+              <option name="relativePathToSchema" value="stellaris-modding-support/src/test/resources/test_schema.json" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="path" value="stellaris-modding-support/src/test/resources/test.json" />
+                  </Item>
                 </list>
               </option>
             </SchemaInfo>

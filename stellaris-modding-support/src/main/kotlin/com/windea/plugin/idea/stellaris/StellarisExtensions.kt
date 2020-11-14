@@ -5,15 +5,14 @@ package com.windea.plugin.idea.stellaris
 import com.intellij.codeInsight.completion.*
 import com.intellij.codeInsight.lookup.*
 import com.intellij.lang.*
-import com.intellij.lang.documentation.*
 import com.intellij.openapi.editor.*
 import com.intellij.openapi.editor.colors.*
 import com.intellij.openapi.fileTypes.*
 import com.intellij.openapi.project.*
 import com.intellij.openapi.util.*
+import com.intellij.openapi.vfs.*
 import com.intellij.psi.*
 import com.intellij.psi.search.*
-import com.intellij.psi.search.GlobalSearchScope.*
 import com.intellij.psi.util.*
 import com.windea.plugin.idea.stellaris.localization.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
@@ -56,6 +55,10 @@ inline fun <T, reified R> Sequence<T>.mapArray(block: (T) -> R): Array<R> {
 	return this.toList().mapArray(block)
 }
 
+fun String.isBoolean() = this == "yes" || this == "no"
+
+private val numberRegex = """-?[0-9]+(\.[0-9]+)?""".toRegex()
+fun String.isNumber() = this.matches(numberRegex)
 
 fun Boolean.toStringYesNo() = if(this) "yes" else "no"
 
@@ -85,7 +88,6 @@ fun String.unquote() = if(length >= 2 && startsWith('"') && endsWith('"')) subst
 
 fun String.truncate(limit: Int) = if(this.length <= limit) this else this.take(limit) + "..."
 
-
 fun CharSequence.indicesOf(char: Char, ignoreCase: Boolean = false): MutableList<Int> {
 	val indices = mutableListOf<Int>()
 	var lastIndex = indexOf(char, 0, ignoreCase)
@@ -108,12 +110,37 @@ fun <T> T.toSingletonList(): List<T> {
 	return Collections.singletonList(this)
 }
 
-fun <T : Any> T?.toSingletonOrEmpty(): Collection<T> {
+fun <T : Any> T?.toSingletonOrEmpty(): List<T> {
 	return if(this == null) Collections.emptyList() else Collections.singletonList(this)
+}
+
+//为了提高性能而自定义的扩展
+
+inline fun <T, R> Iterable<T>.flatMapNotNullFind(transform: (T) -> Iterable<R>?, predicate: (R) -> Boolean): R? {
+	this.forEach {
+		transform(it)?.find(predicate)?.let { r -> return r }
+	}
+	return null
+}
+
+inline fun <T, R> Iterable<T>.flatMapNotNullFilter(transform: (T) -> Iterable<R>?, predicate: (R) -> Boolean): List<R> {
+	val result = mutableListOf<R>()
+	this.forEach {
+		transform(it)?.filterTo(result, predicate)
+	}
+	return result
+}
+
+inline fun <T, R> Iterable<T>.flatMapNotNull(transform: (T) -> Iterable<R>?): List<R> {
+	val result = mutableListOf<R>()
+	this.forEach {
+		transform(it)?.let { r-> result.addAll(r) }
+	}
+	return result
 }
 //endregion
 
-//region Intellij
+//region Misc
 inline fun PsiElement.forEachChild(block: (PsiElement) -> Unit) {
 	var child = this.firstChild
 	while(child != null) {
@@ -135,17 +162,6 @@ inline fun <reified T : PsiElement> PsiElement.indexOfChild(element: T): Int {
 	return -1
 }
 
-
-///**当道当前AST节点或者之前的节点，直到类型不是whiteSpace位置。*/
-//val ASTNode?.elementTypeOrPrevNotWhiteSpace:ASTNode? get() {
-//	var current = this
-//	while(current != null){
-//		if(current.elementType != TokenType.WHITE_SPACE) break
-//		current = current.treePrev
-//	}
-//	return	current
-//}
-
 /**得到当前AST节点的除了空白节点之外的所有子节点。*/
 fun ASTNode.nodes(): List<ASTNode> {
 	val result = mutableListOf<ASTNode>()
@@ -157,26 +173,21 @@ fun ASTNode.nodes(): List<ASTNode> {
 	return result
 }
 
-/**查找当前项目中指定语言文件类型和作用域的Psi文件。*/
-inline fun <reified T : PsiFile> Project.findFiles(type: LanguageFileType, globalSearchScope: GlobalSearchScope = projectScope(this)): List<T> {
-	return FileTypeIndex.getFiles(type, globalSearchScope).mapNotNull {
-		PsiManager.getInstance(this).findFile(it)
+/**查找当前项目中指定语言文件类型和作用域的VirtualFile。*/
+ fun findVirtualFiles(project: Project, type: LanguageFileType): Collection<VirtualFile> {
+	return FileTypeIndex.getFiles(type, GlobalSearchScope.projectScope(project))
+}
+
+/**查找当前项目中指定语言文件类型和作用域的PsiFile。*/
+inline fun <reified T : PsiFile> findFiles(project: Project, type: LanguageFileType): List<T> {
+	return FileTypeIndex.getFiles(type, GlobalSearchScope.projectScope(project)).mapNotNull {
+		PsiManager.getInstance(project).findFile(it)
 	}.filterIsInstance<T>()
 }
-//endregion
 
-//region Generic
-fun String.isBoolean() = this == "yes" || this == "no"
-
-private val numberRegex = """-?[0-9]+(\.[0-9]+)?""".toRegex()
-fun String.isNumber() = this.matches(numberRegex)
-
-fun String.toDefinitionText(): String {
-	return buildString {
-		append(DocumentationMarkup.DEFINITION_START)
-		append(this@toDefinitionText)
-		append(DocumentationMarkup.DEFINITION_END)
-	}
+/**将VirtualFile转化为指定类型的PsiFile。*/
+inline fun  <reified T : PsiFile> VirtualFile.toPsiFile(project:Project):T?{
+	return PsiManager.getInstance(project).findFile(this) as? T
 }
 
 /**得到指定元素之前的所有直接的注释的文本，作为文档注释，跳过空白。*/
@@ -198,6 +209,7 @@ fun getDocCommentTextFromPreviousComment(element: PsiElement): String {
 	}
 }
 
+/**判断指定的注释是否可认为是之前的注释*/
 fun isPreviousComment(element: PsiElement): Boolean {
 	val elementType = element.elementType
 	return elementType == StellarisLocalizationTypes.COMMENT || elementType == StellarisLocalizationTypes.ROOT_COMMENT
@@ -241,7 +253,6 @@ fun findFurthestSiblingOfSameType(element: PsiElement, findAfter: Boolean, stopO
 
 fun LookupElement.withPriority(priority: Double): LookupElement = PrioritizedLookupElement.withPriority(this, priority)
 
-
 /**导航到指定元素的位置*/
 fun navigateToElement(editor: Editor, element: PsiElement?) {
 	val offset = element?.textOffset ?: return
@@ -275,23 +286,30 @@ private fun <F : PsiFile, T> getCachedValue(file: F, key: Key<CachedValue<T>>, b
 private val localizationPropertyCachedKey = Key<CachedValue<List<StellarisLocalizationProperty>>>("LocalizationPropertyCache")
 
 fun findLocalizationProperty(name: String, project: Project, locale: StellarisLocale? = null): StellarisLocalizationProperty? {
-	val files = project.findFiles<StellarisLocalizationFile>(StellarisLocalizationFileType)
-	val localedFiles = if(locale != null) files.filter { it.stellarisLocale == locale } else files
-	return localedFiles.flatMap { file -> getCachedValue(file, localizationPropertyCachedKey) { it.properties } }
-		.find { it.name == name }
+	val virtualFiles = findVirtualFiles(project, StellarisLocalizationFileType)
+	return virtualFiles.flatMapNotNullFind({ virtualFile ->
+		val file = virtualFile.toPsiFile<StellarisLocalizationFile>(project)?:return@flatMapNotNullFind null
+		if(locale != null && locale != file.stellarisLocale) return@flatMapNotNullFind null
+		getCachedValue(file, localizationPropertyCachedKey) { it.properties }
+	}, { it.name == name })
 }
 
 fun findLocalizationProperties(name: String, project: Project, locale: StellarisLocale? = null): List<StellarisLocalizationProperty> {
-	val files = project.findFiles<StellarisLocalizationFile>(StellarisLocalizationFileType)
-	val localedFiles = if(locale != null) files.filter { it.stellarisLocale == locale } else files
-	return localedFiles.flatMap { file -> getCachedValue(file, localizationPropertyCachedKey) { it.properties } }
-		.filter { it.name == name }
+	val virtualFiles = findVirtualFiles(project, StellarisLocalizationFileType)
+	return virtualFiles.flatMapNotNullFilter({ virtualFile ->
+		val file = virtualFile.toPsiFile<StellarisLocalizationFile>(project)?:return@flatMapNotNullFilter null
+		if(locale != null && locale != file.stellarisLocale) return@flatMapNotNullFilter null
+		getCachedValue(file, localizationPropertyCachedKey) { it.properties }
+	}, { it.name == name })
 }
 
 fun findLocalizationProperties(project: Project, locale: StellarisLocale? = null): List<StellarisLocalizationProperty> {
-	val files = project.findFiles<StellarisLocalizationFile>(StellarisLocalizationFileType)
-	val localedFiles = if(locale != null) files.filter { it.stellarisLocale == locale } else files
-	return localedFiles.flatMap { file -> getCachedValue(file, localizationPropertyCachedKey) { it.properties } }
+	val virtualFiles = findVirtualFiles(project, StellarisLocalizationFileType)
+	return virtualFiles.flatMapNotNull { virtualFile ->
+		val file = virtualFile.toPsiFile<StellarisLocalizationFile>(project)?:return@flatMapNotNull null
+		if(locale != null && locale != file.stellarisLocale) return@flatMapNotNull null
+		getCachedValue(file, localizationPropertyCachedKey) { it.properties }
+	}
 }
 
 private val scriptVariableCachedKey = Key<CachedValue<List<StellarisScriptVariable>>>("ScriptVariableCache")
@@ -302,38 +320,52 @@ fun findScriptVariableInFile(name: String, file: PsiFile?): StellarisScriptVaria
 }
 
 fun findScriptVariable(name: String, project: Project): StellarisScriptVariable? {
-	val files = project.findFiles<StellarisScriptFile>(StellarisScriptFileType)
-	return files.flatMap { file -> getCachedValue(file, scriptVariableCachedKey) { it.variables } }
-		.find { it.name == name }
+	val virtualFiles = findVirtualFiles(project, StellarisScriptFileType)
+	return virtualFiles.flatMapNotNullFind( { virtualFile ->
+		val file = virtualFile.toPsiFile<StellarisScriptFile>(project)?:return@flatMapNotNullFind null
+		getCachedValue(file, scriptVariableCachedKey) { it.variables }
+	},{ it.name == name })
 }
 
 fun findScriptVariables(name: String, project: Project): List<StellarisScriptVariable> {
-	val files = project.findFiles<StellarisScriptFile>(StellarisScriptFileType)
-	return files.flatMap { file -> getCachedValue(file, scriptVariableCachedKey) { it.variables } }
-		.filter { it.name == name }
+	val virtualFiles = findVirtualFiles(project, StellarisScriptFileType)
+	return virtualFiles.flatMapNotNullFilter( { virtualFile ->
+		val file = virtualFile.toPsiFile<StellarisScriptFile>(project)?:return@flatMapNotNullFilter null
+		getCachedValue(file, scriptVariableCachedKey) { it.variables }
+	}, { it.name == name })
 }
 
 fun findScriptVariables(project: Project): List<StellarisScriptVariable> {
-	val files = project.findFiles<StellarisScriptFile>(StellarisScriptFileType)
-	return files.flatMap { file -> getCachedValue(file, scriptVariableCachedKey) { it.variables } }
+	val virtualFiles = findVirtualFiles(project, StellarisScriptFileType)
+	return virtualFiles.flatMapNotNull { virtualFile ->
+		val file = virtualFile.toPsiFile<StellarisScriptFile>(project)?:return@flatMapNotNull null
+		getCachedValue(file, scriptVariableCachedKey) { it.variables }
+	}
 }
 
 private val scriptPropertyCachedKey = Key<CachedValue<List<StellarisScriptProperty>>>("ScriptPropertyCache")
 
 fun findScriptProperty(name: String, project: Project): StellarisScriptProperty? {
-	val files = project.findFiles<StellarisScriptFile>(StellarisScriptFileType)
-	return files.flatMap { file -> getCachedValue(file, scriptPropertyCachedKey) { it.properties } }
-		.find { it.name == name }
+	val virtualFiles = findVirtualFiles(project, StellarisScriptFileType)
+	return virtualFiles.flatMapNotNullFind({  virtualFile ->
+		val file = virtualFile.toPsiFile<StellarisScriptFile>(project)?:return@flatMapNotNullFind null
+		getCachedValue(file, scriptPropertyCachedKey) { it.properties }
+	},{ it.name == name })
 }
 
 fun findScriptProperties(name: String, project: Project): List<StellarisScriptProperty> {
-	val files = project.findFiles<StellarisScriptFile>(StellarisScriptFileType)
-	return files.flatMap { file -> getCachedValue(file, scriptPropertyCachedKey) { it.properties } }
-		.filter { it.name == name }
+	val virtualFiles = findVirtualFiles(project, StellarisScriptFileType)
+	return virtualFiles.flatMapNotNullFilter({  virtualFile ->
+		val file = virtualFile.toPsiFile<StellarisScriptFile>(project)?:return@flatMapNotNullFilter null
+		getCachedValue(file, scriptPropertyCachedKey) { it.properties }
+	}, { it.name == name })
 }
 
 fun findScriptProperties(project: Project): List<StellarisScriptProperty> {
-	val files = project.findFiles<StellarisScriptFile>(StellarisScriptFileType)
-	return files.flatMap { file -> getCachedValue(file, scriptPropertyCachedKey) { it.properties } }
+	val virtualFiles = findVirtualFiles(project, StellarisScriptFileType)
+	return virtualFiles.flatMapNotNull {  virtualFile ->
+		val file = virtualFile.toPsiFile<StellarisScriptFile>(project)?:return@flatMapNotNull null
+		getCachedValue(file, scriptPropertyCachedKey) { it.properties }
+	}
 }
 //endregion

@@ -1,2 +1,2 @@
 name = "Stellaris Stdlib"
-version = "2.8.1"
+version = "2.8.0"

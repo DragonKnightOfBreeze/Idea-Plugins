@@ -11,8 +11,6 @@ version = "2.6"
 intellij {
 	version = "2020.2"
 	pluginName = "Stellaris Modding Support"
-	updateSinceUntilBuild = false
-	sameSinceUntilBuild = true
 }
 
 grammarKit {
