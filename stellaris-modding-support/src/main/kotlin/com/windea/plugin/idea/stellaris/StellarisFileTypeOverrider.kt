@@ -6,6 +6,8 @@ import com.intellij.openapi.vfs.*
 import com.windea.plugin.idea.stellaris.localization.*
 import com.windea.plugin.idea.stellaris.script.*
 
+
+
 @Suppress("UnstableApiUsage")
 class StellarisFileTypeOverrider : FileTypeOverrider {
 	//仅当从所在目录下找到stellaris.exe或者descriptor.mod文件时
@@ -17,11 +19,9 @@ class StellarisFileTypeOverrider : FileTypeOverrider {
 		var currentFile:VirtualFile? = file.parent
 		while(currentFile != null) {
 			//如果是游戏或模组目录
-			val isGameOrModDirectory = currentFile.children.any {
-					 it.name == descriptorModFileName || it.name == stellarisExeFileName
-				}
-			if(isGameOrModDirectory) {
-				gameOrModDirectoryCache.add(currentFile)
+			val isStellarisDirectory = currentFile.isStellarisDirectory()
+			if(isStellarisDirectory) {
+				stellarisDirectoryCache.add(currentFile)
 				when(file.extension) {
 					in localizationFileExtensions -> {
 						filePathCache[file] = path
@@ -33,7 +33,7 @@ class StellarisFileTypeOverrider : FileTypeOverrider {
 					}
 				}
 			}else{
-				gameOrModDirectoryCache.remove(currentFile)
+				stellarisDirectoryCache.remove(currentFile)
 			}
 			path = currentFile.name + "/" + path
 			currentFile = currentFile.parent

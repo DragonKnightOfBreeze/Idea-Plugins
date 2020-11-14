@@ -185,6 +185,21 @@ inline fun <reified T : PsiFile> findFiles(project: Project, type: LanguageFileT
 	}.filterIsInstance<T>()
 }
 
+/**递归得到当前VirtualFile的所有作为子节点的VirtualFile。*/
+fun VirtualFile.getAllChildFiles():List<VirtualFile>{
+	val result = mutableListOf<VirtualFile>()
+	for(child in this.children) {
+		if(child.isDirectory) result.addAll(child.getAllChildFiles()) else result.add(child)
+	}
+	return result
+}
+
+fun VirtualFile.isStellarisDirectory():Boolean{
+	return children.any {
+		!it.isDirectory && it.name == descriptorModFileName || it.name == stellarisExeFileName
+	}
+}
+
 /**将VirtualFile转化为指定类型的PsiFile。*/
 inline fun  <reified T : PsiFile> VirtualFile.toPsiFile(project:Project):T?{
 	return PsiManager.getInstance(project).findFile(this) as? T
@@ -275,6 +290,78 @@ val PsiElement.filePath: String
 //endregion
 
 //region Find Extensions
+fun findScriptFiles(project:Project):List<StellarisScriptFile>{
+	val result = mutableListOf<StellarisScriptFile>()
+	for(dir in stellarisDirectoryCache) {
+		//在查找之前是否需要检查是否是游戏或模组目录？
+		//if(!stellarisDirectory.isStellarisDirectory()) continue
+		for(child in dir.children) {
+			//仅得到所有在本地化目录以外的目录中的脚本文件
+			if(child.isDirectory && child.name !in localizationDirectories){
+				for(childFile in child.getAllChildFiles()) {
+					val file = childFile.toPsiFile<StellarisScriptFile>(project)
+					if(file != null) result.add(file)
+				}
+			}
+		}
+	}
+	return result
+}
+
+fun findScriptFiles(project:Project,directoryName:String):List<StellarisScriptFile>{
+	val result = mutableListOf<StellarisScriptFile>()
+	for(dir in stellarisDirectoryCache) {
+		//在查找之前是否需要检查是否是游戏或模组目录？
+		//if(!stellarisDirectory.isStellarisDirectory()) continue
+		for(child in dir.children) {
+			//仅得到所有在指定目录中的脚本文件
+			if(child.isDirectory && child.name == directoryName){
+				for(childFile in child.getAllChildFiles()) {
+					val file = childFile.toPsiFile<StellarisScriptFile>(project)
+					if(file != null) result.add(file)
+				}
+			}
+		}
+	}
+	return result
+}
+
+fun findLocalizationFiles(project:Project):List<StellarisLocalizationFile>{
+	val result = mutableListOf<StellarisLocalizationFile>()
+	for(dir in stellarisDirectoryCache) {
+		//在查找之前是否需要检查是否是游戏或模组目录？
+		//if(!stellarisDirectory.isStellarisDirectory()) continue
+		for(child in dir.children) {
+			//仅得到所有在本地化文件目录中的本地化文件
+			if(child.isDirectory && child.name in localizationDirectories){
+				for(childFile in child.getAllChildFiles()) {
+					val file = childFile.toPsiFile<StellarisLocalizationFile>(project)
+					if(file != null) result.add(file)
+				}
+			}
+		}
+	}
+	return result
+}
+
+fun findLocalizationFiles(project:Project,directoryName:String):List<StellarisLocalizationFile>{
+	val result = mutableListOf<StellarisLocalizationFile>()
+	for(dir in stellarisDirectoryCache) {
+		//在查找之前是否需要检查是否是游戏或模组目录？
+		//if(!stellarisDirectory.isStellarisDirectory()) continue
+		for(child in dir.children) {
+			//仅得到所有在指定目录中的本地化文件
+			if(child.isDirectory && child.name ==directoryName){
+				for(childFile in child.getAllChildFiles()) {
+					val file = childFile.toPsiFile<StellarisLocalizationFile>(project)
+					if(file != null) result.add(file)
+				}
+			}
+		}
+	}
+	return result
+}
+
 //使用CachedValue以提高性能
 //这个过程中避免使用匿名lambda，因为需要检查可相等性
 private fun <F : PsiFile, T> getCachedValue(file: F, key: Key<CachedValue<T>>, block: Function<F, T>): T {

@@ -50,6 +50,8 @@ const val stellarisExeFileName = "stellaris.exe"
 const val descriptorModFileName = "descriptor.mod"
 const val anonymous =  "(anonymous)"
 
+val localizationDirectories = arrayOf("localisation","localisation_synced")
+
 val fileExtensions = arrayOf("yml", "txt", "mod", "gui", "gfx", "asset")
 val localizationFileExtensions = arrayOf("yml", "yaml")
 val scriptFileExtensions = arrayOf("txt", "mod", "gfx", "gui", "asset")
@@ -87,7 +89,7 @@ val scriptPropertyGutterIcon = IconUtil.toSize(stellarisScriptPropertyIcon, 12, 
 //endregion
 
 //region Caches
-val gameOrModDirectoryCache = CopyOnWriteArraySet<VirtualFile>()
+val stellarisDirectoryCache = CopyOnWriteArraySet<VirtualFile>()
 val filePathCache = ConcurrentHashMap<VirtualFile,String>()
 
 val localizationLocaleCache = ConcurrentHashMap<Project, Array<StellarisLocalizationLocale>>()
