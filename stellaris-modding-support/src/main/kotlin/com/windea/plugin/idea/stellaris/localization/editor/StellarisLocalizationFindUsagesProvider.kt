@@ -1,16 +1,11 @@
-package com.windea.plugin.idea.stellaris.localization.navigation
+package com.windea.plugin.idea.stellaris.localization.editor
 
 import com.intellij.lang.*
 import com.intellij.lang.cacheBuilder.*
 import com.intellij.lang.findUsages.*
 import com.intellij.psi.*
-import com.windea.plugin.idea.stellaris.StellarisBundle.message
+import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
-import com.windea.plugin.idea.stellaris.script.psi.*
-
-//查找使用：
-//key: value - 键，注释，字符串
-//TODO key: value - 属性引用
 
 class StellarisLocalizationFindUsagesProvider : FindUsagesProvider {
 	override fun getDescriptiveName(element: PsiElement): String {
@@ -19,11 +14,11 @@ class StellarisLocalizationFindUsagesProvider : FindUsagesProvider {
 
 	override fun getType(element: PsiElement): String {
 		return when(element) {
-			is StellarisLocalizationProperty -> message("stellaris.localization.findUsages.property")
-			is StellarisLocalizationLocale -> message("stellaris.localization.findUsages.Locale")
-			is StellarisLocalizationIcon -> message("stellaris.localization.findUsages.icon")
-			is StellarisLocalizationColorfulText -> message("stellaris.localization.findUsages.color")
-			is StellarisLocalizationSerialNumber -> message("stellaris.localization.findUsages.serialNumber")
+			is StellarisLocalizationProperty -> StellarisBundle.message("stellaris.localization.findUsages.property")
+			is StellarisLocalizationLocale -> StellarisBundle.message("stellaris.localization.findUsages.Locale")
+			is StellarisLocalizationIcon -> StellarisBundle.message("stellaris.localization.findUsages.icon")
+			is StellarisLocalizationColorfulText -> StellarisBundle.message("stellaris.localization.findUsages.color")
+			is StellarisLocalizationSerialNumber -> StellarisBundle.message("stellaris.localization.findUsages.serialNumber")
 			else -> ""
 		}
 	}
@@ -45,4 +40,3 @@ class StellarisLocalizationFindUsagesProvider : FindUsagesProvider {
 		return StellarisLocalizationWordScanner()
 	}
 }
-

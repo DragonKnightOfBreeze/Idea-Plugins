@@ -12,7 +12,8 @@ class StellarisScriptVariablePsiReference(
 	private val name = rangeInElement.substring(element.text)
 
 	override fun resolve(): PsiElement? {
-		return findScriptVariableInFile(name,element.containingFile)
+		val file = element.containingFile?:return null
+		return findScriptVariableInFile(name,file)
 	}
 
 	override fun multiResolve(incompleteCode: Boolean): Array<out ResolveResult> {

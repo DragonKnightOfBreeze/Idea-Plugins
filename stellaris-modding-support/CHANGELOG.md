@@ -217,7 +217,10 @@
 
 ## 2.7
 
-* [X] 优化查找引用速度（性能提高到3~10倍）
+优化插件性能。
+
+* [X] 优化查找引用速度
+* [X] 查找localizationProperty时，如果必要，需要将推断的用户环境的locale对应的localizationProperty放到查询结果最前面
 * [ ] Schema：解决不能导航到`anyOf`、`allOf`中的属性名的bug
 * [ ] Schema：为脚本文件提供较为完善的Schema文件
 * [ ] 更多的引用类型：event_id，gfx_reference，path

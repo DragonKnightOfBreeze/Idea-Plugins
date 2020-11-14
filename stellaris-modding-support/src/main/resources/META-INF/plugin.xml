@@ -12,9 +12,9 @@
     <ul>
       <li>Support Stellaris Script Language. (*.txt, *.mod, *.gfx, *.gui, *.asset)</li>
       <li>Support Stellaris Localization Language. (*.yml, *.yaml)</li>
-      <li>Basic language features has been implemented. (e.g. Syntax highlight, File structure, Code format)</li>
-      <li>Extended language features has been implemented. (e.g. Find usages, Go to declaration)</li>
-      <li>More complex language features are implementing. (e.g. Script file validation)</li>
+      <li>Basic language features has been implemented.</li>
+      <li>Extended language features has been implemented.</li>
+      <li>More complex language features are implementing.</li>
       <li>
         All planned language feature are listed in the
         <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/README.md">README</a>
@@ -23,13 +23,13 @@
     </ul>
     <p>
       This plugin will only recognize script and localization files
-      under a directory which has <code>stellaris.exe</code> <code>descriptor.mod</code> in it.
+      under a directory which has <code>stellaris.exe</code> / <code>descriptor.mod</code> in it.
     </p>
     <p>
       You can configure whether to resolve
       internal (in project directory) & external (in game / mod directory, <b>NOT IMPLEMENTED YET</b>) references,
       such as localization and script property references in script files
-      by Edit settings via <b>[Languages & Frameworks / Stellaris Modding Support]</b>.
+      by Edit settings via <i>[Languages & Frameworks / Stellaris Modding Support]</i>.
       Default all to false.
     </p>
     <p>
@@ -56,10 +56,10 @@
     <p>Stellaris模组编程支持。</p>
     <ul>
       <li>支持Stellaris的脚本语言。(*.txt, *.mod, *.gfx, *.gui, *.asset)</li>
-      <li>支持Stellaris的本地化语言。(*.yml, *.yaml)</li>
-      <li>已实现基本的语言特性。（如，代码高亮，文件结构，代码格式化）</li>
-      <li>已实现扩展的语言特性。（如，查找使用，定位到定义）</li>
-      <li>正在实现更加复杂的语言特性。（如，验证脚本文件）</li>
+      <li>支持Stellaris的本地化语言。</li>
+      <li>已实现基本的语言特性。</li>
+      <li>已实现扩展的语言特性。</li>
+      <li>正在实现更加复杂的语言特性。</li>
       <li>
         所有计划中的语言特性都已在
         <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/README.md">README</a>
@@ -67,11 +67,11 @@
       </li>
     </ul>
     <p>
-      这个插件仅会识别文件<code>stellaris.exe</code>或者<code>descriptor.mod</code>
+      这个插件仅会识别文件<code>stellaris.exe</code>或<code>descriptor.mod</code>
       所在目录下（及其子目录）的脚本文件和本地化文件。
     </p>
     <p>
-      你可以通过设置菜单中的<b>[Languages & Frameworks / Stellaris Modding Support]</b>
+      你可以通过设置菜单中的<i>[Languages & Frameworks / Stellaris Modding Support]</i>
       配置是否解析内部引用（项目目录中）和外部引用（游戏和模组目录中，<b>尚未实现</b>），
       例如脚本文件中的本地化属性和脚本属性的引用。
       默认全部不启用。
@@ -110,6 +110,12 @@
       文档。
     </p>
     ]]></change-notes>
+
+  <applicationListeners>
+    <listener
+        class="com.windea.plugin.idea.stellaris.StellarisFileDeleteOrCreateListener"
+        topic="com.intellij.openapi.vfs.newvfs.BulkFileListener"/>
+  </applicationListeners>
 
   <extensions defaultExtensionNs="com.intellij">
     <!--region Stellaris Settings-->
@@ -186,9 +192,9 @@
 
     <lang.findUsagesProvider
       language="Stellaris Localization"
-      implementationClass="com.windea.plugin.idea.stellaris.localization.navigation.StellarisLocalizationFindUsagesProvider"/>
+      implementationClass="com.windea.plugin.idea.stellaris.localization.editor.StellarisLocalizationFindUsagesProvider"/>
     <gotoDeclarationHandler
-      implementation="com.windea.plugin.idea.stellaris.localization.navigation.StellarisLocalizationGoToDeclarationHandler"/>
+      implementation="com.windea.plugin.idea.stellaris.localization.editor.StellarisLocalizationGoToDeclarationHandler"/>
     <annotator
       language="Stellaris Localization"
       implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationAnnotator"/>

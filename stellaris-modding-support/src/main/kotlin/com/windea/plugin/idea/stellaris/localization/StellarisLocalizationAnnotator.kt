@@ -8,6 +8,7 @@ import com.intellij.openapi.editor.markup.*
 import com.intellij.openapi.project.*
 import com.intellij.psi.*
 import com.intellij.psi.util.*
+import com.intellij.refactoring.suggested.*
 import com.intellij.ui.awt.*
 import com.intellij.util.*
 import com.windea.plugin.idea.stellaris.*

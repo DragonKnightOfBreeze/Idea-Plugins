@@ -65,7 +65,7 @@ val inferedStellarisLocale = when(System.getProperty("user.language")){
 	"pl" -> StellarisLocale.PONISH
 	"ru" -> StellarisLocale.RUSSIAN
 	"es" -> StellarisLocale.SPANISH
-	else -> null
+	else -> StellarisLocale.ENGLISH
 }
 //endregion
 
@@ -89,8 +89,9 @@ val scriptPropertyGutterIcon = IconUtil.toSize(stellarisScriptPropertyIcon, 12, 
 //endregion
 
 //region Caches
-val stellarisDirectoryCache = CopyOnWriteArraySet<VirtualFile>()
-val filePathCache = ConcurrentHashMap<VirtualFile,String>()
+val rootDirectoryCache = CopyOnWriteArraySet<VirtualFile>()
+val rootDirectoryPathCache = CopyOnWriteArraySet<String>()
+val fileAndStellarisPathCache = ConcurrentHashMap<VirtualFile,String>()
 
 val localizationLocaleCache = ConcurrentHashMap<Project, Array<StellarisLocalizationLocale>>()
 fun MutableMap<Project, Array<StellarisLocalizationLocale>>.register(project: Project) = this.getOrPut(project) {

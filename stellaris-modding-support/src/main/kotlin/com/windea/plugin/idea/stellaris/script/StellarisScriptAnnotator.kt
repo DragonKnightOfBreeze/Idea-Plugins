@@ -110,17 +110,19 @@ class StellarisScriptAnnotator : Annotator, DumbAware {
 						if(name == null || name.containsBlank()) return
 						//分组并加上gutterIcon
 						val unsortedNames = mutableSetOf<String>()
-						val properties = findLocalizationProperties(element.project).filter {
+						val unsortedProperties = findLocalizationProperties(element.project).filter {
 							val propertyName = it.name ?: return@filter false
 							val isMatched = name.equalsOrIsPrefixOf(propertyName)
 							if(isMatched) unsortedNames.add(propertyName)
 							isMatched
-						}.sortedBy { it.name!! }.toTypedArray()
-						val names = unsortedNames.sorted().toTypedArray()
-						holder.newSilentAnnotation(INFORMATION)
-							.gutterIconRenderer(LocalizationPropertiesGutterIconRenderer(names,properties))
-							.create()
-						
+						}
+						if(unsortedProperties.isNotEmpty()) {
+							val properties = unsortedProperties.sortedBy { it.name!! }.toTypedArray()
+							val names = unsortedNames.sorted().toTypedArray()
+							holder.newSilentAnnotation(INFORMATION)
+								.gutterIconRenderer(LocalizationPropertiesGutterIconRenderer(names, properties))
+								.create()
+						}
 					}
 				}
 			}
@@ -135,17 +137,21 @@ class StellarisScriptAnnotator : Annotator, DumbAware {
 						resolves.isEmpty() -> return
 						reference.resolveAsLocalizationProperty -> {
 							val properties = resolves.mapArray { it.element as StellarisLocalizationProperty }
-							holder.newSilentAnnotation(INFORMATION)
-								.textAttributes(StellarisScriptAttributesKeys.LOCALIZATION_PROPERTY_REFERENCE_KEY)
-								.gutterIconRenderer(LocalizationPropertyGutterIconRenderer(name, properties))
-								.create()
+							if(properties.isNotEmpty()) {
+								holder.newSilentAnnotation(INFORMATION)
+									.textAttributes(StellarisScriptAttributesKeys.LOCALIZATION_PROPERTY_REFERENCE_KEY)
+									.gutterIconRenderer(LocalizationPropertyGutterIconRenderer(name, properties))
+									.create()
+							}
 						}
 						else -> {
 							val properties = resolves.mapArray { it.element as StellarisScriptProperty }
-							holder.newSilentAnnotation(INFORMATION)
-								.textAttributes(StellarisScriptAttributesKeys.SCRIPT_PROPERTY_REFERENCE_KEY)
-								.gutterIconRenderer(ScriptPropertyGutterIconRenderer(name, properties))
-								.create()
+							if(properties.isNotEmpty()) {
+								holder.newSilentAnnotation(INFORMATION)
+									.textAttributes(StellarisScriptAttributesKeys.SCRIPT_PROPERTY_REFERENCE_KEY)
+									.gutterIconRenderer(ScriptPropertyGutterIconRenderer(name, properties))
+									.create()
+							}
 						}
 					}
 				}
