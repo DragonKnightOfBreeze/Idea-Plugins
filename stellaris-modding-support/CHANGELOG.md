@@ -223,7 +223,8 @@
 * [X] 查找localizationProperty时，如果必要，需要将推断的用户环境的locale对应的localizationProperty放到查询结果最前面
 * [X] 补充Schema文件
 * [X] 解决ConcurrentModificationException的bug
-* [X] 渲染本地化文件的值到文档注释中
+* [X] 渲染本地化属性的文本到对应的本地化属性的文档注释中
+* [ ] 渲染本地化属性的文本到相关的脚本属性的文档注释中，限定后缀
 * [ ] 整合scriptProperty基于文件内容以及基于Schema的文档注释
 * [ ] Schema：解决不能导航到`anyOf`、`allOf`中的属性名的bug
 * [ ] Schema：为脚本文件提供较为完善的Schema文件

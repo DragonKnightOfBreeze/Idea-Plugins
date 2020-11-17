@@ -50,4 +50,3 @@ object StellarisLocalizationElementFactory {
 		return createPropertyValue(project, "§$name$value§!").richTextList.first() as StellarisLocalizationColorfulText
 	}
 }
-

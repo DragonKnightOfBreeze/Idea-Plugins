@@ -45,7 +45,7 @@ class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider
 						append(DocumentationMarkup.SECTION_HEADER_START)
 						append("Text: ")
 						append(DocumentationMarkup.SECTION_START)
-						StellarisLocalizationRenderer.render(propertyValue,this)
+						StellarisLocalizationRenderer.renderTo(propertyValue,this)
 						append(DocumentationMarkup.SECTION_END)
 						append(DocumentationMarkup.SECTIONS_END)
 					}

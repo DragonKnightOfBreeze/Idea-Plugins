@@ -5,15 +5,19 @@ import com.windea.plugin.idea.stellaris.localization.psi.*
 import java.io.*
 
 object StellarisLocalizationRenderer {
-	fun render(element: StellarisLocalizationPropertyValue, writer: StringWriter) {
+	fun render(element:StellarisLocalizationPropertyValue):String{
+		return renderTo(element,StringWriter()).toString()
+	}
+	
+	fun renderTo(element: StellarisLocalizationPropertyValue, writer: Writer) {
 		try {
-			element.richTextList.forEach { render(it, writer) }
+			element.richTextList.forEach { renderTo(it, writer) }
 		} catch(e: Exception) {
 			writer.write(syntaxError)
 		}
 	}
 	
-	private fun render(element: StellarisLocalizationRichText, writer: StringWriter) {
+	private fun renderTo(element: StellarisLocalizationRichText, writer: Writer) {
 		when(element) {
 			is StellarisLocalizationString -> writer.append(element.text)
 			is StellarisLocalizationEscape -> {
@@ -34,7 +38,7 @@ object StellarisLocalizationRenderer {
 						if(propertyValue != null) {
 							val rgbText = element.stellarisColor?.rgbText
 							if(rgbText != null) writer.append("<span style='color: $rgbText;'>")
-							render(propertyValue, writer)
+							renderTo(propertyValue, writer)
 							if(rgbText != null) writer.append("</span>")
 							return
 						}
@@ -64,7 +68,7 @@ object StellarisLocalizationRenderer {
 				val rgbText = element.stellarisColor
 				if(rgbText != null) writer.append("<span style='color: $rgbText;'>")
 				for(v in element.richTextList) {
-					render(v, writer)
+					renderTo(v, writer)
 				}
 				if(rgbText != null) writer.append("</span>")
 			}

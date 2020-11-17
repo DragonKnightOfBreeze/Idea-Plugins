@@ -20,11 +20,9 @@ class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
 	override fun generateDoc(element: PsiElement?, originalElement: PsiElement?): String? {
 		return when(element) {
 			//防止意外情况
-			is StellarisScriptVariableName -> {
-				generateDoc(element.parent,originalElement)
-			}
+			is StellarisScriptVariableName -> generateDoc(element.parent,originalElement)
 			is StellarisScriptVariable -> {
-				buildString {
+				writeString {
 					append(DocumentationMarkup.DEFINITION_START)
 					append("${getLocationText(element)}<br><b>${element.name}</b> = ${getVariableValueText(element)}")
 					append(DocumentationMarkup.DEFINITION_END)
@@ -39,7 +37,7 @@ class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
 				}
 			}
 			is StellarisScriptProperty -> {
-				buildString {
+				writeString {
 					append(DocumentationMarkup.DEFINITION_START)
 					append("${getLocationText(element)}<br><b>${element.name}</b> = ${getPropertyValueText(element)}")
 					append(DocumentationMarkup.DEFINITION_END)
