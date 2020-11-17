@@ -6,26 +6,26 @@
         "federation_modifier" : {
           "$ref" : "#/definitions/modifier"
         },
-        "federation_triggered_modifier" : {
-          "$ref" : "#/definitions/triggered_modifier"
+        "federation_triggered_modifiers" : {
+          "$ref" : "#/definitions/triggered_modifiers"
         },
         "members_modifier" : {
           "$ref" : "#/definitions/modifier"
         },
-        "members_triggered_modifier" : {
-          "$ref" : "#/definitions/triggered_modifier"
+        "members_triggered_modifiers" : {
+          "$ref" : "#/definitions/triggered_modifiers"
         },
         "leader_modifier" : {
           "$ref" : "#/definitions/modifier"
         },
-        "leader_triggered_modifier" : {
-          "$ref" : "#/definitions/triggered_modifier"
+        "leader_triggered_modifiers" : {
+          "$ref" : "#/definitions/triggered_modifiers"
         },
         "envoy_modifier" : {
           "$ref" : "#/definitions/modifier"
         },
-        "envoy_triggered_modifier" : {
-          "$ref" : "#/definitions/triggered_modifier"
+        "envoy_triggered_modifiers" : {
+          "$ref" : "#/definitions/triggered_modifiers"
         },
         "on_activate" : {
           "$ref" : "#/definitions/effects"
@@ -48,10 +48,9 @@
       } ]
     },
     "modifier" : {
-      "type" : "object",
-      "additionalProperties" : true
+      "type" : "object"
     },
-    "triggered_modifier" : {
+    "triggered_modifiers" : {
       "type" : "object",
       "properties" : {
         "potential" : {
@@ -110,8 +109,7 @@
       "$type" : "scripted_trigger"
     },
     "modifiers" : {
-      "type" : "object",
-      "additionalProperties" : true
+      "type" : "object"
     },
     "condition_expression_name" : {
       "type" : "string",

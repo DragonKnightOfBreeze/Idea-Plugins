@@ -3,6 +3,7 @@ package com.windea.plugin.idea.stellaris.localization.editor
 import com.intellij.lang.documentation.*
 import com.intellij.psi.*
 import com.windea.plugin.idea.stellaris.*
+import com.windea.plugin.idea.stellaris.localization.*
 import com.windea.plugin.idea.stellaris.localization.highlighter.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
 
@@ -24,12 +25,12 @@ class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider
 				val elementName = element.name?:return null
 				val elementValue = element.value
 				val truncatedElementValue = elementValue.truncate(78 - (elementName.length)).quote()
-				buildString {
+				writeString {
 					append(DocumentationMarkup.DEFINITION_START)
 					append(getLocationText(element))
 					append("<br><b>",elementName,"</b>: ", truncatedElementValue)
 					append(DocumentationMarkup.DEFINITION_END)
-
+					
 					val textAttributesKey = StellarisLocalizationAttributesKeys.COMMENT_KEY
 					val docCommentText = getDocCommentHtmlFromPreviousComment(element, textAttributesKey)
 					if(docCommentText.isNotEmpty()) {
@@ -37,11 +38,22 @@ class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider
 						append(docCommentText)
 						append(DocumentationMarkup.CONTENT_END)
 					}
+					
+					val propertyValue = element.propertyValue
+					if(propertyValue != null) {
+						append(DocumentationMarkup.SECTIONS_START)
+						append(DocumentationMarkup.SECTION_HEADER_START)
+						append("Text: ")
+						append(DocumentationMarkup.SECTION_START)
+						StellarisLocalizationRenderer.render(propertyValue,this)
+						append(DocumentationMarkup.SECTION_END)
+						append(DocumentationMarkup.SECTIONS_END)
+					}
 				}
 			}
 			element is StellarisLocalizationLocale -> {
 				val documentText = element.stellarisLocale?.documentText ?: return null
-				buildString {
+				writeString {
 					append(DocumentationMarkup.DEFINITION_START)
 					append(documentText)
 					append(DocumentationMarkup.DEFINITION_END)
@@ -49,7 +61,7 @@ class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider
 			}
 			element is StellarisLocalizationIcon -> {
 				val documentText = element.name?.let { name -> "(icon) $name"}?:return null
-				buildString {
+				writeString {
 					append(DocumentationMarkup.DEFINITION_START)
 					append(documentText)
 					append(DocumentationMarkup.DEFINITION_END)
@@ -57,7 +69,7 @@ class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider
 			}
 			element is StellarisLocalizationColorfulText ->{
 				val documentText = element.stellarisColor?.documentText ?: return null
-				buildString {
+				writeString {
 					append(DocumentationMarkup.DEFINITION_START)
 					append(documentText)
 					append(DocumentationMarkup.DEFINITION_END)
@@ -65,7 +77,7 @@ class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider
 			}
 			element is StellarisLocalizationSerialNumber -> {
 				val documentText = element.stellarisSerialNumber?.documentText ?: return null
-				buildString {
+				writeString {
 					append(DocumentationMarkup.DEFINITION_START)
 					append(documentText)
 					append(DocumentationMarkup.DEFINITION_END)

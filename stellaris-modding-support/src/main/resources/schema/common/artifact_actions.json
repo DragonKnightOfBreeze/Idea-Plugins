@@ -129,8 +129,7 @@
       "$type" : "scripted_trigger"
     },
     "modifier" : {
-      "type" : "object",
-      "additionalProperties" : true
+      "type" : "object"
     },
     "condition_expression_name" : {
       "type" : "string",

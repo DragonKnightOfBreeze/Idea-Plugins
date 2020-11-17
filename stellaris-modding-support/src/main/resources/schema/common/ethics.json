@@ -83,8 +83,7 @@
       }
     },
     "modifier" : {
-      "type" : "object",
-      "additionalProperties" : true
+      "type" : "object"
     },
     "triggers" : {
       "type" : "object",

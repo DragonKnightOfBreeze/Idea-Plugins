@@ -16,7 +16,7 @@
           "$ref" : "#/definitions/weight_modifier"
         },
         "triggered_planet_modifier" : {
-          "$ref" : "#/definitions/triggered_modifier",
+          "$ref" : "#/definitions/triggered_modifiers",
           "multiple" : true
         }
       }
@@ -46,10 +46,9 @@
       }
     },
     "modifier" : {
-      "type" : "object",
-      "additionalProperties" : true
+      "type" : "object"
     },
-    "triggered_modifier" : {
+    "triggered_modifiers" : {
       "type" : "object",
       "properties" : {
         "potential" : {
@@ -96,8 +95,7 @@
       "$type" : "scripted_trigger"
     },
     "modifiers" : {
-      "type" : "object",
-      "additionalProperties" : true
+      "type" : "object"
     },
     "condition_expression_name" : {
       "type" : "string",

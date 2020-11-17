@@ -28,198 +28,211 @@ object StellarisLocalizationPsiImplUtil {
 	fun getName(element: StellarisLocalizationLocale): String? {
 		return element.localeId.text
 	}
-
+	
 	@JvmStatic
 	fun setName(element: StellarisLocalizationLocale, name: String): PsiElement {
 		element.localeId.replace(createLocale(element.project, name).localeId)
 		return element
 	}
-
+	
 	@JvmStatic
 	fun getNameIdentifier(element: StellarisLocalizationLocale): PsiElement? {
 		return element.localeId
 	}
-
+	
 	@JvmStatic
 	fun getIcon(element: StellarisLocalizationLocale, @IconFlags flags: Int): Icon? {
 		return stellarisLocalizationLocaleIcon
 	}
-
+	
 	@JvmStatic
 	fun getStellarisLocale(element: StellarisLocalizationLocale): StellarisLocale? {
 		return StellarisLocale.map[element.name]
 	}
-
+	
 	@JvmStatic
 	fun getReference(element: StellarisLocalizationLocale): StellarisLocalizationLocalePsiReference? {
 		return StellarisLocalizationLocalePsiReference(element, element.localeId.textRangeInParent)
 	}
 	//endregion
-
+	
 	//region StellarisLocalizationProperty
 	@JvmStatic
 	fun getName(element: StellarisLocalizationProperty): String? {
 		return element.propertyKey.text
 	}
-
+	
 	@JvmStatic
 	fun setName(element: StellarisLocalizationProperty, name: String): PsiElement {
 		element.propertyKey.replace(createPropertyKey(element.project, name))
 		return element
 	}
-
+	
 	@JvmStatic
 	fun getNameIdentifier(element: StellarisLocalizationProperty): PsiElement? {
 		return element.propertyKey.propertyKeyId
 	}
-
+	
 	@JvmStatic
 	fun getIcon(element: StellarisLocalizationProperty, @IconFlags flags: Int): Icon? {
 		return stellarisLocalizationPropertyIcon
 	}
-
+	
 	@JvmStatic
 	fun getKey(element: StellarisLocalizationProperty): String {
 		return element.propertyKey.text
 	}
-
+	
 	@JvmStatic
 	fun getValue(element: StellarisLocalizationProperty): String {
 		return element.propertyValue?.text?.unquote().orEmpty()
 	}
 	
 	@JvmStatic
-	fun getStellarisLocale(element:StellarisLocalizationProperty): StellarisLocale? {
+	fun getStellarisLocale(element: StellarisLocalizationProperty): StellarisLocale? {
 		return (element.containingFile as? StellarisLocalizationFile)?.stellarisLocale
 	}
 	//endregion
-
+	
 	//region StellarisLocalizationPropertyValue
 	@JvmStatic
 	fun getValue(element: StellarisLocalizationPropertyValue): String? {
 		return element.text?.unquote()
 	}
 	//endregion
-
+	
 	//region StellarisLocalizationPropertyReference
 	@JvmStatic
 	fun getName(element: StellarisLocalizationPropertyReference): String? {
 		return element.propertyReferenceId?.text
 	}
-
+	
 	@JvmStatic
 	fun setName(element: StellarisLocalizationPropertyReference, name: String): PsiElement {
 		element.propertyReferenceId?.replace(createPropertyReference(element.project, name).propertyReferenceId!!)
 		return element
 	}
-
+	
 	@JvmStatic
 	fun getNameIdentifier(element: StellarisLocalizationPropertyReference): PsiElement? {
 		return element.propertyReferenceId
 	}
-
+	
 	@JvmStatic
 	fun getTextOffset(element: StellarisLocalizationPropertyReference): Int {
 		return element.startOffset + 1
 	}
-
+	
 	@JvmStatic
 	fun getReference(element: StellarisLocalizationPropertyReference): StellarisLocalizationPropertyPsiReference? {
-		return element.propertyReferenceId?.let{ StellarisLocalizationPropertyPsiReference(element, it.textRangeInParent)}
+		return element.propertyReferenceId?.let { StellarisLocalizationPropertyPsiReference(element, it.textRangeInParent) }
+	}
+	
+	@JvmStatic
+	fun getStellarisColor(element: StellarisLocalizationPropertyReference): StellarisColor? {
+		val colorCode = element.propertyReferenceParameter?.text?.firstOrNull()
+		if(colorCode != null && colorCode.isUpperCase()) {
+			return StellarisColor.map[colorCode.toString()]
+		}
+		return null
 	}
 	//endregion
-
+	
 	//region StellarisLocalizationIcon
 	@JvmStatic
 	fun getName(element: StellarisLocalizationIcon): String? {
 		return element.iconId?.text
 	}
-
+	
 	@JvmStatic
 	fun setName(element: StellarisLocalizationIcon, name: String): PsiElement {
 		element.iconId?.replace(createIcon(element.project, name).iconId!!)
 		return element
 	}
-
+	
 	@JvmStatic
 	fun getNameIdentifier(element: StellarisLocalizationIcon): PsiElement? {
 		return element.iconId
 	}
-
+	
 	@JvmStatic
 	fun getTextOffset(element: StellarisLocalizationIcon): Int {
 		return element.startOffset + 1
 	}
-
+	
 	@JvmStatic
 	fun getReference(element: StellarisLocalizationIcon): StellarisLocalizationIconPsiReference? {
-		return element.iconId?.let{ StellarisLocalizationIconPsiReference(element, it.textRangeInParent)}
+		val iconId = element.iconId ?: return null
+		return StellarisLocalizationIconPsiReference(element, iconId.textRangeInParent)
 	}
 	//endregion
-
+	
 	//region StellarisLocalizationSerialNumber
 	@JvmStatic
 	fun getName(element: StellarisLocalizationSerialNumber): String? {
 		return element.serialNumberId?.text
 	}
-
+	
 	@JvmStatic
 	fun setName(element: StellarisLocalizationSerialNumber, name: String): PsiElement {
 		element.serialNumberId?.replace(createSerialNumber(element.project, name).serialNumberId!!)
 		return element
 	}
-
+	
 	@JvmStatic
 	fun getNameIdentifier(element: StellarisLocalizationSerialNumber): PsiElement? {
 		return element.serialNumberId
 	}
-
+	
 	@JvmStatic
 	fun getTextOffset(element: StellarisLocalizationSerialNumber): Int {
 		return element.startOffset + 1
 	}
-
+	
 	@JvmStatic
 	fun getStellarisSerialNumber(element: StellarisLocalizationSerialNumber): StellarisSerialNumber? {
-		return element.name?.let { name -> StellarisSerialNumber.map[name] }
+		val name = element.name ?: return null
+		return StellarisSerialNumber.map[name]
 	}
-
+	
 	@JvmStatic
 	fun getReference(element: StellarisLocalizationSerialNumber): StellarisLocalizationSerialNumberPsiReference? {
-		return element.serialNumberId?.let{ StellarisLocalizationSerialNumberPsiReference(element,it.textRangeInParent)}
+		val serialNumberId = element.serialNumberId ?: return null
+		return StellarisLocalizationSerialNumberPsiReference(element, serialNumberId.textRangeInParent)
 	}
 	//endregion
-
+	
 	//region StellarisLocalizationColorfulText
 	@JvmStatic
 	fun getName(element: StellarisLocalizationColorfulText): String? {
-		return element.colorCode?.text?.toUpperCase() //NOTE 认为是忽略大小写的
+		return element.colorCode?.text
 	}
-
+	
 	@JvmStatic
 	fun setName(element: StellarisLocalizationColorfulText, name: String): PsiElement {
 		element.colorCode?.replace(createColorfulText(element.project, name).colorCode!!)
 		return element
 	}
-
+	
 	@JvmStatic
 	fun getNameIdentifier(element: StellarisLocalizationColorfulText): PsiElement? {
 		return element.colorCode
 	}
-
+	
 	@JvmStatic
 	fun getTextOffset(element: StellarisLocalizationColorfulText): Int {
 		return element.startOffset + 1
 	}
-
+	
 	@JvmStatic
 	fun getStellarisColor(element: StellarisLocalizationColorfulText): StellarisColor? {
 		return element.name?.let { name -> StellarisColor.map[name] }
 	}
-
+	
 	@JvmStatic
 	fun getReference(element: StellarisLocalizationColorfulText): StellarisLocalizationColorfulTextPsiReference? {
-		return element.colorCode?.let {  StellarisLocalizationColorfulTextPsiReference(element,it.textRangeInParent )}
+		val colorCode = element.colorCode ?: return null
+		return StellarisLocalizationColorfulTextPsiReference(element, colorCode.textRangeInParent)
 	}
 	//endregion
 }

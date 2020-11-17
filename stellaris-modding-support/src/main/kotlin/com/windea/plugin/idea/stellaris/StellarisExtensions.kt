@@ -19,9 +19,14 @@ import com.windea.plugin.idea.stellaris.script.psi.*
 import java.io.*
 import java.net.*
 import java.util.*
+import java.util.concurrent.*
 import java.util.function.Function
 
 //region Stdlib
+inline fun writeString(block:StringWriter.()->Unit):String{
+	return StringWriter().apply(block).toString()
+}
+
 fun Boolean.toInt() = if(this) 1 else 0
 
 val workDirectory: File = File("").absoluteFile
@@ -291,13 +296,11 @@ val PsiElement.filePath: String
 
 //仅作为标记，在值改为true时要清空缓存
 internal var shouldRebuildScriptFileCache = true
-internal val scriptFileCache = mutableListOf<StellarisScriptFile>()
-private val scriptFileCacheLock = Any()
+internal val scriptFileCache = CopyOnWriteArrayList<StellarisScriptFile>()
 
 //仅作为标记，在值改为true时要清空缓存
 internal var shouldRebuildLocalizationFileCache = true
-internal val localizationFileCache = mutableListOf<StellarisLocalizationFile>()
-private val localizationFileCacheLock = Any()
+internal val localizationFileCache = CopyOnWriteArrayList<StellarisLocalizationFile>()
 
 //当缓存为空时，也重新构建缓存，因为这是不期望的
 
@@ -305,7 +308,6 @@ private val localizationFileCacheLock = Any()
 fun findScriptFiles(project: Project): List<StellarisScriptFile> {
 	//如果需要清空缓存，则重建缓存，否则直接返回缓存
 	if(shouldRebuildScriptFileCache || scriptFileCache.isEmpty()) {
-		synchronized(scriptFileCacheLock) {
 			for(dir in rootDirectoryCache) {
 				//在查找之前是否需要检查是否是游戏或模组目录？
 				//if(!stellarisDirectory.isStellarisDirectory()) continue
@@ -315,7 +317,6 @@ fun findScriptFiles(project: Project): List<StellarisScriptFile> {
 				}
 			}
 			shouldRebuildScriptFileCache = false
-		}
 	}
 	return scriptFileCache
 }
@@ -323,7 +324,6 @@ fun findScriptFiles(project: Project): List<StellarisScriptFile> {
 fun findLocalizationFiles(project: Project): List<StellarisLocalizationFile> {
 	//如果需要清空缓存，则重建缓存，否则直接返回缓存
 	if(shouldRebuildLocalizationFileCache || localizationFileCache.isEmpty()) {
-		synchronized(localizationFileCacheLock) {
 			for(dir in rootDirectoryCache) {
 				//在查找之前是否需要检查是否是游戏或模组目录？
 				//if(!stellarisDirectory.isStellarisDirectory()) continue
@@ -333,7 +333,6 @@ fun findLocalizationFiles(project: Project): List<StellarisLocalizationFile> {
 				}
 			}
 			shouldRebuildLocalizationFileCache = false
-		}
 	}
 	return localizationFileCache
 }
@@ -426,12 +425,12 @@ fun findLocalizationProperties(project: Project, locale: StellarisLocale? = null
 }
 
 /**将推断的用户语言区域对应的localizationProperty放到列表的最前面。*/
-fun List<StellarisLocalizationProperty>.pin():List<StellarisLocalizationProperty>{
+fun List<StellarisLocalizationProperty>.pin(): List<StellarisLocalizationProperty> {
 	val result = mutableListOf<StellarisLocalizationProperty>()
 	var index = 0
 	for(property in this) {
 		if(property.stellarisLocale == inferedStellarisLocale) {
-			result.add(index,property)
+			result.add(index, property)
 			index++
 		} else {
 			result.add(property)

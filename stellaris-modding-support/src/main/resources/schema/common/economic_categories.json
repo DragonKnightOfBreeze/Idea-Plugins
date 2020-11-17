@@ -31,12 +31,12 @@
           }
         },
         "triggered_cost_modifier" : {
-          "$ref" : "#/definitions/triggered_modifier",
+          "$ref" : "#/definitions/triggered_modifiers",
           "modifier" : true
         }
       }
     },
-    "triggered_modifier" : {
+    "triggered_modifiers" : {
       "type" : "object",
       "properties" : {
         "potential" : {
@@ -58,8 +58,7 @@
       } ]
     },
     "modifiers" : {
-      "type" : "object",
-      "additionalProperties" : true
+      "type" : "object"
     },
     "condition_expressions" : {
       "type" : "object",

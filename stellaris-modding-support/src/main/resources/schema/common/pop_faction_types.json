@@ -1,55 +1,93 @@
 {
   "definitions" : {
-    "pop_category" : {
+    "pop_faction_type" : {
       "type" : "object",
       "properties" : {
-        "rank" : {
-          "type" : "integer"
+        "election_header" : {
+          "$ref" : "#/definitions/gfx_reference"
         },
-        "clothes_texture_index" : {
-          "type" : "integer"
+        "guiding_ethic" : {
+          "$type" : "ethic"
         },
-        "change_job_threshold" : {
-          "type" : "number"
-        },
-        "keep_from_former_job" : {
+        "unique" : {
           "type" : "boolean"
         },
-        "demotion_time" : {
+        "support_multiplier" : {
           "type" : "integer"
-        },
-        "should_apply_unemployment_penalties" : {
-          "$ref" : "#/definitions/triggers"
-        },
-        "unemployment_penalties" : {
-          "$ref" : "#/definitions/modifiers"
-        },
-        "unemployment_resources" : {
-          "$ref" : "#/definitions/economy_unit"
-        },
-        "triggered_pop_modifier" : {
-          "$ref" : "#/definitions/modifiers"
-        },
-        "weight" : {
-          "$ref" : "#/definitions/weight_modifier"
-        },
-        "pop_modifier" : {
-          "$ref" : "#/definitions/modifiers"
-        },
-        "allow_resettlement" : {
-          "$ref" : "#/definitions/triggers"
-        },
-        "resettlement_cost" : {
-          "$ref" : "#/definitions/resources_item"
-        },
-        "triggered_planet_modifier" : {
-          "$ref" : "#/definitions/modifiers",
-          "multiple" : true
         },
         "resources" : {
           "$ref" : "#/definitions/economy_unit"
+        },
+        "is_potential" : {
+          "$ref" : "#/definitions/triggers"
+        },
+        "parameters" : {
+          "$ref" : "#/definitions/parameters"
+        },
+        "can_join_pre_triggers" : {
+          "$ref" : "#/definitions/triggers"
+        },
+        "can_join_faction" : {
+          "$ref" : "#/definitions/triggers"
+        },
+        "attraction" : {
+          "$ref" : "#/definitions/weight_modifier"
+        },
+        "leader" : {
+          "$ref" : "#/definitions/weight_modifier"
+        },
+        "demand" : {
+          "$ref" : "#/definitions/demand"
         }
       }
+    },
+    "parameters" : {
+      "type" : "object",
+      "properties" : {
+        "empire" : {
+          "type" : "object",
+          "properties" : {
+            "type" : {
+              "type" : "string"
+            },
+            "valid_objects" : {
+              "$ref" : "#/definitions/triggers"
+            }
+          }
+        }
+      }
+    },
+    "demand" : {
+      "type" : "object",
+      "properties" : {
+        "title" : {
+          "$ref" : "#/definitions/loc_reference"
+        },
+        "unfulfilled_title" : {
+          "$ref" : "#/definitions/loc_reference"
+        },
+        "desc" : {
+          "$ref" : "#/definitions/loc_reference"
+        },
+        "fulfilled_effect" : {
+          "type" : "number"
+        },
+        "unfulfilled_effect" : {
+          "type" : "number"
+        },
+        "potential" : {
+          "$ref" : "#/definitions/triggers"
+        },
+        "trigger" : {
+          "$ref" : "#/definitions/triggers"
+        }
+      }
+    },
+    "loc_reference" : {
+      "type" : "string"
+    },
+    "gfx_reference" : {
+      "type" : "string"
     },
     "economy_unit" : {
       "type" : "object",
@@ -67,23 +105,6 @@
           "$ref" : "#/definitions/resources_item"
         }
       }
-    },
-    "resources_item" : {
-      "type" : "object",
-      "anyOf" : [ {
-        "properties" : {
-          "trigger" : {
-            "$ref" : "#/definitions/triggers"
-          }
-        }
-      }, {
-        "propertyNames" : {
-          "$type" : "resource"
-        },
-        "additionalProperties" : {
-          "type" : "integer"
-        }
-      } ]
     },
     "triggers" : {
       "type" : "object",
@@ -109,10 +130,24 @@
         }
       }
     },
-    "modifiers" : {
-      "type" : "object"
-    },
     "resources_category" : true,
+    "resources_item" : {
+      "type" : "object",
+      "anyOf" : [ {
+        "properties" : {
+          "trigger" : {
+            "$ref" : "#/definitions/triggers"
+          }
+        }
+      }, {
+        "propertyNames" : {
+          "$type" : "resource"
+        },
+        "additionalProperties" : {
+          "type" : "integer"
+        }
+      } ]
+    },
     "condition_expressions" : {
       "type" : "object",
       "propertyNames" : {
@@ -168,6 +203,6 @@
   },
   "type" : "object",
   "additionalProperties" : {
-    "$ref" : "#/definitions/pop_category"
+    "$ref" : "#/definitions/pop_faction_type"
   }
 }

@@ -40,6 +40,8 @@ const val rootBlockFolder = "<root block>"
 const val blockFolder = "{...}"
 const val defaultFolder = "<folder>"
 
+const val syntaxError = "(syntax error)"
+
 val utf8Bom = byteArrayOf(0xef.toByte(), 0xbb.toByte(), 0xbf.toByte())
 
 val booleanValues = arrayOf("yes", "no")

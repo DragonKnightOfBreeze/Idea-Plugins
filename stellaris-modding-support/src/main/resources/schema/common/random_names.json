@@ -1,0 +1,34 @@
+{
+  "definitions" : {
+    "random_name" : {
+      "type" : "object",
+      "properties" : {
+        "key" : {
+          "$type" : "random_name_key"
+        },
+        "parts" : {
+          "type" : "object",
+          "propertyNames" : {
+            "$ref" : "#/definitions/loc_reference"
+          },
+          "additionalProperties" : {
+            "type" : "integer"
+          }
+        },
+        "format" : {
+          "$ref" : "#/definitions/loc_reference"
+        },
+        "noun" : {
+          "$type" : "random_name_key_placeholder"
+        }
+      }
+    },
+    "loc_reference" : {
+      "type" : "string"
+    }
+  },
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/random_name"
+  }
+}

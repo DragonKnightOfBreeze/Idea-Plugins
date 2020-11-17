@@ -105,8 +105,7 @@
       }
     },
     "modifier" : {
-      "type" : "object",
-      "additionalProperties" : true
+      "type" : "object"
     },
     "resources_category" : true,
     "resources_item" : {

@@ -113,8 +113,7 @@
       }
     },
     "modifier" : {
-      "type" : "object",
-      "additionalProperties" : true
+      "type" : "object"
     },
     "game_path" : {
       "type" : "string"

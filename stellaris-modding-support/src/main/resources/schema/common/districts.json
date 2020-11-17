@@ -34,7 +34,7 @@
           "$ref" : "#/definitions/modifier"
         },
         "triggered_plant_modifier" : {
-          "$ref" : "#/definitions/triggered_modifier"
+          "$ref" : "#/definitions/triggered_modifiers"
         },
         "ai_weight" : {
           "$ref" : "#/definitions/weight_modifier"
@@ -86,10 +86,9 @@
       }
     },
     "modifier" : {
-      "type" : "object",
-      "additionalProperties" : true
+      "type" : "object"
     },
-    "triggered_modifier" : {
+    "triggered_modifiers" : {
       "type" : "object",
       "properties" : {
         "potential" : {
@@ -154,8 +153,7 @@
       "$type" : "scripted_trigger"
     },
     "modifiers" : {
-      "type" : "object",
-      "additionalProperties" : true
+      "type" : "object"
     },
     "condition_expression_name" : {
       "type" : "string",

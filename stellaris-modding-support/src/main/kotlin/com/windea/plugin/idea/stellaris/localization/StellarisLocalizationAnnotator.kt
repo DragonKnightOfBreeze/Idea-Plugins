@@ -6,8 +6,8 @@ import com.intellij.lang.annotation.HighlightSeverity.*
 import com.intellij.openapi.actionSystem.*
 import com.intellij.openapi.editor.markup.*
 import com.intellij.openapi.project.*
+import com.intellij.openapi.util.*
 import com.intellij.psi.*
-import com.intellij.psi.util.*
 import com.intellij.refactoring.suggested.*
 import com.intellij.ui.awt.*
 import com.intellij.util.*
@@ -87,36 +87,31 @@ class StellarisLocalizationAnnotator : Annotator, DumbAware {
 						.withFix(ChangeColorIntention.instance)
 						.create()
 				} else {
-					annotateColor(colorId, holder, element)
+					val e = element.colorCode
+					if(e != null) {
+						annotateColor(colorId, holder, e.textRange)
+					}
 				}
 			}
-			else -> {
-				//如果是属性引用参数，则认为第一个字符可能是颜色码，则加上对应的颜色
-				if(element.elementType == StellarisLocalizationTypes.PROPERTY_REFERENCE_PARAMETER) {
-					val text = element.text
-					if(text.firstOrNull()?.isUpperCase() == true) {
-						val colorId = text.substring(0,1)
-						val color = StellarisColor.map[colorId]
-						if(color != null) {
-							annotateColorForPropertyReferenceParameter(colorId, holder, element)
-						}
+			is StellarisLocalizationPropertyReference -> {
+				//如果是属性引用，需要为属性引用参数加上对应的颜色
+				val color = element.stellarisColor
+				if(color != null){
+					val colorId = color.key
+					val e = element.propertyReferenceParameter
+					if(e != null) {
+						val startOffset = e.startOffset
+						annotateColor(colorId, holder, TextRange(startOffset, startOffset + 1))
 					}
 				}
 			}
 		}
 	}
 
-	private fun annotateColor(colorId: String, holder: AnnotationHolder, element: StellarisLocalizationColorfulText) {
+	private fun annotateColor(colorId: String, holder: AnnotationHolder, range: TextRange) {
 		val attributesKey = StellarisLocalizationAttributesKeys.COLOR_ID_KEYS[colorId] ?: return
 		holder.newSilentAnnotation(INFORMATION)
-			.range(element.nameIdentifier!!).textAttributes(attributesKey)
-			.create()
-	}
-
-	private fun annotateColorForPropertyReferenceParameter(colorId: String, holder: AnnotationHolder, element: PsiElement) {
-		val attributesKey = StellarisLocalizationAttributesKeys.COLOR_ID_KEYS[colorId] ?: return
-		holder.newSilentAnnotation(INFORMATION)
-			.range(element).textAttributes(attributesKey)
+			.range(range).textAttributes(attributesKey)
 			.create()
 	}
 }

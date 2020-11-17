@@ -72,8 +72,7 @@
       }
     },
     "modifier" : {
-      "type" : "object",
-      "additionalProperties" : true
+      "type" : "object"
     },
     "condition_expressions" : {
       "type" : "object",

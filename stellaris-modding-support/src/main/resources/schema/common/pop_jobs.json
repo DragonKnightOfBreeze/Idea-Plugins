@@ -1,53 +1,56 @@
 {
   "definitions" : {
-    "pop_category" : {
+    "pop_job" : {
       "type" : "object",
       "properties" : {
-        "rank" : {
-          "type" : "integer"
+        "category" : {
+          "$type" : "pop_category"
+        },
+        "is_capped_by_modifier" : {
+          "type" : "boolean"
+        },
+        "can_set_priority" : {
+          "type" : "boolean"
+        },
+        "building_icon" : {
+          "$type" : "building"
+        },
+        "contributes_to_diplo_weight" : {
+          "type" : "boolean"
         },
         "clothes_texture_index" : {
           "type" : "integer"
         },
-        "change_job_threshold" : {
-          "type" : "number"
+        "icon" : {
+          "$type" : "pop_job"
         },
-        "keep_from_former_job" : {
-          "type" : "boolean"
-        },
-        "demotion_time" : {
-          "type" : "integer"
-        },
-        "should_apply_unemployment_penalties" : {
+        "possible_pre_triggers" : {
           "$ref" : "#/definitions/triggers"
         },
-        "unemployment_penalties" : {
-          "$ref" : "#/definitions/modifiers"
-        },
-        "unemployment_resources" : {
-          "$ref" : "#/definitions/economy_unit"
-        },
-        "triggered_pop_modifier" : {
-          "$ref" : "#/definitions/modifiers"
-        },
-        "weight" : {
-          "$ref" : "#/definitions/weight_modifier"
-        },
-        "pop_modifier" : {
-          "$ref" : "#/definitions/modifiers"
-        },
-        "allow_resettlement" : {
+        "possible" : {
           "$ref" : "#/definitions/triggers"
-        },
-        "resettlement_cost" : {
-          "$ref" : "#/definitions/resources_item"
-        },
-        "triggered_planet_modifier" : {
-          "$ref" : "#/definitions/modifiers",
-          "multiple" : true
         },
         "resources" : {
           "$ref" : "#/definitions/economy_unit"
+        },
+        "pop_modifier" : {
+          "$ref" : "#/definitions/modifiers",
+          "multiple" : true
+        },
+        "triggered_pop_modifier" : {
+          "$ref" : "#/definitions/triggered_modifiers",
+          "multiple" : true
+        },
+        "planet_modifier" : {
+          "$ref" : "#/definitions/modifiers",
+          "multiple" : true
+        },
+        "triggered_planet_modifier" : {
+          "$ref" : "#/definitions/triggered_modifiers",
+          "multiple" : true
+        },
+        "weight" : {
+          "$ref" : "#/definitions/weight"
         }
       }
     },
@@ -68,6 +71,39 @@
         }
       }
     },
+    "triggers" : {
+      "type" : "object",
+      "anyOf" : [ {
+        "$ref" : "#/definitions/condition_expressions"
+      }, {
+        "$ref" : "#/definitions/boolean_expressions"
+      }, {
+        "$ref" : "#/definitions/scope_expressions"
+      }, {
+        "$ref" : "#/definitions/scripted_triggers"
+      } ]
+    },
+    "weight" : {
+      "type" : "object",
+      "properties" : {
+        "weight" : {
+          "type" : "number"
+        }
+      }
+    },
+    "modifiers" : {
+      "type" : "object"
+    },
+    "triggered_modifiers" : {
+      "type" : "object",
+      "properties" : {
+        "potential" : {
+          "$ref" : "#/definitions/triggers"
+        }
+      },
+      "$ref" : "#/definitions/modifiers"
+    },
+    "resources_category" : true,
     "resources_item" : {
       "type" : "object",
       "anyOf" : [ {
@@ -85,34 +121,6 @@
         }
       } ]
     },
-    "triggers" : {
-      "type" : "object",
-      "anyOf" : [ {
-        "$ref" : "#/definitions/condition_expressions"
-      }, {
-        "$ref" : "#/definitions/boolean_expressions"
-      }, {
-        "$ref" : "#/definitions/scope_expressions"
-      }, {
-        "$ref" : "#/definitions/scripted_triggers"
-      } ]
-    },
-    "weight_modifier" : {
-      "type" : "object",
-      "properties" : {
-        "base" : {
-          "type" : "number"
-        },
-        "modifier" : {
-          "$ref" : "#/definitions/modifier",
-          "multiple" : true
-        }
-      }
-    },
-    "modifiers" : {
-      "type" : "object"
-    },
-    "resources_category" : true,
     "condition_expressions" : {
       "type" : "object",
       "propertyNames" : {
@@ -150,9 +158,6 @@
       "additionalProperties" : true,
       "$type" : "scripted_trigger"
     },
-    "modifier" : {
-      "type" : "object"
-    },
     "condition_expression_name" : {
       "type" : "string",
       "enum" : [ "AND", "OR", "NOT", "NAND", "NOR" ]
@@ -168,6 +173,6 @@
   },
   "type" : "object",
   "additionalProperties" : {
-    "$ref" : "#/definitions/pop_category"
+    "$ref" : "#/definitions/pop_job"
   }
 }

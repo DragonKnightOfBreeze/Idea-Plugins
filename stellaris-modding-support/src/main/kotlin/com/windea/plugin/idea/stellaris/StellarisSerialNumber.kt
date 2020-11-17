@@ -5,11 +5,12 @@ package com.windea.plugin.idea.stellaris
  */
 enum class StellarisSerialNumber(
 	val key: String,
-	val description:String
+	val description:String,
+	val placeholderText :String
 ) {
-	Cardinal("C","Cardinal Number 1, 2, 3..."),
-	Ordinal("O","Ordinal Number 1st, 2nd, 3rd..."),
-	Roman("R","Roman Number I, II, III...");
+	Cardinal("C","Cardinal Number 1, 2, 3...","1"),
+	Ordinal("O","Ordinal Number 1st, 2nd, 3rd...","1st"),
+	Roman("R","Roman Number I, II, III...","I");
 
 	val documentText = "(serial number) $description"
 	val popupText = "'$key' - $description"

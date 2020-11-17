@@ -88,7 +88,7 @@ property_reference ::= PROPERTY_REFERENCE_START [property_reference_name] [PARAM
   extends=rich_text
   mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"
   implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
-  methods=[getName setName getNameIdentifier getTextOffset getReference]
+  methods=[getName setName getNameIdentifier getTextOffset getReference getStellarisColor]
 }
 private property_reference_name ::= code | PROPERTY_REFERENCE_ID
 icon ::= ICON_START icon_name [PARAMETER_SEPARATOR [ICON_PARAMETER]] ICON_END {

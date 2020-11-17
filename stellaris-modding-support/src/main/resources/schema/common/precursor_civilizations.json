@@ -1,57 +1,13 @@
 {
   "definitions" : {
-    "deposit" : {
+    "precursor_civillization" : {
       "type" : "object",
       "properties" : {
-        "is_null" : {
-          "type" : "boolean"
-        },
-        "time" : {
+        "size" : {
           "type" : "integer"
         },
-        "is_for_colonizeable" : {
-          "type" : "boolean"
-        },
-        "category" : {
-          "$type" : "deposit_category"
-        },
-        "resources" : {
-          "$ref" : "#/definitions/economy_unit"
-        },
-        "potential" : {
+        "possible" : {
           "$ref" : "#/definitions/triggers"
-        },
-        "plant_modifier" : {
-          "$ref" : "#/definitions/modifier"
-        },
-        "drop_weight" : {
-          "$ref" : "#/definitions/weight_modifier"
-        },
-        "ai_weight" : {
-          "$ref" : "#/definitions/weight_modifier"
-        },
-        "prerequisites" : {
-          "type" : "array",
-          "items" : {
-            "$type" : "tech"
-          }
-        }
-      }
-    },
-    "economy_unit" : {
-      "type" : "object",
-      "properties" : {
-        "category" : {
-          "$ref" : "#/definitions/resources_category"
-        },
-        "produces" : {
-          "$ref" : "#/definitions/resources_item"
-        },
-        "cost" : {
-          "$ref" : "#/definitions/resources_item"
-        },
-        "upkeep" : {
-          "$ref" : "#/definitions/resources_item"
         }
       }
     },
@@ -65,39 +21,6 @@
         "$ref" : "#/definitions/scope_expressions"
       }, {
         "$ref" : "#/definitions/scripted_triggers"
-      } ]
-    },
-    "weight_modifier" : {
-      "type" : "object",
-      "properties" : {
-        "base" : {
-          "type" : "number"
-        },
-        "modifier" : {
-          "$ref" : "#/definitions/modifier",
-          "multiple" : true
-        }
-      }
-    },
-    "modifier" : {
-      "type" : "object"
-    },
-    "resources_category" : true,
-    "resources_item" : {
-      "type" : "object",
-      "anyOf" : [ {
-        "properties" : {
-          "trigger" : {
-            "$ref" : "#/definitions/triggers"
-          }
-        }
-      }, {
-        "propertyNames" : {
-          "$type" : "resource"
-        },
-        "additionalProperties" : {
-          "type" : "integer"
-        }
       } ]
     },
     "condition_expressions" : {
@@ -152,6 +75,6 @@
   },
   "type" : "object",
   "additionalProperties" : {
-    "$ref" : "#/definitions/deposit"
+    "$ref" : "#/definitions/precursor_civillization"
   }
 }
