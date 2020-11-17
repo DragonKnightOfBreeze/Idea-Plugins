@@ -105,6 +105,10 @@ class StellarisScriptAnnotator : Annotator, DumbAware {
 				//关联scriptPropertyName和包含对应名称并作为合法前缀的localizationProperty
 				if(state.resolveInternalReferences) {
 					if(element.parent is StellarisScriptRootBlock) {
+						//跳过需要忽略的脚本文件
+						val path = element.filePath
+						if(!path.contains('/')) return
+						
 						val name = element.name
 						//跳过不合法的情况
 						if(name == null || name.containsBlank()) return

@@ -7,6 +7,8 @@ import com.intellij.openapi.vfs.*
 import com.intellij.psi.search.*
 import com.intellij.util.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
+import com.windea.plugin.idea.stellaris.settings.*
+import java.nio.file.*
 import java.util.*
 import java.util.concurrent.*
 
@@ -91,9 +93,8 @@ val scriptPropertyGutterIcon = IconUtil.toSize(stellarisScriptPropertyIcon, 12, 
 //endregion
 
 //region Caches
-val rootDirectoryCache = CopyOnWriteArraySet<VirtualFile>()
-val rootDirectoryPathCache = CopyOnWriteArraySet<String>()
-val fileAndStellarisPathCache = ConcurrentHashMap<VirtualFile,String>()
+val rootDirectoryCache = ConcurrentHashMap<String,VirtualFile>()
+val stellarisPathCache = ConcurrentHashMap<VirtualFile,String>()
 
 val localizationLocaleCache = ConcurrentHashMap<Project, Array<StellarisLocalizationLocale>>()
 fun MutableMap<Project, Array<StellarisLocalizationLocale>>.register(project: Project) = this.getOrPut(project) {

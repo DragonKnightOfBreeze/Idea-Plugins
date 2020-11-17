@@ -19,26 +19,24 @@ class StellarisFileTypeOverrider : FileTypeOverrider {
 			//如果是游戏或模组目录
 			val isStellarisDirectory = currentFile.isRootDirectory()
 			if(isStellarisDirectory) {
-				rootDirectoryCache.add(currentFile)
-				rootDirectoryPathCache.add(currentFile.path)
+				rootDirectoryCache[currentFile.path]  = currentFile
 				when(file.extension) {
 					in localizationFileExtensions -> {
-						fileAndStellarisPathCache[file] = path
+						stellarisPathCache[file] = path
 						return StellarisLocalizationFileType
 					}
 					in scriptFileExtensions -> {
-						fileAndStellarisPathCache[file] = path
+						stellarisPathCache[file] = path
 						return StellarisScriptFileType
 					}
 				}
 			}else{
-				rootDirectoryCache.remove(currentFile)
-				rootDirectoryPathCache.remove(currentFile.path)
+				rootDirectoryCache.remove(currentFile.path)
 			}
 			path = currentFile.name + "/" + path
 			currentFile = currentFile.parent
 		}
-		fileAndStellarisPathCache.remove(file)
+		stellarisPathCache.remove(file)
 		return null
 	}
 

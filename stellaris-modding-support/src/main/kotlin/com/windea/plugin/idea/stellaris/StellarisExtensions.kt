@@ -287,7 +287,7 @@ fun selectElement(editor: Editor, element: PsiElement?) {
 val PsiElement.filePath: String
 	get() {
 		val file = this.containingFile?.virtualFile ?: anonymous
-		return fileAndStellarisPathCache[file] ?: anonymous
+		return stellarisPathCache[file] ?: anonymous
 	}
 //endregion
 
@@ -308,7 +308,7 @@ internal val localizationFileCache = CopyOnWriteArrayList<StellarisLocalizationF
 fun findScriptFiles(project: Project): List<StellarisScriptFile> {
 	//如果需要清空缓存，则重建缓存，否则直接返回缓存
 	if(shouldRebuildScriptFileCache || scriptFileCache.isEmpty()) {
-			for(dir in rootDirectoryCache) {
+			for(dir in rootDirectoryCache.values) {
 				//在查找之前是否需要检查是否是游戏或模组目录？
 				//if(!stellarisDirectory.isStellarisDirectory()) continue
 				for(child in dir.getAllChildFiles()) {
@@ -324,7 +324,7 @@ fun findScriptFiles(project: Project): List<StellarisScriptFile> {
 fun findLocalizationFiles(project: Project): List<StellarisLocalizationFile> {
 	//如果需要清空缓存，则重建缓存，否则直接返回缓存
 	if(shouldRebuildLocalizationFileCache || localizationFileCache.isEmpty()) {
-			for(dir in rootDirectoryCache) {
+			for(dir in rootDirectoryCache.values) {
 				//在查找之前是否需要检查是否是游戏或模组目录？
 				//if(!stellarisDirectory.isStellarisDirectory()) continue
 				for(child in dir.getAllChildFiles()) {

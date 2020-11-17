@@ -1,8 +1,11 @@
 package com.windea.plugin.idea.stellaris.settings
 
 import com.intellij.openapi.options.*
-import com.intellij.openapi.project.*
+import com.intellij.openapi.vfs.*
+import com.intellij.workspaceModel.storage.impl.indices.*
+import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.StellarisBundle.message
+import java.nio.file.*
 import javax.swing.*
 
 class StellarisSettingsConfigurable: SearchableConfigurable {
@@ -17,10 +20,10 @@ class StellarisSettingsConfigurable: SearchableConfigurable {
 		val settings = StellarisSettingsState.getInstance()
 		return settingsComponent.resolveExternalReferencesCheckBox.isSelected != settings.resolveExternalReferences
 		       || settingsComponent.resolveInternalReferencesCheckBox.isSelected != settings.resolveInternalReferences
-		       || settingsComponent.useSteamDirectoryCheckBox.isSelected != settings.useSteamDirectory
-		       || settingsComponent.steamDirectoryTextField.text != settings.steamDirectory
+		       //|| settingsComponent.useSteamDirectoryCheckBox.isSelected != settings.useSteamDirectory
+		       //|| settingsComponent.steamDirectoryTextField.text != settings.steamDirectory
 		       || settingsComponent.stellarisDirectoryTextField.text != settings.stellarisDirectory
-		       || settingsComponent.stellarisModsDirectoryTextField.text != settings.stellarisModsDirectory
+		       //|| settingsComponent.stellarisModsDirectoryTextField.text != settings.stellarisModsDirectory
 	}
 
 	override fun createComponent(): JComponent? {
@@ -32,29 +35,45 @@ class StellarisSettingsConfigurable: SearchableConfigurable {
 	override fun disposeUIResources() {
 		settingsComponent = null
 	}
-
+	
 	override fun apply() {
 		val settingsComponent = settingsComponent!!
 		val settings = StellarisSettingsState.getInstance()
+		
+		cleanupRootDirectoryCache(settings)
+		
 		settings.resolveInternalReferences = settingsComponent.resolveInternalReferencesCheckBox.isSelected
 		settings.resolveExternalReferences = settingsComponent.resolveExternalReferencesCheckBox.isSelected
-		settings.useSteamDirectory = settingsComponent.useSteamDirectoryCheckBox.isSelected
-		settings.steamDirectory = settingsComponent.steamDirectoryTextField.text
+		//settings.useSteamDirectory = settingsComponent.useSteamDirectoryCheckBox.isSelected
+		//settings.steamDirectory = settingsComponent.steamDirectoryTextField.text
 		settings.stellarisDirectory = settingsComponent.stellarisDirectoryTextField.text
-		settings.stellarisModsDirectory = settingsComponent.stellarisModsDirectoryTextField.text
+		//settings.stellarisModsDirectory = settingsComponent.stellarisModsDirectoryTextField.text
+		
+		addToRootDirectoryCache(settings)
 	}
-
+	
 	override fun reset() {
 		val settingsComponent = settingsComponent!!
 		val settings = StellarisSettingsState.getInstance()
 		settingsComponent.resolveInternalReferencesCheckBox.isSelected = settings.resolveInternalReferences
 		settingsComponent.resolveExternalReferencesCheckBox.isSelected = settings.resolveExternalReferences
-		settingsComponent.useSteamDirectoryCheckBox.isSelected = settings.useSteamDirectory
-		settingsComponent.steamDirectoryTextField.text = settings.steamDirectory
-		settingsComponent.steamDirectoryTextField.isEnabled = settings.useSteamDirectory
+		//settingsComponent.useSteamDirectoryCheckBox.isSelected = settings.useSteamDirectory
+		//settingsComponent.steamDirectoryTextField.text = settings.steamDirectory
+		//settingsComponent.steamDirectoryTextField.isEnabled = settings.useSteamDirectory
 		settingsComponent.stellarisDirectoryTextField.text = settings.stellarisDirectory
-		settingsComponent.stellarisDirectoryTextField.isEnabled = !settings.useSteamDirectory
-		settingsComponent.stellarisModsDirectoryTextField.text = settings.stellarisModsDirectory
-		settingsComponent.stellarisModsDirectoryTextField.isEnabled = !settings.useSteamDirectory
+		//settingsComponent.stellarisDirectoryTextField.isEnabled = !settings.useSteamDirectory
+		//settingsComponent.stellarisModsDirectoryTextField.text = settings.stellarisModsDirectory
+		//settingsComponent.stellarisModsDirectoryTextField.isEnabled = !settings.useSteamDirectory
+	}
+	
+	//TODO 配置变更时更改游戏或模组目录的缓存 - 当前不实现
+	
+	private fun cleanupRootDirectoryCache(settings: StellarisSettingsState) {
+		//rootDirectoryCache.remove(settings.stellarisPath)
+	}
+	
+	private fun addToRootDirectoryCache(settings: StellarisSettingsState) {
+		//val file = VirtualFileManager.getInstance().refreshAndFindFileByNioPath(Path.of(settings.stellarisPath))
+		//if(file != null && file.isRootDirectory()) rootDirectoryCache[settings.stellarisPath] = file
 	}
 }

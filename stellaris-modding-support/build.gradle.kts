@@ -5,7 +5,7 @@ plugins {
 	id("org.jetbrains.grammarkit") version "2020.1.2"
 }
 
-version = "2.7"
+version = "2.8"
 
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {

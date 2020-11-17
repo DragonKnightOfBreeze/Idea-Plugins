@@ -9,17 +9,18 @@ class StellarisSettingsState : PersistentStateComponent<StellarisSettingsState> 
 	@JvmField var resolveInternalReferences = false
 	@JvmField var resolveExternalReferences = false
 
-	@JvmField var useSteamDirectory = true
-	@JvmField var steamDirectory = ""
+	//@JvmField var useSteamDirectory = true
+	//@JvmField var steamDirectory = ""
 	@JvmField var stellarisDirectory = ""
-	@JvmField var stellarisModsDirectory = ""
+	//@JvmField var stellarisModsDirectory = ""
 
-	val steamPath
-		get() = steamDirectory
+	//val steamPath
+	//	get() = steamDirectory
 	val stellarisPath
-		get() = if(useSteamDirectory) "$steamDirectory\\steamapps\\common\\Stellaris" else stellarisDirectory
-	val stellarisModsPath
-		get() = if(useSteamDirectory) "$steamDirectory\\steamapps\\workshop\\content\\281990" else stellarisModsDirectory
+		get() = stellarisDirectory
+		//get() = if(useSteamDirectory) "$steamDirectory\\steamapps\\common\\Stellaris" else stellarisDirectory
+	//val stellarisModsPath
+	//	get() = if(useSteamDirectory) "$steamDirectory\\steamapps\\workshop\\content\\281990" else stellarisModsDirectory
 
 	override fun getState() = this
 

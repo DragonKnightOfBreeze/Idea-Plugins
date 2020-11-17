@@ -21,7 +21,7 @@ class StellarisFileDeleteOrCreateListener : BulkFileListener {
 						scriptFileCache.clear()
 					}
 					//如果删除或创建的文件在游戏或模组目录中，则重建文件缓存
-					rootDirectoryPathCache.any { path.contains(it) } -> {
+					rootDirectoryCache.keys.any { path.contains(it) } -> {
 						//根据文件的扩展名来判断
 						val fileExtension = fileName.substringAfterLast('.')
 						if(fileExtension in localizationFileExtensions) {
