@@ -398,30 +398,28 @@ fun findScriptProperties(project: Project): List<StellarisScriptProperty> {
 
 private val localizationPropertyCachedKey = Key<CachedValue<List<StellarisLocalizationProperty>>>("LocalizationPropertyCache")
 
-fun findLocalizationPropertyInFile(name: String, file: PsiFile): StellarisLocalizationProperty? {
-	if(file !is StellarisLocalizationFile) return null
-	return getCachedValue(file, localizationPropertyCachedKey) { it.properties }.find { it.name == name }
-}
-
 fun findLocalizationProperty(name: String, project: Project, locale: StellarisLocale? = null): StellarisLocalizationProperty? {
-	return findLocalizationFiles(project).flatMapNotNullFind({ file ->
-		if(locale != null && locale != file.stellarisLocale) return@flatMapNotNullFind null
-		getCachedValue(file, localizationPropertyCachedKey) { it.properties }
-	}, { it.name == name })
+	//return findLocalizationFiles(project).flatMapNotNullFind({ file ->
+	//	if(locale != null && locale != file.stellarisLocale) return@flatMapNotNullFind null
+	//	getCachedValue(file, localizationPropertyCachedKey) { it.properties }
+	//}, { it.name == name })
+	return StellarisLocalizationPropertyKeyIndex.getOne(name,locale,project, GlobalSearchScope.projectScope(project))
 }
 
 fun findLocalizationProperties(name: String, project: Project, locale: StellarisLocale? = null): List<StellarisLocalizationProperty> {
-	return findLocalizationFiles(project).flatMapNotNullFilter({ file ->
-		if(locale != null && locale != file.stellarisLocale) return@flatMapNotNullFilter null
-		getCachedValue(file, localizationPropertyCachedKey) { it.properties }
-	}, { it.name == name })
+	//return findLocalizationFiles(project).flatMapNotNullFilter({ file ->
+	//	if(locale != null && locale != file.stellarisLocale) return@flatMapNotNullFilter null
+	//	getCachedValue(file, localizationPropertyCachedKey) { it.properties }
+	//}, { it.name == name })
+	return StellarisLocalizationPropertyKeyIndex.get(name,locale,project,GlobalSearchScope.allScope(project))
 }
 
 fun findLocalizationProperties(project: Project, locale: StellarisLocale? = null): List<StellarisLocalizationProperty> {
-	return findLocalizationFiles(project).flatMapNotNull { file ->
-		if(locale != null && locale != file.stellarisLocale) return@flatMapNotNull null
-		getCachedValue(file, localizationPropertyCachedKey) { it.properties }
-	}
+	//return findLocalizationFiles(project).flatMapNotNull { file ->
+	//	if(locale != null && locale != file.stellarisLocale) return@flatMapNotNull null
+	//	getCachedValue(file, localizationPropertyCachedKey) { it.properties }
+	//}
+	return StellarisLocalizationPropertyKeyIndex.getAll(locale, project, GlobalSearchScope.allScope(project))
 }
 
 /**将推断的用户语言区域对应的localizationProperty放到列表的最前面。*/

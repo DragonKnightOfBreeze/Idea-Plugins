@@ -30,7 +30,7 @@ public class StellarisLocalizationPropertyReferenceImpl extends StellarisLocaliz
   @Override
   @Nullable
   public StellarisLocalizationCode getCode() {
-    return findChildByClass(StellarisLocalizationCode.class);
+    return PsiTreeUtil.getChildOfType(this, StellarisLocalizationCode.class);
   }
 
   @Override

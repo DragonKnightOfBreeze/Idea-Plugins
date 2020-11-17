@@ -64,9 +64,11 @@ locale ::= LOCALE_ID ":" {
 
 property ::= property_key ":" [NUMBER] property_value {
   pin=1
-	mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationNamedElementImpl"
-	implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
-	methods=[getName setName getNameIdentifier getIcon getKey getValue getStellarisLocale]
+  mixin="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationStubElementImpl<com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationPropertyStub>"
+  implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
+  implements="com.intellij.psi.StubBasedPsiElement"
+  stubClass="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationPropertyStub"
+  methods=[getName setName getNameIdentifier getElementType getIcon getKey getValue getStellarisLocale]
 }
 property_key ::= PROPERTY_KEY_ID
 property_value ::= LEFT_QUOTE rich_text * RIGHT_QUOTE{

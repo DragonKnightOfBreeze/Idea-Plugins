@@ -26,8 +26,8 @@ class StellarisLocalizationParserDefinition : ParserDefinition {
 	override fun getStringLiteralElements() = STRINGS
 
 	override fun createParser(project: Project?) = StellarisLocalizationParser()
-
-	override fun getFileNodeType() = FILE
+	
+	override fun getFileNodeType() = StellarisLocalizationStubElementTypes.FILE
 
 	override fun createFile(viewProvider: FileViewProvider) = StellarisLocalizationFile(viewProvider)
 

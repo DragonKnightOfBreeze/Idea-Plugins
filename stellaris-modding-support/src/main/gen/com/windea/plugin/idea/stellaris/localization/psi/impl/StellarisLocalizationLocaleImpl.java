@@ -32,7 +32,7 @@ public class StellarisLocalizationLocaleImpl extends StellarisLocalizationNamedE
   @Override
   @NotNull
   public PsiElement getLocaleId() {
-    return findNotNullChildByType(LOCALE_ID);
+    return notNullChild(findChildByType(LOCALE_ID));
   }
 
   @Override

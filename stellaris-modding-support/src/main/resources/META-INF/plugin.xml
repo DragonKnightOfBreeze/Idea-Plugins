@@ -128,17 +128,19 @@
     <!--endregion-->
 
     <!--suppress PluginXmlValidity -->
-    <fileTypeOverrider implementation="com.windea.plugin.idea.stellaris.StellarisFileTypeOverrider"/>
+    <fileTypeOverrider implementation="com.windea.plugin.idea.stellaris.StellarisFileTypeOverrider" order="first"/>
 
     <!--region Stellaris Localization Language-->
     <fileType
       language="Stellaris Localization"
       name="Stellaris Localization File" fieldName="INSTANCE"
       implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationFileType"/>
-
     <lang.parserDefinition
       language="Stellaris Localization"
       implementationClass="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationParserDefinition"/>
+    <stubElementTypeHolder class="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationStubElementTypes"/>
+    <stubIndex implementation="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationPropertyKeyIndex"/>
+    
     <lang.syntaxHighlighterFactory
       language="Stellaris Localization"
       implementationClass="com.windea.plugin.idea.stellaris.localization.highlighter.StellarisLocalizationSyntaxHighlighterFactory"/>

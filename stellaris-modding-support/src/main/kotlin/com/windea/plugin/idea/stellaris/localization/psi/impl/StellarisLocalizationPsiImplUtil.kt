@@ -4,6 +4,7 @@ package com.windea.plugin.idea.stellaris.localization.psi.impl
 
 import com.intellij.openapi.util.Iconable.*
 import com.intellij.psi.*
+import com.intellij.psi.stubs.*
 import com.intellij.refactoring.suggested.*
 import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
@@ -59,7 +60,7 @@ object StellarisLocalizationPsiImplUtil {
 	//region StellarisLocalizationProperty
 	@JvmStatic
 	fun getName(element: StellarisLocalizationProperty): String? {
-		return element.propertyKey.text
+		return element.stub?.key?: element.propertyKey.text
 	}
 	
 	@JvmStatic
@@ -74,13 +75,18 @@ object StellarisLocalizationPsiImplUtil {
 	}
 	
 	@JvmStatic
+	fun getElementType(element: StellarisLocalizationProperty): StellarisLocalizationPropertyStubElementType {
+		return StellarisLocalizationStubElementTypes.PROPERTY
+	}
+	
+	@JvmStatic
 	fun getIcon(element: StellarisLocalizationProperty, @IconFlags flags: Int): Icon? {
 		return stellarisLocalizationPropertyIcon
 	}
 	
 	@JvmStatic
 	fun getKey(element: StellarisLocalizationProperty): String {
-		return element.propertyKey.text
+		return element.name.orEmpty()
 	}
 	
 	@JvmStatic

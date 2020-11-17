@@ -29,7 +29,7 @@ public class StellarisLocalizationIconImpl extends StellarisLocalizationNamedEle
   @Override
   @Nullable
   public StellarisLocalizationRichText getRichText() {
-    return findChildByClass(StellarisLocalizationRichText.class);
+    return PsiTreeUtil.getChildOfType(this, StellarisLocalizationRichText.class);
   }
 
   @Override

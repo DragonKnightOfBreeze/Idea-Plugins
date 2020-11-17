@@ -2,6 +2,7 @@ package com.windea.plugin.idea.stellaris.localization.psi
 
 import com.intellij.extapi.psi.*
 import com.intellij.psi.*
+import com.intellij.psi.stubs.*
 import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.localization.*
 

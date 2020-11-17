@@ -8,12 +8,18 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
 import static com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationTypes.*;
+import com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationPropertyStub;
 import com.windea.plugin.idea.stellaris.localization.psi.*;
 import com.intellij.openapi.util.Iconable.IconFlags;
 import com.windea.plugin.idea.stellaris.StellarisLocale;
 import javax.swing.Icon;
+import com.intellij.psi.stubs.IStubElementType;
 
-public class StellarisLocalizationPropertyImpl extends StellarisLocalizationNamedElementImpl implements StellarisLocalizationProperty {
+public class StellarisLocalizationPropertyImpl extends StellarisLocalizationStubElementImpl<StellarisLocalizationPropertyStub> implements StellarisLocalizationProperty {
+
+  public StellarisLocalizationPropertyImpl(@NotNull StellarisLocalizationPropertyStub stub, @Nullable IStubElementType<?, ?> nodeType) {
+    super(stub, nodeType);
+  }
 
   public StellarisLocalizationPropertyImpl(@NotNull ASTNode node) {
     super(node);
@@ -31,13 +37,13 @@ public class StellarisLocalizationPropertyImpl extends StellarisLocalizationName
   @Override
   @NotNull
   public StellarisLocalizationPropertyKey getPropertyKey() {
-    return findNotNullChildByClass(StellarisLocalizationPropertyKey.class);
+    return notNullChild(PsiTreeUtil.getChildOfType(this, StellarisLocalizationPropertyKey.class));
   }
 
   @Override
   @Nullable
   public StellarisLocalizationPropertyValue getPropertyValue() {
-    return findChildByClass(StellarisLocalizationPropertyValue.class);
+    return PsiTreeUtil.getChildOfType(this, StellarisLocalizationPropertyValue.class);
   }
 
   @Override
@@ -62,6 +68,12 @@ public class StellarisLocalizationPropertyImpl extends StellarisLocalizationName
   @Nullable
   public PsiElement getNameIdentifier() {
     return StellarisLocalizationPsiImplUtil.getNameIdentifier(this);
+  }
+
+  @Override
+  @NotNull
+  public StellarisLocalizationPropertyStubElementType getElementType() {
+    return StellarisLocalizationPsiImplUtil.getElementType(this);
   }
 
   @Override

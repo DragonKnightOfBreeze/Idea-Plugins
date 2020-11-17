@@ -29,7 +29,7 @@ public class StellarisLocalizationPropertyKeyImpl extends ASTWrapperPsiElement i
   @Override
   @NotNull
   public PsiElement getPropertyKeyId() {
-    return findNotNullChildByType(PROPERTY_KEY_ID);
+    return notNullChild(findChildByType(PROPERTY_KEY_ID));
   }
 
 }

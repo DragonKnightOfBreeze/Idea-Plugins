@@ -28,7 +28,7 @@ public class StellarisLocalizationStringImpl extends StellarisLocalizationRichTe
   @Override
   @NotNull
   public PsiElement getStringToken() {
-    return findNotNullChildByType(STRING_TOKEN);
+    return notNullChild(findChildByType(STRING_TOKEN));
   }
 
 }
