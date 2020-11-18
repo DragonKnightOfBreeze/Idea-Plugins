@@ -27,12 +27,6 @@ public interface StellarisLocalizationProperty extends StellarisLocalizationName
   PsiElement setName(@NotNull String name);
 
   @Nullable
-  PsiElement getNameIdentifier();
-
-  @NotNull
-  StellarisLocalizationPropertyStubElementType getElementType();
-
-  @Nullable
   Icon getIcon(@IconFlags int flags);
 
   @NotNull

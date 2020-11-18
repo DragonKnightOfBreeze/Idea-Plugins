@@ -21,9 +21,6 @@ public interface StellarisLocalizationLocale extends StellarisLocalizationNamedE
   PsiElement setName(@NotNull String name);
 
   @Nullable
-  PsiElement getNameIdentifier();
-
-  @Nullable
   Icon getIcon(@IconFlags int flags);
 
   @Nullable

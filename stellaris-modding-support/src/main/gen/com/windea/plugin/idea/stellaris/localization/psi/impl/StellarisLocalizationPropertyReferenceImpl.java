@@ -58,12 +58,6 @@ public class StellarisLocalizationPropertyReferenceImpl extends StellarisLocaliz
   }
 
   @Override
-  @Nullable
-  public PsiElement getNameIdentifier() {
-    return StellarisLocalizationPsiImplUtil.getNameIdentifier(this);
-  }
-
-  @Override
   public int getTextOffset() {
     return StellarisLocalizationPsiImplUtil.getTextOffset(this);
   }

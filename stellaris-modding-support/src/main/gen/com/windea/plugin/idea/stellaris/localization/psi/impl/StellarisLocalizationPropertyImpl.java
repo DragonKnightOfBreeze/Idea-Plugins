@@ -66,18 +66,6 @@ public class StellarisLocalizationPropertyImpl extends StellarisLocalizationStub
 
   @Override
   @Nullable
-  public PsiElement getNameIdentifier() {
-    return StellarisLocalizationPsiImplUtil.getNameIdentifier(this);
-  }
-
-  @Override
-  @NotNull
-  public StellarisLocalizationPropertyStubElementType getElementType() {
-    return StellarisLocalizationPsiImplUtil.getElementType(this);
-  }
-
-  @Override
-  @Nullable
   public Icon getIcon(@IconFlags int flags) {
     return StellarisLocalizationPsiImplUtil.getIcon(this, flags);
   }

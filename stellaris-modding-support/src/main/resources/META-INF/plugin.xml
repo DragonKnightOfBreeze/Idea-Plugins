@@ -138,7 +138,7 @@
     <lang.parserDefinition
       language="Stellaris Localization"
       implementationClass="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationParserDefinition"/>
-    <stubElementTypeHolder class="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationStubElementTypes"/>
+    <stubElementTypeHolder class="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationStubElementTypes" externalIdPrefix="stellarisLocalization."/>
     <stubIndex implementation="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationPropertyKeyIndex"/>
     
     <lang.syntaxHighlighterFactory

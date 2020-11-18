@@ -36,10 +36,10 @@ object StellarisLocalizationPsiImplUtil {
 		return element
 	}
 	
-	@JvmStatic
-	fun getNameIdentifier(element: StellarisLocalizationLocale): PsiElement? {
-		return element.localeId
-	}
+	//@JvmStatic
+	//fun getNameIdentifier(element: StellarisLocalizationLocale): PsiElement? {
+	//	return element.localeId
+	//}
 	
 	@JvmStatic
 	fun getIcon(element: StellarisLocalizationLocale, @IconFlags flags: Int): Icon? {
@@ -69,15 +69,10 @@ object StellarisLocalizationPsiImplUtil {
 		return element
 	}
 	
-	@JvmStatic
-	fun getNameIdentifier(element: StellarisLocalizationProperty): PsiElement? {
-		return element.propertyKey.propertyKeyId
-	}
-	
-	@JvmStatic
-	fun getElementType(element: StellarisLocalizationProperty): StellarisLocalizationPropertyStubElementType {
-		return StellarisLocalizationStubElementTypes.PROPERTY
-	}
+	//@JvmStatic
+	//fun getNameIdentifier(element: StellarisLocalizationProperty): PsiElement? {
+	//	return element.propertyKey.propertyKeyId
+	//}
 	
 	@JvmStatic
 	fun getIcon(element: StellarisLocalizationProperty, @IconFlags flags: Int): Icon? {
@@ -119,10 +114,10 @@ object StellarisLocalizationPsiImplUtil {
 		return element
 	}
 	
-	@JvmStatic
-	fun getNameIdentifier(element: StellarisLocalizationPropertyReference): PsiElement? {
-		return element.propertyReferenceId
-	}
+	//@JvmStatic
+	//fun getNameIdentifier(element: StellarisLocalizationPropertyReference): PsiElement? {
+	//	return element.propertyReferenceId
+	//}
 	
 	@JvmStatic
 	fun getTextOffset(element: StellarisLocalizationPropertyReference): Int {
@@ -156,10 +151,10 @@ object StellarisLocalizationPsiImplUtil {
 		return element
 	}
 	
-	@JvmStatic
-	fun getNameIdentifier(element: StellarisLocalizationIcon): PsiElement? {
-		return element.iconId
-	}
+	//@JvmStatic
+	//fun getNameIdentifier(element: StellarisLocalizationIcon): PsiElement? {
+	//	return element.iconId
+	//}
 	
 	@JvmStatic
 	fun getTextOffset(element: StellarisLocalizationIcon): Int {
@@ -185,10 +180,10 @@ object StellarisLocalizationPsiImplUtil {
 		return element
 	}
 	
-	@JvmStatic
-	fun getNameIdentifier(element: StellarisLocalizationSerialNumber): PsiElement? {
-		return element.serialNumberId
-	}
+	//@JvmStatic
+	//fun getNameIdentifier(element: StellarisLocalizationSerialNumber): PsiElement? {
+	//	return element.serialNumberId
+	//}
 	
 	@JvmStatic
 	fun getTextOffset(element: StellarisLocalizationSerialNumber): Int {
@@ -220,10 +215,10 @@ object StellarisLocalizationPsiImplUtil {
 		return element
 	}
 	
-	@JvmStatic
-	fun getNameIdentifier(element: StellarisLocalizationColorfulText): PsiElement? {
-		return element.colorCode
-	}
+	//@JvmStatic
+	//fun getNameIdentifier(element: StellarisLocalizationColorfulText): PsiElement? {
+	//	return element.colorCode
+	//}
 	
 	@JvmStatic
 	fun getTextOffset(element: StellarisLocalizationColorfulText): Int {

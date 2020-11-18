@@ -13,7 +13,7 @@ public interface StellarisLocalizationTypes {
   IElementType ESCAPE = new StellarisLocalizationElementType("ESCAPE");
   IElementType ICON = new StellarisLocalizationElementType("ICON");
   IElementType LOCALE = new StellarisLocalizationElementType("LOCALE");
-  IElementType PROPERTY = new StellarisLocalizationElementType("PROPERTY");
+  IElementType PROPERTY = StellarisLocalizationStubElementTypes.getPropertyType("PROPERTY");
   IElementType PROPERTY_KEY = new StellarisLocalizationElementType("PROPERTY_KEY");
   IElementType PROPERTY_REFERENCE = new StellarisLocalizationElementType("PROPERTY_REFERENCE");
   IElementType PROPERTY_VALUE = new StellarisLocalizationElementType("PROPERTY_VALUE");
