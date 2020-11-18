@@ -65,7 +65,7 @@ object StellarisLocalizationRenderer {
 				writer.append("<code>").append(element.text).append("</code>")
 			}
 			is StellarisLocalizationColorfulText -> {
-				val rgbText = element.stellarisColor
+				val rgbText = element.stellarisColor?.rgbText
 				if(rgbText != null) writer.append("<span style='color: $rgbText;'>")
 				for(v in element.richTextList) {
 					renderTo(v, writer)

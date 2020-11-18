@@ -29,7 +29,7 @@ public class StellarisScriptVariableReferenceImpl extends StellarisScriptValueIm
   @Override
   @NotNull
   public PsiElement getVariableReferenceId() {
-    return findNotNullChildByType(VARIABLE_REFERENCE_ID);
+    return notNullChild(findChildByType(VARIABLE_REFERENCE_ID));
   }
 
   @Override

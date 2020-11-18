@@ -8,11 +8,17 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
 import static com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*;
+import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptPropertyStub;
 import com.windea.plugin.idea.stellaris.script.psi.*;
 import com.intellij.openapi.util.Iconable.IconFlags;
 import javax.swing.Icon;
+import com.intellij.psi.stubs.IStubElementType;
 
-public class StellarisScriptPropertyImpl extends StellarisScriptNamedElementImpl implements StellarisScriptProperty {
+public class StellarisScriptPropertyImpl extends StellarisScriptStubElementImpl<StellarisScriptPropertyStub> implements StellarisScriptProperty {
+
+  public StellarisScriptPropertyImpl(@NotNull StellarisScriptPropertyStub stub, @Nullable IStubElementType<?, ?> nodeType) {
+    super(stub, nodeType);
+  }
 
   public StellarisScriptPropertyImpl(@NotNull ASTNode node) {
     super(node);
@@ -30,19 +36,19 @@ public class StellarisScriptPropertyImpl extends StellarisScriptNamedElementImpl
   @Override
   @NotNull
   public StellarisScriptPropertyKey getPropertyKey() {
-    return findNotNullChildByClass(StellarisScriptPropertyKey.class);
+    return notNullChild(PsiTreeUtil.getChildOfType(this, StellarisScriptPropertyKey.class));
   }
 
   @Override
   @Nullable
   public StellarisScriptPropertySeparator getPropertySeparator() {
-    return findChildByClass(StellarisScriptPropertySeparator.class);
+    return PsiTreeUtil.getChildOfType(this, StellarisScriptPropertySeparator.class);
   }
 
   @Override
   @Nullable
   public StellarisScriptPropertyValue getPropertyValue() {
-    return findChildByClass(StellarisScriptPropertyValue.class);
+    return PsiTreeUtil.getChildOfType(this, StellarisScriptPropertyValue.class);
   }
 
   @Override
@@ -55,12 +61,6 @@ public class StellarisScriptPropertyImpl extends StellarisScriptNamedElementImpl
   @NotNull
   public PsiElement setName(@NotNull String name) {
     return StellarisScriptPsiImplUtil.setName(this, name);
-  }
-
-  @Override
-  @Nullable
-  public PsiElement getNameIdentifier() {
-    return StellarisScriptPsiImplUtil.getNameIdentifier(this);
   }
 
   @Override

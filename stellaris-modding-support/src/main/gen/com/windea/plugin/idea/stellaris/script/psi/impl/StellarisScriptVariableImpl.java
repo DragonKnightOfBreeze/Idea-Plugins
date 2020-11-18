@@ -8,11 +8,17 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
 import static com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*;
+import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptVariableStub;
 import com.windea.plugin.idea.stellaris.script.psi.*;
 import com.intellij.openapi.util.Iconable.IconFlags;
 import javax.swing.Icon;
+import com.intellij.psi.stubs.IStubElementType;
 
-public class StellarisScriptVariableImpl extends StellarisScriptNamedElementImpl implements StellarisScriptVariable {
+public class StellarisScriptVariableImpl extends StellarisScriptStubElementImpl<StellarisScriptVariableStub> implements StellarisScriptVariable {
+
+  public StellarisScriptVariableImpl(@NotNull StellarisScriptVariableStub stub, @Nullable IStubElementType<?, ?> nodeType) {
+    super(stub, nodeType);
+  }
 
   public StellarisScriptVariableImpl(@NotNull ASTNode node) {
     super(node);
@@ -30,19 +36,19 @@ public class StellarisScriptVariableImpl extends StellarisScriptNamedElementImpl
   @Override
   @NotNull
   public StellarisScriptVariableName getVariableName() {
-    return findNotNullChildByClass(StellarisScriptVariableName.class);
+    return notNullChild(PsiTreeUtil.getChildOfType(this, StellarisScriptVariableName.class));
   }
 
   @Override
   @Nullable
   public StellarisScriptVariableSeparator getVariableSeparator() {
-    return findChildByClass(StellarisScriptVariableSeparator.class);
+    return PsiTreeUtil.getChildOfType(this, StellarisScriptVariableSeparator.class);
   }
 
   @Override
   @Nullable
   public StellarisScriptVariableValue getVariableValue() {
-    return findChildByClass(StellarisScriptVariableValue.class);
+    return PsiTreeUtil.getChildOfType(this, StellarisScriptVariableValue.class);
   }
 
   @Override
@@ -55,17 +61,6 @@ public class StellarisScriptVariableImpl extends StellarisScriptNamedElementImpl
   @NotNull
   public PsiElement setName(@NotNull String name) {
     return StellarisScriptPsiImplUtil.setName(this, name);
-  }
-
-  @Override
-  @Nullable
-  public PsiElement getNameIdentifier() {
-    return StellarisScriptPsiImplUtil.getNameIdentifier(this);
-  }
-
-  @Override
-  public int getTextOffset() {
-    return StellarisScriptPsiImplUtil.getTextOffset(this);
   }
 
   @Override

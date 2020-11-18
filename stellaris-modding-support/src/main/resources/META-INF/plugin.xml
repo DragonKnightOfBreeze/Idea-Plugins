@@ -239,6 +239,10 @@
     <lang.parserDefinition
       language="Stellaris Script"
       implementationClass="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptParserDefinition"/>
+    <stubElementTypeHolder class="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptStubElementTypes" externalIdPrefix="stellarisScript."/>
+    <stubIndex implementation="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptVariableKeyIndex"/>
+    <stubIndex implementation="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptPropertyKeyIndex"/>
+
     <lang.syntaxHighlighterFactory
       language="Stellaris Script"
       implementationClass="com.windea.plugin.idea.stellaris.script.highlighter.StellarisScriptSyntaxHighlighterFactory"/>

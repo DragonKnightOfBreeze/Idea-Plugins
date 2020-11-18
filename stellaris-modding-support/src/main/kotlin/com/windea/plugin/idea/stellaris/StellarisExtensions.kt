@@ -350,50 +350,51 @@ private val scriptVariableCachedKey = Key<CachedValue<List<StellarisScriptVariab
 
 fun findScriptVariableInFile(name: String, file: PsiFile): StellarisScriptVariable? {
 	if(file !is StellarisScriptFile) return null
-	return getCachedValue(file, scriptVariableCachedKey) { it.variables }.find { it.name == name }
+	return file.variables.find{it.name == name}
 }
 
 fun findScriptVariable(name: String, project: Project): StellarisScriptVariable? {
-	return findScriptFiles(project).flatMapNotNullFind({ file ->
-		getCachedValue(file, scriptVariableCachedKey) { it.variables }
-	}, { it.name == name })
+	//return findScriptFiles(project).flatMapNotNullFind({ file ->
+	//	getCachedValue(file, scriptVariableCachedKey) { it.variables }
+	//}, { it.name == name })
+	return StellarisScriptVariableKeyIndex.getOne(name,project,GlobalSearchScope.allScope(project))
 }
 
 fun findScriptVariables(name: String, project: Project): List<StellarisScriptVariable> {
-	return findScriptFiles(project).flatMapNotNullFilter({ file ->
-		getCachedValue(file, scriptVariableCachedKey) { it.variables }
-	}, { it.name == name })
+	//return findScriptFiles(project).flatMapNotNullFilter({ file ->
+	//	getCachedValue(file, scriptVariableCachedKey) { it.variables }
+	//}, { it.name == name })
+	return StellarisScriptVariableKeyIndex.get(name,project,GlobalSearchScope.allScope(project))
 }
 
 fun findScriptVariables(project: Project): List<StellarisScriptVariable> {
-	return findScriptFiles(project).flatMapNotNull { file ->
-		getCachedValue(file, scriptVariableCachedKey) { it.variables }
-	}
+	//return findScriptFiles(project).flatMapNotNull { file ->
+	//	getCachedValue(file, scriptVariableCachedKey) { it.variables }
+	//}
+	return StellarisScriptVariableKeyIndex.getAll(project,GlobalSearchScope.allScope(project))
 }
 
 private val scriptPropertyCachedKey = Key<CachedValue<List<StellarisScriptProperty>>>("ScriptPropertyCache")
 
-fun findScriptPropertyInFile(name: String, file: PsiFile): StellarisScriptProperty? {
-	if(file !is StellarisScriptFile) return null
-	return getCachedValue(file, scriptPropertyCachedKey) { it.properties }.find { it.name == name }
-}
-
 fun findScriptProperty(name: String, project: Project): StellarisScriptProperty? {
-	return findScriptFiles(project).flatMapNotNullFind({ file ->
-		getCachedValue(file, scriptPropertyCachedKey) { it.properties }
-	}, { it.name == name })
+	//return findScriptFiles(project).flatMapNotNullFind({ file ->
+	//	getCachedValue(file, scriptPropertyCachedKey) { it.properties }
+	//}, { it.name == name })
+	return StellarisScriptPropertyKeyIndex.getOne(name,project,GlobalSearchScope.allScope(project))
 }
 
 fun findScriptProperties(name: String, project: Project): List<StellarisScriptProperty> {
-	return findScriptFiles(project).flatMapNotNullFilter({ file ->
-		getCachedValue(file, scriptPropertyCachedKey) { it.properties }
-	}, { it.name == name })
+	//return findScriptFiles(project).flatMapNotNullFilter({ file ->
+	//	getCachedValue(file, scriptPropertyCachedKey) { it.properties }
+	//}, { it.name == name })
+	return StellarisScriptPropertyKeyIndex.get(name,project,GlobalSearchScope.allScope(project))
 }
 
 fun findScriptProperties(project: Project): List<StellarisScriptProperty> {
-	return findScriptFiles(project).flatMapNotNull { file ->
-		getCachedValue(file, scriptPropertyCachedKey) { it.properties }
-	}
+	//return findScriptFiles(project).flatMapNotNull { file ->
+	//	getCachedValue(file, scriptPropertyCachedKey) { it.properties }
+	//}
+	return StellarisScriptPropertyKeyIndex.getAll(project,GlobalSearchScope.allScope(project))
 }
 
 private val localizationPropertyCachedKey = Key<CachedValue<List<StellarisLocalizationProperty>>>("LocalizationPropertyCache")

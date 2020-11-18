@@ -56,9 +56,11 @@ root_block ::= ( END_OF_LINE_COMMENT | COMMENT | variable | property | value) * 
 
 variable ::= variable_name variable_separator variable_value {
   pin=1
-  mixin="com.windea.plugin.idea.stellaris.script.psi.impl.StellarisScriptNamedElementImpl"
+  elementTypeFactory="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptStubElementTypes.getVariableType"
+  extends="com.windea.plugin.idea.stellaris.script.psi.impl.StellarisScriptStubElementImpl<?>"
   implements="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptNamedElement"
-  methods=[getName setName getNameIdentifier getTextOffset getIcon getValue]
+  stubClass="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptVariableStub"
+  methods=[getName setName getIcon getValue]
 }
 
 variable_name ::= VARIABLE_NAME_ID
@@ -67,9 +69,11 @@ variable_value ::= boolean | number | string
 
 property ::= property_key property_separator property_value {
   pin=1
-  mixin="com.windea.plugin.idea.stellaris.script.psi.impl.StellarisScriptNamedElementImpl"
+  elementTypeFactory="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptStubElementTypes.getPropertyType"
+  extends="com.windea.plugin.idea.stellaris.script.psi.impl.StellarisScriptStubElementImpl<?>"
   implements="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptNamedElement"
-  methods=[getName setName getNameIdentifier getIcon]
+  stubClass="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptPropertyStub"
+  methods=[getName setName getIcon]
 }
 property_key ::= PROPERTY_KEY_ID | QUOTED_PROPERTY_KEY_ID
 property_separator ::= "=" | "<" | ">" | "<=" | ">="

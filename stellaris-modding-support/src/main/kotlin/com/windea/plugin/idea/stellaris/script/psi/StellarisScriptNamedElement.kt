@@ -2,4 +2,4 @@ package com.windea.plugin.idea.stellaris.script.psi
 
 import com.intellij.psi.*
 
-interface StellarisScriptNamedElement : PsiNameIdentifierOwner,NavigatablePsiElement
+interface StellarisScriptNamedElement : PsiNamedElement,NavigatablePsiElement

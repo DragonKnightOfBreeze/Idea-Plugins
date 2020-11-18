@@ -28,7 +28,7 @@ public class StellarisScriptNumberImpl extends StellarisScriptValueImpl implemen
   @Override
   @NotNull
   public PsiElement getNumberToken() {
-    return findNotNullChildByType(NUMBER_TOKEN);
+    return notNullChild(findChildByType(NUMBER_TOKEN));
   }
 
   @Override

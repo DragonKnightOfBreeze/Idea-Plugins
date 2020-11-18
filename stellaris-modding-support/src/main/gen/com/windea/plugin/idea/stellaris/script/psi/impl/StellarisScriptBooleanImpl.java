@@ -28,7 +28,7 @@ public class StellarisScriptBooleanImpl extends StellarisScriptValueImpl impleme
   @Override
   @NotNull
   public PsiElement getBooleanToken() {
-    return findNotNullChildByType(BOOLEAN_TOKEN);
+    return notNullChild(findChildByType(BOOLEAN_TOKEN));
   }
 
   @Override

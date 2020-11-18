@@ -6,7 +6,7 @@ import com.intellij.psi.stubs.*
 import com.windea.plugin.idea.stellaris.*
 
 object StellarisLocalizationPropertyKeyIndex: StringStubIndexExtension<StellarisLocalizationProperty>() {
-	private val key = StubIndexKey.createIndexKey<String,StellarisLocalizationProperty>("stellarisLocalization.index")
+	private val key = StubIndexKey.createIndexKey<String,StellarisLocalizationProperty>("stellarisLocalization.property.index")
 	
 	override fun getKey() = key
 	
@@ -39,7 +39,7 @@ object StellarisLocalizationPropertyKeyIndex: StringStubIndexExtension<Stellaris
 		return result
 	}
 	
-	inline fun filter(project: Project,locale:StellarisLocale?, scope: GlobalSearchScope, predicate:(String)->Boolean): List<StellarisLocalizationProperty> {
+	inline fun filter(locale:StellarisLocale?,project: Project, scope: GlobalSearchScope, predicate:(String)->Boolean): List<StellarisLocalizationProperty> {
 		val result = mutableListOf<StellarisLocalizationProperty>()
 		for(key in getAllKeys(project)) {
 			if(predicate(key)) {

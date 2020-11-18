@@ -13,7 +13,7 @@ public interface StellarisScriptTypes {
   IElementType CODE = new StellarisScriptElementType("CODE");
   IElementType COLOR = new StellarisScriptElementType("COLOR");
   IElementType NUMBER = new StellarisScriptElementType("NUMBER");
-  IElementType PROPERTY = new StellarisScriptElementType("PROPERTY");
+  IElementType PROPERTY = StellarisScriptStubElementTypes.getPropertyType("PROPERTY");
   IElementType PROPERTY_KEY = new StellarisScriptElementType("PROPERTY_KEY");
   IElementType PROPERTY_SEPARATOR = new StellarisScriptElementType("PROPERTY_SEPARATOR");
   IElementType PROPERTY_VALUE = new StellarisScriptElementType("PROPERTY_VALUE");
@@ -21,7 +21,7 @@ public interface StellarisScriptTypes {
   IElementType STRING = new StellarisScriptElementType("STRING");
   IElementType STRING_VALUE = new StellarisScriptElementType("STRING_VALUE");
   IElementType VALUE = new StellarisScriptElementType("VALUE");
-  IElementType VARIABLE = new StellarisScriptElementType("VARIABLE");
+  IElementType VARIABLE = StellarisScriptStubElementTypes.getVariableType("VARIABLE");
   IElementType VARIABLE_NAME = new StellarisScriptElementType("VARIABLE_NAME");
   IElementType VARIABLE_REFERENCE = new StellarisScriptElementType("VARIABLE_REFERENCE");
   IElementType VARIABLE_SEPARATOR = new StellarisScriptElementType("VARIABLE_SEPARATOR");

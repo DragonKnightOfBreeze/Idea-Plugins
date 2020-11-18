@@ -4,10 +4,11 @@ package com.windea.plugin.idea.stellaris.script.psi;
 import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
+import com.intellij.psi.StubBasedPsiElement;
 import com.intellij.openapi.util.Iconable.IconFlags;
 import javax.swing.Icon;
 
-public interface StellarisScriptVariable extends StellarisScriptNamedElement {
+public interface StellarisScriptVariable extends StellarisScriptNamedElement, StubBasedPsiElement<StellarisScriptVariableStub> {
 
   @NotNull
   StellarisScriptVariableName getVariableName();
@@ -23,11 +24,6 @@ public interface StellarisScriptVariable extends StellarisScriptNamedElement {
 
   @NotNull
   PsiElement setName(@NotNull String name);
-
-  @Nullable
-  PsiElement getNameIdentifier();
-
-  int getTextOffset();
 
   @Nullable
   Icon getIcon(@IconFlags int flags);

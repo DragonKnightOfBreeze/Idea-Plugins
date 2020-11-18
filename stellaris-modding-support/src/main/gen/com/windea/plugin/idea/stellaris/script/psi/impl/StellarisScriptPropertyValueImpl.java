@@ -29,7 +29,7 @@ public class StellarisScriptPropertyValueImpl extends ASTWrapperPsiElement imple
   @Override
   @NotNull
   public StellarisScriptValue getValue() {
-    return findNotNullChildByClass(StellarisScriptValue.class);
+    return notNullChild(PsiTreeUtil.getChildOfType(this, StellarisScriptValue.class));
   }
 
 }

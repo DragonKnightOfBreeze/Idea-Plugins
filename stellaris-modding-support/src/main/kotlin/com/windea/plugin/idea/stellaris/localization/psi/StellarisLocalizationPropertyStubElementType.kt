@@ -7,7 +7,7 @@ import com.intellij.util.*
 import com.windea.plugin.idea.stellaris.localization.*
 import com.windea.plugin.idea.stellaris.localization.psi.impl.*
 
-class StellarisLocalizationPropertyStubElementType() : IStubElementType<StellarisLocalizationPropertyStub, StellarisLocalizationProperty>(
+class StellarisLocalizationPropertyStubElementType() : ILightStubElementType<StellarisLocalizationPropertyStub, StellarisLocalizationProperty>(
 	"STELLRAIS_LOCALIZATION_PROPERTY",
 	StellarisLocalizationLanguage
 ) {
@@ -16,14 +16,14 @@ class StellarisLocalizationPropertyStubElementType() : IStubElementType<Stellari
 	}
 	
 	override fun createStub(psi: StellarisLocalizationProperty, parentStub: StubElement<*>): StellarisLocalizationPropertyStub {
-		return StellarisLocalizationPropertyStubImpl(parentStub, psi.key)
+		return StellarisLocalizationPropertyStubImpl(parentStub, psi.name.orEmpty())
 	}
 	
-	//override fun createStub(tree: LighterAST, node: LighterASTNode, parentStub: StubElement<*>): StellarisLocalizationPropertyStub {
-	//	val keyNode = LightTreeUtil.firstChildOfType(tree, node, StellarisLocalizationTypes.PROPERTY_KEY_ID)
-	//	val key = intern(tree.charTable, keyNode)
-	//	return StellarisLocalizationPropertyStubImpl(parentStub, key)
-	//}
+	override fun createStub(tree: LighterAST, node: LighterASTNode, parentStub: StubElement<*>): StellarisLocalizationPropertyStub {
+		val keyNode = LightTreeUtil.firstChildOfType(tree, node, StellarisLocalizationTypes.PROPERTY_KEY_ID)
+		val key = intern(tree.charTable, keyNode)
+		return StellarisLocalizationPropertyStubImpl(parentStub, key)
+	}
 	
 	override fun getExternalId(): String {
 		return "stellarisLocalization.property"

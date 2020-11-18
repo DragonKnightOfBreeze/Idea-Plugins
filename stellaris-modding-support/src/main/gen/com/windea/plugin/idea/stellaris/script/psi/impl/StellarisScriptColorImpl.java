@@ -29,7 +29,7 @@ public class StellarisScriptColorImpl extends StellarisScriptStringValueImpl imp
   @Override
   @NotNull
   public PsiElement getColorToken() {
-    return findNotNullChildByType(COLOR_TOKEN);
+    return notNullChild(findChildByType(COLOR_TOKEN));
   }
 
   @Override

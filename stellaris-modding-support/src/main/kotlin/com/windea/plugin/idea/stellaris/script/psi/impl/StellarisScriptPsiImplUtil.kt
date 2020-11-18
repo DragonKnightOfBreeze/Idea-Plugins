@@ -28,16 +28,11 @@ object StellarisScriptPsiImplUtil {
 		return element
 	}
 
-	@JvmStatic
-	fun getNameIdentifier(element: StellarisScriptVariable): PsiElement? {
-		return element.variableName
-	}
-
-	@JvmStatic
-	fun getTextOffset(element: StellarisScriptVariable): Int {
-		return element.startOffset
-	}
-
+	//@JvmStatic
+	//fun getNameIdentifier(element: StellarisScriptVariable): PsiElement? {
+	//	return element.variableName
+	//}
+	
 	@JvmStatic
 	fun getIcon(element: StellarisScriptVariable, @Iconable.IconFlags flags: Int): Icon? {
 		return stellarisScriptVariableIcon
@@ -75,10 +70,10 @@ object StellarisScriptPsiImplUtil {
 		return element
 	}
 
-	@JvmStatic
-	fun getNameIdentifier(element: StellarisScriptProperty): PsiElement? {
-		return element.propertyKey
-	}
+	//@JvmStatic
+	//fun getNameIdentifier(element: StellarisScriptProperty): PsiElement? {
+	//	return element.propertyKey
+	//}
 
 	@JvmStatic
 	fun getIcon(element: StellarisScriptProperty, @Iconable.IconFlags flags: Int): Icon? {

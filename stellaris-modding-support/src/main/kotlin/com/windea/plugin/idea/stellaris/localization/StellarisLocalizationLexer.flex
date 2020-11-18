@@ -203,6 +203,7 @@ CHECK_RIGHT_QUOTE=\"[^\"\r\n]*\"?
 }
 <WAITING_COLOR_CODE>{
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }
+  {WHITE_SPACE} { yybegin(WAITING_COLORFUL_TEXT); return WHITE_SPACE; }
   "§!" {depth--; yybegin(nextStateForText()); return COLORFUL_TEXT_END;}
   \" { yybegin(WAITING_PROPERTY_EOL); return RIGHT_QUOTE;}
   {COLOR_CODE} {yybegin(WAITING_COLORFUL_TEXT); return COLOR_CODE;}
