@@ -289,10 +289,33 @@ val PsiElement.filePath: String
 		val file = this.containingFile?.virtualFile ?: anonymous
 		return stellarisPathCache[file] ?: anonymous
 	}
+
+//使用CachedValue以提高性能
+//这个过程中避免使用匿名lambda，因为需要检查可相等性
+private fun <F : PsiFile, T> getCachedValue(file: F, key: Key<CachedValue<T>>, block: Function<F, T>): T {
+	return CachedValuesManager.getCachedValue(file, key) {
+		CachedValueProvider.Result.create(block.apply(file), file)
+	}
+}
+
+/**将推断的用户语言区域对应的localizationProperty放到列表的最前面。*/
+fun List<StellarisLocalizationProperty>.pin(): List<StellarisLocalizationProperty> {
+	val result = mutableListOf<StellarisLocalizationProperty>()
+	var index = 0
+	for(property in this) {
+		if(property.stellarisLocale == inferedStellarisLocale) {
+			result.add(index, property)
+			index++
+		} else {
+			result.add(property)
+		}
+	}
+	return result
+}
 //endregion
 
 //region Find Extensions
-//TODO 使用stub提高性能 - 可能不好实现，存在需要部分匹配和过滤的情况
+//使用stub提高性能
 
 //仅作为标记，在值改为true时要清空缓存
 internal var shouldRebuildScriptFileCache = true
@@ -321,6 +344,7 @@ fun findScriptFiles(project: Project): List<StellarisScriptFile> {
 	return scriptFileCache
 }
 
+@Synchronized
 fun findLocalizationFiles(project: Project): List<StellarisLocalizationFile> {
 	//如果需要清空缓存，则重建缓存，否则直接返回缓存
 	if(shouldRebuildLocalizationFileCache || localizationFileCache.isEmpty()) {
@@ -335,15 +359,6 @@ fun findLocalizationFiles(project: Project): List<StellarisLocalizationFile> {
 			shouldRebuildLocalizationFileCache = false
 	}
 	return localizationFileCache
-}
-
-
-//使用CachedValue以提高性能
-//这个过程中避免使用匿名lambda，因为需要检查可相等性
-private fun <F : PsiFile, T> getCachedValue(file: F, key: Key<CachedValue<T>>, block: Function<F, T>): T {
-	return CachedValuesManager.getCachedValue(file, key) {
-		CachedValueProvider.Result.create(block.apply(file), file)
-	}
 }
 
 private val scriptVariableCachedKey = Key<CachedValue<List<StellarisScriptVariable>>>("ScriptVariableCache")
@@ -375,6 +390,11 @@ fun findScriptVariables(project: Project): List<StellarisScriptVariable> {
 }
 
 private val scriptPropertyCachedKey = Key<CachedValue<List<StellarisScriptProperty>>>("ScriptPropertyCache")
+
+fun findScriptPropertyInFile(name: String, file: PsiFile): StellarisScriptProperty? {
+	if(file !is StellarisScriptFile) return null
+	return file.properties.find{it.name == name}
+}
 
 fun findScriptProperty(name: String, project: Project): StellarisScriptProperty? {
 	//return findScriptFiles(project).flatMapNotNullFind({ file ->
@@ -421,20 +441,5 @@ fun findLocalizationProperties(project: Project, locale: StellarisLocale? = null
 	//	getCachedValue(file, localizationPropertyCachedKey) { it.properties }
 	//}
 	return StellarisLocalizationPropertyKeyIndex.getAll(locale, project, GlobalSearchScope.allScope(project))
-}
-
-/**将推断的用户语言区域对应的localizationProperty放到列表的最前面。*/
-fun List<StellarisLocalizationProperty>.pin(): List<StellarisLocalizationProperty> {
-	val result = mutableListOf<StellarisLocalizationProperty>()
-	var index = 0
-	for(property in this) {
-		if(property.stellarisLocale == inferedStellarisLocale) {
-			result.add(index, property)
-			index++
-		} else {
-			result.add(property)
-		}
-	}
-	return result
 }
 //endregion

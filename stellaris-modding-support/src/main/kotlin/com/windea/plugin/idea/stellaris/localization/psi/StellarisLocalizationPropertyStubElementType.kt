@@ -7,7 +7,7 @@ import com.intellij.util.*
 import com.windea.plugin.idea.stellaris.localization.*
 import com.windea.plugin.idea.stellaris.localization.psi.impl.*
 
-class StellarisLocalizationPropertyStubElementType() : ILightStubElementType<StellarisLocalizationPropertyStub, StellarisLocalizationProperty>(
+class StellarisLocalizationPropertyStubElementType() : IStubElementType<StellarisLocalizationPropertyStub, StellarisLocalizationProperty>(
 	"STELLRAIS_LOCALIZATION_PROPERTY",
 	StellarisLocalizationLanguage
 ) {
@@ -19,11 +19,11 @@ class StellarisLocalizationPropertyStubElementType() : ILightStubElementType<Ste
 		return StellarisLocalizationPropertyStubImpl(parentStub, psi.name.orEmpty())
 	}
 	
-	override fun createStub(tree: LighterAST, node: LighterASTNode, parentStub: StubElement<*>): StellarisLocalizationPropertyStub {
-		val keyNode = LightTreeUtil.firstChildOfType(tree, node, StellarisLocalizationTypes.PROPERTY_KEY_ID)
-		val key = intern(tree.charTable, keyNode)
-		return StellarisLocalizationPropertyStubImpl(parentStub, key)
-	}
+	//override fun createStub(tree: LighterAST, node: LighterASTNode, parentStub: StubElement<*>): StellarisLocalizationPropertyStub {
+	//	val keyNode = LightTreeUtil.firstChildOfType(tree, node, StellarisLocalizationTypes.PROPERTY_KEY_ID)
+	//	val key = intern(tree.charTable, keyNode)
+	//	return StellarisLocalizationPropertyStubImpl(parentStub, key)
+	//}
 	
 	override fun getExternalId(): String {
 		return "stellarisLocalization.property"

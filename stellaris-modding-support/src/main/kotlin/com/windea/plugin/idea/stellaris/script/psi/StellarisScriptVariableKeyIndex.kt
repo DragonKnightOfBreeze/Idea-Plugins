@@ -5,7 +5,7 @@ import com.intellij.psi.search.*
 import com.intellij.psi.stubs.*
 
 object StellarisScriptVariableKeyIndex: StringStubIndexExtension<StellarisScriptVariable>() {
-	private val key = StubIndexKey.createIndexKey<String, StellarisScriptVariable>("stellarisScript.variable.index")
+	private val key = StubIndexKey.createIndexKey<String, StellarisScriptVariable>("stellarisScript.variableIndex")
 	
 	override fun getKey() = key
 	

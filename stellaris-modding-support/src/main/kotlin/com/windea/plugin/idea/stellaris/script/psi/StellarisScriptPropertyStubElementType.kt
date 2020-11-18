@@ -10,8 +10,8 @@ import com.windea.plugin.idea.stellaris.script.psi.impl.*
 import com.windea.plugin.idea.stellaris.script.*
 import com.windea.plugin.idea.stellaris.script.psi.impl.*
 
-class StellarisScriptPropertyStubElementType() : ILightStubElementType<StellarisScriptPropertyStub, StellarisScriptProperty>(
-	"STELLRAIS_Script_PROPERTY",
+class StellarisScriptPropertyStubElementType() : IStubElementType<StellarisScriptPropertyStub, StellarisScriptProperty>(
+	"STELLRAIS_SCRIPT_PROPERTY",
 	StellarisScriptLanguage
 ) {
 	override fun createPsi(stub: StellarisScriptPropertyStub): StellarisScriptProperty {
@@ -22,11 +22,11 @@ class StellarisScriptPropertyStubElementType() : ILightStubElementType<Stellaris
 		return StellarisScriptPropertyStubImpl(parentStub, psi.name.orEmpty())
 	}
 	
-	override fun createStub(tree: LighterAST, node: LighterASTNode, parentStub: StubElement<*>): StellarisScriptPropertyStub {
-		val keyNode = LightTreeUtil.firstChildOfType(tree, node, StellarisScriptTypes.PROPERTY_KEY_ID)
-		val key = intern(tree.charTable, keyNode)
-		return StellarisScriptPropertyStubImpl(parentStub, key)
-	}
+	//override fun createStub(tree: LighterAST, node: LighterASTNode, parentStub: StubElement<*>): StellarisScriptPropertyStub {
+	//	val keyNode = LightTreeUtil.firstChildOfType(tree, node, StellarisScriptTypes.PROPERTY_KEY_ID)
+	//	val key = intern(tree.charTable, keyNode)
+	//	return StellarisScriptPropertyStubImpl(parentStub, key)
+	//}
 	
 	override fun getExternalId(): String {
 		return "stellarisScript.property"

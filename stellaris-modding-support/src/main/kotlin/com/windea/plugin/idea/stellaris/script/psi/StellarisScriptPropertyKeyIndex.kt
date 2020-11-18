@@ -5,7 +5,7 @@ import com.intellij.psi.search.*
 import com.intellij.psi.stubs.*
 
 object StellarisScriptPropertyKeyIndex: StringStubIndexExtension<StellarisScriptProperty>() {
-	private val key = StubIndexKey.createIndexKey<String,StellarisScriptProperty>("stellarisScript.property.index")
+	private val key = StubIndexKey.createIndexKey<String,StellarisScriptProperty>("stellarisScript.propertyIndex")
 	
 	override fun getKey() = key
 	

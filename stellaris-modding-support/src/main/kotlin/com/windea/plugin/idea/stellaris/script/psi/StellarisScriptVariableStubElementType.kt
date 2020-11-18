@@ -7,7 +7,7 @@ import com.intellij.util.*
 import com.windea.plugin.idea.stellaris.script.*
 import com.windea.plugin.idea.stellaris.script.psi.impl.*
 
-class StellarisScriptVariableStubElementType() : ILightStubElementType<StellarisScriptVariableStub, StellarisScriptVariable>(
+class StellarisScriptVariableStubElementType() : IStubElementType<StellarisScriptVariableStub, StellarisScriptVariable>(
 	"STELLRAIS_SCRIPT_VARIABLE",
 	StellarisScriptLanguage
 ) {
@@ -19,11 +19,11 @@ class StellarisScriptVariableStubElementType() : ILightStubElementType<Stellaris
 		return StellarisScriptVariableStubImpl(parentStub, psi.name.orEmpty())
 	}
 	
-	override fun createStub(tree: LighterAST, node: LighterASTNode, parentStub: StubElement<*>): StellarisScriptVariableStub {
-		val keyNode = LightTreeUtil.firstChildOfType(tree, node, StellarisScriptTypes.VARIABLE_NAME_ID)
-		val key = intern(tree.charTable, keyNode)
-		return StellarisScriptVariableStubImpl(parentStub, key)
-	}
+	//override fun createStub(tree: LighterAST, node: LighterASTNode, parentStub: StubElement<*>): StellarisScriptVariableStub {
+	//	val keyNode = LightTreeUtil.firstChildOfType(tree, node, StellarisScriptTypes.VARIABLE_NAME_ID)
+	//	val key = intern(tree.charTable, keyNode)
+	//	return StellarisScriptVariableStubImpl(parentStub, key)
+	//}
 	
 	override fun getExternalId(): String {
 		return "stellarisScript.variable"

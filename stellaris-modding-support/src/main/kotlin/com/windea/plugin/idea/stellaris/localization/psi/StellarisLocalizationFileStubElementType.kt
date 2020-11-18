@@ -10,16 +10,16 @@ import com.intellij.util.*
 import com.intellij.util.diff.*
 import com.windea.plugin.idea.stellaris.localization.*
 
-class StellarisLocalizationFileStubElementType : ILightStubFileElementType<PsiFileStub<*>>(StellarisLocalizationLanguage){
+class StellarisLocalizationFileStubElementType : IStubFileElementType<PsiFileStub<*>>(StellarisLocalizationLanguage){
 	override fun getExternalId(): String {
 		return "stellarisLocalization.file"
 	}
 	
-	override fun getBuilder(): LightStubBuilder {
+	override fun getBuilder(): StubBuilder {
 		return Builder()
 	}
 	
-	class Builder: LightStubBuilder(){
+	class Builder: DefaultStubBuilder(){
 		override fun skipChildProcessingWhenBuildingStubs(parent: ASTNode, node: ASTNode): Boolean {
 			return node.elementType != StellarisLocalizationTypes.PROPERTY
 		}
