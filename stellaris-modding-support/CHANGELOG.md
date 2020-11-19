@@ -231,12 +231,12 @@
 
 ## 2.9
 
-优化插件性能。
+使用stubIndex优化插件性能。
 
 * [X] 使用stub提高本地化属性的查找性能
 * [X] 使用stub提高脚本变量和属性的查找性能
 * [X] 解决stubIndex失效的bug（stubIndexKey的名字不能随便修改，否则可能需要IDE重新索引？）
-* [ ] 渲染本地化属性的文本到相关的脚本属性的文档注释中
+* [X] 渲染本地化属性的文本到相关的脚本属性的文档注释中
 * [ ] 整合scriptProperty基于文件内容以及基于Schema的文档注释
 * [ ] Schema：解决不能导航到`anyOf`、`allOf`中的属性名的bug
 * [ ] Schema：为脚本文件提供较为完善的Schema文件

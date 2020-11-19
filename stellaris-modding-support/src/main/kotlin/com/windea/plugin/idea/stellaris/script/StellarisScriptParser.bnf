@@ -103,7 +103,7 @@ string_value ::= color | code | string{
 }
 string ::= STRING_TOKEN | QUOTED_STRING_TOKEN {
   extends=string_value
-  methods=[getValue getReference]
+  methods=[getValue getReferences]
 }
 color ::= COLOR_TOKEN {
   extends=string_value

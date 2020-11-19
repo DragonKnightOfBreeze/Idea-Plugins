@@ -37,6 +37,7 @@ class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider
 						append(DocumentationMarkup.CONTENT_END)
 					}
 					
+					//添加渲染后的值的文本到文档注释中
 					val propertyValue = element.propertyValue
 					if(propertyValue != null) {
 						append(DocumentationMarkup.SECTIONS_START)

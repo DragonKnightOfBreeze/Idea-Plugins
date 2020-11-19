@@ -2,13 +2,10 @@
 
 package com.windea.plugin.idea.stellaris.script.psi.impl
 
-import com.intellij.lang.annotation.*
 import com.intellij.openapi.util.*
 import com.intellij.psi.*
-import com.intellij.refactoring.suggested.*
 import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
-import com.windea.plugin.idea.stellaris.script.*
 import com.windea.plugin.idea.stellaris.script.psi.*
 import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptElementFactory.createPropertyKey
 import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptElementFactory.createVariableName
@@ -123,12 +120,17 @@ object StellarisScriptPsiImplUtil {
 	fun getValue(element: StellarisScriptString): String {
 		return element.text.unquote()
 	}
-
+	
+	private val emptyArray = arrayOf<PsiPolyVariantReference>()
+	
 	@JvmStatic
-	fun getReference(element: StellarisScriptString): StellarisScriptStringPsiReference? {
+	fun getReferences(element: StellarisScriptString): Array<out PsiPolyVariantReference> {
 		//只有可能是属性的键的情况下才有可能是引用
-		if(element.value.containsBlank()) return null
-		return StellarisScriptStringPsiReference(element, TextRange(0, element.textLength))
+		if(element.value.containsBlank()) return emptyArray
+		return arrayOf(
+			StellarisScriptStringPsiReference1(element, TextRange(0, element.textLength)),
+			StellarisScriptStringPsiReference2(element, TextRange(0, element.textLength))
+		)
 	}
 	//endregion
 

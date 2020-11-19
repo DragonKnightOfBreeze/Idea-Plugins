@@ -25,7 +25,7 @@ class StellarisScriptGoToDeclarationHandler: GotoDeclarationHandler {
 				val project = sourceElement.project
 				findScriptProperties(name, project).toTypedArray().let { if(it.isNotEmpty()) return it }
 				//寻找推断的语言区域的本地化属性
-				findLocalizationProperties(name, project).pin().toTypedArray()
+				findLocalizationProperties(name, project).toTypedArray()
 			}
 			else -> null
 		}

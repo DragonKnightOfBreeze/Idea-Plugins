@@ -17,7 +17,8 @@ object StellarisLocalizationPropertyKeyIndex: StringStubIndexExtension<Stellaris
 	fun get(key: String,locale: StellarisLocale?, project: Project, scope: GlobalSearchScope): List<StellarisLocalizationProperty> {
 		val result =  mutableListOf<StellarisLocalizationProperty>()
 		for(element in StubIndex.getElements(this.key, key, project, scope, StellarisLocalizationProperty::class.java)) {
-			if(locale == null || locale == element.stellarisLocale) result.add(element)
+			val fqLocale = element.stellarisLocale ?: inferedStellarisLocale
+			if(locale == null || locale == fqLocale) result.add(element)
 		}
 		return result
 	}
@@ -31,21 +32,47 @@ object StellarisLocalizationPropertyKeyIndex: StringStubIndexExtension<Stellaris
 	
 	fun getAll(locale: StellarisLocale?, project: Project, scope: GlobalSearchScope): List<StellarisLocalizationProperty> {
 		val result = mutableListOf<StellarisLocalizationProperty>()
+		var index = 0
 		for(key in getAllKeys(project)) {
-			for(element in get(key, project, scope)) {
-				if(locale == null || locale == element.stellarisLocale) result.add(element)
+			val group = get(key, project, scope)
+			val nextIndex = index+ group.size
+			for(element in group) {
+				if(locale == null) {
+					//需要将用户的语言区域对应的本地化属性放到该组本地化属性的最前面
+					if(locale == inferedStellarisLocale){
+						result.add(index++,element)
+					}else{
+						result.add(element)
+					}
+				} else if(locale == element.stellarisLocale) {
+					result.add(element)
+				}
 			}
+			index = nextIndex
 		}
 		return result
 	}
 	
 	inline fun filter(locale:StellarisLocale?,project: Project, scope: GlobalSearchScope, predicate:(String)->Boolean): List<StellarisLocalizationProperty> {
 		val result = mutableListOf<StellarisLocalizationProperty>()
+		var index = 0
 		for(key in getAllKeys(project)) {
 			if(predicate(key)) {
-				for(element in get(key, project, scope)) {
-					if(locale == null || locale == element.stellarisLocale) result.add(element)
+				val group = get(key, project, scope)
+				val nextIndex = index + group.size
+				for(element in group) {
+					if(locale == null) {
+						//需要将用户的语言区域对应的本地化属性放到该组本地化属性的最前面
+						if(locale == inferedStellarisLocale){
+							result.add(index++,element)
+						}else{
+							result.add(element)
+						}
+					} else if(locale == element.stellarisLocale) {
+						result.add(element)
+					}
 				}
+				index  = nextIndex
 			}
 		}
 		return result

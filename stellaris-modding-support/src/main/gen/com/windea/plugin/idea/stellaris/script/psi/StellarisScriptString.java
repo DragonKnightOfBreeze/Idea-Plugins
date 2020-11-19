@@ -4,7 +4,7 @@ package com.windea.plugin.idea.stellaris.script.psi;
 import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
-import com.windea.plugin.idea.stellaris.script.reference.StellarisScriptStringPsiReference;
+import com.intellij.psi.PsiPolyVariantReference;
 
 public interface StellarisScriptString extends StellarisScriptStringValue {
 
@@ -17,7 +17,7 @@ public interface StellarisScriptString extends StellarisScriptStringValue {
   @NotNull
   String getValue();
 
-  @Nullable
-  StellarisScriptStringPsiReference getReference();
+  @NotNull
+  PsiPolyVariantReference[] getReferences();
 
 }

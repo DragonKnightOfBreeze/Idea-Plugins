@@ -19,11 +19,10 @@ import com.windea.plugin.idea.stellaris.script.psi.*
 import java.io.*
 import java.net.*
 import java.util.*
-import java.util.concurrent.*
 import java.util.function.Function
 
 //region Stdlib
-inline fun writeString(block:StringWriter.()->Unit):String{
+inline fun writeString(block: StringWriter.() -> Unit): String {
 	return StringWriter().apply(block).toString()
 }
 
@@ -299,66 +298,51 @@ private fun <F : PsiFile, T> getCachedValue(file: F, key: Key<CachedValue<T>>, b
 		CachedValueProvider.Result.create(block.apply(file), file)
 	}
 }
-
-/**将推断的用户语言区域对应的localizationProperty放到列表的最前面。*/
-fun List<StellarisLocalizationProperty>.pin(): List<StellarisLocalizationProperty> {
-	val result = mutableListOf<StellarisLocalizationProperty>()
-	var index = 0
-	for(property in this) {
-		if(property.stellarisLocale == inferedStellarisLocale) {
-			result.add(index, property)
-			index++
-		} else {
-			result.add(property)
-		}
-	}
-	return result
-}
 //endregion
 
 //region Find Extensions
-//使用stub以提高性能
+//使用stubIndex以提高性能
 
 fun findScriptVariableInFile(name: String, file: PsiFile): StellarisScriptVariable? {
 	if(file !is StellarisScriptFile) return null
-	return file.variables.find{it.name == name}
+	return file.variables.find { it.name == name }
 }
 
 fun findScriptVariable(name: String, project: Project): StellarisScriptVariable? {
-	return StellarisScriptVariableKeyIndex.getOne(name,project,GlobalSearchScope.allScope(project))
+	return StellarisScriptVariableKeyIndex.getOne(name, project, GlobalSearchScope.allScope(project))
 }
 
 fun findScriptVariables(name: String, project: Project): List<StellarisScriptVariable> {
-	return StellarisScriptVariableKeyIndex.get(name,project,GlobalSearchScope.allScope(project))
+	return StellarisScriptVariableKeyIndex.get(name, project, GlobalSearchScope.allScope(project))
 }
 
 fun findScriptVariables(project: Project): List<StellarisScriptVariable> {
-	return StellarisScriptVariableKeyIndex.getAll(project,GlobalSearchScope.allScope(project))
+	return StellarisScriptVariableKeyIndex.getAll(project, GlobalSearchScope.allScope(project))
 }
 
 fun findScriptPropertyInFile(name: String, file: PsiFile): StellarisScriptProperty? {
 	if(file !is StellarisScriptFile) return null
-	return file.properties.find{it.name == name}
+	return file.properties.find { it.name == name }
 }
 
 fun findScriptProperty(name: String, project: Project): StellarisScriptProperty? {
-	return StellarisScriptPropertyKeyIndex.getOne(name,project,GlobalSearchScope.allScope(project))
+	return StellarisScriptPropertyKeyIndex.getOne(name, project, GlobalSearchScope.allScope(project))
 }
 
 fun findScriptProperties(name: String, project: Project): List<StellarisScriptProperty> {
-	return StellarisScriptPropertyKeyIndex.get(name,project,GlobalSearchScope.allScope(project))
+	return StellarisScriptPropertyKeyIndex.get(name, project, GlobalSearchScope.allScope(project))
 }
 
 fun findScriptProperties(project: Project): List<StellarisScriptProperty> {
-	return StellarisScriptPropertyKeyIndex.getAll(project,GlobalSearchScope.allScope(project))
+	return StellarisScriptPropertyKeyIndex.getAll(project, GlobalSearchScope.allScope(project))
 }
 
 fun findLocalizationProperty(name: String, project: Project, locale: StellarisLocale? = null): StellarisLocalizationProperty? {
-	return StellarisLocalizationPropertyKeyIndex.getOne(name,locale,project, GlobalSearchScope.projectScope(project))
+	return StellarisLocalizationPropertyKeyIndex.getOne(name, locale, project, GlobalSearchScope.projectScope(project))
 }
 
 fun findLocalizationProperties(name: String, project: Project, locale: StellarisLocale? = null): List<StellarisLocalizationProperty> {
-	return StellarisLocalizationPropertyKeyIndex.get(name,locale,project,GlobalSearchScope.allScope(project))
+	return StellarisLocalizationPropertyKeyIndex.get(name, locale, project, GlobalSearchScope.allScope(project))
 }
 
 fun findLocalizationProperties(project: Project, locale: StellarisLocale? = null): List<StellarisLocalizationProperty> {
@@ -367,40 +351,19 @@ fun findLocalizationProperties(project: Project, locale: StellarisLocale? = null
 
 //将部分特定的查找方法作为扩展方法
 
-//	fun getRelatedLocalizationProperty(element:StellarisScriptProperty):List<StellarisLocalizationProperty>{
-//		//跳过需要忽略的情况
-//		if(element.parent is StellarisScriptRootBlock && element.stellarisPath.contains('/')) {
-//			val name = element.name
-//			//跳过不合法的情况
-//			if(name == null || name.containsBlank()) return
-//			//分组并加上gutterIcon
-//			val unsortedNames = mutableSetOf<String>()
-//			val unsortedProperties = findLocalizationProperties(element.project).filter {
-//				val propertyName = it.name ?: return@filter false
-//				val isMatched = name.equalsOrIsPrefixOf(propertyName)
-//				if(isMatched) unsortedNames.add(propertyName)
-//				isMatched
-//			}
-//			if(unsortedProperties.isNotEmpty()) {
-//				val properties = unsortedProperties.sortedBy { it.name!! }.pin().toTypedArray()
-//				val names = unsortedNames.sorted().toTypedArray()
-//				holder.newSilentAnnotation(HighlightSeverity.INFORMATION)
-//					.gutterIconRenderer(StellarisScriptAnnotator.LocalizationPropertiesGutterIconRenderer(names, properties))
-//					.create()
-//			}
-//		}
-//	}
-
-//
-//	private fun String.equalsOrIsPrefixOf(value:String):Boolean{
-//		return value == this || value.startsWith(this) && value[this.length] == '_'
-//	}
-
-fun StellarisLocalizationProperty.findRelatedScriptProperties(project:Project):List<StellarisScriptProperty>{
+fun StellarisLocalizationProperty.findRelatedScriptProperties(): List<StellarisScriptProperty> {
+	//DELAY
 	return emptyList()
 }
 
-fun StellarisScriptProperty.findRelatedLocalizationProperties(project:Project):List<StellarisLocalizationProperty>{
-	return emptyList()
+fun StellarisScriptProperty.findRelatedLocalizationProperties(locale:StellarisLocale? = null): List<StellarisLocalizationProperty> {
+	val name = name ?: return emptyList()
+	return StellarisLocalizationPropertyKeyIndex.filter(locale, project, GlobalSearchScope.allScope(project)) {
+		name.isPropertyKeyPrefixOf(it)
+	}.sortedBy { it.name!! }
+}
+
+private fun String.isPropertyKeyPrefixOf(value: String): Boolean {
+	return value == this || value.startsWith(this) && value[this.length] == '_'
 }
 //endregion
