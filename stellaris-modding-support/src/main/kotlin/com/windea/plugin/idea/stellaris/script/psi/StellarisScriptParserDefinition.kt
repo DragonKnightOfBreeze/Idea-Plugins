@@ -27,7 +27,7 @@ class StellarisScriptParserDefinition : ParserDefinition {
 
 	override fun createParser(project: Project?) = StellarisScriptParser()
 
-	override fun getFileNodeType() = FILE
+	override fun getFileNodeType() = StellarisScriptStubElementTypes.FILE
 
 	override fun createFile(viewProvider: FileViewProvider) = StellarisScriptFile(viewProvider)
 

@@ -19,7 +19,7 @@ object StellarisScriptPsiImplUtil {
 	//region StellarisScriptVariable
 	@JvmStatic
 	fun getName(element: StellarisScriptVariable): String? {
-		return element.variableName.text
+		return element.stub?.key?: element.variableName.text
 	}
 
 	@JvmStatic
@@ -61,7 +61,7 @@ object StellarisScriptPsiImplUtil {
 	//region StellarisScriptProperty
 	@JvmStatic
 	fun getName(element: StellarisScriptProperty): String? {
-		return element.propertyKey.text.unquote()
+		return element.stub?.key?: element.propertyKey.text.unquote()
 	}
 
 	@JvmStatic

@@ -10,7 +10,7 @@ import com.windea.plugin.idea.stellaris.script.psi.impl.*
 import com.windea.plugin.idea.stellaris.script.*
 import com.windea.plugin.idea.stellaris.script.psi.impl.*
 
-class StellarisScriptPropertyStubElementType() : IStubElementType<StellarisScriptPropertyStub, StellarisScriptProperty>(
+class StellarisScriptPropertyStubElementType() : ILightStubElementType<StellarisScriptPropertyStub, StellarisScriptProperty>(
 	"STELLRAIS_SCRIPT_PROPERTY",
 	StellarisScriptLanguage
 ) {
@@ -22,11 +22,11 @@ class StellarisScriptPropertyStubElementType() : IStubElementType<StellarisScrip
 		return StellarisScriptPropertyStubImpl(parentStub, psi.name.orEmpty())
 	}
 	
-	//override fun createStub(tree: LighterAST, node: LighterASTNode, parentStub: StubElement<*>): StellarisScriptPropertyStub {
-	//	val keyNode = LightTreeUtil.firstChildOfType(tree, node, StellarisScriptTypes.PROPERTY_KEY_ID)
-	//	val key = intern(tree.charTable, keyNode)
-	//	return StellarisScriptPropertyStubImpl(parentStub, key)
-	//}
+	override fun createStub(tree: LighterAST, node: LighterASTNode, parentStub: StubElement<*>): StellarisScriptPropertyStub {
+		val keyNode = LightTreeUtil.firstChildOfType(tree, node, StellarisScriptTypes.PROPERTY_KEY_ID)
+		val key = intern(tree.charTable, keyNode)
+		return StellarisScriptPropertyStubImpl(parentStub, key)
+	}
 	
 	override fun getExternalId(): String {
 		return "stellarisScript.property"

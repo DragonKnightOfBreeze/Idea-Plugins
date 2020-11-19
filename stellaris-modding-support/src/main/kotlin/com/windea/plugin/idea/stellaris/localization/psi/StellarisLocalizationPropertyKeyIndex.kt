@@ -6,7 +6,7 @@ import com.intellij.psi.stubs.*
 import com.windea.plugin.idea.stellaris.*
 
 object StellarisLocalizationPropertyKeyIndex: StringStubIndexExtension<StellarisLocalizationProperty>() {
-	private val key = StubIndexKey.createIndexKey<String,StellarisLocalizationProperty>("stellarisLocalization.propertyIndex")
+	private val key = StubIndexKey.createIndexKey<String,StellarisLocalizationProperty>("stellarisLocalization.index")
 	
 	override fun getKey() = key
 	

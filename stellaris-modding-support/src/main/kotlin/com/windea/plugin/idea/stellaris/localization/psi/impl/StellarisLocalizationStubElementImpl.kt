@@ -6,7 +6,8 @@ import com.intellij.psi.stubs.*
 import com.windea.plugin.idea.stellaris.localization.*
 
 open class StellarisLocalizationStubElementImpl<T : StubElement<*>> : StubBasedPsiElementBase<T> {
-	constructor(stub: T, nodeType: IStubElementType<*, *>?) : super(stub, nodeType!!) {}
-	constructor(node: ASTNode) : super(node) {}
+	constructor(stub: T, nodeType: IStubElementType<*, *>?) : super(stub, nodeType!!)
+	constructor(node: ASTNode) : super(node)
+	
 	override fun getLanguage() = StellarisLocalizationLanguage
 }
