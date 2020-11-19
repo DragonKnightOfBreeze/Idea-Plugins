@@ -5,9 +5,6 @@ import com.intellij.psi.impl.source.tree.*
 import com.intellij.psi.stubs.*
 import com.intellij.util.*
 import com.windea.plugin.idea.stellaris.script.*
-import com.windea.plugin.idea.stellaris.script.psi.*
-import com.windea.plugin.idea.stellaris.script.psi.impl.*
-import com.windea.plugin.idea.stellaris.script.*
 import com.windea.plugin.idea.stellaris.script.psi.impl.*
 
 class StellarisScriptPropertyStubElementType() : ILightStubElementType<StellarisScriptPropertyStub, StellarisScriptProperty>(
@@ -41,13 +38,14 @@ class StellarisScriptPropertyStubElementType() : ILightStubElementType<Stellaris
 	}
 	
 	override fun indexStub(stub: StellarisScriptPropertyStub, sink: IndexSink) {
-		sink.occurrence(StellarisScriptPropertyKeyIndex.key,stub.key)
+		sink.occurrence(StellarisScriptPropertyKeyIndex.key, stub.key)
 	}
 	
-	companion object{
-		fun intern(table: CharTable,node: LighterASTNode?):String{
-		return table.intern((node as LighterASTTokenNode).text).toString()
+	companion object {
+		fun intern(table: CharTable, node: LighterASTNode?): String {
+			return table.intern((node as LighterASTTokenNode).text).toString()
 		}
 	}
 }
+
 

@@ -7,3 +7,4 @@ class StellarisScriptVariableStubImpl(
 	parent: StubElement<*>,
 	override val key: String
 ) : StubBase<StellarisScriptVariable>(parent, StellarisScriptStubElementTypes.VARIABLE), StellarisScriptVariableStub
+

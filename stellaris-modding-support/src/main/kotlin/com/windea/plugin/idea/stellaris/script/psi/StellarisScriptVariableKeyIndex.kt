@@ -47,3 +47,4 @@ object StellarisScriptVariableKeyIndex: StringStubIndexExtension<StellarisScript
 		return result
 	}
 }
+

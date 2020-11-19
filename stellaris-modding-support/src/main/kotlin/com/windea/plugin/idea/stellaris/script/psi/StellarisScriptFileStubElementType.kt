@@ -16,9 +16,9 @@ class StellarisScriptFileStubElementType : IStubFileElementType<PsiFileStub<*>>(
 	}
 	
 	class Builder: DefaultStubBuilder(){
-		override fun skipChildProcessingWhenBuildingStubs(parent: ASTNode, node: ASTNode): Boolean {
-			return parent.elementType != StellarisScriptTypes.ROOT_BLOCK &&
-			       (node.elementType != StellarisScriptTypes.VARIABLE || node.elementType != StellarisScriptTypes.PROPERTY)
-		}
+		//override fun skipChildProcessingWhenBuildingStubs(parent: ASTNode, node: ASTNode): Boolean {
+		//	return parent.elementType != StellarisScriptTypes.ROOT_BLOCK &&
+		//	       (node.elementType != StellarisScriptTypes.VARIABLE || node.elementType != StellarisScriptTypes.PROPERTY)
+		//}
 	}
 }
