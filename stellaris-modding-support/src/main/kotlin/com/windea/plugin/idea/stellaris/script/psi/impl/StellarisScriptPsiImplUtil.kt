@@ -2,11 +2,13 @@
 
 package com.windea.plugin.idea.stellaris.script.psi.impl
 
+import com.intellij.lang.annotation.*
 import com.intellij.openapi.util.*
 import com.intellij.psi.*
 import com.intellij.refactoring.suggested.*
 import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
+import com.windea.plugin.idea.stellaris.script.*
 import com.windea.plugin.idea.stellaris.script.psi.*
 import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptElementFactory.createPropertyKey
 import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptElementFactory.createVariableName

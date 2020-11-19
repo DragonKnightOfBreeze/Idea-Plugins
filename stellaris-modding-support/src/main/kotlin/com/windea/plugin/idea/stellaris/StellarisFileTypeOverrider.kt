@@ -17,7 +17,7 @@ class StellarisFileTypeOverrider : FileTypeOverrider {
 		var currentFile:VirtualFile? = file.parent
 		while(currentFile != null) {
 			//如果是游戏或模组目录
-			val isStellarisDirectory = currentFile.isRootDirectory()
+			val isStellarisDirectory = currentFile.isRootDirectory
 			if(isStellarisDirectory) {
 				rootDirectoryCache[currentFile.path]  = currentFile
 				when(file.extension) {

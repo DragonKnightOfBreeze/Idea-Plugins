@@ -86,6 +86,6 @@ class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider
 	}
 
 	private fun getLocationText(element: PsiElement): String {
-		return "[${element.filePath}]"
+		return "[${element.stellarisPath}]"
 	}
 }

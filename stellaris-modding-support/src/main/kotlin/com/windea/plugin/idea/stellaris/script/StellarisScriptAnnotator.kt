@@ -53,7 +53,7 @@ class StellarisScriptAnnotator : Annotator, DumbAware {
 	}
 	
 	class LocalizationPropertiesGutterIconRenderer(
-		private val names:Array<String>,
+		private val names: Array<String>,
 		private val properties: Array<StellarisLocalizationProperty>,
 	) : GutterIconRenderer(), DumbAware {
 		private val tooltip = names.joinToString("<br>") { name ->
@@ -101,69 +101,54 @@ class StellarisScriptAnnotator : Annotator, DumbAware {
 	override fun annotate(element: PsiElement, holder: AnnotationHolder) {
 		when(element) {
 			is StellarisScriptProperty -> {
-				//如果配置解析内部引用 - 否则不解析，提高脚本文件的语法解析速度
+				if(!state.resolveInternalReferences) return
+				
 				//关联scriptPropertyName和包含对应名称并作为合法前缀的localizationProperty
-				if(state.resolveInternalReferences) {
-					if(element.parent is StellarisScriptRootBlock) {
-						//跳过需要忽略的脚本文件
-						val path = element.filePath
-						if(!path.contains('/')) return
-						
-						val name = element.name
-						//跳过不合法的情况
-						if(name == null || name.containsBlank()) return
-						//分组并加上gutterIcon
-						val unsortedNames = mutableSetOf<String>()
-						val unsortedProperties = findLocalizationProperties(element.project).filter {
-							val propertyName = it.name ?: return@filter false
-							val isMatched = name.equalsOrIsPrefixOf(propertyName)
-							if(isMatched) unsortedNames.add(propertyName)
-							isMatched
-						}
-						if(unsortedProperties.isNotEmpty()) {
-							val properties = unsortedProperties.sortedBy { it.name!! }.pin().toTypedArray()
-							val names = unsortedNames.sorted().toTypedArray()
-							holder.newSilentAnnotation(INFORMATION)
-								.gutterIconRenderer(LocalizationPropertiesGutterIconRenderer(names, properties))
-								.create()
-						}
+				//跳过需要忽略的情况
+				if(element.parent is StellarisScriptRootBlock && element.stellarisPath.contains('/')) {
+					val name = element.name
+					//跳过不合法的情况
+					if(name == null || name.containsBlank()) return
+					val project = element.project
+					val relatedLocalizationProperties = element.findRelatedLocalizationProperties(project).toTypedArray()
+					if(relatedLocalizationProperties.isNotEmpty()) {
+						val names = relatedLocalizationProperties.mapTo(linkedSetOf()) { it.name!! }.toTypedArray()
+						holder.newSilentAnnotation(INFORMATION)
+							.gutterIconRenderer(LocalizationPropertiesGutterIconRenderer(names, relatedLocalizationProperties))
+							.create()
 					}
 				}
 			}
 			is StellarisScriptString -> {
-				//如果配置解析内部引用 - 否则不解析，提高脚本文件的语法解析速度
+				if(!state.resolveInternalReferences) return
+				
 				//关联string和对应名称的scriptProperty/localizationProperty
-				if(state.resolveInternalReferences) {
-					val name = element.text.unquote()
-					val reference = element.reference ?: return
-					val resolves = reference.multiResolve(false)
-					when {
-						resolves.isEmpty() -> return
-						reference.resolveAsLocalizationProperty -> {
-							val properties = resolves.mapArray { it.element as StellarisLocalizationProperty }
-							if(properties.isNotEmpty()) {
-								holder.newSilentAnnotation(INFORMATION)
-									.textAttributes(StellarisScriptAttributesKeys.LOCALIZATION_PROPERTY_REFERENCE_KEY)
-									.gutterIconRenderer(LocalizationPropertyGutterIconRenderer(name, properties))
-									.create()
-							}
+				val name = element.text.unquote()
+				val reference = element.reference ?: return
+				val resolves = reference.multiResolve(false)
+				when {
+					resolves.isEmpty() -> return
+					reference.resolveAsLocalizationProperty -> {
+						val properties = resolves.mapArray { it.element as StellarisLocalizationProperty }
+						if(properties.isNotEmpty()) {
+							holder.newSilentAnnotation(INFORMATION)
+								.textAttributes(StellarisScriptAttributesKeys.LOCALIZATION_PROPERTY_REFERENCE_KEY)
+								.gutterIconRenderer(LocalizationPropertyGutterIconRenderer(name, properties))
+								.create()
 						}
-						else -> {
-							val properties = resolves.mapArray { it.element as StellarisScriptProperty }
-							if(properties.isNotEmpty()) {
-								holder.newSilentAnnotation(INFORMATION)
-									.textAttributes(StellarisScriptAttributesKeys.SCRIPT_PROPERTY_REFERENCE_KEY)
-									.gutterIconRenderer(ScriptPropertyGutterIconRenderer(name, properties))
-									.create()
-							}
+					}
+					else -> {
+						val properties = resolves.mapArray { it.element as StellarisScriptProperty }
+						if(properties.isNotEmpty()) {
+							holder.newSilentAnnotation(INFORMATION)
+								.textAttributes(StellarisScriptAttributesKeys.SCRIPT_PROPERTY_REFERENCE_KEY)
+								.gutterIconRenderer(ScriptPropertyGutterIconRenderer(name, properties))
+								.create()
 						}
 					}
 				}
+				
 			}
 		}
-	}
-	
-	private fun String.equalsOrIsPrefixOf(value:String):Boolean{
-		return value == this || value.startsWith(this) && value[this.length] == '_'
 	}
 }

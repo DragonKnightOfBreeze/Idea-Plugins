@@ -111,12 +111,6 @@
     </p>
     ]]></change-notes>
 
-  <applicationListeners>
-    <listener
-        class="com.windea.plugin.idea.stellaris.StellarisFileDeleteOrCreateListener"
-        topic="com.intellij.openapi.vfs.newvfs.BulkFileListener"/>
-  </applicationListeners>
-
   <extensions defaultExtensionNs="com.intellij">
     <!--region Stellaris Settings-->
     <applicationConfigurable

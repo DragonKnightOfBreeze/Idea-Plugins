@@ -56,7 +56,6 @@ class StellarisLocalizationAnnotator : Annotator, DumbAware {
 	override fun annotate(element: PsiElement, holder: AnnotationHolder) {
 		when(element) {
 			//如果是本地化属性，则加上gutterIcon
-			//TODO 可以点击gutterIcon导航到相同名字不同语言区域的本地化属性
 			is StellarisLocalizationProperty ->{
 				val name = element.name?:return
 				holder.newSilentAnnotation(INFORMATION)

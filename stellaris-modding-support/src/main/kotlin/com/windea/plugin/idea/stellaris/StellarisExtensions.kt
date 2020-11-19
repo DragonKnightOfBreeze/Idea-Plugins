@@ -196,12 +196,6 @@ fun VirtualFile.getAllChildFiles(destination: MutableList<VirtualFile> = mutable
 	return destination
 }
 
-fun VirtualFile.isRootDirectory(): Boolean {
-	return children.any {
-		!it.isDirectory && it.name == descriptorModFileName || it.name == stellarisExeFileName
-	}
-}
-
 /**将VirtualFile转化为指定类型的PsiFile。*/
 inline fun <reified T : PsiFile> VirtualFile.toPsiFile(project: Project): T? {
 	return PsiManager.getInstance(project).findFile(this) as? T
@@ -283,8 +277,16 @@ fun selectElement(editor: Editor, element: PsiElement?) {
 	editor.selectionModel.setSelection(range.startOffset, range.endOffset)
 }
 
-/**相对于游戏目录或模组目录的文件路径*/
-val PsiElement.filePath: String
+/**是否是游戏或模组根目录。*/
+val VirtualFile.isRootDirectory: Boolean
+	get() {
+		return children.any {
+			!it.isDirectory && it.name == descriptorModFileName || it.name == stellarisExeFileName
+		}
+	}
+
+/**相对于游戏或模组目录的文件路径。*/
+val PsiElement.stellarisPath: String
 	get() {
 		val file = this.containingFile?.virtualFile ?: anonymous
 		return stellarisPathCache[file] ?: anonymous
@@ -315,53 +317,7 @@ fun List<StellarisLocalizationProperty>.pin(): List<StellarisLocalizationPropert
 //endregion
 
 //region Find Extensions
-//使用stub提高性能
-
-//仅作为标记，在值改为true时要清空缓存
-internal var shouldRebuildScriptFileCache = true
-internal val scriptFileCache = CopyOnWriteArrayList<StellarisScriptFile>()
-
-//仅作为标记，在值改为true时要清空缓存
-internal var shouldRebuildLocalizationFileCache = true
-internal val localizationFileCache = CopyOnWriteArrayList<StellarisLocalizationFile>()
-
-//当缓存为空时，也重新构建缓存，因为这是不期望的
-
-@Synchronized
-fun findScriptFiles(project: Project): List<StellarisScriptFile> {
-	//如果需要清空缓存，则重建缓存，否则直接返回缓存
-	if(shouldRebuildScriptFileCache || scriptFileCache.isEmpty()) {
-			for(dir in rootDirectoryCache.values) {
-				//在查找之前是否需要检查是否是游戏或模组目录？
-				//if(!stellarisDirectory.isStellarisDirectory()) continue
-				for(child in dir.getAllChildFiles()) {
-					val file = child.toPsiFile<StellarisScriptFile>(project)
-					if(file != null) scriptFileCache.add(file)
-				}
-			}
-			shouldRebuildScriptFileCache = false
-	}
-	return scriptFileCache
-}
-
-@Synchronized
-fun findLocalizationFiles(project: Project): List<StellarisLocalizationFile> {
-	//如果需要清空缓存，则重建缓存，否则直接返回缓存
-	if(shouldRebuildLocalizationFileCache || localizationFileCache.isEmpty()) {
-			for(dir in rootDirectoryCache.values) {
-				//在查找之前是否需要检查是否是游戏或模组目录？
-				//if(!stellarisDirectory.isStellarisDirectory()) continue
-				for(child in dir.getAllChildFiles()) {
-					val file = child.toPsiFile<StellarisLocalizationFile>(project)
-					if(file != null) localizationFileCache.add(file)
-				}
-			}
-			shouldRebuildLocalizationFileCache = false
-	}
-	return localizationFileCache
-}
-
-private val scriptVariableCachedKey = Key<CachedValue<List<StellarisScriptVariable>>>("ScriptVariableCache")
+//使用stub以提高性能
 
 fun findScriptVariableInFile(name: String, file: PsiFile): StellarisScriptVariable? {
 	if(file !is StellarisScriptFile) return null
@@ -369,27 +325,16 @@ fun findScriptVariableInFile(name: String, file: PsiFile): StellarisScriptVariab
 }
 
 fun findScriptVariable(name: String, project: Project): StellarisScriptVariable? {
-	//return findScriptFiles(project).flatMapNotNullFind({ file ->
-	//	getCachedValue(file, scriptVariableCachedKey) { it.variables }
-	//}, { it.name == name })
 	return StellarisScriptVariableKeyIndex.getOne(name,project,GlobalSearchScope.allScope(project))
 }
 
 fun findScriptVariables(name: String, project: Project): List<StellarisScriptVariable> {
-	//return findScriptFiles(project).flatMapNotNullFilter({ file ->
-	//	getCachedValue(file, scriptVariableCachedKey) { it.variables }
-	//}, { it.name == name })
 	return StellarisScriptVariableKeyIndex.get(name,project,GlobalSearchScope.allScope(project))
 }
 
 fun findScriptVariables(project: Project): List<StellarisScriptVariable> {
-	//return findScriptFiles(project).flatMapNotNull { file ->
-	//	getCachedValue(file, scriptVariableCachedKey) { it.variables }
-	//}
 	return StellarisScriptVariableKeyIndex.getAll(project,GlobalSearchScope.allScope(project))
 }
-
-private val scriptPropertyCachedKey = Key<CachedValue<List<StellarisScriptProperty>>>("ScriptPropertyCache")
 
 fun findScriptPropertyInFile(name: String, file: PsiFile): StellarisScriptProperty? {
 	if(file !is StellarisScriptFile) return null
@@ -397,49 +342,65 @@ fun findScriptPropertyInFile(name: String, file: PsiFile): StellarisScriptProper
 }
 
 fun findScriptProperty(name: String, project: Project): StellarisScriptProperty? {
-	//return findScriptFiles(project).flatMapNotNullFind({ file ->
-	//	getCachedValue(file, scriptPropertyCachedKey) { it.properties }
-	//}, { it.name == name })
 	return StellarisScriptPropertyKeyIndex.getOne(name,project,GlobalSearchScope.allScope(project))
 }
 
 fun findScriptProperties(name: String, project: Project): List<StellarisScriptProperty> {
-	//return findScriptFiles(project).flatMapNotNullFilter({ file ->
-	//	getCachedValue(file, scriptPropertyCachedKey) { it.properties }
-	//}, { it.name == name })
 	return StellarisScriptPropertyKeyIndex.get(name,project,GlobalSearchScope.allScope(project))
 }
 
 fun findScriptProperties(project: Project): List<StellarisScriptProperty> {
-	//return findScriptFiles(project).flatMapNotNull { file ->
-	//	getCachedValue(file, scriptPropertyCachedKey) { it.properties }
-	//}
 	return StellarisScriptPropertyKeyIndex.getAll(project,GlobalSearchScope.allScope(project))
 }
 
-private val localizationPropertyCachedKey = Key<CachedValue<List<StellarisLocalizationProperty>>>("LocalizationPropertyCache")
-
 fun findLocalizationProperty(name: String, project: Project, locale: StellarisLocale? = null): StellarisLocalizationProperty? {
-	//return findLocalizationFiles(project).flatMapNotNullFind({ file ->
-	//	if(locale != null && locale != file.stellarisLocale) return@flatMapNotNullFind null
-	//	getCachedValue(file, localizationPropertyCachedKey) { it.properties }
-	//}, { it.name == name })
 	return StellarisLocalizationPropertyKeyIndex.getOne(name,locale,project, GlobalSearchScope.projectScope(project))
 }
 
 fun findLocalizationProperties(name: String, project: Project, locale: StellarisLocale? = null): List<StellarisLocalizationProperty> {
-	//return findLocalizationFiles(project).flatMapNotNullFilter({ file ->
-	//	if(locale != null && locale != file.stellarisLocale) return@flatMapNotNullFilter null
-	//	getCachedValue(file, localizationPropertyCachedKey) { it.properties }
-	//}, { it.name == name })
 	return StellarisLocalizationPropertyKeyIndex.get(name,locale,project,GlobalSearchScope.allScope(project))
 }
 
 fun findLocalizationProperties(project: Project, locale: StellarisLocale? = null): List<StellarisLocalizationProperty> {
-	//return findLocalizationFiles(project).flatMapNotNull { file ->
-	//	if(locale != null && locale != file.stellarisLocale) return@flatMapNotNull null
-	//	getCachedValue(file, localizationPropertyCachedKey) { it.properties }
-	//}
 	return StellarisLocalizationPropertyKeyIndex.getAll(locale, project, GlobalSearchScope.allScope(project))
+}
+
+//将部分特定的查找方法作为扩展方法
+
+//	fun getRelatedLocalizationProperty(element:StellarisScriptProperty):List<StellarisLocalizationProperty>{
+//		//跳过需要忽略的情况
+//		if(element.parent is StellarisScriptRootBlock && element.stellarisPath.contains('/')) {
+//			val name = element.name
+//			//跳过不合法的情况
+//			if(name == null || name.containsBlank()) return
+//			//分组并加上gutterIcon
+//			val unsortedNames = mutableSetOf<String>()
+//			val unsortedProperties = findLocalizationProperties(element.project).filter {
+//				val propertyName = it.name ?: return@filter false
+//				val isMatched = name.equalsOrIsPrefixOf(propertyName)
+//				if(isMatched) unsortedNames.add(propertyName)
+//				isMatched
+//			}
+//			if(unsortedProperties.isNotEmpty()) {
+//				val properties = unsortedProperties.sortedBy { it.name!! }.pin().toTypedArray()
+//				val names = unsortedNames.sorted().toTypedArray()
+//				holder.newSilentAnnotation(HighlightSeverity.INFORMATION)
+//					.gutterIconRenderer(StellarisScriptAnnotator.LocalizationPropertiesGutterIconRenderer(names, properties))
+//					.create()
+//			}
+//		}
+//	}
+
+//
+//	private fun String.equalsOrIsPrefixOf(value:String):Boolean{
+//		return value == this || value.startsWith(this) && value[this.length] == '_'
+//	}
+
+fun StellarisLocalizationProperty.findRelatedScriptProperties(project:Project):List<StellarisScriptProperty>{
+	return emptyList()
+}
+
+fun StellarisScriptProperty.findRelatedLocalizationProperties(project:Project):List<StellarisLocalizationProperty>{
+	return emptyList()
 }
 //endregion
