@@ -141,8 +141,4 @@ class StellarisScriptAnnotator : Annotator, DumbAware {
 			}
 		}
 	}
-	
-	private fun isIgnoredPropertyName(name: String): Boolean {
-		return name == "null"
-	}
 }

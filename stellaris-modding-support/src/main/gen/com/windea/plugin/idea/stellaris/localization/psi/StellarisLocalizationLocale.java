@@ -6,7 +6,6 @@ import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 import com.intellij.openapi.util.Iconable.IconFlags;
 import com.windea.plugin.idea.stellaris.StellarisLocale;
-import com.windea.plugin.idea.stellaris.localization.reference.StellarisLocalizationLocalePsiReference;
 import javax.swing.Icon;
 
 public interface StellarisLocalizationLocale extends StellarisLocalizationNamedElement {
@@ -23,8 +22,9 @@ public interface StellarisLocalizationLocale extends StellarisLocalizationNamedE
   @Nullable
   Icon getIcon(@IconFlags int flags);
 
-  @Nullable
-  StellarisLocalizationLocalePsiReference getReference();
+  //WARNING: getReference(...) is skipped
+  //matching getReference(StellarisLocalizationLocale, ...)
+  //methods are not found in StellarisLocalizationPsiImplUtil
 
   @Nullable
   StellarisLocale getStellarisLocale();

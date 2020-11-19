@@ -511,7 +511,7 @@
  CREATE_PROFILE_CONFIRM:0 "Confirmer"
  LOAD_GAME_SELECTED_SAVES:1 "Parties sauvegardées :"
  LOAD_GAME_NO_FILES:0 "Pas de sauvegarde disponible !"
- LOAD_GAME_UNSORTED:0 "§gParties non triées§!"
+ LOAD_GAME_UNSORTED:0 "§GParties non triées§!"
  INTERNET_BROWSER:0 "Navigateur Internet"
  AT_WAR:0 "En guerre :"
  ALLIES_LIST:0 "$ALLIES$ :"
@@ -3223,7 +3223,7 @@
  MESSAGE_TARGET_PLANET:1 "§GCliquer pour sélectionner la planète $PLANET|H$§!"
  MESSAGE_TARGET_ANOMALY:0 "§GCliquer pour ouvrir la fenêtre des anomalies§!"
  MESSAGE_TARGET_FLEET:1 "§GCliquer pour sélectionner la $FLEET|H$§!"
- MESSAGE_LOST_TARGET_FLEET:0 "La flotte §g$FLEET|H$ est hors de portée de nos capteurs§!"
+ MESSAGE_LOST_TARGET_FLEET:0 "La flotte §G$FLEET|H$ est hors de portée de nos capteurs§!"
  MESSAGE_RIGHTCLICK:0 "§GClic droit pour effacer§!"
  MESSAGE_TARGET_WAR:0 "§GCliquer pour ouvrir l'aperçu de $WAR|H$§!"
 

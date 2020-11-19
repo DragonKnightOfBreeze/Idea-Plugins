@@ -51,28 +51,56 @@ class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
 						append(DocumentationMarkup.CONTENT_END)
 					}
 					
+					var isSectionsStart = false
+					
 					//添加渲染后的相关的本地化属性的值的文本到文档注释中
 					//过滤例外情况
 					if(element.parent !is StellarisScriptRootBlock || !element.stellarisPath.contains('/')) return@writeString
-					val name = element.name?:return@writeString
+					val name = element.name ?: return@writeString
 					//过滤非法情况
 					if(name.isInvalidPropertyName()) return@writeString
 					val relatedLocalizationProperties = element.findRelatedLocalizationProperties(inferedStellarisLocale)
 					if(relatedLocalizationProperties.isNotEmpty()) {
 						append(DocumentationMarkup.SECTIONS_START)
+						isSectionsStart = true
 						for(property in relatedLocalizationProperties) {
-							val propertyName = property.name?:continue
+							val propertyName = property.name ?: continue
 							val propertyValue = property.propertyValue
-							if(propertyValue != null){
+							if(propertyValue != null) {
 								append(DocumentationMarkup.SECTION_HEADER_START)
-								append(propertyName.substring(name.length+1).capitalizedWords()).append(": ")
+								append(propertyName.getRelatedLocalizationPropertyShortName(name.length)).append(": ")
 								append(DocumentationMarkup.SECTION_START)
-								StellarisLocalizationRenderer.renderTo(propertyValue,this)
+								StellarisLocalizationRenderer.renderTo(propertyValue, this)
 								append(DocumentationMarkup.SECTION_END)
 							}
 						}
-						append(DocumentationMarkup.SECTIONS_END)
 					}
+					
+					//添加渲染后的标签文本到文档注释中
+					val blockValue = element.propertyValue?.value
+					if(blockValue is StellarisScriptBlock) {
+						val tagsProp = blockValue.propertyList.find { it.name == "tags" }
+						val tagsPropBlockValue = tagsProp?.propertyValue?.value
+						if(tagsPropBlockValue is StellarisScriptBlock) {
+							val tags = tagsPropBlockValue.valueList.mapArray { it.text.unquote() }
+							if(tags.isNotEmpty()) {
+								append(DocumentationMarkup.SECTION_HEADER_START)
+								append("Tags: ")
+								append(DocumentationMarkup.SECTION_START)
+								var addNewLine = false
+								for(tag in tags) {
+									val prop = findLocalizationProperty(tag,element.project,inferedStellarisLocale)
+									val propValue = prop?.propertyValue
+									if(propValue != null){
+										if(addNewLine) append("<br>") else addNewLine = true
+										StellarisLocalizationRenderer.renderTo(propValue,this)
+									}
+								}
+								append(DocumentationMarkup.SECTION_END)
+							}
+						}
+					}
+					if(isSectionsStart) append(DocumentationMarkup.SECTIONS_END)
 				}
 			}
 			else -> null

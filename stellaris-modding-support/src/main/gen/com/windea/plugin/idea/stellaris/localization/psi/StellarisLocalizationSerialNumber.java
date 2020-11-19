@@ -5,7 +5,6 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 import com.windea.plugin.idea.stellaris.StellarisSerialNumber;
-import com.windea.plugin.idea.stellaris.localization.reference.StellarisLocalizationSerialNumberPsiReference;
 
 public interface StellarisLocalizationSerialNumber extends StellarisLocalizationRichText, StellarisLocalizationNamedElement {
 
@@ -23,7 +22,8 @@ public interface StellarisLocalizationSerialNumber extends StellarisLocalization
   @Nullable
   StellarisSerialNumber getStellarisSerialNumber();
 
-  @Nullable
-  StellarisLocalizationSerialNumberPsiReference getReference();
+  //WARNING: getReference(...) is skipped
+  //matching getReference(StellarisLocalizationSerialNumber, ...)
+  //methods are not found in StellarisLocalizationPsiImplUtil
 
 }

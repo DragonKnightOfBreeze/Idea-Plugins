@@ -10,7 +10,6 @@ import com.intellij.psi.util.PsiTreeUtil;
 import static com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationTypes.*;
 import com.windea.plugin.idea.stellaris.localization.psi.*;
 import com.windea.plugin.idea.stellaris.StellarisSerialNumber;
-import com.windea.plugin.idea.stellaris.localization.reference.StellarisLocalizationSerialNumberPsiReference;
 
 public class StellarisLocalizationSerialNumberImpl extends StellarisLocalizationNamedElementImpl implements StellarisLocalizationSerialNumber {
 
@@ -54,12 +53,6 @@ public class StellarisLocalizationSerialNumberImpl extends StellarisLocalization
   @Nullable
   public StellarisSerialNumber getStellarisSerialNumber() {
     return StellarisLocalizationPsiImplUtil.getStellarisSerialNumber(this);
-  }
-
-  @Override
-  @Nullable
-  public StellarisLocalizationSerialNumberPsiReference getReference() {
-    return StellarisLocalizationPsiImplUtil.getReference(this);
   }
 
 }

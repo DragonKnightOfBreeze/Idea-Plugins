@@ -5,7 +5,6 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 import com.windea.plugin.idea.stellaris.StellarisColor;
-import com.windea.plugin.idea.stellaris.localization.reference.StellarisLocalizationColorfulTextPsiReference;
 
 public interface StellarisLocalizationColorfulText extends StellarisLocalizationRichText, StellarisLocalizationNamedElement {
 
@@ -26,7 +25,8 @@ public interface StellarisLocalizationColorfulText extends StellarisLocalization
   @Nullable
   StellarisColor getStellarisColor();
 
-  @Nullable
-  StellarisLocalizationColorfulTextPsiReference getReference();
+  //WARNING: getReference(...) is skipped
+  //matching getReference(StellarisLocalizationColorfulText, ...)
+  //methods are not found in StellarisLocalizationPsiImplUtil
 
 }

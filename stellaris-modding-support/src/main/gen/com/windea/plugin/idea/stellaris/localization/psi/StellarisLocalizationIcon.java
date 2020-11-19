@@ -4,7 +4,6 @@ package com.windea.plugin.idea.stellaris.localization.psi;
 import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
-import com.windea.plugin.idea.stellaris.localization.reference.StellarisLocalizationIconPsiReference;
 
 public interface StellarisLocalizationIcon extends StellarisLocalizationRichText, StellarisLocalizationNamedElement {
 
@@ -25,7 +24,8 @@ public interface StellarisLocalizationIcon extends StellarisLocalizationRichText
 
   int getTextOffset();
 
-  @Nullable
-  StellarisLocalizationIconPsiReference getReference();
+  //WARNING: getReference(...) is skipped
+  //matching getReference(StellarisLocalizationIcon, ...)
+  //methods are not found in StellarisLocalizationPsiImplUtil
 
 }

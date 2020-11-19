@@ -11,7 +11,6 @@ import static com.windea.plugin.idea.stellaris.localization.psi.StellarisLocaliz
 import com.windea.plugin.idea.stellaris.localization.psi.*;
 import com.intellij.openapi.util.Iconable.IconFlags;
 import com.windea.plugin.idea.stellaris.StellarisLocale;
-import com.windea.plugin.idea.stellaris.localization.reference.StellarisLocalizationLocalePsiReference;
 import javax.swing.Icon;
 
 public class StellarisLocalizationLocaleImpl extends StellarisLocalizationNamedElementImpl implements StellarisLocalizationLocale {
@@ -51,12 +50,6 @@ public class StellarisLocalizationLocaleImpl extends StellarisLocalizationNamedE
   @Nullable
   public Icon getIcon(@IconFlags int flags) {
     return StellarisLocalizationPsiImplUtil.getIcon(this, flags);
-  }
-
-  @Override
-  @Nullable
-  public StellarisLocalizationLocalePsiReference getReference() {
-    return StellarisLocalizationPsiImplUtil.getReference(this);
   }
 
   @Override

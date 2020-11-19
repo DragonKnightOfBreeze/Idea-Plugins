@@ -17,18 +17,17 @@ class StellarisScriptStringAsPropertyPsiReference(
 	
 	override fun resolve(): PsiElement? {
 		if(state.resolveInternalReferences) {
-			return findScriptProperty(name, element.project) ?: findLocalizationProperty(name, element.project)
+			return findScriptProperty(name, project)
+			       ?: findLocalizationProperty(name, project, inferedStellarisLocale)
+			       ?: findLocalizationProperty(name, project)
 		}
 		return null
 	}
 	
 	override fun multiResolve(incompleteCode: Boolean): Array<out ResolveResult> {
 		if(StellarisSettingsState.getInstance().resolveInternalReferences) {
-			return findScriptProperties(name, element.project).ifEmpty {
-				//尝试根据用户的语言区域过滤查询结果
-				findLocalizationProperties(name, project).let { properties ->
-					properties.filter { it.stellarisLocale == inferedStellarisLocale }.ifEmpty { properties }
-				}
+			return findScriptProperties(name, project).ifEmpty {
+				findLocalizationProperties(name, project)
 			}.mapArray { PsiElementResolveResult(it) }
 		}
 		return ResolveResult.EMPTY_ARRAY

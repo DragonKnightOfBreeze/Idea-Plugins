@@ -357,11 +357,20 @@ fun StellarisLocalizationProperty.findRelatedScriptProperties(): List<StellarisS
 fun StellarisScriptProperty.findRelatedLocalizationProperties(locale:StellarisLocale? = null): List<StellarisLocalizationProperty> {
 	val name = name ?: return emptyList()
 	return StellarisLocalizationPropertyKeyIndex.filter(locale, project, GlobalSearchScope.allScope(project)) {
-		name.isPropertyKeyPrefixOf(it)
+		name.isRelatedLocalizationPropertyName(it)
 	}.sortedBy { it.name!! }
 }
 
-private fun String.isPropertyKeyPrefixOf(value: String): Boolean {
-	return value == this || value.startsWith(this) && value[this.length] == '_'
+//TODO 虽然还有其他关联的属性名，但是这里只提取xxx和xxx_desc和xxx_desc_xxx，否则可能会太多了
+
+internal fun String.isRelatedLocalizationPropertyName(value: String): Boolean {
+	return value == this || value.startsWith(this + "_desc")
+}
+
+internal fun String.getRelatedLocalizationPropertyShortName(prefixLength:Int):String{
+	return when{
+		this.length <= prefixLength+1 -> "Text"
+		else -> this.substring(prefixLength+1).capitalizedWords()
+	}
 }
 //endregion
