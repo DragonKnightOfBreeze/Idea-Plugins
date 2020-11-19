@@ -9,7 +9,7 @@ import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
 import static com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*;
 import com.windea.plugin.idea.stellaris.script.psi.*;
-import com.intellij.psi.PsiPolyVariantReference;
+import com.windea.plugin.idea.stellaris.script.reference.StellarisScriptStringAsPropertyPsiReference;
 
 public class StellarisScriptStringImpl extends StellarisScriptStringValueImpl implements StellarisScriptString {
 
@@ -45,9 +45,9 @@ public class StellarisScriptStringImpl extends StellarisScriptStringValueImpl im
   }
 
   @Override
-  @NotNull
-  public PsiPolyVariantReference[] getReferences() {
-    return StellarisScriptPsiImplUtil.getReferences(this);
+  @Nullable
+  public StellarisScriptStringAsPropertyPsiReference getReference() {
+    return StellarisScriptPsiImplUtil.getReference(this);
   }
 
 }

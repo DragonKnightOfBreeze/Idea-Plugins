@@ -17,8 +17,7 @@ object StellarisLocalizationPropertyKeyIndex: StringStubIndexExtension<Stellaris
 	fun get(key: String,locale: StellarisLocale?, project: Project, scope: GlobalSearchScope): List<StellarisLocalizationProperty> {
 		val result =  mutableListOf<StellarisLocalizationProperty>()
 		for(element in StubIndex.getElements(this.key, key, project, scope, StellarisLocalizationProperty::class.java)) {
-			val fqLocale = element.stellarisLocale ?: inferedStellarisLocale
-			if(locale == null || locale == fqLocale) result.add(element)
+			if(locale == null || locale == element.stellarisLocale) result.add(element)
 		}
 		return result
 	}
@@ -37,14 +36,15 @@ object StellarisLocalizationPropertyKeyIndex: StringStubIndexExtension<Stellaris
 			val group = get(key, project, scope)
 			val nextIndex = index+ group.size
 			for(element in group) {
+				val elementLocale = element.stellarisLocale
 				if(locale == null) {
 					//需要将用户的语言区域对应的本地化属性放到该组本地化属性的最前面
-					if(locale == inferedStellarisLocale){
+					if(elementLocale == inferedStellarisLocale){
 						result.add(index++,element)
 					}else{
 						result.add(element)
 					}
-				} else if(locale == element.stellarisLocale) {
+				} else if(locale == elementLocale) {
 					result.add(element)
 				}
 			}
@@ -61,15 +61,18 @@ object StellarisLocalizationPropertyKeyIndex: StringStubIndexExtension<Stellaris
 				val group = get(key, project, scope)
 				val nextIndex = index + group.size
 				for(element in group) {
+					val elementLocale = element.stellarisLocale
 					if(locale == null) {
 						//需要将用户的语言区域对应的本地化属性放到该组本地化属性的最前面
-						if(locale == inferedStellarisLocale){
+						if(elementLocale == inferedStellarisLocale){
 							result.add(index++,element)
 						}else{
 							result.add(element)
 						}
-					} else if(locale == element.stellarisLocale) {
-						result.add(element)
+					} else {
+						if(locale == elementLocale) {
+							result.add(element)
+						}
 					}
 				}
 				index  = nextIndex

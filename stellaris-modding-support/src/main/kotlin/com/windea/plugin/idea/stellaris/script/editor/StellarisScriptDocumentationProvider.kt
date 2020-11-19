@@ -52,7 +52,11 @@ class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
 					}
 					
 					//添加渲染后的相关的本地化属性的值的文本到文档注释中
+					//过滤例外情况
+					if(element.parent !is StellarisScriptRootBlock || !element.stellarisPath.contains('/')) return@writeString
 					val name = element.name?:return@writeString
+					//过滤非法情况
+					if(name.isInvalidPropertyName()) return@writeString
 					val relatedLocalizationProperties = element.findRelatedLocalizationProperties(inferedStellarisLocale)
 					if(relatedLocalizationProperties.isNotEmpty()) {
 						append(DocumentationMarkup.SECTIONS_START)
@@ -61,7 +65,7 @@ class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
 							val propertyValue = property.propertyValue
 							if(propertyValue != null){
 								append(DocumentationMarkup.SECTION_HEADER_START)
-								append(propertyName.substring(name.length+1).capitalize()).append(": ")
+								append(propertyName.substring(name.length+1).capitalizedWords()).append(": ")
 								append(DocumentationMarkup.SECTION_START)
 								StellarisLocalizationRenderer.renderTo(propertyValue,this)
 								append(DocumentationMarkup.SECTION_END)

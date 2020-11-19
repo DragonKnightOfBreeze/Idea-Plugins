@@ -90,6 +90,25 @@ fun String.unquote() = if(length >= 2 && startsWith('"') && endsWith('"')) subst
 
 fun String.truncate(limit: Int) = if(this.length <= limit) this else this.take(limit) + "..."
 
+fun String.capitalizedWords() :String{
+	return writeString{
+		var isWordStart = true
+		for(c in this@capitalizedWords.toCharArray()) {
+			when{
+				isWordStart -> {
+					isWordStart = false
+					append(c.toUpperCase())
+				}
+				c == '_' || c == '-' || c=='.' -> {
+					isWordStart = true
+					append(' ')
+				}
+				else -> append(c)
+			}
+		}
+	}
+}
+
 fun CharSequence.indicesOf(char: Char, ignoreCase: Boolean = false): MutableList<Int> {
 	val indices = mutableListOf<Int>()
 	var lastIndex = indexOf(char, 0, ignoreCase)
@@ -115,34 +134,13 @@ fun <T> T.toSingletonList(): List<T> {
 fun <T : Any> T?.toSingletonOrEmpty(): List<T> {
 	return if(this == null) Collections.emptyList() else Collections.singletonList(this)
 }
-
-//为了提高性能而自定义的扩展
-
-inline fun <T, R> Iterable<T>.flatMapNotNullFind(transform: (T) -> Iterable<R>?, predicate: (R) -> Boolean): R? {
-	this.forEach {
-		transform(it)?.find(predicate)?.let { r -> return r }
-	}
-	return null
-}
-
-inline fun <T, R> Iterable<T>.flatMapNotNullFilter(transform: (T) -> Iterable<R>?, predicate: (R) -> Boolean): List<R> {
-	val result = mutableListOf<R>()
-	this.forEach {
-		transform(it)?.filterTo(result, predicate)
-	}
-	return result
-}
-
-inline fun <T, R> Iterable<T>.flatMapNotNull(transform: (T) -> Iterable<R>?): List<R> {
-	val result = mutableListOf<R>()
-	this.forEach {
-		transform(it)?.let { r -> result.addAll(r) }
-	}
-	return result
-}
 //endregion
 
 //region Misc
+fun String.isInvalidPropertyName(): Boolean {
+	return this.containsBlank() || this == "null"
+}
+
 inline fun PsiElement.forEachChild(block: (PsiElement) -> Unit) {
 	var child = this.firstChild
 	while(child != null) {

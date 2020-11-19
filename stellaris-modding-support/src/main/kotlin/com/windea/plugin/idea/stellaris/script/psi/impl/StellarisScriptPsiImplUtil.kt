@@ -124,13 +124,10 @@ object StellarisScriptPsiImplUtil {
 	private val emptyArray = arrayOf<PsiPolyVariantReference>()
 	
 	@JvmStatic
-	fun getReferences(element: StellarisScriptString): Array<out PsiPolyVariantReference> {
-		//只有可能是属性的键的情况下才有可能是引用
-		if(element.value.containsBlank()) return emptyArray
-		return arrayOf(
-			StellarisScriptStringPsiReference1(element, TextRange(0, element.textLength)),
-			StellarisScriptStringPsiReference2(element, TextRange(0, element.textLength))
-		)
+	fun getReference(element: StellarisScriptString):StellarisScriptStringAsPropertyPsiReference?{
+		//过滤非法的情况
+		if(element.value.isInvalidPropertyName()) return null
+		return StellarisScriptStringAsPropertyPsiReference(element, TextRange(0, element.textLength))
 	}
 	//endregion
 

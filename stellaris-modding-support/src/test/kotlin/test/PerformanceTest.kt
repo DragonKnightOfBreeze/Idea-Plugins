@@ -10,12 +10,24 @@ import kotlin.system.*
 class PerformanceTest {
 	//100:1
 	@Test
-	fun buildStringTest(){
-		val list = List(10){"abc"}
-		val s1:String
-		val s2:String
-		val t1 =measureNanoTime{ s1= buildString{ for(s in list) { append(s) } }}
-		val t2 =measureNanoTime{ s2=StringWriter().apply{ for(s in list) { append(s) } }.toString()}
+	fun buildStringTest() {
+		val list = List(10) { "abc" }
+		val s1: String
+		val s2: String
+		val t1 = measureNanoTime {
+			s1 = buildString {
+				for(s in list) {
+					append(s)
+				}
+			}
+		}
+		val t2 = measureNanoTime {
+			s2 = StringWriter().apply {
+				for(s in list) {
+					append(s)
+				}
+			}.toString()
+		}
 		println(s1 == s2)
 		println(t1)
 		println(t2)
@@ -28,7 +40,7 @@ class PerformanceTest {
 	//38566100
 	//40598000
 	@Test
-	fun flatMapFilterToArrayTest(){
+	fun flatMapFilterToArrayTest() {
 		val list = (0..10000).toList().chunked(100)
 		val executor = Executors.newCachedThreadPool()
 		val future1 = executor.submit(Callable {
@@ -45,31 +57,31 @@ class PerformanceTest {
 		})
 		val future3 = executor.submit(Callable {
 			measureNanoTime {
-				val r = list.flatMapNotNullFilter({it},{it/3 == 0}).toTypedArray()
+				val r = list.flatMapNotNullFilter({ it }, { it / 3 == 0 }).toTypedArray()
 				println(r.size)
 			}
 		})
 		val future4 = executor.submit(Callable {
 			measureNanoTime {
-				val r = list.flatMapFilterByStream({it},{it/3 == 0}).toTypedArray()
+				val r = list.flatMapFilterByStream({ it }, { it / 3 == 0 }).toTypedArray()
 				println(r.size)
 			}
 		})
 		val future5 = executor.submit(Callable {
 			measureNanoTime {
-				val r = list.flatMapFilterByPStream({it},{it/3 == 0}).toTypedArray()
+				val r = list.flatMapFilterByPStream({ it }, { it / 3 == 0 }).toTypedArray()
 				println(r.size)
 			}
 		})
 		val future6 = executor.submit(Callable {
 			measureNanoTime {
-				val r = list.flatMapNotNullFilter1({it},{it/3 == 0}).toTypedArray()
+				val r = list.flatMapNotNullFilter1({ it }, { it / 3 == 0 }).toTypedArray()
 				println(r.size)
 			}
 		})
 		val future7 = executor.submit(Callable {
 			measureNanoTime {
-				val r = list.flatMapNotNullFilter2({it},{it/3 == 0}).toTypedArray()
+				val r = list.flatMapNotNullFilter2({ it }, { it / 3 == 0 }).toTypedArray()
 				println(r.size)
 			}
 		})
@@ -89,12 +101,12 @@ class PerformanceTest {
 		println(result7)
 	}
 	
-	fun <T,R> List<T>.flatMapFilterByStream(transform:(T)->List<R>,predicate: (R) -> Boolean):List<R>{
-		return this.stream().flatMap{ transform(it).stream() }.filter(predicate).collect(Collectors.toList())
+	fun <T, R> List<T>.flatMapFilterByStream(transform: (T) -> List<R>, predicate: (R) -> Boolean): List<R> {
+		return this.stream().flatMap { transform(it).stream() }.filter(predicate).collect(Collectors.toList())
 	}
 	
-	fun <T,R> List<T>.flatMapFilterByPStream(transform:(T)->List<R>,predicate: (R) -> Boolean):List<R>{
-		return this.parallelStream().flatMap{ transform(it).stream() }.filter(predicate).collect(Collectors.toList())
+	fun <T, R> List<T>.flatMapFilterByPStream(transform: (T) -> List<R>, predicate: (R) -> Boolean): List<R> {
+		return this.parallelStream().flatMap { transform(it).stream() }.filter(predicate).collect(Collectors.toList())
 	}
 	
 	inline fun <T, R> Iterable<T>.flatMapNotNullFilter1(transform: (T) -> Iterable<R>?, predicate: (R) -> Boolean): List<R> {
@@ -104,10 +116,34 @@ class PerformanceTest {
 		}
 		return result
 	}
+	
 	inline fun <T, R> Iterable<T>.flatMapNotNullFilter2(transform: (T) -> Iterable<R>?, predicate: (R) -> Boolean): List<R> {
 		val result = CopyOnWriteArrayList<R>()
 		this.forEach {
 			transform(it)?.filterTo(result, predicate)
+		}
+		return result
+	}
+	
+	inline fun <T, R> Iterable<T>.flatMapNotNullFind(transform: (T) -> Iterable<R>?, predicate: (R) -> Boolean): R? {
+		this.forEach {
+			transform(it)?.find(predicate)?.let { r -> return r }
+		}
+		return null
+	}
+	
+	inline fun <T, R> Iterable<T>.flatMapNotNullFilter(transform: (T) -> Iterable<R>?, predicate: (R) -> Boolean): List<R> {
+		val result = mutableListOf<R>()
+		this.forEach {
+			transform(it)?.filterTo(result, predicate)
+		}
+		return result
+	}
+	
+	inline fun <T, R> Iterable<T>.flatMapNotNull(transform: (T) -> Iterable<R>?): List<R> {
+		val result = mutableListOf<R>()
+		this.forEach {
+			transform(it)?.let { r -> result.addAll(r) }
 		}
 		return result
 	}

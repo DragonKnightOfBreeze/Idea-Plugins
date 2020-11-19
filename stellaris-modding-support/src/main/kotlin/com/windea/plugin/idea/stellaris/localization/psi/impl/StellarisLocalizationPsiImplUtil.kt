@@ -4,7 +4,6 @@ package com.windea.plugin.idea.stellaris.localization.psi.impl
 
 import com.intellij.openapi.util.Iconable.*
 import com.intellij.psi.*
-import com.intellij.psi.stubs.*
 import com.intellij.refactoring.suggested.*
 import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
@@ -49,11 +48,6 @@ object StellarisLocalizationPsiImplUtil {
 	@JvmStatic
 	fun getStellarisLocale(element: StellarisLocalizationLocale): StellarisLocale? {
 		return StellarisLocale.map[element.name]
-	}
-	
-	@JvmStatic
-	fun getReference(element: StellarisLocalizationLocale): StellarisLocalizationLocalePsiReference? {
-		return StellarisLocalizationLocalePsiReference(element, element.localeId.textRangeInParent)
 	}
 	//endregion
 	
@@ -160,12 +154,6 @@ object StellarisLocalizationPsiImplUtil {
 	fun getTextOffset(element: StellarisLocalizationIcon): Int {
 		return element.startOffset + 1
 	}
-	
-	@JvmStatic
-	fun getReference(element: StellarisLocalizationIcon): StellarisLocalizationIconPsiReference? {
-		val iconId = element.iconId ?: return null
-		return StellarisLocalizationIconPsiReference(element, iconId.textRangeInParent)
-	}
 	//endregion
 	
 	//region StellarisLocalizationSerialNumber
@@ -195,12 +183,6 @@ object StellarisLocalizationPsiImplUtil {
 		val name = element.name ?: return null
 		return StellarisSerialNumber.map[name]
 	}
-	
-	@JvmStatic
-	fun getReference(element: StellarisLocalizationSerialNumber): StellarisLocalizationSerialNumberPsiReference? {
-		val serialNumberId = element.serialNumberId ?: return null
-		return StellarisLocalizationSerialNumberPsiReference(element, serialNumberId.textRangeInParent)
-	}
 	//endregion
 	
 	//region StellarisLocalizationColorfulText
@@ -228,12 +210,6 @@ object StellarisLocalizationPsiImplUtil {
 	@JvmStatic
 	fun getStellarisColor(element: StellarisLocalizationColorfulText): StellarisColor? {
 		return element.name?.let { name -> StellarisColor.map[name] }
-	}
-	
-	@JvmStatic
-	fun getReference(element: StellarisLocalizationColorfulText): StellarisLocalizationColorfulTextPsiReference? {
-		val colorCode = element.colorCode ?: return null
-		return StellarisLocalizationColorfulTextPsiReference(element, colorCode.textRangeInParent)
 	}
 	//endregion
 }

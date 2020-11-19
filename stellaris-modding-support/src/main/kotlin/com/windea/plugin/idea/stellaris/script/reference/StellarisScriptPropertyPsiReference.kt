@@ -11,6 +11,8 @@ class StellarisScriptPropertyPsiReference(
 	//去除包围的引号
 	private val name = element.text.unquote()
 
+	//不解析引用
+	
 	override fun resolve(): PsiElement? {
 		return null
 	}
@@ -18,14 +20,4 @@ class StellarisScriptPropertyPsiReference(
 	override fun multiResolve(incompleteCode: Boolean): Array<ResolveResult> {
 		return ResolveResult.EMPTY_ARRAY
 	}
-
-	//override fun resolve(): PsiElement? {
-	//	return findScriptProperty(name,element.project)
-	//}
-	//
-	//override fun multiResolve(incompleteCode: Boolean): Array<ResolveResult> {
-	//	return findScriptProperties(element.project).mapArray {
-	//		PsiElementResolveResult(it)
-	//	}
-	//}
 }
