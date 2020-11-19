@@ -70,7 +70,7 @@ class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
 								append(DocumentationMarkup.SECTION_HEADER_START)
 								append(propertyName.getRelatedLocalizationPropertyShortName(name.length)).append(": ")
 								append(DocumentationMarkup.SECTION_START)
-								StellarisLocalizationRenderer.renderTo(propertyValue, this)
+								StellarisLocalizationTextRenderer.renderTo(propertyValue, this)
 								append(DocumentationMarkup.SECTION_END)
 							}
 						}
@@ -93,7 +93,7 @@ class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
 									val propValue = prop?.propertyValue
 									if(propValue != null){
 										if(addNewLine) append("<br>") else addNewLine = true
-										StellarisLocalizationRenderer.renderTo(propValue,this)
+										StellarisLocalizationTextRenderer.renderTo(propValue,this)
 									}
 								}
 								append(DocumentationMarkup.SECTION_END)

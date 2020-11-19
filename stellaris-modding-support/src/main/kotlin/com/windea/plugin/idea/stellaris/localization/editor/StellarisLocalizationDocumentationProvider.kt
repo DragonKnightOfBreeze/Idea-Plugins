@@ -44,7 +44,7 @@ class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider
 						append(DocumentationMarkup.SECTION_HEADER_START)
 						append("Text: ")
 						append(DocumentationMarkup.SECTION_START)
-						StellarisLocalizationRenderer.renderTo(propertyValue,this)
+						StellarisLocalizationTextRenderer.renderTo(propertyValue,this)
 						append(DocumentationMarkup.SECTION_END)
 						append(DocumentationMarkup.SECTIONS_END)
 					}
@@ -59,11 +59,18 @@ class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider
 				}
 			}
 			element is StellarisLocalizationIcon -> {
-				val documentText = element.name?.let { name -> "(icon) $name"}?:return null
+				val name = element.name?:return null
+				val documentText = "(icon) $name"
 				writeString {
 					append(DocumentationMarkup.DEFINITION_START)
 					append(documentText)
 					append(DocumentationMarkup.DEFINITION_END)
+					val iconUrl = StellarisLocalizationIconUrlResolver.resolve(name)
+					if(iconUrl.isNotEmpty()) {
+						append(DocumentationMarkup.CONTENT_START)
+						append("<img src=\"").append(iconUrl).append("\" style=\"width:24px\">")
+						append(DocumentationMarkup.CONTENT_END)
+					}
 				}
 			}
 			element is StellarisLocalizationColorfulText ->{
