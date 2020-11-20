@@ -67,10 +67,14 @@ object StellarisLocalizationTextRenderer {
 		val name = element.name ?: return
 		val iconUrl = StellarisLocalizationIconUrlResolver.resolve(name)
 		if(iconUrl.isNotEmpty()){
-			writer.append("<img src=\"").append(iconUrl).append("\" style=\"width:24px\">")
+			doRenderIconTo(writer, iconUrl)
 		}else {
 			writer.append("<code>").append(element.text).append("</code>")
 		}
+	}
+	
+	private fun doRenderIconTo(writer: Writer, iconUrl: String) {
+		writer.append("<img src=\"").append(iconUrl).append("\" height=\"$iconSize\"/>")
 	}
 	
 	private fun renderSerialNumberTo(element: StellarisLocalizationSerialNumber, writer: Writer) {

@@ -1,5 +1,6 @@
 package com.windea.plugin.idea.stellaris
 
+import com.intellij.codeInsight.documentation.*
 import com.intellij.icons.*
 import com.intellij.openapi.project.*
 import com.intellij.openapi.util.*
@@ -71,6 +72,8 @@ val inferedStellarisLocale = when(System.getProperty("user.language")){
 	"es" -> StellarisLocale.SPANISH
 	else -> StellarisLocale.ENGLISH
 }
+
+val iconSize get() = DocumentationComponent.getQuickDocFontSize().size
 //endregion
 
 //region Resources

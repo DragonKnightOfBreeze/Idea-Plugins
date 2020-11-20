@@ -17,6 +17,7 @@ object StellarisLocalizationIconUrlResolver {
 	private const val host = "https://stellaris.paradoxwikis.com"
 	private const val prefix = "<div class=\"fullImageLink\" id=\"file\"><a href=\""
 	private const val prefixLength = prefix.length
+	private const val unknownIconUrl = "https://stellaris.paradoxwikis.com/images/thumb/d/dd/Unknown.png/24px-Unknown.png"
 	
 	fun resolve(name: String): String {
 		return urlCache.getOrPut(name){ doResolveUrl(name) }
@@ -40,9 +41,9 @@ object StellarisLocalizationIconUrlResolver {
 				val startIndex = index + prefixLength
 				val endIndex = it.indexOf('"', startIndex + 1)
 				host + it.substring(startIndex, endIndex)
-			}.findFirst().orElseGet { "" }
+			}.findFirst().orElseGet { unknownIconUrl }
 		}
-		return ""
+		return unknownIconUrl
 	}
 	
 	private fun imageName(name:String):String{

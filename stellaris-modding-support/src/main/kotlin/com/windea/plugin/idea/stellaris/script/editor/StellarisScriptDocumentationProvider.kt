@@ -69,7 +69,7 @@ class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
 							if(propertyValue != null) {
 								append(DocumentationMarkup.SECTION_HEADER_START)
 								append(propertyName.getRelatedLocalizationPropertyShortName(name.length)).append(": ")
-								append(DocumentationMarkup.SECTION_START)
+								append(DocumentationMarkup.SECTION_SEPARATOR)
 								StellarisLocalizationTextRenderer.renderTo(propertyValue, this)
 								append(DocumentationMarkup.SECTION_END)
 							}
@@ -86,7 +86,7 @@ class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
 							if(tags.isNotEmpty()) {
 								append(DocumentationMarkup.SECTION_HEADER_START)
 								append("Tags: ")
-								append(DocumentationMarkup.SECTION_START)
+								append(DocumentationMarkup.SECTION_SEPARATOR)
 								var addNewLine = false
 								for(tag in tags) {
 									val prop = findLocalizationProperty(tag,element.project,inferedStellarisLocale)
