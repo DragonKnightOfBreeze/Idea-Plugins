@@ -18,16 +18,23 @@ object StellarisLocalizationIconUrlResolver {
 	private const val prefix = "<div class=\"fullImageLink\" id=\"file\"><a href=\""
 	private const val prefixLength = prefix.length
 	private const val unknownIconUrl = "https://stellaris.paradoxwikis.com/images/thumb/d/dd/Unknown.png/24px-Unknown.png"
+	private val iconNameMap = ConcurrentHashMap<String,String>().apply{
+		put("pops","Pop")
+	}
 	
 	fun resolve(name: String): String {
 		return urlCache.getOrPut(name){ doResolveUrl(name) }
 	}
 	
 	//TODO 继续提高性能
+
+
+	//存在icon_parameter的情况只有leader_skill和fleet_status
+	//需要处理的图标名：planetsize，pops->pop
 	
 	//https://stellaris.paradoxwikis.com/images/2/20/Research.png
 	private fun doResolveUrl(name:String): String {
-		val httpResponse = httpClient.send(httpRequest(imageName(name)), bodyHandler)
+		val httpResponse = httpClient.send(httpRequest(iconName(name)), bodyHandler)
 		if(httpResponse.statusCode() == 200) {
 			val lines = httpResponse.body()
 			var hasResult = false
@@ -46,7 +53,9 @@ object StellarisLocalizationIconUrlResolver {
 		return unknownIconUrl
 	}
 	
-	private fun imageName(name:String):String{
+	private fun iconName(name:String):String{
+		val handledIconName = iconNameMap[name]
+		if(handledIconName != null) return handledIconName
 		return if(name.isEmpty()) "" else name[0].toUpperCase() + name.substring(1)
 	}
 	
