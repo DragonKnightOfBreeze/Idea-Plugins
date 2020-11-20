@@ -99,6 +99,6 @@ class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider
 	}
 	
 	private fun doRenderIconTo(writer: Writer, iconUrl: String) {
-		writer.append("<img src=\"").append(iconUrl).append("\" height=\"$iconSize\"/>")
+		writer.append("<img src=\"").append(iconUrl).append("\" width=\"$iconSize\" height=\"$iconSize\"/>")
 	}
 }

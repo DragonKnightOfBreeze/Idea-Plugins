@@ -136,7 +136,7 @@ object StellarisLocalizationPsiImplUtil {
 	//region StellarisLocalizationIcon
 	@JvmStatic
 	fun getName(element: StellarisLocalizationIcon): String? {
-		return element.iconId?.text
+		return element.iconId?.text?.toUpperCase()
 	}
 	
 	@JvmStatic
@@ -159,7 +159,7 @@ object StellarisLocalizationPsiImplUtil {
 	//region StellarisLocalizationSerialNumber
 	@JvmStatic
 	fun getName(element: StellarisLocalizationSerialNumber): String? {
-		return element.serialNumberId?.text
+		return element.serialNumberId?.text?.toUpperCase()
 	}
 	
 	@JvmStatic
@@ -188,7 +188,7 @@ object StellarisLocalizationPsiImplUtil {
 	//region StellarisLocalizationColorfulText
 	@JvmStatic
 	fun getName(element: StellarisLocalizationColorfulText): String? {
-		return element.colorCode?.text
+		return element.colorCode?.text?.toUpperCase()
 	}
 	
 	@JvmStatic

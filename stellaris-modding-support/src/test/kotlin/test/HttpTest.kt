@@ -69,5 +69,17 @@ class HttpTest {
 		println(httpResponse.statusCode())
 		println(httpResponse.body())
 	}
+	
+	@Test
+	fun test4(){
+		//https://stellaris.paradoxwikis.com/File:Researc.png
+		val httpClient = HttpClient.newBuilder().build()
+		val httpRequest = HttpRequest.newBuilder().POST(HttpRequest.BodyPublishers.noBody())
+			.uri(URI.create("https://stellaris.paradoxwikis.com/File:Job_servant.png")).build()
+		val bodyHandler = HttpResponse.BodyHandlers.ofString()
+		val httpResponse = httpClient.send(httpRequest,bodyHandler)
+		println(httpResponse.uri())
+		println(httpResponse.statusCode())
+		println(httpResponse.body())
+	}
 }
-
