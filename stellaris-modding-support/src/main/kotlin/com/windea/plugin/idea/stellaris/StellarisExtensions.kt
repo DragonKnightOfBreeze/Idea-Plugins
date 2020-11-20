@@ -30,7 +30,7 @@ fun Boolean.toInt() = if(this) 1 else 0
 
 val workDirectory: File = File("").absoluteFile
 
-private val classPathLocationClass = StellarisBundle.javaClass
+private val classPathLocationClass = StellarisBundle::class.java
 
 private val defaultClassLoader = runCatching {
 	classPathLocationClass.classLoader

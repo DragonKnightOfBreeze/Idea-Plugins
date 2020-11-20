@@ -18,7 +18,8 @@ object StellarisLocalizationTextRenderer {
 		try {
 			element.richTextList.forEach { renderTo(it, writer) }
 		} catch(e: Exception) {
-			writer.write("(syntax error)")
+			e.printStackTrace()
+			writer.write("<code>(syntax error)</code>")
 		}
 	}
 	
@@ -66,13 +67,14 @@ object StellarisLocalizationTextRenderer {
 	private fun renderIconTo(writer: Writer, element: StellarisLocalizationIcon) {
 		val name = element.name ?: return
 		val iconUrl = StellarisLocalizationIconUrlResolver.resolve(name)
-		if(iconUrl.isNotEmpty()){
-			doRenderIconTo(writer, iconUrl)
+		if(iconUrl.isNotEmpty()) {
+			if(iconUrl[0] != '<') doRenderIconTo(writer, iconUrl) else writer.append(iconUrl)
 		}
+		println(writer.toString())
 	}
 	
 	private fun doRenderIconTo(writer: Writer, iconUrl: String) {
-		writer.append("<img src=\"").append(iconUrl).append("\" width=\"$iconSize\" height=\"$iconSize\"/>")
+		writer.append("<img src=\"").append(iconUrl).append("\" width=\"$iconSize\" height=\"$iconSize\" loading=\"lazy\"/>")
 	}
 	
 	private fun renderSerialNumberTo(element: StellarisLocalizationSerialNumber, writer: Writer) {

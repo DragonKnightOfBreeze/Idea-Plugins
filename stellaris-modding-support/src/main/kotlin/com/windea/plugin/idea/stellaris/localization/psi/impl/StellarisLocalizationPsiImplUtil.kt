@@ -136,7 +136,7 @@ object StellarisLocalizationPsiImplUtil {
 	//region StellarisLocalizationIcon
 	@JvmStatic
 	fun getName(element: StellarisLocalizationIcon): String? {
-		return element.iconId?.text?.toUpperCase()
+		return element.iconId?.text
 	}
 	
 	@JvmStatic

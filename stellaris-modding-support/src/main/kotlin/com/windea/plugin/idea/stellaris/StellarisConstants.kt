@@ -73,7 +73,7 @@ val inferedStellarisLocale = when(System.getProperty("user.language")){
 	else -> StellarisLocale.ENGLISH
 }
 
-val iconSize get() = DocumentationComponent.getQuickDocFontSize().size
+val iconSize get() = (DocumentationComponent.getQuickDocFontSize().size *1.2).toInt()
 //endregion
 
 //region Resources

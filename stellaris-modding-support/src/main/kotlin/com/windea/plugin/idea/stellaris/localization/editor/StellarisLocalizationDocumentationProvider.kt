@@ -69,7 +69,7 @@ class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider
 					val iconUrl = StellarisLocalizationIconUrlResolver.resolve(name)
 					if(iconUrl.isNotEmpty()) {
 						append(DocumentationMarkup.CONTENT_START)
-						doRenderIconTo(this,iconUrl)
+						if(iconUrl[0] != '<') doRenderIconTo(this, iconUrl) else this.append(iconUrl)
 						append(DocumentationMarkup.CONTENT_END)
 					}
 				}
@@ -99,6 +99,6 @@ class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider
 	}
 	
 	private fun doRenderIconTo(writer: Writer, iconUrl: String) {
-		writer.append("<img src=\"").append(iconUrl).append("\" width=\"$iconSize\" height=\"$iconSize\"/>")
+		writer.append("<img src=\"").append(iconUrl).append("\" width=\"$iconSize\" height=\"$iconSize\" loading=\"lazy\"/>")
 	}
 }
