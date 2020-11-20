@@ -33,6 +33,9 @@
       Default all to false.
     </p>
     <p>
+      Please note you may find some syntax errors in files from the Stellaris game directory, so it is.
+    </p>
+    <p>
       You can also write Stellaris mods by VSCode IDE with CWTools plugin,
       but please note that IDEA is undoubtedly more powerful than VSCode.
       which means that this plugin may support some advance features that CWTools will never provide.
@@ -75,6 +78,9 @@
       配置是否解析内部引用（项目目录中）和外部引用（游戏和模组目录中，<b>尚未实现</b>），
       例如脚本文件中的本地化属性和脚本属性的引用。
       默认全部不启用。
+    </p>
+    <p>
+      请注意，你可能会在来自Stellaris游戏目录的文件中发现一些语法错误——没错，它就是语法错误。
     </p>
     <p>
       你也可以使用VSCode IDE并配合CWTools插件进行Stellaris模组编程。
