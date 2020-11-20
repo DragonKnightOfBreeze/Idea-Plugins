@@ -17,7 +17,7 @@ enum class StellarisLocale(
 	SPANISH("l_spanish", "Spanish"),
 	DEFAULT("l_default", "Default");
 
-	val documentText = "(locale) $description"
+	val documentText = "(locale) <b>$description</b>"
 	val popupText = "'$key' - $description"
 
 	companion object {

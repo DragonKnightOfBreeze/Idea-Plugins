@@ -12,7 +12,7 @@ enum class StellarisSerialNumber(
 	Ordinal("O","Ordinal Number 1st, 2nd, 3rd...","1st"),
 	Roman("R","Roman Number I, II, III...","I");
 
-	val documentText = "(serial number) $description"
+	val documentText = "(serial number) <b>$description</b>"
 	val popupText = "'$key' - $description"
 
 	companion object{

@@ -25,7 +25,7 @@ enum class StellarisColor(
 	White("W", "White", Color(0xffffff),"#ffffff"),
 	Yellow("Y", "Yellow", Color(0xffff00),"#ffff00");
 
-	val documentText = "(color) $description"
+	val documentText = "(color) <b>$description</b>"
 	val popupText = "'$key' - $description"
 	val icon = ColorIcon(16, color)
 	val gutterIcon = ColorIcon(12, color)

@@ -244,6 +244,9 @@
 * [X] 尝试调整渲染的图标到理想的大小，常规方法不可行，需要获取动态的fontSize
 * [X] 当解析图标失败时，显示未知图标。
 * [X] 优化图标的解析速度。
+* [X] 优化文档注释，显示更多内容。
+* [X] 优化文档注释，添加到两个wiki的连接
+* [X] 解析图标时首先爬取<https://qunxing.huijiwiki.com/>，然后爬取<https://stellaris.paradoxwikis.com/>
 * [ ] 为脚本文件提供较为完善的Schema文件
 * [ ] 完成路径到脚本定义类型`common/armies->army`的的映射文件
 * [ ] 根据脚本定义类型和Schema为脚本文件进行额外的代码提示

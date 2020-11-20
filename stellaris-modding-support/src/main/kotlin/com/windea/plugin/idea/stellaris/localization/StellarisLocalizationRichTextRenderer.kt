@@ -9,7 +9,7 @@ import java.io.*
  *
  * 基于颜色渲染文本。
  */
-object StellarisLocalizationTextRenderer {
+object StellarisLocalizationRichTextRenderer {
 	fun render(element:StellarisLocalizationPropertyValue):String{
 		return renderTo(element,StringWriter()).toString()
 	}
@@ -68,13 +68,9 @@ object StellarisLocalizationTextRenderer {
 		val name = element.name ?: return
 		val iconUrl = StellarisLocalizationIconUrlResolver.resolve(name)
 		if(iconUrl.isNotEmpty()) {
-			if(iconUrl[0] != '<') doRenderIconTo(writer, iconUrl) else writer.append(iconUrl)
+			if(iconUrl[0] != '<') writer.append(iconTag(iconUrl)) else writer.append(iconUrl)
 		}
 		println(writer.toString())
-	}
-	
-	private fun doRenderIconTo(writer: Writer, iconUrl: String) {
-		writer.append("<img src=\"").append(iconUrl).append("\" width=\"$iconSize\" height=\"$iconSize\" loading=\"lazy\"/>")
 	}
 	
 	private fun renderSerialNumberTo(element: StellarisLocalizationSerialNumber, writer: Writer) {

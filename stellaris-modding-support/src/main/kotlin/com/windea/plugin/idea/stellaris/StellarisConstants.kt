@@ -5,12 +5,8 @@ import com.intellij.icons.*
 import com.intellij.openapi.project.*
 import com.intellij.openapi.util.*
 import com.intellij.openapi.vfs.*
-import com.intellij.psi.search.*
 import com.intellij.util.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
-import com.windea.plugin.idea.stellaris.settings.*
-import java.nio.file.*
-import java.util.*
 import java.util.concurrent.*
 
 //region Strings
@@ -73,7 +69,27 @@ val inferedStellarisLocale = when(System.getProperty("user.language")){
 	else -> StellarisLocale.ENGLISH
 }
 
-val iconSize get() = (DocumentationComponent.getQuickDocFontSize().size *1.2).toInt()
+val iconSize get() = DocumentationComponent.getQuickDocFontSize().size
+
+////https://qunxing.huijiwiki.com/
+////https://stellaris.paradoxwikis.com/
+////https://qunxing.huijiwiki.com/wiki/%E6%96%87%E4%BB%B6:Xxx.png
+////https://stellaris.paradoxwikis.com/File:Xxx.png
+
+const val paradoxwikisUrl="https://stellaris.paradoxwikis.com/"
+const val huijiwikiUrl = "https://qunxing.huijiwiki.com/"
+
+val wikiList = listOf(paradoxwikisUrl,huijiwikiUrl)
+
+fun paradoxwikisPngUrl(name:String): String {
+	val fqName = name[0].toUpperCase() + name.substring(1)
+	return "https://stellaris.paradoxwikis.com/File:$fqName.png"
+}
+
+fun huijiwikiPngUrl(name:String): String {
+	val fqName = name[0].toUpperCase() + name.substring(1)
+	return "https://qunxing.huijiwiki.com/wiki/%E6%96%87%E4%BB%B6:$fqName.png"
+}
 //endregion
 
 //region Resources

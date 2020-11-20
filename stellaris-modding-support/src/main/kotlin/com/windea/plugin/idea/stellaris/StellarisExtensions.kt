@@ -137,6 +137,10 @@ fun <T : Any> T?.toSingletonOrEmpty(): List<T> {
 //endregion
 
 //region Misc
+fun iconTag(url:String):String{
+	return """<img src="$url" width="$iconSize" height="$iconSize"/>"""
+}
+
 fun String.isInvalidPropertyName(): Boolean {
 	return this.containsBlank() || this == "null"
 }
