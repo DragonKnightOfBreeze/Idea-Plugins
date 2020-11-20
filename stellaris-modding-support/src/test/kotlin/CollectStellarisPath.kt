@@ -27,6 +27,6 @@ private fun readFromProps(path:String): Map<String, String> {
 }
 
 private fun writeToProps(path:String,paths:List<String>,props:Map<String,String>){
-	val text = paths.joinToString("\n"){ "$it = ${props[it].let{ s -> if(s == null || s.isBlank()) it else s}}" }
+	val text = paths.joinToString("\n"){ "${props[it].let{ s -> if(s == null || s.isBlank()) it else s}} = $it" }
 	File(path).writeText(text)
 }

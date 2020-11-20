@@ -48,7 +48,7 @@ class HttpTest {
 		//https://stellaris.paradoxwikis.com/File:Research.png
 		val httpClient = HttpClient.newBuilder().build()
 		val httpRequest = HttpRequest.newBuilder().GET()
-			.uri(URI.create("https://stellaris.paradoxwikis.com/File:Research.png")).build()
+			.uri(URI.create("https://stellaris.paradoxwikis.com/File:Pop.png")).build()
 		val bodyHandler = HttpResponse.BodyHandlers.ofString()
 		val httpResponse = httpClient.send(httpRequest,bodyHandler)
 		println(httpResponse.uri())
@@ -70,3 +70,4 @@ class HttpTest {
 		println(httpResponse.body())
 	}
 }
+

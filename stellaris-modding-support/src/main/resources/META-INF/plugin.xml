@@ -33,6 +33,7 @@
       Default all to false.
     </p>
     <p>
+      If you need resolve references from Stellaris game directory, currently please consider add then to your mod project.
       Please note you may find some syntax errors in files from the Stellaris game directory, so it is.
     </p>
     <p>
@@ -80,6 +81,7 @@
       默认全部不启用。
     </p>
     <p>
+      如果你需要解析来自Stellaris游戏目录的引用，目前请考虑将它们放到你的模组项目中。
       请注意，你可能会在来自Stellaris游戏目录的文件中发现一些语法错误——没错，它就是语法错误。
     </p>
     <p>

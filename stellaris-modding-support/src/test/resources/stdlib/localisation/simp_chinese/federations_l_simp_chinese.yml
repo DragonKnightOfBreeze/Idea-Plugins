@@ -1348,11 +1348,11 @@
  DIPLOMATIC_SUPPORT_VALUE:0 "$VALUE|Y$"
  SUPPORTERS:0 "支持者"
  UP_NEXT:0 "下一项"
- ABSTAINING:0 "§g弃权§!"
+ ABSTAINING:0 "§G弃权§!"
  SUPPORT_COLON:0 "$support$： "
 
  VOTE_TALLY_DESC:0 "§H计票结果§!\n根据当前状况，这项议案将被$STATUS$。对这项议案的投票还剩 £time£ $DAYS|Y$天。"
- VOTE_WEIGHT_SPLIT:0 "§H外交权重分配§!\n    §G支持：$SUPPORTING|0$§!\n    §R反对：$OPPOSING|0$§!\n    §g弃权：$ABSTAINING|0$§!"
+ VOTE_WEIGHT_SPLIT:0 "§H外交权重分配§!\n    §G支持：$SUPPORTING|0$§!\n    §R反对：$OPPOSING|0$§!\n    §G弃权：$ABSTAINING|0$§!"
  VOTE_DETAILS_DESC:0 "如果这项议案通过，其效力将适用于整个星海共同体。相关修正会持续影响所有成员国，包括那些在参议院中投票反对这项议案的国家。"
  SENATE_IN_SESSION:0 "参议院会议结束还有 £time£ $DAYS|Y$"
  SENATE_IN_SESSION_DESC:0 "§H参议院会议进行中§!\n星海共同体共有 £time£ $DAYS|Y$来在参议院中为$RESOLUTION|H$投票，以决定其会被§E通过§!还是§R否决§!。"
@@ -1362,11 +1362,11 @@
 
  CLICK_TO_SUPPORT:0 "§G点击以投票支持该议案§!\n在投票后你须等待 £time£ $DAYS|Y$天方能再次投票。"
  CLICK_TO_OPPOSE:0 "§R点击以投票反对该议案§!\n在投票后你须等待 £time£ $DAYS|Y$天方能再次投票"
- CLICK_TO_ABSTAIN:0 "§g点击以对该议案投下弃权票§!\n在弃权后你须等待 £time£ $DAYS|Y$天方能再次投票"
+ CLICK_TO_ABSTAIN:0 "§G点击以对该议案投下弃权票§!\n在弃权后你须等待 £time£ $DAYS|Y$天方能再次投票"
 
  SUPPORT_PROPOSED:0 "§G点击宣布你支持这项议案，将你的§Y外交权重§!增添进该议案在队列中的总支持度。§!"
  OPPOSE_PROPOSED:0 "§R点击不支持这项议案，并在该议案被提交至参议院时即刻表示反对§!"
- ABSTAIN_PROPOSED:0 "§g点击不支持这项议案，并在该议案被提交至参议院后表示弃权§!"
+ ABSTAIN_PROPOSED:0 "§G点击不支持这项议案，并在该议案被提交至参议院后表示弃权§!"
 
  CANNOT_VOTE_UNTIL:0 "$COUNTRY|Y$近期已对此议案投票，须等待 £time£ $DAYS|Y$天方可再次投票。"
  ALREADY_SUPPORTING:0 "$COUNTRY|Y$已经投票支持该议案"
@@ -1517,7 +1517,7 @@
  DIPLOMATIC_FAVORS:0 "外交支持"
  DIPLOMATIC_FAVORS_VIEW_USED_FAVORS:0 "§Y$USED$/$TOTAL$§!"
  DIPLOMATIC_FAVORS_VIEW_DIPLO_WEIGHT_BUFF:0 "$AMOUNT|H=$"
- DIPLOMATIC_FAVORS_VIEW_DIPLO_WEIGHT_BUFF_DEFAULT:0 "§g（$AMOUNT|=$）§!"
+ DIPLOMATIC_FAVORS_VIEW_DIPLO_WEIGHT_BUFF_DEFAULT:0 "§G（$AMOUNT|=$）§!"
  INCREASE_FAVOR_TOOLTIP:0 "$INCREASE_HEADER$\n§G点击此处增加外交支持数§!"
  DECREASE_FAVOR_TOOLTIP:0 "$DECREASE_HEADER$\n§G点击此处减少外交支持数§!"
  DIPLOMATIC_FAVORS_VIEW_CALL_IN_FAVOR:0 "请求外交支持（$NUM|Y$）$COST$"

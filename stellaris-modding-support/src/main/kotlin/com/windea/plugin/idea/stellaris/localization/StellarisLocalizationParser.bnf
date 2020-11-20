@@ -22,7 +22,7 @@
 	  END_OF_LINE_COMMENT='regexp:#[^"\r\n]*'
 	  LOCALE_ID='regexp:[a-z_]+'
 	  PROPERTY_KEY_ID="regexp:[a-zA-Z0-9_.\-']+"
-	  VALID_ESCAPE_TOKEN='regexp:\\["rn$£§%\[]'
+	  VALID_ESCAPE_TOKEN='regexp:\\[rnt"$£§%]'
 	  INVALID_ESCAPE_TOKEN='regexp:\\.'
 	  LEFT_QUOTE="\""
 	  RIGHT_QUOTE="\""

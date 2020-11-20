@@ -3,6 +3,7 @@ package com.windea.plugin.idea.stellaris.localization
 import java.net.*
 import java.net.http.*
 import java.net.http.HttpResponse.*
+import java.time.*
 import java.util.concurrent.*
 
 /**
@@ -11,10 +12,12 @@ import java.util.concurrent.*
  * 基于名称和stellaris.paradoxwikis.com上的文件解析图标地址。
  */
 object StellarisLocalizationIconUrlResolver {
-	private val httpClient = HttpClient.newHttpClient()
+	private  val timeout = Duration.ofMinutes(3)
+	private val httpClient = HttpClient.newBuilder().connectTimeout(timeout).build()
 	private val bodyHandler = BodyHandlers.ofLines()
 	private val urlCache = ConcurrentHashMap<String, String>()
 	private const val host = "https://stellaris.paradoxwikis.com"
+	private const val shortPrefix = "<li>"
 	private const val prefix = "<div class=\"fullImageLink\" id=\"file\"><a href=\""
 	private const val prefixLength = prefix.length
 	private const val unknownIconUrl = "https://stellaris.paradoxwikis.com/images/thumb/d/dd/Unknown.png/24px-Unknown.png"
@@ -23,7 +26,11 @@ object StellarisLocalizationIconUrlResolver {
 	}
 	
 	fun resolve(name: String): String {
-		return urlCache.getOrPut(name){ doResolveUrl(name) }
+		return try {
+			urlCache.getOrPut(name) { doResolveUrl(name) }
+		}catch(e:TimeoutException){
+			"(resolve icon url timeout)"
+		}
 	}
 	
 	//TODO 继续提高性能
@@ -37,12 +44,8 @@ object StellarisLocalizationIconUrlResolver {
 		val httpResponse = httpClient.send(httpRequest(iconName(name)), bodyHandler)
 		if(httpResponse.statusCode() == 200) {
 			val lines = httpResponse.body()
-			var hasResult = false
-			return lines.filter {
-				if(hasResult) return@filter false
-				val isResult = it.contains(prefix)
-				if(isResult) hasResult = true
-				isResult
+			return lines.parallel().filter {
+				 it.startsWith(shortPrefix) && it.contains (prefix)
 			}.map {
 				val index = it.indexOf(prefix)
 				val startIndex = index + prefixLength

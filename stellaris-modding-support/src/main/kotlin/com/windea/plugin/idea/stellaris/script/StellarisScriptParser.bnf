@@ -36,7 +36,7 @@
 	  STRING_TOKEN='regexp:[^@\s{}="][^\s{}="]*'
 	  QUOTED_STRING_TOKEN='regexp:"([^"\r\n\\]|\\.)*?"'
 	  COLOR_TOKEN="regexp:(rgb|rgba|hsb|hsv|hsl)[ \t]*\{[0-9. \t]*}"
-    CODE_TEXT_TOKEN="regexp:[^\r\n\]}]+"
+      CODE_TEXT_TOKEN="regexp:[^\r\n\]}]+"
 	]
 }
 

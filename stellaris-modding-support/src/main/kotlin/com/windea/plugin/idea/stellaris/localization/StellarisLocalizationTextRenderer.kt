@@ -18,7 +18,7 @@ object StellarisLocalizationTextRenderer {
 		try {
 			element.richTextList.forEach { renderTo(it, writer) }
 		} catch(e: Exception) {
-			writer.write(syntaxError)
+			writer.write("(syntax error)")
 		}
 	}
 	
