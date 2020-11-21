@@ -14,11 +14,11 @@ class StellarisLocalizationFindUsagesProvider : FindUsagesProvider {
 
 	override fun getType(element: PsiElement): String {
 		return when(element) {
-			is StellarisLocalizationProperty -> StellarisBundle.message("stellaris.localization.findUsages.property")
-			is StellarisLocalizationLocale -> StellarisBundle.message("stellaris.localization.findUsages.Locale")
-			is StellarisLocalizationIcon -> StellarisBundle.message("stellaris.localization.findUsages.icon")
-			is StellarisLocalizationColorfulText -> StellarisBundle.message("stellaris.localization.findUsages.color")
-			is StellarisLocalizationSerialNumber -> StellarisBundle.message("stellaris.localization.findUsages.serialNumber")
+			is StellarisLocalizationProperty -> message("stellaris.localization.findUsages.property")
+			is StellarisLocalizationLocale -> message("stellaris.localization.findUsages.Locale")
+			is StellarisLocalizationIcon -> message("stellaris.localization.findUsages.icon")
+			is StellarisLocalizationColorfulText -> message("stellaris.localization.findUsages.color")
+			is StellarisLocalizationSerialNumber -> message("stellaris.localization.findUsages.serialNumber")
 			else -> ""
 		}
 	}

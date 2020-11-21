@@ -16,7 +16,7 @@ class ChangeColorIntention : IntentionAction {
 		val instance = ChangeColorIntention()
 	}
 
-	private val text = StellarisBundle.message("stellaris.localization.intention.changeColor")
+	private val text = message("stellaris.localization.intention.changeColor")
 
 	override fun startInWriteAction() = false
 
@@ -40,7 +40,7 @@ class ChangeColorIntention : IntentionAction {
 	private class Popup(
 		private val value: StellarisLocalizationColorfulText,
 		values: Array<StellarisLocalizationColorfulText>
-	) : BaseListPopupStep<StellarisLocalizationColorfulText>(StellarisBundle.message("stellaris.localization.intention.changeColor.title"), *values) {
+	) : BaseListPopupStep<StellarisLocalizationColorfulText>(message("stellaris.localization.intention.changeColor.title"), *values) {
 		override fun getIconFor(value: StellarisLocalizationColorfulText) = value.stellarisColor!!.icon
 
 		override fun getTextFor(value: StellarisLocalizationColorfulText) = value.stellarisColor!!.popupText

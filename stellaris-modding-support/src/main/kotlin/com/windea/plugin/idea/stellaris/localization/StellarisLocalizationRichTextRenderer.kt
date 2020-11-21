@@ -2,6 +2,7 @@ package com.windea.plugin.idea.stellaris.localization
 
 import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
+import com.windea.plugin.idea.stellaris.script.psi.*
 import java.io.*
 
 /**
@@ -66,7 +67,7 @@ object StellarisLocalizationRichTextRenderer {
 	
 	private fun renderIconTo(writer: Writer, element: StellarisLocalizationIcon) {
 		val name = element.name ?: return
-		val iconUrl = StellarisLocalizationIconUrlResolver.resolve(name)
+		val iconUrl = name.resolveIconUrl()
 		if(iconUrl.isNotEmpty()) {
 			if(iconUrl[0] != '<') writer.append(iconTag(iconUrl)) else writer.append(iconUrl)
 		}
@@ -95,4 +96,14 @@ object StellarisLocalizationRichTextRenderer {
 		}
 		if(rgbText != null) writer.append("</span>")
 	}
+}
+
+@Suppress("NOTHING_TO_INLINE")
+inline fun StellarisLocalizationPropertyValue.renderRichText():String{
+	return StellarisLocalizationRichTextRenderer.render(this)
+}
+
+@Suppress("NOTHING_TO_INLINE")
+inline fun StellarisLocalizationPropertyValue.renderRichTextTo(writer:Writer){
+	StellarisLocalizationRichTextRenderer.renderTo(this,writer)
 }

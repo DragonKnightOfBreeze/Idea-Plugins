@@ -16,6 +16,7 @@ import com.intellij.psi.search.*
 import com.intellij.psi.util.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
 import com.windea.plugin.idea.stellaris.script.psi.*
+import org.jetbrains.annotations.*
 import java.io.*
 import java.net.*
 import java.util.*
@@ -137,10 +138,6 @@ fun <T : Any> T?.toSingletonOrEmpty(): List<T> {
 //endregion
 
 //region Misc
-fun iconTag(url:String):String{
-	return """<img src="$url" width="$iconSize" height="$iconSize"/>"""
-}
-
 fun String.isInvalidPropertyName(): Boolean {
 	return this.containsBlank() || this == "null"
 }
@@ -367,14 +364,14 @@ fun StellarisScriptProperty.findRelatedLocalizationProperties(locale:StellarisLo
 
 //TODO 虽然还有其他关联的属性名，但是这里只提取xxx和xxx_desc和xxx_desc_xxx，否则可能会太多了
 
-internal fun String.isRelatedLocalizationPropertyName(value: String): Boolean {
+fun String.isRelatedLocalizationPropertyName(value: String): Boolean {
 	return value == this || value.startsWith(this + "_desc")
 }
 
-internal fun String.getRelatedLocalizationPropertyShortName(prefixLength:Int):String{
+fun String.getRelatedLocalizationPropertyI18nKey(prefixLength:Int):String{
 	return when{
-		this.length <= prefixLength+1 -> "Text"
-		else -> this.substring(prefixLength+1).capitalizedWords()
+		this.length <= prefixLength+1 -> "stellaris.documentation.name"
+		else -> "stellaris.documentation."+ this.substring(prefixLength+1).toLowerCase()
 	}
 }
 //endregion

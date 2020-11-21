@@ -5,7 +5,7 @@ import com.intellij.application.options.*
 import com.intellij.psi.codeStyle.*
 import com.intellij.psi.codeStyle.CodeStyleSettingsCustomizable.*
 import com.windea.plugin.idea.stellaris.*
-import com.windea.plugin.idea.stellaris.StellarisBundle.message
+import com.windea.plugin.idea.stellaris.message
 import com.windea.plugin.idea.stellaris.script.*
 import com.windea.plugin.idea.stellaris.script.formatter.StellarisScriptCodeStyleSettings.*
 

@@ -9,23 +9,23 @@ class StellarisLocalizationDescriptionProvider : ElementDescriptionProvider {
 	override fun getElementDescription(element: PsiElement, location: ElementDescriptionLocation): String? {
 		return when(element) {
 			is StellarisLocalizationLocale -> {
-				if(location == UsageViewTypeLocation.INSTANCE) StellarisBundle.message("stellaris.localization.description.Locale")
+				if(location == UsageViewTypeLocation.INSTANCE) message("stellaris.localization.description.Locale")
 				else element.name
 			}
 			is StellarisLocalizationProperty -> {
-				if(location == UsageViewTypeLocation.INSTANCE) StellarisBundle.message("stellaris.localization.description.property")
+				if(location == UsageViewTypeLocation.INSTANCE) message("stellaris.localization.description.property")
 				else element.name
 			}
 			is StellarisLocalizationIcon -> {
-				if(location == UsageViewTypeLocation.INSTANCE) StellarisBundle.message("stellaris.localization.description.icon")
+				if(location == UsageViewTypeLocation.INSTANCE) message("stellaris.localization.description.icon")
 				else element.name
 			}
 			is StellarisLocalizationColorfulText -> {
-				if(location == UsageViewTypeLocation.INSTANCE) StellarisBundle.message("stellaris.localization.description.color")
+				if(location == UsageViewTypeLocation.INSTANCE) message("stellaris.localization.description.color")
 				else element.name
 			}
 			is StellarisLocalizationSerialNumber -> {
-				if(location == UsageViewTypeLocation.INSTANCE) StellarisBundle.message("stellaris.localization.description.serialNumber")
+				if(location == UsageViewTypeLocation.INSTANCE) message("stellaris.localization.description.serialNumber")
 				else element.name
 			}
 			else -> null

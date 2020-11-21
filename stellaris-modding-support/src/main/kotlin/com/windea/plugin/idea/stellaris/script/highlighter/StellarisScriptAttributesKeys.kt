@@ -3,7 +3,7 @@ package com.windea.plugin.idea.stellaris.script.highlighter
 import com.intellij.openapi.editor.DefaultLanguageHighlighterColors.*
 import com.intellij.openapi.editor.HighlighterColors.*
 import com.intellij.openapi.editor.colors.TextAttributesKey.*
-import com.windea.plugin.idea.stellaris.StellarisBundle.message
+import com.windea.plugin.idea.stellaris.message
 
 object StellarisScriptAttributesKeys {
 	@JvmField val SEPARATOR_KEY = createTextAttributesKey(message("stellaris.script.syntax.separator"), OPERATION_SIGN)

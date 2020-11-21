@@ -12,7 +12,7 @@ import com.intellij.refactoring.suggested.*
 import com.intellij.ui.awt.*
 import com.intellij.util.*
 import com.windea.plugin.idea.stellaris.*
-import com.windea.plugin.idea.stellaris.StellarisBundle.message
+import com.windea.plugin.idea.stellaris.message
 import com.windea.plugin.idea.stellaris.localization.highlighter.*
 import com.windea.plugin.idea.stellaris.localization.intentions.*
 import com.windea.plugin.idea.stellaris.localization.psi.*

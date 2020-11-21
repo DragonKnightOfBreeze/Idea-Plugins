@@ -9,11 +9,11 @@ class StellarisScriptDescriptionProvider: ElementDescriptionProvider {
 	override fun getElementDescription(element: PsiElement, location: ElementDescriptionLocation): String? {
 		return when(element) {
 			is StellarisScriptVariable ->{
-				if(location == UsageViewTypeLocation.INSTANCE) StellarisBundle.message("stellaris.script.description.variable")
+				if(location == UsageViewTypeLocation.INSTANCE) message("stellaris.script.description.variable")
 				else element.name
 			}
 			is StellarisScriptProperty ->{
-				if(location == UsageViewTypeLocation.INSTANCE) StellarisBundle.message("stellaris.script.description.property")
+				if(location == UsageViewTypeLocation.INSTANCE) message("stellaris.script.description.property")
 				else element.name
 			}
 			else -> null

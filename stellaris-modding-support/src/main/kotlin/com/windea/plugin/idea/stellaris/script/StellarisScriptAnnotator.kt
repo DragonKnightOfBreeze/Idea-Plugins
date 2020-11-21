@@ -13,7 +13,7 @@ import com.intellij.ui.awt.*
 import com.intellij.util.*
 import com.intellij.util.ui.*
 import com.windea.plugin.idea.stellaris.*
-import com.windea.plugin.idea.stellaris.StellarisBundle.message
+import com.windea.plugin.idea.stellaris.message
 import com.windea.plugin.idea.stellaris.localization.psi.*
 import com.windea.plugin.idea.stellaris.script.highlighter.*
 import com.windea.plugin.idea.stellaris.script.psi.*

@@ -2,14 +2,11 @@ package com.windea.plugin.idea.stellaris.script.schema
 
 import com.intellij.codeInspection.*
 import com.intellij.codeInspection.ui.*
-import com.intellij.json.*
 import com.intellij.psi.*
-import com.jetbrains.jsonSchema.extension.*
 import com.jetbrains.jsonSchema.ide.*
 import com.jetbrains.jsonSchema.impl.*
-import com.windea.plugin.idea.stellaris.StellarisBundle.message
+import com.windea.plugin.idea.stellaris.message
 import com.windea.plugin.idea.stellaris.script.psi.*
-import org.jetbrains.annotations.*
 import javax.swing.*
 
 //org.jetbrains.yaml.schema.YamlJsonSchemaInspectionBase

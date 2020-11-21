@@ -75,7 +75,7 @@ class HttpTest {
 		//https://stellaris.paradoxwikis.com/File:Researc.png
 		val httpClient = HttpClient.newBuilder().build()
 		val httpRequest = HttpRequest.newBuilder().POST(HttpRequest.BodyPublishers.noBody())
-			.uri(URI.create("https://stellaris.paradoxwikis.com/File:Job_servant.png")).build()
+			.uri(URI.create("https://stellaris.paradoxwikis.com/File:job_servant.png")).build()
 		val bodyHandler = HttpResponse.BodyHandlers.ofString()
 		val httpResponse = httpClient.send(httpRequest,bodyHandler)
 		println(httpResponse.uri())
@@ -88,7 +88,7 @@ class HttpTest {
 	fun test5(){
 		val httpClient = HttpClient.newBuilder().build()
 		val httpRequest = HttpRequest.newBuilder().POST(HttpRequest.BodyPublishers.noBody())
-			.uri(URI.create("https://qunxing.huijiwiki.com/wiki/%E6%96%87%E4%BB%B6:Job_researcher.png")).build()
+			.uri(URI.create("https://qunxing.huijiwiki.com/wiki/%E6%96%87%E4%BB%B6:job_researcher.png")).build()
 		val bodyHandler = HttpResponse.BodyHandlers.ofString()
 		val httpResponse = httpClient.send(httpRequest,bodyHandler)
 		println(httpResponse.uri())

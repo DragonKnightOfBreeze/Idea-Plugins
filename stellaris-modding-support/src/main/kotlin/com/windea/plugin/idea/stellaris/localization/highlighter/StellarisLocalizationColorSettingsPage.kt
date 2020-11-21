@@ -5,7 +5,7 @@ package com.windea.plugin.idea.stellaris.localization.highlighter
 import com.intellij.openapi.fileTypes.*
 import com.intellij.openapi.options.colors.*
 import com.windea.plugin.idea.stellaris.*
-import com.windea.plugin.idea.stellaris.StellarisBundle.message
+import com.windea.plugin.idea.stellaris.message
 import com.windea.plugin.idea.stellaris.localization.*
 
 class StellarisLocalizationColorSettingsPage : ColorSettingsPage {

@@ -11,7 +11,7 @@ import com.intellij.psi.*
 import com.intellij.util.*
 import com.intellij.util.containers.*
 import com.windea.plugin.idea.stellaris.*
-import com.windea.plugin.idea.stellaris.StellarisBundle.message
+import com.windea.plugin.idea.stellaris.message
 import com.windea.plugin.idea.stellaris.localization.psi.*
 import com.windea.plugin.idea.stellaris.script.psi.*
 import javax.swing.*

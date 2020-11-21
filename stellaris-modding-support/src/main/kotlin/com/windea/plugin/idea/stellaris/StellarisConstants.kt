@@ -71,6 +71,10 @@ val inferedStellarisLocale = when(System.getProperty("user.language")){
 
 val iconSize get() = DocumentationComponent.getQuickDocFontSize().size
 
+fun iconTag(url:String,size:Int = iconSize):String{
+	return """<img src="$url" width="$size" height="$size"/>"""
+}
+
 //https://qunxing.huijiwiki.com/
 //https://stellaris.paradoxwikis.com/
 //https://qunxing.huijiwiki.com/wiki/%E6%96%87%E4%BB%B6:Xxx.png
@@ -78,18 +82,6 @@ val iconSize get() = DocumentationComponent.getQuickDocFontSize().size
 
 const val paradoxwikisUrl="https://stellaris.paradoxwikis.com/"
 const val huijiwikiUrl = "https://qunxing.huijiwiki.com/"
-
-val wikiList = listOf(paradoxwikisUrl,huijiwikiUrl)
-
-fun paradoxwikisPngUrl(name:String): String {
-	val fqName = name[0].toUpperCase() + name.substring(1)
-	return "https://stellaris.paradoxwikis.com/File:$fqName.png"
-}
-
-fun huijiwikiPngUrl(name:String): String {
-	val fqName = name[0].toUpperCase() + name.substring(1)
-	return "https://qunxing.huijiwiki.com/wiki/%E6%96%87%E4%BB%B6:$fqName.png"
-}
 //endregion
 
 //region Resources

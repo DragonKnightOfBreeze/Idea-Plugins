@@ -7,9 +7,8 @@ import com.intellij.openapi.ui.*
 import com.intellij.ui.*
 import com.intellij.ui.components.*
 import com.intellij.util.ui.*
-import com.windea.plugin.idea.stellaris.StellarisBundle.message
+import com.windea.plugin.idea.stellaris.message
 import javax.swing.*
-import javax.swing.text.*
 
 //* 是否解析外部引用
 //* 路径

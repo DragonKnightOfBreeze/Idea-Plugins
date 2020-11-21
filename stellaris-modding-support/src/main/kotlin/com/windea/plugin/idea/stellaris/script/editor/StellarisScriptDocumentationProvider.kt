@@ -8,10 +8,6 @@ import com.windea.plugin.idea.stellaris.script.highlighter.*
 import com.windea.plugin.idea.stellaris.script.psi.*
 
 class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
-	override fun getUrlFor(element: PsiElement?, originalElement: PsiElement?): List<String> {
-		return wikiList
-	}
-	
 	override fun getQuickNavigateInfo(element: PsiElement?, originalElement: PsiElement?): String? {
 		return when(element) {
 			//防止意外情况
@@ -72,14 +68,14 @@ class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
 			var isSectionsStart = false
 			
 			//添加渲染后的对应的图标到文档注释中
-			val iconUrl = StellarisLocalizationIconUrlResolver.resolve(name,false)
+			val iconUrl = name.resolveIconUrl(false)
 			if(iconUrl.isNotEmpty()){
 				if(!isSectionsStart) append(DocumentationMarkup.SECTIONS_START)
 				isSectionsStart = true
 				append(DocumentationMarkup.SECTION_HEADER_START)
-				append("Icon: ")
+				append(message("stellaris.documentation.icon")).append(" ")
 				append(DocumentationMarkup.SECTION_SEPARATOR)
-				append(iconTag(iconUrl))
+				append(iconTag(iconUrl,iconSize*3/2)) //1.5倍大小
 				append(DocumentationMarkup.SECTION_END)
 			}
 			
@@ -98,9 +94,9 @@ class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
 						isSectionsStart = true
 						
 						append(DocumentationMarkup.SECTION_HEADER_START)
-						append(propertyName.getRelatedLocalizationPropertyShortName(name.length)).append(": ")
+						append(message(propertyName.getRelatedLocalizationPropertyI18nKey(name.length))).append(" ")
 						append(DocumentationMarkup.SECTION_SEPARATOR)
-						StellarisLocalizationRichTextRenderer.renderTo(propertyValue, this)
+						propertyValue.renderRichTextTo(this)
 						append(DocumentationMarkup.SECTION_END)
 					}
 				}
@@ -118,7 +114,7 @@ class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
 						isSectionsStart = true
 						
 						append(DocumentationMarkup.SECTION_HEADER_START)
-						append("Tags: ")
+						append(message("stellaris.documentation.tags")).append(" ")
 						append(DocumentationMarkup.SECTION_SEPARATOR)
 						var addNewLine = false
 						for(tag in tags) {
@@ -126,7 +122,7 @@ class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
 							val propValue = prop?.propertyValue
 							if(propValue != null) {
 								if(addNewLine) append("<br>") else addNewLine = true
-								StellarisLocalizationRichTextRenderer.renderTo(propValue, this)
+								propValue.renderRichTextTo(this)
 							}
 						}
 						append(DocumentationMarkup.SECTION_END)

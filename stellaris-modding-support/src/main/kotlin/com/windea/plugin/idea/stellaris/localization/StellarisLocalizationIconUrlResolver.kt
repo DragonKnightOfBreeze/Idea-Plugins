@@ -17,7 +17,7 @@ import java.util.concurrent.*
 /**
  * 图标地址的解析器
  *
- * 基于名称和stellaris.paradoxwikis.com上的文件解析图标地址。
+ * 基于名称以及qunxing.huijiwiki.com和stellaris.paradoxwikis.com上的文件解析图标地址。
  */
 object StellarisLocalizationIconUrlResolver {
 	private val timeout = Duration.ofMinutes(3)
@@ -93,6 +93,12 @@ object StellarisLocalizationIconUrlResolver {
 		return null
 	}
 	
+	
+	private fun huijiwikiPngUrl(name:String): String {
+		val fqName = name.replace("origin_","",true)
+		return "https://qunxing.huijiwiki.com/wiki/%E6%96%87%E4%BB%B6:$fqName.png"
+	}
+	
 	private const val paradoxwikisPrefix = "<div class=\"fullImageLink\" id=\"file\"><a href=\""
 	private const val paradoxwikisPrefixLength = paradoxwikisPrefix.length
 	
@@ -113,17 +119,14 @@ object StellarisLocalizationIconUrlResolver {
 		}
 		return null
 	}
+	
+	private fun paradoxwikisPngUrl(name:String): String {
+		val fqName = name.replace("origin_","origins_",true)
+		return "https://stellaris.paradoxwikis.com/File:$fqName.png"
+	}
 }
 
-//fun main() {
-//	val name = "pop"
-//	println(measureNanoTime {
-//		StellarisLocalizationIconUrlResolver.resolve(name).also{ println(it)}
-//	})
-//	while(true) {
-//		Thread.sleep(1000)
-//		println(measureNanoTime {
-//			StellarisLocalizationIconUrlResolver.resolve(name).also { println(it) }
-//		})
-//	}
-//}
+@Suppress("NOTHING_TO_INLINE")
+inline fun String.resolveIconUrl(defaultToUnknown: Boolean=true):String{
+	return StellarisLocalizationIconUrlResolver.resolve(this,defaultToUnknown)
+}

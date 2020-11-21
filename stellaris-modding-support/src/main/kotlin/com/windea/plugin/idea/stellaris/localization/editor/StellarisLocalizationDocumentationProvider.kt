@@ -8,10 +8,6 @@ import com.windea.plugin.idea.stellaris.localization.highlighter.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
 
 class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider() {
-	override fun getUrlFor(element: PsiElement?, originalElement: PsiElement?): List<String> {
-		return wikiList
-	}
-	
 	override fun getQuickNavigateInfo(element: PsiElement?, originalElement: PsiElement?): String? {
 		return when {
 			element is StellarisLocalizationProperty -> "${getLocationText(element)}<br>localization property \"${element.name}\""
@@ -56,9 +52,9 @@ class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider
 			if(propertyValue != null) {
 				append(DocumentationMarkup.SECTIONS_START)
 				append(DocumentationMarkup.SECTION_HEADER_START)
-				append("Text: ")
+				append(message("stellaris.documentation.text")).append(" ")
 				append(DocumentationMarkup.SECTION_SEPARATOR)
-				StellarisLocalizationRichTextRenderer.renderTo(propertyValue, this)
+				propertyValue.renderRichTextTo(this)
 				append(DocumentationMarkup.SECTION_END)
 				append(DocumentationMarkup.SECTIONS_END)
 			}
@@ -81,7 +77,7 @@ class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider
 			append(DocumentationMarkup.DEFINITION_START)
 			append(documentText)
 			append(DocumentationMarkup.DEFINITION_END)
-			val iconUrl = StellarisLocalizationIconUrlResolver.resolve(name)
+			val iconUrl = name.resolveIconUrl()
 			if(iconUrl.isNotEmpty()) {
 				append(DocumentationMarkup.CONTENT_START)
 				if(iconUrl[0] != '<') append(iconTag(iconUrl)) else append(iconUrl)

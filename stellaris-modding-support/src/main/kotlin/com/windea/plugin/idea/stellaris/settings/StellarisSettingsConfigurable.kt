@@ -1,11 +1,7 @@
 package com.windea.plugin.idea.stellaris.settings
 
 import com.intellij.openapi.options.*
-import com.intellij.openapi.vfs.*
-import com.intellij.workspaceModel.storage.impl.indices.*
-import com.windea.plugin.idea.stellaris.*
-import com.windea.plugin.idea.stellaris.StellarisBundle.message
-import java.nio.file.*
+import com.windea.plugin.idea.stellaris.message
 import javax.swing.*
 
 class StellarisSettingsConfigurable: SearchableConfigurable {

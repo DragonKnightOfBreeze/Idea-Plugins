@@ -18,7 +18,7 @@ class StellarisScriptPropertyRenameInputValidator : RenameInputValidatorEx {
 	}
 
 	override fun getErrorMessage(newName: String, project: Project): String? {
-		return StellarisBundle.message("stellaris.script.rename.property")
+		return message("stellaris.script.rename.property")
 	}
 }
 
