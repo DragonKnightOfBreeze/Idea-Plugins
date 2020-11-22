@@ -21,7 +21,7 @@
       "type" : "object",
       "properties" : {
         "category" : {
-          "$ref" : "#/definitions/resources_category"
+          "$type" : "economic_category"
         },
         "produces" : {
           "$ref" : "#/definitions/resources_item"
@@ -46,7 +46,6 @@
         "$ref" : "#/definitions/scripted_triggers"
       } ]
     },
-    "resources_category" : true,
     "resources_item" : {
       "type" : "object",
       "anyOf" : [ {

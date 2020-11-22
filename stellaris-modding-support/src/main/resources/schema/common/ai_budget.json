@@ -1,4 +1,9 @@
 {
+  "title" : null,
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/budget"
+  },
   "definitions" : {
     "budget" : {
       "type" : "object",
@@ -108,9 +113,5 @@
       "type" : "string",
       "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/budget"
   }
 }

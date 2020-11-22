@@ -85,6 +85,7 @@ class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
 			//过滤非法情况
 			if(name.isInvalidPropertyName()) return@writeString
 			val relatedLocalizationProperties = element.findRelatedLocalizationProperties(inferedStellarisLocale)
+				.distinctBy { it.name } //过滤重复的属性
 			if(relatedLocalizationProperties.isNotEmpty()) {
 				for(property in relatedLocalizationProperties) {
 					val propertyName = property.name ?: continue

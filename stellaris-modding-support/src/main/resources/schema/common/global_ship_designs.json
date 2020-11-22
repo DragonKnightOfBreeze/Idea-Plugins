@@ -59,9 +59,6 @@
     "slot" : {
       "type" : "string"
     },
-    "loc_reference" : {
-      "type" : "string"
-    },
     "triggers" : {
       "type" : "object",
       "anyOf" : [ {
@@ -72,6 +69,14 @@
         "$ref" : "#/definitions/scope_expressions"
       }, {
         "$ref" : "#/definitions/scripted_triggers"
+      } ]
+    },
+    "loc_reference" : {
+      "type" : "string",
+      "anyOf" : [ {
+        "$def" : "localisation/**/*.yml/#/{property}"
+      }, {
+        "$def" : "localisation_synced/**/*.yml/#/{property}"
       } ]
     },
     "condition_expressions" : {

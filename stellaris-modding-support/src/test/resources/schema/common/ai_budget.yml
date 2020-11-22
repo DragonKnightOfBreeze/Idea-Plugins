@@ -1,6 +1,12 @@
+### 支出
+title: AI Budget
+type: object
+additionalProperties:
+  $ref: "#/definitions/budget"
+
 definitions:
-  # 支出
   budget:
+    title: Budget
     type: object
     properties:
       resource:
@@ -41,9 +47,5 @@ definitions:
     - resolutions
     - stations
     - claims
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/budget"
 
 

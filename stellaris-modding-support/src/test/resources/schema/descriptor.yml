@@ -1,3 +1,6 @@
+### 模组描述符
+
+title: Mod Descriptor
 type: object
 properties:
   name:

@@ -41,15 +41,6 @@
         }
       }
     },
-    "color_reference" : {
-      "type" : "string"
-    },
-    "loc_reference" : {
-      "type" : "string"
-    },
-    "gfx_reference" : {
-      "type" : "string"
-    },
     "triggers" : {
       "type" : "object",
       "anyOf" : [ {
@@ -64,6 +55,22 @@
     },
     "shortcut" : {
       "type" : "string"
+    },
+    "color_reference" : {
+      "type" : "string",
+      "$def" : "common/colors/#/{color}"
+    },
+    "loc_reference" : {
+      "type" : "string",
+      "anyOf" : [ {
+        "$def" : "localisation/**/*.yml/#/{property}"
+      }, {
+        "$def" : "localisation_synced/**/*.yml/#/{property}"
+      } ]
+    },
+    "gfx_reference" : {
+      "type" : "string",
+      "$def" : "interface/**/*.gfx/#/{spliteType}/name"
     },
     "condition_expressions" : {
       "type" : "object",

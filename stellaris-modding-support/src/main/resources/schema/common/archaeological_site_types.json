@@ -57,9 +57,6 @@
         }
       }
     },
-    "gfx_reference" : {
-      "type" : "string"
-    },
     "desc" : {
       "anyOf" : [ {
         "$ref" : "#/definitions/loc_reference"
@@ -105,18 +102,19 @@
     },
     "event" : {
       "anyOf" : [ {
-        "$ref" : "#/definitions/event_id"
+        "$ref" : "#/definitions/scripted_event_id"
       }, {
         "propertyNames" : {
           "$ref" : "#/definitions/event_type"
         },
         "additionalProperties" : {
-          "$ref" : "#/definitions/event_id"
+          "$ref" : "#/definitions/scripted_event_id"
         }
       } ]
     },
-    "loc_reference" : {
-      "type" : "string"
+    "gfx_reference" : {
+      "type" : "string",
+      "$def" : "interface/**/*.gfx/#/{spliteType}/name"
     },
     "triggered_desc" : {
       "$ref" : "#/definitions/triggers",
@@ -166,22 +164,32 @@
     "modifier" : {
       "type" : "object"
     },
-    "event_id" : {
+    "scripted_event_id" : {
       "anyOf" : [ {
-        "type" : "string"
+        "$ref" : "#/definitions/event_id"
       }, {
-        "type" : "object",
-        "$ref" : "#/definitions/modifier",
-        "properties" : {
-          "id" : {
-            "type" : "string"
-          }
-        },
-        "additionalProperties" : true
+        "anyOf" : [ {
+          "$ref" : "#/definitions/modifiers"
+        }, {
+          "properties" : {
+            "id" : {
+              "type" : "string"
+            }
+          },
+          "additionalProperties" : true
+        } ]
       } ]
     },
     "event_type" : {
       "type" : "string"
+    },
+    "loc_reference" : {
+      "type" : "string",
+      "anyOf" : [ {
+        "$def" : "localisation/**/*.yml/#/{property}"
+      }, {
+        "$def" : "localisation_synced/**/*.yml/#/{property}"
+      } ]
     },
     "condition_expression_name" : {
       "type" : "string",
@@ -194,6 +202,13 @@
     "scope_name" : {
       "type" : "string",
       "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
+    },
+    "modifiers" : {
+      "type" : "object"
+    },
+    "event_id" : {
+      "type" : "string",
+      "$def" : "events/*.txt/#/{event}/id"
     }
   },
   "type" : "object",

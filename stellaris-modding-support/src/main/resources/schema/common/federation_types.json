@@ -36,9 +36,6 @@
         }
       }
     },
-    "gfx_reference" : {
-      "type" : "string"
-    },
     "triggers" : {
       "type" : "object",
       "anyOf" : [ {
@@ -74,6 +71,10 @@
           "multiple" : true
         }
       }
+    },
+    "gfx_reference" : {
+      "type" : "string",
+      "$def" : "interface/**/*.gfx/#/{spliteType}/name"
     },
     "condition_expressions" : {
       "type" : "object",

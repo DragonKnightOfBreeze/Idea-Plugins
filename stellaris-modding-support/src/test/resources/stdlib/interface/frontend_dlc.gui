@@ -1,0 +1,77 @@
+guiTypes = {
+	containerWindowType = {
+		name = "frontend_dlc_view"
+		position = { x= 0 y= 0 }
+		size = { width = 100% height = 100%}
+
+		containerWindowType = {
+			name = "dlc_list"
+			position = { x = -40 y = -15 }	
+			orientation = UPPER_RIGHT
+
+			gridBoxType = {
+				name = "dlc_box"	
+				position = { x = 0 y = 0 }
+				orientation = CENTER_CENTER
+				max_slots_horizontal = 1
+				slotSize = {
+					width = 50
+					height = 55
+				}
+			}
+		}
+	}
+
+	containerWindowType = {
+		name = "frontend_dlc_list_entry"
+		position = { x=0 y=0 }
+		size = { width = 50 height = 50 }
+
+		buttonType = {
+			name = "dlc_underlay"
+			position = { x = -60 y = -2 }
+			quadTextureSprite = "GFX_invisible" # Set by code
+		}	
+
+		buttonType = {
+			name = "dlc_button"
+			position = { x = 11 y = 0 }
+			quadTextureSprite = "GFX_trigger_icon"
+			format = center
+			pdx_tooltip = "DLC_START"
+			alwaysTransparent = yes
+		}	
+
+		iconType = {
+			name = "dlc_frame"
+			position = { x = 11 y = 0 }
+			quadTextureSprite = "GFX_invisible"
+			pdx_tooltip = "DLC_START"
+			alwaysTransparent = yes
+		}	
+	}
+
+	containerWindowType = {
+		name = "dlc_list_footer_entry"
+		position = { x = 0 y = 0 }
+		size = { width = 64 height = 64 }
+
+		buttonType =	{
+			id = "dlc"
+			name = "dlc"
+			quadTextureSprite = "GFX_white_stripe_button"
+			position = { x= 0  y = 0  }
+		}			
+		instantTextBoxType={
+			name = "dlc_text"
+			font = "malgun_goth_24"
+			text = "DLC_START"
+			position = { x= 0 y = 10 }
+			maxWidth = 64
+			maxHeight = 35
+			fixedSize = yes
+			format = center
+			alwaysTransparent = yes
+		}
+	}
+}

@@ -81,9 +81,6 @@
       "type" : "string",
       "enum" : [ "none", "democratic", "oligarchic" ]
     },
-    "loc_reference" : {
-      "type" : "string"
-    },
     "triggers" : {
       "type" : "object",
       "anyOf" : [ {
@@ -113,6 +110,14 @@
     },
     "game_path" : {
       "type" : "string"
+    },
+    "loc_reference" : {
+      "type" : "string",
+      "anyOf" : [ {
+        "$def" : "localisation/**/*.yml/#/{property}"
+      }, {
+        "$def" : "localisation_synced/**/*.yml/#/{property}"
+      } ]
     },
     "condition_expressions" : {
       "type" : "object",

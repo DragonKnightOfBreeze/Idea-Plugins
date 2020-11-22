@@ -42,7 +42,7 @@
       "type" : "object",
       "properties" : {
         "category" : {
-          "$ref" : "#/definitions/resources_category"
+          "$type" : "economic_category"
         },
         "produces" : {
           "$ref" : "#/definitions/resources_item"
@@ -82,7 +82,6 @@
     "modifier" : {
       "type" : "object"
     },
-    "resources_category" : true,
     "resources_item" : {
       "type" : "object",
       "anyOf" : [ {

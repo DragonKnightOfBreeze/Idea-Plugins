@@ -36,21 +36,11 @@ definitions:
     minItems: 3
     maxItems: 3
 
-  color_reference:
-    type: string
-  loc_reference:
-    type: string
-  gfx_reference:
-    type: string
-  assert_reference:
-    type: string
-
   economy_unit:
     type: object
     properties:
       category:
-        $ref: "#/definitions/resources_category"
-      # anyOf
+        $type: economic_category
       produces:
         $ref: "#/definitions/resources_item"
       # anyOf
@@ -59,8 +49,6 @@ definitions:
       # anyOf
       upkeep:
         $ref: "#/definitions/resources_item"
-  # TODO
-  resources_category: true
   resources_item:
     type: object
     anyOf:
@@ -73,7 +61,7 @@ definitions:
       additionalProperties:
         type: integer
 
-  entity: true
+  entity: true # TODO
 
   desc:
     anyOf:
@@ -153,6 +141,9 @@ definitions:
     properties:
       weight:
         type: number
+      modifier:
+        $ref: "#/definitions/modifier"
+        multiple: true
   weight_modifier:
     type: object
     properties:
@@ -182,20 +173,20 @@ definitions:
 
   event:
     anyOf:
-    - $ref: "#/definitions/event_id"
+    - $ref: "#/definitions/scripted_event_id"
     - propertyNames:
         $ref: "#/definitions/event_type"
       additionalProperties:
-        $ref: "#/definitions/event_id"
-  event_id:
+        $ref: "#/definitions/scripted_event_id"
+  scripted_event_id:
     anyOf:
-    - type: string
-    - type: object
-      $ref: "#/definitions/modifier"
-      properties:
-        id:
-          type: string
-      additionalProperties: true # args
+    - $ref: "#/definitions/event_id"
+    - anyOf:
+      - $ref: "#/definitions/modifiers"
+      - properties:
+          id:
+            type: string
+        additionalProperties: true # args
   event_type:
     type: string
     # TODO
@@ -243,3 +234,22 @@ definitions:
     - point_defence
     - planet_killer
 
+  color_reference:
+    type: string
+    $def: "common/colors/#/{color}"
+  loc_reference:
+    type: string
+    anyOf:
+    - $def: "localisation/**/*.yml/#/{property}"
+    - $def: "localisation_synced/**/*.yml/#/{property}"
+  gfx_reference:
+    type: string
+    $def: "interface/**/*.gfx/#/{spliteType}/name"
+  assert_reference:
+    type: string
+  event_id:
+    type: string
+    $def: "events/*.txt/#/{event}/id"
+  scripted_loc_name:
+    type: string
+    $def: "scripted_loc/*.txt/#/{scripted_loc}/name"

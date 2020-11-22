@@ -1,0 +1,460 @@
+spriteTypes = {
+
+	spriteType = {
+		name = "GFX_adopted_tradition_category_bg_blue"
+		textureFile = "gfx/interface/traditions/adopted_tradition_category_bg_blue.dds"
+	}
+
+	spriteType = {
+		name = "GFX_adopted_tradition_category_bg_gray"
+		textureFile = "gfx/interface/traditions/adopted_tradition_category_bg_gray.dds"
+	}
+
+	spriteType = {
+		name = "GFX_adopted_tradition_category_bg_green"
+		textureFile = "gfx/interface/traditions/adopted_tradition_category_bg_green.dds"
+	}
+
+	spriteType = {
+		name = "GFX_adopted_tradition_category_bg_orange"
+		textureFile = "gfx/interface/traditions/adopted_tradition_category_bg_orange.dds"
+	}
+
+	spriteType = {
+		name = "GFX_adopted_tradition_category_bg_red"
+		textureFile = "gfx/interface/traditions/adopted_tradition_category_bg_red.dds"
+	}
+
+	spriteType = {
+		name = "GFX_adopted_tradition_category_bg_turqoise"
+		textureFile = "gfx/interface/traditions/adopted_tradition_category_bg_turqoise.dds"
+	}
+
+	spriteType = {
+		name = "GFX_adopted_tradition_category_bg_yellow"
+		textureFile = "gfx/interface/traditions/adopted_tradition_category_bg_yellow.dds"
+	}
+
+
+
+
+
+	spriteType = {
+		name = "GFX_tradition_hex_bg_blue"
+		textureFile = "gfx/interface/traditions/tradition_hex_bg_blue.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tradition_hex_bg_gray"
+		textureFile = "gfx/interface/traditions/tradition_hex_bg_gray.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tradition_hex_bg_green"
+		textureFile = "gfx/interface/traditions/tradition_hex_bg_green.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tradition_hex_bg_orange"
+		textureFile = "gfx/interface/traditions/tradition_hex_bg_orange.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tradition_hex_bg_red"
+		textureFile = "gfx/interface/traditions/tradition_hex_bg_red.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tradition_hex_bg_turqoise"
+		textureFile = "gfx/interface/traditions/tradition_hex_bg_turqoise.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tradition_hex_bg_yellow"
+		textureFile = "gfx/interface/traditions/tradition_hex_bg_yellow.dds"
+	}
+
+		corneredTileSpriteType = {
+		name = "GFX_tradition_category_tile_blue"
+		textureFile = "gfx/interface/tiles/tradition_category_tile_blue.dds"
+		borderSize = { x=140 y=140 }
+		effectFile = "gfx/FX/buttonstate_onlydisable.lua"
+	}
+
+		corneredTileSpriteType = {
+		name = "GFX_tradition_category_tile_gray"
+		textureFile = "gfx/interface/tiles/tradition_category_tile_gray.dds"
+		borderSize = { x=140 y=140 }
+		effectFile = "gfx/FX/buttonstate_onlydisable.lua"
+	}
+
+		corneredTileSpriteType = {
+		name = "GFX_tradition_category_tile_green"
+		textureFile = "gfx/interface/tiles/tradition_category_tile_green.dds"
+		borderSize = { x=140 y=140 }
+		effectFile = "gfx/FX/buttonstate_onlydisable.lua"
+	}
+
+		corneredTileSpriteType = {
+		name = "GFX_tradition_category_tile_orange"
+		textureFile = "gfx/interface/tiles/tradition_category_tile_orange.dds"
+		borderSize = { x=140 y=140 }
+		effectFile = "gfx/FX/buttonstate_onlydisable.lua"
+	}
+
+		corneredTileSpriteType = {
+		name = "GFX_tradition_category_tile_red"
+		textureFile = "gfx/interface/tiles/tradition_category_tile_red.dds"
+		borderSize = { x=140 y=140 }
+		effectFile = "gfx/FX/buttonstate_onlydisable.lua"
+	}
+
+		corneredTileSpriteType = {
+		name = "GFX_tradition_category_tile_turqoise"
+		textureFile = "gfx/interface/tiles/tradition_category_tile_turqoise.dds"
+		borderSize = { x=140 y=140 }
+		effectFile = "gfx/FX/buttonstate_onlydisable.lua"
+	}
+
+		corneredTileSpriteType = {
+		name = "GFX_tradition_category_tile_yellow"
+		textureFile = "gfx/interface/tiles/tradition_category_tile_yellow.dds"
+		borderSize = { x=140 y=140 }
+		effectFile = "gfx/FX/buttonstate_onlydisable.lua"
+	}
+
+	#Orange frame for available traditions
+	spriteType = {
+		name = "GFX_tradition_available_button"
+		textureFile = "gfx/interface/traditions/tradition_available_button.dds"
+	}
+
+	### TRADITION ARROWS ###
+
+	spriteType = {
+		name = "GFX_arrow_double"
+		textureFile = "gfx/interface/traditions/arrow_double.dds"
+	}
+
+	spriteType = {
+		name = "GFX_arrow_long"
+		textureFile = "gfx/interface/traditions/arrow_long.dds"
+	}
+
+	spriteType = {
+		name = "GFX_arrow_merge"
+		textureFile = "gfx/interface/traditions/arrow_merge.dds"
+	}
+
+	spriteType = {
+		name = "GFX_arrow_merge_wide"
+		textureFile = "gfx/interface/traditions/arrow_merge_wide.dds"
+	}
+
+	spriteType = {
+		name = "GFX_arrow_merge_in_left"
+		textureFile = "gfx/interface/traditions/arrow_merge_in_left.dds"
+	}
+
+	spriteType = {
+		name = "GFX_arrow_merge_in_right"
+		textureFile = "gfx/interface/traditions/arrow_merge_in_right.dds"
+	}
+
+	spriteType = {
+		name = "GFX_arrow_side_step_left"
+		textureFile = "gfx/interface/traditions/arrow_side_step_left.dds"
+	}
+
+	spriteType = {
+		name = "GFX_arrow_side_step_right"
+		textureFile = "gfx/interface/traditions/arrow_side_step_right.dds"
+	}
+
+	spriteType = {
+		name = "GFX_arrow_single"
+		textureFile = "gfx/interface/traditions/arrow_single.dds"
+	}
+
+	spriteType = {
+		name = "GFX_arrow_bridge"
+		textureFile = "gfx/interface/traditions/arrow_bridge.dds"
+	}
+
+	### TRADITION ICONS ###
+
+	spriteType = {
+		name = "GFX_tr_domination_colonial_viceroys"
+		textureFile = "gfx/interface/icons/traditions/tradition_domination_colonial_viceroys.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_domination_judgment_corps"
+		textureFile = "gfx/interface/icons/traditions/tradition_domination_judgment_corps.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_domination_deviancy_protocols"
+		textureFile = "gfx/interface/icons/traditions/tradition_domination_deviancy_protocols.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_domination_divergence_supression"
+		textureFile = "gfx/interface/icons/traditions/tradition_domination_divergence_supression.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_domination_grand_council"
+		textureFile = "gfx/interface/icons/traditions/tradition_domination_grand_council.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_domination_imperious_architecture"
+		textureFile = "gfx/interface/icons/traditions/tradition_domination_imperious_architecture.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_domination_workplace_motivators"
+		textureFile = "gfx/interface/icons/traditions/tradition_domination_workplace_motivators.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_domination_drone_network"
+		textureFile = "gfx/interface/icons/traditions/tradition_domination_drone_network.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_expansion_a_new_life"
+		textureFile = "gfx/interface/icons/traditions/tradition_expansion_a_new_life.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_expansion_colonization_fever"
+		textureFile = "gfx/interface/icons/traditions/tradition_expansion_colonization_fever.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_expansion_courier_network"
+		textureFile = "gfx/interface/icons/traditions/tradition_expansion_courier_network.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_expansion_galactic_ambition"
+		textureFile = "gfx/interface/icons/traditions/tradition_expansion_galactic_ambition.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_expansion_reach_for_the_stars"
+		textureFile = "gfx/interface/icons/traditions/tradition_expansion_reach_for_the_stars.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_discovery_science_division"
+		textureFile = "gfx/interface/icons/traditions/tradition_discovery_science_division.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_discovery_polytechnic_education"
+		textureFile = "gfx/interface/icons/traditions/tradition_discovery_polytechnic_education.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_discovery_databank_uplinks"
+		textureFile = "gfx/interface/icons/traditions/tradition_discovery_planetary_survey_corps.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_discovery_to_boldly_go"
+		textureFile = "gfx/interface/icons/traditions/tradition_discovery_to_boldly_go.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_discovery_faith_in_science"
+		textureFile = "gfx/interface/icons/traditions/tradition_discovery_faith_in_science.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_harmony_kinship"
+		textureFile = "gfx/interface/icons/traditions/tradition_harmony_kinship.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_harmony_mind_and_body"
+		textureFile = "gfx/interface/icons/traditions/tradition_harmony_mind_and_body.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_synchronicity_self_preservation"
+		textureFile = "gfx/interface/icons/traditions/tradition_synchronicity_self_preservation.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_harmony_utopian_dream"
+		textureFile = "gfx/interface/icons/traditions/tradition_harmony_utopian_dream.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_harmony_the_greater_good"
+		textureFile = "gfx/interface/icons/traditions/tradition_harmony_the_greater_good.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_harmony_bulwark_of_harmony"
+		textureFile = "gfx/interface/icons/traditions/tradition_harmony_bulwark_of_harmony.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_prosperity_sct"
+		textureFile = "gfx/interface/icons/traditions/tradition_prosperity_sct.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_prosperity_public_works"
+		textureFile = "gfx/interface/icons/traditions/tradition_prosperity_public_works.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_prosperity_extended_hives"
+		textureFile = "gfx/interface/icons/traditions/tradition_prosperity_extended_hives.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_prosperity_optimized_nexus"
+		textureFile = "gfx/interface/icons/traditions/tradition_prosperity_optimized_nexus.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_prosperity_administrative_operations"
+		textureFile = "gfx/interface/icons/traditions/tradition_prosperity_administrative_operations.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_prosperity_interstellar_franchising"
+		textureFile = "gfx/interface/icons/traditions/tradition_prosperity_interstellar_franchising.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_prosperity_pursuit_of_profit"
+		textureFile = "gfx/interface/icons/traditions/tradition_prosperity_pursuit_of_profit.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_prosperity_efficiency_algorithms"
+		textureFile = "gfx/interface/icons/traditions/tradition_prosperity_efficiency_algorithms.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_prosperity_efficiency_instincts"
+		textureFile = "gfx/interface/icons/traditions/tradition_prosperity_efficiency_instincts.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_supremacy_great_game"
+		textureFile = "gfx/interface/icons/traditions/tradition_supremacy_great_game.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_supremacy_master_shipwrights"
+		textureFile = "gfx/interface/icons/traditions/tradition_supremacy_master_shipwrights.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_supremacy_fleet_logistical_corps"
+		textureFile = "gfx/interface/icons/traditions/tradition_supremacy_fleet_logistical_corps.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_supremacy_war_games"
+		textureFile = "gfx/interface/icons/traditions/tradition_supremacy_war_games.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_supremacy_overwhelming_force"
+		textureFile = "gfx/interface/icons/traditions/tradition_supremacy_overwhelming_force.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_diplomacy_the_federation"
+		textureFile = "gfx/interface/icons/traditions/tradition_diplomacy_the_federation.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_diplomacy_entente_coordination"
+		textureFile = "gfx/interface/icons/traditions/tradition_diplomacy_entente_coordination.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_diplomacy_open_markets"
+		textureFile = "gfx/interface/icons/traditions/tradition_diplomacy_open_markets.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_diplomacy_insider_trading"
+		textureFile = "gfx/interface/icons/traditions/tradition_diplomacy_insider_trading.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_diplomacy_secure_shipping"
+		textureFile = "gfx/interface/icons/traditions/tradition_diplomacy_secure_shipping.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_versatility_universal_compatibility"
+		textureFile = "gfx/interface/icons/traditions/tradition_versatility_universal_compatability.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_versatility_adaptive_programming"
+		textureFile = "gfx/interface/icons/traditions/tradition_versatility_adaptive_programming.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_versatility_spatial_optimization"
+		textureFile = "gfx/interface/icons/traditions/tradition_versatility_spatial_optimization.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_versatility_material_analysis"
+		textureFile = "gfx/interface/icons/traditions/tradition_versatility_material_analysis.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_versatility_operational_proxies"
+		textureFile = "gfx/interface/icons/traditions/tradition_versatility_operational_proxies.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_adaptability_dietary_enrichment"
+		textureFile = "gfx/interface/icons/traditions/tradition_adaptability_dietary_enrichment.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_adaptability_recycling"
+		textureFile = "gfx/interface/icons/traditions/tradition_adaptability_recycling.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_adaptability_survival_fittest"
+		textureFile = "gfx/interface/icons/traditions/tradition_adaptability_survival_fittest.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_adaptability_environmental_diversification"
+		textureFile = "gfx/interface/icons/traditions/tradition_adaptability_environmental_diversification.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_adaptability_adaptive_ecology"
+		textureFile = "gfx/interface/icons/traditions/tradition_adaptability_adaptive_ecology.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_adaptability_appropriation"
+		textureFile = "gfx/interface/icons/traditions/tradition_adaptability_appropriation.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tr_harmony_unity_of_self"
+		textureFile = "gfx/interface/icons/traditions/tr_harmony_unity_of_self.dds"
+	}
+}

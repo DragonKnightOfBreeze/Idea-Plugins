@@ -35,14 +35,11 @@
         }
       }
     },
-    "gfx_reference" : {
-      "type" : "string"
-    },
     "economy_unit" : {
       "type" : "object",
       "properties" : {
         "category" : {
-          "$ref" : "#/definitions/resources_category"
+          "$type" : "economic_category"
         },
         "produces" : {
           "$ref" : "#/definitions/resources_item"
@@ -72,10 +69,17 @@
       "properties" : {
         "weight" : {
           "type" : "number"
+        },
+        "modifier" : {
+          "$ref" : "#/definitions/modifier",
+          "multiple" : true
         }
       }
     },
-    "resources_category" : true,
+    "gfx_reference" : {
+      "type" : "string",
+      "$def" : "interface/**/*.gfx/#/{spliteType}/name"
+    },
     "resources_item" : {
       "type" : "object",
       "anyOf" : [ {
@@ -129,6 +133,9 @@
       "type" : "object",
       "additionalProperties" : true,
       "$type" : "scripted_trigger"
+    },
+    "modifier" : {
+      "type" : "object"
     },
     "condition_expression_name" : {
       "type" : "string",

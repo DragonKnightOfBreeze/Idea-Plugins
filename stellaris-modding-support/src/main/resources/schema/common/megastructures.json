@@ -94,14 +94,11 @@
         }
       }
     },
-    "gfx_reference" : {
-      "type" : "string"
-    },
     "economy_unit" : {
       "type" : "object",
       "properties" : {
         "category" : {
-          "$ref" : "#/definitions/resources_category"
+          "$type" : "economic_category"
         },
         "produces" : {
           "$ref" : "#/definitions/resources_item"
@@ -170,7 +167,10 @@
     "modifier" : {
       "type" : "object"
     },
-    "resources_category" : true,
+    "gfx_reference" : {
+      "type" : "string",
+      "$def" : "interface/**/*.gfx/#/{spliteType}/name"
+    },
     "condition_expressions" : {
       "type" : "object",
       "propertyNames" : {

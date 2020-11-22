@@ -35,7 +35,7 @@ import javax.swing.*
 
 class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 	private val mayBePropertyKeyTypes = arrayOf(STRING_TOKEN, NUMBER_TOKEN)
-
+	
 	override fun fillCompletionVariants(parameters: CompletionParameters, result: CompletionResultSet) {
 		//当用户正在输入一个string或number，但之前的节点不是string或number时提示
 		val position = parameters.position
@@ -43,12 +43,12 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 		if(elementType !in mayBePropertyKeyTypes) return
 		val prevElementType = position.parent?.prevSibling?.firstChild?.elementType
 		if(prevElementType != null && prevElementType in mayBePropertyKeyTypes) return
-
+		
 		val jsonSchemaService = JsonSchemaService.Impl.get(position.project)
 		val schemaObject = jsonSchemaService.getSchemaObject(parameters.originalFile) ?: return
 		Worker(schemaObject, position, result).work()
 	}
-
+	
 	private class Worker(
 		private val rootSchema: JsonSchemaObject,
 		private val position: PsiElement,
@@ -57,7 +57,7 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 		private val project = position.project
 		private val variants = mutableSetOf<LookupElement>()
 		private val isInsideStringLiteral = position.parent is StellarisScriptStringValue
-
+		
 		fun work() {
 			//注意：如果matchedElement是string或number且parent是block，表示用户可能正在输入一个propertyKey
 			val checkable = walker.findElementToCheck(position) ?: return
@@ -90,12 +90,12 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 				resultConsumer.consume(variant)
 			}
 		}
-
+		
 		private fun mayBePropertyKey(checkable: PsiElement): Boolean {
 			return checkable is StellarisScriptString || checkable is StellarisScriptNumber
 			       && checkable.parent !is StellarisScriptPropertyValue
 		}
-
+		
 		private fun addPropertyNameSchemaVariants(schema: JsonSchemaObject) {
 			val propertyNamesSchema = schema.propertyNamesSchema ?: return
 			val enums = propertyNamesSchema.enum ?: return
@@ -105,7 +105,7 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 				}
 			}
 		}
-
+		
 		private fun addIfThenElsePropertyNameVariants(schema: JsonSchemaObject, hasValue: Boolean,
 			properties: Collection<String>, adapter: JsonPropertyAdapter?, knownNames: MutableSet<String>) {
 			val ifThenElseList = schema.ifThenElse ?: return
@@ -117,7 +117,7 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 					val constructor = JsonSchemaAnnotatorChecker::class.java.getConstructor(Project::class.java, JsonComplianceCheckerOptions::class.java)
 					constructor.trySetAccessible()
 					val checker = constructor.newInstance(project, JsonComplianceCheckerOptions.RELAX_ENUM_CHECK)
-
+					
 					checker.checkByScheme(parentObject, ifThenElse.getIf())
 					if(checker.isCorrect) {
 						val schemaThen = ifThenElse.then ?: return
@@ -131,7 +131,7 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 				}
 			}
 		}
-
+		
 		private fun addAllPropertyVariants(hasValue: Boolean, propertyNames: Collection<String>,
 			adapter: JsonPropertyAdapter?, schemaProperties: Map<String, JsonSchemaObject>, knownNames: MutableSet<String>) {
 			val unknownNames = schemaProperties.keys.filter { name ->
@@ -142,7 +142,7 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 				addPropertyVariant(name, schemaProperties[name]!!, hasValue)
 			}
 		}
-
+		
 		private fun suggestValues(schema: JsonSchemaObject, isSurelyValue: Boolean) {
 			suggestValuesForSchemaVariants(schema.anyOf, isSurelyValue)
 			suggestValuesForSchemaVariants(schema.oneOf, isSurelyValue)
@@ -152,10 +152,10 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 				for(o in schema.enum!!) {
 					if(isInsideStringLiteral && o !is String) continue
 					val variant = o.toString()
-					if(!filtered.contains(variant)) {
-						val valueMetadata = metadata?.get(variant.unquote())
-						val description = valueMetadata?.get("description")
-						addValueVariant(variant, description, null, null)
+					if(!filtered.contains(variant) && metadata != null) {
+						val valueMetadata = metadata[variant.unquote()]
+						val typeText = if(valueMetadata != null) valueMetadata["title"] ?: valueMetadata["description"] else null
+						addValueVariant(variant, typeText)
 					}
 				}
 			} else if(isSurelyValue) {
@@ -170,7 +170,16 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 				}
 			}
 		}
-
+		
+		//为schema提供建议的值
+		private fun suggestValuesForSchemaVariants(list: List<JsonSchemaObject>?, isSurelyValue: Boolean) {
+			if(list != null && list.isNotEmpty()) {
+				for(schemaObject in list) {
+					suggestValues(schemaObject, isSurelyValue)
+				}
+			}
+		}
+		
 		private fun suggestSpecialValues(type: JsonSchemaType?) {
 			if(JsonSchemaVersion.isSchemaSchemaId(rootSchema.id) && type == JsonSchemaType._string) {
 				val propertyAdapter = walker.getParentPropertyAdapter(position) ?: return
@@ -190,7 +199,7 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 				}
 			}
 		}
-
+		
 		private fun addInjectedLanguageVariants() {
 			val checkable = walker.findElementToCheck(position)
 			if(checkable !is StellarisScriptString) return
@@ -203,7 +212,7 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 						.withTailText("(" + injectable.displayName + ")", true))
 				}
 		}
-
+		
 		private fun addRequiredPropVariants() {
 			val checkable = walker.findElementToCheck(position)
 			if(checkable !is StellarisScriptStringValue) return
@@ -214,7 +223,7 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 			}
 			propertiesObject.propertyList.map { it.name }.filter { !items.contains(it) }.forEach { addStringVariant(it) }
 		}
-
+		
 		private fun suggestByType(schema: JsonSchemaObject, type: JsonSchemaType) {
 			if(type == JsonSchemaType._string) addPossibleStringValue(schema)
 			if(isInsideStringLiteral) return
@@ -223,7 +232,7 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 					addPossibleBooleanValue(type)
 				}
 				type == JsonSchemaType._null -> {
-					addValueVariant("null", null)
+					addValueVariant("null")
 				}
 				type == JsonSchemaType._array -> {
 					val value = walker.defaultArrayValue
@@ -235,48 +244,39 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 				}
 			}
 		}
-
+		
 		//schema中存在默认值时添加默认值提示
 		private fun addPossibleStringValue(schema: JsonSchemaObject) {
 			val defaultValue = schema.default?.toString() ?: return
 			addStringVariant(defaultValue)
 		}
-
+		
 		//添加字符串提示，去除双引号，但必要时用双引号包围
 		private fun addStringVariant(defaultValueString: String) {
 			if(defaultValueString.isEmpty()) return
-			addValueVariant(defaultValueString.onlyQuoteIfNecessary(), null)
+			addValueVariant(defaultValueString.onlyQuoteIfNecessary())
 		}
-
-		//为schema提供建议的值
-		private fun suggestValuesForSchemaVariants(list: List<JsonSchemaObject>?, isSurelyValue: Boolean) {
-			if(list != null && list.isNotEmpty()) {
-				for(schemaObject in list) {
-					suggestValues(schemaObject, isSurelyValue)
-				}
-			}
-		}
-
+		
 		//添加布尔值提示
 		private fun addPossibleBooleanValue(type: JsonSchemaType) {
 			if(JsonSchemaType._boolean == type) {
-				addValueVariant("yes", null)
-				addValueVariant("no", null)
+				addValueVariant("yes")
+				addValueVariant("no")
 			}
 		}
-
+		
 		//添加值提示
 		private fun addValueVariant(
-			key: String, description: String?, altText: String? = null,
+			key: String, typeText: String? = null, altText: String? = null,
 			handler: InsertHandler<LookupElement>? = null,
 		) {
 			var builder = LookupElementBuilder.create(key.onlyQuoteIfNecessary())
+			if(typeText != null) builder = builder.withTypeText(typeText)
 			if(altText != null) builder = builder.withPresentableText(altText)
-			if(description != null) builder = builder.withTypeText(description)
 			if(handler != null) builder = builder.withInsertHandler(handler)
 			variants.add(builder)
 		}
-
+		
 		//添加属性的提示
 		private fun addPropertyVariant(key: String, jsonSchemaObject: JsonSchemaObject, hasValue: Boolean) {
 			var jsonSchemaObject = jsonSchemaObject
@@ -314,7 +314,7 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 			}
 			this.variants.add(builder)
 		}
-
+		
 		private fun createDefaultPropertyInsertHandler(hasValue: Boolean): InsertHandler<LookupElement> {
 			return object : InsertHandler<LookupElement> {
 				override fun handleInsert(context: InsertionContext, item: LookupElement) {
@@ -347,7 +347,7 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 					PsiDocumentManager.getInstance(project).commitDocument(editor.document)
 					AutoPopupController.getInstance(context.project).autoPopupMemberLookup(context.editor, null)
 				}
-
+				
 				fun handleWhitespaceAfterSeparator(editor: Editor, docChars: CharSequence, nextOffset: Int) {
 					if(nextOffset < docChars.length && docChars[nextOffset] == ' ') {
 						editor.caretModel.moveToOffset(nextOffset + 1)
@@ -358,7 +358,7 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 				}
 			}
 		}
-
+		
 		private fun createPropertyInsertHandler(jsonSchemaObject: JsonSchemaObject, hasValue: Boolean): InsertHandler<LookupElement> {
 			var type = jsonSchemaObject.guessType()
 			val values = jsonSchemaObject.enum
@@ -463,7 +463,7 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 			// some schemas provide empty array / empty object in enum values...
 			private val filtered = setOf("{}", "{ }")
 			private val walker = StellarisScriptJsonLikePsiWalker
-
+			
 			private const val SEPARATOR = " = "
 			private const val SEPARATOR_LENGTH = SEPARATOR.length
 			private const val SEPARATOR_CHAR = '='
@@ -471,7 +471,7 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 			private const val SCHEMA_USAGE_KEY = "jsonSchema"
 			private const val USER_USAGE_KEY = "user"
 			private const val REMOTE_USAGE_KEY = "remote"
-
+			
 			private fun getIcon(type: JsonSchemaType?): Icon {
 				return when {
 					type == null -> AllIcons.Nodes.Property
@@ -480,11 +480,11 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 					else -> AllIcons.Nodes.Property
 				}
 			}
-
+			
 			private fun hasSameType(variants: Collection<JsonSchemaObject>): Boolean {
 				return variants.mapNotNull { it.guessType() }.distinct().count() <= 1
 			}
-
+			
 			private fun createArrayOrObjectLiteralInsertHandler(insertedTextSize: Int): InsertHandler<LookupElement> {
 				return InsertHandler { context, _ ->
 					val editor = context.editor
@@ -492,7 +492,7 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 					AutoPopupController.getInstance(context.project).autoPopupMemberLookup(editor, null)
 				}
 			}
-
+			
 			private fun handleIncompleteString(editor: Editor, element: PsiElement): Boolean {
 				if((element as LeafPsiElement).elementType === TokenType.WHITE_SPACE) {
 					val prevSibling = element.prevSibling
@@ -507,7 +507,7 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 				}
 				return false
 			}
-
+			
 			private fun detectType(values: List<Any>): JsonSchemaType? {
 				var type: JsonSchemaType? = null
 				for(value in values) {
@@ -518,13 +518,13 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 				}
 				return type
 			}
-
+			
 			fun getCompletionVariants(schema: JsonSchemaObject, position: PsiElement): List<LookupElement> {
 				val result: MutableList<LookupElement> = ArrayList()
 				Worker(schema, position) { element: LookupElement -> result.add(element) }.work()
 				return result
 			}
-
+			
 			private fun updateStat(provider: JsonSchemaFileProvider?, schemaFile: VirtualFile?) {
 				if(provider == null) {
 					if(schemaFile is HttpVirtualFile) {

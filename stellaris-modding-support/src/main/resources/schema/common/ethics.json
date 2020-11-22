@@ -53,9 +53,6 @@
       "$def" : "#/ethic_categories/{ethic_category}",
       "enum" : [ "col", "xen", "mil", "spi", "hive" ]
     },
-    "loc_reference" : {
-      "type" : "string"
-    },
     "triggered_desc" : {
       "$ref" : "#/definitions/triggers",
       "properties" : {
@@ -84,6 +81,14 @@
     },
     "modifier" : {
       "type" : "object"
+    },
+    "loc_reference" : {
+      "type" : "string",
+      "anyOf" : [ {
+        "$def" : "localisation/**/*.yml/#/{property}"
+      }, {
+        "$def" : "localisation_synced/**/*.yml/#/{property}"
+      } ]
     },
     "triggers" : {
       "type" : "object",

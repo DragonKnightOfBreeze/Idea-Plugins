@@ -1,6 +1,13 @@
+### 议程
+
+title: Agendas
+type: object
+additionalProperties:
+  $ref: "#/definitions/agenda"
+
 definitions:
-  # 议程
   agenda:
+    title: Adenda
     type: object
     properties:
       weight_modifier:
@@ -8,7 +15,3 @@ definitions:
       modifier:
         $ref: "../core.yml#/definitions/modifier"
         multiple: true
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/agenda"

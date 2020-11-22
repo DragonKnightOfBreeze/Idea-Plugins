@@ -93,7 +93,7 @@
       "type" : "object",
       "properties" : {
         "category" : {
-          "$ref" : "#/definitions/resources_category"
+          "$type" : "economic_category"
         },
         "produces" : {
           "$ref" : "#/definitions/resources_item"
@@ -162,10 +162,6 @@
       },
       "$ref" : "#/definitions/modifiers"
     },
-    "loc_reference" : {
-      "type" : "string"
-    },
-    "resources_category" : true,
     "resources_item" : {
       "type" : "object",
       "anyOf" : [ {
@@ -222,6 +218,14 @@
     },
     "modifiers" : {
       "type" : "object"
+    },
+    "loc_reference" : {
+      "type" : "string",
+      "anyOf" : [ {
+        "$def" : "localisation/**/*.yml/#/{property}"
+      }, {
+        "$def" : "localisation_synced/**/*.yml/#/{property}"
+      } ]
     },
     "condition_expression_name" : {
       "type" : "string",

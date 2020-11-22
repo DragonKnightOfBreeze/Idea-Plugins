@@ -18,9 +18,6 @@
         }
       }
     },
-    "loc_reference" : {
-      "type" : "string"
-    },
     "triggers" : {
       "type" : "object",
       "anyOf" : [ {
@@ -38,8 +35,20 @@
       "properties" : {
         "weight" : {
           "type" : "number"
+        },
+        "modifier" : {
+          "$ref" : "#/definitions/modifier",
+          "multiple" : true
         }
       }
+    },
+    "loc_reference" : {
+      "type" : "string",
+      "anyOf" : [ {
+        "$def" : "localisation/**/*.yml/#/{property}"
+      }, {
+        "$def" : "localisation_synced/**/*.yml/#/{property}"
+      } ]
     },
     "condition_expressions" : {
       "type" : "object",
@@ -77,6 +86,9 @@
       "type" : "object",
       "additionalProperties" : true,
       "$type" : "scripted_trigger"
+    },
+    "modifier" : {
+      "type" : "object"
     },
     "condition_expression_name" : {
       "type" : "string",

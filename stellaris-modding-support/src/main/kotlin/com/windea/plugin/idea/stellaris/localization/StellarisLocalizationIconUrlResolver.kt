@@ -46,9 +46,6 @@ object StellarisLocalizationIconUrlResolver {
 			if(!doResolveCache.contains(name)) resolveUrlAsync(name)
 			//"<code>(resolving icon)</code>"
 			getDefaultUrl(defaultToUnknown)
-		}catch(e: HttpTimeoutException){
-			//"<code>(resolve icon timeout)</code>"
-			getDefaultUrl(defaultToUnknown)
 		}catch(e: Exception){
 			e.printStackTrace()
 			//"<code>(resolve icon error)</code>"
@@ -63,8 +60,13 @@ object StellarisLocalizationIconUrlResolver {
 	private fun resolveUrlAsync(name: String){
 		doResolveCache.add(name)
 		executor.execute {
-			val url = doResolveUrl(name)
-			urlCache[name] = url
+			try {
+				val url = doResolveUrl(name)
+				urlCache[name] = url
+			}catch(e: Exception){
+				e.printStackTrace()
+				urlCache[name] = ""
+			}
 		}
 	}
 	

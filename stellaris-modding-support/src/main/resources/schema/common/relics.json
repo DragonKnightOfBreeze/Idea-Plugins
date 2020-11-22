@@ -1,0 +1,174 @@
+{
+  "definitions" : {
+    "relic" : {
+      "type" : "object",
+      "properties" : {
+        "activation_duration" : {
+          "type" : "integer"
+        },
+        "portrait" : {
+          "$type" : "gfx_reference"
+        },
+        "sound" : {
+          "$type" : "sound"
+        },
+        "resource" : {
+          "$ref" : "#/definitions/economy_unit"
+        },
+        "ai_weight" : {
+          "$ref" : "#/definitions/weight"
+        },
+        "triggered_country_modifier" : {
+          "$ref" : "#/definitions/triggered_modifiers"
+        },
+        "score" : {
+          "type" : "integer"
+        },
+        "active_effect" : {
+          "$ref" : "#/definitions/effects"
+        },
+        "possible" : {
+          "$ref" : "#/definitions/effects"
+        }
+      }
+    },
+    "economy_unit" : {
+      "type" : "object",
+      "properties" : {
+        "category" : {
+          "$type" : "economic_category"
+        },
+        "produces" : {
+          "$ref" : "#/definitions/resources_item"
+        },
+        "cost" : {
+          "$ref" : "#/definitions/resources_item"
+        },
+        "upkeep" : {
+          "$ref" : "#/definitions/resources_item"
+        }
+      }
+    },
+    "effects" : {
+      "type" : "object",
+      "anyOf" : [ {
+        "$ref" : "#/definitions/condition_expressions"
+      }, {
+        "$ref" : "#/definitions/boolean_expressions"
+      }, {
+        "$ref" : "#/definitions/scope_expressions"
+      }, {
+        "$ref" : "#/definitions/scripted_triggers"
+      } ]
+    },
+    "weight" : {
+      "type" : "object",
+      "properties" : {
+        "weight" : {
+          "type" : "number"
+        },
+        "modifier" : {
+          "$ref" : "#/definitions/modifier",
+          "multiple" : true
+        }
+      }
+    },
+    "triggered_modifiers" : {
+      "type" : "object",
+      "properties" : {
+        "potential" : {
+          "$ref" : "#/definitions/triggers"
+        }
+      },
+      "$ref" : "#/definitions/modifiers"
+    },
+    "resources_item" : {
+      "type" : "object",
+      "anyOf" : [ {
+        "properties" : {
+          "trigger" : {
+            "$ref" : "#/definitions/triggers"
+          }
+        }
+      }, {
+        "propertyNames" : {
+          "$type" : "resource"
+        },
+        "additionalProperties" : {
+          "type" : "integer"
+        }
+      } ]
+    },
+    "condition_expressions" : {
+      "type" : "object",
+      "propertyNames" : {
+        "$ref" : "#/definitions/condition_expression_name"
+      },
+      "properties" : {
+        "limit" : {
+          "$ref" : "#/definitions/triggers"
+        }
+      },
+      "additionalProperties" : {
+        "$ref" : "#/definitions/triggers"
+      }
+    },
+    "boolean_expressions" : {
+      "type" : "object",
+      "propertyNames" : {
+        "$ref" : "#/definitions/boolean_expression_name"
+      },
+      "additionalProperties" : {
+        "$ref" : "#/definitions/triggers"
+      }
+    },
+    "scope_expressions" : {
+      "type" : "object",
+      "propertyNames" : {
+        "$ref" : "#/definitions/scope_name"
+      },
+      "additionalProperties" : {
+        "$ref" : "#/definitions/triggers"
+      }
+    },
+    "triggers" : {
+      "type" : "object",
+      "anyOf" : [ {
+        "$ref" : "#/definitions/condition_expressions"
+      }, {
+        "$ref" : "#/definitions/boolean_expressions"
+      }, {
+        "$ref" : "#/definitions/scope_expressions"
+      }, {
+        "$ref" : "#/definitions/scripted_triggers"
+      } ]
+    },
+    "scripted_triggers" : {
+      "type" : "object",
+      "additionalProperties" : true,
+      "$type" : "scripted_trigger"
+    },
+    "modifiers" : {
+      "type" : "object"
+    },
+    "modifier" : {
+      "type" : "object"
+    },
+    "condition_expression_name" : {
+      "type" : "string",
+      "enum" : [ "AND", "OR", "NOT", "NAND", "NOR" ]
+    },
+    "boolean_expression_name" : {
+      "type" : "string",
+      "enum" : [ "if", "else", "else_if", "AND", "OR", "NOT", "NAND", "NOR" ]
+    },
+    "scope_name" : {
+      "type" : "string",
+      "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
+    }
+  },
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/relic"
+  }
+}

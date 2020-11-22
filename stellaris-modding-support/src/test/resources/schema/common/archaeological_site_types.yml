@@ -1,6 +1,13 @@
+### 考古站点类型
+
+title: Archaeological Site Types
+type: object
+additionalProperties:
+  $ref: "#/definitions/archaeological_site_type"
+
 definitions:
-  # 考古站点类型
   archaeological_site_type:
+    title: Archaeological Site Type
     type: object
     properties:
       desc:
@@ -37,7 +44,3 @@ definitions:
         $ref: "../core.yml#/definitions/gfx_reference"
       event:
         $ref: "../core.yml#/definitions/event"
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/archaeological_site_type"

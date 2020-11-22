@@ -1,0 +1,9 @@
+definitions:
+  # 脚本效果
+  scripted_effect:
+    type: object
+    $ref: "../core.yml#/definitions/effects"
+
+type: object
+additionalProperties:
+  $ref: "#/definitions/scripted_effect"

@@ -116,14 +116,15 @@
         }
       }
     },
-    "color_reference" : {
-      "type" : "string"
-    },
     "modifiers" : {
       "type" : "object"
     },
     "game_path" : {
       "type" : "string"
+    },
+    "color_reference" : {
+      "type" : "string",
+      "$def" : "common/colors/#/{color}"
     }
   },
   "type" : "object",

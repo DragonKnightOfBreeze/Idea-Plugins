@@ -44,14 +44,14 @@
     },
     "anomaly_event" : {
       "anyOf" : [ {
-        "$ref" : "#/definitions/event_id"
+        "$ref" : "#/definitions/scripted_event_id"
       }, {
         "propertyNames" : {
           "type" : "integer"
         },
         "additionalProperties" : {
           "anyOf" : [ {
-            "$ref" : "#/definitions/event_id"
+            "$ref" : "#/definitions/scripted_event_id"
           }, {
             "$ref" : "#/definitions/modifier",
             "properties" : {
@@ -64,15 +64,12 @@
                 "default" : false
               },
               "anomaly_event" : {
-                "$ref" : "#/definitions/event_id"
+                "$ref" : "#/definitions/scripted_event_id"
               }
             }
           } ]
         }
       } ]
-    },
-    "gfx_reference" : {
-      "type" : "string"
     },
     "desc" : {
       "anyOf" : [ {
@@ -96,22 +93,25 @@
     "modifier" : {
       "type" : "object"
     },
-    "event_id" : {
+    "scripted_event_id" : {
       "anyOf" : [ {
-        "type" : "string"
+        "$ref" : "#/definitions/event_id"
       }, {
-        "type" : "object",
-        "$ref" : "#/definitions/modifier",
-        "properties" : {
-          "id" : {
-            "type" : "string"
-          }
-        },
-        "additionalProperties" : true
+        "anyOf" : [ {
+          "$ref" : "#/definitions/modifiers"
+        }, {
+          "properties" : {
+            "id" : {
+              "type" : "string"
+            }
+          },
+          "additionalProperties" : true
+        } ]
       } ]
     },
-    "loc_reference" : {
-      "type" : "string"
+    "gfx_reference" : {
+      "type" : "string",
+      "$def" : "interface/**/*.gfx/#/{spliteType}/name"
     },
     "triggered_desc" : {
       "$ref" : "#/definitions/triggers",
@@ -120,6 +120,21 @@
           "$ref" : "#/definitions/loc_reference"
         }
       }
+    },
+    "modifiers" : {
+      "type" : "object"
+    },
+    "loc_reference" : {
+      "type" : "string",
+      "anyOf" : [ {
+        "$def" : "localisation/**/*.yml/#/{property}"
+      }, {
+        "$def" : "localisation_synced/**/*.yml/#/{property}"
+      } ]
+    },
+    "event_id" : {
+      "type" : "string",
+      "$def" : "events/*.txt/#/{event}/id"
     },
     "triggers" : {
       "type" : "object",

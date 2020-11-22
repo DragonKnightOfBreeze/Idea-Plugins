@@ -1,0 +1,17 @@
+definitions:
+  # 决议分类
+  resolution_category:
+    type: object
+    properties:
+      group:
+        $type: loc_reference
+      icon:
+        $type: gfx_reference
+      resolution_types:
+        type: array
+        items:
+          $type: resolution
+
+type: object
+additionalProperties:
+  $ref: "#/definitions/resolution_category"

@@ -12,7 +12,8 @@
       }
     },
     "gfx_reference" : {
-      "type" : "string"
+      "type" : "string",
+      "$def" : "interface/**/*.gfx/#/{spliteType}/name"
     }
   },
   "type" : "object",

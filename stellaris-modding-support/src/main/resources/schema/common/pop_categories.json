@@ -55,7 +55,7 @@
       "type" : "object",
       "properties" : {
         "category" : {
-          "$ref" : "#/definitions/resources_category"
+          "$type" : "economic_category"
         },
         "produces" : {
           "$ref" : "#/definitions/resources_item"
@@ -112,7 +112,6 @@
     "modifiers" : {
       "type" : "object"
     },
-    "resources_category" : true,
     "condition_expressions" : {
       "type" : "object",
       "propertyNames" : {

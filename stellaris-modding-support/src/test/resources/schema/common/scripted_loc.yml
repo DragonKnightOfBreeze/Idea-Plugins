@@ -1,0 +1,20 @@
+definitions:
+  # 本地化引用
+  scripted_loc:
+    type: object
+    properties:
+      name:
+        type: string
+      text:
+        type: object
+        properties:
+          trigger:
+            $ref: "../core.yml#/definitions/triggers"
+            multiple: true
+          localization_key:
+            $ref: "../core.yml#/definitions/loc_reference"
+
+type: object
+properties:
+  define_text:
+    $ref: "#/definitions/scripted_loc"

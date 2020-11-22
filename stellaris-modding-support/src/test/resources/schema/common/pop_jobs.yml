@@ -10,13 +10,13 @@ definitions:
       can_set_priority:
         type: boolean
       building_icon:
-        $type: building
+        $type: icon
       contributes_to_diplo_weight:
         type: boolean
       clothes_texture_index:
         type: integer
       icon:
-        $type: pop_job
+        $type: icon
       possible_pre_triggers:
         $ref: "../core.yml#/definitions/triggers"
       possible:

@@ -13,7 +13,7 @@
           "type" : "boolean"
         },
         "building_icon" : {
-          "$type" : "building"
+          "$type" : "icon"
         },
         "contributes_to_diplo_weight" : {
           "type" : "boolean"
@@ -22,7 +22,7 @@
           "type" : "integer"
         },
         "icon" : {
-          "$type" : "pop_job"
+          "$type" : "icon"
         },
         "possible_pre_triggers" : {
           "$ref" : "#/definitions/triggers"
@@ -58,7 +58,7 @@
       "type" : "object",
       "properties" : {
         "category" : {
-          "$ref" : "#/definitions/resources_category"
+          "$type" : "economic_category"
         },
         "produces" : {
           "$ref" : "#/definitions/resources_item"
@@ -88,6 +88,10 @@
       "properties" : {
         "weight" : {
           "type" : "number"
+        },
+        "modifier" : {
+          "$ref" : "#/definitions/modifier",
+          "multiple" : true
         }
       }
     },
@@ -103,7 +107,6 @@
       },
       "$ref" : "#/definitions/modifiers"
     },
-    "resources_category" : true,
     "resources_item" : {
       "type" : "object",
       "anyOf" : [ {
@@ -157,6 +160,9 @@
       "type" : "object",
       "additionalProperties" : true,
       "$type" : "scripted_trigger"
+    },
+    "modifier" : {
+      "type" : "object"
     },
     "condition_expression_name" : {
       "type" : "string",

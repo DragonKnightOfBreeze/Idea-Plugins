@@ -1,0 +1,27 @@
+definitions:
+  # 遗珍
+  relic:
+    type: object
+    properties:
+      activation_duration:
+        type: integer
+      portrait:
+        $type: gfx_reference
+      sound:
+        $type: sound
+      resource:
+        $ref: "../core.yml#/definitions/economy_unit"
+      ai_weight:
+        $ref: "../core.yml#/definitions/weight"
+      triggered_country_modifier:
+        $ref: "../core.yml#/definitions/triggered_modifiers"
+      score:
+        type: integer
+      active_effect:
+        $ref: "../core.yml#/definitions/effects"
+      possible:
+        $ref: "../core.yml#/definitions/effects"
+
+type: object
+additionalProperties:
+  $ref: "#/definitions/relic"

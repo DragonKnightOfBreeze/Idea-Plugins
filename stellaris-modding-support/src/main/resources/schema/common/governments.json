@@ -44,9 +44,6 @@
         }
       }
     },
-    "loc_reference" : {
-      "type" : "string"
-    },
     "triggers" : {
       "type" : "object",
       "anyOf" : [ {
@@ -73,6 +70,14 @@
     },
     "modifier" : {
       "type" : "object"
+    },
+    "loc_reference" : {
+      "type" : "string",
+      "anyOf" : [ {
+        "$def" : "localisation/**/*.yml/#/{property}"
+      }, {
+        "$def" : "localisation_synced/**/*.yml/#/{property}"
+      } ]
     },
     "condition_expressions" : {
       "type" : "object",

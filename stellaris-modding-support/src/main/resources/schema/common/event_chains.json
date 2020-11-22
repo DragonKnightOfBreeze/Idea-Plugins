@@ -22,11 +22,12 @@
         }
       }
     },
-    "gfx_reference" : {
-      "type" : "string"
-    },
     "game_path" : {
       "type" : "string"
+    },
+    "gfx_reference" : {
+      "type" : "string",
+      "$def" : "interface/**/*.gfx/#/{spliteType}/name"
     }
   },
   "type" : "object",

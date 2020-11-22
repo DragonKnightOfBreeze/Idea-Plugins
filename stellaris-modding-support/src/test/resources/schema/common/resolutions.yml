@@ -1,0 +1,23 @@
+definitions:
+  # 决议分类
+  resolution_category:
+    type: object
+    properties:
+      icon:
+        $type: gfx_reference
+      resources:
+        $ref: "../core.yml#/definitions/economy_unit"
+      effect:
+        $ref: "../core.yml#/definitions/effects"
+      fail_effect:
+        $ref: "../core.yml#/definitions/effects"
+      modifier:
+        $ref: "../core.yml#/definitions/modifiers"
+      potential:
+        $ref: "../core.yml#/definitions/triggers"
+      ai_weight:
+        $ref: "../core.yml#/definitions/weight"
+
+type: object
+additionalProperties:
+  $ref: "#/definitions/resolution_category"

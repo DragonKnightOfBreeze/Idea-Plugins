@@ -1,6 +1,13 @@
+### 背景对象
+
+title: Ambient Objects
+type: object
+additionalProperties:
+  $ref: "#/definitions/ambient_object"
+
 definitions:
-  # 背景对象
   ambient_object:
+    title: Ambient Object
     type: object
     properties:
       name:
@@ -18,7 +25,3 @@ definitions:
         optional: true
       show_name:
         type: boolean
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/ambient_object"

@@ -27,7 +27,12 @@
       }
     },
     "loc_reference" : {
-      "type" : "string"
+      "type" : "string",
+      "anyOf" : [ {
+        "$def" : "localisation/**/*.yml/#/{property}"
+      }, {
+        "$def" : "localisation_synced/**/*.yml/#/{property}"
+      } ]
     }
   },
   "type" : "object",

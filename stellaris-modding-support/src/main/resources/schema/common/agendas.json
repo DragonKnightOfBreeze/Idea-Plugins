@@ -1,6 +1,12 @@
 {
+  "title" : "Agendas",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/agenda"
+  },
   "definitions" : {
     "agenda" : {
+      "title" : "Adenda",
       "type" : "object",
       "properties" : {
         "weight_modifier" : {
@@ -27,9 +33,5 @@
     "modifier" : {
       "type" : "object"
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/agenda"
   }
 }

@@ -1,6 +1,13 @@
+### 异常现象
+
+title: Amomalies
+type: object
+additionalProperties:
+  $ref: "#/definitions/anomaly"
+
 definitions:
-  # 异常
   anomaly:
+    title: Anomaly
     type: object
     properties:
       should_ai_use:
@@ -31,12 +38,12 @@ definitions:
         $ref: "#/definitions/anomaly_event"
   anomaly_event:
     anyOf:
-    - $ref: "../core.yml#/definitions/event_id"
+    - $ref: "../core.yml#/definitions/scripted_event_id"
     - propertyNames:
         type: integer
       additionalProperties:
         anyOf:
-        - $ref: "../core.yml#/definitions/event_id"
+        - $ref: "../core.yml#/definitions/scripted_event_id"
         - $ref: "../core.yml#/definitions/modifier"
           properties:
             max_once:
@@ -46,8 +53,4 @@ definitions:
               type: boolean
               default: no
             anomaly_event:
-              $ref: "../core.yml#/definitions/event_id"
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/anomaly"
+              $ref: "../core.yml#/definitions/scripted_event_id"

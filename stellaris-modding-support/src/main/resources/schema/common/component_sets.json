@@ -15,10 +15,16 @@
       }
     },
     "loc_reference" : {
-      "type" : "string"
+      "type" : "string",
+      "anyOf" : [ {
+        "$def" : "localisation/**/*.yml/#/{property}"
+      }, {
+        "$def" : "localisation_synced/**/*.yml/#/{property}"
+      } ]
     },
     "gfx_reference" : {
-      "type" : "string"
+      "type" : "string",
+      "$def" : "interface/**/*.gfx/#/{spliteType}/name"
     }
   },
   "type" : "object",

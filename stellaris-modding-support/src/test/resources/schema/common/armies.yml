@@ -1,6 +1,13 @@
+### 军队
+
+title: Armies
+type: object
+additionalProperties:
+  $ref: "#/definitions/army"
+
 definitions:
-  # 军队
   army:
+    title: Army
     type: object
     properties:
       icon_frame:
@@ -53,9 +60,3 @@ definitions:
           $type: tech
       show_tech_unlock_if:
         $ref: "../core.yml#/definitions/triggers"
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/army"
-
-
