@@ -77,11 +77,8 @@ object StellarisLocalizationIconUrlResolver {
 	
 	private fun doResolveUrlFromhuijiwiki(name: String): String? {
 		val url = huijiwikiPngUrl(name)
-		var httpResponse = httpClient.send(HttpRequest.newBuilder().GET().uri(URI.create(url)).build(), bodyHandler)
-		if(httpResponse.statusCode() == 301) {
-			val redirectedUrl = httpResponse.headers().firstValue("location").orElse(null)?:return null
-			httpResponse = httpClient.send(HttpRequest.newBuilder().GET().uri(URI.create(redirectedUrl)).build(), bodyHandler)
-		}
+		//不重定向url
+		val httpResponse = httpClient.send(HttpRequest.newBuilder().GET().uri(URI.create(url)).build(), bodyHandler)
 		if(httpResponse.statusCode() == 200) {
 			val lines = httpResponse.body()
 			return lines.filter {
@@ -112,11 +109,8 @@ object StellarisLocalizationIconUrlResolver {
 	
 	private fun doResolveUrlFromParadoxwikis(name: String): String? {
 		val url = paradoxwikisPngUrl(name)
-		var httpResponse = httpClient.send(HttpRequest.newBuilder().GET().uri(URI.create(url)).build(), bodyHandler)
-		if(httpResponse.statusCode() == 301) {
-			val redirectedUrl = httpResponse.headers().firstValue("location").orElse(null)?:return null
-			httpResponse = httpClient.send(HttpRequest.newBuilder().GET().uri(URI.create(redirectedUrl)).build(), bodyHandler)
-		}
+		//不重定向url
+		val httpResponse = httpClient.send(HttpRequest.newBuilder().GET().uri(URI.create(url)).build(), bodyHandler)
 		if(httpResponse.statusCode() == 200) {
 			val lines = httpResponse.body()
 			return lines.filter {
