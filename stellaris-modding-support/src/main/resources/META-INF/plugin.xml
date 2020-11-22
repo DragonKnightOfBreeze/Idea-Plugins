@@ -38,7 +38,7 @@
     </p>
     <p>
       If you need additional helps about Stellaris Modding, please see
-      [灰机维基](https://qunxing.huijiwiki.com) and [Paradoxwikis](https://stellaris.paradoxwikis.com)
+      <a href="https://qunxing.huijiwiki.com">灰机维基</a> and <a bref="https://stellaris.paradoxwikis.com">Paradoxwikis</a>.
     </p>
     <p>
       You can also write Stellaris mods by VSCode IDE with CWTools plugin,
@@ -90,7 +90,7 @@
     </p>
     <p>
       如果你需要额外的关于Stellaris模组编程的帮助，请参阅
-      [灰机维基](https://qunxing.huijiwiki.com) 和 [Paradoxwikis](https://stellaris.paradoxwikis.com)
+      <a href="https://qunxing.huijiwiki.com">灰机维基</a>和<a bref="https://stellaris.paradoxwikis.com">Paradoxwikis</a>。
     </p>
     <p>
       你也可以使用VSCode IDE并配合CWTools插件进行Stellaris模组编程。

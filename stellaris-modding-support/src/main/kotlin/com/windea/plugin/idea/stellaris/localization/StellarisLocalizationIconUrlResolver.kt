@@ -76,9 +76,12 @@ object StellarisLocalizationIconUrlResolver {
 	private const val huijiwikiPrefixLength = huijiwikiPrefix.length
 	
 	private fun doResolveUrlFromhuijiwiki(name: String): String? {
-		val fullUrl = huijiwikiPngUrl(name)
-		val httpResponse = httpClient.send(HttpRequest.newBuilder().GET().uri(URI.create(fullUrl)).build(), bodyHandler)
-		println(httpResponse.statusCode())
+		val url = huijiwikiPngUrl(name)
+		var httpResponse = httpClient.send(HttpRequest.newBuilder().GET().uri(URI.create(url)).build(), bodyHandler)
+		if(httpResponse.statusCode() == 301) {
+			val redirectedUrl = httpResponse.headers().firstValue("location").orElse(null)?:return null
+			httpResponse = httpClient.send(HttpRequest.newBuilder().GET().uri(URI.create(redirectedUrl)).build(), bodyHandler)
+		}
 		if(httpResponse.statusCode() == 200) {
 			val lines = httpResponse.body()
 			return lines.filter {
@@ -88,14 +91,19 @@ object StellarisLocalizationIconUrlResolver {
 				val startIndex = index + huijiwikiPrefixLength
 				val endIndex = it.indexOf('"', startIndex + 1)
 				it.substring(startIndex, endIndex)
-			}.findFirst().orElseGet { null }
+			}.findFirst().orElse(null)
 		}
 		return null
 	}
 	
 	
 	private fun huijiwikiPngUrl(name:String): String {
-		val fqName = name.replace("origin_","",true)
+		val fqName = when{
+			name == "pops" -> "Pop"
+			name == "origin_default" -> "Prosperous_Unification"
+			name.startsWith("origin_") -> name.removePrefix("origin_").toCapitalizedWords()
+			else -> name.toCapitalizedWord()
+		}
 		return "https://qunxing.huijiwiki.com/wiki/%E6%96%87%E4%BB%B6:$fqName.png"
 	}
 	
@@ -103,9 +111,12 @@ object StellarisLocalizationIconUrlResolver {
 	private const val paradoxwikisPrefixLength = paradoxwikisPrefix.length
 	
 	private fun doResolveUrlFromParadoxwikis(name: String): String? {
-		val fullUrl = paradoxwikisPngUrl(name)
-		val httpResponse = httpClient.send(HttpRequest.newBuilder().GET().uri(URI.create(fullUrl)).build(), bodyHandler)
-		println(httpResponse.statusCode())
+		val url = paradoxwikisPngUrl(name)
+		var httpResponse = httpClient.send(HttpRequest.newBuilder().GET().uri(URI.create(url)).build(), bodyHandler)
+		if(httpResponse.statusCode() == 301) {
+			val redirectedUrl = httpResponse.headers().firstValue("location").orElse(null)?:return null
+			httpResponse = httpClient.send(HttpRequest.newBuilder().GET().uri(URI.create(redirectedUrl)).build(), bodyHandler)
+		}
 		if(httpResponse.statusCode() == 200) {
 			val lines = httpResponse.body()
 			return lines.filter {
@@ -114,14 +125,19 @@ object StellarisLocalizationIconUrlResolver {
 				val index = it.indexOf(paradoxwikisPrefix)
 				val startIndex = index + paradoxwikisPrefixLength
 				val endIndex = it.indexOf('"', startIndex + 1)
-				it.substring(startIndex, endIndex)
-			}.findFirst().orElseGet { null }
+				paradoxwikisUrl +  it.substring(startIndex, endIndex)
+			}.findFirst().orElse(null)
 		}
 		return null
 	}
 	
 	private fun paradoxwikisPngUrl(name:String): String {
-		val fqName = name.replace("origin_","origins_",true)
+		val fqName = when{
+			name == "pops" -> "Pop"
+			name == "origin_fallen_empire" -> "Origins_elder_race"
+			name.startsWith("origin") -> name.replace("origin","Origins_")
+			else -> name.toCapitalizedWord()
+		}
 		return "https://stellaris.paradoxwikis.com/File:$fqName.png"
 	}
 }

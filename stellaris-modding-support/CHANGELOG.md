@@ -249,6 +249,11 @@
 * [X] 优化文档注释，显示更多内容。
 * [X] 优化文档注释，添加到两个wiki的连接
 * [X] 解析图标时首先爬取<https://qunxing.huijiwiki.com/>，然后爬取<https://stellaris.paradoxwikis.com/>
+
+## 2.11
+
+* [X] 修复版本更新出来的图标地址解析的bug。
+* [X] 修复无法解析文件中最开始的连续的单行注释为文档注释的一部分的bug。
 * [ ] 为脚本文件提供较为完善的Schema文件
 * [ ] 完成路径到脚本定义类型`common/armies->army`的的映射文件
 * [ ] 根据脚本定义类型和Schema为脚本文件进行额外的代码提示

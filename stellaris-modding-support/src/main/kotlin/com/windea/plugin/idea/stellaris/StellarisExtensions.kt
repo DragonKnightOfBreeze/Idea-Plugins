@@ -16,7 +16,6 @@ import com.intellij.psi.search.*
 import com.intellij.psi.util.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
 import com.windea.plugin.idea.stellaris.script.psi.*
-import org.jetbrains.annotations.*
 import java.io.*
 import java.net.*
 import java.util.*
@@ -91,10 +90,14 @@ fun String.unquote() = if(length >= 2 && startsWith('"') && endsWith('"')) subst
 
 fun String.truncate(limit: Int) = if(this.length <= limit) this else this.take(limit) + "..."
 
-fun String.capitalizedWords() :String{
+fun String.toCapitalizedWord() :String{
+	return if(isEmpty()) this else this[0].toUpperCase() + this.substring(1)
+}
+
+fun String.toCapitalizedWords() :String{
 	return writeString{
 		var isWordStart = true
-		for(c in this@capitalizedWords.toCharArray()) {
+		for(c in this@toCapitalizedWords.toCharArray()) {
 			when{
 				isWordStart -> {
 					isWordStart = false
@@ -102,7 +105,7 @@ fun String.capitalizedWords() :String{
 				}
 				c == '_' || c == '-' || c=='.' -> {
 					isWordStart = true
-					append(' ')
+					append('_')
 				}
 				else -> append(c)
 			}
@@ -213,32 +216,23 @@ fun getDocCommentTextFromPreviousComment(element: PsiElement): String {
 			} else {
 				if(text.containsBlankLine()) break
 			}
-			prevElement = prevElement.prevSibling
+			// 兼容comment在rootBlock之外的特殊情况
+			val prev = prevElement
+			prevElement = prev.prevSibling?:prev.parent?.prevSibling
 		}
 	}
 }
 
-/**判断指定的注释是否可认为是之前的注释*/
+/**得到指定元素之前的所有直接的注释的Html文本，作为文档注释，跳过空白。*/
+fun getDocCommentHtmlFromPreviousComment(element: PsiElement, textAttributeKey: TextAttributesKey): String {
+	return getDocCommentTextFromPreviousComment(element).replace("\n","<br>")
+}
+
+/**判断指定的注释是否可认为是之前的注释。*/
 fun isPreviousComment(element: PsiElement): Boolean {
 	val elementType = element.elementType
 	return elementType == StellarisLocalizationTypes.COMMENT || elementType == StellarisLocalizationTypes.ROOT_COMMENT
 	       || elementType == StellarisScriptTypes.COMMENT
-}
-
-/**得到指定元素之前的所有直接的注释的Html文本，作为文档注释，跳过空白。*/
-fun getDocCommentHtmlFromPreviousComment(element: PsiElement, textAttributeKey: TextAttributesKey): String {
-	return buildString {
-		//val attributes = EditorColorsManager.getInstance().globalScheme.getAttributes(textAttributeKey).clone()
-		//val bgColor = attributes.backgroundColor
-		//val color = attributes.foregroundColor
-		//if(bgColor != null) append("<div bgcolor=#${GuiUtils.colorToHex(bgColor)}>")
-		//if(color != null) append("<font color=#${GuiUtils.colorToHex(color)}>")
-		val text = getDocCommentTextFromPreviousComment(element)
-		val html = text.split("\n").joinToString("<br>") { it }
-		append(html)
-		//if(color != null) append("</font>")
-		//if(bgColor != null) append("</div>")
-	}
 }
 
 /**查找最远的相同类型的兄弟节点。可指定是否向后查找，以及是否在空行处中断。*/

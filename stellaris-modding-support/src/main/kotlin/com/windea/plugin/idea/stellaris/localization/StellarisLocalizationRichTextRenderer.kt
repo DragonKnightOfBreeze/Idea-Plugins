@@ -71,7 +71,6 @@ object StellarisLocalizationRichTextRenderer {
 		if(iconUrl.isNotEmpty()) {
 			if(iconUrl[0] != '<') writer.append(iconTag(iconUrl)) else writer.append(iconUrl)
 		}
-		println(writer.toString())
 	}
 	
 	private fun renderSerialNumberTo(element: StellarisLocalizationSerialNumber, writer: Writer) {

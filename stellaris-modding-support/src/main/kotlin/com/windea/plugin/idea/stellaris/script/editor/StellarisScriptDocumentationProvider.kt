@@ -74,8 +74,8 @@ class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
 				isSectionsStart = true
 				append(DocumentationMarkup.SECTION_HEADER_START)
 				append(message("stellaris.documentation.icon")).append(" ")
-				append(DocumentationMarkup.SECTION_SEPARATOR)
-				append(iconTag(iconUrl,iconSize*3/2)) //1.5倍大小
+				append(DocumentationMarkup.SECTION_SEPARATOR,"<p>")
+				append(iconTag(iconUrl,iconSize*2))
 				append(DocumentationMarkup.SECTION_END)
 			}
 			
@@ -95,7 +95,7 @@ class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
 						
 						append(DocumentationMarkup.SECTION_HEADER_START)
 						append(message(propertyName.getRelatedLocalizationPropertyI18nKey(name.length))).append(" ")
-						append(DocumentationMarkup.SECTION_SEPARATOR)
+						append(DocumentationMarkup.SECTION_SEPARATOR,"<p>")
 						propertyValue.renderRichTextTo(this)
 						append(DocumentationMarkup.SECTION_END)
 					}
@@ -115,7 +115,7 @@ class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
 						
 						append(DocumentationMarkup.SECTION_HEADER_START)
 						append(message("stellaris.documentation.tags")).append(" ")
-						append(DocumentationMarkup.SECTION_SEPARATOR)
+						append(DocumentationMarkup.SECTION_SEPARATOR,"<p>")
 						var addNewLine = false
 						for(tag in tags) {
 							val prop = findLocalizationProperty(tag, element.project, inferedStellarisLocale)

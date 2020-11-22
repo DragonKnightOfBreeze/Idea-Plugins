@@ -83,16 +83,16 @@ class HttpTest {
 		println(httpResponse.body())
 	}
 	
-	//https://qunxing.huijiwiki.com/wiki/%E6%96%87%E4%BB%B6:Unknown.png
 	@Test
 	fun test5(){
 		val httpClient = HttpClient.newBuilder().build()
-		val httpRequest = HttpRequest.newBuilder().POST(HttpRequest.BodyPublishers.noBody())
-			.uri(URI.create("https://qunxing.huijiwiki.com/wiki/%E6%96%87%E4%BB%B6:job_researcher.png")).build()
+		val httpRequest = HttpRequest.newBuilder().GET()
+			.uri(URI.create("https://qunxing.huijiwiki.com/wiki/%E6%96%87%E4%BB%B6:doomsday.png")).build()
 		val bodyHandler = HttpResponse.BodyHandlers.ofString()
 		val httpResponse = httpClient.send(httpRequest,bodyHandler)
 		println(httpResponse.uri())
 		println(httpResponse.statusCode())
+		println(httpResponse.headers().firstValue("location"))
 		println(httpResponse.body())
 	}
 }

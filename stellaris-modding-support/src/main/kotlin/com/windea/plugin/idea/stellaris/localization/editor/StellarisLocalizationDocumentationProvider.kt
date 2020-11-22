@@ -53,7 +53,7 @@ class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider
 				append(DocumentationMarkup.SECTIONS_START)
 				append(DocumentationMarkup.SECTION_HEADER_START)
 				append(message("stellaris.documentation.text")).append(" ")
-				append(DocumentationMarkup.SECTION_SEPARATOR)
+				append(DocumentationMarkup.SECTION_SEPARATOR,"<p>")
 				propertyValue.renderRichTextTo(this)
 				append(DocumentationMarkup.SECTION_END)
 				append(DocumentationMarkup.SECTIONS_END)
