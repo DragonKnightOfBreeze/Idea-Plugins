@@ -1,6 +1,13 @@
+### 地图模式
+
+title: Map Mode
+type: object
+additionalProperties:
+  $ref: "#/definitions/map_mode"
+
 definitions:
-  # 地图模式
   map_mode:
+    title: Map Mode
     type: object
     properties:
       icon:
@@ -27,7 +34,3 @@ definitions:
         type: string
       condition:
         $ref: "../core.yml#/definitions/triggers"
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/map_mode"

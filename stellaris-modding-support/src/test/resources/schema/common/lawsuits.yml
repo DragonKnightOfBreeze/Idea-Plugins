@@ -1,5 +1,13 @@
+### 诉求
+
+title: Lawsuits
+type: object
+additionalProperties:
+  $ref: "#/definitions/lawsuit"
+
 definitions:
   lawsuit:
+    title: Lawsuit
     type: object
     properties:
       effect:
@@ -8,7 +16,3 @@ definitions:
         $ref: "../core.yml#/definitions/economy_unit"
       duration:
         type: number
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/lawsuit"

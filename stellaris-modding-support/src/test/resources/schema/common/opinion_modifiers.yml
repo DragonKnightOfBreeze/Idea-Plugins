@@ -1,6 +1,14 @@
+### 评价修饰符
+
+title: Opinion Modifiers
+type: object
+additionalProperties:
+  $ref: "#/definitions/opinion_modifier"
+
 definitions:
   # 评价修饰符
   opinion_modifier:
+    title: Opinion Modifier
     type: object
     properties:
       trigger:
@@ -9,7 +17,3 @@ definitions:
         oneOf:
         - type: integer
         - $ref: "../core.yml#/definitions/weight_modifier"
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/opinion_modifier"

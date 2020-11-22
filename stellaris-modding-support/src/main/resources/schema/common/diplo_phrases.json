@@ -1,6 +1,12 @@
 {
+  "title" : "Diplo Phrases",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/diplo_phrase"
+  },
   "definitions" : {
     "diplo_phrase" : {
+      "title" : "Diplo Phrase",
       "type" : "object",
       "propertyNames" : {
         "$ref" : "#/definitions/loc_reference"
@@ -102,9 +108,5 @@
       "type" : "string",
       "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/diplo_phrase"
   }
 }

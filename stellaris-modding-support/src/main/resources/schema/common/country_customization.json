@@ -1,6 +1,12 @@
 {
+  "title" : "Country Customization",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/country_customization"
+  },
   "definitions" : {
     "country_customization" : {
+      "title" : "Country Customization",
       "type" : "object",
       "properties" : {
         "colony_shelter" : {
@@ -55,9 +61,5 @@
     "modifier" : {
       "type" : "object"
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/country_customization"
   }
 }

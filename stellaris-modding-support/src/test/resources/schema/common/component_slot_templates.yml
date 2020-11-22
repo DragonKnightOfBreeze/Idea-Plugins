@@ -1,6 +1,13 @@
+### 舰船插槽模版
+
+title: Component Slot Templates
+type: object
+additionalProperties:
+  $ref: "#/definitions/component_slot_template"
+
 definitions:
-  # 舰船插槽模版
   component_slot_template:
+    title: Component Slot Template
     type: object
     properties:
       size:
@@ -20,6 +27,3 @@ definitions:
           weapon_type_explosive:
             $ref: "../core.yml#/definitions/entity"
 
-type: object
-additionalProperties:
-  $ref: "#/definitions/component_slot_template"

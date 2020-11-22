@@ -1,6 +1,12 @@
 {
+  "title" : "Edicts",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/edict"
+  },
   "definitions" : {
     "edict" : {
+      "title" : "Edict",
       "type" : "object",
       "properties" : {
         "name" : {
@@ -179,9 +185,5 @@
       "type" : "string",
       "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/edict"
   }
 }

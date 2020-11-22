@@ -1,6 +1,13 @@
+### 人口职业
+
+title: Pop Jobs
+type: object
+additionalProperties:
+  $ref: "#/definitions/pop_job"
+
 definitions:
-  # 人口职业
   pop_job:
+    title: Pop Job
     type: object
     properties:
       category:
@@ -37,7 +44,3 @@ definitions:
         multiple: true
       weight:
         $ref: "../core.yml#/definitions/weight"
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/pop_job"

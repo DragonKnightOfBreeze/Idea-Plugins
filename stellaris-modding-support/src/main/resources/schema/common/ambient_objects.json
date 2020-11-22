@@ -1,6 +1,12 @@
 {
+  "title" : "Ambient Objects",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/ambient_object"
+  },
   "definitions" : {
     "ambient_object" : {
+      "title" : "Ambient Object",
       "type" : "object",
       "properties" : {
         "name" : {
@@ -34,9 +40,5 @@
         "$def" : "localisation_synced/**/*.yml/#/{property}"
       } ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/ambient_object"
   }
 }

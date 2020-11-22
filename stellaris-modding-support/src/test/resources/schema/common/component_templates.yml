@@ -1,6 +1,13 @@
+### 舰船组件模版
+
+title: Component Templates
+type: object
+additionalProperties:
+  $ref: "#/definitions/component_template"
+
 definitions:
-  # 舰船组件模版
   component_template:
+    title: Component Templates
     type: object
     properties:
       key:
@@ -96,9 +103,3 @@ definitions:
           $type: component_tag
       resources:
         $ref: "../core.yml#/definitions/economy_unit"
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/component_template"
-
-

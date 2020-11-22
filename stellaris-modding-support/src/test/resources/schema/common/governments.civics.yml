@@ -1,6 +1,13 @@
+### 公民性
+
+title: Civics
+type: object
+additionalProperties:
+  $ref: "#/definitions/civic"
+
 definitions:
-  # 公民性
   civic:
+    title: Civic
     type: object
     properties:
       icon:
@@ -55,8 +62,3 @@ definitions:
         type: array
         items:
           $type: flag
-
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/civic"

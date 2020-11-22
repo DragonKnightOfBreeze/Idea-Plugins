@@ -1,6 +1,12 @@
 {
+  "title" : "Scripted Triggers",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/scripted_trigger"
+  },
   "definitions" : {
     "scripted_trigger" : {
+      "title" : "Scripted Trigger",
       "type" : "object",
       "$ref" : "#/definitions/triggers"
     },
@@ -65,9 +71,5 @@
       "type" : "string",
       "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/scripted_trigger"
   }
 }

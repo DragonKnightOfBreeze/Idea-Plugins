@@ -42,13 +42,11 @@ object StellarisLocalizationIconUrlResolver {
 					else -> url
 				}
 			}
-			//如果缓存中没有，则返回“正在解析中”，另开线程解析图标
+			//如果缓存中没有，则另开线程解析图标
 			if(!doResolveCache.contains(name)) resolveUrlAsync(name)
-			//"<code>(resolving icon)</code>"
 			getDefaultUrl(defaultToUnknown)
 		}catch(e: Exception){
 			e.printStackTrace()
-			//"<code>(resolve icon error)</code>"
 			getDefaultUrl(defaultToUnknown)
 		}
 	}
@@ -65,7 +63,8 @@ object StellarisLocalizationIconUrlResolver {
 				urlCache[name] = url
 			}catch(e: Exception){
 				e.printStackTrace()
-				urlCache[name] = ""
+				//如果出现异常，那么继续尝试
+				//urlCache[name] = ""
 			}
 		}
 	}

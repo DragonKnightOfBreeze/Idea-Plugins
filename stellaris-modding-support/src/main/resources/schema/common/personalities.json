@@ -1,6 +1,12 @@
 {
+  "title" : "Personalities",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/personality"
+  },
   "definitions" : {
     "personality" : {
+      "title" : "Personality",
       "type" : "object",
       "properties" : {
         "aggressiveness" : {
@@ -197,9 +203,5 @@
       "type" : "string",
       "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/personality"
   }
 }

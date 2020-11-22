@@ -1,6 +1,13 @@
+### 经济分类
+
+title: Economic Categories
+type: object
+additionalProperties:
+  $ref: "#/definitions/economic_category"
+
 definitions:
-  # 经济分类
   economic_category:
+    title: Economic Category
     type: object
     properties:
       parent:
@@ -25,7 +32,3 @@ definitions:
       triggered_cost_modifier:
         $ref: "../core.yml#/definitions/triggered_modifiers"
         modifier: true
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/economic_category"

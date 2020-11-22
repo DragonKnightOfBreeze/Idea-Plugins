@@ -1,6 +1,13 @@
+### 联邦类型
+
+title: Federation Types
+type: object
+additionalProperties:
+  $ref: "#/definitions/federation_type"
+
 definitions:
-  # 联邦类型
   federation_type:
+    title: Federation Type
     type: object
     properties:
       icon:
@@ -23,7 +30,3 @@ definitions:
         $ref: "../core.yml#/definitions/effects"
       ai_weight:
         $ref: "../core.yml#/definitions/weight_modifier"
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/federation_type"

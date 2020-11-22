@@ -1,6 +1,13 @@
+### 地块
+
+title: Districts
+type: object
+additionalProperties:
+  $ref: "#/definitions/district"
+
 definitions:
-  # 地块
   district:
+    title: District
     type: object
     properties:
       base_buildtime:
@@ -30,9 +37,3 @@ definitions:
         $ref: "../core.yml#/definitions/weight_modifier"
       modifier:
         $ref: "../core.yml#/definitions/modifier"
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/district"
-
-

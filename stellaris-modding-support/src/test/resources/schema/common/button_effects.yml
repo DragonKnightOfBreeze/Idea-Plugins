@@ -1,6 +1,13 @@
+### 按钮效果
+
+title: Button Effects
+type: object
+additionalProperties:
+  $ref: "#/definitions/button_effect"
+
 definitions:
-  # 建筑
   button_effect:
+    title: Buttom Effect
     type: object
     properties:
       potential:
@@ -9,7 +16,3 @@ definitions:
         $ref: "../core.yml#/definitions/triggers"
       effect:
         $ref: "../core.yml#/definitions/effects"
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/button_effect"

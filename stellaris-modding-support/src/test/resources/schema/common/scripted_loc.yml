@@ -1,6 +1,14 @@
+### 脚本本地化引用
+
+title: Scripted Localization References
+type: object
+properties:
+  define_text:
+    $ref: "#/definitions/scripted_loc"
+
 definitions:
-  # 本地化引用
   scripted_loc:
+    title: Scripted Localization Reference
     type: object
     properties:
       name:
@@ -13,8 +21,3 @@ definitions:
             multiple: true
           localization_key:
             $ref: "../core.yml#/definitions/loc_reference"
-
-type: object
-properties:
-  define_text:
-    $ref: "#/definitions/scripted_loc"

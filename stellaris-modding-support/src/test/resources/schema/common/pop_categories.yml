@@ -1,6 +1,13 @@
+### 人口分类
+
+title: Pop Categories
+type: object
+additionalProperties:
+  $ref: "#/definitions/pop_category"
+
 definitions:
-  # 人口分类（人口阶级）
   pop_category:
+    title: Pop Category
     type: object
     properties:
       rank:
@@ -34,7 +41,3 @@ definitions:
         multiple: true
       resources:
         $ref: "../core.yml#/definitions/economy_unit"
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/pop_category"

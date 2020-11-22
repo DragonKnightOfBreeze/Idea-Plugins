@@ -1,6 +1,13 @@
+### 自动殖民算法的异常
+
+title: Colony Automation Exception
+type: object
+additionalProperties:
+  $ref: "#/definitions/colony_automation_exception"
+
 definitions:
-  # 自动殖民算法的异常
   colony_automation_exception:
+    title: Colony Automation Exception
     type: object
     properties:
       available:
@@ -22,7 +29,3 @@ definitions:
               available:
                 $ref: "../core.yml#/definitions/triggers"
                 multiple: true
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/colony_automation_exception"

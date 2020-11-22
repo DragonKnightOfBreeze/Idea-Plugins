@@ -1,6 +1,12 @@
 {
+  "title" : "Event Chains",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/event_chain"
+  },
   "definitions" : {
     "event_chain" : {
+      "title" : "Event Chain",
       "type" : "object",
       "properties" : {
         "icon" : {
@@ -29,9 +35,5 @@
       "type" : "string",
       "$def" : "interface/**/*.gfx/#/{spliteType}/name"
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/event_chain"
   }
 }

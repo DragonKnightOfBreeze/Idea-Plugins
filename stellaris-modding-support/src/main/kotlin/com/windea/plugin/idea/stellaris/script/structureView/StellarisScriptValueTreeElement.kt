@@ -19,7 +19,6 @@ class StellarisScriptValueTreeElement(
 
 	override fun getPresentableText(): String? {
 		return when{
-			element is StellarisScriptRootBlock -> rootBlockFolder
 			element is StellarisScriptBlock -> blockFolder
 			else -> element.text.truncate(20) //不去除包围的双引号
 		}

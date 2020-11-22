@@ -1,3 +1,5 @@
+### 脚本变量
+
 title: "Scripted Variables"
-type: object
 additionalProperties: false
+additionalItems: false

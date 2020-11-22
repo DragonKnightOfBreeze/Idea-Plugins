@@ -14,11 +14,7 @@ class StellarisLocalizationFileTreeElement(
 	}
 
 	override fun getPresentableText(): String? {
-		//显示语言区域作为后缀
-		val name = element.name
-		val localeSuffix = element.locale?.name?.let { " <$it>" }.orEmpty()
-		return "$name$localeSuffix"
-		//return element.name
+		return element.name
 	}
 }
 

@@ -1,6 +1,12 @@
 {
+  "title" : "Amomalies",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/anomaly"
+  },
   "definitions" : {
     "anomaly" : {
+      "title" : "Anomaly",
       "type" : "object",
       "properties" : {
         "should_ai_use" : {
@@ -197,9 +203,5 @@
       "type" : "string",
       "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/anomaly"
   }
 }

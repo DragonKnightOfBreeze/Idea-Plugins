@@ -35,7 +35,6 @@ val stellarisScriptVariableRegex = "@[a-zA-Z0-9_-]+".toRegex()
 val stellarisScriptPropertyRegex = "[a-z0-9_-]+".toRegex()
 
 const val commentFolder = "#..."
-const val rootBlockFolder = "<root block>"
 const val blockFolder = "{...}"
 const val defaultFolder = "<folder>"
 

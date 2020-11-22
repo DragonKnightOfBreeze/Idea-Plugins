@@ -1,6 +1,12 @@
 {
+  "title" : "Megastructures",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/megastructure"
+  },
   "definitions" : {
     "megastructure" : {
+      "title" : "Megastructure",
       "type" : "object",
       "properties" : {
         "entity" : {
@@ -220,9 +226,5 @@
       "type" : "string",
       "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/megastructure"
   }
 }

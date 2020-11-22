@@ -1,6 +1,12 @@
 {
+  "title" : "Country Types",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/country_type"
+  },
   "definitions" : {
     "country_type" : {
+      "title" : "Country Type",
       "type" : "object",
       "properties" : {
         "has_difficulty_bonuses" : {
@@ -289,9 +295,5 @@
       "type" : "string",
       "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/country_type"
   }
 }

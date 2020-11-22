@@ -1,6 +1,13 @@
+### 地块
+
+title: Deposits
+type: object
+additionalProperties:
+  $ref: "#/definitions/deposit"
+
 definitions:
-  # 地块
   deposit:
+    title: Deposit
     type: object
     properties:
       is_null:
@@ -25,9 +32,3 @@ definitions:
         type: array
         items:
           $type: tech
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/deposit"
-
-

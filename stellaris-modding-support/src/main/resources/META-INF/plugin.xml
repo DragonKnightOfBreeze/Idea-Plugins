@@ -29,7 +29,7 @@
       You can configure whether to resolve
       internal (in project directory) & external (in game / mod directory, <b>NOT IMPLEMENTED YET</b>) references,
       such as localization and script property references in script files
-      by Edit settings via <i>[Languages & Frameworks / Stellaris Modding Support]</i>.
+      by Edit settings via <code>[Languages & Frameworks / Stellaris Modding Support]</code>.
       Default all to true.
     </p>
     <p>
@@ -79,7 +79,7 @@
       所在目录下（及其子目录）的脚本文件和本地化文件。
     </p>
     <p>
-      你可以通过设置菜单中的<i>[Languages & Frameworks / Stellaris Modding Support]</i>
+      你可以通过设置菜单中的<code>[Languages & Frameworks / Stellaris Modding Support]</code>
       配置是否解析内部引用（项目目录中）和外部引用（游戏和模组目录中，<b>尚未实现</b>），
       例如脚本文件中的本地化属性和脚本属性的引用。
       默认全部启用。

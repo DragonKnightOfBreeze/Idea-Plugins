@@ -1,6 +1,12 @@
 {
+  "title" : "Economic Categories",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/economic_category"
+  },
   "definitions" : {
     "economic_category" : {
+      "title" : "Economic Category",
       "type" : "object",
       "properties" : {
         "parent" : {
@@ -109,9 +115,5 @@
       "type" : "string",
       "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/economic_category"
   }
 }

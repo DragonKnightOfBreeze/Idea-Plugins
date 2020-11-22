@@ -1,6 +1,13 @@
+### 全局舰船设计
+
+title: Global Ship Designs
+type: object
+additionalProperties:
+  $ref: "#/definitions/global_ship_design"
+
 definitions:
-  # 全局舰船设计
   global_ship_design:
+    title: Global Ship Designs
     type: object
     properties:
       name:
@@ -36,10 +43,5 @@ definitions:
         $type: section_template.component_slot.name
       template:
         $type: component_template.key
-  # TODO
   slot:
-    type: string
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/global_ship_design"
+    type: string # TODO

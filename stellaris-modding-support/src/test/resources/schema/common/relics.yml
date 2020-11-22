@@ -1,6 +1,13 @@
+### 遗珍
+
+title: Relics
+type: object
+additionalProperties:
+  $ref: "#/definitions/relic"
+
 definitions:
-  # 遗珍
   relic:
+    title: Relic
     type: object
     properties:
       activation_duration:
@@ -21,7 +28,3 @@ definitions:
         $ref: "../core.yml#/definitions/effects"
       possible:
         $ref: "../core.yml#/definitions/effects"
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/relic"

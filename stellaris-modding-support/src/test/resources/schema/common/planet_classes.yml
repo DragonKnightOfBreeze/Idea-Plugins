@@ -1,6 +1,13 @@
+# 星球类型
+
+title: Plant Classes
+type: object
+additionalProperties:
+  $ref: "#/definitions/plant_class"
+
 definitions:
-  # 星球类型
   plant_class:
+    title: Plant Class
     type: object
     properties:
       entity:
@@ -79,7 +86,3 @@ definitions:
     - ring_world
     - city_world
     - habitat
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/plant_class"

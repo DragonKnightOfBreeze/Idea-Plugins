@@ -1,6 +1,13 @@
+### 动态文本
+
+title: Dynamic Text
+type: object
+additionalProperties:
+  $ref: "#/definitions/dynamic_text"
+
 definitions:
-  # 动态文本
   dynamic_text:
+    title: Dynamic Text
     type: object
     properties:
       mandatory:
@@ -27,9 +34,3 @@ definitions:
         type: array
         items:
           $ref: "../core.yml#/definitions/loc_reference"
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/dynamic_text"
-
-

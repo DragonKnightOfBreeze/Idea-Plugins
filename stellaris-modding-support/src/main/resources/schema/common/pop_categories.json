@@ -1,6 +1,12 @@
 {
+  "title" : "Pop Categories",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/pop_category"
+  },
   "definitions" : {
     "pop_category" : {
+      "title" : "Pop Category",
       "type" : "object",
       "properties" : {
         "rank" : {
@@ -164,9 +170,5 @@
       "type" : "string",
       "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/pop_category"
   }
 }

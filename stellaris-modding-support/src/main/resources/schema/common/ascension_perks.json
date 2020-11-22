@@ -1,6 +1,12 @@
 {
+  "title" : "Ascension Perks",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/ascension_perk"
+  },
   "definitions" : {
     "ascension_perk" : {
+      "title" : "Ascension Perk",
       "type" : "object",
       "properties" : {
         "potential" : {
@@ -108,9 +114,5 @@
       "type" : "string",
       "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/ascension_perk"
   }
 }

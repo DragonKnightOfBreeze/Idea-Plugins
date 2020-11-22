@@ -1,6 +1,13 @@
+### 决议分类
+
+title: Resolution Categories
+type: object
+additionalProperties:
+  $ref: "#/definitions/resolution_category"
+
 definitions:
-  # 决议分类
   resolution_category:
+    title: Resolution Category
     type: object
     properties:
       group:
@@ -11,7 +18,3 @@ definitions:
         type: array
         items:
           $type: resolution
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/resolution_category"

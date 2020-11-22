@@ -1,6 +1,13 @@
+### 外交经济
+
+title: Diplomacy Economy
+type: object
+additionalProperties:
+  $ref: "#/definitions/diplomacy_economy"
+
 definitions:
-  # 外交关系花费
   diplomacy_economy:
+    title: Diplomacy Economy
     type: object
     propertyNames:
       $type: diplomacy
@@ -11,9 +18,3 @@ definitions:
           $ref: "../core.yml#/definitions/triggers"
         resources:
           $ref: "../core.yml#/definitions/economy_unit"
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/diplomacy_economy"
-
-

@@ -1,6 +1,13 @@
+### 国家类型
+
+title: Country Types
+type: object
+additionalProperties:
+  $ref: "#/definitions/country_type"
+
 definitions:
-  # 国家类型
   country_type:
+    title: Country Type
     type: object
     properties:
       has_difficulty_bonuses:
@@ -110,7 +117,3 @@ definitions:
       properties:
         fraction:
           $ref: "../core.yml#/definitions/weight_modifier"
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/country_type"

@@ -1,6 +1,13 @@
+### 领袖分类
+
+title: Leader Classes
+type: object
+additionalProperties:
+  $ref: "#/definitions/leader_class"
+
 definitions:
-  # 领袖分类
   leader_class:
+    title: Leader Class
     type: object
     properties:
       can_lead_navy:
@@ -24,7 +31,3 @@ definitions:
       # for evoy
       assignment_cooldown:
         type: integer
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/leader_class"

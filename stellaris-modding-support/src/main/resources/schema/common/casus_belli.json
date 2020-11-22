@@ -1,6 +1,12 @@
 {
+  "title" : "Casus Belli",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/casus_belli"
+  },
   "definitions" : {
     "casus_belli" : {
+      "title" : "Casus Belli",
       "type" : "object",
       "properties" : {
         "show_in_diplomacy" : {
@@ -83,9 +89,5 @@
       "type" : "string",
       "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/casus_belli"
   }
 }

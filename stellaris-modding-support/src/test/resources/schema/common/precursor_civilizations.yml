@@ -1,13 +1,16 @@
+### 先驱者文明
+
+title: Precursor Civillizations
+type: object
+additionalProperties:
+  $ref: "#/definitions/precursor_civillization"
+
 definitions:
-  # 先驱者文明
   precursor_civillization:
+    title: Precursor Civillization
     type: object
     properties:
       size:
         type: integer
       possible:
         $ref: "../core.yml#/definitions/triggers"
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/precursor_civillization"

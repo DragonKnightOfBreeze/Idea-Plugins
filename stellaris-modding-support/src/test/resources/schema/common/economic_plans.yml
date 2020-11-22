@@ -1,6 +1,13 @@
+### 经济计划
+
+title: Economic Plans
+type: object
+additionalProperties:
+  $ref: "#/definitions/economic_plan"
+
 definitions:
-  # 经济计划
   economic_plan:
+    title: Economic Plan
     type: object
     properties:
       type:
@@ -18,7 +25,3 @@ definitions:
         type: number
       ai_weight:
         $ref: "../core.yml#/definitions/weight_modifier"
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/economic_plan"

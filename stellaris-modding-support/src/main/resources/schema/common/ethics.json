@@ -1,6 +1,20 @@
 {
+  "title" : "Ethics",
+  "type" : "object",
+  "properties" : {
+    "ethic_categories" : {
+      "type" : "object",
+      "additionalProperties" : {
+        "type" : "object"
+      }
+    }
+  },
+  "additionalProperties" : {
+    "$ref" : "#/definitions/ethic"
+  },
   "definitions" : {
     "ethic" : {
+      "title" : "Ethic",
       "type" : "object",
       "properties" : {
         "cost" : {
@@ -151,17 +165,5 @@
       "type" : "string",
       "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     }
-  },
-  "type" : "object",
-  "properties" : {
-    "ethic_categories" : {
-      "type" : "object",
-      "additionalProperties" : {
-        "type" : "object"
-      }
-    }
-  },
-  "additionalProperties" : {
-    "$ref" : "#/definitions/ethic"
   }
 }

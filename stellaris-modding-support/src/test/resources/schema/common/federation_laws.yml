@@ -1,6 +1,13 @@
+### 联邦法律
+
+title: Federation Laws
+type: object
+additionalProperties:
+  $ref: "#/definitions/federation_law"
+
 definitions:
-  # 联邦法律
   federation_law:
+    title: Federation Law
     type: object
     properties:
       display_level:
@@ -17,7 +24,3 @@ definitions:
         $ref: "../core.yml#/definitions/effects"
       ai_weight:
         $ref: "../core.yml#/definitions/weight_modifier"
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/federation_law"

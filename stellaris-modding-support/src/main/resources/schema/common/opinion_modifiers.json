@@ -1,6 +1,12 @@
 {
+  "title" : "Opinion Modifiers",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/opinion_modifier"
+  },
   "definitions" : {
     "opinion_modifier" : {
+      "title" : "Opinion Modifier",
       "type" : "object",
       "properties" : {
         "trigger" : {
@@ -91,9 +97,5 @@
       "type" : "string",
       "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/opinion_modifier"
   }
 }

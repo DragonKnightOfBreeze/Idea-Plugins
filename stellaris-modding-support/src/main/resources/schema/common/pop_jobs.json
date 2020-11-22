@@ -1,6 +1,12 @@
 {
+  "title" : "Pop Jobs",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/pop_job"
+  },
   "definitions" : {
     "pop_job" : {
+      "title" : "Pop Job",
       "type" : "object",
       "properties" : {
         "category" : {
@@ -176,9 +182,5 @@
       "type" : "string",
       "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/pop_job"
   }
 }

@@ -1,6 +1,13 @@
+### 联邦法律分类
+
+title: Federation Law Categories
+type: object
+additionalProperties:
+  $ref: "#/definitions/federation_law_category"
+
 definitions:
-  # 联邦法律分类
   federation_law_category:
+    title: Federation Law Category
     type: object
     properties:
       centralization:
@@ -13,7 +20,3 @@ definitions:
           $type: federation_law
       potential:
         $ref: "../core.yml#/definitions/triggers"
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/federation_law_category"

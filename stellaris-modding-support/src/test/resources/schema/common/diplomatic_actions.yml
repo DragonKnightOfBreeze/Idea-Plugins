@@ -1,6 +1,13 @@
+### 外交动作
+
+title: Diplomatic Actions
+type: object
+additionalProperties:
+  $ref: "#/definitions/diplomatic_action"
+
 definitions:
-  # 外交行动
   diplomatic_action:
+    title: Diplomatic Action
     type: object
     properties:
       icon:
@@ -28,7 +35,3 @@ definitions:
     - neutral
     - positive
     - aggressive
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/diplomatic_action"

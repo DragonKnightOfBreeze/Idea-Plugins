@@ -1,12 +1,13 @@
 {
-  "definitions" : {
-    "color" : {
-      "type" : "array",
-      "items" : true
-    }
-  },
-  "type" : "object",
+  "title" : "Colors",
+  "type" : "array",
   "additionalProperties" : {
     "$ref" : "#/definitions/color"
+  },
+  "definitions" : {
+    "color" : {
+      "title" : "Color",
+      "type" : "string"
+    }
   }
 }

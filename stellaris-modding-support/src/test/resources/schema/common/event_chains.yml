@@ -1,6 +1,13 @@
+### 事件链
+
+title: Event Chains
+type: object
+additionalProperties:
+  $ref: "#/definitions/event_chain"
+
 definitions:
-  # 事件链
   event_chain:
+    title: Event Chain
     type: object
     properties:
       icon:
@@ -14,7 +21,3 @@ definitions:
         additionalProperties:
           max:
             type: integer
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/event_chain"

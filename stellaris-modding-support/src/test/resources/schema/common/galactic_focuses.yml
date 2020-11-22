@@ -1,6 +1,13 @@
+### 银河焦点
+
+title: Galactic Focuses
+type: object
+additionalProperties:
+  $ref: "#/definitions/galactic_focus"
+
 definitions:
-  # 银河焦点
   galactic_focus:
+    title: Galactic Focus
     type: object
     properties:
       icon:
@@ -11,7 +18,3 @@ definitions:
         $ref: "../core.yml#/definitions/effects"
       trigger:
         $ref: "../core.yml#/definitions/effects"
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/galactic_focus"

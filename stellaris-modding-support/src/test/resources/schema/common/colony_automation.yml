@@ -1,6 +1,13 @@
+### 自动殖民算法
+
+title: Colony Automation
+type: object
+additionalProperties:
+  $ref: "#/definitions/colony_automation"
+
 definitions:
-  # 自动殖民算法
   colony_automation:
+    title: Colony Automation
     type: object
     properties:
       available:
@@ -21,7 +28,3 @@ definitions:
               multiple: true
             available:
               $ref: "../core.yml#/definitions/triggers"
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/colony_automation"

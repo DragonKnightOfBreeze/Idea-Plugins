@@ -1,6 +1,12 @@
 {
+  "title" : "Component Slot Templates",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/component_slot_template"
+  },
   "definitions" : {
     "component_slot_template" : {
+      "title" : "Component Slot Template",
       "type" : "object",
       "properties" : {
         "size" : {
@@ -38,9 +44,5 @@
       "type" : "string",
       "enum" : [ "weapon", "instant", "missile", "strike_craft", "point_defence", "planet_killer" ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/component_slot_template"
   }
 }

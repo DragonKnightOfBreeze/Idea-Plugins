@@ -1,6 +1,12 @@
 {
+  "title" : "Mandates",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/mandate"
+  },
   "definitions" : {
     "mandate" : {
+      "title" : "Mandate",
       "type" : "object",
       "properties" : {
         "valid" : {
@@ -94,9 +100,5 @@
       "type" : "string",
       "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/mandate"
   }
 }

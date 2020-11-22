@@ -1,6 +1,13 @@
+### 小行星带
+
+title: Asteroid Belts
+type: object
+additionalProperties:
+  $ref: "#/definitions/asteroid_belt"
+
 definitions:
-  # 小行星带
   asteroid_belt:
+    title: Asteroid Belt
     type: object
     properties:
       # anyOf
@@ -8,7 +15,3 @@ definitions:
         $ref: "../core.yml#/definitions/gfx_reference"
       shader:
         type: string
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/asteroid_belt"

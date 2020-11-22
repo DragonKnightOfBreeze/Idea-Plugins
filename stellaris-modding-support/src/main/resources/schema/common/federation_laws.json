@@ -1,6 +1,12 @@
 {
+  "title" : "Federation Laws",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/federation_law"
+  },
   "definitions" : {
     "federation_law" : {
+      "title" : "Federation Law",
       "type" : "object",
       "properties" : {
         "display_level" : {
@@ -117,9 +123,5 @@
         "$ref" : "#/definitions/scripted_triggers"
       } ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/federation_law"
   }
 }

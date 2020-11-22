@@ -1,6 +1,12 @@
 {
+  "title" : "Plant Modifiers",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/plant_modifier"
+  },
   "definitions" : {
     "plant_modifier" : {
+      "title" : "Plant Modifier",
       "type" : "object",
       "properties" : {
         "spawn_chance" : {
@@ -26,9 +32,5 @@
     "modifier" : {
       "type" : "object"
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/plant_modifier"
   }
 }

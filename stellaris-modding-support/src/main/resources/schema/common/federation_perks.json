@@ -1,6 +1,12 @@
 {
+  "title" : "Federation Perks",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/federation_perk"
+  },
   "definitions" : {
     "federation_perk" : {
+      "title" : "Federation Perk",
       "type" : "object",
       "properties" : {
         "federation_modifier" : {
@@ -123,9 +129,5 @@
       "type" : "string",
       "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/federation_perk"
   }
 }

@@ -1,6 +1,13 @@
+### 国家自定义
+
+title: Country Customization
+type: object
+additionalProperties:
+  $ref: "#/definitions/country_customization"
+
 definitions:
-  # 国家自定义
   country_customization:
+    title: Country Customization
     type: object
     properties:
       colony_shelter:
@@ -25,7 +32,3 @@ definitions:
             modifier:
               $ref: "../core.yml#/definitions/modifier"
               multiple: true
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/country_customization"

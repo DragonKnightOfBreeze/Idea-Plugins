@@ -1,6 +1,13 @@
+### 飞升特典
+
+title: Ascension Perks
+type: object
+additionalProperties:
+  $ref: "#/definitions/ascension_perk"
+
 definitions:
-  # 飞升天赋
   ascension_perk:
+    title: Ascension Perk
     type: object
     properties:
       potential:
@@ -13,7 +20,3 @@ definitions:
         $ref: "../core.yml#/definitions/modifier"
       ai_weight:
         $ref: "../core.yml#/definitions/weight_modifier"
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/ascension_perk"

@@ -1,13 +1,16 @@
+### 动作
+
+title: On Actions
+type: object
+additionalProperties:
+  $ref: "#/definitions/on_action"
+
 definitions:
-  # 动作
   on_action:
+    title: On Action
     type: object
     properties:
       events:
         type: array
         items:
           $type: event.id
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/on_action"

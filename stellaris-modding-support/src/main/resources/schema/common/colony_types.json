@@ -1,6 +1,12 @@
 {
+  "title" : "Colony Type",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/colony_type"
+  },
   "definitions" : {
     "colony_type" : {
+      "title" : "Colony Type",
       "type" : "object",
       "properties" : {
         "icon" : {
@@ -109,9 +115,5 @@
       "type" : "string",
       "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/colony_type"
   }
 }

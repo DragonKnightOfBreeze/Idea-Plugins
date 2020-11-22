@@ -1,6 +1,12 @@
 {
+  "title" : "Resolution Categories",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/resolution_category"
+  },
   "definitions" : {
     "resolution_category" : {
+      "title" : "Resolution Category",
       "type" : "object",
       "properties" : {
         "group" : {
@@ -17,9 +23,5 @@
         }
       }
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/resolution_category"
   }
 }

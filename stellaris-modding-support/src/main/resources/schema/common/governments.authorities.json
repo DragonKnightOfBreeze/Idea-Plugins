@@ -1,6 +1,12 @@
 {
+  "title" : "Authorities",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/authority"
+  },
   "definitions" : {
     "authority" : {
+      "title" : "Authority",
       "type" : "object",
       "properties" : {
         "icon" : {
@@ -168,9 +174,5 @@
       "type" : "string",
       "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/authority"
   }
 }

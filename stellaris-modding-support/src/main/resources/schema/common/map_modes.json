@@ -1,6 +1,12 @@
 {
+  "title" : "Map Mode",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/map_mode"
+  },
   "definitions" : {
     "map_mode" : {
+      "title" : "Map Mode",
       "type" : "object",
       "properties" : {
         "icon" : {
@@ -121,9 +127,5 @@
       "type" : "string",
       "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/map_mode"
   }
 }

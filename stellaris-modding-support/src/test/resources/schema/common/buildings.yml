@@ -1,6 +1,13 @@
+### 建筑
+
+title: Buildings
+type: object
+additionalProperties:
+  $ref: "#/definitions/building"
+
 definitions:
-  # 建筑
   building:
+    title: Building
     type: object
     properties:
       base_buildtime:
@@ -71,7 +78,3 @@ definitions:
     - amenity
     - unity
     - army
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/building"

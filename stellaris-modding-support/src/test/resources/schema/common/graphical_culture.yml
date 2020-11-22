@@ -1,6 +1,13 @@
+### 图形文化
+
+title: Graphical Cultures
+type: object
+additionalProperties:
+  $ref: "#/definitions/graphical_culture"
+
 definitions:
-  # 图形风格
   graphical_culture:
+    title: Graphical Culture
     type: object
     properties:
       randomized:
@@ -42,7 +49,3 @@ definitions:
         type: number
       ambient_far:
         type: number
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/graphical_culture"

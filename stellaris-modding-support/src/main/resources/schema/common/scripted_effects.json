@@ -1,6 +1,12 @@
 {
+  "title" : "Scripted Effects",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/scripted_effect"
+  },
   "definitions" : {
     "scripted_effect" : {
+      "title" : "Scripted Effect",
       "type" : "object",
       "$ref" : "#/definitions/effects"
     },
@@ -77,9 +83,5 @@
         "$ref" : "#/definitions/scripted_triggers"
       } ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/scripted_effect"
   }
 }

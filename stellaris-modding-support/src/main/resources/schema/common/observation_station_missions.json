@@ -1,6 +1,12 @@
 {
+  "title" : "Observation Station Missions",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/observation_station_mission"
+  },
   "definitions" : {
     "observation_station_mission" : {
+      "title" : "Observation Station Mission",
       "type" : "object",
       "properties" : {
         "icon" : {
@@ -149,9 +155,5 @@
       "type" : "string",
       "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/observation_station_mission"
   }
 }

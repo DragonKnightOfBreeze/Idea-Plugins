@@ -1,6 +1,13 @@
+### 路径
+
+title: Bypass
+type: object
+additionalProperties:
+  $ref: "#/definitions/bypass"
+
 definitions:
-  # 路径
   bypass:
+    title: Bypass
     type: object
     properties:
       name:
@@ -61,9 +68,5 @@ definitions:
         $ref: "../core.yml#/definitions/triggers"
       nexus:
         $ref: "../core.yml#/definitions/triggers"
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/bypass"
 
 

@@ -1,6 +1,12 @@
 {
+  "title" : "Component Sets",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/component_set"
+  },
   "definitions" : {
     "component_set" : {
+      "title" : "Component Set",
       "type" : "object",
       "properties" : {
         "key" : {
@@ -26,9 +32,5 @@
       "type" : "string",
       "$def" : "interface/**/*.gfx/#/{spliteType}/name"
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/component_set"
   }
 }

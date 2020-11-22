@@ -1,6 +1,12 @@
 {
+  "title" : "Random Names",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/random_name"
+  },
   "definitions" : {
     "random_name" : {
+      "title" : "Random Name",
       "type" : "object",
       "properties" : {
         "size" : {
@@ -72,9 +78,5 @@
       "type" : "string",
       "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/random_name"
   }
 }

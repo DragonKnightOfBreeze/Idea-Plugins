@@ -1,13 +1,16 @@
+### 随机名称
+
+title: Random Names
+type: object
+additionalProperties:
+  $ref: "#/definitions/random_name"
+
 definitions:
-  # 随机名字
   random_name:
+    title: Random Name
     type: object
     properties:
       size:
         type: integer
       possible:
         $ref: "../core.yml#/definitions/triggers"
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/random_name"

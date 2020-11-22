@@ -1,6 +1,12 @@
 {
+  "title" : "Attributes",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/attribute"
+  },
   "definitions" : {
     "attribute" : {
+      "title" : "Attribute",
       "type" : "object",
       "properties" : {
         "type" : {
@@ -24,9 +30,5 @@
       "type" : "string",
       "enum" : [ "attack", "weaken", "alliance", "vassalize", "trade", "coexist" ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/attribute"
   }
 }

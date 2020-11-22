@@ -1,6 +1,12 @@
 {
+  "title" : "Graphical Cultures",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/graphical_culture"
+  },
   "definitions" : {
     "graphical_culture" : {
+      "title" : "Graphical Culture",
       "type" : "object",
       "properties" : {
         "randomized" : {
@@ -133,9 +139,5 @@
       "type" : "string",
       "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/graphical_culture"
   }
 }

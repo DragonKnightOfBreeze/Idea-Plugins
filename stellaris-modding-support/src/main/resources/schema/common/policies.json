@@ -1,6 +1,12 @@
 {
+  "title" : "Policies",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/policy"
+  },
   "definitions" : {
     "policy" : {
+      "title" : "Policy",
       "type" : "object",
       "properties" : {
         "potential" : {
@@ -132,9 +138,5 @@
       "type" : "string",
       "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/policy"
   }
 }

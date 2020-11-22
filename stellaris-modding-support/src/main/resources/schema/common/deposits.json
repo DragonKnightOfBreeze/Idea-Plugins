@@ -1,6 +1,12 @@
 {
+  "title" : "Deposits",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/deposit"
+  },
   "definitions" : {
     "deposit" : {
+      "title" : "Deposit",
       "type" : "object",
       "properties" : {
         "is_null" : {
@@ -148,9 +154,5 @@
       "type" : "string",
       "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/deposit"
   }
 }

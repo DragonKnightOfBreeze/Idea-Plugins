@@ -1,9 +1,12 @@
-definitions:
-  # 脚本触发器
-  scripted_trigger:
-    type: object
-    $ref: "../core.yml#/definitions/triggers"
+### 脚本触发器
 
+title: Scripted Triggers
 type: object
 additionalProperties:
   $ref: "#/definitions/scripted_trigger"
+
+definitions:
+  scripted_trigger:
+    title: Scripted Trigger
+    type: object
+    $ref: "../core.yml#/definitions/triggers"

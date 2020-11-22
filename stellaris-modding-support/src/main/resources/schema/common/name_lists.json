@@ -1,6 +1,12 @@
 {
+  "title" : "Name Lists",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/name_list"
+  },
   "definitions" : {
     "name_list" : {
+      "title" : "Name List",
       "type" : "object",
       "properties" : {
         "category" : {
@@ -180,9 +186,5 @@
       "type" : "string",
       "enum" : [ "l_simp_chinese", "l_english", "l_braz_por", "l_french", "l_german", "l_ponish", "l_russian", "l_spanish", "l_default" ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/name_list"
   }
 }

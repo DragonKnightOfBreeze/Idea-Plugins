@@ -1,6 +1,12 @@
 {
+  "title" : "Dynamic Text",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/dynamic_text"
+  },
   "definitions" : {
     "dynamic_text" : {
+      "title" : "Dynamic Text",
       "type" : "object",
       "properties" : {
         "mandatory" : {
@@ -49,9 +55,5 @@
         "$def" : "localisation_synced/**/*.yml/#/{property}"
       } ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/dynamic_text"
   }
 }

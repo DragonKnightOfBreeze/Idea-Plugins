@@ -1,6 +1,13 @@
+### 遗珍动作
+
+title: Artifact Actions
+type: object
+additionalProperties:
+  $ref: "#/definitions/artifact_action"
+
 definitions:
-  # 遗珍动作
   artifact_action:
+    title: Artifact Action
     type: object
     properties:
       resources:
@@ -13,7 +20,3 @@ definitions:
         $ref: "../core.yml#/definitions/effects"
       effect:
         $ref: "../core.yml#/definitions/effects"
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/artifact_action"

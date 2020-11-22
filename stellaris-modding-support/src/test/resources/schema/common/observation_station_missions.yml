@@ -1,6 +1,13 @@
+### 观察站任务
+
+title: Observation Station Missions
+type: object
+additionalProperties:
+  $ref: "#/definitions/observation_station_mission"
+
 definitions:
-  # 观察站任务
   observation_station_mission:
+    title: Observation Station Mission
     type: object
     properties:
       icon:
@@ -23,7 +30,3 @@ definitions:
         type: number
       completion_event:
         $type: event.id
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/observation_station_mission"

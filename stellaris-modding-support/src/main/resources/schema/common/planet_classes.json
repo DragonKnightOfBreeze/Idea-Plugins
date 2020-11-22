@@ -1,6 +1,12 @@
 {
+  "title" : "Plant Classes",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/plant_class"
+  },
   "definitions" : {
     "plant_class" : {
+      "title" : "Plant Class",
       "type" : "object",
       "properties" : {
         "entity" : {
@@ -126,9 +132,5 @@
       "type" : "string",
       "$def" : "common/colors/#/{color}"
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/plant_class"
   }
 }

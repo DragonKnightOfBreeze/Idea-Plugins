@@ -1,6 +1,12 @@
 {
+  "title" : "Bombardment Stances",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/bombardment_stance"
+  },
   "definitions" : {
     "bombardment_stance" : {
+      "title" : "Bombardment Stance",
       "type" : "object",
       "properties" : {
         "trigger" : {
@@ -119,9 +125,5 @@
       "type" : "string",
       "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/bombardment_stance"
   }
 }

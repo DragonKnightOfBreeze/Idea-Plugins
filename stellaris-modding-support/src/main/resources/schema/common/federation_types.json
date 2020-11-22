@@ -1,6 +1,12 @@
 {
+  "title" : "Federation Types",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/federation_type"
+  },
   "definitions" : {
     "federation_type" : {
+      "title" : "Federation Type",
       "type" : "object",
       "properties" : {
         "icon" : {
@@ -128,9 +134,5 @@
       "type" : "string",
       "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/federation_type"
   }
 }

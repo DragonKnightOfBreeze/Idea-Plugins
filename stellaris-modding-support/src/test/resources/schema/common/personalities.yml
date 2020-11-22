@@ -1,6 +1,13 @@
+### AI个性
+
+title: Personalities
+type: object
+additionalProperties:
+  $ref: "#/definitions/personality"
+
 definitions:
-  # AI个性
   personality:
+    title: Personality
     type: object
     properties:
       aggressiveness:
@@ -81,7 +88,3 @@ definitions:
         $ref: "../core.yml#/definitions/triggers"
       weight_modifier:
         $ref: "../core.yml#/definitions/weight_modifier"
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/personality"

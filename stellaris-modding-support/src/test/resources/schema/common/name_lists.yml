@@ -1,6 +1,13 @@
+### 名称列表
+
+title: Name Lists
+type: object
+additionalProperties:
+  $ref: "#/definitions/name_list"
+
 definitions:
-  # 名字列表
   name_list:
+    title: Name List
     type: object
     properties:
       category:
@@ -106,7 +113,3 @@ definitions:
     properties:
       names:
         $ref: "#/definitions/string_array"
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/name_list"

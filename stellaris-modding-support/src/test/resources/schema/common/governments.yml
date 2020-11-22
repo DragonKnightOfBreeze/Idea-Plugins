@@ -1,6 +1,13 @@
+### 政府
+
+title: Governments
+type: object
+additionalProperties:
+  $ref: "#/definitions/government"
+
 definitions:
-  # 政府
   government:
+    title: Government
     type: object
     properties:
       rule_title:
@@ -29,7 +36,3 @@ definitions:
         $ref: "../core.yml#/definitions/triggers"
       weight:
         $ref: "../core.yml#/definitions/weight_modifier"
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/government"

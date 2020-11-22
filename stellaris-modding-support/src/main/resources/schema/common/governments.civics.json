@@ -1,6 +1,12 @@
 {
+  "title" : "Civics",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/civic"
+  },
   "definitions" : {
     "civic" : {
+      "title" : "Civic",
       "type" : "object",
       "properties" : {
         "icon" : {
@@ -173,9 +179,5 @@
       "type" : "string",
       "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/civic"
   }
 }

@@ -1,6 +1,13 @@
+### 地块类型
+
+title: Deposit Categories
+type: object
+additionalProperties:
+  $ref: "#/definitions/deposit_category"
+
 definitions:
-  # 地块类型
   deposit_category:
+    title: Deposit Category
     type: object
     properties:
       blocker:
@@ -9,9 +16,3 @@ definitions:
       important:
         type: boolean
         optional: true
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/deposit_category"
-
-

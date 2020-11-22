@@ -1,6 +1,12 @@
 {
+  "title" : "Asteroid Belts",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/asteroid_belt"
+  },
   "definitions" : {
     "asteroid_belt" : {
+      "title" : "Asteroid Belt",
       "type" : "object",
       "properties" : {
         "mesh" : {
@@ -15,9 +21,5 @@
       "type" : "string",
       "$def" : "interface/**/*.gfx/#/{spliteType}/name"
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/asteroid_belt"
   }
 }

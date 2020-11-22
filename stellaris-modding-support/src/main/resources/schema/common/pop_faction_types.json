@@ -1,6 +1,12 @@
 {
+  "title" : "Pop Faction Types",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/pop_faction_type"
+  },
   "definitions" : {
     "pop_faction_type" : {
+      "title" : "Pop Faction Type",
       "type" : "object",
       "properties" : {
         "election_header" : {
@@ -205,9 +211,5 @@
       "type" : "string",
       "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/pop_faction_type"
   }
 }

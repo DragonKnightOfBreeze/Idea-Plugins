@@ -1,8 +1,11 @@
-definitions:
-  # 组件标签
-  component_tag:
-    type: string
+## 组件标签
 
+title: Component Tags
 type: array
 items:
   $ref: "#/definitions/component_tag"
+
+definitions:
+  component_tag:
+    title: Component Tag
+    type: string

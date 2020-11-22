@@ -1,9 +1,15 @@
+### AI态度
+
+title: Attributes
+type: object
+additionalProperties:
+  $ref: "#/definitions/attribute"
+
 definitions:
-  # AI态度
   attribute:
+    title: Attribute
     type: object
     properties:
-      # same to attribute name
       type:
         type: string
       behaviour:
@@ -24,7 +30,3 @@ definitions:
     - vassalize
     - trade
     - coexist
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/attribute"

@@ -1,6 +1,13 @@
+### 人口派系类型
+
+title: Pop Faction Types
+type: object
+additionalProperties:
+  $ref: "#/definitions/pop_faction_type"
+
 definitions:
-  # 人口派系类型
   pop_faction_type:
+    title: Pop Faction Type
     type: object
     properties:
       election_header:
@@ -55,7 +62,3 @@ definitions:
         $ref: "../core.yml#/definitions/triggers"
       trigger:
         $ref: "../core.yml#/definitions/triggers"
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/pop_faction_type"

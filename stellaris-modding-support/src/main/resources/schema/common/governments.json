@@ -1,6 +1,12 @@
 {
+  "title" : "Governments",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/government"
+  },
   "definitions" : {
     "government" : {
+      "title" : "Government",
       "type" : "object",
       "properties" : {
         "rule_title" : {
@@ -128,9 +134,5 @@
       "type" : "string",
       "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/government"
   }
 }

@@ -1,6 +1,13 @@
+### 决议
+
+title: Resolutions
+type: object
+additionalProperties:
+  $ref: "#/definitions/resolution"
+
 definitions:
-  # 决议分类
-  resolution_category:
+  resolution:
+    title: Resolution
     type: object
     properties:
       icon:
@@ -17,7 +24,3 @@ definitions:
         $ref: "../core.yml#/definitions/triggers"
       ai_weight:
         $ref: "../core.yml#/definitions/weight"
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/resolution_category"

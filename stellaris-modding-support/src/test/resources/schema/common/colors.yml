@@ -1,9 +1,11 @@
-definitions:
-  # 颜色
-  color:
-    type: array
-    items: true
+### 颜色
 
-type: object
+title: Colors
+type: array
 additionalProperties:
   $ref: "#/definitions/color"
+
+definitions:
+  color:
+    title: Color
+    type: string

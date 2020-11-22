@@ -1,6 +1,12 @@
 {
+  "title" : "Component Templates",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/component_template"
+  },
   "definitions" : {
     "component_template" : {
+      "title" : "Component Templates",
       "type" : "object",
       "properties" : {
         "key" : {
@@ -272,9 +278,5 @@
       "type" : "string",
       "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/component_template"
   }
 }

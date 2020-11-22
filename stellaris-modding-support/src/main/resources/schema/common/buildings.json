@@ -1,6 +1,12 @@
 {
+  "title" : "Buildings",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/building"
+  },
   "definitions" : {
     "building" : {
+      "title" : "Building",
       "type" : "object",
       "properties" : {
         "base_buildtime" : {
@@ -239,9 +245,5 @@
       "type" : "string",
       "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/building"
   }
 }

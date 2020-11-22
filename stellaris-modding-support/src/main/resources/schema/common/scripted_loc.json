@@ -1,6 +1,14 @@
 {
+  "title" : "Scripted Localization References",
+  "type" : "object",
+  "properties" : {
+    "define_text" : {
+      "$ref" : "#/definitions/scripted_loc"
+    }
+  },
   "definitions" : {
     "scripted_loc" : {
+      "title" : "Scripted Localization Reference",
       "type" : "object",
       "properties" : {
         "name" : {
@@ -88,12 +96,6 @@
     "scope_name" : {
       "type" : "string",
       "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
-    }
-  },
-  "type" : "object",
-  "properties" : {
-    "define_text" : {
-      "$ref" : "#/definitions/scripted_loc"
     }
   }
 }

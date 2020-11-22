@@ -1,6 +1,12 @@
 {
+  "title" : "Districts",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/district"
+  },
   "definitions" : {
     "district" : {
+      "title" : "District",
       "type" : "object",
       "properties" : {
         "base_buildtime" : {
@@ -166,9 +172,5 @@
       "type" : "string",
       "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/district"
   }
 }

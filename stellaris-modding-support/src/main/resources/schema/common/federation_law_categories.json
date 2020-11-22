@@ -1,6 +1,12 @@
 {
+  "title" : "Federation Law Categories",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/federation_law_category"
+  },
   "definitions" : {
     "federation_law_category" : {
+      "title" : "Federation Law Category",
       "type" : "object",
       "properties" : {
         "centralization" : {
@@ -81,9 +87,5 @@
       "type" : "string",
       "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/federation_law_category"
   }
 }

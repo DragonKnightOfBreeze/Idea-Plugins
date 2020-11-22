@@ -1,6 +1,13 @@
+### 星球决策
+
+title: Decisions
+type: object
+additionalProperties:
+  $ref: "#/definitions/decision"
+
 definitions:
-  # （星球）决策
   decision:
+    title: Decision
     type: object
     properties:
       owned_planets_only:
@@ -21,9 +28,3 @@ definitions:
         $ref: "../core.yml#/definitions/weight_modifier"
       modifier:
         $ref: "../core.yml#/definitions/modifier"
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/decision"
-
-

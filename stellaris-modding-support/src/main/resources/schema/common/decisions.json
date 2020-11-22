@@ -1,6 +1,12 @@
 {
+  "title" : "Decisions",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/decision"
+  },
   "definitions" : {
     "decision" : {
+      "title" : "Decision",
       "type" : "object",
       "properties" : {
         "owned_planets_only" : {
@@ -154,9 +160,5 @@
       "type" : "string",
       "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/decision"
   }
 }

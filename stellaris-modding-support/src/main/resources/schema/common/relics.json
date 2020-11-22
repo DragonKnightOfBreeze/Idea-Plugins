@@ -1,6 +1,12 @@
 {
+  "title" : "Relics",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/relic"
+  },
   "definitions" : {
     "relic" : {
+      "title" : "Relic",
       "type" : "object",
       "properties" : {
         "activation_duration" : {
@@ -166,9 +172,5 @@
       "type" : "string",
       "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/relic"
   }
 }

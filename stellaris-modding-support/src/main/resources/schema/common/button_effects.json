@@ -1,6 +1,12 @@
 {
+  "title" : "Button Effects",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/button_effect"
+  },
   "definitions" : {
     "button_effect" : {
+      "title" : "Buttom Effect",
       "type" : "object",
       "properties" : {
         "potential" : {
@@ -87,9 +93,5 @@
       "type" : "string",
       "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/button_effect"
   }
 }

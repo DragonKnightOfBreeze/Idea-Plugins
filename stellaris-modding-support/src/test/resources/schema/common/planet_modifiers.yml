@@ -1,13 +1,16 @@
+### 星球修饰符
+
+title: Plant Modifiers
+type: object
+additionalProperties:
+  $ref: "#/definitions/plant_modifier"
+
 definitions:
-  # 星球修饰符
   plant_modifier:
+    title: Plant Modifier
     type: object
     properties:
       spawn_chance:
         $ref: "../core.yml#/definitions/weight_modifier"
       modifier:
         $type: modifier
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/plant_modifier"

@@ -1,6 +1,12 @@
 {
+  "title" : "Artifact Actions",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/artifact_action"
+  },
   "definitions" : {
     "artifact_action" : {
+      "title" : "Artifact Action",
       "type" : "object",
       "properties" : {
         "resources" : {
@@ -142,9 +148,5 @@
       "type" : "string",
       "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/artifact_action"
   }
 }

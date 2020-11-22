@@ -7,19 +7,24 @@ import com.windea.plugin.idea.stellaris.script.psi.*
 
 class StellarisScriptFileTreeElement(
 	private val element: StellarisScriptFile
-): PsiTreeElementBase<StellarisScriptFile>(element){
+) : PsiTreeElementBase<StellarisScriptFile>(element) {
 	override fun getChildrenBase(): MutableCollection<StructureViewTreeElement> {
-		return PsiTreeUtil.getChildrenOfAnyType(element, StellarisScriptVariable::class.java, StellarisScriptProperty::class.java,StellarisScriptValue::class.java)
-			.mapTo(mutableListOf()){
-				when(it){
-					is StellarisScriptVariable -> StellarisScriptVariableTreeElement(it)
-					is StellarisScriptProperty -> StellarisScriptPropertyTreeElement(it)
-					is StellarisScriptValue -> StellarisScriptValueTreeElement(it)
-					else -> throw InternalError()
-				}
+		val rootBlock = element.rootBlock ?: return mutableListOf()
+		return PsiTreeUtil.getChildrenOfAnyType(
+			rootBlock,
+			StellarisScriptVariable::class.java,
+			StellarisScriptProperty::class.java,
+			StellarisScriptValue::class.java
+		).mapTo(mutableListOf()) {
+			when(it) {
+				is StellarisScriptVariable -> StellarisScriptVariableTreeElement(it)
+				is StellarisScriptProperty -> StellarisScriptPropertyTreeElement(it)
+				is StellarisScriptValue -> StellarisScriptValueTreeElement(it)
+				else -> throw InternalError()
 			}
+		}
 	}
-
+	
 	override fun getPresentableText(): String? {
 		return element.name
 	}

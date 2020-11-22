@@ -1,6 +1,12 @@
 {
+  "title" : "Leader Classes",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/leader_class"
+  },
   "definitions" : {
     "leader_class" : {
+      "title" : "Leader Class",
       "type" : "object",
       "properties" : {
         "can_lead_navy" : {
@@ -130,9 +136,5 @@
       "type" : "string",
       "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/leader_class"
   }
 }

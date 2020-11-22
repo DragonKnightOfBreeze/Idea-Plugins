@@ -1,11 +1,14 @@
+# 通知修饰符
+
+title: Notification Modifiers
+type: object
+additionalProperties:
+  $ref: "#/definitions/notification_modifier"
+
 definitions:
-  # 通知修饰符
   notification_modifier:
+    title: Notification Modifier
     type: object
     properties:
       icon:
         $ref: "../core.yml#/definitions/game_path"
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/notification_modifier"

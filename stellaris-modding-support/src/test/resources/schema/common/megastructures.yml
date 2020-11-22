@@ -1,6 +1,13 @@
+### 巨型结构
+
+title: Megastructures
+type: object
+additionalProperties:
+  $ref: "#/definitions/megastructure"
+
 definitions:
-  # 巨型结构
   megastructure:
+    title: Megastructure
     type: object
     properties:
       entity:
@@ -57,7 +64,3 @@ definitions:
         $ref: "../core.yml#/definitions/economy_unit"
       construction_blocked_by_others:
         type: boolean
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/megastructure"

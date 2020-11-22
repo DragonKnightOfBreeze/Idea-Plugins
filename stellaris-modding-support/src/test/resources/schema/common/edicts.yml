@@ -1,6 +1,13 @@
+### 法令
+
+title: Edicts
+type: object
+additionalProperties:
+  $ref: "#/definitions/edict"
+
 definitions:
-  # 法令
   edict:
+    title: Edict
     type: object
     properties:
       name:
@@ -30,7 +37,3 @@ definitions:
         $ref: "../core.yml#/definitions/effects"
       ai_weight:
         $ref: "../core.yml#/definitions/weight_modifier"
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/edict"

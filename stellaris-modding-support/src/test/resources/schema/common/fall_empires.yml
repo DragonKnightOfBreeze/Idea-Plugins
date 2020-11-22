@@ -1,6 +1,13 @@
+### 堕落帝国
+
+title: Fall Empires
+type: object
+additionalProperties:
+  $ref: "#/definitions/fall_empire"
+
 definitions:
-  # 堕落帝国
-  fallen_empire:
+  fall_empire:
+    title: Fall Empire
     type: object
     properties:
       graphical_culture:
@@ -11,69 +18,4 @@ definitions:
       weight_modifier:
         $ref: "../core.yml#/definitions/weight_modifier"
       create_country_effect:
-        $ref: "#/definitions/create_country_effect"
-  create_country_effect:
-    type: object
-    properties:
-      create_species:
-        type: object
-        properties:
-          name:
-            anyOf:
-            - type: string
-            - const: random
-          class:
-            $type: species_class
-          portrait:
-            anyOf:
-            - $type: portrait
-            - const: random
-          traits:
-            anyOf:
-            - $type: trait
-            - const: random
-          extra_trait_points:
-            type: integer
-          allow_negative_traits:
-            type: boolean
-      create_country:
-        type: object
-        properties:
-          name:
-            anyOf:
-            - type: string
-            - const: random
-          type:
-            $type: country_type
-          ignore_initial_colony_error:
-            type: boolean
-          authority:
-            $type: authority
-          civics:
-            type: object
-            properties:
-              civic:
-                $type: civic
-                multiple: true
-          species:
-            $type: species
-          ethos:
-            type: object
-            properties:
-              ethic:
-                $type: ethic
-                multiple: true
-          flag:
-            anyOf:
-            - $type: flag
-            - const: random
-          origin:
-            $type: origin
-          effect:
-            $ref: "../core.yml#/definitions/effects"
-
-
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/fallen_empire"
+        $ref: "../core.yml#/definitions/effects"

@@ -1,6 +1,12 @@
 {
+  "title" : "Galactic Focuses",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/galactic_focus"
+  },
   "definitions" : {
     "galactic_focus" : {
+      "title" : "Galactic Focus",
       "type" : "object",
       "properties" : {
         "icon" : {
@@ -94,9 +100,5 @@
       "type" : "string",
       "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/galactic_focus"
   }
 }

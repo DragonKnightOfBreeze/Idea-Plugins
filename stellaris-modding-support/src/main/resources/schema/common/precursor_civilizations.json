@@ -1,6 +1,12 @@
 {
+  "title" : "Precursor Civillizations",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/precursor_civillization"
+  },
   "definitions" : {
     "precursor_civillization" : {
+      "title" : "Precursor Civillization",
       "type" : "object",
       "properties" : {
         "size" : {
@@ -72,9 +78,5 @@
       "type" : "string",
       "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/precursor_civillization"
   }
 }

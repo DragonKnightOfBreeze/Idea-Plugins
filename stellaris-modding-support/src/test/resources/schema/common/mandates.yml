@@ -1,6 +1,13 @@
+### 指令
+
+title: Mandates
+type: object
+additionalProperties:
+  $ref: "#/definitions/mandate"
+
 definitions:
-  # 指令
   mandate:
+    title: Mandate
     type: object
     properties:
       valid:
@@ -14,7 +21,3 @@ definitions:
   parameters:
     type: object
     additionalProperties: true
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/mandate"

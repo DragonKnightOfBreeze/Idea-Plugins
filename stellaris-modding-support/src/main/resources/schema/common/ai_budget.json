@@ -1,11 +1,12 @@
 {
-  "title" : null,
+  "title" : "AI Budget",
   "type" : "object",
   "additionalProperties" : {
     "$ref" : "#/definitions/budget"
   },
   "definitions" : {
     "budget" : {
+      "title" : "Budget",
       "type" : "object",
       "properties" : {
         "resource" : {

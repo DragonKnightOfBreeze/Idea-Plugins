@@ -1,6 +1,13 @@
+### 权力制度
+
+title: Authorities
+type: object
+additionalProperties:
+  $ref: "#/definitions/authority"
+
 definitions:
-  # 权力制度
   authority:
+    title: Authority
     type: object
     properties:
       icon:
@@ -57,7 +64,3 @@ definitions:
     - none
     - democratic
     - oligarchic
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/authority"

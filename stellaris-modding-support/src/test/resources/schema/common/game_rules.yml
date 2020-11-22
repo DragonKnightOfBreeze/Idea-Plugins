@@ -1,9 +1,12 @@
-definitions:
-  # 游戏规则
-  game_rule:
-    type: object
-    $ref: "../core.yml#/definitions/effects"
+### 游戏规则
 
+title: Game Rules
 type: object
 additionalProperties:
   $ref: "#/definitions/game_rule"
+
+definitions:
+  game_rule:
+    title: Game Rule
+    type: object
+    $ref: "../core.yml#/definitions/effects"

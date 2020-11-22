@@ -1,46 +1,66 @@
 {
-  "title" : "Diplomatic Actions",
+  "title" : "Economic Plans",
   "type" : "object",
   "additionalProperties" : {
-    "$ref" : "#/definitions/diplomatic_action"
+    "$ref" : "#/definitions/economic_plan"
   },
   "definitions" : {
-    "diplomatic_action" : {
-      "title" : "Diplomatic Action",
+    "economic_plan" : {
+      "title" : "Economic Plan",
       "type" : "object",
       "properties" : {
-        "icon" : {
-          "$ref" : "#/definitions/gfx_reference"
+        "type" : {
+          "type" : "string"
         },
-        "auto_accepted" : {
-          "type" : "boolean"
+        "income" : {
+          "$ref" : "#/definitions/resources_item"
         },
-        "require_envoy" : {
-          "type" : "boolean"
+        "focues" : {
+          "$ref" : "#/definitions/resources_item"
         },
-        "envoy_assignment" : {
-          "additionalProperties" : true
+        "subplan" : {
+          "$ref" : "#/definitions/resources_item",
+          "multiple" : true
         },
-        "requires_actor_independence" : {
-          "type" : "boolean"
+        "pops" : {
+          "type" : "integer"
         },
-        "requires_recipient_independence" : {
-          "type" : "boolean"
+        "empire_size" : {
+          "type" : "number"
         },
-        "action_type" : {
-          "$ref" : "#/definitions/action_type"
-        },
-        "potential" : {
-          "$ref" : "#/definitions/triggers"
-        },
-        "possible" : {
-          "$ref" : "#/definitions/triggers"
+        "ai_weight" : {
+          "$ref" : "#/definitions/weight_modifier"
         }
       }
     },
-    "action_type" : {
-      "type" : "string",
-      "enum" : [ "negative", "neutral", "positive", "aggressive" ]
+    "resources_item" : {
+      "type" : "object",
+      "anyOf" : [ {
+        "properties" : {
+          "trigger" : {
+            "$ref" : "#/definitions/triggers"
+          }
+        }
+      }, {
+        "propertyNames" : {
+          "$type" : "resource"
+        },
+        "additionalProperties" : {
+          "type" : "integer"
+        }
+      } ]
+    },
+    "weight_modifier" : {
+      "type" : "object",
+      "properties" : {
+        "base" : {
+          "type" : "number"
+        },
+        "modifier" : {
+          "$ref" : "#/definitions/modifier",
+          "multiple" : true
+        }
+      }
     },
     "triggers" : {
       "type" : "object",
@@ -54,9 +74,8 @@
         "$ref" : "#/definitions/scripted_triggers"
       } ]
     },
-    "gfx_reference" : {
-      "type" : "string",
-      "$def" : "interface/**/*.gfx/#/{spliteType}/name"
+    "modifier" : {
+      "type" : "object"
     },
     "condition_expressions" : {
       "type" : "object",

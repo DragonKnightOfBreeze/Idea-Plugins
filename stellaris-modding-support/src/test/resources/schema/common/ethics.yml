@@ -1,6 +1,18 @@
+### 道德准则
+
+title: Ethics
+type: object
+properties:
+  ethic_categories:
+    type: object
+    additionalProperties:
+      type: object
+additionalProperties:
+  $ref: "#/definitions/ethic"
+
 definitions:
-  # 道德准则
   ethic:
+    title: Ethic
     type: object
     properties:
       cost:
@@ -35,14 +47,4 @@ definitions:
   ethic_category:
     type: string
     $def: "#/ethic_categories/{ethic_category}"
-    # TODO 使用$def
     enum: [col, xen, mil, spi, hive]
-
-type: object
-properties:
-  ethic_categories:
-    type: object
-    additionalProperties:
-      type: object
-additionalProperties:
-  $ref: "#/definitions/ethic"

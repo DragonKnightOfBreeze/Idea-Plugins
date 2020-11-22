@@ -1,6 +1,12 @@
 {
+  "title" : "Deposit Categories",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/deposit_category"
+  },
   "definitions" : {
     "deposit_category" : {
+      "title" : "Deposit Category",
       "type" : "object",
       "properties" : {
         "blocker" : {
@@ -13,9 +19,5 @@
         }
       }
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/deposit_category"
   }
 }

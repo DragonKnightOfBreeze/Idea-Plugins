@@ -1,6 +1,12 @@
 {
+  "title" : "Bypass",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/bypass"
+  },
   "definitions" : {
     "bypass" : {
+      "title" : "Bypass",
       "type" : "object",
       "properties" : {
         "name" : {
@@ -172,9 +178,5 @@
       "type" : "string",
       "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/bypass"
   }
 }

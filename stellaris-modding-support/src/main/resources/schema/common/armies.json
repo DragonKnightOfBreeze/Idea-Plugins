@@ -1,6 +1,12 @@
 {
+  "title" : "Armies",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/army"
+  },
   "definitions" : {
     "army" : {
+      "title" : "Army",
       "type" : "object",
       "properties" : {
         "icon_frame" : {
@@ -184,9 +190,5 @@
       "type" : "string",
       "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/army"
   }
 }

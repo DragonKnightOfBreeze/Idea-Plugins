@@ -1,6 +1,12 @@
 {
+  "title" : "Archaeological Site Types",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/archaeological_site_type"
+  },
   "definitions" : {
     "archaeological_site_type" : {
+      "title" : "Archaeological Site Type",
       "type" : "object",
       "properties" : {
         "desc" : {
@@ -210,9 +216,5 @@
       "type" : "string",
       "$def" : "events/*.txt/#/{event}/id"
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/archaeological_site_type"
   }
 }

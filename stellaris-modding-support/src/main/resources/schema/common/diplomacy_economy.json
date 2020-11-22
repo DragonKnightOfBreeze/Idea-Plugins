@@ -1,6 +1,12 @@
 {
+  "title" : "Diplomacy Economy",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/diplomacy_economy"
+  },
   "definitions" : {
     "diplomacy_economy" : {
+      "title" : "Diplomacy Economy",
       "type" : "object",
       "propertyNames" : {
         "$type" : "diplomacy"
@@ -112,9 +118,5 @@
       "type" : "string",
       "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/diplomacy_economy"
   }
 }

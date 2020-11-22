@@ -1,6 +1,13 @@
+### 联邦修正
+
+title: Federation Perks
+type: object
+additionalProperties:
+  $ref: "#/definitions/federation_perk"
+
 definitions:
-  # 联邦修正
   federation_perk:
+    title: Federation Perk
     type: object
     properties:
       federation_modifier:
@@ -23,7 +30,3 @@ definitions:
         $ref: "../core.yml#/definitions/effects"
       on_deactivate:
         $ref: "../core.yml#/definitions/effects"
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/federation_perk"

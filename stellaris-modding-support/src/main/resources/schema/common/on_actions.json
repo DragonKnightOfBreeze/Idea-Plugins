@@ -1,6 +1,12 @@
 {
+  "title" : "On Actions",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/on_action"
+  },
   "definitions" : {
     "on_action" : {
+      "title" : "On Action",
       "type" : "object",
       "properties" : {
         "events" : {
@@ -11,9 +17,5 @@
         }
       }
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/on_action"
   }
 }

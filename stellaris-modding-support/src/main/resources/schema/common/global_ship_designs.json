@@ -1,6 +1,12 @@
 {
+  "title" : "Global Ship Designs",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/global_ship_design"
+  },
   "definitions" : {
     "global_ship_design" : {
+      "title" : "Global Ship Designs",
       "type" : "object",
       "properties" : {
         "name" : {
@@ -128,9 +134,5 @@
       "type" : "string",
       "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/global_ship_design"
   }
 }

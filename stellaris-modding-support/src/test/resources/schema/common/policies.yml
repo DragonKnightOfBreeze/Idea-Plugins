@@ -1,6 +1,13 @@
+### 政策
+
+title: Policies
+type: object
+additionalProperties:
+  $ref: "#/definitions/policy"
+
 definitions:
-  # 政策
   policy:
+    title: Policy
     type: object
     properties:
       potential:
@@ -27,7 +34,3 @@ definitions:
           ai_weight:
             $ref: "../core.yml#/definitions/weight_modifier"
           multiple: true
-
-type: object
-additionalProperties:
-  $ref: "#/definitions/policy"

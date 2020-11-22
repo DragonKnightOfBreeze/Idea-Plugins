@@ -1,6 +1,12 @@
 {
+  "title" : "Colony Automation Exception",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/colony_automation_exception"
+  },
   "definitions" : {
     "colony_automation_exception" : {
+      "title" : "Colony Automation Exception",
       "type" : "object",
       "properties" : {
         "available" : {
@@ -95,9 +101,5 @@
       "type" : "string",
       "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
     }
-  },
-  "type" : "object",
-  "additionalProperties" : {
-    "$ref" : "#/definitions/colony_automation_exception"
   }
 }
