@@ -11,31 +11,37 @@ fun main() {
 	packageMods(rootPath)
 }
 
-private fun packageMods(rootPath:String,asyncCount:Int=16){
+/**
+ * 将指定的mod列表目录中的所有mod目录中的文件打包到该mod目录中。
+ */
+private fun packageMods(rootPath:String,pkgName:String = "mod.zip"){
 	//得到mod目录列表
 	val dirs = File(rootPath).listFiles()?:return
 	//并发打包mod
-	val executor = Executors.newWorkStealingPool(asyncCount)
+	val executor = Executors.newWorkStealingPool(16)
 	val total = dirs.size
 	val done = AtomicInteger(0)
 	val countDownLatch = CountDownLatch(total)
-	println("packaging mods ... (total: $total)")
+	println("package mods ... (total: $total)")
 	for(dir in dirs) {
 		executor.execute {
-			println("packaging mod '${dir.path}' ... (total: $total, done: $done)")
+			println("package mod '${dir.path}' ... (total: $total, done: $done)")
 			val time = measureTimeMillis {
-				packageMod(dir)
+				packageMod(dir,pkgName)
 			}.let{ "${it/1000}s"}
 			countDownLatch.countDown()
 			done.incrementAndGet()
-			println("packaging mod '${dir.path}' finished. (total: $total, done: $done, cost: $time)")
+			println("package mod '${dir.path}' finished. (total: $total, done: $done, cost: $time)")
 		}
 	}
 	//等待所有的mod打包完毕（可能需要很长时间）
 	countDownLatch.await()
-	println("packaging mods finished. (total: $total)")
+	println("package mods finished. (total: $total)")
 }
 
+/**
+ * 将指定的mo目录中的文件打包到该mod目录中。
+ */
 private fun packageMod(dir: File,pkgName:String = "mod.zip") {
 	if(dir.isDirectory) {
 		val children = dir.listFiles() ?: return

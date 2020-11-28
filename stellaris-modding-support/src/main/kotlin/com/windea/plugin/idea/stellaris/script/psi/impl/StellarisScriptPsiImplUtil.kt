@@ -49,14 +49,7 @@ object StellarisScriptPsiImplUtil {
 		return element.text?.unquote()
 	}
 	//endregion
-
-	//region StellarisScriptRootBlock
-	@JvmStatic
-	fun getIcon(element: StellarisScriptRootBlock, @Iconable.IconFlags flags: Int): Icon? {
-		return if(element.isArray) stellarisScriptArrayIcon else stellarisScriptObjectIcon
-	}
-	//endregion
-
+	
 	//region StellarisScriptProperty
 	@JvmStatic
 	fun getName(element: StellarisScriptProperty): String? {

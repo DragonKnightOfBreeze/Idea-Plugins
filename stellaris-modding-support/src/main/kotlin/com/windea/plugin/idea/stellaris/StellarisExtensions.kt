@@ -14,12 +14,15 @@ import com.intellij.openapi.vfs.*
 import com.intellij.psi.*
 import com.intellij.psi.search.*
 import com.intellij.psi.util.*
+import com.intellij.util.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
 import com.windea.plugin.idea.stellaris.script.psi.*
+import org.jetbrains.annotations.*
 import java.io.*
 import java.net.*
 import java.util.*
 import java.util.function.Function
+import javax.swing.*
 
 //region Stdlib
 inline fun writeString(block: StringWriter.() -> Unit): String {
@@ -137,6 +140,10 @@ fun <T> T.toSingletonList(): List<T> {
 
 fun <T : Any> T?.toSingletonOrEmpty(): List<T> {
 	return if(this == null) Collections.emptyList() else Collections.singletonList(this)
+}
+
+fun Icon.resize(width:Int,height:Int): Icon {
+	return IconUtil.toSize(this, width, height)
 }
 //endregion
 

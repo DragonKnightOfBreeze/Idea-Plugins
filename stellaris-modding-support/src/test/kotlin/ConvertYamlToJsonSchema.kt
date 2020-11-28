@@ -9,28 +9,30 @@ fun main() {
 	convertSchemaFiles("stellaris-modding-support\\src\\test\\resources\\schema")
 }
 
-val jsonMapper = ObjectMapper().apply {
+private val jsonMapper = ObjectMapper().apply {
 	enable(SerializationFeature.INDENT_OUTPUT)
 }
-val yamlMapper = YAMLMapper()
+private val yamlMapper = YAMLMapper()
 
-val coreSchemaFile = File("stellaris-modding-support\\src\\test\\resources\\schema\\core.yml")
-val coreSchema = yamlMapper.readValue<Map<String, Any?>>(coreSchemaFile)
-val coreSchemaDefinitions = coreSchema["definitions"] as Map<String, Any?>
-val ignoredSchemaFileNames = arrayOf("core.yml","type.yml")
+private val coreSchemaFile = File("stellaris-modding-support\\src\\test\\resources\\schema\\core.yml")
+private val coreSchema = yamlMapper.readValue<Map<String, Any?>>(coreSchemaFile)
+private val coreSchemaDefinitions = coreSchema["definitions"] as Map<String, Any?>
+private val ignoredSchemaFileNames = arrayOf("core.yml","type.yml")
 
 private fun convertSchemaFiles(schemaPath: String) {
 	File(schemaPath).walk().forEach {
-		runCatching {
+		try {
 			if(it.isFile && it.extension == "yml") {
 				if(it.name in ignoredSchemaFileNames) return@forEach
 				val yaml = it.readText()
+				if(yaml.isBlank()) return@forEach
 				val data = readYamlSchema(yaml)
 				val json = writeJsonSchema(data)
 				File(it.path.replace("\\test", "\\main").replace(".yml", ".json")).writeText(json)
-			} else {
-				it.copyTo(File(it.path.replace("\\test", "\\main")), true)
 			}
+		}catch(e:Exception){
+			println(it.path)
+			e.printStackTrace()
 		}
 	}
 }
@@ -44,17 +46,20 @@ private val coreSchemaDefinitionRegex = """/core\.yml#/definitions/(\w+)""".toRe
 private val schemaDefinitionRegex = """#/definitions/(\w+)""".toRegex()
 
 private fun writeJsonSchema(schema: Map<String, Any?>): String {
-	val schemaDefinitions = schema["definitions"] as MutableMap<String, Any?>
-	//内联跨文件到coreSchema的$ref属性，将对应的值加入到当前schema的definitions下（因为jar中无法正确解析跨文件的$ref属性的值）
-	val coreSchemaDefintionNames = resolveCoreDefinitionNames(schema)
-	val addedCoreSchemaDefinitions = coreSchemaDefinitions.filterKeys { it in coreSchemaDefintionNames }
-	schemaDefinitions.putAll(addedCoreSchemaDefinitions)
-	//如果coreSchemaDefinitions中还有级联的definitions，需要递归解析并加入
-	var extraSchemaNames = resolveDefinitionNames(addedCoreSchemaDefinitions) - schemaDefinitions.keys
-	while(extraSchemaNames.isNotEmpty()) {
-		val extraSchemaDefinitions = coreSchemaDefinitions.filterKeys { it in extraSchemaNames }
-		schemaDefinitions.putAll(extraSchemaDefinitions)
-		extraSchemaNames = resolveDefinitionNames(extraSchemaDefinitions) - schemaDefinitions.keys
+	val schemaDefinitions = schema["definitions"]
+	if(schemaDefinitions != null) {
+		schemaDefinitions as MutableMap<String, Any?>
+		//内联跨文件到coreSchema的$ref属性，将对应的值加入到当前schema的definitions下（因为jar中无法正确解析跨文件的$ref属性的值）
+		val coreSchemaDefintionNames = resolveCoreDefinitionNames(schema)
+		val addedCoreSchemaDefinitions = coreSchemaDefinitions.filterKeys { it in coreSchemaDefintionNames }
+		schemaDefinitions.putAll(addedCoreSchemaDefinitions)
+		//如果coreSchemaDefinitions中还有级联的definitions，需要递归解析并加入
+		var extraSchemaNames = resolveDefinitionNames(addedCoreSchemaDefinitions) - schemaDefinitions.keys
+		while(extraSchemaNames.isNotEmpty()) {
+			val extraSchemaDefinitions = coreSchemaDefinitions.filterKeys { it in extraSchemaNames }
+			schemaDefinitions.putAll(extraSchemaDefinitions)
+			extraSchemaNames = resolveDefinitionNames(extraSchemaDefinitions) - schemaDefinitions.keys
+		}
 	}
 	return jsonMapper.writeValueAsString(schema).replace("../core.yml", "").replace("core.yml","")
 }

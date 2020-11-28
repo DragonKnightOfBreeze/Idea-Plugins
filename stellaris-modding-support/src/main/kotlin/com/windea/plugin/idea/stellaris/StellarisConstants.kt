@@ -84,19 +84,19 @@ const val huijiwikiUrl = "https://qunxing.huijiwiki.com"
 //endregion
 
 //region Resources
-val stellarisLocalizationFileIcon = IconLoader.findIcon("/icons/stellaris_localization.png")
-val stellarisLocalizationLocaleIcon = AllIcons.FileTypes.Properties
-val stellarisLocalizationPropertyIcon = AllIcons.Nodes.PropertyRead
+val stellarisLocalizationFileIcon = IconLoader.findIcon("/icons/stellarisLocalizationFile.png")!!
+val stellarisLocalizationLocaleIcon = IconLoader.findIcon("/icons/stellarisLocalizationLocale.svg")!!
+val stellarisLocalizationPropertyIcon = IconLoader.findIcon("/icons/stellarisLocalizationProperty.svg")!!
 
-val stellarisScriptFileIcon = IconLoader.findIcon("/icons/stellaris_script.png")
-val stellarisScriptVariableIcon = AllIcons.Nodes.Variable
-val stellarisScriptArrayIcon = AllIcons.Json.Array
-val stellarisScriptObjectIcon = AllIcons.Json.Object
-val stellarisScriptPropertyIcon = AllIcons.Nodes.Property
-val stellarisScriptValueIcon = AllIcons.Nodes.Constant
+val stellarisScriptFileIcon = IconLoader.findIcon("/icons/stellarisScriptFile.png")!!
+val stellarisScriptVariableIcon = IconLoader.findIcon("/icons/stellarisScriptVariable.svg")!!
+val stellarisScriptPropertyIcon = IconLoader.findIcon("/icons/stellarisScriptProperty.svg")!!
+val stellarisScriptValueIcon = IconLoader.findIcon("/icons/stellarisScriptValue.svg")!!
 
-val localizationPropertyGutterIcon = IconUtil.toSize(stellarisLocalizationPropertyIcon, 12, 12)
-val scriptPropertyGutterIcon = IconUtil.toSize(stellarisScriptPropertyIcon, 12, 12)
+val overriddenLocalizationPropertyGutterIcon = IconLoader.findIcon("/icons/overriddenLocalizationProperty.svg")!!
+val overriddenScriptPropertyGutterIcon = IconLoader.findIcon("/icons/overriddenScriptProperty.svg")!!
+val localizationPropertyGutterIcon = stellarisLocalizationPropertyIcon.resize(12, 12)
+val scriptPropertyGutterIcon = stellarisScriptPropertyIcon.resize(12, 12)
 //val eventIdGutterIcon = IconUtil.toSize(AllIcons.Nodes.Protected, 12, 12)
 //val gfxKeyGutterIcon = IconUtil.toSize(AllIcons.Nodes.Related, 12, 12)
 //val assetKeyGutterIcon = IconUtil.toSize(AllIcons.Nodes.Related, 12, 12)

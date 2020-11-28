@@ -55,58 +55,68 @@ class StellarisLocalizationAnnotator : Annotator, DumbAware {
 
 	override fun annotate(element: PsiElement, holder: AnnotationHolder) {
 		when(element) {
-			//如果是本地化属性，则加上gutterIcon
-			is StellarisLocalizationProperty ->{
-				val name = element.name?:return
-				holder.newSilentAnnotation(INFORMATION)
-					.gutterIconRenderer(LocalizationPropertyGutterIconRenderer(name,element.project))
-					.create()
-			}
-			is StellarisLocalizationLocale -> {
-				if(element.stellarisLocale == null) {
-					val localeId = element.name ?: return
-					holder.newAnnotation(ERROR, message("stellaris.localization.annotator.unsupportedLocale", localeId))
-						.withFix(ChangeLocaleIntention.instance)
-						.create()
-				}
-			}
-			is StellarisLocalizationSerialNumber -> {
-				if(element.stellarisSerialNumber == null) {
-					val serialNumberId = element.name ?: return
-					holder.newAnnotation(ERROR, message("stellaris.localization.annotator.unsupportedSerialNumber", serialNumberId))
-						.withFix(ChangeSerialNumberIntention.instance)
-						.create()
-				}
-			}
-			//如果是颜色文本，则为颜色代码文本加上对应的颜色
-			is StellarisLocalizationColorfulText -> {
-				val colorId = element.name ?: return
-				if(element.stellarisColor == null) {
-					holder.newAnnotation(ERROR, message("stellaris.localization.annotator.unsupportedColor", colorId))
-						.withFix(ChangeColorIntention.instance)
-						.create()
-				} else {
-					val e = element.colorCode
-					if(e != null) {
-						annotateColor(colorId, holder, e.textRange)
-					}
-				}
-			}
-			is StellarisLocalizationPropertyReference -> {
-				//如果是属性引用，需要为属性引用参数加上对应的颜色
-				val color = element.stellarisColor
-				if(color != null){
-					val colorId = color.key
-					val e = element.propertyReferenceParameter
-					if(e != null) {
-						val startOffset = e.startOffset
-						annotateColor(colorId, holder, TextRange(startOffset, startOffset + 1))
-					}
-				}
+			is StellarisLocalizationProperty -> annotateProperty(element, holder)
+			is StellarisLocalizationLocale -> annotateLocale(element, holder)
+			is StellarisLocalizationSerialNumber -> annotateSerialNumber(element, holder)
+			is StellarisLocalizationColorfulText -> annotateColorfulText(element, holder)
+			is StellarisLocalizationPropertyReference -> annotatePropertyReference(element, holder)
+		}
+	}
+	
+	private fun annotateProperty(element: StellarisLocalizationProperty, holder: AnnotationHolder) {
+		//如果是本地化属性，则加上gutterIcon
+		val name = element.name ?: return
+		holder.newSilentAnnotation(INFORMATION)
+			.gutterIconRenderer(LocalizationPropertyGutterIconRenderer(name, element.project))
+			.create()
+	}
+	
+	private fun annotateLocale(element: StellarisLocalizationLocale, holder: AnnotationHolder) {
+		if(element.stellarisLocale == null) {
+			val localeId = element.name ?: return
+			holder.newAnnotation(ERROR, message("stellaris.localization.annotator.unsupportedLocale", localeId))
+				.withFix(ChangeLocaleIntention.instance)
+				.create()
+		}
+	}
+	
+	private fun annotateSerialNumber(element: StellarisLocalizationSerialNumber, holder: AnnotationHolder) {
+		if(element.stellarisSerialNumber == null) {
+			val serialNumberId = element.name ?: return
+			holder.newAnnotation(ERROR, message("stellaris.localization.annotator.unsupportedSerialNumber", serialNumberId))
+				.withFix(ChangeSerialNumberIntention.instance)
+				.create()
+		}
+	}
+	
+	private fun annotateColorfulText(element: StellarisLocalizationColorfulText, holder: AnnotationHolder) {
+		//如果是颜色文本，则为颜色代码文本加上对应的颜色
+		val colorId = element.name ?: return
+		if(element.stellarisColor == null) {
+			holder.newAnnotation(ERROR, message("stellaris.localization.annotator.unsupportedColor", colorId))
+				.withFix(ChangeColorIntention.instance)
+				.create()
+		} else {
+			val e = element.colorCode
+			if(e != null) {
+				annotateColor(colorId, holder, e.textRange)
 			}
 		}
 	}
-
+	
+	private fun annotatePropertyReference(element: StellarisLocalizationPropertyReference, holder: AnnotationHolder) {
+		//如果是属性引用，需要为属性引用参数加上对应的颜色
+		val color = element.stellarisColor
+		if(color != null) {
+			val colorId = color.key
+			val e = element.propertyReferenceParameter
+			if(e != null) {
+				val startOffset = e.startOffset
+				annotateColor(colorId, holder, TextRange(startOffset, startOffset + 1))
+			}
+		}
+	}
+	
 	private fun annotateColor(colorId: String, holder: AnnotationHolder, range: TextRange) {
 		val attributesKey = StellarisLocalizationAttributesKeys.COLOR_ID_KEYS[colorId] ?: return
 		holder.newSilentAnnotation(INFORMATION)

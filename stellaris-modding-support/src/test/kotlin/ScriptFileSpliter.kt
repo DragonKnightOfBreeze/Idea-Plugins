@@ -5,7 +5,7 @@ fun main(){
 	splitFile("stellaris-modding-support\\src\\test\\resources\\lib\\prescripted_countries")
 }
 
-val skippedFileNames = arrayOf("00_colors.txt")
+private val skippedFileNames = arrayOf("00_colors.txt")
 
 private fun splitFile(directory:String){
 	val dirFile = File(directory)
