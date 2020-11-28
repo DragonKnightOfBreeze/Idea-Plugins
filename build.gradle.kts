@@ -28,7 +28,7 @@ allprojects {
 
 	dependencies {
 		implementation(kotlin("stdlib"))
-		implementation(kotlin("reflect"))
+		implementation(kotlin("reflect:1.4.0"))
 	}
 
 	sourceSets {

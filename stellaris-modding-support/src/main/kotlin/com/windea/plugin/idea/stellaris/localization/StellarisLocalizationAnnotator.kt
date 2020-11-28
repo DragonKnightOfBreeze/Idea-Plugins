@@ -19,7 +19,7 @@ import com.windea.plugin.idea.stellaris.localization.psi.*
 import java.awt.event.*
 
 class StellarisLocalizationAnnotator : Annotator, DumbAware {
-	class LocalizationPropertyGutterIconRenderer(
+	internal class LocalizationPropertyGutterIconRenderer(
 		private val name:String,
 		private val project:Project
 	): GutterIconRenderer(),DumbAware {
@@ -35,7 +35,7 @@ class StellarisLocalizationAnnotator : Annotator, DumbAware {
 	}
 
 	@Suppress("ComponentNotRegistered")
-	class LocalizationPropertyNavigateAction(
+	internal class LocalizationPropertyNavigateAction(
 		private val title: String,
 		private val name:String,
 		private val project:Project
@@ -64,7 +64,7 @@ class StellarisLocalizationAnnotator : Annotator, DumbAware {
 	}
 	
 	private fun annotateProperty(element: StellarisLocalizationProperty, holder: AnnotationHolder) {
-		//如果是本地化属性，则加上gutterIcon
+		//注明所有同名的属性
 		val name = element.name ?: return
 		holder.newSilentAnnotation(INFORMATION)
 			.gutterIconRenderer(LocalizationPropertyGutterIconRenderer(name, element.project))

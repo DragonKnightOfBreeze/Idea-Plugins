@@ -136,8 +136,3 @@ object StellarisLocalizationIconUrlResolver {
 		return "https://stellaris.paradoxwikis.com/File:$fqName.png"
 	}
 }
-
-@Suppress("NOTHING_TO_INLINE")
-inline fun String.resolveIconUrl(defaultToUnknown: Boolean=true):String{
-	return StellarisLocalizationIconUrlResolver.resolve(this,defaultToUnknown)
-}

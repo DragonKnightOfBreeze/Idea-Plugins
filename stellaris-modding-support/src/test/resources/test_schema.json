@@ -7,10 +7,9 @@
         }
       }
     },{
-      "type": "object",
-      "properties": {
+      "properties":{
         "n": {
-          "type": "string"
+          "type": "integer"
         }
       }
     }

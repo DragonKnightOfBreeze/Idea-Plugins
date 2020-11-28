@@ -15,6 +15,7 @@ import com.intellij.psi.*
 import com.intellij.psi.search.*
 import com.intellij.psi.util.*
 import com.intellij.util.*
+import com.windea.plugin.idea.stellaris.localization.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
 import com.windea.plugin.idea.stellaris.script.psi.*
 import org.jetbrains.annotations.*
@@ -25,10 +26,6 @@ import java.util.function.Function
 import javax.swing.*
 
 //region Stdlib
-inline fun writeString(block: StringWriter.() -> Unit): String {
-	return StringWriter().apply(block).toString()
-}
-
 fun Boolean.toInt() = if(this) 1 else 0
 
 val workDirectory: File = File("").absoluteFile
@@ -98,7 +95,7 @@ fun String.toCapitalizedWord() :String{
 }
 
 fun String.toCapitalizedWords() :String{
-	return writeString{
+	return buildString{
 		var isWordStart = true
 		for(c in this@toCapitalizedWords.toCharArray()) {
 			when{
@@ -351,29 +348,46 @@ fun findLocalizationProperties(project: Project, locale: StellarisLocale? = null
 
 //将部分特定的查找方法作为扩展方法
 
-fun StellarisLocalizationProperty.findRelatedScriptProperties(): List<StellarisScriptProperty> {
-	//DELAY
-	return emptyList()
-}
-
 fun StellarisScriptProperty.findRelatedLocalizationProperties(locale:StellarisLocale? = null): List<StellarisLocalizationProperty> {
-	val name = name ?: return emptyList()
-	return StellarisLocalizationPropertyKeyIndex.filter(locale, project, GlobalSearchScope.allScope(project)) {
-		name.isRelatedLocalizationPropertyName(it)
+	val scriptPropertyName = this.name ?: return emptyList()
+	return StellarisLocalizationPropertyKeyIndex.filter(locale, project, GlobalSearchScope.allScope(project)) {name->
+		isRelatedLocalizationPropertyName(name, scriptPropertyName)
 	}.sortedBy { it.name!! }
 }
 
-//TODO 虽然还有其他关联的属性名，但是这里只提取xxx和xxx_desc和xxx_desc_xxx，否则可能会太多了
+//虽然还有其他关联的属性名，但是这里只提取xxx和xxx_desc和xxx_desc_xxx，否则可能会太多了
 //xxx, xxx_desc, xxx_effect_desc
 //job_xxx, job_xxx_desc, job_xxx_effect_desc
-fun String.isRelatedLocalizationPropertyName(value: String): Boolean {
-	return value == this || value.startsWith(this + "_desc")
+
+private fun isRelatedLocalizationPropertyName(name: String, scriptPropertyName: String): Boolean {
+	val fqName = name.removePrefix("job_")
+	return fqName == scriptPropertyName
+	       || fqName == scriptPropertyName + "_desc"
+	       || fqName == scriptPropertyName + "_effect_desc"
 }
 
-fun String.getRelatedLocalizationPropertyI18nKey(prefixLength:Int):String{
+fun String.toRelatedLocalizationPropertyKey():String{
 	return when{
-		this.length <= prefixLength+1 -> "stellaris.documentation.name"
-		else -> "stellaris.documentation."+ this.substring(prefixLength+1).toLowerCase()
+		this.endsWith("_effect_desc") -> "stellaris.documentation.effect_desc"
+		this.endsWith("desc") -> "stellaris.documentation.desc"
+		else -> "stellaris.documentation.name"
 	}
+}
+//endregion
+
+//region Project
+@Suppress("NOTHING_TO_INLINE")
+inline fun String.resolveIconUrl(defaultToUnknown: Boolean=true):String{
+	return StellarisLocalizationIconUrlResolver.resolve(this,defaultToUnknown)
+}
+
+@Suppress("NOTHING_TO_INLINE")
+inline fun StellarisLocalizationPropertyValue.renderRichText():String{
+	return StellarisLocalizationRichTextRenderer.render(this)
+}
+
+@Suppress("NOTHING_TO_INLINE")
+inline fun StellarisLocalizationPropertyValue.renderRichTextTo(buffer:Appendable){
+	StellarisLocalizationRichTextRenderer.renderTo(this,buffer)
 }
 //endregion

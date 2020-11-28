@@ -56,6 +56,12 @@
                   <Item>
                     <option name="path" value="stellaris-modding-support/src/test/resources/test.json" />
                   </Item>
+                  <Item>
+                    <option name="path" value="stellaris-modding-support/src/test/resources/stdlib/test.txt" />
+                  </Item>
+                  <Item>
+                    <option name="path" value="stellaris-modding-support/src/test/resources/test.yml" />
+                  </Item>
                 </list>
               </option>
             </SchemaInfo>

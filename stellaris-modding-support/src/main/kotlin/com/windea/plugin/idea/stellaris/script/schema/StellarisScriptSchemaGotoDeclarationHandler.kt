@@ -23,6 +23,8 @@ class StellarisScriptSchemaGotoDeclarationHandler:GotoDeclarationHandler {
 		}
 	}
 
+	//TODO 可以导航到anyOf、allOf中的对应属性
+	
 	private fun getTargets(sourceElement: PsiElement):Array<PsiElement>?{
 		val file = sourceElement.containingFile?:return null
 		val service = JsonSchemaService.Impl.get(sourceElement.project)

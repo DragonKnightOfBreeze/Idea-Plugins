@@ -93,8 +93,6 @@ val stellarisScriptVariableIcon = IconLoader.findIcon("/icons/stellarisScriptVar
 val stellarisScriptPropertyIcon = IconLoader.findIcon("/icons/stellarisScriptProperty.svg")!!
 val stellarisScriptValueIcon = IconLoader.findIcon("/icons/stellarisScriptValue.svg")!!
 
-val overriddenLocalizationPropertyGutterIcon = IconLoader.findIcon("/icons/overriddenLocalizationProperty.svg")!!
-val overriddenScriptPropertyGutterIcon = IconLoader.findIcon("/icons/overriddenScriptProperty.svg")!!
 val localizationPropertyGutterIcon = stellarisLocalizationPropertyIcon.resize(12, 12)
 val scriptPropertyGutterIcon = stellarisScriptPropertyIcon.resize(12, 12)
 //val eventIdGutterIcon = IconUtil.toSize(AllIcons.Nodes.Protected, 12, 12)

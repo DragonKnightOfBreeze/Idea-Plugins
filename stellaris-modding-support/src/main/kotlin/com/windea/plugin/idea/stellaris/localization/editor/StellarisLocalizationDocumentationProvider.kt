@@ -32,13 +32,14 @@ class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider
 	
 	private fun generatePropertyDoc(element: StellarisLocalizationProperty): String? {
 		val elementName = element.name?:return null
-		return writeString {
+		return buildString {
 			append(DocumentationMarkup.DEFINITION_START)
 			append(getLocationText(element))
 			append("<br>")
-			append("(localization property) <b>", elementName,"</b>")
+			append("(localization property) <b>").append(elementName).append("</b>")
 			append(DocumentationMarkup.DEFINITION_END)
 			
+			//添加先前的行注释的文本到文档注释中
 			val textAttributesKey = StellarisLocalizationAttributesKeys.COMMENT_KEY
 			val docCommentText = getDocCommentHtmlFromPreviousComment(element, textAttributesKey)
 			if(docCommentText.isNotEmpty()) {
@@ -53,7 +54,7 @@ class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider
 				append(DocumentationMarkup.SECTIONS_START)
 				append(DocumentationMarkup.SECTION_HEADER_START)
 				append(message("stellaris.documentation.text")).append(" ")
-				append(DocumentationMarkup.SECTION_SEPARATOR,"<p>")
+				append(DocumentationMarkup.SECTION_SEPARATOR).append("<p>")
 				propertyValue.renderRichTextTo(this)
 				append(DocumentationMarkup.SECTION_END)
 				append(DocumentationMarkup.SECTIONS_END)
@@ -63,7 +64,7 @@ class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider
 	
 	private fun generateLocaleDoc(element: StellarisLocalizationLocale): String? {
 		val documentText = element.stellarisLocale?.documentText ?: return null
-		return writeString {
+		return buildString {
 			append(DocumentationMarkup.DEFINITION_START)
 			append(documentText)
 			append(DocumentationMarkup.DEFINITION_END)
@@ -73,7 +74,7 @@ class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider
 	private fun generateIconDoc(element: StellarisLocalizationIcon): String? {
 		val name = element.name ?: return null
 		val documentText = "(icon) <b>$name</b>"
-		return writeString {
+		return buildString {
 			append(DocumentationMarkup.DEFINITION_START)
 			append(documentText)
 			append(DocumentationMarkup.DEFINITION_END)
@@ -88,7 +89,7 @@ class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider
 	
 	private fun generateSerialNumberLog(element: StellarisLocalizationSerialNumber): String? {
 		val documentText = element.stellarisSerialNumber?.documentText ?: return null
-		return writeString {
+		return buildString {
 			append(DocumentationMarkup.DEFINITION_START)
 			append(documentText)
 			append(DocumentationMarkup.DEFINITION_END)
@@ -97,7 +98,7 @@ class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider
 	
 	private fun generateColorfulTextDoc(element: StellarisLocalizationColorfulText): String? {
 		val documentText = element.stellarisColor?.documentText ?: return null
-		return writeString {
+		return buildString {
 			append(DocumentationMarkup.DEFINITION_START)
 			append(documentText)
 			append(DocumentationMarkup.DEFINITION_END)

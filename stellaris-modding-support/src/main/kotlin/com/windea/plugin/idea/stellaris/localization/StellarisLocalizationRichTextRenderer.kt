@@ -12,40 +12,40 @@ import java.io.*
  */
 object StellarisLocalizationRichTextRenderer {
 	fun render(element:StellarisLocalizationPropertyValue):String{
-		return renderTo(element,StringWriter()).toString()
+		return renderTo(element,StringBuilder()).toString()
 	}
 	
-	fun renderTo(element: StellarisLocalizationPropertyValue, writer: Writer) {
+	fun renderTo(element: StellarisLocalizationPropertyValue, buffer: Appendable) {
 		try {
-			element.richTextList.forEach { renderTo(it, writer) }
+			element.richTextList.forEach { renderTo(it, buffer) }
 		} catch(e: Exception) {
 			e.printStackTrace()
-			writer.write("<code>(syntax error)</code>")
+			buffer.append("<code>(syntax error)</code>")
 		}
 	}
 	
-	private fun renderTo(element: StellarisLocalizationRichText, writer: Writer) {
+	private fun renderTo(element: StellarisLocalizationRichText, buffer: Appendable) {
 		when(element) {
-			is StellarisLocalizationString -> writer.append(element.text)
-			is StellarisLocalizationEscape -> renderEscapeTo(element, writer)
-			is StellarisLocalizationPropertyReference -> renderPropertyReferenceTo(element, writer)
-			is StellarisLocalizationIcon -> renderIconTo(writer, element)
-			is StellarisLocalizationSerialNumber -> renderSerialNumberTo(element, writer)
-			is StellarisLocalizationCode -> renderCodeTo(writer, element)
-			is StellarisLocalizationColorfulText -> renderColorfulTextTo(element, writer)
+			is StellarisLocalizationString -> buffer.append(element.text)
+			is StellarisLocalizationEscape -> renderEscapeTo(element, buffer)
+			is StellarisLocalizationPropertyReference -> renderPropertyReferenceTo(element, buffer)
+			is StellarisLocalizationIcon -> renderIconTo(element,buffer)
+			is StellarisLocalizationSerialNumber -> renderSerialNumberTo(element, buffer)
+			is StellarisLocalizationCode -> renderCodeTo(element,buffer)
+			is StellarisLocalizationColorfulText -> renderColorfulTextTo(element, buffer)
 		}
 	}
 	
-	private fun renderEscapeTo(element: StellarisLocalizationEscape, writer: Writer) {
+	private fun renderEscapeTo(element: StellarisLocalizationEscape, buffer: Appendable) {
 		val elementText = element.text
 		when {
-			elementText == "\\n" -> writer.append("<br>")
-			elementText == "\\t" -> writer.append("&emsp;")
-			elementText.length > 1 -> writer.append(elementText[1])
+			elementText == "\\n" -> buffer.append("<br>")
+			elementText == "\\t" -> buffer.append("&emsp;")
+			elementText.length > 1 -> buffer.append(elementText[1])
 		}
 	}
 	
-	private fun renderPropertyReferenceTo(element: StellarisLocalizationPropertyReference, writer: Writer) {
+	private fun renderPropertyReferenceTo(element: StellarisLocalizationPropertyReference, buffer: Appendable) {
 		//TODO 适用引用参数
 		val reference = element.reference
 		if(reference != null) {
@@ -54,55 +54,46 @@ object StellarisLocalizationRichTextRenderer {
 				val propertyValue = resolve.propertyValue
 				if(propertyValue != null) {
 					val rgbText = element.stellarisColor?.rgbText
-					if(rgbText != null) writer.append("<span style='color: $rgbText;'>")
-					renderTo(propertyValue, writer)
-					if(rgbText != null) writer.append("</span>")
+					if(rgbText != null) buffer.append("<span style='color: $rgbText;'>")
+					renderTo(propertyValue, buffer)
+					if(rgbText != null) buffer.append("</span>")
 					return
 				}
 			}
 		}
 		//如果解析引用失败，则直接使用原始文本
-		writer.append("<code>").append(element.text).append("</code>")
+		buffer.append("<code>").append(element.text).append("</code>")
 	}
 	
-	private fun renderIconTo(writer: Writer, element: StellarisLocalizationIcon) {
+	private fun renderIconTo(element: StellarisLocalizationIcon, buffer: Appendable) {
 		val name = element.name ?: return
 		val iconUrl = name.resolveIconUrl()
 		if(iconUrl.isNotEmpty()) {
-			if(iconUrl[0] != '<') writer.append(iconTag(iconUrl)) else writer.append(iconUrl)
+			if(iconUrl[0] != '<') buffer.append(iconTag(iconUrl)) else buffer.append(iconUrl)
 		}
 	}
 	
-	private fun renderSerialNumberTo(element: StellarisLocalizationSerialNumber, writer: Writer) {
+	private fun renderSerialNumberTo(element: StellarisLocalizationSerialNumber, buffer: Appendable) {
 		val placeholderText = element.stellarisSerialNumber?.placeholderText
 		if(placeholderText != null) {
-			writer.append(placeholderText)
+			buffer.append(placeholderText)
 			return
 		}
 		//如果解析引用失败，则直接使用原始文本
-		writer.append("<code>").append(element.text).append("</code>")
+		buffer.append("<code>").append(element.text).append("</code>")
 	}
 	
-	private fun renderCodeTo(writer: Writer, element: StellarisLocalizationCode) {
-		writer.append("<code>").append(element.text).append("</code>")
+	private fun renderCodeTo(element: StellarisLocalizationCode, buffer: Appendable) {
+		buffer.append("<code>").append(element.text).append("</code>")
 	}
 	
-	private fun renderColorfulTextTo(element: StellarisLocalizationColorfulText, writer: Writer) {
+	private fun renderColorfulTextTo(element: StellarisLocalizationColorfulText, buffer: Appendable) {
 		val rgbText = element.stellarisColor?.rgbText
-		if(rgbText != null) writer.append("<span style='color: $rgbText;'>")
+		if(rgbText != null) buffer.append("<span style='color: $rgbText;'>")
 		for(v in element.richTextList) {
-			renderTo(v, writer)
+			renderTo(v, buffer)
 		}
-		if(rgbText != null) writer.append("</span>")
+		if(rgbText != null) buffer.append("</span>")
 	}
 }
 
-@Suppress("NOTHING_TO_INLINE")
-inline fun StellarisLocalizationPropertyValue.renderRichText():String{
-	return StellarisLocalizationRichTextRenderer.render(this)
-}
-
-@Suppress("NOTHING_TO_INLINE")
-inline fun StellarisLocalizationPropertyValue.renderRichTextTo(writer:Writer){
-	StellarisLocalizationRichTextRenderer.renderTo(this,writer)
-}
