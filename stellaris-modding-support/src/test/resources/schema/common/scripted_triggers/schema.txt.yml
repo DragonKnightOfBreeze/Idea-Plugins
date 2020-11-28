@@ -1,0 +1,12 @@
+### 预设触发器
+
+title: Scripted Triggers
+type: object
+additionalProperties:
+  $ref: "#/definitions/scripted_trigger"
+
+definitions:
+  scripted_trigger:
+    title: Scripted Trigger
+    type: object
+    $ref: "../core.yml#/definitions/triggers"

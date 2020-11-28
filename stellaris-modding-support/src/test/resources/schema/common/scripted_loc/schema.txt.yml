@@ -1,0 +1,23 @@
+### 预设本地化引用
+
+title: Scripted Localization References
+type: object
+properties:
+  define_text:
+    $ref: "#/definitions/scripted_loc"
+
+definitions:
+  scripted_loc:
+    title: Scripted Localization Reference
+    type: object
+    properties:
+      name:
+        type: string
+      text:
+        type: object
+        properties:
+          trigger:
+            $ref: "../core.yml#/definitions/triggers"
+            multiple: true
+          localization_key:
+            $ref: "../core.yml#/definitions/loc_reference"

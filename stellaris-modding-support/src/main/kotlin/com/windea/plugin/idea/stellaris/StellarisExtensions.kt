@@ -357,7 +357,8 @@ fun StellarisScriptProperty.findRelatedLocalizationProperties(locale:StellarisLo
 }
 
 //TODO 虽然还有其他关联的属性名，但是这里只提取xxx和xxx_desc和xxx_desc_xxx，否则可能会太多了
-
+//xxx, xxx_desc, xxx_effect_desc
+//job_xxx, job_xxx_desc, job_xxx_effect_desc
 fun String.isRelatedLocalizationPropertyName(value: String): Boolean {
 	return value == this || value.startsWith(this + "_desc")
 }

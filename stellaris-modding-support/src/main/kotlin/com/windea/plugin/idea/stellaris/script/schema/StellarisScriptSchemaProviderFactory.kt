@@ -27,23 +27,24 @@ class StellarisScriptSchemaProviderFactory : JsonSchemaProviderFactory {
 		//file：schema文件的根目录
 		file.children.forEach {
 			when {
-				//如果是描述符文件，则添加特殊的provider
-				it.name == descriptorModFileName -> {
-					providers += StellarisScriptSchemaProvider(descriptorModFileName, it)
-				}
 				//如果是目录，则递归
 				it.isDirectory -> {
-					val path = if(pathPrefix.isEmpty()) it.name else "$pathPrefix/${it.name}"
+					val name = it.name
+					val path = if(pathPrefix.isEmpty()) name else "$pathPrefix/$name"
 					addProviders(it, providers, path)
 				}
 				//如果是json schema文件，则添加provider
 				it.extension == "json" -> {
-					val nameWithoutExtension = it.nameWithoutExtension
-					val wildcardExtension = nameWithoutExtension.substringAfterLast('.',"txt")
-					providers += StellarisScriptSchemaProvider("$pathPrefix/*.${wildcardExtension}", it)
+					val name = handleName(it.nameWithoutExtension)
+					val path = if(pathPrefix.isEmpty()) name else "$pathPrefix/$name"
+					providers += StellarisScriptSchemaProvider(path, it)
 				}
 			}
 		}
+	}
+	
+	private fun handleName(name:String):String{
+		return if(name == descriptorModFileName) name else "*." + name.substringAfterLast('.',"txt")
 	}
 }
 

@@ -5,6 +5,10 @@ import com.fasterxml.jackson.dataformat.yaml.*
 import com.fasterxml.jackson.module.kotlin.*
 import java.io.*
 
+fun main() {
+	convertSchemaFiles("stellaris-modding-support\\src\\test\\resources\\schema")
+}
+
 val jsonMapper = ObjectMapper().apply {
 	enable(SerializationFeature.INDENT_OUTPUT)
 }
@@ -13,16 +17,13 @@ val yamlMapper = YAMLMapper()
 val coreSchemaFile = File("stellaris-modding-support\\src\\test\\resources\\schema\\core.yml")
 val coreSchema = yamlMapper.readValue<Map<String, Any?>>(coreSchemaFile)
 val coreSchemaDefinitions = coreSchema["definitions"] as Map<String, Any?>
-
-fun main() {
-	convertSchemaFiles("stellaris-modding-support\\src\\test\\resources\\schema")
-}
+val ignoredSchemaFileNames = arrayOf("core.yml","type.yml")
 
 private fun convertSchemaFiles(schemaPath: String) {
 	File(schemaPath).walk().forEach {
 		runCatching {
 			if(it.isFile && it.extension == "yml") {
-				if(it.name == "core.yml") return@forEach
+				if(it.name in ignoredSchemaFileNames) return@forEach
 				val yaml = it.readText()
 				val data = readYamlSchema(yaml)
 				val json = writeJsonSchema(data)

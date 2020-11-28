@@ -27,48 +27,11 @@ class StellarisScriptSchemaProvider(
 		return true
 	}
 	
-	//判断指定的路径是否匹配指定的ant路径，允许的通配符：?, *
-	private fun matches(path:String,antPath:String):Boolean{
-		val antPathChars = antPath.toCharArray()
-		val pathChars = path.toCharArray()
-		val antPathLength = antPath.length
-		val pathLength = path.length
-		var antPathCharIndex = 0
-		var pathCharIndex = 0
-		var antPathChar:Char
-		var pathChar:Char
-		while(true){
-			antPathChar = antPathChars[antPathCharIndex]
-			pathChar = pathChars[pathCharIndex]
-			when{
-				//直接跳过
-				antPathChar == '?' -> {}
-				//跳到下一个匹配的地方
-				antPathChar == '*' -> {
-					antPathCharIndex++
-					if(antPathCharIndex == antPathLength) return true
-					val nextAntPathChar = antPathChars[antPathCharIndex]
-					while(pathCharIndex < pathLength){
-						if(pathChars[pathCharIndex] == nextAntPathChar){
-							antPathCharIndex ++
-							pathCharIndex ++
-							continue
-						}
-						pathCharIndex ++
-					}
-					return true
-				}
-				//要求匹配
-				else -> {
-					if(antPathChar != pathChar) return false
-				}
-			}
-			antPathCharIndex ++
-			pathCharIndex ++
-			if(pathCharIndex == pathLength){
-				while(antPathCharIndex != antPathLength && antPathChars[antPathCharIndex] == '*') antPathCharIndex ++
-				return antPathCharIndex == antPathLength
-			}
+	//判断指定的路径是否匹配指定的路径表达式，允许的表达式：abc.txt, *.txt
+	private fun matches(path:String,pattern:String):Boolean{
+		return when {
+			pattern.startsWith("*.") -> path.substringAfterLast('.') == pattern.removePrefix("*.")
+			else -> path == pattern
 		}
 	}
 
