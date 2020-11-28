@@ -1,0 +1,109 @@
+### 预设国家
+
+title: Prescripted Countries
+type: object
+additionalProperties:
+  $ref: "#/definitions/prescripted_country"
+
+definitions:
+  prescripted_country:
+    title: Prescripted Country
+    type: object
+    properties:
+      name:
+        $ref: "core.yml#/definitions/loc_reference"
+      adjective:
+        $ref: "core.yml#/definitions/loc_reference"
+      spawn_enabled:
+        type: boolean
+      ignore_portrait_duplication:
+        type: boolean
+      ship_prefix:
+        $ref: "core.yml#/definitions/loc_reference"
+      species:
+        type: object
+        properties:
+          class:
+            $type: species_class
+          portaint:
+            $ref: "core.yml#/definitions/loc_reference"
+          name:
+            $ref: "core.yml#/definitions/loc_reference"
+          plural:
+            $ref: "core.yml#/definitions/loc_reference"
+          adjective:
+            $ref: "core.yml#/definitions/loc_reference"
+          name_list:
+            $type: name_list
+          trait:
+            $type: trait
+            multiple: true
+      room:
+        $type: asset
+      authority:
+        $type : authority
+      civics:
+        type: array
+        items:
+          $type: civic
+      government:
+        $type: government
+      ethic:
+        $type: ethic
+        multiple: true
+      origin:
+        $type: origin
+      flags:
+        type: array
+        items:
+          $type: flag
+      planet_name:
+        $ref: "core.yml#/definitions/loc_reference"
+      planet_class:
+        $type: planet_class
+      initializer:
+        $type: solar_system_initializer
+      system_name:
+        $ref: "core.yml#/definitions/loc_reference"
+      graphical_culture:
+        $type: graphical_culture
+      civic:
+        $type: graphical_culture
+      empire_flag:
+        type: object
+        properties:
+          icon:
+            type: object
+            properties:
+              category:
+                type: string # TODO
+              file:
+                $type: flag_file_name
+          background:
+            type: object
+            properties:
+              category:
+                type: string # TODO
+              file:
+                $type: flag_file_name
+          colors:
+            type: array
+            items:
+              $type: color_name
+      ruler:
+        type: object
+        properties:
+          name:
+            $ref: "core.yml#/definitions/loc_reference"
+          gender:
+            $ref: "core.yml#/definitions/loc_reference"
+          portrait:
+            $ref: "core.yml#/definitions/loc_reference"
+          texture:
+            type: integer
+          hair:
+            type: integer
+          clothes:
+            type: integer
+          leader_class:
+            type: integer

@@ -1,0 +1,26 @@
+### 事件
+
+title: Events
+type: object
+properties:
+  namespace:
+    type: string
+additionalProperties:
+  $ref: "#/definitions/event"
+
+definitions:
+  event:
+    title: Event
+    type: object
+    properties:
+      id:
+        type: string
+      hide_windows:
+        type: boolean
+      is_triggered_only:
+        type: boolean
+      trigger:
+        $ref: "core.yml#/definitions/triggers"
+      immediate:
+        $ref: "core.yml#/definitions/effects"
+

@@ -1,0 +1,226 @@
+/common/achievements:
+  name: achievement
+/common/agendas:
+  name: agenda
+/common/ai_budget:
+  name: ai_budget
+/common/ambient_objects:
+  name: ambient_object
+/common/anomalies:
+  name: anomaly
+/common/archaeological_site_types:
+  name: archaeological_site_type
+/common/armies:
+  name: army
+/common/artifact_actions:
+  name: artifact_action
+/common/ascension_perks:
+  name: ascension_perk
+/common/asteroid_belts:
+  name: asteroid_belt
+/common/attitudes:
+  name: attitude
+/common/bombardment_stances:
+  name: bombardment_stance
+/common/buildings:
+  name: building
+/common/button_effects:
+  name: button_effect
+/common/bypass:
+  name: bypass
+/common/casus_belli:
+  name: casus_belli
+/common/colony_automation:
+  name: colony_automation
+/common/colony_automation_exceptions:
+  name: colony_automation_exception
+/common/colony_types:
+  name: colony_type
+/common/colors:
+  name: color
+/common/component_sets:
+  name: component_set
+/common/component_slot_templates:
+  name: component_slot_template
+/common/component_tags:
+  name: component_tag
+/common/component_templates:
+  name: component_template
+/common/country_customization:
+  name: country_customization
+/common/country_types:
+  name: country_type
+/common/decisions:
+  name: decision
+/common/defines:
+  name: define
+/common/deposits:
+  name: deposit
+/common/deposit_categories:
+  name: deposit_category
+/common/diplomacy_economy:
+  name: diplomacy_economy
+/common/diplomatic_actions:
+  name: diplomatic_action
+/common/diplo_phrases:
+  name: diplo_phrase
+/common/districts:
+  name: district
+/common/dynamic_text:
+  name: dynamic_text
+/common/economic_categories:
+  name: economic_category
+/common/economic_plans:
+  name: economic_plan
+/common/edicts:
+  name: edict
+/common/ethics:
+  name: ethic
+/common/event_chains:
+  name: event_chain
+/common/fallen_empires:
+  name: fallen_empire
+/common/federation_laws:
+  name: federation_law
+/common/federation_law_categories:
+  name: federation_law_category
+/common/federation_perks:
+  name: federation_perk
+/common/federation_types:
+  name: federation_type
+/common/galactic_focuses:
+  name: galactic_focus
+/common/game_rules:
+  name: game_rule
+/common/global_ship_designs:
+  name: global_ship_design
+/common/governments:
+  name: government
+/common/governments/authorities:
+  name: governments/authority
+/common/governments/civics:
+  name: governments/civic
+/common/graphical_culture:
+  name: graphical_culture
+/common/lawsuits:
+  name: lawsuit
+/common/leader_classes:
+  name: leader_class
+/common/mandates:
+  name: mandate
+/common/map_modes:
+  name: map_mode
+/common/megastructures:
+  name: megastructure
+/common/name_lists:
+  name: name_list
+/common/notification_modifiers:
+  name: notification_modifier
+/common/observation_station_missions:
+  name: observation_station_mission
+/common/on_actions:
+  name: on_action
+/common/opinion_modifiers:
+  name: opinion_modifier
+/common/personalities:
+  name: personality
+/common/planet_classes:
+  name: planet_class
+/common/planet_modifiers:
+  name: planet_modifier
+/common/policies:
+  name: policy
+/common/pop_categories:
+  name: pop_category
+/common/pop_faction_types:
+  name: pop_faction_type
+/common/pop_jobs:
+  name: pop_job
+/common/precursor_civilizations:
+  name: precursor_civilization
+/common/random_names:
+  name: random_name
+/common/random_names/base:
+  name: random_name
+/common/relics:
+  name: relic
+/common/resolutions:
+  name: resolution
+/common/resolution_categories:
+  name: resolution_category
+/common/scripted_effects:
+  name: scripted_effect
+/common/scripted_loc:
+  name: scripted_loc
+/common/scripted_triggers:
+  name: scripted_trigger
+/common/scripted_variables:
+  name: scripted_variable
+/common/section_templates:
+  name: section_template
+/common/sector_focuses:
+  name: sector_focus
+/common/sector_types:
+  name: sector_type
+/common/ship_behaviors:
+  name: ship_behavior
+/common/ship_sizes:
+  name: ship_size
+/common/solar_system_initializers:
+  name: solar_system_initializer
+/common/special_projects:
+  name: special_project
+/common/species_archetypes:
+  name: species_archetype
+/common/species_classes:
+  name: species_class
+/common/species_names:
+  name: species_name
+/common/species_rights:
+  name: species_right
+/common/starbase_buildings:
+  name: starbase_building
+/common/starbase_levels:
+  name: starbase_level
+/common/starbase_modules:
+  name: starbase_module
+/common/starbase_types:
+  name: starbase_type
+/common/start_screen_messages:
+  name: start_screen_message
+/common/star_classes:
+  name: star_class
+/common/static_modifiers:
+  name: static_modifier
+/common/strategic_resources:
+  name: strategic_resource
+/common/subjects:
+  name: subject
+/common/system_types:
+  name: system_type
+/common/technology:
+  name: technology
+/common/technology/category:
+  name: technology_category
+/common/technology/tier:
+  name: technology_tier
+/common/terraform:
+  name: terraform
+/common/trade_conversions:
+  name: trade_conversion
+/common/traditions:
+  name: tradition
+/common/tradition_categories:
+  name: tradition_category
+/common/traits:
+  name: trait
+/common/war_goals:
+  name: war_goal
+/events:
+  name: event
+/localisation:
+  name: localisation
+/localisation_synced:
+  name: localisation_synced
+/prescripted_countries:
+  name: prescripted_country
