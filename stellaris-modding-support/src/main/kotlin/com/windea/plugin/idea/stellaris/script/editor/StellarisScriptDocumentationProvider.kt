@@ -119,7 +119,7 @@ class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
 				when(property.name) {
 					"description" -> {
 						val k = property.value ?: continue
-						val value = findLocalizationProperty(k, project, inferredStellarisLocale)?.value
+						val value = findLocalizationProperty(k, project, inferredStellarisLocale)?.propertyValue?.renderRichText()
 						val key = message("stellaris.documentation.effect")
 						sectionMap[key] = value ?: k
 					}
