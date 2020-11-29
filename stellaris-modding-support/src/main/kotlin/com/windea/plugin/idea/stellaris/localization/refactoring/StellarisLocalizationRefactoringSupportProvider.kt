@@ -10,10 +10,6 @@ import com.windea.plugin.idea.stellaris.localization.psi.*
 
 class StellarisLocalizationRefactoringSupportProvider : RefactoringSupportProvider() {
 	override fun isMemberInplaceRenameAvailable(element: PsiElement, context: PsiElement?): Boolean {
-		return element is StellarisLocalizationProperty
-	}
-
-	override fun isSafeDeleteAvailable(element: PsiElement): Boolean {
-		return element is StellarisLocalizationProperty
+		return element is PsiNameIdentifierOwner
 	}
 }

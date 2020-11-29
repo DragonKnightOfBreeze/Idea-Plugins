@@ -22,6 +22,9 @@ public interface StellarisLocalizationIcon extends StellarisLocalizationRichText
   @NotNull
   PsiElement setName(@NotNull String name);
 
+  @Nullable
+  PsiElement getNameIdentifier();
+
   int getTextOffset();
 
   //WARNING: getReference(...) is skipped

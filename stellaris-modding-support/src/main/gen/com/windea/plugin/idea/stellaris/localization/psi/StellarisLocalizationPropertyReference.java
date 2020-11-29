@@ -24,6 +24,9 @@ public interface StellarisLocalizationPropertyReference extends StellarisLocaliz
   @NotNull
   PsiElement setName(@NotNull String name);
 
+  @Nullable
+  PsiElement getNameIdentifier();
+
   int getTextOffset();
 
   @Nullable

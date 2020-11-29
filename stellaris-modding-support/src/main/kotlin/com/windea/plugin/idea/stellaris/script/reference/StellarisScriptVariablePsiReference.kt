@@ -4,13 +4,18 @@ import com.intellij.codeInsight.lookup.*
 import com.intellij.openapi.util.*
 import com.intellij.psi.*
 import com.windea.plugin.idea.stellaris.*
+import com.windea.plugin.idea.stellaris.script.psi.*
 
 class StellarisScriptVariablePsiReference(
-	element: PsiElement,
+	element: StellarisScriptVariableReference,
 	rangeInElement: TextRange
-) : PsiReferenceBase<PsiElement>(element, rangeInElement), PsiPolyVariantReference {
+) : PsiReferenceBase<StellarisScriptVariableReference>(element, rangeInElement), PsiPolyVariantReference {
 	private val name = rangeInElement.substring(element.text)
-
+	
+	override fun handleElementRename(newElementName: String): PsiElement {
+		return element.setName(newElementName)
+	}
+	
 	override fun resolve(): PsiElement? {
 		val file = element.containingFile?:return null
 		return findScriptVariableInFile(name,file) ?: findScriptProperty(name,element.project)

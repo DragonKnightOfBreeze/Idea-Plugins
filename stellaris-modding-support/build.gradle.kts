@@ -21,6 +21,8 @@ grammarKit {
 }
 
 dependencies{
+	implementation(kotlin("stdlib"))
+	implementation(kotlin("reflect:1.4.0"))
 	testImplementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:0.13.0")
 	testImplementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.10.1")
 	testImplementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.10.1")

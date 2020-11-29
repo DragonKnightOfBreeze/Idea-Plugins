@@ -15,6 +15,11 @@ class StellarisScriptStringAsPropertyPsiReference(
 	private val project = element.project
 	private val state = StellarisSettingsState.getInstance()
 	
+	//不会随之重命名，因为不能保证引用关系正确
+	override fun handleElementRename(newElementName: String): PsiElement {
+		return element
+	}
+	
 	override fun resolve(): PsiElement? {
 		if(state.resolveInternalReferences) {
 			return findScriptProperty(name, project)

@@ -60,7 +60,7 @@ variable ::= variable_name variable_separator variable_value {
   extends="com.windea.plugin.idea.stellaris.script.psi.impl.StellarisScriptStubElementImpl<?>"
   implements="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptNamedElement"
   stubClass="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptVariableStub"
-  methods=[getName setName getIcon getValue]
+  methods=[getName setName getNameIdentifier getIcon getValue]
 }
 
 variable_name ::= VARIABLE_NAME_ID
@@ -73,7 +73,7 @@ property ::= property_key property_separator property_value {
   extends="com.windea.plugin.idea.stellaris.script.psi.impl.StellarisScriptStubElementImpl<?>"
   implements="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptNamedElement"
   stubClass="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptPropertyStub"
-  methods=[getName setName getIcon getValue]
+  methods=[getName setName getNameIdentifier getIcon getValue]
 }
 property_key ::= PROPERTY_KEY_ID | QUOTED_PROPERTY_KEY_ID
 property_separator ::= "=" | "<" | ">" | "<=" | ">="
@@ -84,7 +84,7 @@ value ::= variable_reference | boolean | number | string_value | block{
 }
 variable_reference ::= VARIABLE_REFERENCE_ID {
   extends=value
-  methods=[getReference]
+  methods=[getName setName getNameIdentifier getReference]
 }
 boolean ::= BOOLEAN_TOKEN {
   extends=value

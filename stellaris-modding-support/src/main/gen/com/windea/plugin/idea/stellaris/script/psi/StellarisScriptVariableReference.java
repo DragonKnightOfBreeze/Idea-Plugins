@@ -11,6 +11,15 @@ public interface StellarisScriptVariableReference extends StellarisScriptValue {
   @NotNull
   PsiElement getVariableReferenceId();
 
+  @Nullable
+  String getName();
+
+  @NotNull
+  PsiElement setName(@NotNull String name);
+
+  @NotNull
+  PsiElement getNameIdentifier();
+
   @NotNull
   StellarisScriptVariablePsiReference getReference();
 

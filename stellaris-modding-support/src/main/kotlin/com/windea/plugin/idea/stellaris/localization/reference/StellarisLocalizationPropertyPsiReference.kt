@@ -9,15 +9,19 @@ import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
 
 class StellarisLocalizationPropertyPsiReference(
-	element: PsiElement,
+	element: StellarisLocalizationPropertyReference,
 	rangeInElement: TextRange
-) : PsiReferenceBase<PsiElement>(element, rangeInElement), PsiPolyVariantReference {
+) : PsiReferenceBase<StellarisLocalizationPropertyReference>(element, rangeInElement), PsiPolyVariantReference {
 	private val name = rangeInElement.substring(element.text)
 	private val locale = (element.containingFile as? StellarisLocalizationFile)?.locale?.stellarisLocale
 	private val project = element.project
 
 	//只解析相同语言类型的引用
-
+	
+	override fun handleElementRename(newElementName: String): PsiElement {
+		return element.setName(newElementName)
+	}
+	
 	override fun resolve(): PsiElement? {
 		return findLocalizationProperty(name, project,locale)
 	}

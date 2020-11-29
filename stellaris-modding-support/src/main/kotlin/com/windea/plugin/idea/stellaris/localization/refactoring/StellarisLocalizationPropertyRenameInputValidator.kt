@@ -1,25 +1,22 @@
 package com.windea.plugin.idea.stellaris.localization.refactoring
 
-import com.intellij.openapi.project.*
 import com.intellij.patterns.*
+import com.intellij.patterns.PlatformPatterns.*
 import com.intellij.psi.*
 import com.intellij.refactoring.rename.*
 import com.intellij.util.*
-import com.windea.plugin.idea.stellaris.*
-import com.windea.plugin.idea.stellaris.message
-import com.windea.plugin.idea.stellaris.localization.psi.*
+import com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationTypes.*
 
-class StellarisLocalizationPropertyRenameInputValidator : RenameInputValidatorEx {
+class StellarisLocalizationPropertyRenameInputValidator : RenameInputValidator {
+	private val regex = "[a-zA-Z0-9_.\\-']+".toRegex()
+	private val pattern = or(psiElement(PROPERTY), psiElement(PROPERTY_REFERENCE))
+	
 	override fun isInputValid(newName: String, element: PsiElement, context: ProcessingContext): Boolean {
-		return stellarisLocalizationPropertyKeyRegex.matches(newName)
+		return regex.matches(newName)
 	}
 
 	override fun getPattern(): ElementPattern<out PsiElement> {
-		return PlatformPatterns.psiElement(StellarisLocalizationTypes.PROPERTY)
-	}
-
-	override fun getErrorMessage(newName: String, project: Project): String? {
-		return message("stellaris.localization.rename.property")
+		return pattern
 	}
 }
 

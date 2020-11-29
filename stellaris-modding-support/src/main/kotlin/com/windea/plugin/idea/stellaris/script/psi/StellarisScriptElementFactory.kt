@@ -11,23 +11,23 @@ object StellarisScriptElementFactory {
 	}
 
 	@JvmStatic
-	fun createVariableDefinition(project: Project, name: String, value: String): StellarisScriptVariable {
-		return createDummyFile(project, "$name=$value").firstChild as StellarisScriptVariable
+	fun createVariable(project: Project, name: String, value: String): StellarisScriptVariable {
+		return createDummyFile(project, "$name=$value").variables.first()
 	}
 
 	@JvmStatic
 	fun createVariableName(project: Project, name: String): StellarisScriptVariableName {
-		return createVariableDefinition(project, name, "0").variableName
+		return createVariable(project, name, "0").variableName
 	}
 
 	@JvmStatic
 	fun createVariableValue(project: Project, value: String): StellarisScriptVariableValue {
-		return createVariableDefinition(project, "a", value).variableValue!!
+		return createVariable(project, "a", value).variableValue!!
 	}
 
 	@JvmStatic
 	fun createProperty(project: Project, key: String, value: String): StellarisScriptProperty {
-		return createDummyFile(project, "$key=$value").firstChild as StellarisScriptProperty
+		return createDummyFile(project, "$key=$value").properties.first()
 	}
 
 	@JvmStatic
@@ -42,6 +42,6 @@ object StellarisScriptElementFactory {
 
 	@JvmStatic
 	fun createValue(project:Project,value:String):StellarisScriptValue{
-		return createDummyFile(project,value).firstChild as StellarisScriptValue
+		return createPropertyValue(project,value).value
 	}
 }

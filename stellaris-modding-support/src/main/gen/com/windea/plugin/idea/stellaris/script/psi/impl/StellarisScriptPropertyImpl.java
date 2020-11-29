@@ -64,6 +64,12 @@ public class StellarisScriptPropertyImpl extends StellarisScriptStubElementImpl<
   }
 
   @Override
+  @Nullable
+  public PsiElement getNameIdentifier() {
+    return StellarisScriptPsiImplUtil.getNameIdentifier(this);
+  }
+
+  @Override
   @NotNull
   public Icon getIcon(@IconFlags int flags) {
     return StellarisScriptPsiImplUtil.getIcon(this, flags);

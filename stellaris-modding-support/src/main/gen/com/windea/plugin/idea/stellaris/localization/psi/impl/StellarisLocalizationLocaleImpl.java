@@ -48,6 +48,12 @@ public class StellarisLocalizationLocaleImpl extends StellarisLocalizationNamedE
 
   @Override
   @NotNull
+  public PsiElement getNameIdentifier() {
+    return StellarisLocalizationPsiImplUtil.getNameIdentifier(this);
+  }
+
+  @Override
+  @NotNull
   public Icon getIcon(@IconFlags int flags) {
     return StellarisLocalizationPsiImplUtil.getIcon(this, flags);
   }

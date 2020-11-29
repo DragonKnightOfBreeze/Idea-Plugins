@@ -1,4 +1,6 @@
 ﻿l_simp_chinese:
+ ABC:0 "123"
+ DEF:0 "$ABC$ $ABC$"
  NEW_ACHIEVEMENT_2_0_NAME:0 "美丽新世界"
  NEW_ACHIEVEMENT_2_0_DESC:0 "殖民一颗行星"
  NEW_ACHIEVEMENT_2_1_NAME:0 "充分挖掘"

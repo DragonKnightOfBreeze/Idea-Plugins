@@ -19,8 +19,6 @@ const val stellarisLocalizationFileTypeDescription = "$stellarisLocalizationName
 const val stellarisLocalizationExtension = "yml"
 
 val stellarisLocalizationDummyText = "dummyText/StellarisLocalization.txt".toClassPathResource()?.readText().orEmpty()
-val stellarisLocalizationLocaleRegex = "[a-z_]+".toRegex()
-val stellarisLocalizationPropertyKeyRegex = "[a-zA-Z][a-zA-Z0-9_.]*".toRegex()
 
 const val stellarisScriptName = "Stellaris Script"
 const val stellarisScriptNamePc = "StellarisScript"
@@ -31,8 +29,6 @@ const val stellarisScriptFileTypeDescription = "$stellarisScriptName Language"
 const val stellarisScriptExtension = "txt"
 
 val stellarisScriptDummyText = "dummyText/StellarisScript.txt".toClassPathResource()?.readText().orEmpty()
-val stellarisScriptVariableRegex = "@[a-zA-Z0-9_-]+".toRegex()
-val stellarisScriptPropertyRegex = "[a-z0-9_-]+".toRegex()
 
 const val commentFolder = "#..."
 const val blockFolder = "{...}"

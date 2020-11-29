@@ -20,6 +20,9 @@ public interface StellarisLocalizationColorfulText extends StellarisLocalization
   @NotNull
   PsiElement setName(@NotNull String name);
 
+  @Nullable
+  PsiElement getNameIdentifier();
+
   int getTextOffset();
 
   @Nullable

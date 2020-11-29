@@ -1,26 +1,22 @@
 package com.windea.plugin.idea.stellaris.script.refactoring
 
-import com.intellij.openapi.project.*
 import com.intellij.patterns.*
 import com.intellij.patterns.PlatformPatterns.*
 import com.intellij.psi.*
 import com.intellij.refactoring.rename.*
 import com.intellij.util.*
-import com.windea.plugin.idea.stellaris.*
-import com.windea.plugin.idea.stellaris.message
 import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
 
-class StellarisScriptVariableRenameInputValidator : RenameInputValidatorEx {
+class StellarisScriptVariableRenameInputValidator : RenameInputValidator {
+	private val regex = "@[a-zA-Z0-9_-]+".toRegex()
+	private val pattern = or(psiElement(VARIABLE),psiElement(VARIABLE_REFERENCE))
+	
 	override fun isInputValid(newName: String, element: PsiElement, context: ProcessingContext): Boolean {
-		return stellarisScriptVariableRegex.matches(newName)
+		return regex.matches(newName)
 	}
 
 	override fun getPattern(): ElementPattern<out PsiElement> {
-		return psiElement(VARIABLE).andOr(psiElement(VARIABLE_REFERENCE))
-	}
-
-	override fun getErrorMessage(newName: String, project: Project): String? {
-		return message("stellaris.script.rename.variable")
+		return pattern
 	}
 }
 

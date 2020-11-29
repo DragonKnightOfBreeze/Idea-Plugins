@@ -36,6 +36,11 @@ object StellarisLocalizationPsiImplUtil {
 	}
 	
 	@JvmStatic
+	fun getNameIdentifier(element: StellarisLocalizationLocale): PsiElement {
+		return element.localeId
+	}
+	
+	@JvmStatic
 	fun getIcon(element: StellarisLocalizationLocale, @IconFlags flags: Int): Icon {
 		return stellarisLocalizationLocaleIcon
 	}
@@ -56,6 +61,11 @@ object StellarisLocalizationPsiImplUtil {
 	fun setName(element: StellarisLocalizationProperty, name: String): PsiElement {
 		element.propertyKey.replace(createPropertyKey(element.project, name))
 		return element
+	}
+	
+	@JvmStatic
+	fun getNameIdentifier(element: StellarisLocalizationProperty): PsiElement {
+		return element.propertyKey.propertyKeyId
 	}
 	
 	@JvmStatic
@@ -84,6 +94,11 @@ object StellarisLocalizationPsiImplUtil {
 	fun setName(element: StellarisLocalizationPropertyReference, name: String): PsiElement {
 		element.propertyReferenceId?.replace(createPropertyReference(element.project, name).propertyReferenceId!!)
 		return element
+	}
+	
+	@JvmStatic
+	fun getNameIdentifier(element: StellarisLocalizationPropertyReference): PsiElement? {
+		return element.propertyReferenceId
 	}
 	
 	@JvmStatic
@@ -119,6 +134,11 @@ object StellarisLocalizationPsiImplUtil {
 	}
 	
 	@JvmStatic
+	fun getNameIdentifier(element: StellarisLocalizationIcon): PsiElement? {
+		return element.iconId
+	}
+	
+	@JvmStatic
 	fun getTextOffset(element: StellarisLocalizationIcon): Int {
 		return element.startOffset + 1
 	}
@@ -134,6 +154,11 @@ object StellarisLocalizationPsiImplUtil {
 	fun setName(element: StellarisLocalizationSerialNumber, name: String): PsiElement {
 		element.serialNumberId?.replace(createSerialNumber(element.project, name).serialNumberId!!)
 		return element
+	}
+	
+	@JvmStatic
+	fun getNameIdentifier(element: StellarisLocalizationSerialNumber): PsiElement? {
+		return element.serialNumberId
 	}
 	
 	@JvmStatic
@@ -158,6 +183,11 @@ object StellarisLocalizationPsiImplUtil {
 	fun setName(element: StellarisLocalizationColorfulText, name: String): PsiElement {
 		element.colorCode?.replace(createColorfulText(element.project, name).colorCode!!)
 		return element
+	}
+	
+	@JvmStatic
+	fun getNameIdentifier(element: StellarisLocalizationColorfulText): PsiElement? {
+		return element.colorCode
 	}
 	
 	@JvmStatic

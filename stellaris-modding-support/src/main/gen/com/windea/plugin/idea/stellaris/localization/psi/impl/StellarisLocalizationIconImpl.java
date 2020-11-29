@@ -56,6 +56,12 @@ public class StellarisLocalizationIconImpl extends StellarisLocalizationNamedEle
   }
 
   @Override
+  @Nullable
+  public PsiElement getNameIdentifier() {
+    return StellarisLocalizationPsiImplUtil.getNameIdentifier(this);
+  }
+
+  @Override
   public int getTextOffset() {
     return StellarisLocalizationPsiImplUtil.getTextOffset(this);
   }

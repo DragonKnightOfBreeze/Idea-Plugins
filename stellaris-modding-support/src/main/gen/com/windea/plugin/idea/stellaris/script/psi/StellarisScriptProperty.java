@@ -25,6 +25,9 @@ public interface StellarisScriptProperty extends StellarisScriptNamedElement, St
   @NotNull
   PsiElement setName(@NotNull String name);
 
+  @Nullable
+  PsiElement getNameIdentifier();
+
   @NotNull
   Icon getIcon(@IconFlags int flags);
 

@@ -33,6 +33,24 @@ public class StellarisScriptVariableReferenceImpl extends StellarisScriptValueIm
   }
 
   @Override
+  @Nullable
+  public String getName() {
+    return StellarisScriptPsiImplUtil.getName(this);
+  }
+
+  @Override
+  @NotNull
+  public PsiElement setName(@NotNull String name) {
+    return StellarisScriptPsiImplUtil.setName(this, name);
+  }
+
+  @Override
+  @NotNull
+  public PsiElement getNameIdentifier() {
+    return StellarisScriptPsiImplUtil.getNameIdentifier(this);
+  }
+
+  @Override
   @NotNull
   public StellarisScriptVariablePsiReference getReference() {
     return StellarisScriptPsiImplUtil.getReference(this);
