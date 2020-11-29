@@ -64,7 +64,7 @@ public class StellarisScriptVariableImpl extends StellarisScriptStubElementImpl<
   }
 
   @Override
-  @Nullable
+  @NotNull
   public Icon getIcon(@IconFlags int flags) {
     return StellarisScriptPsiImplUtil.getIcon(this, flags);
   }

@@ -17,13 +17,13 @@ private val yamlMapper = YAMLMapper()
 private val coreSchemaFile = File("stellaris-modding-support\\src\\test\\resources\\schema\\core.yml")
 private val coreSchema = yamlMapper.readValue<Map<String, Any?>>(coreSchemaFile)
 private val coreSchemaDefinitions = coreSchema["definitions"] as Map<String, Any?>
-private val ignoredSchemaFileNames = arrayOf("core.yml","type.yml")
+//private val ignoredSchemaFileNames = arrayOf("core.yml","type.yml")
 
 private fun convertSchemaFiles(schemaPath: String) {
 	File(schemaPath).walk().forEach {
 		try {
 			if(it.isFile && it.extension == "yml") {
-				if(it.name in ignoredSchemaFileNames) return@forEach
+				//if(it.name in ignoredSchemaFileNames) return@forEach
 				val yaml = it.readText()
 				if(yaml.isBlank()) return@forEach
 				val data = readYamlSchema(yaml)

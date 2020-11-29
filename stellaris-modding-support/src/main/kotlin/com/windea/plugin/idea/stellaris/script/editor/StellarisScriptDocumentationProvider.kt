@@ -11,17 +11,17 @@ class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
 	override fun getQuickNavigateInfo(element: PsiElement?, originalElement: PsiElement?): String? {
 		return when(element) {
 			//防止意外情况
-			is StellarisScriptVariableName -> getQuickNavigateInfo(element.parent,originalElement)
+			is StellarisScriptVariableName -> getQuickNavigateInfo(element.parent, originalElement)
 			is StellarisScriptVariable -> "${getLocationText(element)}<br>script variable \"${element.name}\""
 			is StellarisScriptProperty -> "${getLocationText(element)}<br>script property \"${element.name}\""
 			else -> null
 		}
 	}
-
+	
 	override fun generateDoc(element: PsiElement?, originalElement: PsiElement?): String? {
 		return when(element) {
 			//防止意外情况
-			is StellarisScriptVariableName -> generateDoc(element.parent,originalElement)
+			is StellarisScriptVariableName -> generateDoc(element.parent, originalElement)
 			is StellarisScriptVariable -> generateVariableDoc(element)
 			is StellarisScriptProperty -> generatePropertyDoc(element)
 			else -> null
@@ -47,8 +47,8 @@ class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
 		}
 	}
 	
-	private fun generatePropertyDoc(element: StellarisScriptProperty): String? {
-		val name = element.name ?: return null
+	private fun generatePropertyDoc(element: StellarisScriptProperty): String {
+		val name = element.name
 		val project = element.project
 		return buildString {
 			append(DocumentationMarkup.DEFINITION_START)
@@ -65,110 +65,77 @@ class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
 				append(DocumentationMarkup.CONTENT_END)
 			}
 			
-			//添加额外内容到文档注释中
-			var isSectionsStart = false
-			
-			//添加渲染后的对应的图标到文档注释中
-			val iconUrl = name.resolveIconUrl(false)
-			if(iconUrl.isNotEmpty()){
-				if(!isSectionsStart) append(DocumentationMarkup.SECTIONS_START)
-				isSectionsStart = true
-				append(DocumentationMarkup.SECTION_HEADER_START)
-				append(message("stellaris.documentation.icon")).append(" ")
-				append(DocumentationMarkup.SECTION_SEPARATOR).append("<p>")
-				append(iconTag(iconUrl,iconSize*2))
-				append(DocumentationMarkup.SECTION_END)
-			}
-			
-			//添加渲染后的相关的本地化属性的值的文本到文档注释中
 			//过滤例外情况
 			if(element.parent !is StellarisScriptRootBlock || !element.stellarisPath.contains('/')) return@buildString
 			//过滤非法情况
 			if(name.isInvalidPropertyName()) return@buildString
-			val relatedLocalizationProperties = element.findRelatedLocalizationProperties(inferedStellarisLocale)
+			
+			//添加额外内容到文档注释中
+			val sectionMap = linkedMapOf<String, String>()
+			
+			//添加渲染后的对应的图标到文档注释中
+			val iconUrl = name.resolveIconUrl(false)
+			if(iconUrl.isNotEmpty()) {
+				val key = message("stellaris.documentation.icon")
+				val value = iconTag(iconUrl, iconSize * 2)
+				sectionMap[key] = value
+			}
+			
+			//添加渲染后的相关的本地化属性的值的文本到文档注释中
+			val relatedLocalizationProperties = findRelatedLocalizationProperties(name, project, inferedStellarisLocale)
 				.distinctBy { it.name } //过滤重复的属性
 			if(relatedLocalizationProperties.isNotEmpty()) {
 				for(property in relatedLocalizationProperties) {
-					val propertyValue = property.propertyValue
-					val propertyKey = property.name?.toRelatedLocalizationPropertyKey()
-					if(propertyValue != null && propertyKey != null) {
-						if(!isSectionsStart) append(DocumentationMarkup.SECTIONS_START)
-						isSectionsStart = true
-						
-						append(DocumentationMarkup.SECTION_HEADER_START)
-						append(message(propertyKey)).append(" ")
-						append(DocumentationMarkup.SECTION_SEPARATOR).append("<p>")
-						propertyValue.renderRichTextTo(this)
-						append(DocumentationMarkup.SECTION_END)
-					}
+					val key = property.name.toRelatedLocalizationPropertyKey()
+					val value = property.propertyValue?.renderRichText()
+					if(value != null) sectionMap[key] = value
 				}
 			}
 			
 			//添加渲染后的作为其属性的值的文本到文档注释中
-			val blockValue = element.propertyValue?.value
-			if(blockValue is StellarisScriptBlock) {
-				for(property in blockValue.propertyList) {
-					val propertyName = property.name
-					when{
-						//添加渲染后的效果文本到文档注释中
-						propertyName == "description" -> {
-							val description = property.propertyValue?.value
-							if(description is StellarisScriptString){
-								val descriptionKey = description.value
-								val descriptionText = findLocalizationProperty(descriptionKey,project,inferedStellarisLocale)
-									                      ?.propertyValue?.value ?:descriptionKey
-								if(!isSectionsStart) append(DocumentationMarkup.SECTIONS_START)
-								isSectionsStart = true
-								
-								append(DocumentationMarkup.SECTION_HEADER_START)
-								append(message("stellaris.documentation.effect_desc")).append(" ")
-								append(DocumentationMarkup.SECTION_SEPARATOR).append("<p>")
-								append(descriptionText)
-								append(DocumentationMarkup.SECTION_END)
-							}
+			val propertyValue = element.propertyValue?.value
+			val properties = if(propertyValue is StellarisScriptBlock) propertyValue.propertyList else null
+			if(properties != null && properties.isNotEmpty()) {
+				for(property in properties) {
+					when(property.name) {
+						"description" -> {
+							val k = property.value ?: continue
+							val value = findLocalizationProperty(k, project, inferedStellarisLocale)?.value
+							val key = message("stellaris.documentation.effect")
+							sectionMap[key] = value ?: k
 						}
-						//添加渲染后的标签文本到文档注释中
-						propertyName == "tags" -> {
-							val tagsProp = property
-							val tagsPropBlockValue = tagsProp?.propertyValue?.value
-							if(tagsPropBlockValue is StellarisScriptBlock) {
-								val tags = tagsPropBlockValue.valueList.mapArray { it.text.unquote() }
-								if(tags.isNotEmpty()) {
-									if(!isSectionsStart) append(DocumentationMarkup.SECTIONS_START)
-									isSectionsStart = true
-									
-									append(DocumentationMarkup.SECTION_HEADER_START)
-									append(message("stellaris.documentation.tags")).append(" ")
-									append(DocumentationMarkup.SECTION_SEPARATOR,"<p>")
-									var addNewLine = false
-									for(tag in tags) {
-										val prop = findLocalizationProperty(tag, element.project, inferedStellarisLocale)
-										val propValue = prop?.propertyValue
-										if(propValue != null) {
-											if(addNewLine) append("<br>") else addNewLine = true
-											propValue.renderRichTextTo(this)
-										}
-									}
-									append(DocumentationMarkup.SECTION_END)
+						"tags" -> {
+							val pv = property.propertyValue as? StellarisScriptBlock ?: continue
+							val tags = pv.valueList.mapNotNull { if(it is StellarisScriptString) it.value else null }
+							val propValues = tags.mapNotNull { tag ->
+								findLocalizationProperty(tag, project, inferedStellarisLocale)?.propertyValue
+							}
+							if(propValues.isEmpty()) continue
+							val key = message("stellaris.documentation.tags")
+							val value = buildString {
+								var addNewLine = false
+								for(propValue in propValues) {
+									if(addNewLine) append("<br>") else addNewLine = true
+									propValue.renderRichTextTo(this)
 								}
 							}
+							sectionMap[key] = value
 						}
 					}
 				}
 			}
-			if(isSectionsStart) append(DocumentationMarkup.SECTIONS_END)
 		}
 	}
 	
 	private fun getLocationText(element: PsiElement): String {
 		return "[${element.stellarisPath}]"
 	}
-
-	private fun getVariableValueText(variable: StellarisScriptVariable):String{
+	
+	private fun getVariableValueText(variable: StellarisScriptVariable): String {
 		return variable.variableValue?.text.orEmpty()
 	}
-
-	private fun getPropertyValueText(property: StellarisScriptProperty):String{
+	
+	private fun getPropertyValueText(property: StellarisScriptProperty): String {
 		return property.propertyValue?.value?.let {
 			when {
 				it is StellarisScriptBlock -> blockFolder

@@ -289,14 +289,13 @@ public class StellarisLocalizationParser implements PsiParser, LightPsiParser {
   public static boolean property_value(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "property_value")) return false;
     if (!nextTokenIs(b, LEFT_QUOTE)) return false;
-    boolean r, p;
-    Marker m = enter_section_(b, l, _NONE_, PROPERTY_VALUE, null);
+    boolean r;
+    Marker m = enter_section_(b);
     r = consumeToken(b, LEFT_QUOTE);
-    p = r; // pin = 1
-    r = r && report_error_(b, property_value_1(b, l + 1));
-    r = p && consumeToken(b, RIGHT_QUOTE) && r;
-    exit_section_(b, l, m, r, p, null);
-    return r || p;
+    r = r && property_value_1(b, l + 1);
+    r = r && consumeToken(b, RIGHT_QUOTE);
+    exit_section_(b, m, PROPERTY_VALUE, r);
+    return r;
   }
 
   // rich_text *

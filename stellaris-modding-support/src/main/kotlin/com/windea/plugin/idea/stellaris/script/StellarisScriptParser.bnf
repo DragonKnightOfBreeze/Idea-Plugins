@@ -73,7 +73,7 @@ property ::= property_key property_separator property_value {
   extends="com.windea.plugin.idea.stellaris.script.psi.impl.StellarisScriptStubElementImpl<?>"
   implements="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptNamedElement"
   stubClass="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptPropertyStub"
-  methods=[getName setName getIcon]
+  methods=[getName setName getIcon getValue]
 }
 property_key ::= PROPERTY_KEY_ID | QUOTED_PROPERTY_KEY_ID
 property_separator ::= "=" | "<" | ">" | "<=" | ">="

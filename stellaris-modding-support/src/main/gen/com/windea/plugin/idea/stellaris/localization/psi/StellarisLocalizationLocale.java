@@ -19,7 +19,7 @@ public interface StellarisLocalizationLocale extends StellarisLocalizationNamedE
   @NotNull
   PsiElement setName(@NotNull String name);
 
-  @Nullable
+  @NotNull
   Icon getIcon(@IconFlags int flags);
 
   //WARNING: getReference(...) is skipped

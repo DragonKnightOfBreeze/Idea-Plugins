@@ -69,14 +69,10 @@ property ::= property_key ":" [NUMBER] property_value {
   extends="com.windea.plugin.idea.stellaris.localization.psi.impl.StellarisLocalizationStubElementImpl<?>"
   implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
   stubClass="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationPropertyStub"
-  methods=[getName setName getIcon getKey getValue getStellarisLocale]
+  methods=[getName setName getIcon getValue getStellarisLocale]
 }
 property_key ::= PROPERTY_KEY_ID
-property_value ::= LEFT_QUOTE rich_text * RIGHT_QUOTE{
-  pin=1
-  implements="com.intellij.psi.PsiLiteralValue"
-  methods=[getValue]
-}
+property_value ::= LEFT_QUOTE rich_text * RIGHT_QUOTE
 
 rich_text ::= property_reference | code | icon | serial_number | colorful_text | escape | string
 

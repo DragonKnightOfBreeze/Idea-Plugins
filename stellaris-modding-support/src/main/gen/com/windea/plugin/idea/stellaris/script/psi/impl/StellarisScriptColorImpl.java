@@ -33,7 +33,7 @@ public class StellarisScriptColorImpl extends StellarisScriptStringValueImpl imp
   }
 
   @Override
-  @Nullable
+  @NotNull
   public String getValue() {
     return StellarisScriptPsiImplUtil.getValue(this);
   }

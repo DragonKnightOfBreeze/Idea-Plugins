@@ -139,17 +139,19 @@ class StellarisScriptAnnotator : Annotator, DumbAware {
 	
 	private fun annotateProperty(element: StellarisScriptProperty, holder: AnnotationHolder) {
 		if(!state.resolveInternalReferences) return
+		
 		//过滤例外情况
 		if(element.parent !is StellarisScriptRootBlock || !element.stellarisPath.contains('/')) return
 		val name = element.name?:return
+		val project = element.project
 		
 		//注明所有同名的属性
 		holder.newSilentAnnotation(INFORMATION)
-			.gutterIconRenderer(ScriptPropertyGutterIconRenderer(name, element.project))
+			.gutterIconRenderer(ScriptPropertyGutterIconRenderer(name, project))
 			.create()
 		
-		//关联scriptPropertyName和包含对应名称并作为合法前缀的localizationProperty
-		val relatedLocalizationProperties = element.findRelatedLocalizationProperties().toTypedArray()
+		//注明所有关联的本地化属性（如果存在）
+		val relatedLocalizationProperties = findRelatedLocalizationProperties(name,project).toTypedArray()
 		if(relatedLocalizationProperties.isNotEmpty()) {
 			val names = relatedLocalizationProperties.mapTo(linkedSetOf()) { it.name!! }.toTypedArray()
 			holder.newSilentAnnotation(INFORMATION)
@@ -160,12 +162,13 @@ class StellarisScriptAnnotator : Annotator, DumbAware {
 	
 	private fun annotateString(element: StellarisScriptString, holder: AnnotationHolder) {
 		if(!state.resolveInternalReferences) return
+		
 		//过滤非法情况
 		val name = element.value
 		if(name.isInvalidPropertyName()) return
 		val project = element.project
 		
-		//关联string和对应名称的scriptProperty/localizationProperty
+		//注明所有对应名称的脚本属性，或者本地化属性（如果存在）
 		val scriptProperties = findScriptProperties(name, project).toTypedArray()
 		if(scriptProperties.isNotEmpty()) {
 			holder.newSilentAnnotation(INFORMATION)

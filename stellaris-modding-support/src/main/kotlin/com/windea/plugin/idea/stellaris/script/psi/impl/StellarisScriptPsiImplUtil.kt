@@ -26,33 +26,21 @@ object StellarisScriptPsiImplUtil {
 		element.variableName.replace(createVariableName(element.project, name))
 		return element
 	}
-
-	//@JvmStatic
-	//fun getNameIdentifier(element: StellarisScriptVariable): PsiElement? {
-	//	return element.variableName
-	//}
 	
 	@JvmStatic
-	fun getIcon(element: StellarisScriptVariable, @Iconable.IconFlags flags: Int): Icon? {
+	fun getIcon(element: StellarisScriptVariable, @Iconable.IconFlags flags: Int): Icon {
 		return stellarisScriptVariableIcon
 	}
 
 	@JvmStatic
 	fun getValue(element: StellarisScriptVariable): String? {
-		return element.variableValue?.text
-	}
-	//endregion
-
-	//region StellarisScriptVariableValue
-	@JvmStatic
-	fun getValue(element: StellarisScriptVariableValue): String? {
-		return element.text?.unquote()
+		return element.variableValue?.text?.unquote()
 	}
 	//endregion
 	
 	//region StellarisScriptProperty
 	@JvmStatic
-	fun getName(element: StellarisScriptProperty): String? {
+	fun getName(element: StellarisScriptProperty): String {
 		return element.stub?.key?: element.propertyKey.text.unquote()
 	}
 
@@ -62,17 +50,17 @@ object StellarisScriptPsiImplUtil {
 		return element
 	}
 
-	//@JvmStatic
-	//fun getNameIdentifier(element: StellarisScriptProperty): PsiElement? {
-	//	return element.propertyKey
-	//}
-
 	@JvmStatic
-	fun getIcon(element: StellarisScriptProperty, @Iconable.IconFlags flags: Int): Icon? {
+	fun getIcon(element: StellarisScriptProperty, @Iconable.IconFlags flags: Int): Icon {
 		return stellarisScriptPropertyIcon
 	}
+	
+	@JvmStatic
+	fun getValue(element: StellarisScriptProperty): String? {
+		return element.propertyValue?.text?.unquote()
+	}
 	//endregion
-
+	
 	//region StellarisScriptVariableReference
 	@JvmStatic
 	fun getReference(element: StellarisScriptVariableReference): StellarisScriptVariablePsiReference {
@@ -82,7 +70,7 @@ object StellarisScriptPsiImplUtil {
 
 	//region StellarisScriptValue
 	@JvmStatic
-	fun getIcon(element: StellarisScriptValue, @Iconable.IconFlags flags: Int): Icon? {
+	fun getIcon(element: StellarisScriptValue, @Iconable.IconFlags flags: Int): Icon {
 		return stellarisScriptValueIcon
 	}
 	//endregion
@@ -126,7 +114,7 @@ object StellarisScriptPsiImplUtil {
 
 	//region StellarisScriptColor
 	@JvmStatic
-	fun getValue(element: StellarisScriptColor): String? {
+	fun getValue(element: StellarisScriptColor): String {
 		return element.text
 	}
 

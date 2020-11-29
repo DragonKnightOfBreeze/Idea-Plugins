@@ -53,7 +53,7 @@ public class StellarisLocalizationPropertyImpl extends StellarisLocalizationStub
   }
 
   @Override
-  @Nullable
+  @NotNull
   public String getName() {
     return StellarisLocalizationPsiImplUtil.getName(this);
   }
@@ -65,19 +65,13 @@ public class StellarisLocalizationPropertyImpl extends StellarisLocalizationStub
   }
 
   @Override
-  @Nullable
+  @NotNull
   public Icon getIcon(@IconFlags int flags) {
     return StellarisLocalizationPsiImplUtil.getIcon(this, flags);
   }
 
   @Override
-  @NotNull
-  public String getKey() {
-    return StellarisLocalizationPsiImplUtil.getKey(this);
-  }
-
-  @Override
-  @NotNull
+  @Nullable
   public String getValue() {
     return StellarisLocalizationPsiImplUtil.getValue(this);
   }

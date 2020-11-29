@@ -47,7 +47,7 @@ public class StellarisLocalizationLocaleImpl extends StellarisLocalizationNamedE
   }
 
   @Override
-  @Nullable
+  @NotNull
   public Icon getIcon(@IconFlags int flags) {
     return StellarisLocalizationPsiImplUtil.getIcon(this, flags);
   }

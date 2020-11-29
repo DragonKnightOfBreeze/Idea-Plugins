@@ -4,7 +4,6 @@ package com.windea.plugin.idea.stellaris.localization.psi;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiLiteralValue;
 
 public class StellarisLocalizationVisitor extends PsiElementVisitor {
 
@@ -45,7 +44,7 @@ public class StellarisLocalizationVisitor extends PsiElementVisitor {
   }
 
   public void visitPropertyValue(@NotNull StellarisLocalizationPropertyValue o) {
-    visitPsiLiteralValue(o);
+    visitPsiElement(o);
   }
 
   public void visitRichText(@NotNull StellarisLocalizationRichText o) {
@@ -59,10 +58,6 @@ public class StellarisLocalizationVisitor extends PsiElementVisitor {
 
   public void visitString(@NotNull StellarisLocalizationString o) {
     visitRichText(o);
-  }
-
-  public void visitPsiLiteralValue(@NotNull PsiLiteralValue o) {
-    visitElement(o);
   }
 
   public void visitNamedElement(@NotNull StellarisLocalizationNamedElement o) {

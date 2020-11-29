@@ -9,7 +9,7 @@ import javax.swing.Icon;
 
 public interface StellarisScriptValue extends PsiElement {
 
-  @Nullable
+  @NotNull
   Icon getIcon(@IconFlags int flags);
 
 }

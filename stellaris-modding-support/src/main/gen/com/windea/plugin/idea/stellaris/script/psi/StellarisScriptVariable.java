@@ -25,7 +25,7 @@ public interface StellarisScriptVariable extends StellarisScriptNamedElement, St
   @NotNull
   PsiElement setName(@NotNull String name);
 
-  @Nullable
+  @NotNull
   Icon getIcon(@IconFlags int flags);
 
   @Nullable

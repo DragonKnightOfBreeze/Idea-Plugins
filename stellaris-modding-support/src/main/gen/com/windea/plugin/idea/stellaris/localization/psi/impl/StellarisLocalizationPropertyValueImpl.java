@@ -32,10 +32,4 @@ public class StellarisLocalizationPropertyValueImpl extends ASTWrapperPsiElement
     return PsiTreeUtil.getChildrenOfTypeAsList(this, StellarisLocalizationRichText.class);
   }
 
-  @Override
-  @Nullable
-  public String getValue() {
-    return StellarisLocalizationPsiImplUtil.getValue(this);
-  }
-
 }

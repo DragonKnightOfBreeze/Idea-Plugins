@@ -52,7 +52,7 @@ public class StellarisScriptPropertyImpl extends StellarisScriptStubElementImpl<
   }
 
   @Override
-  @Nullable
+  @NotNull
   public String getName() {
     return StellarisScriptPsiImplUtil.getName(this);
   }
@@ -64,9 +64,15 @@ public class StellarisScriptPropertyImpl extends StellarisScriptStubElementImpl<
   }
 
   @Override
-  @Nullable
+  @NotNull
   public Icon getIcon(@IconFlags int flags) {
     return StellarisScriptPsiImplUtil.getIcon(this, flags);
+  }
+
+  @Override
+  @Nullable
+  public String getValue() {
+    return StellarisScriptPsiImplUtil.getValue(this);
   }
 
 }

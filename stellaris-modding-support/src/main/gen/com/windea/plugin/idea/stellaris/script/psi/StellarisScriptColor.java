@@ -11,7 +11,7 @@ public interface StellarisScriptColor extends StellarisScriptStringValue {
   @NotNull
   PsiElement getColorToken();
 
-  @Nullable
+  @NotNull
   String getValue();
 
   @Nullable

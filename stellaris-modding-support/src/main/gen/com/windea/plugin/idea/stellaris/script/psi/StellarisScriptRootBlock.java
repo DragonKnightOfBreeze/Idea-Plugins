@@ -29,7 +29,7 @@ public interface StellarisScriptRootBlock extends StellarisScriptBlock {
   @NotNull
   List<PsiElement> getComponents();
 
-  @Nullable
+  @NotNull
   Icon getIcon(@IconFlags int flags);
 
 }

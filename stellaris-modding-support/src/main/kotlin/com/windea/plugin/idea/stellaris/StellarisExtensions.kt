@@ -348,19 +348,17 @@ fun findLocalizationProperties(project: Project, locale: StellarisLocale? = null
 
 //将部分特定的查找方法作为扩展方法
 
-fun StellarisScriptProperty.findRelatedLocalizationProperties(locale:StellarisLocale? = null): List<StellarisLocalizationProperty> {
-	val scriptPropertyName = this.name ?: return emptyList()
+fun findRelatedLocalizationProperties(scriptPropertyName: String,project:Project, locale: StellarisLocale? = null): List<StellarisLocalizationProperty> {
 	return StellarisLocalizationPropertyKeyIndex.filter(locale, project, GlobalSearchScope.allScope(project)) {name->
 		isRelatedLocalizationPropertyName(name, scriptPropertyName)
 	}.sortedBy { it.name!! }
 }
 
-//虽然还有其他关联的属性名，但是这里只提取xxx和xxx_desc和xxx_desc_xxx，否则可能会太多了
 //xxx, xxx_desc, xxx_effect_desc
-//job_xxx, job_xxx_desc, job_xxx_effect_desc
+//pop_job->job_, pop_category->pop_cat_
 
 private fun isRelatedLocalizationPropertyName(name: String, scriptPropertyName: String): Boolean {
-	val fqName = name.removePrefix("job_")
+	val fqName = name.removePrefix("job_").removePrefix("pop_cat_")
 	return fqName == scriptPropertyName
 	       || fqName == scriptPropertyName + "_desc"
 	       || fqName == scriptPropertyName + "_effect_desc"
@@ -368,7 +366,7 @@ private fun isRelatedLocalizationPropertyName(name: String, scriptPropertyName: 
 
 fun String.toRelatedLocalizationPropertyKey():String{
 	return when{
-		this.endsWith("_effect_desc") -> "stellaris.documentation.effect_desc"
+		this.endsWith("_effect_desc") -> "stellaris.documentation.effect"
 		this.endsWith("desc") -> "stellaris.documentation.desc"
 		else -> "stellaris.documentation.name"
 	}
