@@ -351,7 +351,7 @@ fun findLocalizationProperties(project: Project, locale: StellarisLocale? = null
 fun findRelatedLocalizationProperties(scriptPropertyName: String,project:Project, locale: StellarisLocale? = null): List<StellarisLocalizationProperty> {
 	return StellarisLocalizationPropertyKeyIndex.filter(locale, project, GlobalSearchScope.allScope(project)) {name->
 		isRelatedLocalizationPropertyName(name, scriptPropertyName)
-	}.sortedBy { it.name!! }
+	}.sortedBy { it.name }
 }
 
 //xxx, xxx_desc, xxx_effect_desc
@@ -364,10 +364,11 @@ private fun isRelatedLocalizationPropertyName(name: String, scriptPropertyName: 
 	       || fqName == scriptPropertyName + "_effect_desc"
 }
 
-fun String.toRelatedLocalizationPropertyKey():String{
+fun StellarisLocalizationProperty.getRelatedLocalizationPropertyKey():String{
+	val name = this.name
 	return when{
-		this.endsWith("_effect_desc") -> "stellaris.documentation.effect"
-		this.endsWith("desc") -> "stellaris.documentation.desc"
+		name.endsWith("_effect_desc") -> "stellaris.documentation.effect"
+		name.endsWith("desc") -> "stellaris.documentation.desc"
 		else -> "stellaris.documentation.name"
 	}
 }

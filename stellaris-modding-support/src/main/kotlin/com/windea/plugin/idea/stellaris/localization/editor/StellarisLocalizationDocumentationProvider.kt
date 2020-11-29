@@ -31,7 +31,7 @@ class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider
 	}
 	
 	private fun generatePropertyDoc(element: StellarisLocalizationProperty): String? {
-		val elementName = element.name?:return null
+		val elementName = element.name
 		return buildString {
 			append(DocumentationMarkup.DEFINITION_START)
 			append(getLocationText(element))

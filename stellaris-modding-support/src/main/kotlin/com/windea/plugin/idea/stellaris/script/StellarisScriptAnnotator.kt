@@ -142,7 +142,7 @@ class StellarisScriptAnnotator : Annotator, DumbAware {
 		
 		//过滤例外情况
 		if(element.parent !is StellarisScriptRootBlock || !element.stellarisPath.contains('/')) return
-		val name = element.name?:return
+		val name = element.name
 		val project = element.project
 		
 		//注明所有同名的属性
@@ -153,7 +153,7 @@ class StellarisScriptAnnotator : Annotator, DumbAware {
 		//注明所有关联的本地化属性（如果存在）
 		val relatedLocalizationProperties = findRelatedLocalizationProperties(name,project).toTypedArray()
 		if(relatedLocalizationProperties.isNotEmpty()) {
-			val names = relatedLocalizationProperties.mapTo(linkedSetOf()) { it.name!! }.toTypedArray()
+			val names = relatedLocalizationProperties.mapTo(linkedSetOf()) { it.name }.toTypedArray()
 			holder.newSilentAnnotation(INFORMATION)
 				.gutterIconRenderer(RelatedLocalizationPropertiesGutterIconRenderer(names, relatedLocalizationProperties))
 				.create()

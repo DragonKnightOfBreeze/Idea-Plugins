@@ -56,7 +56,7 @@ val fileExtensions = arrayOf("yml", "txt", "mod", "gui", "gfx", "asset")
 val localizationFileExtensions = arrayOf("yml", "yaml")
 val scriptFileExtensions = arrayOf("txt", "mod", "gfx", "gui", "asset")
 
-val inferedStellarisLocale = when(System.getProperty("user.language")){
+val inferredStellarisLocale = when(System.getProperty("user.language")){
 	"zh"-> StellarisLocale.SIMP_CHINESE
 	"en" -> StellarisLocale.ENGLISH
 	"pt" -> StellarisLocale.BRAZ_POR

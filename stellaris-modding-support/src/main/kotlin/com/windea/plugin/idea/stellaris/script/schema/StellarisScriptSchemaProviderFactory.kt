@@ -35,7 +35,7 @@ class StellarisScriptSchemaProviderFactory : JsonSchemaProviderFactory {
 				}
 				//如果是json schema文件，则添加provider
 				it.extension == "json" -> {
-					val name = handleName(it.nameWithoutExtension)
+					val name = handleName(it.nameWithoutExtension)?: return@forEach
 					val path = if(pathPrefix.isEmpty()) name else "$pathPrefix/$name"
 					providers += StellarisScriptSchemaProvider(path, it)
 				}
@@ -43,8 +43,12 @@ class StellarisScriptSchemaProviderFactory : JsonSchemaProviderFactory {
 		}
 	}
 	
-	private fun handleName(name:String):String{
-		return if(name == descriptorModFileName) name else "*." + name.substringAfterLast('.',"txt")
+	private fun handleName(name:String):String?{
+		return when {
+			name == "descriptor.mod" -> name
+			name.startsWith("schema") -> "*." + name.substringAfter(".")
+			else -> null
+		}
 	}
 }
 

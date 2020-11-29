@@ -65,7 +65,7 @@ class StellarisLocalizationAnnotator : Annotator, DumbAware {
 	
 	private fun annotateProperty(element: StellarisLocalizationProperty, holder: AnnotationHolder) {
 		//注明所有同名的属性
-		val name = element.name ?: return
+		val name = element.name
 		holder.newSilentAnnotation(INFORMATION)
 			.gutterIconRenderer(LocalizationPropertyGutterIconRenderer(name, element.project))
 			.create()

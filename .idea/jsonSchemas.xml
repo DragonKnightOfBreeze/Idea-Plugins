@@ -54,10 +54,10 @@
               <option name="patterns">
                 <list>
                   <Item>
-                    <option name="path" value="stellaris-modding-support/src/test/resources/test.json" />
+                    <option name="path" value="stellaris-modding-support/src/test/resources/stdlib/test.txt" />
                   </Item>
                   <Item>
-                    <option name="path" value="stellaris-modding-support/src/test/resources/stdlib/test.txt" />
+                    <option name="path" value="stellaris-modding-support/src/test/resources/test.json" />
                   </Item>
                   <Item>
                     <option name="path" value="stellaris-modding-support/src/test/resources/test.yml" />

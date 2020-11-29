@@ -1,5 +1,6 @@
 package com.windea.plugin.idea.stellaris.localization.psi
 
+@Suppress("UNUSED_PARAMETER")
 interface StellarisLocalizationStubElementTypes {
 	companion object {
 		@JvmField val FILE = StellarisLocalizationFileStubElementType()

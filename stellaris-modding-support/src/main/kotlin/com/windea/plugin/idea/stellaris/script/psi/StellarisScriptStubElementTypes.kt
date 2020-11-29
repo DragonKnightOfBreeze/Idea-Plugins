@@ -2,6 +2,7 @@ package com.windea.plugin.idea.stellaris.script.psi
 
 import com.windea.plugin.idea.stellaris.script.psi.*
 
+@Suppress("UNUSED_PARAMETER")
 interface StellarisScriptStubElementTypes {
 	companion object {
 		@JvmField val FILE = StellarisScriptFileStubElementType()

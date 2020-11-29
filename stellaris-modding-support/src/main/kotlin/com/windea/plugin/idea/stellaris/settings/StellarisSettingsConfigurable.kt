@@ -36,7 +36,7 @@ class StellarisSettingsConfigurable: SearchableConfigurable {
 		val settingsComponent = settingsComponent!!
 		val settings = StellarisSettingsState.getInstance()
 		
-		cleanupRootDirectoryCache(settings)
+		//cleanupRootDirectoryCache(settings)
 		
 		settings.resolveInternalReferences = settingsComponent.resolveInternalReferencesCheckBox.isSelected
 		settings.resolveExternalReferences = settingsComponent.resolveExternalReferencesCheckBox.isSelected
@@ -45,7 +45,7 @@ class StellarisSettingsConfigurable: SearchableConfigurable {
 		settings.stellarisDirectory = settingsComponent.stellarisDirectoryTextField.text
 		//settings.stellarisModsDirectory = settingsComponent.stellarisModsDirectoryTextField.text
 		
-		addToRootDirectoryCache(settings)
+		//addToRootDirectoryCache(settings)
 	}
 	
 	override fun reset() {
@@ -64,12 +64,12 @@ class StellarisSettingsConfigurable: SearchableConfigurable {
 	
 	//TODO 配置变更时更改游戏或模组目录的缓存 - 当前不实现
 	
-	private fun cleanupRootDirectoryCache(settings: StellarisSettingsState) {
-		//rootDirectoryCache.remove(settings.stellarisPath)
-	}
-	
-	private fun addToRootDirectoryCache(settings: StellarisSettingsState) {
-		//val file = VirtualFileManager.getInstance().refreshAndFindFileByNioPath(Path.of(settings.stellarisPath))
-		//if(file != null && file.isRootDirectory()) rootDirectoryCache[settings.stellarisPath] = file
-	}
+	//private fun cleanupRootDirectoryCache(settings: StellarisSettingsState) {
+	//	//rootDirectoryCache.remove(settings.stellarisPath)
+	//}
+	//
+	//private fun addToRootDirectoryCache(settings: StellarisSettingsState) {
+	//	//val file = VirtualFileManager.getInstance().refreshAndFindFileByNioPath(Path.of(settings.stellarisPath))
+	//	//if(file != null && file.isRootDirectory()) rootDirectoryCache[settings.stellarisPath] = file
+	//}
 }

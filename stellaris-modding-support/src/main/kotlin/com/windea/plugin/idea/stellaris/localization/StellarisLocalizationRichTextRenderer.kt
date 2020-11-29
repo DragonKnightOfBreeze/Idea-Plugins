@@ -12,7 +12,9 @@ import java.io.*
  */
 object StellarisLocalizationRichTextRenderer {
 	fun render(element:StellarisLocalizationPropertyValue):String{
-		return renderTo(element,StringBuilder()).toString()
+		val buffer = StringBuilder()
+		renderTo(element,buffer)
+		return buffer.toString()
 	}
 	
 	fun renderTo(element: StellarisLocalizationPropertyValue, buffer: Appendable) {
@@ -46,7 +48,6 @@ object StellarisLocalizationRichTextRenderer {
 	}
 	
 	private fun renderPropertyReferenceTo(element: StellarisLocalizationPropertyReference, buffer: Appendable) {
-		//TODO 适用引用参数
 		val reference = element.reference
 		if(reference != null) {
 			val resolve = reference.resolve() as? StellarisLocalizationProperty
@@ -96,4 +97,3 @@ object StellarisLocalizationRichTextRenderer {
 		if(rgbText != null) buffer.append("</span>")
 	}
 }
-

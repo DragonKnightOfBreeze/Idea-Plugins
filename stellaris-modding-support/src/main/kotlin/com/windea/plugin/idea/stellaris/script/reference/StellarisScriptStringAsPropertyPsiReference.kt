@@ -18,7 +18,7 @@ class StellarisScriptStringAsPropertyPsiReference(
 	override fun resolve(): PsiElement? {
 		if(state.resolveInternalReferences) {
 			return findScriptProperty(name, project)
-			       ?: findLocalizationProperty(name, project, inferedStellarisLocale)
+			       ?: findLocalizationProperty(name, project, inferredStellarisLocale)
 			       ?: findLocalizationProperty(name, project)
 		}
 		return null

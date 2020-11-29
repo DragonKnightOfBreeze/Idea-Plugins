@@ -10,7 +10,7 @@ class StellarisLocalizationGoToDeclarationHandler : GotoDeclarationHandler {
 	override fun getGotoDeclarationTargets(sourceElement: PsiElement?, offset: Int, editor: Editor?): Array<out PsiElement?>? {
 		return when(sourceElement) {
 			is StellarisLocalizationProperty -> {
-				val name = sourceElement.name ?: return null
+				val name = sourceElement.name
 				val locale = (sourceElement.containingFile as? StellarisLocalizationFile)?.stellarisLocale
 				//查找当前项目
 				findLocalizationProperties(name, sourceElement.project, locale).toTypedArray()

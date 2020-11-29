@@ -21,7 +21,7 @@ object StellarisLocalizationPropertyKeyIndex : StringStubIndexExtension<Stellari
 			val elementLocale = element.stellarisLocale
 			if(locale == null) {
 				//需要将用户的语言区域对应的本地化属性放到该组本地化属性的最前面
-				if(elementLocale == inferedStellarisLocale) {
+				if(elementLocale == inferredStellarisLocale) {
 					result.add(index++, element)
 				} else {
 					result.add(element)
@@ -52,7 +52,7 @@ object StellarisLocalizationPropertyKeyIndex : StringStubIndexExtension<Stellari
 				val elementLocale = element.stellarisLocale
 				if(locale == null) {
 					//需要将用户的语言区域对应的本地化属性放到该组本地化属性的最前面
-					if(elementLocale == inferedStellarisLocale) {
+					if(elementLocale == inferredStellarisLocale) {
 						result.add(index++, element)
 					} else {
 						result.add(element)
@@ -77,7 +77,7 @@ object StellarisLocalizationPropertyKeyIndex : StringStubIndexExtension<Stellari
 					val elementLocale = element.stellarisLocale
 					if(locale == null) {
 						//需要将用户的语言区域对应的本地化属性放到该组本地化属性的最前面
-						if(elementLocale == inferedStellarisLocale) {
+						if(elementLocale == inferredStellarisLocale) {
 							result.add(index++, element)
 						} else {
 							result.add(element)
