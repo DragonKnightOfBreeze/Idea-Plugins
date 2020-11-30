@@ -8,8 +8,8 @@ import com.windea.plugin.idea.stellaris.message
 object StellarisScriptAttributesKeys {
 	@JvmField val SEPARATOR_KEY = createTextAttributesKey(message("stellaris.script.syntax.separator"), OPERATION_SIGN)
 	@JvmField val BRACES_KEY = createTextAttributesKey(message("stellaris.script.syntax.braces"), BRACES)
-	@JvmField val VARIABLE_KEY = createTextAttributesKey(message("stellaris.script.syntax.variable"), INSTANCE_FIELD)
-	@JvmField val PROPERTY_KEY_KEY = createTextAttributesKey(message("stellaris.script.syntax.propertyKey"), KEYWORD)
+	@JvmField val VARIABLE_KEY = createTextAttributesKey(message("stellaris.script.syntax.variable"), STATIC_FIELD)
+	@JvmField val PROPERTY_KEY_KEY = createTextAttributesKey(message("stellaris.script.syntax.propertyKey"), INSTANCE_FIELD)
 	@JvmField val KEYWORD_KEY = createTextAttributesKey(message("stellaris.script.syntax.keyword"), KEYWORD)
 	@JvmField val COLOR_KEY = createTextAttributesKey(message("stellaris.script.syntax.color"), FUNCTION_DECLARATION)
 	@JvmField val NUMBER_KEY = createTextAttributesKey(message("stellaris.script.syntax.number"), NUMBER)
@@ -20,8 +20,6 @@ object StellarisScriptAttributesKeys {
 	@JvmField val INVALID_ESCAPE_KEY = createTextAttributesKey(message("stellaris.script.syntax.invalidEscape"), INVALID_STRING_ESCAPE)
 	@JvmField val BAD_CHARACTER_KEY = createTextAttributesKey(message("stellaris.script.syntax.badCharacter"), BAD_CHARACTER)
 
-	@JvmField val LOCALIZATION_PROPERTY_REFERENCE_KEY =
-		createTextAttributesKey(message("stellaris.script.syntax.localizationPropertyReference"), STRING)
-	@JvmField val SCRIPT_PROPERTY_REFERENCE_KEY =
-		createTextAttributesKey(message("stellaris.script.syntax.scriptPropertyReference"), STRING)
+	@JvmField val LOCALIZATION_PROPERTY_REFERENCE_KEY = createTextAttributesKey(message("stellaris.script.syntax.localizationPropertyReference"), STRING)
+	@JvmField val SCRIPT_PROPERTY_REFERENCE_KEY = createTextAttributesKey(message("stellaris.script.syntax.scriptPropertyReference"), STRING)
 }

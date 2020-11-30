@@ -8,7 +8,8 @@ fun main() {
 	val modPaths = (File("D:\\Programs\\Steam\\steamapps\\workshop\\content\\281990").listFiles() ?: return)
 		.mapTo(mutableListOf()){ it.path }
 		.apply{
-			add("D:\\Documents\\Projects\\Managed\\Stellaris-Mods\\kitsune\\package-mini")
+			//add("D:\\Documents\\Projects\\Managed\\Stellaris-Mods\\kitsune\\package-mini")
+			add("D:\\Documents\\Projects\\Managed\\Stellaris-Mods\\kareeze-stories\\src")
 		}
 	val savedPath = "D:\\Documents\\Projects\\Managed\\Idea-Plugins\\stellaris-modding-support\\tmp"
 	selectOverriddenFiles(gamePath, modPaths, savedPath)
@@ -17,7 +18,8 @@ fun main() {
 private val ignoredFileNameSnippets = arrayOf("README","CHANGELOG","CREDITS")
 
 /**
- * 根据指定的游戏路径和一组模组路径，以及保存路径，找出有冲突的脚本文件，统一保存到该保存路径中。默认要求至少2个mod的文件有冲突。
+ * 根据指定的游戏路径和一组模组路径，以及保存路径，找出与原版有冲突的脚本文件，统一保存到该保存路径中。
+ * 默认要求至少2个mod的文件与原版有冲突才会保存。
  */
 private fun selectOverriddenFiles(gamePath:String,modPaths:List<String>,savedPath:String,minSize:Int=2){
 	val gameFile = File(gamePath)

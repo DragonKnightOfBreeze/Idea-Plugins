@@ -52,14 +52,14 @@
           "type" : "number"
         },
         "planet_size" : {
-          "oneOf" : [ {
+          "anyOf" : [ {
             "type" : "integer"
           }, {
             "$ref" : "#/definitions/integer_range"
           } ]
         },
         "moon_size" : {
-          "oneOf" : [ {
+          "anyOf" : [ {
             "type" : "integer"
           }, {
             "$ref" : "#/definitions/integer_range"

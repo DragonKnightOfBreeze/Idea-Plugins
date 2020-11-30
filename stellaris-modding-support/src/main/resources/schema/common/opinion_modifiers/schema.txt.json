@@ -13,7 +13,7 @@
           "$ref" : "#/definitions/triggers"
         },
         "opinion" : {
-          "oneOf" : [ {
+          "anyOf" : [ {
             "type" : "integer"
           }, {
             "$ref" : "#/definitions/weight_modifier"

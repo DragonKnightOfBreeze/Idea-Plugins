@@ -19,7 +19,7 @@ definitions:
       max_instance:
         type: integer
       weight:
-        oneOf:
+        anyOf:
         - type: integer
         - $ref: "../../core.yml#/definitions/weight_modifier"
       potential:

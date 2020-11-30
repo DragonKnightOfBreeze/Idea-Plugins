@@ -22,7 +22,7 @@
           "type" : "integer"
         },
         "weight" : {
-          "oneOf" : [ {
+          "anyOf" : [ {
             "type" : "integer"
           }, {
             "$ref" : "#/definitions/weight_modifier"

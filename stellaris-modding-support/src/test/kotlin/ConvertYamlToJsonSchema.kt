@@ -61,7 +61,7 @@ private fun writeJsonSchema(schema: Map<String, Any?>): String {
 			extraSchemaNames = resolveDefinitionNames(extraSchemaDefinitions) - schemaDefinitions.keys
 		}
 	}
-	return jsonMapper.writeValueAsString(schema).replace(""""(\.\./)*core\.yml""".toRegex(), "")
+	return jsonMapper.writeValueAsString(schema).replace("""(\.\./)*core\.yml""".toRegex(), "")
 }
 
 private fun resolveCoreDefinitionNames(schema: Map<String, Any?>): List<String> {

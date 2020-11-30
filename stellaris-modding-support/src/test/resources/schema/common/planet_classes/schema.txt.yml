@@ -39,11 +39,11 @@ definitions:
       chance_of_ring:
         type: number
       planet_size:
-        oneOf:
+        anyOf:
         - type: integer
         - $ref: "../../core.yml#/definitions/integer_range"
       moon_size:
-        oneOf:
+        anyOf:
         - type: integer
         - $ref: "../../core.yml#/definitions/integer_range"
       production_spawn_chance:

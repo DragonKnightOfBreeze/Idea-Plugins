@@ -157,6 +157,14 @@
           }
         }
       }
+    },
+    "loc_reference" : {
+      "type" : "string",
+      "anyOf" : [ {
+        "$def" : "localisation/**/*.yml/#/{property}"
+      }, {
+        "$def" : "localisation_synced/**/*.yml/#/{property}"
+      } ]
     }
   }
 }
