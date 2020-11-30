@@ -15,6 +15,6 @@ definitions:
       type: object
       properties:
         trigger:
-          $ref: "../core.yml#/definitions/triggers"
+          $ref: "../../core.yml#/definitions/triggers"
         resources:
-          $ref: "../core.yml#/definitions/economy_unit"
+          $ref: "../../core.yml#/definitions/economy_unit"

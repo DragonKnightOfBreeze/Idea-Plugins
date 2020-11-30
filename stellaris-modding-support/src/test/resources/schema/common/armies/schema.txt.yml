@@ -31,7 +31,7 @@ definitions:
         type: integer
       # category = armies
       resources:
-        $ref: "../core.yml#/definitions/economy_unit"
+        $ref: "../../core.yml#/definitions/economy_unit"
       has_species:
         type: boolean
         default: yes
@@ -45,13 +45,13 @@ definitions:
       occupation:
         type: boolean
       potential:
-        $ref: "../core.yml#/definitions/triggers"
+        $ref: "../../core.yml#/definitions/triggers"
       allow:
-        $ref: "../core.yml#/definitions/triggers"
+        $ref: "../../core.yml#/definitions/triggers"
       on_queued:
-        $ref: "../core.yml#/definitions/effects"
+        $ref: "../../core.yml#/definitions/effects"
       on_unqueued:
-        $ref: "../core.yml#/definitions/effects"
+        $ref: "../../core.yml#/definitions/effects"
       rebel:
         type: boolean
       prerequisites:
@@ -59,4 +59,4 @@ definitions:
         items:
           $type: tech
       show_tech_unlock_if:
-        $ref: "../core.yml#/definitions/triggers"
+        $ref: "../../core.yml#/definitions/triggers"

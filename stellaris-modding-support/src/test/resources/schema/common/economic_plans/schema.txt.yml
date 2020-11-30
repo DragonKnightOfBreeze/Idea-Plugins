@@ -13,15 +13,15 @@ definitions:
       type:
        type: string
       income:
-        $ref: "../core.yml#/definitions/resources_item"
+        $ref: "../../core.yml#/definitions/resources_item"
       focues:
-        $ref: "../core.yml#/definitions/resources_item"
+        $ref: "../../core.yml#/definitions/resources_item"
       subplan:
-        $ref: "../core.yml#/definitions/resources_item"
+        $ref: "../../core.yml#/definitions/resources_item"
         multiple: true
       pops:
         type: integer
       empire_size:
         type: number
       ai_weight:
-        $ref: "../core.yml#/definitions/weight_modifier"
+        $ref: "../../core.yml#/definitions/weight_modifier"

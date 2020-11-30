@@ -11,10 +11,10 @@ definitions:
     type: object
     properties:
       icon:
-        $ref: "../core.yml#/definitions/gfx_reference"
+        $ref: "../../core.yml#/definitions/gfx_reference"
       potential:
-        $ref: "../core.yml#/definitions/triggers"
+        $ref: "../../core.yml#/definitions/triggers"
       effect:
-        $ref: "../core.yml#/definitions/effects"
+        $ref: "../../core.yml#/definitions/effects"
       trigger:
-        $ref: "../core.yml#/definitions/effects"
+        $ref: "../../core.yml#/definitions/effects"

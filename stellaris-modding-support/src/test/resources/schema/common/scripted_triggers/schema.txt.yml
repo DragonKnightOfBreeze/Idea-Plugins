@@ -9,4 +9,4 @@ definitions:
   scripted_trigger:
     title: Scripted Trigger
     type: object
-    $ref: "../core.yml#/definitions/triggers"
+    $ref: "../../core.yml#/definitions/triggers"

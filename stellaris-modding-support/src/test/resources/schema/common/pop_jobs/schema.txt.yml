@@ -25,22 +25,22 @@ definitions:
       icon:
         $type: icon
       possible_pre_triggers:
-        $ref: "../core.yml#/definitions/triggers"
+        $ref: "../../core.yml#/definitions/triggers"
       possible:
-        $ref: "../core.yml#/definitions/triggers"
+        $ref: "../../core.yml#/definitions/triggers"
       resources:
-        $ref: "../core.yml#/definitions/economy_unit"
+        $ref: "../../core.yml#/definitions/economy_unit"
       pop_modifier:
-        $ref: "../core.yml#/definitions/modifiers"
+        $ref: "../../core.yml#/definitions/modifiers"
         multiple: true
       triggered_pop_modifier:
-        $ref: "../core.yml#/definitions/triggered_modifiers"
+        $ref: "../../core.yml#/definitions/triggered_modifiers"
         multiple: true
       planet_modifier:
-        $ref: "../core.yml#/definitions/modifiers"
+        $ref: "../../core.yml#/definitions/modifiers"
         multiple: true
       triggered_planet_modifier:
-        $ref: "../core.yml#/definitions/triggered_modifiers"
+        $ref: "../../core.yml#/definitions/triggered_modifiers"
         multiple: true
       weight:
-        $ref: "../core.yml#/definitions/weight"
+        $ref: "../../core.yml#/definitions/weight"

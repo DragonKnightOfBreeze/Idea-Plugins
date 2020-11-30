@@ -17,14 +17,14 @@ definitions:
       sound:
         $type: sound
       resource:
-        $ref: "../core.yml#/definitions/economy_unit"
+        $ref: "../../core.yml#/definitions/economy_unit"
       ai_weight:
-        $ref: "../core.yml#/definitions/weight"
+        $ref: "../../core.yml#/definitions/weight"
       triggered_country_modifier:
-        $ref: "../core.yml#/definitions/triggered_modifiers"
+        $ref: "../../core.yml#/definitions/triggered_modifiers"
       score:
         type: integer
       active_effect:
-        $ref: "../core.yml#/definitions/effects"
+        $ref: "../../core.yml#/definitions/effects"
       possible:
-        $ref: "../core.yml#/definitions/effects"
+        $ref: "../../core.yml#/definitions/effects"

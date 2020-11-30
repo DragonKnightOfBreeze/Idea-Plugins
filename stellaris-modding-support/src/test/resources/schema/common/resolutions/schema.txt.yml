@@ -13,14 +13,14 @@ definitions:
       icon:
         $type: gfx_reference
       resources:
-        $ref: "../core.yml#/definitions/economy_unit"
+        $ref: "../../core.yml#/definitions/economy_unit"
       effect:
-        $ref: "../core.yml#/definitions/effects"
+        $ref: "../../core.yml#/definitions/effects"
       fail_effect:
-        $ref: "../core.yml#/definitions/effects"
+        $ref: "../../core.yml#/definitions/effects"
       modifier:
-        $ref: "../core.yml#/definitions/modifiers"
+        $ref: "../../core.yml#/definitions/modifiers"
       potential:
-        $ref: "../core.yml#/definitions/triggers"
+        $ref: "../../core.yml#/definitions/triggers"
       ai_weight:
-        $ref: "../core.yml#/definitions/weight"
+        $ref: "../../core.yml#/definitions/weight"

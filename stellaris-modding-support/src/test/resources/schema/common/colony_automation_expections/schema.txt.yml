@@ -11,7 +11,7 @@ definitions:
     type: object
     properties:
       available:
-        $ref: "../core.yml#/definitions/triggers"
+        $ref: "../../core.yml#/definitions/triggers"
       crisis:
         type: boolean
       prio_districts:
@@ -27,5 +27,5 @@ definitions:
                 $type: building
                 multiple: true
               available:
-                $ref: "../core.yml#/definitions/triggers"
+                $ref: "../../core.yml#/definitions/triggers"
                 multiple: true

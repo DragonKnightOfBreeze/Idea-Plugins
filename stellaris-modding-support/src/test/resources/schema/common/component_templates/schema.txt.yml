@@ -11,17 +11,17 @@ definitions:
     type: object
     properties:
       key:
-        $ref: "../core.yml#/definitions/loc_reference"
+        $ref: "../../core.yml#/definitions/loc_reference"
       size:
-        $ref: "../core.yml#/definitions/component_size"
+        $ref: "../../core.yml#/definitions/component_size"
       type:
-        $ref: "../core.yml#/definitions/component_type"
+        $ref: "../../core.yml#/definitions/component_type"
       icon:
-        $ref: "../core.yml#/definitions/gfx_reference"
+        $ref: "../../core.yml#/definitions/gfx_reference"
       icon_frame:
         type: integer
       color:
-        $ref: "../core.yml#/definitions/color"
+        $ref: "../../core.yml#/definitions/color"
       use_ship_kill_target:
         type: boolean
       prio_projectile:
@@ -41,7 +41,7 @@ definitions:
       launch_time:
         type: number
       damage:
-        $ref: "../core.yml#/definitions/integer_range"
+        $ref: "../../core.yml#/definitions/integer_range"
       cooldown:
         type: number
       range:
@@ -80,9 +80,9 @@ definitions:
         $type: ship_behavior
 
       weapon_type:
-        $ref: "../core.yml#/definitions/component_type"
+        $ref: "../../core.yml#/definitions/component_type"
       entity:
-        $ref: "../core.yml#/definitions/entity"
+        $ref: "../../core.yml#/definitions/entity"
       prerequisites:
         type: array
         items:
@@ -102,4 +102,4 @@ definitions:
         items:
           $type: component_tag
       resources:
-        $ref: "../core.yml#/definitions/economy_unit"
+        $ref: "../../core.yml#/definitions/economy_unit"

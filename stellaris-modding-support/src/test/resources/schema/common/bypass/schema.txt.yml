@@ -11,7 +11,7 @@ definitions:
     type: object
     properties:
       name:
-        $ref: "../core.yml#/definitions/loc_reference"
+        $ref: "../../core.yml#/definitions/loc_reference"
       is_pathfind:
         type: boolean
       use_action:
@@ -31,17 +31,17 @@ definitions:
       remember_instances:
         type: boolean
       galactic_map_tooltip_header:
-        $ref: "../core.yml#/definitions/loc_reference"
+        $ref: "../../core.yml#/definitions/loc_reference"
       galactic_map_tooltip_desc:
-        $ref: "../core.yml#/definitions/loc_reference"
+        $ref: "../../core.yml#/definitions/loc_reference"
       connection_type:
         $ref: "#/definitions/connection_type"
       ftl_ship_effect:
-        $ref: "../core.yml#/definitions/assert_reference"
+        $ref: "../../core.yml#/definitions/assert_reference"
       ftl_bypass_effect:
-        $ref: "../core.yml#/definitions/assert_reference"
+        $ref: "../../core.yml#/definitions/assert_reference"
       bypass_effect:
-        $ref: "../core.yml#/definitions/assert_reference"
+        $ref: "../../core.yml#/definitions/assert_reference"
       animation_time:
         type: integer
       prerequisites:
@@ -49,9 +49,9 @@ definitions:
         items:
           $type: tech
       on_pre_explore:
-        $ref: "../core.yml#/definitions/effects"
+        $ref: "../../core.yml#/definitions/effects"
       country_can_use:
-        $ref: "../core.yml#/definitions/triggers"
+        $ref: "../../core.yml#/definitions/triggers"
       on_action:
         $type: on_action
       scripted_connection:
@@ -65,8 +65,8 @@ definitions:
   scripted_connection:
     properties:
       nodes:
-        $ref: "../core.yml#/definitions/triggers"
+        $ref: "../../core.yml#/definitions/triggers"
       nexus:
-        $ref: "../core.yml#/definitions/triggers"
+        $ref: "../../core.yml#/definitions/triggers"
 
 

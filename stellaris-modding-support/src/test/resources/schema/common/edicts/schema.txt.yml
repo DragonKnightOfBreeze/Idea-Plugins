@@ -11,29 +11,29 @@ definitions:
     type: object
     properties:
       name:
-        $ref: "../core.yml#/definitions/loc_reference"
+        $ref: "../../core.yml#/definitions/loc_reference"
       length:
         type: integer
       icon:
-        $ref: "../core.yml#/definitions/gfx_reference"
+        $ref: "../../core.yml#/definitions/gfx_reference"
       is_ambition:
         type: boolean
       edict_cap_usage:
         type: integer
       resources:
-        $ref: "../core.yml#/definitions/economy_unit"
+        $ref: "../../core.yml#/definitions/economy_unit"
       modifier:
-        $ref: "../core.yml#/definitions/modifier"
+        $ref: "../../core.yml#/definitions/modifier"
         multiple: true
       potential:
-        $ref: "../core.yml#/definitions/triggers"
+        $ref: "../../core.yml#/definitions/triggers"
       prerequisites:
         type: array
         items:
           $type: tech
       show_tech_unlock_if:
-        $ref: "../core.yml#/definitions/triggers"
+        $ref: "../../core.yml#/definitions/triggers"
       allow:
-        $ref: "../core.yml#/definitions/effects"
+        $ref: "../../core.yml#/definitions/effects"
       ai_weight:
-        $ref: "../core.yml#/definitions/weight_modifier"
+        $ref: "../../core.yml#/definitions/weight_modifier"

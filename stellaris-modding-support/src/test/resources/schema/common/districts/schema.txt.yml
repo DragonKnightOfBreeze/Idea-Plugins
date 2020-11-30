@@ -15,11 +15,11 @@ definitions:
       is_capped_by_modifier:
         type: boolean
       show_on_uncolonized:
-        $ref: "../core.yml#/definitions/triggers"
+        $ref: "../../core.yml#/definitions/triggers"
       potential:
-        $ref: "../core.yml#/definitions/triggers"
+        $ref: "../../core.yml#/definitions/triggers"
       allow:
-        $ref: "../core.yml#/definitions/triggers"
+        $ref: "../../core.yml#/definitions/triggers"
       conversion_ratio:
         type: number
       convert_to:
@@ -27,13 +27,13 @@ definitions:
         items:
           $type: district
       resources:
-        $ref: "../core.yml#/definitions/economy_unit"
+        $ref: "../../core.yml#/definitions/economy_unit"
       planet_modifier:
-        $ref: "../core.yml#/definitions/modifier"
+        $ref: "../../core.yml#/definitions/modifier"
       # anyOf
       triggered_plant_modifier:
-        $ref: "../core.yml#/definitions/triggered_modifiers"
+        $ref: "../../core.yml#/definitions/triggered_modifiers"
       ai_weight:
-        $ref: "../core.yml#/definitions/weight_modifier"
+        $ref: "../../core.yml#/definitions/weight_modifier"
       modifier:
-        $ref: "../core.yml#/definitions/modifier"
+        $ref: "../../core.yml#/definitions/modifier"

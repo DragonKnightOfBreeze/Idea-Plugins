@@ -47,7 +47,7 @@ class StellarisLocalizationBlock(
 		//属性和非头部非行尾注释要缩进
 		return when(myNode.elementType) {
 			COMMENT, PROPERTY -> Indent.getNormalIndent()
-			else -> Indent.getSpaceIndent(0)
+			else -> Indent.getNoneIndent()
 		}
 	}
 

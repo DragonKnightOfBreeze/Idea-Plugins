@@ -13,7 +13,7 @@ definitions:
       category:
         type: string
       language:
-        $ref: "../core.yml#/definitions/language"
+        $ref: "../../core.yml#/definitions/language"
       ship_names:
         type: object
         anyOf:

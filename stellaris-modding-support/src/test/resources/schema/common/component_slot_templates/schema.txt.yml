@@ -11,9 +11,9 @@ definitions:
     type: object
     properties:
       size:
-        $ref: "../core.yml#/definitions/component_size"
+        $ref: "../../core.yml#/definitions/component_size"
       component:
-        $ref: "../core.yml#/definitions/component_type"
+        $ref: "../../core.yml#/definitions/component_type"
       is_fixed:
         type: boolean
         optional: true
@@ -21,9 +21,9 @@ definitions:
         type: object
         properties:
           weapon_type_kinetic:
-            $ref: "../core.yml#/definitions/entity"
+            $ref: "../../core.yml#/definitions/entity"
           weapon_type_energy:
-            $ref: "../core.yml#/definitions/entity"
+            $ref: "../../core.yml#/definitions/entity"
           weapon_type_explosive:
-            $ref: "../core.yml#/definitions/entity"
+            $ref: "../../core.yml#/definitions/entity"
 

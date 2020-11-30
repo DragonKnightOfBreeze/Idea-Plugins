@@ -11,7 +11,7 @@ definitions:
     type: object
     properties:
       icon:
-        $ref: "../core.yml#/definitions/gfx_reference"
+        $ref: "../../core.yml#/definitions/gfx_reference"
       small_icon:
         type: integer
       planet_modifier:
@@ -19,13 +19,13 @@ definitions:
       country_modifier:
         $type: country_modifier
       resources:
-        $ref: "../core.yml#/definitions/economy_unit"
+        $ref: "../../core.yml#/definitions/economy_unit"
       potential:
-        $ref: "../core.yml#/definitions/triggers"
+        $ref: "../../core.yml#/definitions/triggers"
       valid:
-        $ref: "../core.yml#/definitions/triggers"
+        $ref: "../../core.yml#/definitions/triggers"
       ai_weight:
-        $ref: "../core.yml#/definitions/weight"
+        $ref: "../../core.yml#/definitions/weight"
       monthly_progress:
         type: number
       completion_event:

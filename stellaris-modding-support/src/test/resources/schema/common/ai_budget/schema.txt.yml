@@ -16,13 +16,13 @@ definitions:
       category:
         $ref: "#/definitions/budget_category"
       potential:
-        $ref: "../core.yml#/definitions/triggers"
+        $ref: "../../core.yml#/definitions/triggers"
       fraction:
-        $ref: "../core.yml#/definitions/weight_modifier"
+        $ref: "../../core.yml#/definitions/weight_modifier"
       static_min:
-        $ref: "../core.yml#/definitions/weight_modifier"
+        $ref: "../../core.yml#/definitions/weight_modifier"
       static_max:
-        $ref: "../core.yml#/definitions/weight_modifier"
+        $ref: "../../core.yml#/definitions/weight_modifier"
   budget_type:
     enum:
     - expenditure

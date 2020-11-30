@@ -30,5 +30,5 @@ definitions:
         items:
           $type: resource
       triggered_cost_modifier:
-        $ref: "../core.yml#/definitions/triggered_modifiers"
+        $ref: "../../core.yml#/definitions/triggered_modifiers"
         modifier: true

@@ -11,7 +11,7 @@ definitions:
     type: object
     properties:
       icon:
-        $ref: "../core.yml#/definitions/gfx_reference"
+        $ref: "../../core.yml#/definitions/gfx_reference"
       hardcoded_tooltip:
         $type: opinion
       can_change_point_of_view:
@@ -19,7 +19,7 @@ definitions:
       enable_terra_incognita:
         type: boolean
       shortcut:
-        $ref: "../core.yml#/definitions/shortcut"
+        $ref: "../../core.yml#/definitions/shortcut"
       color:
         $ref: "#/definitions/color"
         multiple: true
@@ -27,10 +27,10 @@ definitions:
     type: object
     properties:
       value:
-        $ref: "../core.yml#/definitions/color_reference"
+        $ref: "../../core.yml#/definitions/color_reference"
       custom_tooltip:
-        $ref: "../core.yml#/definitions/loc_reference"
+        $ref: "../../core.yml#/definitions/loc_reference"
       hardcoded_tooltip:
         type: string
       condition:
-        $ref: "../core.yml#/definitions/triggers"
+        $ref: "../../core.yml#/definitions/triggers"

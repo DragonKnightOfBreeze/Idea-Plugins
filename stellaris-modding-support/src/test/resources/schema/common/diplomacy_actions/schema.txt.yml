@@ -11,7 +11,7 @@ definitions:
     type: object
     properties:
       icon:
-        $ref: "../core.yml#/definitions/gfx_reference"
+        $ref: "../../core.yml#/definitions/gfx_reference"
       auto_accepted:
         type: boolean
       require_envoy:
@@ -25,9 +25,9 @@ definitions:
       action_type:
         $ref: "#/definitions/action_type"
       potential:
-        $ref: "../core.yml#/definitions/triggers"
+        $ref: "../../core.yml#/definitions/triggers"
       possible:
-        $ref: "../core.yml#/definitions/triggers"
+        $ref: "../../core.yml#/definitions/triggers"
   action_type:
     type: string
     enum:

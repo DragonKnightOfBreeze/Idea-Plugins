@@ -263,13 +263,16 @@
 * [X] 改为为所有本地化属性和脚本属性标出gutterIcon，点击可以导航到所有同名的属性
 * [X] ~~解决不能导航到Schema的`anyOf`、`allOf`中的属性名的bug~~（不是bug，本来就可提示不可导航）
 * [X] 修复重命名的相关bug
+* [X] 完成路径到脚本定义类型`common/armies->army`的的映射文件
+* [X] 修复无法解析首个脚本属性之前的连续单行注释为文档注释的内容的bug
 * [ ] 为脚本文件提供较为完善的Schema文件
-* [ ] 完成路径到脚本定义类型`common/armies->army`的的映射文件
+* [ ] 在脚本属性的文档注释中提示该脚本属性的定义类型（civic，ethic等）
 * [ ] 根据脚本定义类型和Schema为脚本文件进行额外的代码提示
-* [ ] 整合scriptProperty基于文件内容以及基于Schema的文档注释
-* [ ] 更多的引用类型：event_id，gfx_reference，path
+* [ ] 更多的引用类型：event_id，gfx_reference，stellaris_path
 * [ ] 一个本地化文件实际上可以包含多个语言区域+下面的属性，当文件名中存在语言区域时要匹配
 * [ ] 在IDEA的工具菜单中提供一些实用工具，如：打包模组目录中的文件，找出一组模组目录中有冲突的脚本文件
+* [ ] 解析modifier、trigger、effect的作用域scope
+* [ ] 解析modifier、trigger、effect对应from的作用域scope
 * [X] ~~本地化文件：对彩色文本进行对应颜色的高亮，而非对颜色~~
 * [X] ~~本地化文件的图标的参数必须是正整数（搁置）~~
 * [X] ~~图标的后缀是可选的？（蠢驴你逗我）~~

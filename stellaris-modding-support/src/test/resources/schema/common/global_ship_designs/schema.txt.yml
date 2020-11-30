@@ -11,7 +11,7 @@ definitions:
     type: object
     properties:
       name:
-        $ref: "../core.yml#/definitions/loc_reference"
+        $ref: "../../core.yml#/definitions/loc_reference"
       ship_size:
         $ype: "ship_size"
       is_event_design:
@@ -25,7 +25,7 @@ definitions:
       allow_buildable_trigger:
         anyOf:
         - $type: trigger
-        - $ref: "../core.yml#/definitions/triggers"
+        - $ref: "../../core.yml#/definitions/triggers"
   section:
     type: object
     properties:

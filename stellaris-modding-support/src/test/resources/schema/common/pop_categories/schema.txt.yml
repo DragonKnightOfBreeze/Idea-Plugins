@@ -21,23 +21,23 @@ definitions:
       demotion_time:
         type: integer
       should_apply_unemployment_penalties:
-        $ref: "../core.yml#/definitions/triggers"
+        $ref: "../../core.yml#/definitions/triggers"
       unemployment_penalties:
-        $ref: "../core.yml#/definitions/modifiers"
+        $ref: "../../core.yml#/definitions/modifiers"
       unemployment_resources:
-        $ref: "../core.yml#/definitions/economy_unit"
+        $ref: "../../core.yml#/definitions/economy_unit"
       triggered_pop_modifier:
-        $ref: "../core.yml#/definitions/modifiers"
+        $ref: "../../core.yml#/definitions/modifiers"
       weight:
-        $ref: "../core.yml#/definitions/weight_modifier"
+        $ref: "../../core.yml#/definitions/weight_modifier"
       pop_modifier:
-        $ref: "../core.yml#/definitions/modifiers"
+        $ref: "../../core.yml#/definitions/modifiers"
       allow_resettlement:
-        $ref: "../core.yml#/definitions/triggers"
+        $ref: "../../core.yml#/definitions/triggers"
       resettlement_cost:
-        $ref: "../core.yml#/definitions/resources_item"
+        $ref: "../../core.yml#/definitions/resources_item"
       triggered_planet_modifier:
-        $ref: "../core.yml#/definitions/modifiers"
+        $ref: "../../core.yml#/definitions/modifiers"
         multiple: true
       resources:
-        $ref: "../core.yml#/definitions/economy_unit"
+        $ref: "../../core.yml#/definitions/economy_unit"

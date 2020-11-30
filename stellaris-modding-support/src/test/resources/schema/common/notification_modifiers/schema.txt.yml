@@ -11,4 +11,4 @@ definitions:
     type: object
     properties:
       icon:
-        $ref: "../core.yml#/definitions/game_path"
+        $ref: "../../core.yml#/definitions/game_path"

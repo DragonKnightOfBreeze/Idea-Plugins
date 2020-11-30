@@ -105,15 +105,15 @@ definitions:
         propertyNames:
           $type: module
       trade_route_available:
-        $ref: "../core.yml#/definitions/triggers"
+        $ref: "../../core.yml#/definitions/triggers"
       resources:
-        $ref: "../core.yml#/definitions/economy_unit"
+        $ref: "../../core.yml#/definitions/economy_unit"
       branch_office_resources:
-        $ref: "../core.yml#/definitions/economy_unit"
+        $ref: "../../core.yml#/definitions/economy_unit"
   ship_data:
     anyOf:
-    - $ref: "../core.yml#/definitions/integer_range"
+    - $ref: "../../core.yml#/definitions/integer_range"
     - type: object
       properties:
         fraction:
-          $ref: "../core.yml#/definitions/weight_modifier"
+          $ref: "../../core.yml#/definitions/weight_modifier"

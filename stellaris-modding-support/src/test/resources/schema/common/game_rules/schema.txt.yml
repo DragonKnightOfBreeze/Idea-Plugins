@@ -9,4 +9,4 @@ definitions:
   game_rule:
     title: Game Rule
     type: object
-    $ref: "../core.yml#/definitions/effects"
+    $ref: "../../core.yml#/definitions/effects"

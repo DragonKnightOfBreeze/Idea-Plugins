@@ -11,9 +11,9 @@ definitions:
     type: object
     properties:
       desc:
-        $ref: "../core.yml#/definitions/desc"
+        $ref: "../../core.yml#/definitions/desc"
       picture:
-        $ref: "../core.yml#/definitions/gfx_reference"
+        $ref: "../../core.yml#/definitions/gfx_reference"
       stages:
         type: integer
       max_instance:
@@ -21,26 +21,26 @@ definitions:
       weight:
         oneOf:
         - type: integer
-        - $ref: "../core.yml#/definitions/weight_modifier"
+        - $ref: "../../core.yml#/definitions/weight_modifier"
       potential:
-        $ref: "../core.yml#/definitions/triggers"
+        $ref: "../../core.yml#/definitions/triggers"
       allow:
-        $ref: "../core.yml#/definitions/triggers"
+        $ref: "../../core.yml#/definitions/triggers"
       visible:
-        $ref: "../core.yml#/definitions/triggers"
+        $ref: "../../core.yml#/definitions/triggers"
       on_visible:
-        $ref: "../core.yml#/definitions/effects"
+        $ref: "../../core.yml#/definitions/effects"
       state:
         $ref: "#/definitions/state"
         multiple: true
       on_roll_failed:
-        $ref: "../core.yml#/definitions/effects"
+        $ref: "../../core.yml#/definitions/effects"
   state:
     type: object
     properties:
       difficulty:
         type: integer
       icon:
-        $ref: "../core.yml#/definitions/gfx_reference"
+        $ref: "../../core.yml#/definitions/gfx_reference"
       event:
-        $ref: "../core.yml#/definitions/event"
+        $ref: "../../core.yml#/definitions/event"

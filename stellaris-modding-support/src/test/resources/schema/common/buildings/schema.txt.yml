@@ -28,22 +28,22 @@ definitions:
       category:
         $ref: "#/definitions/building_category"
       potential:
-        $ref: "../core.yml#/definitions/triggers"
+        $ref: "../../core.yml#/definitions/triggers"
       convert_to:
         type: array
         items:
           $type: building
       planet_modifier:
-        $ref: "../core.yml#/definitions/modifier"
+        $ref: "../../core.yml#/definitions/modifier"
       destroy_trigger:
-        $ref: "../core.yml#/definitions/triggers"
+        $ref: "../../core.yml#/definitions/triggers"
       allow:
-        $ref: "../core.yml#/definitions/triggers"
+        $ref: "../../core.yml#/definitions/triggers"
       # anyOf
       triggered_plant_modifier:
-        $ref: "../core.yml#/definitions/triggered_modifiers"
+        $ref: "../../core.yml#/definitions/triggered_modifiers"
       resources:
-        $ref: "../core.yml#/definitions/economy_unit"
+        $ref: "../../core.yml#/definitions/economy_unit"
       upgrades:
         type: array
         items:
@@ -53,18 +53,18 @@ definitions:
         items:
           $type: building
       triggered_desc:
-        $ref: "../core.yml#/definitions/triggered_desc"
+        $ref: "../../core.yml#/definitions/triggered_desc"
         multiple: true
       on_queued:
-        $ref: "../core.yml#/definitions/effects"
+        $ref: "../../core.yml#/definitions/effects"
       on_unqueued:
-        $ref: "../core.yml#/definitions/effects"
+        $ref: "../../core.yml#/definitions/effects"
       on_built:
-        $ref: "../core.yml#/definitions/effects"
+        $ref: "../../core.yml#/definitions/effects"
       on_destroy:
-        $ref: "../core.yml#/definitions/effects"
+        $ref: "../../core.yml#/definitions/effects"
       ai_weight:
-        $ref: "../core.yml#/definitions/weight_modifier"
+        $ref: "../../core.yml#/definitions/weight_modifier"
   building_category:
     type: string
     enum:

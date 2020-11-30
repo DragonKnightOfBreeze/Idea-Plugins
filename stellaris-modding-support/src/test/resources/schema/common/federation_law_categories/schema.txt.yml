@@ -19,4 +19,4 @@ definitions:
         items:
           $type: federation_law
       potential:
-        $ref: "../core.yml#/definitions/triggers"
+        $ref: "../../core.yml#/definitions/triggers"

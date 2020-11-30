@@ -11,9 +11,9 @@ definitions:
     type: object
     properties:
       icon:
-        $ref: "../core.yml#/definitions/game_path"
+        $ref: "../../core.yml#/definitions/game_path"
       picture:
-        $ref: "../core.yml#/definitions/gfx_reference"
+        $ref: "../../core.yml#/definitions/gfx_reference"
       counter:
         type: object
         propertyNames:

@@ -11,8 +11,8 @@ definitions:
     type: object
     properties:
       effect:
-        $ref: "../core.yml#/definitions/effects"
+        $ref: "../../core.yml#/definitions/effects"
       cost:
-        $ref: "../core.yml#/definitions/economy_unit"
+        $ref: "../../core.yml#/definitions/economy_unit"
       duration:
         type: number

@@ -11,12 +11,12 @@ definitions:
     type: object
     properties:
       potential:
-        $ref: "../core.yml#/definitions/triggers"
+        $ref: "../../core.yml#/definitions/triggers"
       possible:
-        $ref: "../core.yml#/definitions/triggers"
+        $ref: "../../core.yml#/definitions/triggers"
       on_enabled:
-        $ref: "../core.yml#/definitions/effects"
+        $ref: "../../core.yml#/definitions/effects"
       modifier:
-        $ref: "../core.yml#/definitions/modifier"
+        $ref: "../../core.yml#/definitions/modifier"
       ai_weight:
-        $ref: "../core.yml#/definitions/weight_modifier"
+        $ref: "../../core.yml#/definitions/weight_modifier"

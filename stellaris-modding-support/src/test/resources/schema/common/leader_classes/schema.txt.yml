@@ -25,7 +25,7 @@ definitions:
       max_traint_points:
         type: integer
       resources:
-        $ref: "../core.yml#/definitions/economy_unit"
+        $ref: "../../core.yml#/definitions/economy_unit"
       default_category:
         type: string
       # for evoy

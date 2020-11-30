@@ -11,28 +11,28 @@ definitions:
     type: object
     properties:
       name:
-        $ref: "core.yml#/definitions/loc_reference"
+        $ref: "../core.yml#/definitions/loc_reference"
       adjective:
-        $ref: "core.yml#/definitions/loc_reference"
+        $ref: "../core.yml#/definitions/loc_reference"
       spawn_enabled:
         type: boolean
       ignore_portrait_duplication:
         type: boolean
       ship_prefix:
-        $ref: "core.yml#/definitions/loc_reference"
+        $ref: "../core.yml#/definitions/loc_reference"
       species:
         type: object
         properties:
           class:
             $type: species_class
           portaint:
-            $ref: "core.yml#/definitions/loc_reference"
+            $ref: "../core.yml#/definitions/loc_reference"
           name:
-            $ref: "core.yml#/definitions/loc_reference"
+            $ref: "../core.yml#/definitions/loc_reference"
           plural:
-            $ref: "core.yml#/definitions/loc_reference"
+            $ref: "../core.yml#/definitions/loc_reference"
           adjective:
-            $ref: "core.yml#/definitions/loc_reference"
+            $ref: "../core.yml#/definitions/loc_reference"
           name_list:
             $type: name_list
           trait:
@@ -58,13 +58,13 @@ definitions:
         items:
           $type: flag
       planet_name:
-        $ref: "core.yml#/definitions/loc_reference"
+        $ref: "../core.yml#/definitions/loc_reference"
       planet_class:
         $type: planet_class
       initializer:
         $type: solar_system_initializer
       system_name:
-        $ref: "core.yml#/definitions/loc_reference"
+        $ref: "../core.yml#/definitions/loc_reference"
       graphical_culture:
         $type: graphical_culture
       civic:
@@ -94,11 +94,11 @@ definitions:
         type: object
         properties:
           name:
-            $ref: "core.yml#/definitions/loc_reference"
+            $ref: "../core.yml#/definitions/loc_reference"
           gender:
-            $ref: "core.yml#/definitions/loc_reference"
+            $ref: "../core.yml#/definitions/loc_reference"
           portrait:
-            $ref: "core.yml#/definitions/loc_reference"
+            $ref: "../core.yml#/definitions/loc_reference"
           texture:
             type: integer
           hair:

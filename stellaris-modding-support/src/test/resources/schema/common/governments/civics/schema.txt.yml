@@ -11,26 +11,26 @@ definitions:
     type: object
     properties:
       icon:
-        $ref: "../core.yml#/definitions/game_path"
+        $ref: "../../core.yml#/definitions/game_path"
       description:
-        $ref: "../core.yml#/definitions/loc_reference"
+        $ref: "../../core.yml#/definitions/loc_reference"
       modification:
         type: boolean
       playable:
-        $ref: "../core.yml#/definitions/triggers"
+        $ref: "../../core.yml#/definitions/triggers"
       potential:
-        $ref: "../core.yml#/definitions/triggers"
+        $ref: "../../core.yml#/definitions/triggers"
       possible:
-        $ref: "../core.yml#/definitions/triggers"
+        $ref: "../../core.yml#/definitions/triggers"
       random_weight:
-        $ref: "../core.yml#/definitions/weight_modifier"
+        $ref: "../../core.yml#/definitions/weight_modifier"
       modifier:
-        $ref: "../core.yml#/definitions/modifier"
+        $ref: "../../core.yml#/definitions/modifier"
       has_secondary_species:
         type: object
         properties:
           title:
-            $ref: "../core.yml#/definitions/loc_reference"
+            $ref: "../../core.yml#/definitions/loc_reference"
           traits:
             type: object
             properties:
@@ -47,7 +47,7 @@ definitions:
       is_origin:
         type: boolean
       picture:
-        $ref: "../core.yml#/definitions/gfx_reference"
+        $ref: "../../core.yml#/definitions/gfx_reference"
       max_once_global:
         type: boolean
       advanced_start:

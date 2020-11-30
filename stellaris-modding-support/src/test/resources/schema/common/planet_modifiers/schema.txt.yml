@@ -11,6 +11,6 @@ definitions:
     type: object
     properties:
       spawn_chance:
-        $ref: "../core.yml#/definitions/weight_modifier"
+        $ref: "../../core.yml#/definitions/weight_modifier"
       modifier:
         $type: modifier

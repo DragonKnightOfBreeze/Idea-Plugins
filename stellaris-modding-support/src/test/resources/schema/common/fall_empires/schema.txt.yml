@@ -16,6 +16,6 @@ definitions:
       initializer:
         $type: initializer
       weight_modifier:
-        $ref: "../core.yml#/definitions/weight_modifier"
+        $ref: "../../core.yml#/definitions/weight_modifier"
       create_country_effect:
-        $ref: "../core.yml#/definitions/effects"
+        $ref: "../../core.yml#/definitions/effects"

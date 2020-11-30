@@ -17,7 +17,7 @@ definitions:
       entity_scale:
         type: number
       atmosphere_color:
-        $ref: "../core.yml#/definitions/color_reference"
+        $ref: "../../core.yml#/definitions/color_reference"
       atmosphere_intensity:
         type: number
       atmosphere_width:
@@ -29,7 +29,7 @@ definitions:
       spawn_odds:
         type: number
       city_color_lut:
-        $ref: "../core.yml#/definitions/game_path"
+        $ref: "../../core.yml#/definitions/game_path"
       extra_orbit_size:
         type: integer
       extra_planet_count:
@@ -41,11 +41,11 @@ definitions:
       planet_size:
         oneOf:
         - type: integer
-        - $ref: "../core.yml#/definitions/integer_range"
+        - $ref: "../../core.yml#/definitions/integer_range"
       moon_size:
         oneOf:
         - type: integer
-        - $ref: "../core.yml#/definitions/integer_range"
+        - $ref: "../../core.yml#/definitions/integer_range"
       production_spawn_chance:
         type: number
       colonizable:
@@ -53,7 +53,7 @@ definitions:
       district_set:
         $ref: "#/definitions/district_set"
       modifier:
-        $ref: "../core.yml#/definitions/modifiers"
+        $ref: "../../core.yml#/definitions/modifiers"
       uses_alternative_skies_for_moons:
         type: boolean
       show_health_bar_in_planet_view:

@@ -210,7 +210,7 @@ inline fun <reified T : PsiFile> VirtualFile.toPsiFile(project: Project): T? {
 fun getDocCommentTextFromPreviousComment(element: PsiElement): String {
 	//我们认为当前元素之前，之间没有空行的非行尾行注释，可以视为文档注释，但这并非文档注释的全部
 	return buildString {
-		var prevElement = element.prevSibling
+		var prevElement = element.prevSibling?:element.parent?.prevSibling
 		while(prevElement != null) {
 			val text = prevElement.text
 			if(prevElement !is PsiWhiteSpace) {
@@ -221,8 +221,7 @@ fun getDocCommentTextFromPreviousComment(element: PsiElement): String {
 				if(text.containsBlankLine()) break
 			}
 			// 兼容comment在rootBlock之外的特殊情况
-			val prev = prevElement
-			prevElement = prev.prevSibling?:prev.parent?.prevSibling
+			prevElement = prevElement.prevSibling
 		}
 	}
 }

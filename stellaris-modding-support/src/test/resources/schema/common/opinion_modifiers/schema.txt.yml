@@ -12,8 +12,8 @@ definitions:
     type: object
     properties:
       trigger:
-        $ref: "../core.yml#/definitions/triggers"
+        $ref: "../../core.yml#/definitions/triggers"
       opinion:
         oneOf:
         - type: integer
-        - $ref: "../core.yml#/definitions/weight_modifier"
+        - $ref: "../../core.yml#/definitions/weight_modifier"

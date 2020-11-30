@@ -17,9 +17,9 @@ definitions:
         type: boolean
         default: no
       desc:
-        $ref: "../core.yml#/definitions/desc"
+        $ref: "../../core.yml#/definitions/desc"
       picture:
-        $ref: "../core.yml#/definitions/gfx_reference"
+        $ref: "../../core.yml#/definitions/gfx_reference"
       level:
         type: integer
       null_spawn_chance:
@@ -31,20 +31,20 @@ definitions:
         type: boolean
         default: no
       spawn_chance:
-        $ref: "../core.yml#/definitions/weight_modifier"
+        $ref: "../../core.yml#/definitions/weight_modifier"
       on_spawn:
         $ref: "#/definitions/anomaly_event"
       on_success:
         $ref: "#/definitions/anomaly_event"
   anomaly_event:
     anyOf:
-    - $ref: "../core.yml#/definitions/scripted_event_id"
+    - $ref: "../../core.yml#/definitions/scripted_event_id"
     - propertyNames:
         type: integer
       additionalProperties:
         anyOf:
-        - $ref: "../core.yml#/definitions/scripted_event_id"
-        - $ref: "../core.yml#/definitions/modifier"
+        - $ref: "../../core.yml#/definitions/scripted_event_id"
+        - $ref: "../../core.yml#/definitions/modifier"
           properties:
             max_once:
               type: boolean
@@ -53,4 +53,4 @@ definitions:
               type: boolean
               default: no
             anomaly_event:
-              $ref: "../core.yml#/definitions/scripted_event_id"
+              $ref: "../../core.yml#/definitions/scripted_event_id"

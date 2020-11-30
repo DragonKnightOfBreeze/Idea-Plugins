@@ -17,10 +17,10 @@ definitions:
       cohesion_growth:
         type: number
       allow:
-        $ref: "../core.yml#/definitions/effects"
+        $ref: "../../core.yml#/definitions/effects"
       modifier:
-        $ref: "../core.yml#/definitions/modifiers"
+        $ref: "../../core.yml#/definitions/modifiers"
       on_enact:
-        $ref: "../core.yml#/definitions/effects"
+        $ref: "../../core.yml#/definitions/effects"
       ai_weight:
-        $ref: "../core.yml#/definitions/weight_modifier"
+        $ref: "../../core.yml#/definitions/weight_modifier"

@@ -13,4 +13,4 @@ definitions:
       size:
         type: integer
       possible:
-        $ref: "../core.yml#/definitions/triggers"
+        $ref: "../../core.yml#/definitions/triggers"

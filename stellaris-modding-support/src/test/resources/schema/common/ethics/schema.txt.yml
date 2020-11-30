@@ -30,20 +30,20 @@ definitions:
       use_for_pops:
         type: boolean
       country_modifier:
-        $ref: "../core.yml#/definitions/modifier"
+        $ref: "../../core.yml#/definitions/modifier"
       tags:
         type: array
         items:
-          $ref: "../core.yml#/definitions/loc_reference"
+          $ref: "../../core.yml#/definitions/loc_reference"
       random_weight:
-        $ref: "../core.yml#/definitions/random_weight"
+        $ref: "../../core.yml#/definitions/random_weight"
       pop_attraction_tag:
-        $ref: "../core.yml#/definitions/triggered_desc"
+        $ref: "../../core.yml#/definitions/triggered_desc"
         multiple: true
       country_attraction:
-        $ref: "../core.yml#/definitions/modified_attraction"
+        $ref: "../../core.yml#/definitions/modified_attraction"
       pop_attraction:
-        $ref: "../core.yml#/definitions/modified_attraction"
+        $ref: "../../core.yml#/definitions/modified_attraction"
   ethic_category:
     type: string
     $def: "#/ethic_categories/{ethic_category}"

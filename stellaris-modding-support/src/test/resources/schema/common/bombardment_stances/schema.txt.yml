@@ -11,7 +11,7 @@ definitions:
     type: object
     properties:
       trigger:
-        $ref: "../core.yml#/definitions/triggers"
+        $ref: "../../core.yml#/definitions/triggers"
       # = fleet
       icon_frame:
         type: integer
@@ -28,7 +28,7 @@ definitions:
       army_damage:
         type: number
       kill_pop_chance:
-        $ref: "../core.yml#/definitions/weight_modifier"
+        $ref: "../../core.yml#/definitions/weight_modifier"
       min_pop_to_kill_pop:
         type: integer
       root:
@@ -37,4 +37,4 @@ definitions:
       from:
         type: string
       ai_weight:
-        $ref: "../core.yml#/definitions/weight_modifier"
+        $ref: "../../core.yml#/definitions/weight_modifier"
