@@ -1,11 +1,11 @@
-package com.windea.plugin.idea.stellaris.script.schema
+package com.windea.plugin.idea.pdx.script.schema
 
 import com.intellij.openapi.project.*
 import com.intellij.openapi.vfs.*
 import com.jetbrains.jsonSchema.extension.*
-import com.windea.plugin.idea.stellaris.*
+import com.windea.plugin.idea.pdx.*
 
-class StellarisScriptSchemaProviderFactory : JsonSchemaProviderFactory {
+class PdxScriptSchemaProviderFactory : JsonSchemaProviderFactory {
 	override fun getProviders(project: Project): MutableList<JsonSchemaFileProvider> {
 		val providers = mutableListOf<JsonSchemaFileProvider>()
 		
@@ -37,7 +37,7 @@ class StellarisScriptSchemaProviderFactory : JsonSchemaProviderFactory {
 				it.extension == "json" -> {
 					val name = handleName(it.nameWithoutExtension)?: return@forEach
 					val path = if(pathPrefix.isEmpty()) name else "$pathPrefix/$name"
-					providers += StellarisScriptSchemaProvider(path, it)
+					providers += PdxScriptSchemaProvider(path, it)
 				}
 			}
 		}

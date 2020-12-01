@@ -1,4 +1,4 @@
-package com.windea.plugin.idea.stellaris.script.editor
+package com.windea.plugin.idea.pdx.script.editor
 
 import com.intellij.lang.*
 import com.intellij.lang.folding.*
@@ -7,14 +7,14 @@ import com.intellij.openapi.project.*
 import com.intellij.openapi.util.*
 import com.intellij.psi.*
 import com.intellij.psi.tree.*
-import com.windea.plugin.idea.stellaris.*
-import com.windea.plugin.idea.stellaris.script.psi.*
+import com.windea.plugin.idea.pdx.*
+import com.windea.plugin.idea.pdx.script.psi.*
 
-class StellarisScriptFoldingBuilder : FoldingBuilder, DumbAware {
+class PdxScriptFoldingBuilder : FoldingBuilder, DumbAware {
 	override fun getPlaceholderText(node: ASTNode): String? {
 		return when(node.elementType){
-			StellarisScriptTypes.COMMENT -> commentFolder
-			StellarisScriptTypes.BLOCK -> blockFolder
+			PdxScriptTypes.COMMENT -> commentFolder
+			PdxScriptTypes.BLOCK -> blockFolder
 			else -> defaultFolder //不应该出现这种情况
 		}
 	}
@@ -33,12 +33,12 @@ class StellarisScriptFoldingBuilder : FoldingBuilder, DumbAware {
 		var startOffset: Int
 		var endOffset: Int
 		when(node.elementType) {
-			StellarisScriptTypes.BLOCK -> {
+			PdxScriptTypes.BLOCK -> {
 				if(spanMultipleLines(node, document)) {
 					descriptors.add(FoldingDescriptor(node, node.textRange))
 				}
 			}
-			StellarisScriptTypes.COMMENT -> {
+			PdxScriptTypes.COMMENT -> {
 				val commentRange = expandCommentsRange(node.psi)
 				startOffset = (commentRange.getFirst() as PsiElement).textRange.startOffset
 				endOffset = (commentRange.getSecond() as PsiElement).textRange.endOffset

@@ -1,4 +1,4 @@
-package com.windea.plugin.idea.stellaris.script.schema
+package com.windea.plugin.idea.pdx.script.schema
 
 import com.intellij.json.pointer.*
 import com.intellij.psi.*
@@ -6,18 +6,18 @@ import com.intellij.psi.util.*
 import com.intellij.util.*
 import com.jetbrains.jsonSchema.extension.*
 import com.jetbrains.jsonSchema.extension.adapters.*
-import com.windea.plugin.idea.stellaris.*
-import com.windea.plugin.idea.stellaris.script.psi.*
-import com.windea.plugin.idea.stellaris.script.schema.adapter.*
+import com.windea.plugin.idea.pdx.*
+import com.windea.plugin.idea.pdx.script.psi.*
+import com.windea.plugin.idea.pdx.script.schema.adapter.*
 
-object StellarisScriptJsonLikePsiWalker : JsonLikePsiWalker {
+object PdxScriptJsonLikePsiWalker : JsonLikePsiWalker {
 	override fun findElementToCheck(element: PsiElement): PsiElement? {
 		//得到需要检查的元素
 		var current = element
 		//向上查找直到psiFile，如果是property/value，则认为已找到
 		while(current !is PsiFile){
 			when(current) {
-				is StellarisScriptProperty, is StellarisScriptValue -> return current
+				is PdxScriptProperty, is PdxScriptValue -> return current
 				else -> current = current.parent?:return null
 			}
 		}
@@ -26,43 +26,43 @@ object StellarisScriptJsonLikePsiWalker : JsonLikePsiWalker {
 
 	override fun isName(element: PsiElement): ThreeState {
 		return when(element) {
-			is StellarisScriptBlock -> ThreeState.UNSURE
-			is StellarisScriptProperty -> ThreeState.UNSURE
-			is StellarisScriptPropertyKey -> ThreeState.YES
-			is StellarisScriptPropertyValue -> ThreeState.NO
-			is StellarisScriptNumber -> ThreeState.UNSURE
-			is StellarisScriptString -> ThreeState.UNSURE
+			is PdxScriptBlock -> ThreeState.UNSURE
+			is PdxScriptProperty -> ThreeState.UNSURE
+			is PdxScriptPropertyKey -> ThreeState.YES
+			is PdxScriptPropertyValue -> ThreeState.NO
+			is PdxScriptNumber -> ThreeState.UNSURE
+			is PdxScriptString -> ThreeState.UNSURE
 			else -> ThreeState.NO
 		}
 	}
 
 	override fun isTopJsonElement(element: PsiElement): Boolean {
-		return element is StellarisScriptFile
+		return element is PdxScriptFile
 	}
 
 	override fun isPropertyWithValue(element: PsiElement): Boolean {
-		return element is StellarisScriptProperty
+		return element is PdxScriptProperty
 	}
 
 	//用于验证的Json字符串，字符串需要带双引号
 	override fun getNodeTextForValidation(element: PsiElement?): String {
 		return when{
 			element == null -> "null"
-			element is StellarisScriptBoolean -> if(element.value == "yes") "true" else "false"
-			element is StellarisScriptNumber -> element.value
-			element is StellarisScriptStringValue -> element.value.quote()
+			element is PdxScriptBoolean -> if(element.value == "yes") "true" else "false"
+			element is PdxScriptNumber -> element.value
+			element is PdxScriptStringValue -> element.value.quote()
 			else -> element.text.quote()
 		}
 	}
 
 	override fun getRoots(file: PsiFile): Collection<PsiElement> {
-		return PsiTreeUtil.findChildOfType(file,StellarisScriptValue::class.java).toSingletonOrEmpty()
+		return PsiTreeUtil.findChildOfType(file,PdxScriptValue::class.java).toSingletonOrEmpty()
 	}
 
 	override fun getParentPropertyAdapter(element: PsiElement): JsonPropertyAdapter? {
 		var current = element
 		while(current !is PsiFile){
-			if(current is StellarisScriptProperty) return StellarisScriptPropertyAdapter(current)
+			if(current is PdxScriptProperty) return PdxScriptPropertyAdapter(current)
 			current = current.parent ?:return null
 		}
 		return null
@@ -70,24 +70,24 @@ object StellarisScriptJsonLikePsiWalker : JsonLikePsiWalker {
 
 	override fun getPropertyNameElement(property: PsiElement?): PsiElement? {
 		return when(property) {
-			is StellarisScriptProperty -> property.propertyKey
+			is PdxScriptProperty -> property.propertyKey
 			//首先会识别item而非property，因此这里是必须的
-			is StellarisScriptNumber, is StellarisScriptString ->  property
+			is PdxScriptNumber, is PdxScriptString ->  property
 			else -> null
 		}
 	}
 
 	override fun getPropertyNamesOfParentObject(originalPosition: PsiElement, computedPosition: PsiElement?): MutableSet<String> {
 		return when(val parent = originalPosition.parent) {
-			is StellarisScriptBlock -> parent.propertyList.mapNotNullTo(mutableSetOf()) { it.name }
+			is PdxScriptBlock -> parent.propertyList.mapNotNullTo(mutableSetOf()) { it.name }
 			else -> mutableSetOf()
 		}
 	}
 
 	override fun createValueAdapter(element: PsiElement): JsonValueAdapter? {
 		return when(element) {
-			is StellarisScriptPropertyValue -> StellarisScriptValueAdapter(element.value)
-			is StellarisScriptValue -> StellarisScriptValueAdapter(element)
+			is PdxScriptPropertyValue -> PdxScriptValueAdapter(element.value)
+			is PdxScriptValue -> PdxScriptValueAdapter(element)
 			else -> null
 		}
 	}
@@ -98,15 +98,15 @@ object StellarisScriptJsonLikePsiWalker : JsonLikePsiWalker {
 		while(current !is PsiFile) {
 			when(current){
 				//如果是属性
-				is StellarisScriptProperty -> {
+				is PdxScriptProperty -> {
 					val name = current.name
 					position.addPrecedingStep(name)
 					current = current.parent?:return null
 				}
 				//如果是指并且在数组中
-				is StellarisScriptValue ->{
+				is PdxScriptValue ->{
 					val parent = current.parent?:return null
-					if(parent is StellarisScriptBlock) {
+					if(parent is PdxScriptBlock) {
 						val index = parent.indexOfChild(current)
 						position.addPrecedingStep(index)
 					}

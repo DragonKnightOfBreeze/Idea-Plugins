@@ -1,15 +1,15 @@
-package com.windea.plugin.idea.stellaris.script.reference
+package com.windea.plugin.idea.pdx.script.reference
 
 import com.intellij.codeInsight.lookup.*
 import com.intellij.openapi.util.*
 import com.intellij.psi.*
-import com.windea.plugin.idea.stellaris.*
-import com.windea.plugin.idea.stellaris.script.psi.*
+import com.windea.plugin.idea.pdx.*
+import com.windea.plugin.idea.pdx.script.psi.*
 
-class StellarisScriptVariablePsiReference(
-	element: StellarisScriptVariableReference,
+class PdxScriptVariablePsiReference(
+	element: PdxScriptVariableReference,
 	rangeInElement: TextRange
-) : PsiReferenceBase<StellarisScriptVariableReference>(element, rangeInElement), PsiPolyVariantReference {
+) : PsiReferenceBase<PdxScriptVariableReference>(element, rangeInElement), PsiPolyVariantReference {
 	private val name = rangeInElement.substring(element.text)
 	
 	override fun handleElementRename(newElementName: String): PsiElement {

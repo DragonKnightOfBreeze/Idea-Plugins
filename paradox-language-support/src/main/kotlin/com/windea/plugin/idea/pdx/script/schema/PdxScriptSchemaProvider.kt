@@ -1,20 +1,20 @@
-package com.windea.plugin.idea.stellaris.script.schema
+package com.windea.plugin.idea.pdx.script.schema
 
 import com.intellij.openapi.vfs.*
 import com.jetbrains.jsonSchema.extension.*
 import com.jetbrains.jsonSchema.impl.*
-import com.windea.plugin.idea.stellaris.script.*
+import com.windea.plugin.idea.pdx.script.*
 
 //name: descriptor.mod, events/*.txt
 
-class StellarisScriptSchemaProvider(
+class PdxScriptSchemaProvider(
 	private val name:String,
 	private val schemaFile: VirtualFile
 ) : JsonSchemaFileProvider {
 	private val reversedPathList = name.split("/").reversed()
 
 	override fun isAvailable(file: VirtualFile): Boolean {
-		return file.fileType == StellarisScriptFileType && isMatched(file)
+		return file.fileType == PdxScriptFileType && isMatched(file)
 	}
 
 	//判断被匹配的文件（脚本文件）是否与schema名字（ant路径）相匹配

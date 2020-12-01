@@ -1,6 +1,6 @@
-package com.windea.plugin.idea.stellaris.script
+package com.windea.plugin.idea.pdx.script
 
 import com.intellij.lang.*
-import com.windea.plugin.idea.stellaris.*
+import com.windea.plugin.idea.pdx.*
 
-object StellarisScriptLanguage : Language(stellarisScriptName)
+object PdxScriptLanguage : Language(pdxScriptName)

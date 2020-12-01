@@ -1,18 +1,18 @@
-package com.windea.plugin.idea.stellaris.script.structureView
+package com.windea.plugin.idea.pdx.script.structureView
 
 import com.intellij.ide.structureView.*
 import com.intellij.ide.structureView.impl.common.*
-import com.windea.plugin.idea.stellaris.script.psi.*
+import com.windea.plugin.idea.pdx.script.psi.*
 
-class StellarisScriptPropertyTreeElement(
-	private val element: StellarisScriptProperty
-) : PsiTreeElementBase<StellarisScriptProperty>(element) {
+class PdxScriptPropertyTreeElement(
+	private val element: PdxScriptProperty
+) : PsiTreeElementBase<PdxScriptProperty>(element) {
 	override fun getChildrenBase(): MutableCollection<StructureViewTreeElement> {
 		val value = element.propertyValue?.value?:return mutableListOf()
 		return when{
-			value !is StellarisScriptBlock -> mutableListOf()
-			value.isArray -> value.valueList.mapTo(mutableListOf()){StellarisScriptValueTreeElement(it)}
-			value.isObject -> value.propertyList.mapTo(mutableListOf()){StellarisScriptPropertyTreeElement(it)}
+			value !is PdxScriptBlock -> mutableListOf()
+			value.isArray -> value.valueList.mapTo(mutableListOf()){PdxScriptValueTreeElement(it)}
+			value.isObject -> value.propertyList.mapTo(mutableListOf()){PdxScriptPropertyTreeElement(it)}
 			else -> mutableListOf()
 		}
 	}

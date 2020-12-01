@@ -1,15 +1,15 @@
-package com.windea.plugin.idea.stellaris.script.psi
+package com.windea.plugin.idea.pdx.script.psi
 
 import com.intellij.extapi.psi.*
 import com.intellij.psi.*
-import com.windea.plugin.idea.stellaris.script.*
+import com.windea.plugin.idea.pdx.script.*
 
-class StellarisScriptFile(
+class PdxScriptFile(
 	viewProvider: FileViewProvider
-) : PsiFileBase(viewProvider, StellarisScriptLanguage) {
-	override fun getFileType() = StellarisScriptFileType
+) : PsiFileBase(viewProvider, PdxScriptLanguage) {
+	override fun getFileType() = PdxScriptFileType
 
-	val rootBlock get() = findChildByClass(StellarisScriptRootBlock::class.java)
+	val rootBlock get() = findChildByClass(PdxScriptRootBlock::class.java)
 	
 	val variables get() = rootBlock?.variableList?:listOf()
 

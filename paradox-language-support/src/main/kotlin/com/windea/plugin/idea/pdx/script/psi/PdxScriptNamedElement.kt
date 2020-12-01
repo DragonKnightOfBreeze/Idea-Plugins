@@ -1,5 +1,5 @@
-package com.windea.plugin.idea.stellaris.script.psi
+package com.windea.plugin.idea.pdx.script.psi
 
 import com.intellij.psi.*
 
-interface StellarisScriptNamedElement : PsiNameIdentifierOwner,NavigatablePsiElement
+interface PdxScriptNamedElement : PsiNameIdentifierOwner,NavigatablePsiElement

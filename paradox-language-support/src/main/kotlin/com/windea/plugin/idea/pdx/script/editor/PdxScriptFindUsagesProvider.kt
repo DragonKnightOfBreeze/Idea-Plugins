@@ -1,21 +1,21 @@
-package com.windea.plugin.idea.stellaris.script.editor
+package com.windea.plugin.idea.pdx.script.editor
 
 import com.intellij.lang.*
 import com.intellij.lang.cacheBuilder.*
 import com.intellij.lang.findUsages.*
 import com.intellij.psi.*
-import com.windea.plugin.idea.stellaris.*
-import com.windea.plugin.idea.stellaris.script.psi.*
+import com.windea.plugin.idea.pdx.*
+import com.windea.plugin.idea.pdx.script.psi.*
 
-class StellarisScriptFindUsagesProvider : FindUsagesProvider {
+class PdxScriptFindUsagesProvider : FindUsagesProvider {
 	override fun getDescriptiveName(element: PsiElement): String {
-		return if(element is StellarisScriptNamedElement) "${element.name}" else ""
+		return if(element is PdxScriptNamedElement) "${element.name}" else ""
 	}
 
 	override fun getType(element: PsiElement): String {
 		return when(element) {
-			is StellarisScriptVariable -> message("stellaris.script.findUsages.variable")
-			is StellarisScriptProperty -> message("stellaris.script.findUsages.property")
+			is PdxScriptVariable -> message("pdx.script.findUsages.variable")
+			is PdxScriptProperty -> message("pdx.script.findUsages.property")
 			else -> ""
 		}
 	}
@@ -29,11 +29,11 @@ class StellarisScriptFindUsagesProvider : FindUsagesProvider {
 	}
 
 	override fun canFindUsagesFor(element: PsiElement): Boolean {
-		return element is StellarisScriptNamedElement
+		return element is PdxScriptNamedElement
 	}
 
 	override fun getWordsScanner(): WordsScanner? {
 		return null
-		//return StellarisScriptWordScanner()
+		//return PdxScriptWordScanner()
 	}
 }

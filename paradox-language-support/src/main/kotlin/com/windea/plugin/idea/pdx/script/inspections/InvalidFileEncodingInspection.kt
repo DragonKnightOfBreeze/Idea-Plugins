@@ -1,11 +1,11 @@
-package com.windea.plugin.idea.stellaris.script.inspections
+package com.windea.plugin.idea.pdx.script.inspections
 
 import com.intellij.codeInspection.*
 import com.intellij.openapi.editor.*
 import com.intellij.openapi.project.*
 import com.intellij.psi.*
-import com.windea.plugin.idea.stellaris.*
-import com.windea.plugin.idea.stellaris.message
+import com.windea.plugin.idea.pdx.*
+import com.windea.plugin.idea.pdx.message
 
 class InvalidFileEncodingInspection: LocalInspectionTool(){
 	override fun checkFile(file: PsiFile, manager: InspectionManager, isOnTheFly: Boolean): Array<out ProblemDescriptor?>? {
@@ -16,7 +16,7 @@ class InvalidFileEncodingInspection: LocalInspectionTool(){
 		if(!isValid){
 			val holder = ProblemsHolder(manager,file,isOnTheFly)
 			val bomText = if(hasBom) "BOM" else "NO BOM"
-			val description = message("stellaris.script.inspection.invalidFileEncoding.description", charset,bomText)
+			val description = message("pdx.script.inspection.invalidFileEncoding.description", charset,bomText)
 			holder.registerProblem(file, description, ChangeFileEncoding(file, isNameList))
 			return holder.resultsArray
 		}
@@ -28,7 +28,7 @@ class InvalidFileEncodingInspection: LocalInspectionTool(){
 		private val isNameList:Boolean
 	) : LocalQuickFixAndIntentionActionOnPsiElement(element) {
 		override fun getText(): String {
-			return message("stellaris.script.quickFix.changeFileEncoding")
+			return message("pdx.script.quickFix.changeFileEncoding")
 		}
 
 		override fun getFamilyName(): String {

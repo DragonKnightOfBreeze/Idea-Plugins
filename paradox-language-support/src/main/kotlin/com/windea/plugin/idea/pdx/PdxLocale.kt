@@ -1,9 +1,9 @@
-package com.windea.plugin.idea.stellaris
+package com.windea.plugin.idea.pdx
 
 /**
  * 本地化文件的语言区域枚举
  */
-enum class StellarisLocale(
+enum class PdxLocale(
 	val key: String,
 	val description: String
 ) {

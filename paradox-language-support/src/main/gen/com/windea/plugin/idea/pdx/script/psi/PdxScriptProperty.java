@@ -1,5 +1,5 @@
 // This is a generated file. Not intended for manual editing.
-package com.windea.plugin.idea.stellaris.script.psi;
+package com.windea.plugin.idea.pdx.script.psi;
 
 import java.util.List;
 import org.jetbrains.annotations.*;
@@ -8,16 +8,16 @@ import com.intellij.psi.StubBasedPsiElement;
 import com.intellij.openapi.util.Iconable.IconFlags;
 import javax.swing.Icon;
 
-public interface StellarisScriptProperty extends StellarisScriptNamedElement, StubBasedPsiElement<StellarisScriptPropertyStub> {
+public interface PdxScriptProperty extends PdxScriptNamedElement, StubBasedPsiElement<PdxScriptPropertyStub> {
 
   @NotNull
-  StellarisScriptPropertyKey getPropertyKey();
+  PdxScriptPropertyKey getPropertyKey();
 
   @Nullable
-  StellarisScriptPropertySeparator getPropertySeparator();
+  PdxScriptPropertySeparator getPropertySeparator();
 
   @Nullable
-  StellarisScriptPropertyValue getPropertyValue();
+  PdxScriptPropertyValue getPropertyValue();
 
   @NotNull
   String getName();

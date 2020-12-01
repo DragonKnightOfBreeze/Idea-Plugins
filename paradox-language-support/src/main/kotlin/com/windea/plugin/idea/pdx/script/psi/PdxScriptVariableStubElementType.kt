@@ -1,44 +1,44 @@
-package com.windea.plugin.idea.stellaris.script.psi
+package com.windea.plugin.idea.pdx.script.psi
 
 import com.intellij.lang.*
 import com.intellij.psi.impl.source.tree.*
 import com.intellij.psi.stubs.*
 import com.intellij.util.*
-import com.windea.plugin.idea.stellaris.script.*
-import com.windea.plugin.idea.stellaris.script.psi.impl.*
+import com.windea.plugin.idea.pdx.script.*
+import com.windea.plugin.idea.pdx.script.psi.impl.*
 
-class StellarisScriptVariableStubElementType() : IStubElementType<StellarisScriptVariableStub, StellarisScriptVariable>(
+class PdxScriptVariableStubElementType() : IStubElementType<PdxScriptVariableStub, PdxScriptVariable>(
 	"STELLRAIS_SCRIPT_VARIABLE",
-	StellarisScriptLanguage
+	PdxScriptLanguage
 ) {
-	override fun createPsi(stub: StellarisScriptVariableStub): StellarisScriptVariable {
-		return StellarisScriptVariableImpl(stub, this)
+	override fun createPsi(stub: PdxScriptVariableStub): PdxScriptVariable {
+		return PdxScriptVariableImpl(stub, this)
 	}
 	
-	override fun createStub(psi: StellarisScriptVariable, parentStub: StubElement<*>): StellarisScriptVariableStub {
-		return StellarisScriptVariableStubImpl(parentStub, psi.name.orEmpty())
+	override fun createStub(psi: PdxScriptVariable, parentStub: StubElement<*>): PdxScriptVariableStub {
+		return PdxScriptVariableStubImpl(parentStub, psi.name.orEmpty())
 	}
 	
-	//override fun createStub(tree: LighterAST, node: LighterASTNode, parentStub: StubElement<*>): StellarisScriptVariableStub {
-	//	val keyNode = LightTreeUtil.firstChildOfType(tree, node, StellarisScriptTypes.VARIABLE_NAME_ID)
+	//override fun createStub(tree: LighterAST, node: LighterASTNode, parentStub: StubElement<*>): PdxScriptVariableStub {
+	//	val keyNode = LightTreeUtil.firstChildOfType(tree, node, PdxScriptTypes.VARIABLE_NAME_ID)
 	//	val key = intern(tree.charTable, keyNode)
-	//	return StellarisScriptVariableStubImpl(parentStub, key)
+	//	return PdxScriptVariableStubImpl(parentStub, key)
 	//}
 	
 	override fun getExternalId(): String {
-		return "stellarisScript.variable"
+		return "pdxScript.variable"
 	}
 	
-	override fun serialize(stub: StellarisScriptVariableStub, dataStream: StubOutputStream) {
+	override fun serialize(stub: PdxScriptVariableStub, dataStream: StubOutputStream) {
 		dataStream.writeName(stub.key)
 	}
 	
-	override fun deserialize(dataStream: StubInputStream, parentStub: StubElement<*>): StellarisScriptVariableStub {
-		return StellarisScriptVariableStubImpl(parentStub, dataStream.readNameString()!!)
+	override fun deserialize(dataStream: StubInputStream, parentStub: StubElement<*>): PdxScriptVariableStub {
+		return PdxScriptVariableStubImpl(parentStub, dataStream.readNameString()!!)
 	}
 	
-	override fun indexStub(stub: StellarisScriptVariableStub, sink: IndexSink) {
-		sink.occurrence(StellarisScriptVariableKeyIndex.key,stub.key)
+	override fun indexStub(stub: PdxScriptVariableStub, sink: IndexSink) {
+		sink.occurrence(PdxScriptVariableKeyIndex.key,stub.key)
 	}
 	
 	companion object{

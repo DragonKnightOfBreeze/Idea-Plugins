@@ -1,4 +1,4 @@
-package com.windea.plugin.idea.stellaris.script.codeInsight
+package com.windea.plugin.idea.pdx.script.codeInsight
 
 import com.intellij.codeInsight.completion.*
 import com.intellij.codeInsight.lookup.*
@@ -9,13 +9,13 @@ import com.intellij.psi.*
 import com.intellij.psi.TokenType.*
 import com.intellij.psi.util.*
 import com.intellij.util.*
-import com.windea.plugin.idea.stellaris.*
-import com.windea.plugin.idea.stellaris.localization.*
-import com.windea.plugin.idea.stellaris.localization.psi.*
-import com.windea.plugin.idea.stellaris.script.psi.*
-import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
+import com.windea.plugin.idea.pdx.*
+import com.windea.plugin.idea.pdx.localisation.*
+import com.windea.plugin.idea.pdx.localisation.psi.*
+import com.windea.plugin.idea.pdx.script.psi.*
+import com.windea.plugin.idea.pdx.script.psi.PdxScriptTypes.*
 
-class StellarisScriptCompletionContributor : CompletionContributor() {
+class PdxScriptCompletionContributor : CompletionContributor() {
 	class BooleanCompletionProvider : CompletionProvider<CompletionParameters>() {
 		private val lookupElements = booleanValues.map{value->
 			LookupElementBuilder.create(value).bold().withPriority(80.0)

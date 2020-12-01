@@ -1,11 +1,11 @@
-package com.windea.plugin.idea.stellaris.script.schema.adapter
+package com.windea.plugin.idea.pdx.script.schema.adapter
 
 import com.jetbrains.jsonSchema.extension.adapters.*
-import com.windea.plugin.idea.stellaris.*
-import com.windea.plugin.idea.stellaris.script.psi.*
+import com.windea.plugin.idea.pdx.*
+import com.windea.plugin.idea.pdx.script.psi.*
 
-class StellarisScriptPropertyKeyAdapter(
-	private val element: StellarisScriptPropertyKey
+class PdxScriptPropertyKeyAdapter(
+	private val element: PdxScriptPropertyKey
 ): JsonValueAdapter {
 	override fun getDelegate() = element
 

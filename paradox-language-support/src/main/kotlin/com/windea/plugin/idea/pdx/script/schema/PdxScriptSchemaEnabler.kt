@@ -1,19 +1,19 @@
-package com.windea.plugin.idea.stellaris.script.schema
+package com.windea.plugin.idea.pdx.script.schema
 
 import com.intellij.ide.scratch.*
 import com.intellij.openapi.fileTypes.*
 import com.intellij.openapi.project.*
 import com.intellij.openapi.vfs.*
 import com.jetbrains.jsonSchema.extension.*
-import com.windea.plugin.idea.stellaris.script.*
+import com.windea.plugin.idea.pdx.script.*
 
-//org.jetbrains.yaml.schema.StellarisScriptSchemaEnabler
+//org.jetbrains.yaml.schema.PdxScriptSchemaEnabler
 
-class StellarisScriptSchemaEnabler:JsonSchemaEnabler {
+class PdxScriptSchemaEnabler:JsonSchemaEnabler {
 	override fun isEnabledForFile(file: VirtualFile, project: Project?): Boolean {
-		return file.fileType == StellarisScriptFileType
+		return file.fileType == PdxScriptFileType
 		//val fileType = file.fileType
-		//return fileType is LanguageFileType && fileType.language is StellarisScriptLanguage
+		//return fileType is LanguageFileType && fileType.language is PdxScriptLanguage
 	}
 
 	override fun canBeSchemaFile(file: VirtualFile?): Boolean {

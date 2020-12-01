@@ -1,6 +1,6 @@
 @file:Suppress("NAME_SHADOWING", "UNUSED_PARAMETER", "MapGetWithNotNullAssertionOperator")
 
-package com.windea.plugin.idea.stellaris.script.schema
+package com.windea.plugin.idea.pdx.script.schema
 
 import com.intellij.codeInsight.*
 import com.intellij.codeInsight.completion.*
@@ -24,16 +24,16 @@ import com.jetbrains.jsonSchema.extension.*
 import com.jetbrains.jsonSchema.extension.adapters.*
 import com.jetbrains.jsonSchema.ide.*
 import com.jetbrains.jsonSchema.impl.*
-import com.windea.plugin.idea.stellaris.*
-import com.windea.plugin.idea.stellaris.script.psi.*
-import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
+import com.windea.plugin.idea.pdx.*
+import com.windea.plugin.idea.pdx.script.psi.*
+import com.windea.plugin.idea.pdx.script.psi.PdxScriptTypes.*
 import java.util.*
 import javax.swing.*
 
 //TODO 重构和完善
 //TODO 实现自定义规则multiple，表示属性名可以重复
 
-class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
+class PdxScriptSchemaCompletionContributor : CompletionContributor() {
 	private val mayBePropertyKeyTypes = arrayOf(STRING_TOKEN, NUMBER_TOKEN)
 	
 	override fun fillCompletionVariants(parameters: CompletionParameters, result: CompletionResultSet) {
@@ -56,7 +56,7 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 	) {
 		private val project = position.project
 		private val variants = mutableSetOf<LookupElement>()
-		private val isInsideStringLiteral = position.parent is StellarisScriptStringValue
+		private val isInsideStringLiteral = position.parent is PdxScriptStringValue
 		
 		fun work() {
 			//注意：如果matchedElement是string或number且parent是block，表示用户可能正在输入一个propertyKey
@@ -92,8 +92,8 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 		}
 		
 		private fun mayBePropertyKey(checkable: PsiElement): Boolean {
-			return checkable is StellarisScriptString || checkable is StellarisScriptNumber
-			       && checkable.parent !is StellarisScriptPropertyValue
+			return checkable is PdxScriptString || checkable is PdxScriptNumber
+			       && checkable.parent !is PdxScriptPropertyValue
 		}
 		
 		private fun addPropertyNameSchemaVariants(schema: JsonSchemaObject) {
@@ -202,7 +202,7 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 		
 		private fun addInjectedLanguageVariants() {
 			val checkable = walker.findElementToCheck(position)
-			if(checkable !is StellarisScriptString) return
+			if(checkable !is PdxScriptString) return
 			JBIterable.from(Language.getRegisteredLanguages())
 				.filter { language -> LanguageUtil.isInjectableLanguage(language!!) }
 				.map { language -> Injectable.fromLanguage(language) }
@@ -215,10 +215,10 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 		
 		private fun addRequiredPropVariants() {
 			val checkable = walker.findElementToCheck(position)
-			if(checkable !is StellarisScriptStringValue) return
+			if(checkable !is PdxScriptStringValue) return
 			val propertiesObject = JsonRequiredPropsReferenceProvider.findPropertiesObject(checkable) ?: return
 			val items = when(val parent = checkable.parent) {
-				is StellarisScriptBlock -> parent.valueList.filterIsInstance<JsonStringLiteral>().map { it.value }.toSet()
+				is PdxScriptBlock -> parent.valueList.filterIsInstance<JsonStringLiteral>().map { it.value }.toSet()
 				else -> setOf()
 			}
 			propertiesObject.propertyList.map { it.name }.filter { !items.contains(it) }.forEach { addStringVariant(it) }
@@ -462,7 +462,7 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 		companion object {
 			// some schemas provide empty array / empty object in enum values...
 			private val filtered = setOf("{}", "{ }")
-			private val walker = StellarisScriptJsonLikePsiWalker
+			private val walker = PdxScriptJsonLikePsiWalker
 			
 			private const val SEPARATOR = " = "
 			private const val SEPARATOR_LENGTH = SEPARATOR.length
@@ -496,7 +496,7 @@ class StellarisScriptSchemaCompletionContributor : CompletionContributor() {
 			private fun handleIncompleteString(editor: Editor, element: PsiElement): Boolean {
 				if((element as LeafPsiElement).elementType === TokenType.WHITE_SPACE) {
 					val prevSibling = element.prevSibling
-					if(prevSibling is StellarisScriptProperty) {
+					if(prevSibling is PdxScriptProperty) {
 						val nameElement = prevSibling.propertyKey
 						if(!nameElement.text.endsWith("\"")) {
 							editor.caretModel.moveToOffset(nameElement.textRange.endOffset)

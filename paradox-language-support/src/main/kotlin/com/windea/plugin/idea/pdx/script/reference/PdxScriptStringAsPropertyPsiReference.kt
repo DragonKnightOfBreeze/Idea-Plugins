@@ -1,19 +1,19 @@
-package com.windea.plugin.idea.stellaris.script.reference
+package com.windea.plugin.idea.pdx.script.reference
 
 import com.intellij.openapi.util.*
 import com.intellij.psi.*
-import com.windea.plugin.idea.stellaris.*
-import com.windea.plugin.idea.stellaris.script.psi.*
-import com.windea.plugin.idea.stellaris.settings.*
+import com.windea.plugin.idea.pdx.*
+import com.windea.plugin.idea.pdx.script.psi.*
+import com.windea.plugin.idea.pdx.settings.*
 
-class StellarisScriptStringAsPropertyPsiReference(
-	element: StellarisScriptString,
+class PdxScriptStringAsPropertyPsiReference(
+	element: PdxScriptString,
 	rangeInElement: TextRange
-) : PsiReferenceBase<StellarisScriptString>(element, rangeInElement), PsiPolyVariantReference {
+) : PsiReferenceBase<PdxScriptString>(element, rangeInElement), PsiPolyVariantReference {
 	//去除包围的引号
 	private val name = element.text.unquote()
 	private val project = element.project
-	private val state = StellarisSettingsState.getInstance()
+	private val state = PdxSettingsState.getInstance()
 	
 	//不会随之重命名，因为不能保证引用关系正确
 	override fun handleElementRename(newElementName: String): PsiElement {
@@ -23,16 +23,16 @@ class StellarisScriptStringAsPropertyPsiReference(
 	override fun resolve(): PsiElement? {
 		if(state.resolveInternalReferences) {
 			return findScriptProperty(name, project)
-			       ?: findLocalizationProperty(name, project, inferredStellarisLocale)
-			       ?: findLocalizationProperty(name, project)
+			       ?: findLocalisationProperty(name, project, inferredPdxLocale)
+			       ?: findLocalisationProperty(name, project)
 		}
 		return null
 	}
 	
 	override fun multiResolve(incompleteCode: Boolean): Array<out ResolveResult> {
-		if(StellarisSettingsState.getInstance().resolveInternalReferences) {
+		if(PdxSettingsState.getInstance().resolveInternalReferences) {
 			return findScriptProperties(name, project).ifEmpty {
-				findLocalizationProperties(name, project)
+				findLocalisationProperties(name, project)
 			}.mapArray { PsiElementResolveResult(it) }
 		}
 		return ResolveResult.EMPTY_ARRAY

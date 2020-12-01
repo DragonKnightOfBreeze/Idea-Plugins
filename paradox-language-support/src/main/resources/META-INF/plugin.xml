@@ -1,6 +1,6 @@
 <idea-plugin>
-  <id>com.windea.stellaris</id>
-  <name>Stellaris Modding Support</name>
+  <id>com.windea.pdx</id>
+  <name>Paradox Modding Support</name>
   <category>Languages</category>
 
   <vendor email="dk_breeze@qq.com" url="https://github.com/DragonKnightOfBreeze">DragonKnightOfBreeze</vendor>
@@ -8,122 +8,36 @@
   <depends>com.intellij.modules.lang</depends>
 
   <description><![CDATA[
-    <p>Support for Stellaris modding.</p>
-    <p>
-      NOTE: This plugin might be deprecated in the future,
-      I'm plan to develop another plugins <i>Paradox Language Support</i> to support all paradox games.
-    <ul>
-      <li>Support Stellaris Script Language. (*.txt, *.mod, *.gfx, *.gui, *.asset)</li>
-      <li>Support Stellaris Localization Language. (*.yml, *.yaml)</li>
-      <li>Basic language features has been implemented.</li>
-      <li>Extended language features has been implemented.</li>
-      <li>More complex language features are implementing.</li>
-      <li>
-        All planned language feature are listed in the
-        <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/README.md">README</a>
-        document written by Simple Chinese.
-      </li>
-    </ul>
-    <p>
-      This plugin will only recognize script and localization files
-      under a directory which has <code>stellaris.exe</code> / <code>descriptor.mod</code> in it.
-    </p>
-    <p>
-      You can configure whether to resolve
-      internal (in project directory) & external (in game / mod directory, <b>NOT IMPLEMENTED YET</b>) references,
-      such as localization and script property references in script files
-      by Edit settings via <code>[Languages & Frameworks / Stellaris Modding Support]</code>.
-      Default all to true.
-    </p>
-    <p>
-      If you need resolve references from Stellaris game directory, currently please consider add then to your mod project.
-      Please note you may find some syntax errors in files from the Stellaris game directory, so it is.
-    </p>
-    <p>
-      If you need additional helps about Stellaris Modding, please see
-      <a href="https://qunxing.huijiwiki.com">灰机维基</a> and <a href="https://stellaris.paradoxwikis.com">Paradoxwikis</a>.
-    </p>
-    <p>
-      You can also write Stellaris mods by VSCode IDE with CWTools plugin.
-      Compare to the current version of this plugin, CWTools is more perfect，
-      however, please note that IDEA is undoubtedly more powerful than VSCode.
-      which means that this plugin may support some advance features that CWTools will never provide.
-    </p>
+    <p>Support for Paradox Language.</p>
     <p>
       This plugin is still in developing,
       if you have found any bugs or problems, feel free to report them in
-      project's <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/issues">Github Issue Page</a>
-      with label <i>stellaris-modding-support</i>.
+      project's <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/issues">Github Issue Page</a>.
     </p>
-
     <p>
       Welcome to have a look at
-      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/tree/master/stellaris-modding-support">this project</a>,
-      <a href="https://github.com/DragonKnightOfBreeze?tab=repositories">my other projects</a> and
-      <a href="https://steamcommunity.com/id/DragonKnightOfBreeze/myworkshopfiles/?appid=281990&browsefilter=myfiles&browsesort=myfiles&p=1">my stellaris mods</a>.
+      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/tree/master/paradox-language-support">this project</a> and
+      <a href="https://github.com/DragonKnightOfBreeze?tab=repositories">my other projects</a>.
     </p>
 
     <br>
 
-    <p>Stellaris模组编程支持。</p>
-    <p>
-      注意：这个插件可能会在未来被废弃，
-      我计划开发另外一个插件<i>Paradox Language Support</i>以支持所有的P社游戏。
-    </p>
-    <ul>
-      <li>支持Stellaris的脚本语言。(*.txt, *.mod, *.gfx, *.gui, *.asset)</li>
-      <li>支持Stellaris的本地化语言。</li>
-      <li>已实现基本的语言特性。</li>
-      <li>已实现扩展的语言特性。</li>
-      <li>正在实现更加复杂的语言特性。</li>
-      <li>
-        所有计划中的语言特性都已在
-        <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/README.md">README</a>
-        文档中列出。
-      </li>
-    </ul>
-    <p>
-      这个插件仅会识别文件<code>stellaris.exe</code>或<code>descriptor.mod</code>
-      所在目录下（及其子目录）的脚本文件和本地化文件。
-    </p>
-    <p>
-      你可以通过设置菜单中的<code>[Languages & Frameworks / Stellaris Modding Support]</code>
-      配置是否解析内部引用（项目目录中）和外部引用（游戏和模组目录中，<b>尚未实现</b>），
-      例如脚本文件中的本地化属性和脚本属性的引用。
-      默认全部启用。
-    </p>
-    <p>
-      如果你需要解析来自Stellaris游戏目录的引用，目前请考虑将它们放到你的模组项目中。
-      请注意，你可能会在来自Stellaris游戏目录的文件中发现一些语法错误——没错，它就是语法错误。
-    </p>
-    <p>
-      如果你需要额外的关于Stellaris模组编程的帮助，请参阅
-      <a href="https://qunxing.huijiwiki.com">灰机维基</a>和<a href="https://stellaris.paradoxwikis.com">Paradoxwikis</a>。
-    </p>
-    <p>
-      你也可以使用VSCode IDE并配合CWTools插件进行Stellaris模组编程。
-      相较这个插件的目前版本而言，CWTools的功能更加完善，
-      不过，IDEA相比VSCode无疑更加强大，
-      这意味着这个插件未来可能会提供一些CWTools所不可能支持的高级功能。
-    </P>
+    <p>Paradox语言支持。</p>
     <p>
       这个插件仍在开发中，如果遇到BUG或问题，欢迎在
-      项目的<a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/issues">Github Issue页面</a>中提出，
-      附带标签<i>stellaris-modding-support</i>。
+      项目的<a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/issues">Github Issue页面</a>中提出。
     </p>
-
     <p>
       欢迎查看
-      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/tree/master/stellaris-modding-support">本项目</a>，
-      <a href="https://github.com/DragonKnightOfBreeze?tab=repositories">我的其他项目</a>以及
-      <a href="https://steamcommunity.com/id/DragonKnightOfBreeze/myworkshopfiles/?appid=281990&browsefilter=myfiles&browsesort=myfiles&p=1">我的群星模组</a>。
+      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/tree/master/paradox-language-support">本项目</a>和
+      <a href="https://github.com/DragonKnightOfBreeze?tab=repositories">我的其他项目</a>。
     </p>
     ]]></description>
 
   <change-notes><![CDATA[
     <p>
       Please see the
-      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/CHANGELOG.md">CHANGELOG</a>
+      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/paradox-language-support/CHANGELOG.md">CHANGELOG</a>
       document written by Simple Chinese.
     </p>
 
@@ -131,240 +45,240 @@
 
     <p>
       请查看
-      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/CHANGELOG.md">CHANGELOG</a>
+      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/paradox-language-support/CHANGELOG.md">CHANGELOG</a>
       文档。
     </p>
     ]]></change-notes>
 
   <extensions defaultExtensionNs="com.intellij">
-    <!--region Stellaris Settings-->
+    <!--region Paradox Settings-->
     <applicationConfigurable
-      id="settings.language.stellaris"
+      id="settings.language.pdx"
       groupId="language"
-      instance="com.windea.plugin.idea.stellaris.settings.StellarisSettingsConfigurable"/>
+      instance="com.windea.plugin.idea.pdx.settings.PdxSettingsConfigurable"/>
     <applicationService
-      serviceImplementation="com.windea.plugin.idea.stellaris.settings.StellarisSettingsState"/>
+      serviceImplementation="com.windea.plugin.idea.pdx.settings.PdxSettingsState"/>
     <!--endregion-->
 
     <!--suppress PluginXmlValidity -->
-    <fileTypeOverrider implementation="com.windea.plugin.idea.stellaris.StellarisFileTypeOverrider" order="first"/>
+    <fileTypeOverrider implementation="com.windea.plugin.idea.pdx.PdxFileTypeOverrider" order="first"/>
 
-    <!--region Stellaris Localization Language-->
+    <!--region Paradox Localisation Language-->
     <fileType
-      language="Stellaris Localization"
-      name="Stellaris Localization File" fieldName="INSTANCE"
-      implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationFileType"/>
+      language="Paradox Localisation"
+      name="Paradox Localisation File" fieldName="INSTANCE"
+      implementationClass="com.windea.plugin.idea.pdx.localisation.PdxLocalisationFileType"/>
     <lang.parserDefinition
-      language="Stellaris Localization"
-      implementationClass="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationParserDefinition"/>
-    <stubElementTypeHolder class="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationStubElementTypes" externalIdPrefix="stellarisLocalization."/>
-    <stubIndex implementation="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationPropertyKeyIndex"/>
+      language="Paradox Localisation"
+      implementationClass="com.windea.plugin.idea.pdx.localisation.psi.PdxLocalisationParserDefinition"/>
+    <stubElementTypeHolder class="com.windea.plugin.idea.pdx.localisation.psi.PdxLocalisationStubElementTypes" externalIdPrefix="pdxLocalisation."/>
+    <stubIndex implementation="com.windea.plugin.idea.pdx.localisation.psi.PdxLocalisationPropertyKeyIndex"/>
     
     <lang.syntaxHighlighterFactory
-      language="Stellaris Localization"
-      implementationClass="com.windea.plugin.idea.stellaris.localization.highlighter.StellarisLocalizationSyntaxHighlighterFactory"/>
+      language="Paradox Localisation"
+      implementationClass="com.windea.plugin.idea.pdx.localisation.highlighter.PdxLocalisationSyntaxHighlighterFactory"/>
     <lang.braceMatcher
-      language="Stellaris Localization"
-      implementationClass="com.windea.plugin.idea.stellaris.localization.editor.StellarisLocalizationBraceMatcher"/>
+      language="Paradox Localisation"
+      implementationClass="com.windea.plugin.idea.pdx.localisation.editor.PdxLocalisationBraceMatcher"/>
     <lang.foldingBuilder
-      language="Stellaris Localization"
-      implementationClass="com.windea.plugin.idea.stellaris.localization.editor.StellarisLocalizationFoldingBuilder"/>
+      language="Paradox Localisation"
+      implementationClass="com.windea.plugin.idea.pdx.localisation.editor.PdxLocalisationFoldingBuilder"/>
     <colorSettingsPage
-      implementation="com.windea.plugin.idea.stellaris.localization.highlighter.StellarisLocalizationColorSettingsPage"/>
+      implementation="com.windea.plugin.idea.pdx.localisation.highlighter.PdxLocalisationColorSettingsPage"/>
     <lang.commenter
-      language="Stellaris Localization"
-      implementationClass="com.windea.plugin.idea.stellaris.localization.editor.StellarisLocalizationCommenter"/>
+      language="Paradox Localisation"
+      implementationClass="com.windea.plugin.idea.pdx.localisation.editor.PdxLocalisationCommenter"/>
     <spellchecker.support
-      language="Stellaris Localization"
-      implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationSpellchecker"/>
+      language="Paradox Localisation"
+      implementationClass="com.windea.plugin.idea.pdx.localisation.PdxLocalisationSpellchecker"/>
     <lang.refactoringSupport
-      language="Stellaris Localization"
-      implementationClass="com.windea.plugin.idea.stellaris.localization.refactoring.StellarisLocalizationRefactoringSupportProvider"/>
+      language="Paradox Localisation"
+      implementationClass="com.windea.plugin.idea.pdx.localisation.refactoring.PdxLocalisationRefactoringSupportProvider"/>
     <renameInputValidator
-      implementation="com.windea.plugin.idea.stellaris.localization.refactoring.StellarisLocalizationPropertyRenameInputValidator"/>
+      implementation="com.windea.plugin.idea.pdx.localisation.refactoring.PdxLocalisationPropertyRenameInputValidator"/>
     <completion.contributor
-      language="Stellaris Localization"
-      implementationClass="com.windea.plugin.idea.stellaris.localization.codeInsight.StellarisLocalizationCompletionContributor"/>
+      language="Paradox Localisation"
+      implementationClass="com.windea.plugin.idea.pdx.localisation.codeInsight.PdxLocalisationCompletionContributor"/>
     <liveTemplateContext
-      implementation="com.windea.plugin.idea.stellaris.localization.editor.StellarisLocalizationTemplateContext"/>
-    <defaultLiveTemplates file="/liveTemplates/Stellaris Localization.xml"/>
+      implementation="com.windea.plugin.idea.pdx.localisation.editor.PdxLocalisationTemplateContext"/>
+    <defaultLiveTemplates file="/liveTemplates/Paradox Localisation.xml"/>
     <breadcrumbsInfoProvider
-      implementation="com.windea.plugin.idea.stellaris.localization.editor.StellarisLocalizationBreadCrumbsProvider"/>
+      implementation="com.windea.plugin.idea.pdx.localisation.editor.PdxLocalisationBreadCrumbsProvider"/>
     <lang.psiStructureViewFactory
-      language="Stellaris Localization"
-      implementationClass="com.windea.plugin.idea.stellaris.localization.structureView.StellarisLocalizationStructureViewFactory"/>
+      language="Paradox Localisation"
+      implementationClass="com.windea.plugin.idea.pdx.localisation.structureView.PdxLocalisationStructureViewFactory"/>
     <lang.formatter
-      language="Stellaris Localization"
-      implementationClass="com.windea.plugin.idea.stellaris.localization.formatter.StellarisLocalizationFormattingModelBuilder"/>
+      language="Paradox Localisation"
+      implementationClass="com.windea.plugin.idea.pdx.localisation.formatter.PdxLocalisationFormattingModelBuilder"/>
     <codeStyleSettingsProvider
-      implementation="com.windea.plugin.idea.stellaris.localization.formatter.StellarisLocalizationCodeStyleSettingsProvider"/>
+      implementation="com.windea.plugin.idea.pdx.localisation.formatter.PdxLocalisationCodeStyleSettingsProvider"/>
     <langCodeStyleSettingsProvider
-      implementation="com.windea.plugin.idea.stellaris.localization.formatter.StellarisLocalizationLanguageCodeStyleSettingsProvider"/>
+      implementation="com.windea.plugin.idea.pdx.localisation.formatter.PdxLocalisationLanguageCodeStyleSettingsProvider"/>
     <lang.quoteHandler
-      language="Stellaris Localization"
-      implementationClass="com.windea.plugin.idea.stellaris.localization.editor.StellarisLocalizationQuoteHandler"/>
+      language="Paradox Localisation"
+      implementationClass="com.windea.plugin.idea.pdx.localisation.editor.PdxLocalisationQuoteHandler"/>
     <lang.documentationProvider
-      language="Stellaris Localization"
-      implementationClass="com.windea.plugin.idea.stellaris.localization.editor.StellarisLocalizationDocumentationProvider"/>
+      language="Paradox Localisation"
+      implementationClass="com.windea.plugin.idea.pdx.localisation.editor.PdxLocalisationDocumentationProvider"/>
     <elementDescriptionProvider
-      implementation="com.windea.plugin.idea.stellaris.localization.editor.StellarisLocalizationDescriptionProvider"/>
+      implementation="com.windea.plugin.idea.pdx.localisation.editor.PdxLocalisationDescriptionProvider"/>
 
     <lang.findUsagesProvider
-      language="Stellaris Localization"
-      implementationClass="com.windea.plugin.idea.stellaris.localization.editor.StellarisLocalizationFindUsagesProvider"/>
+      language="Paradox Localisation"
+      implementationClass="com.windea.plugin.idea.pdx.localisation.editor.PdxLocalisationFindUsagesProvider"/>
     <gotoDeclarationHandler
-      implementation="com.windea.plugin.idea.stellaris.localization.editor.StellarisLocalizationGoToDeclarationHandler"/>
+      implementation="com.windea.plugin.idea.pdx.localisation.editor.PdxLocalisationGoToDeclarationHandler"/>
     <annotator
-      language="Stellaris Localization"
-      implementationClass="com.windea.plugin.idea.stellaris.localization.StellarisLocalizationAnnotator"/>
+      language="Paradox Localisation"
+      implementationClass="com.windea.plugin.idea.pdx.localisation.PdxLocalisationAnnotator"/>
 
-    <additionalTextAttributes scheme="Default" file="colorSchemes/StellarisScriptDefault.xml"/>
-    <additionalTextAttributes scheme="Darcula" file="colorSchemes/StellarisScriptDarcula.xml"/>
+    <additionalTextAttributes scheme="Default" file="colorSchemes/PdxScriptDefault.xml"/>
+    <additionalTextAttributes scheme="Darcula" file="colorSchemes/PdxScriptDarcula.xml"/>
 
     <intentionAction>
-      <className>com.windea.plugin.idea.stellaris.localization.intentions.ChangeLocaleIntention</className>
-      <category>Stellaris localization</category>
+      <className>com.windea.plugin.idea.pdx.localisation.intentions.ChangeLocaleIntention</className>
+      <category>Paradox localisation</category>
     </intentionAction>
     <intentionAction>
-      <className>com.windea.plugin.idea.stellaris.localization.intentions.ChangeColorIntention</className>
-      <category>Stellaris localization</category>
+      <className>com.windea.plugin.idea.pdx.localisation.intentions.ChangeColorIntention</className>
+      <category>Paradox localisation</category>
     </intentionAction>
     <intentionAction>
-      <className>com.windea.plugin.idea.stellaris.localization.intentions.ChangeSerialNumberIntention</className>
-      <category>Stellaris localization</category>
+      <className>com.windea.plugin.idea.pdx.localisation.intentions.ChangeSerialNumberIntention</className>
+      <category>Paradox localisation</category>
     </intentionAction>
 
     <localInspection
-      language="Stellaris Localization"
-      shortName="StellarisLocalizationDuplicatePropertyKeys" bundle="messages.StellarisBundle"
-      groupKey="stellaris.localization.inspection" key="stellaris.localization.inspection.duplicatePropertyKeys"
+      language="Paradox Localisation"
+      shortName="PdxLocalisationDuplicatePropertyKeys" bundle="messages.PdxBundle"
+      groupKey="pdx.localisation.inspection" key="pdx.localisation.inspection.duplicatePropertyKeys"
       enabledByDefault="true" level="WARNING"
-      implementationClass="com.windea.plugin.idea.stellaris.localization.inspections.DuplicatePropertyKeysInspection"/>
+      implementationClass="com.windea.plugin.idea.pdx.localisation.inspections.DuplicatePropertyKeysInspection"/>
     <localInspection
-      language="Stellaris Localization"
-      shortName="StellarisLocalizationInvalidFileEncoding" bundle="messages.StellarisBundle"
-      groupKey="stellaris.localization.inspection" key="stellaris.localization.inspection.invalidFileEncoding"
+      language="Paradox Localisation"
+      shortName="PdxLocalisationInvalidFileEncoding" bundle="messages.PdxBundle"
+      groupKey="pdx.localisation.inspection" key="pdx.localisation.inspection.invalidFileEncoding"
       enabledByDefault="true" level="WARNING"
-      implementationClass="com.windea.plugin.idea.stellaris.localization.inspections.InvalidFileEncodingInspection"/>
+      implementationClass="com.windea.plugin.idea.pdx.localisation.inspections.InvalidFileEncodingInspection"/>
     <!--endregion-->
 
-    <!--region Stellaris Script Language-->
+    <!--region Paradox Script Language-->
     <fileType
-      language="Stellaris Script"
-      name="Stellaris Script File" fieldName="INSTANCE"
-      implementationClass="com.windea.plugin.idea.stellaris.script.StellarisScriptFileType"/>
+      language="Paradox Script"
+      name="Paradox Script File" fieldName="INSTANCE"
+      implementationClass="com.windea.plugin.idea.pdx.script.PdxScriptFileType"/>
     <lang.parserDefinition
-      language="Stellaris Script"
-      implementationClass="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptParserDefinition"/>
-    <stubElementTypeHolder class="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptStubElementTypes" externalIdPrefix="stellarisScript."/>
-    <stubIndex implementation="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptVariableKeyIndex"/>
-    <stubIndex implementation="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptPropertyKeyIndex"/>
+      language="Paradox Script"
+      implementationClass="com.windea.plugin.idea.pdx.script.psi.PdxScriptParserDefinition"/>
+    <stubElementTypeHolder class="com.windea.plugin.idea.pdx.script.psi.PdxScriptStubElementTypes" externalIdPrefix="pdxScript."/>
+    <stubIndex implementation="com.windea.plugin.idea.pdx.script.psi.PdxScriptVariableKeyIndex"/>
+    <stubIndex implementation="com.windea.plugin.idea.pdx.script.psi.PdxScriptPropertyKeyIndex"/>
 
     <lang.syntaxHighlighterFactory
-      language="Stellaris Script"
-      implementationClass="com.windea.plugin.idea.stellaris.script.highlighter.StellarisScriptSyntaxHighlighterFactory"/>
+      language="Paradox Script"
+      implementationClass="com.windea.plugin.idea.pdx.script.highlighter.PdxScriptSyntaxHighlighterFactory"/>
     <lang.braceMatcher
-      language="Stellaris Script"
-      implementationClass="com.windea.plugin.idea.stellaris.script.editor.StellarisScriptBraceMatcher"/>
+      language="Paradox Script"
+      implementationClass="com.windea.plugin.idea.pdx.script.editor.PdxScriptBraceMatcher"/>
     <lang.foldingBuilder
-      language="Stellaris Script"
-      implementationClass="com.windea.plugin.idea.stellaris.script.editor.StellarisScriptFoldingBuilder"/>
+      language="Paradox Script"
+      implementationClass="com.windea.plugin.idea.pdx.script.editor.PdxScriptFoldingBuilder"/>
     <colorSettingsPage
-      implementation="com.windea.plugin.idea.stellaris.script.highlighter.StellarisScriptColorSettingsPage"/>
+      implementation="com.windea.plugin.idea.pdx.script.highlighter.PdxScriptColorSettingsPage"/>
     <lang.commenter
-      language="Stellaris Script"
-      implementationClass="com.windea.plugin.idea.stellaris.script.editor.StellarisScriptCommenter"/>
+      language="Paradox Script"
+      implementationClass="com.windea.plugin.idea.pdx.script.editor.PdxScriptCommenter"/>
     <spellchecker.support
-      language="Stellaris Script"
-      implementationClass="com.windea.plugin.idea.stellaris.script.StellarisScriptSpellchecker"/>
+      language="Paradox Script"
+      implementationClass="com.windea.plugin.idea.pdx.script.PdxScriptSpellchecker"/>
     <lang.refactoringSupport
-      language="Stellaris Script"
-      implementationClass="com.windea.plugin.idea.stellaris.script.refactoring.StellarisScriptRefactoringSupportProvider"/>
+      language="Paradox Script"
+      implementationClass="com.windea.plugin.idea.pdx.script.refactoring.PdxScriptRefactoringSupportProvider"/>
     <renameInputValidator
-      implementation="com.windea.plugin.idea.stellaris.script.refactoring.StellarisScriptVariableRenameInputValidator"/>
+      implementation="com.windea.plugin.idea.pdx.script.refactoring.PdxScriptVariableRenameInputValidator"/>
     <renameInputValidator
-      implementation="com.windea.plugin.idea.stellaris.script.refactoring.StellarisScriptPropertyRenameInputValidator"/>
+      implementation="com.windea.plugin.idea.pdx.script.refactoring.PdxScriptPropertyRenameInputValidator"/>
     <refactoring.inlineHandler
-      language="Stellaris Script"
-      implementationClass="com.windea.plugin.idea.stellaris.script.refactoring.StellarisScriptInlineHandler"/>
+      language="Paradox Script"
+      implementationClass="com.windea.plugin.idea.pdx.script.refactoring.PdxScriptInlineHandler"/>
     <completion.contributor
-      language="Stellaris Script"
-      implementationClass="com.windea.plugin.idea.stellaris.script.codeInsight.StellarisScriptCompletionContributor"/>
+      language="Paradox Script"
+      implementationClass="com.windea.plugin.idea.pdx.script.codeInsight.PdxScriptCompletionContributor"/>
     <breadcrumbsInfoProvider
-      implementation="com.windea.plugin.idea.stellaris.script.editor.StellarisScriptBreadCrumbsProvider"/>
+      implementation="com.windea.plugin.idea.pdx.script.editor.PdxScriptBreadCrumbsProvider"/>
     <colorProvider
-      implementation="com.windea.plugin.idea.stellaris.script.editor.StellarisScriptColorProvider"/>
+      implementation="com.windea.plugin.idea.pdx.script.editor.PdxScriptColorProvider"/>
     <lang.psiStructureViewFactory
-      language="Stellaris Script"
-      implementationClass="com.windea.plugin.idea.stellaris.script.structureView.StellarisScriptStructureViewFactory"/>
+      language="Paradox Script"
+      implementationClass="com.windea.plugin.idea.pdx.script.structureView.PdxScriptStructureViewFactory"/>
     <lang.formatter
-      language="Stellaris Script"
-      implementationClass="com.windea.plugin.idea.stellaris.script.formatter.StellarisScriptFormattingModelBuilder"/>
+      language="Paradox Script"
+      implementationClass="com.windea.plugin.idea.pdx.script.formatter.PdxScriptFormattingModelBuilder"/>
     <codeStyleSettingsProvider
-      implementation="com.windea.plugin.idea.stellaris.script.formatter.StellarisScriptCodeStyleSettingsProvider"/>
+      implementation="com.windea.plugin.idea.pdx.script.formatter.PdxScriptCodeStyleSettingsProvider"/>
     <langCodeStyleSettingsProvider
-      implementation="com.windea.plugin.idea.stellaris.script.formatter.StellarisScriptLanguageCodeStyleSettingsProvider"/>
+      implementation="com.windea.plugin.idea.pdx.script.formatter.PdxScriptLanguageCodeStyleSettingsProvider"/>
     <lang.quoteHandler
-      language="Stellaris Script"
-      implementationClass="com.windea.plugin.idea.stellaris.script.editor.StellarisScriptQuoteHandler"/>
+      language="Paradox Script"
+      implementationClass="com.windea.plugin.idea.pdx.script.editor.PdxScriptQuoteHandler"/>
     <lang.documentationProvider
-      language="Stellaris Script"
-      implementationClass="com.windea.plugin.idea.stellaris.script.editor.StellarisScriptDocumentationProvider"/>
+      language="Paradox Script"
+      implementationClass="com.windea.plugin.idea.pdx.script.editor.PdxScriptDocumentationProvider"/>
     <elementDescriptionProvider
-      implementation="com.windea.plugin.idea.stellaris.script.editor.StellarisScriptDescriptionProvider"/>
+      implementation="com.windea.plugin.idea.pdx.script.editor.PdxScriptDescriptionProvider"/>
 
     <lang.findUsagesProvider
-      language="Stellaris Script"
-      implementationClass="com.windea.plugin.idea.stellaris.script.editor.StellarisScriptFindUsagesProvider"/>
+      language="Paradox Script"
+      implementationClass="com.windea.plugin.idea.pdx.script.editor.PdxScriptFindUsagesProvider"/>
     <gotoDeclarationHandler
-      implementation="com.windea.plugin.idea.stellaris.script.editor.StellarisScriptGoToDeclarationHandler"/>
+      implementation="com.windea.plugin.idea.pdx.script.editor.PdxScriptGoToDeclarationHandler"/>
     <annotator
-      language="Stellaris Script"
-      implementationClass="com.windea.plugin.idea.stellaris.script.StellarisScriptAnnotator"/>
+      language="Paradox Script"
+      implementationClass="com.windea.plugin.idea.pdx.script.PdxScriptAnnotator"/>
 
-    <additionalTextAttributes scheme="Default" file="colorSchemes/StellarisLocalizationDefault.xml"/>
-    <additionalTextAttributes scheme="Darcula" file="colorSchemes/StellarisLocalizationDarcula.xml"/>
+    <additionalTextAttributes scheme="Default" file="colorSchemes/PdxLocalisationDefault.xml"/>
+    <additionalTextAttributes scheme="Darcula" file="colorSchemes/PdxLocalisationDarcula.xml"/>
 
     <localInspection
-      language="Stellaris Script"
-      shortName="StellarisScriptDuplicateVariableDefinitions" bundle="messages.StellarisBundle"
-      groupKey="stellaris.script.inspection"
-      key="stellaris.script.inspection.duplicateVariableDefinitions"
+      language="Paradox Script"
+      shortName="PdxScriptDuplicateVariableDefinitions" bundle="messages.PdxBundle"
+      groupKey="pdx.script.inspection"
+      key="pdx.script.inspection.duplicateVariableDefinitions"
       enabledByDefault="true" level="WARNING"
-      implementationClass="com.windea.plugin.idea.stellaris.script.inspections.DuplicateVariableDefinitionsInspection"/>
+      implementationClass="com.windea.plugin.idea.pdx.script.inspections.DuplicateVariableDefinitionsInspection"/>
     <localInspection
-      language="Stellaris Script"
-      shortName="StellarisScriptInvalidFileEncoding" bundle="messages.StellarisBundle"
-      groupKey="stellaris.script.inspection"
-      key="stellaris.script.inspection.invalidFileEncoding"
+      language="Paradox Script"
+      shortName="PdxScriptInvalidFileEncoding" bundle="messages.PdxBundle"
+      groupKey="pdx.script.inspection"
+      key="pdx.script.inspection.invalidFileEncoding"
       enabledByDefault="true" level="WARNING"
-      implementationClass="com.windea.plugin.idea.stellaris.script.inspections.InvalidFileEncodingInspection"/>
+      implementationClass="com.windea.plugin.idea.pdx.script.inspections.InvalidFileEncodingInspection"/>
     <!--endregion-->
 
-    <!--region Stellaris Script Schema-->
+    <!--region Paradox Script Schema-->
     <json.jsonSchemaEnabler
-      implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaEnabler"/>
+      implementation="com.windea.plugin.idea.pdx.script.schema.PdxScriptSchemaEnabler"/>
     <completion.contributor
-      language="Stellaris Script"
-      implementationClass="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaCompletionContributor"/>
+      language="Paradox Script"
+      implementationClass="com.windea.plugin.idea.pdx.script.schema.PdxScriptSchemaCompletionContributor"/>
     <gotoDeclarationHandler
-      implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaGotoDeclarationHandler"/>
+      implementation="com.windea.plugin.idea.pdx.script.schema.PdxScriptSchemaGotoDeclarationHandler"/>
     <json.jsonLikePsiWalkerFactory
-      implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptJsonLikePsiWalkerFactory"/>
+      implementation="com.windea.plugin.idea.pdx.script.schema.PdxScriptJsonLikePsiWalkerFactory"/>
     <!--<documentationProvider
-      implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaDocumentationProvider"/>-->
+      implementation="com.windea.plugin.idea.pdx.script.schema.PdxScriptSchemaDocumentationProvider"/>-->
 
     <localInspection
-      language="Stellaris Script"
-      shortName="StellarisScriptSchemaValidation" bundle="messages.StellarisBundle"
-      groupKey="stellaris.script.inspection" key="stellaris.script.inspection.schemaValidation"
+      language="Paradox Script"
+      shortName="PdxScriptSchemaValidation" bundle="messages.PdxBundle"
+      groupKey="pdx.script.inspection" key="pdx.script.inspection.schemaValidation"
       enabledByDefault="true" level="ERROR"
-      implementationClass="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaInspectionTool"/>
+      implementationClass="com.windea.plugin.idea.pdx.script.schema.PdxScriptSchemaInspectionTool"/>
     <!--endregion-->
   </extensions>
 
   <extensions defaultExtensionNs="JavaScript">
     <JsonSchema.ProviderFactory
-      implementation="com.windea.plugin.idea.stellaris.script.schema.StellarisScriptSchemaProviderFactory"/>
+      implementation="com.windea.plugin.idea.pdx.script.schema.PdxScriptSchemaProviderFactory"/>
   </extensions>
 </idea-plugin>

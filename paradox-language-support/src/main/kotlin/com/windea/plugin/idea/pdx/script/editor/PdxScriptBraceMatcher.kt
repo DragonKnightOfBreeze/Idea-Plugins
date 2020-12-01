@@ -1,15 +1,15 @@
-package com.windea.plugin.idea.stellaris.script.editor
+package com.windea.plugin.idea.pdx.script.editor
 
 import com.intellij.lang.*
 import com.intellij.psi.*
 import com.intellij.psi.tree.*
-import com.windea.plugin.idea.stellaris.script.psi.*
+import com.windea.plugin.idea.pdx.script.psi.*
 
-class StellarisScriptBraceMatcher : PairedBraceMatcher {
+class PdxScriptBraceMatcher : PairedBraceMatcher {
 	companion object{
 		private val bracePairs = arrayOf(
-			BracePair(StellarisScriptTypes.LEFT_BRACE, StellarisScriptTypes.RIGHT_BRACE, true),
-			BracePair(StellarisScriptTypes.CODE_START, StellarisScriptTypes.CODE_END, true)
+			BracePair(PdxScriptTypes.LEFT_BRACE, PdxScriptTypes.RIGHT_BRACE, true),
+			BracePair(PdxScriptTypes.CODE_START, PdxScriptTypes.CODE_END, true)
 		)
 	}
 

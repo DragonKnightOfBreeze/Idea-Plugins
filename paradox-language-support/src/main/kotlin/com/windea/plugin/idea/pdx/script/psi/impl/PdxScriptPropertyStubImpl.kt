@@ -1,10 +1,10 @@
-package com.windea.plugin.idea.stellaris.script.psi.impl
+package com.windea.plugin.idea.pdx.script.psi.impl
 
 import com.intellij.psi.stubs.*
-import com.windea.plugin.idea.stellaris.script.psi.*
+import com.windea.plugin.idea.pdx.script.psi.*
 
-class StellarisScriptPropertyStubImpl(
+class PdxScriptPropertyStubImpl(
 	parent: StubElement<*>,
 	override val key: String
-) : StubBase<StellarisScriptProperty>(parent, StellarisScriptStubElementTypes.PROPERTY), StellarisScriptPropertyStub
+) : StubBase<PdxScriptProperty>(parent, PdxScriptStubElementTypes.PROPERTY), PdxScriptPropertyStub
 

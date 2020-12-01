@@ -1,5 +1,5 @@
 // This is a generated file. Not intended for manual editing.
-package com.windea.plugin.idea.stellaris.script.psi.impl;
+package com.windea.plugin.idea.pdx.script.psi.impl;
 
 import java.util.List;
 import org.jetbrains.annotations.*;
@@ -7,78 +7,78 @@ import com.intellij.lang.ASTNode;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
-import static com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*;
-import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptVariableStub;
-import com.windea.plugin.idea.stellaris.script.psi.*;
+import static com.windea.plugin.idea.pdx.script.psi.PdxScriptTypes.*;
+import com.windea.plugin.idea.pdx.script.psi.PdxScriptVariableStub;
+import com.windea.plugin.idea.pdx.script.psi.*;
 import com.intellij.openapi.util.Iconable.IconFlags;
 import javax.swing.Icon;
 import com.intellij.psi.stubs.IStubElementType;
 
-public class StellarisScriptVariableImpl extends StellarisScriptStubElementImpl<StellarisScriptVariableStub> implements StellarisScriptVariable {
+public class PdxScriptVariableImpl extends PdxScriptStubElementImpl<PdxScriptVariableStub> implements PdxScriptVariable {
 
-  public StellarisScriptVariableImpl(@NotNull StellarisScriptVariableStub stub, @Nullable IStubElementType<?, ?> nodeType) {
+  public PdxScriptVariableImpl(@NotNull PdxScriptVariableStub stub, @Nullable IStubElementType<?, ?> nodeType) {
     super(stub, nodeType);
   }
 
-  public StellarisScriptVariableImpl(@NotNull ASTNode node) {
+  public PdxScriptVariableImpl(@NotNull ASTNode node) {
     super(node);
   }
 
-  public void accept(@NotNull StellarisScriptVisitor visitor) {
+  public void accept(@NotNull PdxScriptVisitor visitor) {
     visitor.visitVariable(this);
   }
 
   public void accept(@NotNull PsiElementVisitor visitor) {
-    if (visitor instanceof StellarisScriptVisitor) accept((StellarisScriptVisitor)visitor);
+    if (visitor instanceof PdxScriptVisitor) accept((PdxScriptVisitor)visitor);
     else super.accept(visitor);
   }
 
   @Override
   @NotNull
-  public StellarisScriptVariableName getVariableName() {
-    return notNullChild(PsiTreeUtil.getChildOfType(this, StellarisScriptVariableName.class));
+  public PdxScriptVariableName getVariableName() {
+    return notNullChild(PsiTreeUtil.getChildOfType(this, PdxScriptVariableName.class));
   }
 
   @Override
   @Nullable
-  public StellarisScriptVariableSeparator getVariableSeparator() {
-    return PsiTreeUtil.getChildOfType(this, StellarisScriptVariableSeparator.class);
+  public PdxScriptVariableSeparator getVariableSeparator() {
+    return PsiTreeUtil.getChildOfType(this, PdxScriptVariableSeparator.class);
   }
 
   @Override
   @Nullable
-  public StellarisScriptVariableValue getVariableValue() {
-    return PsiTreeUtil.getChildOfType(this, StellarisScriptVariableValue.class);
+  public PdxScriptVariableValue getVariableValue() {
+    return PsiTreeUtil.getChildOfType(this, PdxScriptVariableValue.class);
   }
 
   @Override
   @Nullable
   public String getName() {
-    return StellarisScriptPsiImplUtil.getName(this);
+    return PdxScriptPsiImplUtil.getName(this);
   }
 
   @Override
   @NotNull
   public PsiElement setName(@NotNull String name) {
-    return StellarisScriptPsiImplUtil.setName(this, name);
+    return PdxScriptPsiImplUtil.setName(this, name);
   }
 
   @Override
   @NotNull
   public PsiElement getNameIdentifier() {
-    return StellarisScriptPsiImplUtil.getNameIdentifier(this);
+    return PdxScriptPsiImplUtil.getNameIdentifier(this);
   }
 
   @Override
   @NotNull
   public Icon getIcon(@IconFlags int flags) {
-    return StellarisScriptPsiImplUtil.getIcon(this, flags);
+    return PdxScriptPsiImplUtil.getIcon(this, flags);
   }
 
   @Override
   @Nullable
   public String getValue() {
-    return StellarisScriptPsiImplUtil.getValue(this);
+    return PdxScriptPsiImplUtil.getValue(this);
   }
 
 }

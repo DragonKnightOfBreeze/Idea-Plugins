@@ -1,5 +1,5 @@
 // This is a generated file. Not intended for manual editing.
-package com.windea.plugin.idea.stellaris.script.psi.impl;
+package com.windea.plugin.idea.pdx.script.psi.impl;
 
 import java.util.List;
 import org.jetbrains.annotations.*;
@@ -7,22 +7,22 @@ import com.intellij.lang.ASTNode;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
-import static com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*;
-import com.windea.plugin.idea.stellaris.script.psi.*;
-import com.windea.plugin.idea.stellaris.script.reference.StellarisScriptStringAsPropertyPsiReference;
+import static com.windea.plugin.idea.pdx.script.psi.PdxScriptTypes.*;
+import com.windea.plugin.idea.pdx.script.psi.*;
+import com.windea.plugin.idea.pdx.script.reference.PdxScriptStringAsPropertyPsiReference;
 
-public class StellarisScriptStringImpl extends StellarisScriptStringValueImpl implements StellarisScriptString {
+public class PdxScriptStringImpl extends PdxScriptStringValueImpl implements PdxScriptString {
 
-  public StellarisScriptStringImpl(@NotNull ASTNode node) {
+  public PdxScriptStringImpl(@NotNull ASTNode node) {
     super(node);
   }
 
-  public void accept(@NotNull StellarisScriptVisitor visitor) {
+  public void accept(@NotNull PdxScriptVisitor visitor) {
     visitor.visitString(this);
   }
 
   public void accept(@NotNull PsiElementVisitor visitor) {
-    if (visitor instanceof StellarisScriptVisitor) accept((StellarisScriptVisitor)visitor);
+    if (visitor instanceof PdxScriptVisitor) accept((PdxScriptVisitor)visitor);
     else super.accept(visitor);
   }
 
@@ -41,13 +41,13 @@ public class StellarisScriptStringImpl extends StellarisScriptStringValueImpl im
   @Override
   @NotNull
   public String getValue() {
-    return StellarisScriptPsiImplUtil.getValue(this);
+    return PdxScriptPsiImplUtil.getValue(this);
   }
 
   @Override
   @Nullable
-  public StellarisScriptStringAsPropertyPsiReference getReference() {
-    return StellarisScriptPsiImplUtil.getReference(this);
+  public PdxScriptStringAsPropertyPsiReference getReference() {
+    return PdxScriptPsiImplUtil.getReference(this);
   }
 
 }

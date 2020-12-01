@@ -1,9 +1,9 @@
 // This is a generated file. Not intended for manual editing.
-package com.windea.plugin.idea.stellaris.script.psi;
+package com.windea.plugin.idea.pdx.script.psi;
 
 import com.intellij.lang.PsiBuilder;
 import com.intellij.lang.PsiBuilder.Marker;
-import static com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*;
+import static com.windea.plugin.idea.pdx.script.psi.PdxScriptTypes.*;
 import static com.intellij.lang.parser.GeneratedParserUtilBase.*;
 import com.intellij.psi.tree.IElementType;
 import com.intellij.lang.ASTNode;
@@ -12,7 +12,7 @@ import com.intellij.lang.PsiParser;
 import com.intellij.lang.LightPsiParser;
 
 @SuppressWarnings({"SimplifiableIfStatement", "UnusedAssignment"})
-public class StellarisScriptParser implements PsiParser, LightPsiParser {
+public class PdxScriptParser implements PsiParser, LightPsiParser {
 
   public ASTNode parse(IElementType t, PsiBuilder b) {
     parseLight(t, b);

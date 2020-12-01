@@ -16,9 +16,11 @@ fun main() {
 private fun File.replaceInDirectoryMatchCase(string:String,replacement:String){
 	println("Replace everywhere in directory '$path' match case.")
 	println("Replace file names and contents ...")
-	this.walk().onEach {
-		val text = it.readText()
-		it.writeText(text.replaceMatchCase(string,replacement))
+	this.walk().forEach {
+		if(it.isFile) {
+			val text = it.readText()
+			it.writeText(text.replaceMatchCase(string, replacement))
+		}
 		if(it.name.contains(string,true)){
 			it.renameTo(File(it.path.replaceMatchCase(string,replacement)))
 		}

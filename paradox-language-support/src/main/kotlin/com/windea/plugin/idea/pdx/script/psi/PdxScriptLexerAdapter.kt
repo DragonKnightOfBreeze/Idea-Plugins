@@ -1,6 +1,6 @@
-package com.windea.plugin.idea.stellaris.script.psi
+package com.windea.plugin.idea.pdx.script.psi
 
 import com.intellij.lexer.*
-import com.windea.plugin.idea.stellaris.script.psi.*
+import com.windea.plugin.idea.pdx.script.psi.*
 
-class StellarisScriptLexerAdapter : FlexAdapter(StellarisScriptLexer(null))
+class PdxScriptLexerAdapter : FlexAdapter(PdxScriptLexer(null))

@@ -1,12 +1,12 @@
-package com.windea.plugin.idea.stellaris.script.structureView
+package com.windea.plugin.idea.pdx.script.structureView
 
 import com.intellij.ide.structureView.*
 import com.intellij.ide.structureView.impl.common.*
-import com.windea.plugin.idea.stellaris.script.psi.*
+import com.windea.plugin.idea.pdx.script.psi.*
 
-class StellarisScriptVariableTreeElement(
-	private val psiElement: StellarisScriptVariable?
-): PsiTreeElementBase<StellarisScriptVariable>(psiElement){
+class PdxScriptVariableTreeElement(
+	private val psiElement: PdxScriptVariable?
+): PsiTreeElementBase<PdxScriptVariable>(psiElement){
 	override fun getChildrenBase(): MutableCollection<StructureViewTreeElement> {
 		return mutableListOf()
 	}

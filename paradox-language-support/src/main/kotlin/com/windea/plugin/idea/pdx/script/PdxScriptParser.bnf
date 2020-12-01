@@ -1,14 +1,14 @@
 {
-	parserClass="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptParser"
+	parserClass="com.windea.plugin.idea.pdx.script.psi.PdxScriptParser"
 	extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
-	psiClassPrefix="StellarisScript"
+	psiClassPrefix="PdxScript"
 	psiImplClassSuffix="Impl"
-	psiPackage="com.windea.plugin.idea.stellaris.script.psi"
-	psiImplPackage="com.windea.plugin.idea.stellaris.script.psi.impl"
-	elementTypeHolderClass="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes"
-	tokenTypeClass="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTokenType"
-	elementTypeClass="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptElementType"
-	psiImplUtilClass="com.windea.plugin.idea.stellaris.script.psi.impl.StellarisScriptPsiImplUtil"
+	psiPackage="com.windea.plugin.idea.pdx.script.psi"
+	psiImplPackage="com.windea.plugin.idea.pdx.script.psi.impl"
+	elementTypeHolderClass="com.windea.plugin.idea.pdx.script.psi.PdxScriptTypes"
+	tokenTypeClass="com.windea.plugin.idea.pdx.script.psi.PdxScriptTokenType"
+	elementTypeClass="com.windea.plugin.idea.pdx.script.psi.PdxScriptElementType"
+	psiImplUtilClass="com.windea.plugin.idea.pdx.script.psi.impl.PdxScriptPsiImplUtil"
 
 	tokens=[
 	  EQUAL_SIGN="="
@@ -50,16 +50,16 @@
 //root_block也是block，但不能直接extends，否则root下面会是value而非root_block
 root ::= root_block
 root_block ::= ( END_OF_LINE_COMMENT | COMMENT | variable | property | value) * {
-  implements="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptBlock"
+  implements="com.windea.plugin.idea.pdx.script.psi.PdxScriptBlock"
   methods=[isEmpty isNotEmpty isObject isArray getComponents getIcon]
 }
 
 variable ::= variable_name variable_separator variable_value {
   pin=1
-  elementTypeFactory="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptStubElementTypes.getVariableType"
-  extends="com.windea.plugin.idea.stellaris.script.psi.impl.StellarisScriptStubElementImpl<?>"
-  implements="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptNamedElement"
-  stubClass="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptVariableStub"
+  elementTypeFactory="com.windea.plugin.idea.pdx.script.psi.PdxScriptStubElementTypes.getVariableType"
+  extends="com.windea.plugin.idea.pdx.script.psi.impl.PdxScriptStubElementImpl<?>"
+  implements="com.windea.plugin.idea.pdx.script.psi.PdxScriptNamedElement"
+  stubClass="com.windea.plugin.idea.pdx.script.psi.PdxScriptVariableStub"
   methods=[getName setName getNameIdentifier getIcon getValue]
 }
 
@@ -69,10 +69,10 @@ variable_value ::= boolean | number | string
 
 property ::= property_key property_separator property_value {
   pin=1
-  elementTypeFactory="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptStubElementTypes.getPropertyType"
-  extends="com.windea.plugin.idea.stellaris.script.psi.impl.StellarisScriptStubElementImpl<?>"
-  implements="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptNamedElement"
-  stubClass="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptPropertyStub"
+  elementTypeFactory="com.windea.plugin.idea.pdx.script.psi.PdxScriptStubElementTypes.getPropertyType"
+  extends="com.windea.plugin.idea.pdx.script.psi.impl.PdxScriptStubElementImpl<?>"
+  implements="com.windea.plugin.idea.pdx.script.psi.PdxScriptNamedElement"
+  stubClass="com.windea.plugin.idea.pdx.script.psi.PdxScriptPropertyStub"
   methods=[getName setName getNameIdentifier getIcon getValue]
 }
 property_key ::= PROPERTY_KEY_ID | QUOTED_PROPERTY_KEY_ID

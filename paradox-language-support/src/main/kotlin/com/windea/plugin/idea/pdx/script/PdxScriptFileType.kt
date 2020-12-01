@@ -1,14 +1,14 @@
-package com.windea.plugin.idea.stellaris.script
+package com.windea.plugin.idea.pdx.script
 
 import com.intellij.openapi.fileTypes.*
-import com.windea.plugin.idea.stellaris.*
+import com.windea.plugin.idea.pdx.*
 
-object StellarisScriptFileType : LanguageFileType(StellarisScriptLanguage) {
-	override fun getName() = stellarisScriptFileTypeName
+object PdxScriptFileType : LanguageFileType(PdxScriptLanguage) {
+	override fun getName() = pdxScriptFileTypeName
 
-	override fun getDescription() = stellarisScriptFileTypeDescription
+	override fun getDescription() = pdxScriptFileTypeDescription
 
-	override fun getDefaultExtension() = stellarisScriptExtension
+	override fun getDefaultExtension() = pdxScriptExtension
 
-	override fun getIcon() = stellarisScriptFileIcon
+	override fun getIcon() = pdxScriptFileIcon
 }

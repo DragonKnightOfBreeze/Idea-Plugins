@@ -1,8 +1,8 @@
-package com.windea.plugin.idea.stellaris.script.editor
+package com.windea.plugin.idea.pdx.script.editor
 
 import com.intellij.lang.*
 
-class StellarisScriptCommenter : Commenter {
+class PdxScriptCommenter : Commenter {
 	override fun getLineCommentPrefix() = "#"
 
 	override fun getCommentedBlockCommentPrefix() = null

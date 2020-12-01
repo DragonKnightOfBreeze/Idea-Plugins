@@ -1,4 +1,4 @@
-package com.windea.plugin.idea.stellaris.script.psi
+package com.windea.plugin.idea.pdx.script.psi
 
 import com.intellij.lang.*
 import com.intellij.lang.ParserDefinition.SpaceRequirements.*
@@ -6,18 +6,18 @@ import com.intellij.openapi.project.*
 import com.intellij.psi.*
 import com.intellij.psi.TokenType.*
 import com.intellij.psi.tree.*
-import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
-import com.windea.plugin.idea.stellaris.script.*
+import com.windea.plugin.idea.pdx.script.psi.PdxScriptTypes.*
+import com.windea.plugin.idea.pdx.script.*
 
-class StellarisScriptParserDefinition : ParserDefinition {
+class PdxScriptParserDefinition : ParserDefinition {
 	companion object {
 		val WHITE_SPACES = TokenSet.create(WHITE_SPACE)
 		val COMMENTS = TokenSet.create(COMMENT, END_OF_LINE_COMMENT)
 		val STRINGS = TokenSet.create(QUOTED_STRING_TOKEN, STRING_TOKEN)
-		val FILE = IFileElementType(StellarisScriptLanguage)
+		val FILE = IFileElementType(PdxScriptLanguage)
 	}
 
-	override fun createLexer(project: Project?) = StellarisScriptLexerAdapter()
+	override fun createLexer(project: Project?) = PdxScriptLexerAdapter()
 
 	override fun getWhitespaceTokens() = WHITE_SPACES
 
@@ -25,11 +25,11 @@ class StellarisScriptParserDefinition : ParserDefinition {
 
 	override fun getStringLiteralElements() = STRINGS
 
-	override fun createParser(project: Project?) = StellarisScriptParser()
+	override fun createParser(project: Project?) = PdxScriptParser()
 
-	override fun getFileNodeType() = StellarisScriptStubElementTypes.FILE
+	override fun getFileNodeType() = PdxScriptStubElementTypes.FILE
 
-	override fun createFile(viewProvider: FileViewProvider) = StellarisScriptFile(viewProvider)
+	override fun createFile(viewProvider: FileViewProvider) = PdxScriptFile(viewProvider)
 
 	override fun spaceExistenceTypeBetweenTokens(left: ASTNode?, right: ASTNode?) = when {
 		//文本之间必须有空白
@@ -41,5 +41,5 @@ class StellarisScriptParserDefinition : ParserDefinition {
 		else -> MAY
 	}
 
-	override fun createElement(node: ASTNode) = StellarisScriptTypes.Factory.createElement(node)
+	override fun createElement(node: ASTNode) = PdxScriptTypes.Factory.createElement(node)
 }

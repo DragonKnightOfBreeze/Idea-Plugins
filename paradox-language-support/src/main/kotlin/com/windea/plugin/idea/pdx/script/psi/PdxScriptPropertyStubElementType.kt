@@ -1,44 +1,44 @@
-package com.windea.plugin.idea.stellaris.script.psi
+package com.windea.plugin.idea.pdx.script.psi
 
 import com.intellij.lang.*
 import com.intellij.psi.impl.source.tree.*
 import com.intellij.psi.stubs.*
 import com.intellij.util.*
-import com.windea.plugin.idea.stellaris.script.*
-import com.windea.plugin.idea.stellaris.script.psi.impl.*
+import com.windea.plugin.idea.pdx.script.*
+import com.windea.plugin.idea.pdx.script.psi.impl.*
 
-class StellarisScriptPropertyStubElementType() : ILightStubElementType<StellarisScriptPropertyStub, StellarisScriptProperty>(
+class PdxScriptPropertyStubElementType() : ILightStubElementType<PdxScriptPropertyStub, PdxScriptProperty>(
 	"STELLRAIS_SCRIPT_PROPERTY",
-	StellarisScriptLanguage
+	PdxScriptLanguage
 ) {
-	override fun createPsi(stub: StellarisScriptPropertyStub): StellarisScriptProperty {
-		return StellarisScriptPropertyImpl(stub, this)
+	override fun createPsi(stub: PdxScriptPropertyStub): PdxScriptProperty {
+		return PdxScriptPropertyImpl(stub, this)
 	}
 	
-	override fun createStub(psi: StellarisScriptProperty, parentStub: StubElement<*>): StellarisScriptPropertyStub {
-		return StellarisScriptPropertyStubImpl(parentStub, psi.name.orEmpty())
+	override fun createStub(psi: PdxScriptProperty, parentStub: StubElement<*>): PdxScriptPropertyStub {
+		return PdxScriptPropertyStubImpl(parentStub, psi.name.orEmpty())
 	}
 	
-	override fun createStub(tree: LighterAST, node: LighterASTNode, parentStub: StubElement<*>): StellarisScriptPropertyStub {
-		val keyNode = LightTreeUtil.firstChildOfType(tree, node, StellarisScriptTypes.PROPERTY_KEY_ID)
+	override fun createStub(tree: LighterAST, node: LighterASTNode, parentStub: StubElement<*>): PdxScriptPropertyStub {
+		val keyNode = LightTreeUtil.firstChildOfType(tree, node, PdxScriptTypes.PROPERTY_KEY_ID)
 		val key = intern(tree.charTable, keyNode)
-		return StellarisScriptPropertyStubImpl(parentStub, key)
+		return PdxScriptPropertyStubImpl(parentStub, key)
 	}
 	
 	override fun getExternalId(): String {
-		return "stellarisScript.property"
+		return "pdxScript.property"
 	}
 	
-	override fun serialize(stub: StellarisScriptPropertyStub, dataStream: StubOutputStream) {
+	override fun serialize(stub: PdxScriptPropertyStub, dataStream: StubOutputStream) {
 		dataStream.writeName(stub.key)
 	}
 	
-	override fun deserialize(dataStream: StubInputStream, parentStub: StubElement<*>): StellarisScriptPropertyStub {
-		return StellarisScriptPropertyStubImpl(parentStub, dataStream.readNameString()!!)
+	override fun deserialize(dataStream: StubInputStream, parentStub: StubElement<*>): PdxScriptPropertyStub {
+		return PdxScriptPropertyStubImpl(parentStub, dataStream.readNameString()!!)
 	}
 	
-	override fun indexStub(stub: StellarisScriptPropertyStub, sink: IndexSink) {
-		sink.occurrence(StellarisScriptPropertyKeyIndex.key, stub.key)
+	override fun indexStub(stub: PdxScriptPropertyStub, sink: IndexSink) {
+		sink.occurrence(PdxScriptPropertyKeyIndex.key, stub.key)
 	}
 	
 	companion object {

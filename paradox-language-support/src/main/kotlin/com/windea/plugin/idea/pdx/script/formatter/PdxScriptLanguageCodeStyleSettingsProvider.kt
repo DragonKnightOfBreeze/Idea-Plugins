@@ -1,13 +1,13 @@
-package com.windea.plugin.idea.stellaris.script.formatter
+package com.windea.plugin.idea.pdx.script.formatter
 
 
 import com.intellij.application.options.*
 import com.intellij.psi.codeStyle.*
 import com.intellij.psi.codeStyle.CodeStyleSettingsCustomizable.*
-import com.windea.plugin.idea.stellaris.*
-import com.windea.plugin.idea.stellaris.message
-import com.windea.plugin.idea.stellaris.script.*
-import com.windea.plugin.idea.stellaris.script.formatter.StellarisScriptCodeStyleSettings.*
+import com.windea.plugin.idea.pdx.*
+import com.windea.plugin.idea.pdx.message
+import com.windea.plugin.idea.pdx.script.*
+import com.windea.plugin.idea.pdx.script.formatter.PdxScriptCodeStyleSettings.*
 
 //代码风格：
 //INDENT_SETTINGS
@@ -20,11 +20,11 @@ import com.windea.plugin.idea.stellaris.script.formatter.StellarisScriptCodeStyl
 //* SPACE_AROUND_VARIABLE_SEPARATOR
 //* SPACE_AROUND_PROPERTY_SEPARATOR
 
-class StellarisScriptLanguageCodeStyleSettingsProvider : LanguageCodeStyleSettingsProvider() {
-	override fun getLanguage() = StellarisScriptLanguage
+class PdxScriptLanguageCodeStyleSettingsProvider : LanguageCodeStyleSettingsProvider() {
+	override fun getLanguage() = PdxScriptLanguage
 
 	override fun createCustomSettings(settings: CodeStyleSettings): CustomCodeStyleSettings? {
-		return StellarisScriptCodeStyleSettings(settings)
+		return PdxScriptCodeStyleSettings(settings)
 	}
 
 	//需要重载这个方法以显示indentOptions设置页面
@@ -51,21 +51,21 @@ class StellarisScriptLanguageCodeStyleSettingsProvider : LanguageCodeStyleSettin
 			}
 			SettingsType.SPACING_SETTINGS -> {
 				consumer.showCustomOption(
-					StellarisScriptCodeStyleSettings::class.java,
+					PdxScriptCodeStyleSettings::class.java,
 					Option.SPACE_WITHIN_BRACES.name,
-					message("stellaris.script.codeStyle.spaceWithinBraces"),
+					message("pdx.script.codeStyle.spaceWithinBraces"),
 					SPACES_WITHIN
 				)
 				consumer.showCustomOption(
-					StellarisScriptCodeStyleSettings::class.java,
+					PdxScriptCodeStyleSettings::class.java,
 					Option.SPACE_AROUND_VARIABLE_SEPARATOR.name,
-					message("stellaris.script.codeStyle.spaceAroundVariableDefinitionSeparator"),
+					message("pdx.script.codeStyle.spaceAroundVariableDefinitionSeparator"),
 					SPACES_AROUND_OPERATORS
 				)
 				consumer.showCustomOption(
-					StellarisScriptCodeStyleSettings::class.java,
+					PdxScriptCodeStyleSettings::class.java,
 					Option.SPACE_AROUND_PROPERTY_SEPARATOR.name,
-					message("stellaris.script.codeStyle.spaceAroundPropertySeparator"),
+					message("pdx.script.codeStyle.spaceAroundPropertySeparator"),
 					SPACES_AROUND_OPERATORS
 				)
 			}
@@ -74,7 +74,7 @@ class StellarisScriptLanguageCodeStyleSettingsProvider : LanguageCodeStyleSettin
 	}
 
 	override fun getCodeSample(settingsType: SettingsType): String? {
-		return stellarisScriptDummyText
+		return pdxScriptDummyText
 	}
 
 	class IndentOptionsEditor(

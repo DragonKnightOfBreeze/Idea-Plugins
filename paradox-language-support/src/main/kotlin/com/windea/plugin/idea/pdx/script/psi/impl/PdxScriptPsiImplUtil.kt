@@ -1,152 +1,152 @@
 @file:Suppress("UNUSED_PARAMETER", "UNUSED_DESTRUCTURED_PARAMETER_ENTRY", "IntroduceWhenSubject", "MoveVariableDeclarationIntoWhen")
 
-package com.windea.plugin.idea.stellaris.script.psi.impl
+package com.windea.plugin.idea.pdx.script.psi.impl
 
 import com.intellij.openapi.util.*
 import com.intellij.psi.*
-import com.windea.plugin.idea.stellaris.*
-import com.windea.plugin.idea.stellaris.localization.psi.*
-import com.windea.plugin.idea.stellaris.script.psi.*
-import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptElementFactory.createPropertyKey
-import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptElementFactory.createValue
-import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptElementFactory.createVariableName
-import com.windea.plugin.idea.stellaris.script.reference.*
+import com.windea.plugin.idea.pdx.*
+import com.windea.plugin.idea.pdx.localisation.psi.*
+import com.windea.plugin.idea.pdx.script.psi.*
+import com.windea.plugin.idea.pdx.script.psi.PdxScriptElementFactory.createPropertyKey
+import com.windea.plugin.idea.pdx.script.psi.PdxScriptElementFactory.createValue
+import com.windea.plugin.idea.pdx.script.psi.PdxScriptElementFactory.createVariableName
+import com.windea.plugin.idea.pdx.script.reference.*
 import org.apache.commons.imaging.color.*
 import java.awt.*
 import javax.swing.*
 
-object StellarisScriptPsiImplUtil {
-	//region StellarisScriptVariable
+object PdxScriptPsiImplUtil {
+	//region PdxScriptVariable
 	@JvmStatic
-	fun getName(element: StellarisScriptVariable): String? {
+	fun getName(element: PdxScriptVariable): String? {
 		return element.stub?.key ?: element.variableName.text
 	}
 	
 	@JvmStatic
-	fun setName(element: StellarisScriptVariable, name: String): PsiElement {
+	fun setName(element: PdxScriptVariable, name: String): PsiElement {
 		element.variableName.replace(createVariableName(element.project, name))
 		return element
 	}
 	
 	@JvmStatic
-	fun getNameIdentifier(element: StellarisScriptVariable): PsiElement {
+	fun getNameIdentifier(element: PdxScriptVariable): PsiElement {
 		return element.variableName.variableNameId
 	}
 	
 	@JvmStatic
-	fun getIcon(element: StellarisScriptVariable, @Iconable.IconFlags flags: Int): Icon {
-		return stellarisScriptVariableIcon
+	fun getIcon(element: PdxScriptVariable, @Iconable.IconFlags flags: Int): Icon {
+		return pdxScriptVariableIcon
 	}
 	
 	@JvmStatic
-	fun getValue(element: StellarisScriptVariable): String? {
+	fun getValue(element: PdxScriptVariable): String? {
 		return element.variableValue?.text?.unquote()
 	}
 	//endregion
 	
-	//region StellarisScriptProperty
+	//region PdxScriptProperty
 	@JvmStatic
-	fun getName(element: StellarisScriptProperty): String {
+	fun getName(element: PdxScriptProperty): String {
 		return element.stub?.key ?: element.propertyKey.text.unquote()
 	}
 	
 	@JvmStatic
-	fun setName(element: StellarisScriptProperty, name: String): PsiElement {
+	fun setName(element: PdxScriptProperty, name: String): PsiElement {
 		element.propertyKey.replace(createPropertyKey(element.project, name))
 		return element
 	}
 	
 	@JvmStatic
-	fun getNameIdentifier(element: StellarisScriptProperty): PsiElement? {
+	fun getNameIdentifier(element: PdxScriptProperty): PsiElement? {
 		return element.propertyKey.let { it.propertyKeyId ?: it.quotedPropertyKeyId }
 	}
 	
 	@JvmStatic
-	fun getIcon(element: StellarisScriptProperty, @Iconable.IconFlags flags: Int): Icon {
-		return stellarisScriptPropertyIcon
+	fun getIcon(element: PdxScriptProperty, @Iconable.IconFlags flags: Int): Icon {
+		return pdxScriptPropertyIcon
 	}
 	
 	@JvmStatic
-	fun getValue(element: StellarisScriptProperty): String? {
+	fun getValue(element: PdxScriptProperty): String? {
 		return element.propertyValue?.text?.unquote()
 	}
 	//endregion
 	
-	//region StellarisScriptVariableReference
+	//region PdxScriptVariableReference
 	@JvmStatic
-	fun getName(element: StellarisScriptVariableReference): String? {
+	fun getName(element: PdxScriptVariableReference): String? {
 		return element.variableReferenceId.text
 	}
 	
 	@JvmStatic
-	fun setName(element: StellarisScriptVariableReference, name: String): PsiElement {
+	fun setName(element: PdxScriptVariableReference, name: String): PsiElement {
 		element.replace(createValue(element.project, name))
 		return element
 	}
 	
 	@JvmStatic
-	fun getNameIdentifier(element: StellarisScriptVariableReference): PsiElement {
+	fun getNameIdentifier(element: PdxScriptVariableReference): PsiElement {
 		return element.variableReferenceId
 	}
 	
 	@JvmStatic
-	fun getReference(element: StellarisScriptVariableReference): StellarisScriptVariablePsiReference {
-		return StellarisScriptVariablePsiReference(element, TextRange(0, element.textLength))
+	fun getReference(element: PdxScriptVariableReference): PdxScriptVariablePsiReference {
+		return PdxScriptVariablePsiReference(element, TextRange(0, element.textLength))
 	}
 	//endregion
 	
-	//region StellarisScriptValue
+	//region PdxScriptValue
 	@JvmStatic
-	fun getIcon(element: StellarisScriptValue, @Iconable.IconFlags flags: Int): Icon {
-		return stellarisScriptValueIcon
+	fun getIcon(element: PdxScriptValue, @Iconable.IconFlags flags: Int): Icon {
+		return pdxScriptValueIcon
 	}
 	//endregion
 	
-	//region StellarisScriptBoolean
+	//region PdxScriptBoolean
 	@JvmStatic
-	fun getValue(element: StellarisScriptBoolean): String {
+	fun getValue(element: PdxScriptBoolean): String {
 		return element.text
 	}
 	//endregion
 	
-	//region StellarisScriptNumber
+	//region PdxScriptNumber
 	@JvmStatic
-	fun getValue(element: StellarisScriptNumber): String {
+	fun getValue(element: PdxScriptNumber): String {
 		return element.text
 	}
 	//endregion
 	
-	//region StellarisScriptStringValue
+	//region PdxScriptStringValue
 	@JvmStatic
-	fun getValue(element: StellarisScriptStringValue): String {
+	fun getValue(element: PdxScriptStringValue): String {
 		return element.text.unquote()
 	}
 	//endregion
 	
-	//region StellarisScriptString
+	//region PdxScriptString
 	@JvmStatic
-	fun getValue(element: StellarisScriptString): String {
+	fun getValue(element: PdxScriptString): String {
 		return element.text.unquote()
 	}
 	
 	private val emptyArray = arrayOf<PsiPolyVariantReference>()
 	
 	@JvmStatic
-	fun getReference(element: StellarisScriptString): StellarisScriptStringAsPropertyPsiReference? {
+	fun getReference(element: PdxScriptString): PdxScriptStringAsPropertyPsiReference? {
 		//过滤非法的情况
 		if(element.value.isInvalidPropertyName) return null
-		return StellarisScriptStringAsPropertyPsiReference(element, TextRange(0, element.textLength))
+		return PdxScriptStringAsPropertyPsiReference(element, TextRange(0, element.textLength))
 	}
 	//endregion
 	
-	//region StellarisScriptColor
+	//region PdxScriptColor
 	@JvmStatic
-	fun getValue(element: StellarisScriptColor): String {
+	fun getValue(element: PdxScriptColor): String {
 		return element.text
 	}
 	
 	@JvmStatic
-	fun getColor(element: StellarisScriptColor): Color? {
+	fun getColor(element: PdxScriptColor): Color? {
 		//忽略异常
 		return runCatching {
 			val text = element.text
@@ -166,7 +166,7 @@ object StellarisScriptPsiImplUtil {
 	}
 	
 	@JvmStatic
-	fun setColor(element: StellarisScriptColor, color: Color) {
+	fun setColor(element: PdxScriptColor, color: Color) {
 		runCatching {
 			val text = element.text
 			val colorType = text.substringBefore('{').trim()
@@ -186,7 +186,7 @@ object StellarisScriptPsiImplUtil {
 			//	"hsl" -> "hsl { ${color.toColorHsl().run { "$H $S $L" }} }"
 			//	else -> "rgba { ${color.run { "$red $green $blue $alpha" }} }"
 			//}
-			val newColor = StellarisScriptElementFactory.createValue(element.project, newText) as? StellarisScriptColor
+			val newColor = PdxScriptElementFactory.createValue(element.project, newText) as? PdxScriptColor
 			if(newColor != null) element.replace(newColor)
 		}
 	}
@@ -200,54 +200,54 @@ object StellarisScriptPsiImplUtil {
 	private fun Color.toColorHsv() = ColorConversions.convertRGBtoHSV(this.rgb)
 	//endregion
 	
-	//region StellarisScriptCode
+	//region PdxScriptCode
 	@JvmStatic
-	fun getValue(element: StellarisScriptCode): String? {
+	fun getValue(element: PdxScriptCode): String? {
 		return element.text
 	}
 	//endregion
 	
-	//region StellarisScriptBlock
+	//region PdxScriptBlock
 	@JvmStatic
-	fun isEmpty(element: StellarisScriptBlock): Boolean {
+	fun isEmpty(element: PdxScriptBlock): Boolean {
 		element.forEachChild {
-			if(it is StellarisScriptProperty || it is StellarisLocalizationProperty) return false
+			if(it is PdxScriptProperty || it is PdxLocalisationProperty) return false
 		}
 		return true
 	}
 	
 	@JvmStatic
-	fun isNotEmpty(element: StellarisScriptBlock): Boolean {
+	fun isNotEmpty(element: PdxScriptBlock): Boolean {
 		element.forEachChild {
-			if(it is StellarisScriptProperty || it is StellarisLocalizationProperty) return true
+			if(it is PdxScriptProperty || it is PdxLocalisationProperty) return true
 		}
 		return true
 	}
 	
 	@JvmStatic
-	fun isObject(element: StellarisScriptBlock): Boolean {
+	fun isObject(element: PdxScriptBlock): Boolean {
 		element.forEachChild {
 			when(it) {
-				is StellarisScriptProperty -> return true
-				is StellarisScriptValue -> return false
+				is PdxScriptProperty -> return true
+				is PdxScriptValue -> return false
 			}
 		}
 		return false
 	}
 	
 	@JvmStatic
-	fun isArray(element: StellarisScriptBlock): Boolean {
+	fun isArray(element: PdxScriptBlock): Boolean {
 		element.forEachChild {
 			when(it) {
-				is StellarisScriptProperty -> return false
-				is StellarisScriptValue -> return true
+				is PdxScriptProperty -> return false
+				is PdxScriptValue -> return true
 			}
 		}
 		return false
 	}
 	
 	@JvmStatic
-	fun getComponents(element: StellarisScriptBlock): List<PsiElement> {
+	fun getComponents(element: PdxScriptBlock): List<PsiElement> {
 		//如果存在元素为property，则认为所有合法的元素都是property
 		return if(element.isObject) element.propertyList else element.valueList
 	}

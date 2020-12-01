@@ -1,14 +1,14 @@
-package com.windea.plugin.idea.stellaris.script.schema.adapter
+package com.windea.plugin.idea.pdx.script.schema.adapter
 
 import com.jetbrains.jsonSchema.extension.adapters.*
-import com.windea.plugin.idea.stellaris.script.psi.*
+import com.windea.plugin.idea.pdx.script.psi.*
 
-class StellarisScriptArrayAdapter(
-	private val element: StellarisScriptBlock
+class PdxScriptArrayAdapter(
+	private val element: PdxScriptBlock
 ): JsonArrayValueAdapter {
 	override fun getDelegate() = element
 
-	override fun getElements() = element.valueList.mapNotNull{ StellarisScriptValueAdapter(it) }
+	override fun getElements() = element.valueList.mapNotNull{ PdxScriptValueAdapter(it) }
 
 	override fun isBooleanLiteral() = false
 

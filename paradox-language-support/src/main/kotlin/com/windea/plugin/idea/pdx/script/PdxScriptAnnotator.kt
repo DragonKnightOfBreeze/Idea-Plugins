@@ -1,6 +1,6 @@
 @file:Suppress("UNCHECKED_CAST")
 
-package com.windea.plugin.idea.stellaris.script
+package com.windea.plugin.idea.pdx.script
 
 import com.intellij.codeInsight.navigation.*
 import com.intellij.lang.annotation.*
@@ -12,23 +12,23 @@ import com.intellij.psi.*
 import com.intellij.ui.awt.*
 import com.intellij.util.*
 import com.intellij.util.ui.*
-import com.windea.plugin.idea.stellaris.*
-import com.windea.plugin.idea.stellaris.localization.*
-import com.windea.plugin.idea.stellaris.message
-import com.windea.plugin.idea.stellaris.localization.psi.*
-import com.windea.plugin.idea.stellaris.script.highlighter.*
-import com.windea.plugin.idea.stellaris.script.psi.*
-import com.windea.plugin.idea.stellaris.settings.*
+import com.windea.plugin.idea.pdx.*
+import com.windea.plugin.idea.pdx.localisation.*
+import com.windea.plugin.idea.pdx.message
+import com.windea.plugin.idea.pdx.localisation.psi.*
+import com.windea.plugin.idea.pdx.script.highlighter.*
+import com.windea.plugin.idea.pdx.script.psi.*
+import com.windea.plugin.idea.pdx.settings.*
 import java.awt.*
 import java.awt.event.*
 
-class StellarisScriptAnnotator : Annotator, DumbAware {
+class PdxScriptAnnotator : Annotator, DumbAware {
 	internal class ScriptPropertyGutterIconRenderer(
 		private val name:String,
 		private val project:Project
 	): GutterIconRenderer(),DumbAware {
-		private val tooltip = message("stellaris.script.annotator.scriptProperty",name)
-		private val title = message("stellaris.script.annotator.scriptProperty.title")
+		private val tooltip = message("pdx.script.annotator.scriptProperty",name)
+		private val title = message("pdx.script.annotator.scriptProperty.title")
 		
 		override fun getIcon() = scriptPropertyGutterIcon
 		override fun getTooltipText() = tooltip
@@ -59,10 +59,10 @@ class StellarisScriptAnnotator : Annotator, DumbAware {
 	
 	internal class StringScriptPropertyGutterIconRenderer(
 		private val name: String,
-		private val properties: Array<StellarisScriptProperty>,
+		private val properties: Array<PdxScriptProperty>,
 	) : GutterIconRenderer(), DumbAware {
-		private val tooltip = message("stellaris.script.annotator.scriptProperty", name)
-		private val title = message("stellaris.script.annotator.scriptProperty.title")
+		private val tooltip = message("pdx.script.annotator.scriptProperty", name)
+		private val title = message("pdx.script.annotator.scriptProperty.title")
 		
 		override fun getIcon() = scriptPropertyGutterIcon
 		override fun getTooltipText() = tooltip
@@ -72,35 +72,35 @@ class StellarisScriptAnnotator : Annotator, DumbAware {
 		override fun hashCode() = name.hashCode()
 	}
 	
-	internal class StringLocalizationPropertyGutterIconRenderer(
+	internal class StringLocalisationPropertyGutterIconRenderer(
 		private val name: String,
-		private val properties: Array<StellarisLocalizationProperty>,
+		private val properties: Array<PdxLocalisationProperty>,
 	) : GutterIconRenderer(), DumbAware {
-		private val tooltip = message("stellaris.script.annotator.localizationProperty", name)
-		private val title = message("stellaris.script.annotator.localizationProperty.title")
+		private val tooltip = message("pdx.script.annotator.localisationProperty", name)
+		private val title = message("pdx.script.annotator.localisationProperty.title")
 		
-		override fun getIcon() = localizationPropertyGutterIcon
+		override fun getIcon() = localisationPropertyGutterIcon
 		override fun getTooltipText() = tooltip
 		override fun getClickAction() = NavigateAction(title, properties)
 		override fun isNavigateAction() = true
-		override fun equals(other: Any?) = other is StringLocalizationPropertyGutterIconRenderer && name == other.name
+		override fun equals(other: Any?) = other is StringLocalisationPropertyGutterIconRenderer && name == other.name
 		override fun hashCode() = name.hashCode()
 	}
 	
-	internal class RelatedLocalizationPropertiesGutterIconRenderer(
+	internal class RelatedLocalisationPropertiesGutterIconRenderer(
 		private val names: Array<String>,
-		private val properties: Array<StellarisLocalizationProperty>,
+		private val properties: Array<PdxLocalisationProperty>,
 	) : GutterIconRenderer(), DumbAware {
 		private val tooltip = names.joinToString("<br>") { name ->
-			message("stellaris.script.annotator.relatedLocalizationProperties", name)
+			message("pdx.script.annotator.relatedLocalisationProperties", name)
 		}
-		private val title = message("stellaris.script.annotator.relatedLocalizationProperties.title")
+		private val title = message("pdx.script.annotator.relatedLocalisationProperties.title")
 		
-		override fun getIcon() = localizationPropertyGutterIcon
+		override fun getIcon() = localisationPropertyGutterIcon
 		override fun getTooltipText() = tooltip
 		override fun getClickAction() = NavigateAction(title, properties)
 		override fun isNavigateAction() = true
-		override fun equals(other: Any?) = other is RelatedLocalizationPropertiesGutterIconRenderer && names.contentEquals(other.names)
+		override fun equals(other: Any?) = other is RelatedLocalisationPropertiesGutterIconRenderer && names.contentEquals(other.names)
 		override fun hashCode() = names.contentHashCode()
 	}
 	
@@ -128,23 +128,23 @@ class StellarisScriptAnnotator : Annotator, DumbAware {
 		override fun hashCode() = color.hashCode()
 	}
 	
-	private val state = StellarisSettingsState.getInstance()
+	private val state = PdxSettingsState.getInstance()
 	
 	override fun annotate(element: PsiElement, holder: AnnotationHolder) {
 		when(element) {
-			is StellarisScriptProperty -> annotateProperty(element, holder)
-			is StellarisScriptString -> annotateString(element, holder)
+			is PdxScriptProperty -> annotateProperty(element, holder)
+			is PdxScriptString -> annotateString(element, holder)
 		}
 	}
 	
-	private fun annotateProperty(element: StellarisScriptProperty, holder: AnnotationHolder) {
+	private fun annotateProperty(element: PdxScriptProperty, holder: AnnotationHolder) {
 		if(!state.resolveInternalReferences) return
 		
 		val name = element.name
 		val project = element.project
 		
 		//过滤例外情况
-		if(element.parent !is StellarisScriptRootBlock || element.stellarisParentPath.isNullOrEmpty()) return
+		if(element.parent !is PdxScriptRootBlock || element.pdxParentPath.isNullOrEmpty()) return
 		if(name.isInvalidPropertyName) return
 		
 		//注明所有同名的属性
@@ -153,16 +153,16 @@ class StellarisScriptAnnotator : Annotator, DumbAware {
 			.create()
 		
 		//注明所有关联的本地化属性（如果存在）
-		val relatedLocalizationProperties = findRelatedLocalizationProperties(name,project).toTypedArray()
-		if(relatedLocalizationProperties.isNotEmpty()) {
-			val names = relatedLocalizationProperties.mapTo(linkedSetOf()) { it.name }.toTypedArray()
+		val relatedLocalisationProperties = findRelatedLocalisationProperties(name,project).toTypedArray()
+		if(relatedLocalisationProperties.isNotEmpty()) {
+			val names = relatedLocalisationProperties.mapTo(linkedSetOf()) { it.name }.toTypedArray()
 			holder.newSilentAnnotation(INFORMATION)
-				.gutterIconRenderer(RelatedLocalizationPropertiesGutterIconRenderer(names, relatedLocalizationProperties))
+				.gutterIconRenderer(RelatedLocalisationPropertiesGutterIconRenderer(names, relatedLocalisationProperties))
 				.create()
 		}
 	}
 	
-	private fun annotateString(element: StellarisScriptString, holder: AnnotationHolder) {
+	private fun annotateString(element: PdxScriptString, holder: AnnotationHolder) {
 		if(!state.resolveInternalReferences) return
 		
 		//过滤非法情况
@@ -174,16 +174,16 @@ class StellarisScriptAnnotator : Annotator, DumbAware {
 		val scriptProperties = findScriptProperties(name, project).toTypedArray()
 		if(scriptProperties.isNotEmpty()) {
 			holder.newSilentAnnotation(INFORMATION)
-				.textAttributes(StellarisScriptAttributesKeys.SCRIPT_PROPERTY_REFERENCE_KEY)
+				.textAttributes(PdxScriptAttributesKeys.SCRIPT_PROPERTY_REFERENCE_KEY)
 				.gutterIconRenderer(StringScriptPropertyGutterIconRenderer(name, scriptProperties))
 				.create()
 			return
 		}
-		val localizationProperties = findLocalizationProperties(name, project).toTypedArray()
-		if(localizationProperties.isNotEmpty()) {
+		val localisationProperties = findLocalisationProperties(name, project).toTypedArray()
+		if(localisationProperties.isNotEmpty()) {
 			holder.newSilentAnnotation(INFORMATION)
-				.textAttributes(StellarisScriptAttributesKeys.LOCALIZATION_PROPERTY_REFERENCE_KEY)
-				.gutterIconRenderer(StringLocalizationPropertyGutterIconRenderer(name, localizationProperties))
+				.textAttributes(PdxScriptAttributesKeys.LOCALISATION_PROPERTY_REFERENCE_KEY)
+				.gutterIconRenderer(StringLocalisationPropertyGutterIconRenderer(name, localisationProperties))
 				.create()
 		}
 	}

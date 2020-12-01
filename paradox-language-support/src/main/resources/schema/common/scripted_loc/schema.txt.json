@@ -1,5 +1,5 @@
 {
-  "title" : "Scripted Localization References",
+  "title" : "Scripted Localisation References",
   "type" : "object",
   "properties" : {
     "define_text" : {
@@ -8,7 +8,7 @@
   },
   "definitions" : {
     "scripted_loc" : {
-      "title" : "Scripted Localization Reference",
+      "title" : "Scripted Localisation Reference",
       "type" : "object",
       "properties" : {
         "name" : {
@@ -21,7 +21,7 @@
               "$ref" : "#/definitions/triggers",
               "multiple" : true
             },
-            "localization_key" : {
+            "localisation_key" : {
               "$ref" : "#/definitions/loc_reference"
             }
           }

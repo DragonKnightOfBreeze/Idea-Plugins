@@ -1,15 +1,15 @@
-package com.windea.plugin.idea.stellaris.script.psi
+package com.windea.plugin.idea.pdx.script.psi
 
 import com.intellij.lang.*
 import com.intellij.psi.*
 import com.intellij.psi.stubs.*
 import com.intellij.psi.tree.*
-import com.windea.plugin.idea.stellaris.script.*
-import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
+import com.windea.plugin.idea.pdx.script.*
+import com.windea.plugin.idea.pdx.script.psi.PdxScriptTypes.*
 
-class StellarisScriptFileStubElementType : IStubFileElementType<PsiFileStub<*>>(StellarisScriptLanguage) {
+class PdxScriptFileStubElementType : IStubFileElementType<PsiFileStub<*>>(PdxScriptLanguage) {
 	override fun getExternalId(): String {
-		return "stellarisScript.file"
+		return "pdxScript.file"
 	}
 	
 	override fun getBuilder(): StubBuilder {

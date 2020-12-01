@@ -1,21 +1,21 @@
-package com.windea.plugin.idea.stellaris.script.editor
+package com.windea.plugin.idea.pdx.script.editor
 
 import com.intellij.lang.documentation.*
 import com.intellij.openapi.project.*
 import com.intellij.psi.*
-import com.windea.plugin.idea.stellaris.*
-import com.windea.plugin.idea.stellaris.localization.*
-import com.windea.plugin.idea.stellaris.script.highlighter.*
-import com.windea.plugin.idea.stellaris.script.psi.*
+import com.windea.plugin.idea.pdx.*
+import com.windea.plugin.idea.pdx.localisation.*
+import com.windea.plugin.idea.pdx.script.highlighter.*
+import com.windea.plugin.idea.pdx.script.psi.*
 import org.jetbrains.annotations.*
 
-class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
+class PdxScriptDocumentationProvider : AbstractDocumentationProvider() {
 	override fun getQuickNavigateInfo(element: PsiElement?, originalElement: PsiElement?): String? {
 		return when(element) {
 			//防止意外情况
-			is StellarisScriptVariableName -> getQuickNavigateInfo(element.parent, originalElement)
-			is StellarisScriptVariable -> "${getLocationTextLine(element)}script variable \"${element.name}\""
-			is StellarisScriptProperty -> "${getLocationTextLine(element)}script property \"${element.name}\""
+			is PdxScriptVariableName -> getQuickNavigateInfo(element.parent, originalElement)
+			is PdxScriptVariable -> "${getLocationTextLine(element)}script variable \"${element.name}\""
+			is PdxScriptProperty -> "${getLocationTextLine(element)}script property \"${element.name}\""
 			else -> null
 		}
 	}
@@ -23,14 +23,14 @@ class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
 	override fun generateDoc(element: PsiElement?, originalElement: PsiElement?): String? {
 		return when(element) {
 			//防止意外情况
-			is StellarisScriptVariableName -> generateDoc(element.parent, originalElement)
-			is StellarisScriptVariable -> generateVariableDoc(element)
-			is StellarisScriptProperty -> generatePropertyDoc(element)
+			is PdxScriptVariableName -> generateDoc(element.parent, originalElement)
+			is PdxScriptVariable -> generateVariableDoc(element)
+			is PdxScriptProperty -> generatePropertyDoc(element)
 			else -> null
 		}
 	}
 	
-	private fun generateVariableDoc(element: StellarisScriptVariable): String? {
+	private fun generateVariableDoc(element: PdxScriptVariable): String? {
 		val name = element.name ?: return null
 		return buildString {
 			append(DocumentationMarkup.DEFINITION_START)
@@ -38,7 +38,7 @@ class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
 			append("(script variable) <b>${name}</b> = ${getVariableValueText(element)}")
 			append(DocumentationMarkup.DEFINITION_END)
 			
-			val textAttributesKey = StellarisScriptAttributesKeys.COMMENT_KEY
+			val textAttributesKey = PdxScriptAttributesKeys.COMMENT_KEY
 			val docCommentText = getDocCommentHtmlFromPreviousComment(element, textAttributesKey)
 			if(docCommentText.isNotEmpty()) {
 				append(DocumentationMarkup.CONTENT_START)
@@ -48,7 +48,7 @@ class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
 		}
 	}
 	
-	private fun generatePropertyDoc(element: StellarisScriptProperty): String {
+	private fun generatePropertyDoc(element: PdxScriptProperty): String {
 		val name = element.name
 		val project = element.project
 		return buildString {
@@ -57,7 +57,7 @@ class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
 			append("(script property) <b>${name}</b> = ${getPropertyValueText(element)}")
 			append(DocumentationMarkup.DEFINITION_END)
 			
-			val textAttributesKey = StellarisScriptAttributesKeys.COMMENT_KEY
+			val textAttributesKey = PdxScriptAttributesKeys.COMMENT_KEY
 			val docCommentText = getDocCommentHtmlFromPreviousComment(element, textAttributesKey)
 			if(docCommentText.isNotEmpty()) {
 				append(DocumentationMarkup.CONTENT_START)
@@ -66,7 +66,7 @@ class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
 			}
 			
 			//过滤例外情况
-			if(element.parent !is StellarisScriptRootBlock || element.stellarisParentPath.isNullOrEmpty()) return@buildString
+			if(element.parent !is PdxScriptRootBlock || element.pdxParentPath.isNullOrEmpty()) return@buildString
 			//过滤非法情况
 			if(name.isInvalidPropertyName) return@buildString
 			
@@ -87,23 +87,23 @@ class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
 		}
 	}
 	
-	private fun getPropertyDocSectionMap(element: StellarisScriptProperty, name: String, project: Project): LinkedHashMap<String, String> {
+	private fun getPropertyDocSectionMap(element: PdxScriptProperty, name: String, project: Project): LinkedHashMap<String, String> {
 		val sectionMap = linkedMapOf<String, String>()
 		
 		//添加渲染后的对应的图标到文档注释中
 		val iconUrl = name.resolveIconUrl(false)
 		if(iconUrl.isNotEmpty()) {
-			val key = message("stellaris.documentation.icon")
+			val key = message("pdx.documentation.icon")
 			val value = iconTag(iconUrl, iconSize * 2)
 			sectionMap[key] = value
 		}
 		
 		//添加渲染后的相关的本地化属性的值的文本到文档注释中
-		val localizationProperties = findRelatedLocalizationProperties(name, project, inferredStellarisLocale)
+		val localisationProperties = findRelatedLocalisationProperties(name, project, inferredPdxLocale)
 			.distinctBy { it.name } //过滤重复的属性
-		if(localizationProperties.isNotEmpty()) {
-			for(property in localizationProperties) {
-				val key = message(property.getRelatedLocalizationPropertyKey())
+		if(localisationProperties.isNotEmpty()) {
+			for(property in localisationProperties) {
+				val key = message(property.getRelatedLocalisationPropertyKey())
 				val value = property.propertyValue?.renderRichText()
 				if(value != null) sectionMap[key] = value
 			}
@@ -111,24 +111,24 @@ class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
 		
 		//添加渲染后的作为其属性的值的文本到文档注释中
 		val propertyValue = element.propertyValue?.value
-		val properties = if(propertyValue is StellarisScriptBlock) propertyValue.propertyList else null
+		val properties = if(propertyValue is PdxScriptBlock) propertyValue.propertyList else null
 		if(properties != null && properties.isNotEmpty()) {
 			for(property in properties) {
 				when(property.name) {
 					"description" -> {
 						val k = property.value ?: continue
-						val value = findLocalizationProperty(k, project, inferredStellarisLocale)?.propertyValue?.renderRichText()
-						val key = message("stellaris.documentation.effect")
+						val value = findLocalisationProperty(k, project, inferredPdxLocale)?.propertyValue?.renderRichText()
+						val key = message("pdx.documentation.effect")
 						sectionMap[key] = value ?: k
 					}
 					"tags" -> {
-						val pv = property.propertyValue?.value as? StellarisScriptBlock ?: continue
-						val tags = pv.valueList.mapNotNull { if(it is StellarisScriptString) it.value else null }
+						val pv = property.propertyValue?.value as? PdxScriptBlock ?: continue
+						val tags = pv.valueList.mapNotNull { if(it is PdxScriptString) it.value else null }
 						val propValues = tags.mapNotNull { tag ->
-							findLocalizationProperty(tag, project, inferredStellarisLocale)?.propertyValue
+							findLocalisationProperty(tag, project, inferredPdxLocale)?.propertyValue
 						}
 						if(propValues.isEmpty()) continue
-						val key = message("stellaris.documentation.tags")
+						val key = message("pdx.documentation.tags")
 						val value = buildString {
 							var addNewLine = false
 							for(propValue in propValues) {
@@ -146,17 +146,17 @@ class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
 	}
 	
 	private fun getLocationTextLine(element: PsiElement): String {
-		return element.stellarisPath?.let{ "[$it]<br>"}.orEmpty()
+		return element.pdxPath?.let{ "[$it]<br>"}.orEmpty()
 	}
 	
-	private fun getVariableValueText(variable: StellarisScriptVariable): String {
+	private fun getVariableValueText(variable: PdxScriptVariable): String {
 		return variable.variableValue?.text.orEmpty()
 	}
 	
-	private fun getPropertyValueText(property: StellarisScriptProperty): String {
+	private fun getPropertyValueText(property: PdxScriptProperty): String {
 		return property.propertyValue?.value?.let {
 			when {
-				it is StellarisScriptBlock -> blockFolder
+				it is PdxScriptBlock -> blockFolder
 				else -> it.text
 			}
 		}.orEmpty()

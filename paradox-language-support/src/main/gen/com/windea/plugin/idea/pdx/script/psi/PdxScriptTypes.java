@@ -1,105 +1,105 @@
 // This is a generated file. Not intended for manual editing.
-package com.windea.plugin.idea.stellaris.script.psi;
+package com.windea.plugin.idea.pdx.script.psi;
 
 import com.intellij.psi.tree.IElementType;
 import com.intellij.psi.PsiElement;
 import com.intellij.lang.ASTNode;
-import com.windea.plugin.idea.stellaris.script.psi.impl.*;
+import com.windea.plugin.idea.pdx.script.psi.impl.*;
 
-public interface StellarisScriptTypes {
+public interface PdxScriptTypes {
 
-  IElementType BLOCK = new StellarisScriptElementType("BLOCK");
-  IElementType BOOLEAN = new StellarisScriptElementType("BOOLEAN");
-  IElementType CODE = new StellarisScriptElementType("CODE");
-  IElementType COLOR = new StellarisScriptElementType("COLOR");
-  IElementType NUMBER = new StellarisScriptElementType("NUMBER");
-  IElementType PROPERTY = StellarisScriptStubElementTypes.getPropertyType("PROPERTY");
-  IElementType PROPERTY_KEY = new StellarisScriptElementType("PROPERTY_KEY");
-  IElementType PROPERTY_SEPARATOR = new StellarisScriptElementType("PROPERTY_SEPARATOR");
-  IElementType PROPERTY_VALUE = new StellarisScriptElementType("PROPERTY_VALUE");
-  IElementType ROOT_BLOCK = new StellarisScriptElementType("ROOT_BLOCK");
-  IElementType STRING = new StellarisScriptElementType("STRING");
-  IElementType STRING_VALUE = new StellarisScriptElementType("STRING_VALUE");
-  IElementType VALUE = new StellarisScriptElementType("VALUE");
-  IElementType VARIABLE = StellarisScriptStubElementTypes.getVariableType("VARIABLE");
-  IElementType VARIABLE_NAME = new StellarisScriptElementType("VARIABLE_NAME");
-  IElementType VARIABLE_REFERENCE = new StellarisScriptElementType("VARIABLE_REFERENCE");
-  IElementType VARIABLE_SEPARATOR = new StellarisScriptElementType("VARIABLE_SEPARATOR");
-  IElementType VARIABLE_VALUE = new StellarisScriptElementType("VARIABLE_VALUE");
+  IElementType BLOCK = new PdxScriptElementType("BLOCK");
+  IElementType BOOLEAN = new PdxScriptElementType("BOOLEAN");
+  IElementType CODE = new PdxScriptElementType("CODE");
+  IElementType COLOR = new PdxScriptElementType("COLOR");
+  IElementType NUMBER = new PdxScriptElementType("NUMBER");
+  IElementType PROPERTY = PdxScriptStubElementTypes.getPropertyType("PROPERTY");
+  IElementType PROPERTY_KEY = new PdxScriptElementType("PROPERTY_KEY");
+  IElementType PROPERTY_SEPARATOR = new PdxScriptElementType("PROPERTY_SEPARATOR");
+  IElementType PROPERTY_VALUE = new PdxScriptElementType("PROPERTY_VALUE");
+  IElementType ROOT_BLOCK = new PdxScriptElementType("ROOT_BLOCK");
+  IElementType STRING = new PdxScriptElementType("STRING");
+  IElementType STRING_VALUE = new PdxScriptElementType("STRING_VALUE");
+  IElementType VALUE = new PdxScriptElementType("VALUE");
+  IElementType VARIABLE = PdxScriptStubElementTypes.getVariableType("VARIABLE");
+  IElementType VARIABLE_NAME = new PdxScriptElementType("VARIABLE_NAME");
+  IElementType VARIABLE_REFERENCE = new PdxScriptElementType("VARIABLE_REFERENCE");
+  IElementType VARIABLE_SEPARATOR = new PdxScriptElementType("VARIABLE_SEPARATOR");
+  IElementType VARIABLE_VALUE = new PdxScriptElementType("VARIABLE_VALUE");
 
-  IElementType BOOLEAN_TOKEN = new StellarisScriptTokenType("BOOLEAN_TOKEN");
-  IElementType CODE_END = new StellarisScriptTokenType("]");
-  IElementType CODE_START = new StellarisScriptTokenType("@\\[");
-  IElementType CODE_TEXT_TOKEN = new StellarisScriptTokenType("CODE_TEXT_TOKEN");
-  IElementType COLOR_TOKEN = new StellarisScriptTokenType("COLOR_TOKEN");
-  IElementType COMMENT = new StellarisScriptTokenType("COMMENT");
-  IElementType END_OF_LINE_COMMENT = new StellarisScriptTokenType("END_OF_LINE_COMMENT");
-  IElementType EQUAL_SIGN = new StellarisScriptTokenType("=");
-  IElementType GE_SIGN = new StellarisScriptTokenType(">=");
-  IElementType GT_SIGN = new StellarisScriptTokenType(">");
-  IElementType LEFT_BRACE = new StellarisScriptTokenType("{");
-  IElementType LE_SIGN = new StellarisScriptTokenType("<=");
-  IElementType LT_SIGN = new StellarisScriptTokenType("<");
-  IElementType NUMBER_TOKEN = new StellarisScriptTokenType("NUMBER_TOKEN");
-  IElementType PROPERTY_KEY_ID = new StellarisScriptTokenType("PROPERTY_KEY_ID");
-  IElementType QUOTED_PROPERTY_KEY_ID = new StellarisScriptTokenType("QUOTED_PROPERTY_KEY_ID");
-  IElementType QUOTED_STRING_TOKEN = new StellarisScriptTokenType("QUOTED_STRING_TOKEN");
-  IElementType RIGHT_BRACE = new StellarisScriptTokenType("}");
-  IElementType RIGHT_QUOTE = new StellarisScriptTokenType("\"");
-  IElementType STRING_TOKEN = new StellarisScriptTokenType("STRING_TOKEN");
-  IElementType VARIABLE_NAME_ID = new StellarisScriptTokenType("VARIABLE_NAME_ID");
-  IElementType VARIABLE_REFERENCE_ID = new StellarisScriptTokenType("VARIABLE_REFERENCE_ID");
+  IElementType BOOLEAN_TOKEN = new PdxScriptTokenType("BOOLEAN_TOKEN");
+  IElementType CODE_END = new PdxScriptTokenType("]");
+  IElementType CODE_START = new PdxScriptTokenType("@\\[");
+  IElementType CODE_TEXT_TOKEN = new PdxScriptTokenType("CODE_TEXT_TOKEN");
+  IElementType COLOR_TOKEN = new PdxScriptTokenType("COLOR_TOKEN");
+  IElementType COMMENT = new PdxScriptTokenType("COMMENT");
+  IElementType END_OF_LINE_COMMENT = new PdxScriptTokenType("END_OF_LINE_COMMENT");
+  IElementType EQUAL_SIGN = new PdxScriptTokenType("=");
+  IElementType GE_SIGN = new PdxScriptTokenType(">=");
+  IElementType GT_SIGN = new PdxScriptTokenType(">");
+  IElementType LEFT_BRACE = new PdxScriptTokenType("{");
+  IElementType LE_SIGN = new PdxScriptTokenType("<=");
+  IElementType LT_SIGN = new PdxScriptTokenType("<");
+  IElementType NUMBER_TOKEN = new PdxScriptTokenType("NUMBER_TOKEN");
+  IElementType PROPERTY_KEY_ID = new PdxScriptTokenType("PROPERTY_KEY_ID");
+  IElementType QUOTED_PROPERTY_KEY_ID = new PdxScriptTokenType("QUOTED_PROPERTY_KEY_ID");
+  IElementType QUOTED_STRING_TOKEN = new PdxScriptTokenType("QUOTED_STRING_TOKEN");
+  IElementType RIGHT_BRACE = new PdxScriptTokenType("}");
+  IElementType RIGHT_QUOTE = new PdxScriptTokenType("\"");
+  IElementType STRING_TOKEN = new PdxScriptTokenType("STRING_TOKEN");
+  IElementType VARIABLE_NAME_ID = new PdxScriptTokenType("VARIABLE_NAME_ID");
+  IElementType VARIABLE_REFERENCE_ID = new PdxScriptTokenType("VARIABLE_REFERENCE_ID");
 
   class Factory {
     public static PsiElement createElement(ASTNode node) {
       IElementType type = node.getElementType();
       if (type == BLOCK) {
-        return new StellarisScriptBlockImpl(node);
+        return new PdxScriptBlockImpl(node);
       }
       else if (type == BOOLEAN) {
-        return new StellarisScriptBooleanImpl(node);
+        return new PdxScriptBooleanImpl(node);
       }
       else if (type == CODE) {
-        return new StellarisScriptCodeImpl(node);
+        return new PdxScriptCodeImpl(node);
       }
       else if (type == COLOR) {
-        return new StellarisScriptColorImpl(node);
+        return new PdxScriptColorImpl(node);
       }
       else if (type == NUMBER) {
-        return new StellarisScriptNumberImpl(node);
+        return new PdxScriptNumberImpl(node);
       }
       else if (type == PROPERTY) {
-        return new StellarisScriptPropertyImpl(node);
+        return new PdxScriptPropertyImpl(node);
       }
       else if (type == PROPERTY_KEY) {
-        return new StellarisScriptPropertyKeyImpl(node);
+        return new PdxScriptPropertyKeyImpl(node);
       }
       else if (type == PROPERTY_SEPARATOR) {
-        return new StellarisScriptPropertySeparatorImpl(node);
+        return new PdxScriptPropertySeparatorImpl(node);
       }
       else if (type == PROPERTY_VALUE) {
-        return new StellarisScriptPropertyValueImpl(node);
+        return new PdxScriptPropertyValueImpl(node);
       }
       else if (type == ROOT_BLOCK) {
-        return new StellarisScriptRootBlockImpl(node);
+        return new PdxScriptRootBlockImpl(node);
       }
       else if (type == STRING) {
-        return new StellarisScriptStringImpl(node);
+        return new PdxScriptStringImpl(node);
       }
       else if (type == VARIABLE) {
-        return new StellarisScriptVariableImpl(node);
+        return new PdxScriptVariableImpl(node);
       }
       else if (type == VARIABLE_NAME) {
-        return new StellarisScriptVariableNameImpl(node);
+        return new PdxScriptVariableNameImpl(node);
       }
       else if (type == VARIABLE_REFERENCE) {
-        return new StellarisScriptVariableReferenceImpl(node);
+        return new PdxScriptVariableReferenceImpl(node);
       }
       else if (type == VARIABLE_SEPARATOR) {
-        return new StellarisScriptVariableSeparatorImpl(node);
+        return new PdxScriptVariableSeparatorImpl(node);
       }
       else if (type == VARIABLE_VALUE) {
-        return new StellarisScriptVariableValueImpl(node);
+        return new PdxScriptVariableValueImpl(node);
       }
       throw new AssertionError("Unknown element type: " + type);
     }

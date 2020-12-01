@@ -1,25 +1,25 @@
-package com.windea.plugin.idea.stellaris.script.structureView
+package com.windea.plugin.idea.pdx.script.structureView
 
 import com.intellij.ide.structureView.*
 import com.intellij.ide.structureView.impl.common.*
 import com.intellij.psi.util.*
-import com.windea.plugin.idea.stellaris.script.psi.*
+import com.windea.plugin.idea.pdx.script.psi.*
 
-class StellarisScriptFileTreeElement(
-	private val element: StellarisScriptFile
-) : PsiTreeElementBase<StellarisScriptFile>(element) {
+class PdxScriptFileTreeElement(
+	private val element: PdxScriptFile
+) : PsiTreeElementBase<PdxScriptFile>(element) {
 	override fun getChildrenBase(): MutableCollection<StructureViewTreeElement> {
 		val rootBlock = element.rootBlock ?: return mutableListOf()
 		return PsiTreeUtil.getChildrenOfAnyType(
 			rootBlock,
-			StellarisScriptVariable::class.java,
-			StellarisScriptProperty::class.java,
-			StellarisScriptValue::class.java
+			PdxScriptVariable::class.java,
+			PdxScriptProperty::class.java,
+			PdxScriptValue::class.java
 		).mapTo(mutableListOf()) {
 			when(it) {
-				is StellarisScriptVariable -> StellarisScriptVariableTreeElement(it)
-				is StellarisScriptProperty -> StellarisScriptPropertyTreeElement(it)
-				is StellarisScriptValue -> StellarisScriptValueTreeElement(it)
+				is PdxScriptVariable -> PdxScriptVariableTreeElement(it)
+				is PdxScriptProperty -> PdxScriptPropertyTreeElement(it)
+				is PdxScriptValue -> PdxScriptValueTreeElement(it)
 				else -> throw InternalError()
 			}
 		}

@@ -1,12 +1,12 @@
 // This is a generated file. Not intended for manual editing.
-package com.windea.plugin.idea.stellaris.script.psi;
+package com.windea.plugin.idea.pdx.script.psi;
 
 import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
-import com.windea.plugin.idea.stellaris.script.reference.StellarisScriptStringAsPropertyPsiReference;
+import com.windea.plugin.idea.pdx.script.reference.PdxScriptStringAsPropertyPsiReference;
 
-public interface StellarisScriptString extends StellarisScriptStringValue {
+public interface PdxScriptString extends PdxScriptStringValue {
 
   @Nullable
   PsiElement getQuotedStringToken();
@@ -18,6 +18,6 @@ public interface StellarisScriptString extends StellarisScriptStringValue {
   String getValue();
 
   @Nullable
-  StellarisScriptStringAsPropertyPsiReference getReference();
+  PdxScriptStringAsPropertyPsiReference getReference();
 
 }

@@ -1,6 +1,6 @@
 @file:Suppress("DuplicatedCode")
 
-package com.windea.plugin.idea.stellaris.script.inspections
+package com.windea.plugin.idea.pdx.script.inspections
 
 import com.intellij.codeInspection.*
 import com.intellij.openapi.editor.*
@@ -10,10 +10,10 @@ import com.intellij.openapi.ui.popup.util.*
 import com.intellij.psi.*
 import com.intellij.util.*
 import com.intellij.util.containers.*
-import com.windea.plugin.idea.stellaris.*
-import com.windea.plugin.idea.stellaris.message
-import com.windea.plugin.idea.stellaris.localization.psi.*
-import com.windea.plugin.idea.stellaris.script.psi.*
+import com.windea.plugin.idea.pdx.*
+import com.windea.plugin.idea.pdx.message
+import com.windea.plugin.idea.pdx.localisation.psi.*
+import com.windea.plugin.idea.pdx.script.psi.*
 import javax.swing.*
 
 class DuplicateVariableDefinitionsInspection :LocalInspectionTool(){
@@ -23,16 +23,16 @@ class DuplicateVariableDefinitionsInspection :LocalInspectionTool(){
 
 	private class Visitor(
 		private val holder: ProblemsHolder
-	) : StellarisLocalizationVisitor() {
+	) : PdxLocalisationVisitor() {
 		override fun visitFile(element: PsiFile) {
-			val file = element as? StellarisScriptFile ?: return
+			val file = element as? PdxScriptFile ?: return
 			val variableGroup = file.variables.groupBy { it.name }
 			for((name, values) in variableGroup) {
 				if(name == null || values.size <= 1) continue
 				for(value in values) {
 					val quickFix = NavigateToDuplicates(name, value, values)
 					//第一个元素指定为file，则是在文档头部弹出，否则从psiElement上通过contextActions显示
-					val description = message("stellaris.script.inspection.duplicateVariableDefinitions.description", name)
+					val description = message("pdx.script.inspection.duplicateVariableDefinitions.description", name)
 					holder.registerProblem(value.variableName, description,quickFix)
 				}
 			}
@@ -41,13 +41,13 @@ class DuplicateVariableDefinitionsInspection :LocalInspectionTool(){
 
 	private class NavigateToDuplicates(
 		private val key:String,
-		property: StellarisScriptVariable,
-		duplicates :List<StellarisScriptVariable>
+		property: PdxScriptVariable,
+		duplicates :List<PdxScriptVariable>
 	): LocalQuickFixAndIntentionActionOnPsiElement(property) {
 		private val pointers = ContainerUtil.map(duplicates){SmartPointerManager.createPointer(it)}
 
 		override fun getText(): String {
-			return message("stellaris.script.quickFix.navigateToDuplicates")
+			return message("pdx.script.quickFix.navigateToDuplicates")
 		}
 
 		override fun getFamilyName(): String {
@@ -71,23 +71,23 @@ class DuplicateVariableDefinitionsInspection :LocalInspectionTool(){
 		}
 
 		private class Popup(
-			values: List<StellarisScriptVariable>,
+			values: List<PdxScriptVariable>,
 			private val key: String,
 			private val editor: Editor
-		) : BaseListPopupStep<StellarisScriptVariable>(message("stellaris.script.quickFix.navigateToDuplicates.header", key), values) {
-			override fun getIconFor(aValue: StellarisScriptVariable): Icon {
+		) : BaseListPopupStep<PdxScriptVariable>(message("pdx.script.quickFix.navigateToDuplicates.header", key), values) {
+			override fun getIconFor(aValue: PdxScriptVariable): Icon {
 				return PlatformIcons.VARIABLE_ICON
 			}
 
-			override fun getTextFor(value: StellarisScriptVariable): String {
-				return message("stellaris.script.quickFix.navigateToDuplicates.text", key, editor.document.getLineNumber(value.textOffset))
+			override fun getTextFor(value: PdxScriptVariable): String {
+				return message("pdx.script.quickFix.navigateToDuplicates.text", key, editor.document.getLineNumber(value.textOffset))
 			}
 
 			override fun getDefaultOptionIndex(): Int {
 				return 0
 			}
 
-			override fun onChosen(selectedValue: StellarisScriptVariable, finalChoice: Boolean): PopupStep<*>? {
+			override fun onChosen(selectedValue: PdxScriptVariable, finalChoice: Boolean): PopupStep<*>? {
 				navigateToElement(editor, selectedValue)
 				return PopupStep.FINAL_CHOICE
 			}

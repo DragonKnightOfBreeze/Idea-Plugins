@@ -1,14 +1,14 @@
-package com.windea.plugin.idea.stellaris.script
+package com.windea.plugin.idea.pdx.script
 
 import com.intellij.psi.*
 import com.intellij.psi.util.*
 import com.intellij.spellchecker.tokenizer.*
-import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
+import com.windea.plugin.idea.pdx.script.psi.PdxScriptTypes.*
 
 //拼写检查：
 //检查variableName、key、value、comment
 
-class StellarisScriptSpellchecker : SpellcheckingStrategy() {
+class PdxScriptSpellchecker : SpellcheckingStrategy() {
 	override fun getTokenizer(element: PsiElement): Tokenizer<*> {
 		return when(element.elementType) {
 			VARIABLE_NAME_ID -> TEXT_TOKENIZER

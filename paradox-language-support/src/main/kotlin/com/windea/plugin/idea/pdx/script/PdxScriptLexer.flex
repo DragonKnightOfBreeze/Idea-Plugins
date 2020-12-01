@@ -1,15 +1,15 @@
-package com.windea.plugin.idea.stellaris.script.psi;
+package com.windea.plugin.idea.pdx.script.psi;
 
 import com.intellij.lexer.FlexLexer;
 import com.intellij.psi.tree.IElementType;
 
 import static com.intellij.psi.TokenType.*;
-import static com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*;
+import static com.windea.plugin.idea.pdx.script.psi.PdxScriptTypes.*;
 
 %%
 
 %public
-%class StellarisScriptLexer
+%class PdxScriptLexer
 %implements FlexLexer
 %function advance
 %type IElementType

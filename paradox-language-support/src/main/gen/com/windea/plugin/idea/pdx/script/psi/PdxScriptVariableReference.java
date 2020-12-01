@@ -1,12 +1,12 @@
 // This is a generated file. Not intended for manual editing.
-package com.windea.plugin.idea.stellaris.script.psi;
+package com.windea.plugin.idea.pdx.script.psi;
 
 import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
-import com.windea.plugin.idea.stellaris.script.reference.StellarisScriptVariablePsiReference;
+import com.windea.plugin.idea.pdx.script.reference.PdxScriptVariablePsiReference;
 
-public interface StellarisScriptVariableReference extends StellarisScriptValue {
+public interface PdxScriptVariableReference extends PdxScriptValue {
 
   @NotNull
   PsiElement getVariableReferenceId();
@@ -21,6 +21,6 @@ public interface StellarisScriptVariableReference extends StellarisScriptValue {
   PsiElement getNameIdentifier();
 
   @NotNull
-  StellarisScriptVariablePsiReference getReference();
+  PdxScriptVariablePsiReference getReference();
 
 }

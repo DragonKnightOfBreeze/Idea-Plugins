@@ -1,4 +1,4 @@
-package com.windea.plugin.idea.stellaris.script.schema
+package com.windea.plugin.idea.pdx.script.schema
 
 import com.intellij.lang.documentation.*
 import com.intellij.openapi.editor.*
@@ -8,7 +8,7 @@ import com.jetbrains.jsonSchema.impl.*
 
 //org.jetbrains.yaml.schema.YamlJsonSchemaDocumentationProvider
 
-class StellarisScriptSchemaDocumentationProvider:DocumentationProvider {
+class PdxScriptSchemaDocumentationProvider:DocumentationProvider {
 	override fun getQuickNavigateInfo(element: PsiElement?, originalElement: PsiElement?): String? {
 		return findSchemaAndGenerateDoc(element, true)
 	}

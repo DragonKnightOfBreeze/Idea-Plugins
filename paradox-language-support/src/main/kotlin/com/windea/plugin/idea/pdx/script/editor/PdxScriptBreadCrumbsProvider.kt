@@ -1,14 +1,14 @@
-package com.windea.plugin.idea.stellaris.script.editor
+package com.windea.plugin.idea.pdx.script.editor
 
 import com.intellij.lang.*
 import com.intellij.psi.*
 import com.intellij.ui.breadcrumbs.*
-import com.windea.plugin.idea.stellaris.script.*
-import com.windea.plugin.idea.stellaris.script.psi.*
+import com.windea.plugin.idea.pdx.script.*
+import com.windea.plugin.idea.pdx.script.psi.*
 
-class StellarisScriptBreadCrumbsProvider : BreadcrumbsProvider {
+class PdxScriptBreadCrumbsProvider : BreadcrumbsProvider {
 	companion object{
-		val defaultLanguages: Array<Language> = arrayOf(StellarisScriptLanguage)
+		val defaultLanguages: Array<Language> = arrayOf(PdxScriptLanguage)
 	}
 
 	override fun getLanguages(): Array<Language> {
@@ -17,20 +17,20 @@ class StellarisScriptBreadCrumbsProvider : BreadcrumbsProvider {
 
 	override fun getElementInfo(element: PsiElement): String {
 		return when(element){
-			is StellarisScriptVariable -> element.name
-			is StellarisScriptProperty -> element.name
-			is StellarisScriptBoolean -> element.value
-			is StellarisScriptNumber -> element.value
-			is StellarisScriptString -> element.value
+			is PdxScriptVariable -> element.name
+			is PdxScriptProperty -> element.name
+			is PdxScriptBoolean -> element.value
+			is PdxScriptNumber -> element.value
+			is PdxScriptString -> element.value
 			else -> "<anonymous element>"
 		} ?: "<anonymous element>"
 	}
 
 	override fun acceptElement(element: PsiElement): Boolean {
-		return element is StellarisScriptVariable
-		       || element is StellarisScriptProperty
-		       || element is StellarisScriptBoolean
-		       || element is StellarisScriptNumber
-		       || element is StellarisScriptString
+		return element is PdxScriptVariable
+		       || element is PdxScriptProperty
+		       || element is PdxScriptBoolean
+		       || element is PdxScriptNumber
+		       || element is PdxScriptString
 	}
 }

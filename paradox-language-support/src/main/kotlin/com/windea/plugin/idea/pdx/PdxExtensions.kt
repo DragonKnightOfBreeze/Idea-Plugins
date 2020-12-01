@@ -1,6 +1,6 @@
 @file:Suppress("UNUSED_PARAMETER")
 
-package com.windea.plugin.idea.stellaris
+package com.windea.plugin.idea.pdx
 
 import com.intellij.codeInsight.completion.*
 import com.intellij.codeInsight.documentation.*
@@ -16,9 +16,9 @@ import com.intellij.psi.*
 import com.intellij.psi.search.*
 import com.intellij.psi.util.*
 import com.intellij.util.*
-import com.windea.plugin.idea.stellaris.localization.*
-import com.windea.plugin.idea.stellaris.localization.psi.*
-import com.windea.plugin.idea.stellaris.script.psi.*
+import com.windea.plugin.idea.pdx.localisation.*
+import com.windea.plugin.idea.pdx.localisation.psi.*
+import com.windea.plugin.idea.pdx.script.psi.*
 import org.jetbrains.annotations.*
 import java.io.*
 import java.net.*
@@ -31,7 +31,7 @@ fun Boolean.toInt() = if(this) 1 else 0
 
 val workDirectory: File = File("").absoluteFile
 
-private val classPathLocationClass = StellarisBundle::class.java
+private val classPathLocationClass = PdxBundle::class.java
 
 private val defaultClassLoader = runCatching {
 	classPathLocationClass.classLoader
@@ -254,8 +254,8 @@ fun getDocCommentHtmlFromPreviousComment(element: PsiElement, textAttributeKey: 
 /**判断指定的注释是否可认为是之前的注释。*/
 fun isPreviousComment(element: PsiElement): Boolean {
 	val elementType = element.elementType
-	return elementType == StellarisLocalizationTypes.COMMENT || elementType == StellarisLocalizationTypes.ROOT_COMMENT
-	       || elementType == StellarisScriptTypes.COMMENT
+	return elementType == PdxLocalisationTypes.COMMENT || elementType == PdxLocalisationTypes.ROOT_COMMENT
+	       || elementType == PdxScriptTypes.COMMENT
 }
 
 /**查找最远的相同类型的兄弟节点。可指定是否向后查找，以及是否在空行处中断。*/
@@ -313,96 +313,96 @@ val String.isInvalidPropertyName: Boolean
 val VirtualFile.isRootDirectory: Boolean
 	get() {
 		return children.any {
-			!it.isDirectory && it.name == descriptorModFileName || it.name == stellarisExeFileName
+			!it.isDirectory && it.name == descriptorModFileName || it.name == pdxExeFileName
 		}
 	}
 
 /**相对于游戏或模组目录的文件路径。*/
-val PsiElement.stellarisPath: String?
+val PsiElement.pdxPath: String?
 	get() {
-		return PsiUtilCore.getVirtualFile(this)?.getUserData(stellarisPathKey)
+		return PsiUtilCore.getVirtualFile(this)?.getUserData(pdxPathKey)
 	}
 
 /**相对于游戏或模组目录的文件所在目录路径。*/
-val PsiElement.stellarisParentPath: String?
+val PsiElement.pdxParentPath: String?
 	get() {
-		return PsiUtilCore.getVirtualFile(this)?.getUserData(stellarisParentPathKey)
+		return PsiUtilCore.getVirtualFile(this)?.getUserData(pdxParentPathKey)
 	}
 //endregion
 
 //region Find Extensions
 //使用stubIndex以提高性能
 
-fun findScriptVariableInFile(name: String, file: PsiFile): StellarisScriptVariable? {
-	if(file !is StellarisScriptFile) return null
+fun findScriptVariableInFile(name: String, file: PsiFile): PdxScriptVariable? {
+	if(file !is PdxScriptFile) return null
 	return file.variables.find { it.name == name }
 }
 
-fun findScriptVariable(name: String, project: Project): StellarisScriptVariable? {
-	return StellarisScriptVariableKeyIndex.getOne(name, project, GlobalSearchScope.allScope(project))
+fun findScriptVariable(name: String, project: Project): PdxScriptVariable? {
+	return PdxScriptVariableKeyIndex.getOne(name, project, GlobalSearchScope.allScope(project))
 }
 
-fun findScriptVariables(name: String, project: Project): List<StellarisScriptVariable> {
-	return StellarisScriptVariableKeyIndex.get(name, project, GlobalSearchScope.allScope(project))
+fun findScriptVariables(name: String, project: Project): List<PdxScriptVariable> {
+	return PdxScriptVariableKeyIndex.get(name, project, GlobalSearchScope.allScope(project))
 }
 
-fun findScriptVariables(project: Project): List<StellarisScriptVariable> {
-	return StellarisScriptVariableKeyIndex.getAll(project, GlobalSearchScope.allScope(project))
+fun findScriptVariables(project: Project): List<PdxScriptVariable> {
+	return PdxScriptVariableKeyIndex.getAll(project, GlobalSearchScope.allScope(project))
 }
 
-fun findScriptPropertyInFile(name: String, file: PsiFile): StellarisScriptProperty? {
-	if(file !is StellarisScriptFile) return null
+fun findScriptPropertyInFile(name: String, file: PsiFile): PdxScriptProperty? {
+	if(file !is PdxScriptFile) return null
 	return file.properties.find { it.name == name }
 }
 
-fun findScriptProperty(name: String, project: Project): StellarisScriptProperty? {
-	return StellarisScriptPropertyKeyIndex.getOne(name, project, GlobalSearchScope.allScope(project))
+fun findScriptProperty(name: String, project: Project): PdxScriptProperty? {
+	return PdxScriptPropertyKeyIndex.getOne(name, project, GlobalSearchScope.allScope(project))
 }
 
-fun findScriptProperties(name: String, project: Project): List<StellarisScriptProperty> {
-	return StellarisScriptPropertyKeyIndex.get(name, project, GlobalSearchScope.allScope(project))
+fun findScriptProperties(name: String, project: Project): List<PdxScriptProperty> {
+	return PdxScriptPropertyKeyIndex.get(name, project, GlobalSearchScope.allScope(project))
 }
 
-fun findScriptProperties(project: Project): List<StellarisScriptProperty> {
-	return StellarisScriptPropertyKeyIndex.getAll(project, GlobalSearchScope.allScope(project))
+fun findScriptProperties(project: Project): List<PdxScriptProperty> {
+	return PdxScriptPropertyKeyIndex.getAll(project, GlobalSearchScope.allScope(project))
 }
 
-fun findLocalizationProperty(name: String, project: Project, locale: StellarisLocale? = null): StellarisLocalizationProperty? {
-	return StellarisLocalizationPropertyKeyIndex.getOne(name, locale, project, GlobalSearchScope.projectScope(project))
+fun findLocalisationProperty(name: String, project: Project, locale: PdxLocale? = null): PdxLocalisationProperty? {
+	return PdxLocalisationPropertyKeyIndex.getOne(name, locale, project, GlobalSearchScope.projectScope(project))
 }
 
-fun findLocalizationProperties(name: String, project: Project, locale: StellarisLocale? = null): List<StellarisLocalizationProperty> {
-	return StellarisLocalizationPropertyKeyIndex.get(name, locale, project, GlobalSearchScope.allScope(project))
+fun findLocalisationProperties(name: String, project: Project, locale: PdxLocale? = null): List<PdxLocalisationProperty> {
+	return PdxLocalisationPropertyKeyIndex.get(name, locale, project, GlobalSearchScope.allScope(project))
 }
 
-fun findLocalizationProperties(project: Project, locale: StellarisLocale? = null): List<StellarisLocalizationProperty> {
-	return StellarisLocalizationPropertyKeyIndex.getAll(locale, project, GlobalSearchScope.allScope(project))
+fun findLocalisationProperties(project: Project, locale: PdxLocale? = null): List<PdxLocalisationProperty> {
+	return PdxLocalisationPropertyKeyIndex.getAll(locale, project, GlobalSearchScope.allScope(project))
 }
 
 //将部分特定的查找方法作为扩展方法
 
-fun findRelatedLocalizationProperties(scriptPropertyName: String, project: Project, locale: StellarisLocale? = null): List<StellarisLocalizationProperty> {
-	return StellarisLocalizationPropertyKeyIndex.filter(locale, project, GlobalSearchScope.allScope(project)) { name ->
-		isRelatedLocalizationPropertyName(name, scriptPropertyName)
+fun findRelatedLocalisationProperties(scriptPropertyName: String, project: Project, locale: PdxLocale? = null): List<PdxLocalisationProperty> {
+	return PdxLocalisationPropertyKeyIndex.filter(locale, project, GlobalSearchScope.allScope(project)) { name ->
+		isRelatedLocalisationPropertyName(name, scriptPropertyName)
 	}.sortedBy { it.name }
 }
 
 //xxx, xxx_desc, xxx_effect_desc
 //pop_job->job_, pop_category->pop_cat_
 
-private fun isRelatedLocalizationPropertyName(name: String, scriptPropertyName: String): Boolean {
+private fun isRelatedLocalisationPropertyName(name: String, scriptPropertyName: String): Boolean {
 	val fqName = name.removePrefix("job_").removePrefix("pop_cat_")
 	return fqName == scriptPropertyName
 	       || fqName == scriptPropertyName + "_desc"
 	       || fqName == scriptPropertyName + "_effect_desc"
 }
 
-fun StellarisLocalizationProperty.getRelatedLocalizationPropertyKey(): String {
+fun PdxLocalisationProperty.getRelatedLocalisationPropertyKey(): String {
 	val name = this.name
 	return when {
-		name.endsWith("_effect_desc") -> "stellaris.documentation.effect"
-		name.endsWith("desc") -> "stellaris.documentation.desc"
-		else -> "stellaris.documentation.name"
+		name.endsWith("_effect_desc") -> "pdx.documentation.effect"
+		name.endsWith("desc") -> "pdx.documentation.desc"
+		else -> "pdx.documentation.name"
 	}
 }
 //endregion
@@ -410,16 +410,16 @@ fun StellarisLocalizationProperty.getRelatedLocalizationPropertyKey(): String {
 //region Project
 @Suppress("NOTHING_TO_INLINE")
 inline fun String.resolveIconUrl(defaultToUnknown: Boolean = true): String {
-	return StellarisLocalizationIconUrlResolver.resolve(this, defaultToUnknown)
+	return PdxLocalisationIconUrlResolver.resolve(this, defaultToUnknown)
 }
 
 @Suppress("NOTHING_TO_INLINE")
-inline fun StellarisLocalizationPropertyValue.renderRichText(): String {
-	return StellarisLocalizationRichTextRenderer.render(this)
+inline fun PdxLocalisationPropertyValue.renderRichText(): String {
+	return PdxLocalisationRichTextRenderer.render(this)
 }
 
 @Suppress("NOTHING_TO_INLINE")
-inline fun StellarisLocalizationPropertyValue.renderRichTextTo(buffer: Appendable) {
-	StellarisLocalizationRichTextRenderer.renderTo(this, buffer)
+inline fun PdxLocalisationPropertyValue.renderRichTextTo(buffer: Appendable) {
+	PdxLocalisationRichTextRenderer.renderTo(this, buffer)
 }
 //endregion

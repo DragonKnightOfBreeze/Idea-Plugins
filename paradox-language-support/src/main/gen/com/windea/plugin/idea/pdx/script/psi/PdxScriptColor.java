@@ -1,12 +1,12 @@
 // This is a generated file. Not intended for manual editing.
-package com.windea.plugin.idea.stellaris.script.psi;
+package com.windea.plugin.idea.pdx.script.psi;
 
 import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 import java.awt.Color;
 
-public interface StellarisScriptColor extends StellarisScriptStringValue {
+public interface PdxScriptColor extends PdxScriptStringValue {
 
   @NotNull
   PsiElement getColorToken();

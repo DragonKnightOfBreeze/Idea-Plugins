@@ -1,4 +1,4 @@
-package com.windea.plugin.idea.stellaris
+package com.windea.plugin.idea.pdx
 
 import com.intellij.util.ui.*
 import java.awt.*
@@ -6,7 +6,7 @@ import java.awt.*
 /**
  * 本地化文件的颜色枚举
  */
-enum class StellarisColor(
+enum class PdxColor(
 	val key: String,
 	val description: String,
 	val color: Color,

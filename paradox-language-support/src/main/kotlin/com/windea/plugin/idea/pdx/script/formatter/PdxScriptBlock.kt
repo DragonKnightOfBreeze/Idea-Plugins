@@ -1,4 +1,4 @@
-package com.windea.plugin.idea.stellaris.script.formatter
+package com.windea.plugin.idea.pdx.script.formatter
 
 import com.intellij.formatting.*
 import com.intellij.formatting.Indent
@@ -6,13 +6,13 @@ import com.intellij.lang.*
 import com.intellij.psi.*
 import com.intellij.psi.codeStyle.*
 import com.intellij.psi.formatter.common.*
-import com.windea.plugin.idea.stellaris.*
-import com.windea.plugin.idea.stellaris.localization.*
-import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
+import com.windea.plugin.idea.pdx.*
+import com.windea.plugin.idea.pdx.localisation.*
+import com.windea.plugin.idea.pdx.script.psi.PdxScriptTypes.*
 
 //调试没有问题就不要随便修改
 
-class StellarisScriptBlock(
+class PdxScriptBlock(
 	node: ASTNode,
 	private val settings: CodeStyleSettings,
 ) : AbstractBlock(node, createWrap(), createAlignment()) {
@@ -27,11 +27,11 @@ class StellarisScriptBlock(
 
 		private fun createSpacingBuilder(settings: CodeStyleSettings): SpacingBuilder {
 			//变量声明分隔符周围的空格，属性分隔符周围的空格
-			val customSettings = settings.getCustomSettings(StellarisScriptCodeStyleSettings::class.java)
+			val customSettings = settings.getCustomSettings(PdxScriptCodeStyleSettings::class.java)
 			val spaceWithinBraces = customSettings.SPACE_WITHIN_BRACES
 			val spaceVariableDefinitionSeparator = customSettings.SPACE_AROUND_VARIABLE_SEPARATOR
 			val spacePropertySeparator = customSettings.SPACE_AROUND_PROPERTY_SEPARATOR
-			return SpacingBuilder(settings, StellarisLocalizationLanguage)
+			return SpacingBuilder(settings, PdxLocalisationLanguage)
 				.between(LEFT_BRACE, RIGHT_BRACE).spaces(0)
 				.after(LEFT_BRACE).spaceIf(spaceWithinBraces)
 				.before(RIGHT_BRACE).spaceIf(spaceWithinBraces)
@@ -43,7 +43,7 @@ class StellarisScriptBlock(
 	private val spacingBuilder = createSpacingBuilder(settings)
 
 	override fun buildChildren(): List<Block> {
-		return myNode.nodes().map { StellarisScriptBlock(it, settings) }
+		return myNode.nodes().map { PdxScriptBlock(it, settings) }
 	}
 
 	override fun getIndent(): Indent? {

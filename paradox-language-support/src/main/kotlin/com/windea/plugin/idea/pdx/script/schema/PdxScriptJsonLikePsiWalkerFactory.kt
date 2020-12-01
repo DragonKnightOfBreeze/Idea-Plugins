@@ -1,18 +1,18 @@
-package com.windea.plugin.idea.stellaris.script.schema
+package com.windea.plugin.idea.pdx.script.schema
 
 import com.intellij.psi.*
 import com.jetbrains.jsonSchema.extension.*
 import com.jetbrains.jsonSchema.impl.*
-import com.windea.plugin.idea.stellaris.script.psi.*
+import com.windea.plugin.idea.pdx.script.psi.*
 
 //org.jetbrains.yaml.schema.YamlJsonLikePsiWalkerFactory
 
-class StellarisScriptJsonLikePsiWalkerFactory: JsonLikePsiWalkerFactory {
+class PdxScriptJsonLikePsiWalkerFactory: JsonLikePsiWalkerFactory {
 	override fun handles(element: PsiElement): Boolean {
-		return element.containingFile is StellarisScriptFile
+		return element.containingFile is PdxScriptFile
 	}
 
 	override fun create(schemaObject: JsonSchemaObject): JsonLikePsiWalker {
-		return StellarisScriptJsonLikePsiWalker
+		return PdxScriptJsonLikePsiWalker
 	}
 }

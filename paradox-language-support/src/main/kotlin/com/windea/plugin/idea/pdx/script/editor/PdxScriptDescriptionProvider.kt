@@ -1,19 +1,19 @@
-package com.windea.plugin.idea.stellaris.script.editor
+package com.windea.plugin.idea.pdx.script.editor
 
 import com.intellij.psi.*
 import com.intellij.usageView.*
-import com.windea.plugin.idea.stellaris.*
-import com.windea.plugin.idea.stellaris.script.psi.*
+import com.windea.plugin.idea.pdx.*
+import com.windea.plugin.idea.pdx.script.psi.*
 
-class StellarisScriptDescriptionProvider: ElementDescriptionProvider {
+class PdxScriptDescriptionProvider: ElementDescriptionProvider {
 	override fun getElementDescription(element: PsiElement, location: ElementDescriptionLocation): String? {
 		return when(element) {
-			is StellarisScriptVariable ->{
-				if(location == UsageViewTypeLocation.INSTANCE) message("stellaris.script.description.variable")
+			is PdxScriptVariable ->{
+				if(location == UsageViewTypeLocation.INSTANCE) message("pdx.script.description.variable")
 				else element.name
 			}
-			is StellarisScriptProperty ->{
-				if(location == UsageViewTypeLocation.INSTANCE) message("stellaris.script.description.property")
+			is PdxScriptProperty ->{
+				if(location == UsageViewTypeLocation.INSTANCE) message("pdx.script.description.property")
 				else element.name
 			}
 			else -> null

@@ -1,9 +1,9 @@
-package com.windea.plugin.idea.stellaris
+package com.windea.plugin.idea.pdx
 
 /**
  * 本地化文件的编号枚举
  */
-enum class StellarisSerialNumber(
+enum class PdxSerialNumber(
 	val key: String,
 	val description:String,
 	val placeholderText :String

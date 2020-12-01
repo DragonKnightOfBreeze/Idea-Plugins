@@ -1,10 +1,10 @@
-package com.windea.plugin.idea.stellaris.script.highlighter
+package com.windea.plugin.idea.pdx.script.highlighter
 
 import com.intellij.openapi.fileTypes.*
 import com.intellij.openapi.project.*
 import com.intellij.openapi.vfs.*
-import com.windea.plugin.idea.stellaris.script.highlighter.*
+import com.windea.plugin.idea.pdx.script.highlighter.*
 
-class StellarisScriptSyntaxHighlighterFactory : SyntaxHighlighterFactory() {
-	override fun getSyntaxHighlighter(project: Project?, virtualFile: VirtualFile?) = StellarisScriptSyntaxHighlighter()
+class PdxScriptSyntaxHighlighterFactory : SyntaxHighlighterFactory() {
+	override fun getSyntaxHighlighter(project: Project?, virtualFile: VirtualFile?) = PdxScriptSyntaxHighlighter()
 }

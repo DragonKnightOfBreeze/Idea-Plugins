@@ -1,8 +1,8 @@
-package com.windea.plugin.idea.stellaris.script.psi
+package com.windea.plugin.idea.pdx.script.psi
 
 import com.intellij.psi.tree.*
-import com.windea.plugin.idea.stellaris.script.*
+import com.windea.plugin.idea.pdx.script.*
 
-class StellarisScriptElementType(
+class PdxScriptElementType(
 	debugName: String
-) : IElementType(debugName, StellarisScriptLanguage)
+) : IElementType(debugName, PdxScriptLanguage)

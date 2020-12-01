@@ -1,30 +1,30 @@
 @file:Suppress("HasPlatformType")
 
-package com.windea.plugin.idea.stellaris.script.highlighter
+package com.windea.plugin.idea.pdx.script.highlighter
 
 import com.intellij.openapi.editor.colors.*
 import com.intellij.openapi.fileTypes.*
 import com.intellij.psi.StringEscapesTokenTypes.*
 import com.intellij.psi.TokenType.*
 import com.intellij.psi.tree.*
-import com.windea.plugin.idea.stellaris.script.psi.*
-import com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*
+import com.windea.plugin.idea.pdx.script.psi.*
+import com.windea.plugin.idea.pdx.script.psi.PdxScriptTypes.*
 
-class StellarisScriptSyntaxHighlighter : SyntaxHighlighterBase() {
+class PdxScriptSyntaxHighlighter : SyntaxHighlighterBase() {
 	companion object {
-		private val SEPARATOR_KEYS = arrayOf(StellarisScriptAttributesKeys.SEPARATOR_KEY)
-		private val BRACE_KEYS = arrayOf(StellarisScriptAttributesKeys.BRACES_KEY)
-		private val VARIABLE_KEYS = arrayOf(StellarisScriptAttributesKeys.VARIABLE_KEY)
-		private val PROPERTY_KEY_KEYS = arrayOf(StellarisScriptAttributesKeys.PROPERTY_KEY_KEY)
-		private val KEYWORD_KEYS = arrayOf(StellarisScriptAttributesKeys.KEYWORD_KEY)
-		private val COLOR_KEYS = arrayOf(StellarisScriptAttributesKeys.COLOR_KEY)
-		private val NUMBER_KEYS = arrayOf(StellarisScriptAttributesKeys.NUMBER_KEY)
-		private val STRING_KEYS = arrayOf(StellarisScriptAttributesKeys.STRING_KEY)
-		private val CODE_KEYS = arrayOf(StellarisScriptAttributesKeys.CODE_KEY)
-		private val COMMENT_KEYS = arrayOf(StellarisScriptAttributesKeys.COMMENT_KEY)
-		private val VALID_ESCAPE_KEYS = arrayOf(StellarisScriptAttributesKeys.VALID_ESCAPE_KEY)
-		private val INVALID_ESCAPE_KEYS = arrayOf(StellarisScriptAttributesKeys.INVALID_ESCAPE_KEY)
-		private val BAD_CHARACTER_KEYS = arrayOf(StellarisScriptAttributesKeys.BAD_CHARACTER_KEY)
+		private val SEPARATOR_KEYS = arrayOf(PdxScriptAttributesKeys.SEPARATOR_KEY)
+		private val BRACE_KEYS = arrayOf(PdxScriptAttributesKeys.BRACES_KEY)
+		private val VARIABLE_KEYS = arrayOf(PdxScriptAttributesKeys.VARIABLE_KEY)
+		private val PROPERTY_KEY_KEYS = arrayOf(PdxScriptAttributesKeys.PROPERTY_KEY_KEY)
+		private val KEYWORD_KEYS = arrayOf(PdxScriptAttributesKeys.KEYWORD_KEY)
+		private val COLOR_KEYS = arrayOf(PdxScriptAttributesKeys.COLOR_KEY)
+		private val NUMBER_KEYS = arrayOf(PdxScriptAttributesKeys.NUMBER_KEY)
+		private val STRING_KEYS = arrayOf(PdxScriptAttributesKeys.STRING_KEY)
+		private val CODE_KEYS = arrayOf(PdxScriptAttributesKeys.CODE_KEY)
+		private val COMMENT_KEYS = arrayOf(PdxScriptAttributesKeys.COMMENT_KEY)
+		private val VALID_ESCAPE_KEYS = arrayOf(PdxScriptAttributesKeys.VALID_ESCAPE_KEY)
+		private val INVALID_ESCAPE_KEYS = arrayOf(PdxScriptAttributesKeys.INVALID_ESCAPE_KEY)
+		private val BAD_CHARACTER_KEYS = arrayOf(PdxScriptAttributesKeys.BAD_CHARACTER_KEY)
 		private val EMPTY_KEYS = TextAttributesKey.EMPTY_ARRAY
 	}
 
@@ -47,5 +47,5 @@ class StellarisScriptSyntaxHighlighter : SyntaxHighlighterBase() {
 		else -> EMPTY_KEYS
 	}
 
-	override fun getHighlightingLexer() = StellarisScriptLexerAdapter()
+	override fun getHighlightingLexer() = PdxScriptLexerAdapter()
 }

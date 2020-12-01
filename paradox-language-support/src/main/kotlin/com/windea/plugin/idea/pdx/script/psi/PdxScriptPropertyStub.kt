@@ -1,8 +1,8 @@
-package com.windea.plugin.idea.stellaris.script.psi
+package com.windea.plugin.idea.pdx.script.psi
 
 import com.intellij.psi.stubs.*
 
-interface StellarisScriptPropertyStub: StubElement<StellarisScriptProperty> {
+interface PdxScriptPropertyStub: StubElement<PdxScriptProperty> {
 	val key:String
 }
 

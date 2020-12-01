@@ -1,5 +1,5 @@
 // This is a generated file. Not intended for manual editing.
-package com.windea.plugin.idea.stellaris.script.psi.impl;
+package com.windea.plugin.idea.pdx.script.psi.impl;
 
 import java.util.List;
 import org.jetbrains.annotations.*;
@@ -7,22 +7,22 @@ import com.intellij.lang.ASTNode;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
-import static com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes.*;
-import com.windea.plugin.idea.stellaris.script.psi.*;
+import static com.windea.plugin.idea.pdx.script.psi.PdxScriptTypes.*;
+import com.windea.plugin.idea.pdx.script.psi.*;
 import java.awt.Color;
 
-public class StellarisScriptColorImpl extends StellarisScriptStringValueImpl implements StellarisScriptColor {
+public class PdxScriptColorImpl extends PdxScriptStringValueImpl implements PdxScriptColor {
 
-  public StellarisScriptColorImpl(@NotNull ASTNode node) {
+  public PdxScriptColorImpl(@NotNull ASTNode node) {
     super(node);
   }
 
-  public void accept(@NotNull StellarisScriptVisitor visitor) {
+  public void accept(@NotNull PdxScriptVisitor visitor) {
     visitor.visitColor(this);
   }
 
   public void accept(@NotNull PsiElementVisitor visitor) {
-    if (visitor instanceof StellarisScriptVisitor) accept((StellarisScriptVisitor)visitor);
+    if (visitor instanceof PdxScriptVisitor) accept((PdxScriptVisitor)visitor);
     else super.accept(visitor);
   }
 
@@ -35,18 +35,18 @@ public class StellarisScriptColorImpl extends StellarisScriptStringValueImpl imp
   @Override
   @NotNull
   public String getValue() {
-    return StellarisScriptPsiImplUtil.getValue(this);
+    return PdxScriptPsiImplUtil.getValue(this);
   }
 
   @Override
   @Nullable
   public Color getColor() {
-    return StellarisScriptPsiImplUtil.getColor(this);
+    return PdxScriptPsiImplUtil.getColor(this);
   }
 
   @Override
   public void setColor(@NotNull Color color) {
-    StellarisScriptPsiImplUtil.setColor(this, color);
+    PdxScriptPsiImplUtil.setColor(this, color);
   }
 
 }
