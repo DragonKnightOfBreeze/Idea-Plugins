@@ -100,7 +100,7 @@ object StellarisLocalizationIconUrlResolver {
 			name == "pops" -> "Pop"
 			name == "origin_default" -> "Prosperous_Unification"
 			name.startsWith("origin_") -> name.removePrefix("origin_").toCapitalizedWords()
-			else -> name.toCapitalizedWord()
+			else -> name.toCapitalizedCase()
 		}
 		return "https://qunxing.huijiwiki.com/wiki/%E6%96%87%E4%BB%B6:$fqName.png"
 	}
@@ -131,7 +131,7 @@ object StellarisLocalizationIconUrlResolver {
 			name == "pops" -> "Pop"
 			name == "origin_fallen_empire" -> "Origins_elder_race"
 			name.startsWith("origin") -> name.replace("origin","Origins_")
-			else -> name.toCapitalizedWord()
+			else -> name.toCapitalizedCase()
 		}
 		return "https://stellaris.paradoxwikis.com/File:$fqName.png"
 	}

@@ -1,0 +1,124 @@
+{
+	parserClass="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptParser"
+	extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+	psiClassPrefix="StellarisScript"
+	psiImplClassSuffix="Impl"
+	psiPackage="com.windea.plugin.idea.stellaris.script.psi"
+	psiImplPackage="com.windea.plugin.idea.stellaris.script.psi.impl"
+	elementTypeHolderClass="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTypes"
+	tokenTypeClass="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptTokenType"
+	elementTypeClass="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptElementType"
+	psiImplUtilClass="com.windea.plugin.idea.stellaris.script.psi.impl.StellarisScriptPsiImplUtil"
+
+	tokens=[
+	  EQUAL_SIGN="="
+	  LT_SIGN="<"
+	  GT_SIGN=">"
+	  LE_SIGN="<="
+	  GE_SIGN=">="
+	  //0123.45
+	  LEFT_BRACE="{"
+	  RIGHT_BRACE="}"
+	  CODE_START="@\["
+	  CODE_END="]"
+	  LEFT_QUOTE='"'
+	  RIGHT_QUOTE='"'
+	  EOL="regexp:\R"
+	  BLANK="regexp:\s+"
+	  COMMENT="regexp:#[^\r\n]*"
+	  END_OF_LINE_COMMENT="regexp:#[^\r\n]*"
+	  VARIABLE_NAME_ID="regexp:@[a-zA-Z0-9_-]+"
+	  VARIABLE_REFERENCE_ID="regexp:@[a-zA-Z0-9_-]+"
+	  PROPERTY_KEY_ID='regexp:[a-zA-Z0-9.:$_-]+'
+	  QUOTED_PROPERTY_KEY_ID='regexp:"([^"(\r\n\\]|\\.)*?"'
+	  BOOLEAN_TOKEN='regexp:(yes)|(no)'
+	  NUMBER_TOKEN='regexp:0|[+-]?[1-9][0-9]*|[+-]?[0-9]+\.[0-9]+'
+	  STRING_TOKEN='regexp:[^@\s{}="][^\s{}="]*'
+	  QUOTED_STRING_TOKEN='regexp:"([^"\r\n\\]|\\.)*?"'
+	  COLOR_TOKEN="regexp:(rgb|rgba|hsb|hsv|hsl)[ \t]*\{[0-9. \t]*}"
+      CODE_TEXT_TOKEN="regexp:[^\r\n\]}]+"
+	]
+}
+
+//忽略空白，在ParserDefinition里面定义PsiElement之间的空白类型
+//regex必须定向到token，而非rule
+//即使idea提示不需要转义，一些字符在regexp中仍然需要转义
+
+//DONE 列表的元素可以是字符串
+//DONE 分隔符可以是比较运算符
+
+//root_block也是block，但不能直接extends，否则root下面会是value而非root_block
+root ::= root_block
+root_block ::= ( END_OF_LINE_COMMENT | COMMENT | variable | property | value) * {
+  implements="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptBlock"
+  methods=[isEmpty isNotEmpty isObject isArray getComponents getIcon]
+}
+
+variable ::= variable_name variable_separator variable_value {
+  pin=1
+  elementTypeFactory="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptStubElementTypes.getVariableType"
+  extends="com.windea.plugin.idea.stellaris.script.psi.impl.StellarisScriptStubElementImpl<?>"
+  implements="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptNamedElement"
+  stubClass="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptVariableStub"
+  methods=[getName setName getNameIdentifier getIcon getValue]
+}
+
+variable_name ::= VARIABLE_NAME_ID
+variable_separator ::= "="
+variable_value ::= boolean | number | string
+
+property ::= property_key property_separator property_value {
+  pin=1
+  elementTypeFactory="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptStubElementTypes.getPropertyType"
+  extends="com.windea.plugin.idea.stellaris.script.psi.impl.StellarisScriptStubElementImpl<?>"
+  implements="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptNamedElement"
+  stubClass="com.windea.plugin.idea.stellaris.script.psi.StellarisScriptPropertyStub"
+  methods=[getName setName getNameIdentifier getIcon getValue]
+}
+property_key ::= PROPERTY_KEY_ID | QUOTED_PROPERTY_KEY_ID
+property_separator ::= "=" | "<" | ">" | "<=" | ">="
+property_value ::= value
+
+value ::= variable_reference | boolean | number | string_value | block{
+  methods=[getIcon]
+}
+variable_reference ::= VARIABLE_REFERENCE_ID {
+  extends=value
+  methods=[getName setName getNameIdentifier getReference]
+}
+boolean ::= BOOLEAN_TOKEN {
+  extends=value
+  implements="com.intellij.psi.PsiLiteralValue"
+  methods=[getValue]
+}
+number ::= NUMBER_TOKEN {
+  extends=value
+  implements="com.intellij.psi.PsiLiteralValue"
+  methods=[getValue]
+}
+string_value ::= color | code | string{
+  extends=value
+  implements="com.intellij.psi.PsiLiteralValue"
+  methods=[getValue]
+}
+string ::= STRING_TOKEN | QUOTED_STRING_TOKEN {
+  extends=string_value
+  methods=[getValue getReference]
+}
+color ::= COLOR_TOKEN {
+  extends=string_value
+  methods=[getValue getColor setColor]
+}
+code ::= CODE_START code_text CODE_END{
+  extends=string_value
+  pin=1
+  methods=[getValue]
+}
+private code_text ::= CODE_TEXT_TOKEN
+block ::= "{" block_item * "}" {
+  pin=1
+  extends=value
+  implements="com.intellij.psi.PsiListLikeElement"
+  methods=[isEmpty isNotEmpty isObject isArray getComponents]
+}
+private block_item ::= END_OF_LINE_COMMENT | COMMENT | property | value

@@ -1,0 +1,39 @@
+{
+  "title" : "Event Chains",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/event_chain"
+  },
+  "definitions" : {
+    "event_chain" : {
+      "title" : "Event Chain",
+      "type" : "object",
+      "properties" : {
+        "icon" : {
+          "$ref" : "#/definitions/game_path"
+        },
+        "picture" : {
+          "$ref" : "#/definitions/gfx_reference"
+        },
+        "counter" : {
+          "type" : "object",
+          "propertyNames" : {
+            "$type" : "counter"
+          },
+          "additionalProperties" : {
+            "max" : {
+              "type" : "integer"
+            }
+          }
+        }
+      }
+    },
+    "game_path" : {
+      "type" : "string"
+    },
+    "gfx_reference" : {
+      "type" : "string",
+      "$def" : "interface/**/*.gfx/#/{spliteType}/name"
+    }
+  }
+}

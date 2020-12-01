@@ -1,0 +1,131 @@
+{
+  "title" : "Map Mode",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/map_mode"
+  },
+  "definitions" : {
+    "map_mode" : {
+      "title" : "Map Mode",
+      "type" : "object",
+      "properties" : {
+        "icon" : {
+          "$ref" : "#/definitions/gfx_reference"
+        },
+        "hardcoded_tooltip" : {
+          "$type" : "opinion"
+        },
+        "can_change_point_of_view" : {
+          "type" : "boolean"
+        },
+        "enable_terra_incognita" : {
+          "type" : "boolean"
+        },
+        "shortcut" : {
+          "$ref" : "#/definitions/shortcut"
+        },
+        "color" : {
+          "$ref" : "#/definitions/color",
+          "multiple" : true
+        }
+      }
+    },
+    "color" : {
+      "type" : "object",
+      "properties" : {
+        "value" : {
+          "$ref" : "#/definitions/color_reference"
+        },
+        "custom_tooltip" : {
+          "$ref" : "#/definitions/loc_reference"
+        },
+        "hardcoded_tooltip" : {
+          "type" : "string"
+        },
+        "condition" : {
+          "$ref" : "#/definitions/triggers"
+        }
+      }
+    },
+    "triggers" : {
+      "type" : "object",
+      "anyOf" : [ {
+        "$ref" : "#/definitions/condition_expressions"
+      }, {
+        "$ref" : "#/definitions/boolean_expressions"
+      }, {
+        "$ref" : "#/definitions/scope_expressions"
+      }, {
+        "$ref" : "#/definitions/scripted_triggers"
+      } ]
+    },
+    "shortcut" : {
+      "type" : "string"
+    },
+    "color_reference" : {
+      "type" : "string",
+      "$def" : "common/colors/#/{color}"
+    },
+    "loc_reference" : {
+      "type" : "string",
+      "anyOf" : [ {
+        "$def" : "localisation/**/*.yml/#/{property}"
+      }, {
+        "$def" : "localisation_synced/**/*.yml/#/{property}"
+      } ]
+    },
+    "gfx_reference" : {
+      "type" : "string",
+      "$def" : "interface/**/*.gfx/#/{spliteType}/name"
+    },
+    "condition_expressions" : {
+      "type" : "object",
+      "propertyNames" : {
+        "$ref" : "#/definitions/condition_expression_name"
+      },
+      "properties" : {
+        "limit" : {
+          "$ref" : "#/definitions/triggers"
+        }
+      },
+      "additionalProperties" : {
+        "$ref" : "#/definitions/triggers"
+      }
+    },
+    "boolean_expressions" : {
+      "type" : "object",
+      "propertyNames" : {
+        "$ref" : "#/definitions/boolean_expression_name"
+      },
+      "additionalProperties" : {
+        "$ref" : "#/definitions/triggers"
+      }
+    },
+    "scope_expressions" : {
+      "type" : "object",
+      "propertyNames" : {
+        "$ref" : "#/definitions/scope_name"
+      },
+      "additionalProperties" : {
+        "$ref" : "#/definitions/triggers"
+      }
+    },
+    "scripted_triggers" : {
+      "type" : "object",
+      "additionalProperties" : true,
+      "$type" : "scripted_trigger"
+    },
+    "condition_expression_name" : {
+      "type" : "string",
+      "enum" : [ "AND", "OR", "NOT", "NAND", "NOR" ]
+    },
+    "boolean_expression_name" : {
+      "type" : "string",
+      "enum" : [ "if", "else", "else_if", "AND", "OR", "NOT", "NAND", "NOR" ]
+    },
+    "scope_name" : {
+      "type" : "string",
+      "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
+    }
+  }
+}

@@ -108,8 +108,8 @@ fun String.unquote() = if(length >= 2 && startsWith('"') && endsWith('"')) subst
 
 fun String.truncate(limit: Int) = if(this.length <= limit) this else this.take(limit) + "..."
 
-fun String.toCapitalizedWord(): String {
-	return if(isEmpty()) this else this[0].toUpperCase() + this.substring(1)
+fun String.toCapitalizedCase(): String {
+	return if(this.isEmpty()) this else this[0].toUpperCase() + this.substring(1).toLowerCase()
 }
 
 fun String.toCapitalizedWords(): String {

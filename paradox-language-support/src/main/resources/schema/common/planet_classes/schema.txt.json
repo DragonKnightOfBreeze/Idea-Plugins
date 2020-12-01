@@ -1,0 +1,136 @@
+{
+  "title" : "Plant Classes",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/plant_class"
+  },
+  "definitions" : {
+    "plant_class" : {
+      "title" : "Plant Class",
+      "type" : "object",
+      "properties" : {
+        "entity" : {
+          "$ref" : "#/definitions/entity"
+        },
+        "icon_frame" : {
+          "type" : "integer"
+        },
+        "entity_scale" : {
+          "type" : "number"
+        },
+        "atmosphere_color" : {
+          "$ref" : "#/definitions/color_reference"
+        },
+        "atmosphere_intensity" : {
+          "type" : "number"
+        },
+        "atmosphere_width" : {
+          "type" : "number"
+        },
+        "min_distance_from_sun" : {
+          "type" : "integer"
+        },
+        "max_distance_from_sun" : {
+          "type" : "integer"
+        },
+        "spawn_odds" : {
+          "type" : "number"
+        },
+        "city_color_lut" : {
+          "$ref" : "#/definitions/game_path"
+        },
+        "extra_orbit_size" : {
+          "type" : "integer"
+        },
+        "extra_planet_count" : {
+          "type" : "integer"
+        },
+        "can_be_moon" : {
+          "type" : "boolean"
+        },
+        "chance_of_ring" : {
+          "type" : "number"
+        },
+        "planet_size" : {
+          "anyOf" : [ {
+            "type" : "integer"
+          }, {
+            "$ref" : "#/definitions/integer_range"
+          } ]
+        },
+        "moon_size" : {
+          "anyOf" : [ {
+            "type" : "integer"
+          }, {
+            "$ref" : "#/definitions/integer_range"
+          } ]
+        },
+        "production_spawn_chance" : {
+          "type" : "number"
+        },
+        "colonizable" : {
+          "type" : "boolean"
+        },
+        "district_set" : {
+          "$ref" : "#/definitions/district_set"
+        },
+        "modifier" : {
+          "$ref" : "#/definitions/modifiers"
+        },
+        "uses_alternative_skies_for_moons" : {
+          "type" : "boolean"
+        },
+        "show_health_bar_in_planet_view" : {
+          "type" : "boolean"
+        },
+        "starting_planet" : {
+          "type" : "boolean"
+        },
+        "orbit_lines" : {
+          "type" : "boolean"
+        },
+        "has_colonization_influence_cost" : {
+          "type" : "boolean"
+        },
+        "is_artificial_planet" : {
+          "type" : "boolean"
+        },
+        "default_planet_selection" : {
+          "type" : "boolean"
+        }
+      }
+    },
+    "entity" : {
+      "type" : "string"
+    },
+    "climate" : {
+      "type" : "string",
+      "enum" : [ "dry", "wet", "cold" ]
+    },
+    "district_set" : {
+      "type" : "string",
+      "enum" : [ "standard", "hive_world", "machine_world", "ring_world", "city_world", "habitat" ]
+    },
+    "integer_range" : {
+      "type" : "object",
+      "properties" : {
+        "min" : {
+          "type" : "integer"
+        },
+        "max" : {
+          "type" : "integer"
+        }
+      }
+    },
+    "modifiers" : {
+      "type" : "object"
+    },
+    "game_path" : {
+      "type" : "string"
+    },
+    "color_reference" : {
+      "type" : "string",
+      "$def" : "common/colors/#/{color}"
+    }
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "title" : "Global Ship Designs",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/global_ship_design"
+  },
+  "definitions" : {
+    "global_ship_design" : {
+      "title" : "Global Ship Designs",
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "$ref" : "#/definitions/loc_reference"
+        },
+        "ship_size" : {
+          "$ype" : "ship_size"
+        },
+        "is_event_design" : {
+          "type" : "boolean"
+        },
+        "section" : {
+          "$ref" : "#/definitions/section"
+        },
+        "required_component" : {
+          "$type" : "component_template.key"
+        },
+        "is_special_buildable" : {
+          "type" : "boolean"
+        },
+        "allow_buildable_trigger" : {
+          "anyOf" : [ {
+            "$type" : "trigger"
+          }, {
+            "$ref" : "#/definitions/triggers"
+          } ]
+        }
+      }
+    },
+    "section" : {
+      "type" : "object",
+      "properties" : {
+        "template" : {
+          "$type" : "section_template.key"
+        },
+        "slot" : {
+          "$ref" : "#/definitions/slot"
+        },
+        "component" : {
+          "$ref" : "#/definitions/component",
+          "multiple" : true
+        }
+      }
+    },
+    "component" : {
+      "type" : "object",
+      "properties" : {
+        "slot" : {
+          "$type" : "section_template.component_slot.name"
+        },
+        "template" : {
+          "$type" : "component_template.key"
+        }
+      }
+    },
+    "slot" : {
+      "type" : "string"
+    },
+    "triggers" : {
+      "type" : "object",
+      "anyOf" : [ {
+        "$ref" : "#/definitions/condition_expressions"
+      }, {
+        "$ref" : "#/definitions/boolean_expressions"
+      }, {
+        "$ref" : "#/definitions/scope_expressions"
+      }, {
+        "$ref" : "#/definitions/scripted_triggers"
+      } ]
+    },
+    "loc_reference" : {
+      "type" : "string",
+      "anyOf" : [ {
+        "$def" : "localisation/**/*.yml/#/{property}"
+      }, {
+        "$def" : "localisation_synced/**/*.yml/#/{property}"
+      } ]
+    },
+    "condition_expressions" : {
+      "type" : "object",
+      "propertyNames" : {
+        "$ref" : "#/definitions/condition_expression_name"
+      },
+      "properties" : {
+        "limit" : {
+          "$ref" : "#/definitions/triggers"
+        }
+      },
+      "additionalProperties" : {
+        "$ref" : "#/definitions/triggers"
+      }
+    },
+    "boolean_expressions" : {
+      "type" : "object",
+      "propertyNames" : {
+        "$ref" : "#/definitions/boolean_expression_name"
+      },
+      "additionalProperties" : {
+        "$ref" : "#/definitions/triggers"
+      }
+    },
+    "scope_expressions" : {
+      "type" : "object",
+      "propertyNames" : {
+        "$ref" : "#/definitions/scope_name"
+      },
+      "additionalProperties" : {
+        "$ref" : "#/definitions/triggers"
+      }
+    },
+    "scripted_triggers" : {
+      "type" : "object",
+      "additionalProperties" : true,
+      "$type" : "scripted_trigger"
+    },
+    "condition_expression_name" : {
+      "type" : "string",
+      "enum" : [ "AND", "OR", "NOT", "NAND", "NOR" ]
+    },
+    "boolean_expression_name" : {
+      "type" : "string",
+      "enum" : [ "if", "else", "else_if", "AND", "OR", "NOT", "NAND", "NOR" ]
+    },
+    "scope_name" : {
+      "type" : "string",
+      "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
+    }
+  }
+}

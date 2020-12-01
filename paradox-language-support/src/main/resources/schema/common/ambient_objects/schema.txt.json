@@ -1,0 +1,44 @@
+{
+  "title" : "Ambient Objects",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/ambient_object"
+  },
+  "definitions" : {
+    "ambient_object" : {
+      "title" : "Ambient Object",
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "$ref" : "#/definitions/loc_reference"
+        },
+        "entity" : {
+          "$ref" : "#/definitions/loc_reference"
+        },
+        "description" : {
+          "$ref" : "#/definitions/loc_reference",
+          "optional" : true
+        },
+        "tooltip" : {
+          "$ref" : "#/definitions/loc_reference",
+          "optional" : true
+        },
+        "selectable" : {
+          "type" : "boolean",
+          "optional" : true
+        },
+        "show_name" : {
+          "type" : "boolean"
+        }
+      }
+    },
+    "loc_reference" : {
+      "type" : "string",
+      "anyOf" : [ {
+        "$def" : "localisation/**/*.yml/#/{property}"
+      }, {
+        "$def" : "localisation_synced/**/*.yml/#/{property}"
+      } ]
+    }
+  }
+}

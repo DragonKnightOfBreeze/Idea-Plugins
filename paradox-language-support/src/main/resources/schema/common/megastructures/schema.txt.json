@@ -1,0 +1,230 @@
+{
+  "title" : "Megastructures",
+  "type" : "object",
+  "additionalProperties" : {
+    "$ref" : "#/definitions/megastructure"
+  },
+  "definitions" : {
+    "megastructure" : {
+      "title" : "Megastructure",
+      "type" : "object",
+      "properties" : {
+        "entity" : {
+          "$type" : "entity"
+        },
+        "construction_entity" : {
+          "$type" : "entity"
+        },
+        "portrait" : {
+          "$ref" : "#/definitions/gfx_reference"
+        },
+        "place_entity_on_planet_plane" : {
+          "type" : "boolean"
+        },
+        "entity_offset" : {
+          "$ref" : "#/definitions/vector2"
+        },
+        "upgrade_desc" : {
+          "type" : "string",
+          "enum" : [ "default", "hide" ]
+        },
+        "upgrade_from" : {
+          "type" : "array",
+          "items" : {
+            "$type" : "megastructure"
+          }
+        },
+        "prerequisites" : {
+          "type" : "array",
+          "items" : {
+            "$type" : "tech"
+          }
+        },
+        "potential" : {
+          "$ref" : "#/definitions/triggers"
+        },
+        "possible" : {
+          "$ref" : "#/definitions/triggers"
+        },
+        "build_time" : {
+          "type" : "integer"
+        },
+        "build_cost" : {
+          "$ref" : "#/definitions/resources_item"
+        },
+        "monthly_production" : {
+          "$ref" : "#/definitions/resources_item"
+        },
+        "maintenance" : {
+          "$ref" : "#/definitions/resources_item"
+        },
+        "country_modifier" : {
+          "$ref" : "#/definitions/modifier"
+        },
+        "placement_rules" : {
+          "type" : "object",
+          "properties" : {
+            "planet_possible" : {
+              "$ref" : "#/definitions/triggers"
+            }
+          }
+        },
+        "on_build_start" : {
+          "$ref" : "#/definitions/effects"
+        },
+        "on_build_cancel" : {
+          "$ref" : "#/definitions/effects"
+        },
+        "on_build_complete" : {
+          "$ref" : "#/definitions/effects"
+        },
+        "ai_weight" : {
+          "$ref" : "#/definitions/weight_modifier"
+        },
+        "resources" : {
+          "$ref" : "#/definitions/economy_unit"
+        },
+        "construction_blocked_by_others" : {
+          "type" : "boolean"
+        }
+      }
+    },
+    "vector2" : {
+      "type" : "object",
+      "properties" : {
+        "x" : {
+          "type" : "integer"
+        },
+        "y" : {
+          "type" : "integer"
+        }
+      }
+    },
+    "economy_unit" : {
+      "type" : "object",
+      "properties" : {
+        "category" : {
+          "$type" : "economic_category"
+        },
+        "produces" : {
+          "$ref" : "#/definitions/resources_item"
+        },
+        "cost" : {
+          "$ref" : "#/definitions/resources_item"
+        },
+        "upkeep" : {
+          "$ref" : "#/definitions/resources_item"
+        }
+      }
+    },
+    "resources_item" : {
+      "type" : "object",
+      "anyOf" : [ {
+        "properties" : {
+          "trigger" : {
+            "$ref" : "#/definitions/triggers"
+          }
+        }
+      }, {
+        "propertyNames" : {
+          "$type" : "resource"
+        },
+        "additionalProperties" : {
+          "type" : "integer"
+        }
+      } ]
+    },
+    "triggers" : {
+      "type" : "object",
+      "anyOf" : [ {
+        "$ref" : "#/definitions/condition_expressions"
+      }, {
+        "$ref" : "#/definitions/boolean_expressions"
+      }, {
+        "$ref" : "#/definitions/scope_expressions"
+      }, {
+        "$ref" : "#/definitions/scripted_triggers"
+      } ]
+    },
+    "effects" : {
+      "type" : "object",
+      "anyOf" : [ {
+        "$ref" : "#/definitions/condition_expressions"
+      }, {
+        "$ref" : "#/definitions/boolean_expressions"
+      }, {
+        "$ref" : "#/definitions/scope_expressions"
+      }, {
+        "$ref" : "#/definitions/scripted_triggers"
+      } ]
+    },
+    "weight_modifier" : {
+      "type" : "object",
+      "properties" : {
+        "base" : {
+          "type" : "number"
+        },
+        "modifier" : {
+          "$ref" : "#/definitions/modifier",
+          "multiple" : true
+        }
+      }
+    },
+    "modifier" : {
+      "type" : "object"
+    },
+    "gfx_reference" : {
+      "type" : "string",
+      "$def" : "interface/**/*.gfx/#/{spliteType}/name"
+    },
+    "condition_expressions" : {
+      "type" : "object",
+      "propertyNames" : {
+        "$ref" : "#/definitions/condition_expression_name"
+      },
+      "properties" : {
+        "limit" : {
+          "$ref" : "#/definitions/triggers"
+        }
+      },
+      "additionalProperties" : {
+        "$ref" : "#/definitions/triggers"
+      }
+    },
+    "boolean_expressions" : {
+      "type" : "object",
+      "propertyNames" : {
+        "$ref" : "#/definitions/boolean_expression_name"
+      },
+      "additionalProperties" : {
+        "$ref" : "#/definitions/triggers"
+      }
+    },
+    "scope_expressions" : {
+      "type" : "object",
+      "propertyNames" : {
+        "$ref" : "#/definitions/scope_name"
+      },
+      "additionalProperties" : {
+        "$ref" : "#/definitions/triggers"
+      }
+    },
+    "scripted_triggers" : {
+      "type" : "object",
+      "additionalProperties" : true,
+      "$type" : "scripted_trigger"
+    },
+    "condition_expression_name" : {
+      "type" : "string",
+      "enum" : [ "AND", "OR", "NOT", "NAND", "NOR" ]
+    },
+    "boolean_expression_name" : {
+      "type" : "string",
+      "enum" : [ "if", "else", "else_if", "AND", "OR", "NOT", "NAND", "NOR" ]
+    },
+    "scope_name" : {
+      "type" : "string",
+      "enum" : [ "capital", "controller", "root", "from", "owner", "planet", "prev", "random", "this", "pop" ]
+    }
+  }
+}
