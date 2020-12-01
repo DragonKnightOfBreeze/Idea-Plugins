@@ -18,7 +18,7 @@ class ParadoxSettingsConfigurable: SearchableConfigurable {
 		       || settingsComponent.resolveInternalReferencesCheckBox.isSelected != settings.resolveInternalReferences
 		       //|| settingsComponent.useSteamDirectoryCheckBox.isSelected != settings.useSteamDirectory
 		       //|| settingsComponent.steamDirectoryTextField.text != settings.steamDirectory
-		       || settingsComponent.paradoxDirectoryTextField.text != settings.paradoxDirectory
+		       || settingsComponent.stellarisDirectoryTextField.text != settings.paradoxDirectory
 		       //|| settingsComponent.paradoxModsDirectoryTextField.text != settings.paradoxModsDirectory
 	}
 
@@ -42,7 +42,7 @@ class ParadoxSettingsConfigurable: SearchableConfigurable {
 		settings.resolveExternalReferences = settingsComponent.resolveExternalReferencesCheckBox.isSelected
 		//settings.useSteamDirectory = settingsComponent.useSteamDirectoryCheckBox.isSelected
 		//settings.steamDirectory = settingsComponent.steamDirectoryTextField.text
-		settings.paradoxDirectory = settingsComponent.paradoxDirectoryTextField.text
+		settings.paradoxDirectory = settingsComponent.stellarisDirectoryTextField.text
 		//settings.paradoxModsDirectory = settingsComponent.paradoxModsDirectoryTextField.text
 		
 		//addToRootDirectoryCache(settings)
@@ -56,7 +56,7 @@ class ParadoxSettingsConfigurable: SearchableConfigurable {
 		//settingsComponent.useSteamDirectoryCheckBox.isSelected = settings.useSteamDirectory
 		//settingsComponent.steamDirectoryTextField.text = settings.steamDirectory
 		//settingsComponent.steamDirectoryTextField.isEnabled = settings.useSteamDirectory
-		settingsComponent.paradoxDirectoryTextField.text = settings.paradoxDirectory
+		settingsComponent.stellarisDirectoryTextField.text = settings.paradoxDirectory
 		//settingsComponent.paradoxDirectoryTextField.isEnabled = !settings.useSteamDirectory
 		//settingsComponent.paradoxModsDirectoryTextField.text = settings.paradoxModsDirectory
 		//settingsComponent.paradoxModsDirectoryTextField.isEnabled = !settings.useSteamDirectory

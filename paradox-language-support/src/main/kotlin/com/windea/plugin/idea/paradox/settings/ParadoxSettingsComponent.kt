@@ -35,9 +35,9 @@ class ParadoxSettingsComponent {
 	//private val steamDirectoryLabel = JBLabel(message("paradox.settings.steamDirectory"))
 	//private val steamDirectoryTextFieldBacking = JBTextField()
 	//val steamDirectoryTextField = TextFieldWithBrowseButton(steamDirectoryTextFieldBacking)
-	private val paradoxDirectoryLabel = JBLabel(message("paradox.settings.paradoxDirectory"))
-	private val paradoxDirectoryTextFieldBacking = JBTextField()
-	val paradoxDirectoryTextField = TextFieldWithBrowseButton(paradoxDirectoryTextFieldBacking)
+	private val stellarisDirectoryLabel = JBLabel(message("paradox.settings.paradoxDirectory"))
+	private val stellarisDirectoryTextFieldBacking = JBTextField()
+	val stellarisDirectoryTextField = TextFieldWithBrowseButton(stellarisDirectoryTextFieldBacking)
 	//private val paradoxModsDirectoryLabel = JBLabel(message("paradox.settings.paradoxMods.Directory"))
 	//private val paradoxModsDirectoryTextFieldBacking = JBTextField()
 	//val paradoxModsDirectoryTextField = TextFieldWithBrowseButton(paradoxModsDirectoryTextFieldBacking)
@@ -45,7 +45,7 @@ class ParadoxSettingsComponent {
 	private val pathsPanel = FormBuilder.createFormBuilder()
 		//.addComponent(useSteamDirectoryCheckBox, 1)
 		//.addLabeledComponent(steamDirectoryLabel, steamDirectoryTextField, 1, false)
-		.addLabeledComponent(paradoxDirectoryLabel, paradoxDirectoryTextField, 1, false)
+		.addLabeledComponent(stellarisDirectoryLabel, stellarisDirectoryTextField, 1, false)
 		//.addLabeledComponent(paradoxModsDirectoryLabel, paradoxModsDirectoryTextField, 1, false)
 		.panel.apply {
 			border = IdeBorderFactory.createTitledBorder(message("paradox.settings.paths"))
@@ -67,7 +67,7 @@ class ParadoxSettingsComponent {
 		//)
 		SwingHelper.installFileCompletionAndBrowseDialog(
 			null,
-			paradoxDirectoryTextField,
+			stellarisDirectoryTextField,
 			message("paradox.settings.paradoxDirectory.select"),
 			FileChooserDescriptorFactory.createSingleFileDescriptor()
 		)
