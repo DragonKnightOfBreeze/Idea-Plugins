@@ -152,7 +152,7 @@
               "type" : "integer"
             },
             "leader_class" : {
-              "type" : "integer"
+              "$ref" : "#/definitions/loc_reference"
             }
           }
         }

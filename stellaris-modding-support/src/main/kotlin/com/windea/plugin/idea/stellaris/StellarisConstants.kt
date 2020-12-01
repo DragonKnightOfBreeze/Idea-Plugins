@@ -34,14 +34,11 @@ const val commentFolder = "#..."
 const val blockFolder = "{...}"
 const val defaultFolder = "<folder>"
 
-const val syntaxError = "(syntax error)"
-
 val utf8Bom = byteArrayOf(0xef.toByte(), 0xbb.toByte(), 0xbf.toByte())
 
 val booleanValues = arrayOf("yes", "no")
 
 const val stellarisBundleName = "messages.StellarisBundle"
-
 const val stellarisExeFileName = "stellaris.exe"
 const val descriptorModFileName = "descriptor.mod"
 const val anonymous =  "(anonymous)"
@@ -64,22 +61,11 @@ val inferredStellarisLocale = when(System.getProperty("user.language")){
 	else -> StellarisLocale.ENGLISH
 }
 
-val iconSize get() = DocumentationComponent.getQuickDocFontSize().size
-
-fun iconTag(url:String,size:Int = iconSize):String{
-	return "<img src=\"$url\" width=\"$size\" height=\"$size\"/>"
-}
-
-//https://qunxing.huijiwiki.com/
-//https://stellaris.paradoxwikis.com/
-//https://qunxing.huijiwiki.com/wiki/%E6%96%87%E4%BB%B6:Xxx.png
-//https://stellaris.paradoxwikis.com/File:Xxx.png
-
 const val paradoxwikisUrl="https://stellaris.paradoxwikis.com"
 const val huijiwikiUrl = "https://qunxing.huijiwiki.com"
 //endregion
 
-//region Resources
+//region Icons
 val stellarisLocalizationFileIcon = IconLoader.findIcon("/icons/stellarisLocalizationFile.png")!!
 val stellarisLocalizationLocaleIcon = IconLoader.findIcon("/icons/stellarisLocalizationLocale.svg")!!
 val stellarisLocalizationPropertyIcon = IconLoader.findIcon("/icons/stellarisLocalizationProperty.svg")!!
@@ -96,9 +82,13 @@ val scriptPropertyGutterIcon = stellarisScriptPropertyIcon.resize(12, 12)
 //val assetKeyGutterIcon = IconUtil.toSize(AllIcons.Nodes.Related, 12, 12)
 //endregion
 
+//region Keys
+val stellarisPathKey = Key<String>("stellarisPath")
+val stellarisParentPathKey = Key<String>("stellarisParentPath")
+//endregion
+
 //region Caches
 val rootDirectoryCache = ConcurrentHashMap<String,VirtualFile>()
-val stellarisPathCache = ConcurrentHashMap<VirtualFile,String>()
 
 val localizationLocaleCache = ConcurrentHashMap<Project, Array<StellarisLocalizationLocale>>()
 fun MutableMap<Project, Array<StellarisLocalizationLocale>>.register(project: Project) = this.getOrPut(project) {

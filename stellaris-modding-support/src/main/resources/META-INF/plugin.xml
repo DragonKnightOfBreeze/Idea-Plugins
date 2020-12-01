@@ -9,6 +9,9 @@
 
   <description><![CDATA[
     <p>Support for Stellaris modding.</p>
+    <p>
+      NOTE: This plugin might be deprecated in the future,
+      I'm plan to develop another plugins <i>Paradox Language Support</i> to support all paradox games.
     <ul>
       <li>Support Stellaris Script Language. (*.txt, *.mod, *.gfx, *.gui, *.asset)</li>
       <li>Support Stellaris Localization Language. (*.yml, *.yaml)</li>
@@ -63,6 +66,10 @@
     <br>
 
     <p>Stellaris模组编程支持。</p>
+    <p>
+      注意：这个插件可能会在未来被废弃，
+      我计划开发另外一个插件<i>Paradox Language Support</i>以支持所有的P社游戏。
+    </p>
     <ul>
       <li>支持Stellaris的脚本语言。(*.txt, *.mod, *.gfx, *.gui, *.asset)</li>
       <li>支持Stellaris的本地化语言。</li>

@@ -14,8 +14,8 @@ class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
 		return when(element) {
 			//防止意外情况
 			is StellarisScriptVariableName -> getQuickNavigateInfo(element.parent, originalElement)
-			is StellarisScriptVariable -> "${getLocationText(element)}<br>script variable \"${element.name}\""
-			is StellarisScriptProperty -> "${getLocationText(element)}<br>script property \"${element.name}\""
+			is StellarisScriptVariable -> "${getLocationTextLine(element)}script variable \"${element.name}\""
+			is StellarisScriptProperty -> "${getLocationTextLine(element)}script property \"${element.name}\""
 			else -> null
 		}
 	}
@@ -34,8 +34,7 @@ class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
 		val name = element.name ?: return null
 		return buildString {
 			append(DocumentationMarkup.DEFINITION_START)
-			append(getLocationText(element))
-			append("<br>")
+			append(getLocationTextLine(element))
 			append("(script variable) <b>${name}</b> = ${getVariableValueText(element)}")
 			append(DocumentationMarkup.DEFINITION_END)
 			
@@ -54,9 +53,8 @@ class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
 		val project = element.project
 		return buildString {
 			append(DocumentationMarkup.DEFINITION_START)
-			append(getLocationText(element))
-			append("<br>")
-			append("(script property) <b>${element.name}</b> = ${getPropertyValueText(element)}")
+			append(getLocationTextLine(element))
+			append("(script property) <b>${name}</b> = ${getPropertyValueText(element)}")
 			append(DocumentationMarkup.DEFINITION_END)
 			
 			val textAttributesKey = StellarisScriptAttributesKeys.COMMENT_KEY
@@ -68,9 +66,9 @@ class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
 			}
 			
 			//过滤例外情况
-			if(element.parent !is StellarisScriptRootBlock || !element.stellarisPath.contains('/')) return@buildString
+			if(element.parent !is StellarisScriptRootBlock || element.stellarisParentPath.isNullOrEmpty()) return@buildString
 			//过滤非法情况
-			if(name.isInvalidPropertyName()) return@buildString
+			if(name.isInvalidPropertyName) return@buildString
 			
 			//添加额外内容到文档注释中
 			val sectionMap = getPropertyDocSectionMap(element, name, project)
@@ -147,8 +145,8 @@ class StellarisScriptDocumentationProvider : AbstractDocumentationProvider() {
 		return sectionMap
 	}
 	
-	private fun getLocationText(element: PsiElement): String {
-		return "[${element.stellarisPath}]"
+	private fun getLocationTextLine(element: PsiElement): String {
+		return element.stellarisPath?.let{ "[$it]<br>"}.orEmpty()
 	}
 	
 	private fun getVariableValueText(variable: StellarisScriptVariable): String {

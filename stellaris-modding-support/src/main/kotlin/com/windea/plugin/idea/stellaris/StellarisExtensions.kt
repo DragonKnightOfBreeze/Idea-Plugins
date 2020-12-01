@@ -3,6 +3,7 @@
 package com.windea.plugin.idea.stellaris
 
 import com.intellij.codeInsight.completion.*
+import com.intellij.codeInsight.documentation.*
 import com.intellij.codeInsight.lookup.*
 import com.intellij.lang.*
 import com.intellij.openapi.editor.*
@@ -59,10 +60,27 @@ inline fun <T, reified R> Sequence<T>.mapArray(block: (T) -> R): Array<R> {
 
 fun String.isBoolean() = this == "yes" || this == "no"
 
-private val numberRegex = """-?[0-9]+(\.[0-9]+)?""".toRegex()
-fun String.isNumber() = this.matches(numberRegex)
-
 fun Boolean.toStringYesNo() = if(this) "yes" else "no"
+
+fun String.isNumber(): Boolean {
+	var isFirstChar = true
+	var missingDot = true
+	for(char in this.toCharArray()) {
+		if(char.isDigit()) continue
+		if(isFirstChar) {
+			if(char == '+' || char == '-') continue
+			isFirstChar = false
+		}
+		if(missingDot) {
+			if(char == '.') {
+				missingDot = false
+				continue
+			}
+		}
+		return false
+	}
+	return true
+}
 
 fun String.containsBlank() = this.any { it.isWhitespace() }
 
@@ -90,20 +108,20 @@ fun String.unquote() = if(length >= 2 && startsWith('"') && endsWith('"')) subst
 
 fun String.truncate(limit: Int) = if(this.length <= limit) this else this.take(limit) + "..."
 
-fun String.toCapitalizedWord() :String{
+fun String.toCapitalizedWord(): String {
 	return if(isEmpty()) this else this[0].toUpperCase() + this.substring(1)
 }
 
-fun String.toCapitalizedWords() :String{
-	return buildString{
+fun String.toCapitalizedWords(): String {
+	return buildString {
 		var isWordStart = true
 		for(c in this@toCapitalizedWords.toCharArray()) {
-			when{
+			when {
 				isWordStart -> {
 					isWordStart = false
 					append(c.toUpperCase())
 				}
-				c == '_' || c == '-' || c=='.' -> {
+				c == '_' || c == '-' || c == '.' -> {
 					isWordStart = true
 					append('_')
 				}
@@ -139,14 +157,16 @@ fun <T : Any> T?.toSingletonOrEmpty(): List<T> {
 	return if(this == null) Collections.emptyList() else Collections.singletonList(this)
 }
 
-fun Icon.resize(width:Int,height:Int): Icon {
+fun Icon.resize(width: Int, height: Int): Icon {
 	return IconUtil.toSize(this, width, height)
 }
 //endregion
 
 //region Misc
-fun String.isInvalidPropertyName(): Boolean {
-	return this.containsBlank() || this == "null"
+val iconSize get() = DocumentationComponent.getQuickDocFontSize().size
+
+fun iconTag(url:String,size:Int = iconSize):String{
+	return "<img src=\"$url\" width=\"$size\" height=\"$size\"/>"
 }
 
 inline fun PsiElement.forEachChild(block: (PsiElement) -> Unit) {
@@ -210,7 +230,7 @@ inline fun <reified T : PsiFile> VirtualFile.toPsiFile(project: Project): T? {
 fun getDocCommentTextFromPreviousComment(element: PsiElement): String {
 	//我们认为当前元素之前，之间没有空行的非行尾行注释，可以视为文档注释，但这并非文档注释的全部
 	return buildString {
-		var prevElement = element.prevSibling?:element.parent?.prevSibling
+		var prevElement = element.prevSibling ?: element.parent?.prevSibling
 		while(prevElement != null) {
 			val text = prevElement.text
 			if(prevElement !is PsiWhiteSpace) {
@@ -228,7 +248,7 @@ fun getDocCommentTextFromPreviousComment(element: PsiElement): String {
 
 /**得到指定元素之前的所有直接的注释的Html文本，作为文档注释，跳过空白。*/
 fun getDocCommentHtmlFromPreviousComment(element: PsiElement, textAttributeKey: TextAttributesKey): String {
-	return getDocCommentTextFromPreviousComment(element).replace("\n","<br>")
+	return getDocCommentTextFromPreviousComment(element).replace("\n", "<br>")
 }
 
 /**判断指定的注释是否可认为是之前的注释。*/
@@ -257,7 +277,9 @@ fun findFurthestSiblingOfSameType(element: PsiElement, findAfter: Boolean, stopO
 	return lastSeen.psi
 }
 
-fun LookupElement.withPriority(priority: Double): LookupElement = PrioritizedLookupElement.withPriority(this, priority)
+fun LookupElement.withPriority(priority: Double): LookupElement {
+	return PrioritizedLookupElement.withPriority(this, priority)
+}
 
 /**导航到指定元素的位置*/
 fun navigateToElement(editor: Editor, element: PsiElement?) {
@@ -272,6 +294,21 @@ fun selectElement(editor: Editor, element: PsiElement?) {
 	editor.selectionModel.setSelection(range.startOffset, range.endOffset)
 }
 
+//使用CachedValue以提高性能
+//这个过程中避免使用匿名lambda，因为需要检查可相等性
+private fun <F : PsiFile, T> getCachedValue(file: F, key: Key<CachedValue<T>>, block: Function<F, T>): T {
+	return CachedValuesManager.getCachedValue(file, key) {
+		CachedValueProvider.Result.create(block.apply(file), file)
+	}
+}
+
+
+/**是否是非法的属性名。*/
+val String.isInvalidPropertyName: Boolean
+	get() {
+		return this.containsBlank() || this.isNumber() || this == "null"
+	}
+
 /**是否是游戏或模组根目录。*/
 val VirtualFile.isRootDirectory: Boolean
 	get() {
@@ -281,19 +318,16 @@ val VirtualFile.isRootDirectory: Boolean
 	}
 
 /**相对于游戏或模组目录的文件路径。*/
-val PsiElement.stellarisPath: String
+val PsiElement.stellarisPath: String?
 	get() {
-		val file = this.containingFile?.virtualFile ?: anonymous
-		return stellarisPathCache[file] ?: anonymous
+		return PsiUtilCore.getVirtualFile(this)?.getUserData(stellarisPathKey)
 	}
 
-//使用CachedValue以提高性能
-//这个过程中避免使用匿名lambda，因为需要检查可相等性
-private fun <F : PsiFile, T> getCachedValue(file: F, key: Key<CachedValue<T>>, block: Function<F, T>): T {
-	return CachedValuesManager.getCachedValue(file, key) {
-		CachedValueProvider.Result.create(block.apply(file), file)
+/**相对于游戏或模组目录的文件所在目录路径。*/
+val PsiElement.stellarisParentPath: String?
+	get() {
+		return PsiUtilCore.getVirtualFile(this)?.getUserData(stellarisParentPathKey)
 	}
-}
 //endregion
 
 //region Find Extensions
@@ -347,8 +381,8 @@ fun findLocalizationProperties(project: Project, locale: StellarisLocale? = null
 
 //将部分特定的查找方法作为扩展方法
 
-fun findRelatedLocalizationProperties(scriptPropertyName: String,project:Project, locale: StellarisLocale? = null): List<StellarisLocalizationProperty> {
-	return StellarisLocalizationPropertyKeyIndex.filter(locale, project, GlobalSearchScope.allScope(project)) {name->
+fun findRelatedLocalizationProperties(scriptPropertyName: String, project: Project, locale: StellarisLocale? = null): List<StellarisLocalizationProperty> {
+	return StellarisLocalizationPropertyKeyIndex.filter(locale, project, GlobalSearchScope.allScope(project)) { name ->
 		isRelatedLocalizationPropertyName(name, scriptPropertyName)
 	}.sortedBy { it.name }
 }
@@ -363,9 +397,9 @@ private fun isRelatedLocalizationPropertyName(name: String, scriptPropertyName: 
 	       || fqName == scriptPropertyName + "_effect_desc"
 }
 
-fun StellarisLocalizationProperty.getRelatedLocalizationPropertyKey():String{
+fun StellarisLocalizationProperty.getRelatedLocalizationPropertyKey(): String {
 	val name = this.name
-	return when{
+	return when {
 		name.endsWith("_effect_desc") -> "stellaris.documentation.effect"
 		name.endsWith("desc") -> "stellaris.documentation.desc"
 		else -> "stellaris.documentation.name"
@@ -375,17 +409,17 @@ fun StellarisLocalizationProperty.getRelatedLocalizationPropertyKey():String{
 
 //region Project
 @Suppress("NOTHING_TO_INLINE")
-inline fun String.resolveIconUrl(defaultToUnknown: Boolean=true):String{
-	return StellarisLocalizationIconUrlResolver.resolve(this,defaultToUnknown)
+inline fun String.resolveIconUrl(defaultToUnknown: Boolean = true): String {
+	return StellarisLocalizationIconUrlResolver.resolve(this, defaultToUnknown)
 }
 
 @Suppress("NOTHING_TO_INLINE")
-inline fun StellarisLocalizationPropertyValue.renderRichText():String{
+inline fun StellarisLocalizationPropertyValue.renderRichText(): String {
 	return StellarisLocalizationRichTextRenderer.render(this)
 }
 
 @Suppress("NOTHING_TO_INLINE")
-inline fun StellarisLocalizationPropertyValue.renderRichTextTo(buffer:Appendable){
-	StellarisLocalizationRichTextRenderer.renderTo(this,buffer)
+inline fun StellarisLocalizationPropertyValue.renderRichTextTo(buffer: Appendable) {
+	StellarisLocalizationRichTextRenderer.renderTo(this, buffer)
 }
 //endregion

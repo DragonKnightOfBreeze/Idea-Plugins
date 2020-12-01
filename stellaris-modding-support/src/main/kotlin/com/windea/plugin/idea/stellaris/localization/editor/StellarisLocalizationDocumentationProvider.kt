@@ -3,14 +3,13 @@ package com.windea.plugin.idea.stellaris.localization.editor
 import com.intellij.lang.documentation.*
 import com.intellij.psi.*
 import com.windea.plugin.idea.stellaris.*
-import com.windea.plugin.idea.stellaris.localization.*
 import com.windea.plugin.idea.stellaris.localization.highlighter.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
 
 class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider() {
 	override fun getQuickNavigateInfo(element: PsiElement?, originalElement: PsiElement?): String? {
 		return when {
-			element is StellarisLocalizationProperty -> "${getLocationText(element)}<br>localization property \"${element.name}\""
+			element is StellarisLocalizationProperty -> "${getLocationTextLine(element)}localization property \"${element.name}\""
 			element is StellarisLocalizationLocale -> "locale \"${element.name}\""
 			element is StellarisLocalizationIcon -> "icon \"${element.name}\""
 			element is StellarisLocalizationSerialNumber -> "serial number \"${element.name}\""
@@ -18,7 +17,7 @@ class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider
 			else -> null
 		}
 	}
-
+	
 	override fun generateDoc(element: PsiElement?, originalElement: PsiElement?): String? {
 		return when {
 			element is StellarisLocalizationProperty -> generatePropertyDoc(element)
@@ -30,12 +29,11 @@ class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider
 		}
 	}
 	
-	private fun generatePropertyDoc(element: StellarisLocalizationProperty): String? {
+	private fun generatePropertyDoc(element: StellarisLocalizationProperty): String {
 		val elementName = element.name
 		return buildString {
 			append(DocumentationMarkup.DEFINITION_START)
-			append(getLocationText(element))
-			append("<br>")
+			append(getLocationTextLine(element))
 			append("(localization property) <b>").append(elementName).append("</b>")
 			append(DocumentationMarkup.DEFINITION_END)
 			
@@ -105,7 +103,7 @@ class StellarisLocalizationDocumentationProvider : AbstractDocumentationProvider
 		}
 	}
 	
-	private fun getLocationText(element: PsiElement): String {
-		return "[${element.stellarisPath}]"
+	private fun getLocationTextLine(element: PsiElement): String {
+		return element.stellarisPath?.let { "[$it]<br>" }.orEmpty()
 	}
 }

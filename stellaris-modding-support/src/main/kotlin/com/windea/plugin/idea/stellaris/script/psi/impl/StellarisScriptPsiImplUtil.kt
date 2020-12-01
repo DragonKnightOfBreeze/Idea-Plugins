@@ -134,7 +134,7 @@ object StellarisScriptPsiImplUtil {
 	@JvmStatic
 	fun getReference(element: StellarisScriptString): StellarisScriptStringAsPropertyPsiReference? {
 		//过滤非法的情况
-		if(element.value.isInvalidPropertyName()) return null
+		if(element.value.isInvalidPropertyName) return null
 		return StellarisScriptStringAsPropertyPsiReference(element, TextRange(0, element.textLength))
 	}
 	//endregion

@@ -140,10 +140,12 @@ class StellarisScriptAnnotator : Annotator, DumbAware {
 	private fun annotateProperty(element: StellarisScriptProperty, holder: AnnotationHolder) {
 		if(!state.resolveInternalReferences) return
 		
-		//过滤例外情况
-		if(element.parent !is StellarisScriptRootBlock || !element.stellarisPath.contains('/')) return
 		val name = element.name
 		val project = element.project
+		
+		//过滤例外情况
+		if(element.parent !is StellarisScriptRootBlock || element.stellarisParentPath.isNullOrEmpty()) return
+		if(name.isInvalidPropertyName) return
 		
 		//注明所有同名的属性
 		holder.newSilentAnnotation(INFORMATION)
@@ -165,7 +167,7 @@ class StellarisScriptAnnotator : Annotator, DumbAware {
 		
 		//过滤非法情况
 		val name = element.value
-		if(name.isInvalidPropertyName()) return
+		if(name.isInvalidPropertyName) return
 		val project = element.project
 		
 		//注明所有对应名称的脚本属性，或者本地化属性（如果存在）

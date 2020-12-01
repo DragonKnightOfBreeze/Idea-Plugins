@@ -106,4 +106,4 @@ definitions:
           clothes:
             type: integer
           leader_class:
-            type: integer
+            $ref: "../core.yml#/definitions/loc_reference"

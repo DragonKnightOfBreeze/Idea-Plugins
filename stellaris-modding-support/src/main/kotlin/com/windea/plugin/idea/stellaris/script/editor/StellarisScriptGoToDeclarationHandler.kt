@@ -21,7 +21,7 @@ class StellarisScriptGoToDeclarationHandler: GotoDeclarationHandler {
 				//查找当前项目的本地化文件属性，如果没有，再查找当前项目的本地化文件属性
 				val name = sourceElement.value
 				//过滤非法的情况
-				if(name.isInvalidPropertyName()) return null
+				if(name.isInvalidPropertyName) return null
 				val project = sourceElement.project
 				return findScriptProperties(name, project).ifEmpty {
 					findLocalizationProperties(name, project)
