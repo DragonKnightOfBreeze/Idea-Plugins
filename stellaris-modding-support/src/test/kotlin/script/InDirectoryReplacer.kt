@@ -6,8 +6,7 @@ import java.io.*
 
 fun main() {
 	val root =File("D:\\Documents\\Projects\\Managed\\Idea-Plugins\\paradox-language-support")
-	root.replaceInDirectoryMatchCase("stellaris","pdx")
-	root.replaceInDirectoryMatchCase("localization","localisation")
+	root.replaceInDirectoryMatchCase("pdx","paradox")
 }
 
 /**
@@ -16,7 +15,7 @@ fun main() {
 private fun File.replaceInDirectoryMatchCase(string:String,replacement:String){
 	println("Replace everywhere in directory '$path' match case.")
 	println("Replace file names and contents ...")
-	this.walk().forEach {
+	this.walkBottomUp().forEach {
 		if(it.isFile) {
 			val text = it.readText()
 			it.writeText(text.replaceMatchCase(string, replacement))

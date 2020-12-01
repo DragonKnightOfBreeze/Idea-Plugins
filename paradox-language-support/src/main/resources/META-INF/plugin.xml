@@ -1,5 +1,5 @@
 <idea-plugin>
-  <id>com.windea.pdx</id>
+  <id>com.windea.paradox</id>
   <name>Paradox Modding Support</name>
   <category>Languages</category>
 
@@ -53,232 +53,232 @@
   <extensions defaultExtensionNs="com.intellij">
     <!--region Paradox Settings-->
     <applicationConfigurable
-      id="settings.language.pdx"
+      id="settings.language.paradox"
       groupId="language"
-      instance="com.windea.plugin.idea.pdx.settings.PdxSettingsConfigurable"/>
+      instance="com.windea.plugin.idea.paradox.settings.ParadoxSettingsConfigurable"/>
     <applicationService
-      serviceImplementation="com.windea.plugin.idea.pdx.settings.PdxSettingsState"/>
+      serviceImplementation="com.windea.plugin.idea.paradox.settings.ParadoxSettingsState"/>
     <!--endregion-->
 
     <!--suppress PluginXmlValidity -->
-    <fileTypeOverrider implementation="com.windea.plugin.idea.pdx.PdxFileTypeOverrider" order="first"/>
+    <fileTypeOverrider implementation="com.windea.plugin.idea.paradox.ParadoxFileTypeOverrider" order="first"/>
 
     <!--region Paradox Localisation Language-->
     <fileType
       language="Paradox Localisation"
       name="Paradox Localisation File" fieldName="INSTANCE"
-      implementationClass="com.windea.plugin.idea.pdx.localisation.PdxLocalisationFileType"/>
+      implementationClass="com.windea.plugin.idea.paradox.localisation.ParadoxLocalisationFileType"/>
     <lang.parserDefinition
       language="Paradox Localisation"
-      implementationClass="com.windea.plugin.idea.pdx.localisation.psi.PdxLocalisationParserDefinition"/>
-    <stubElementTypeHolder class="com.windea.plugin.idea.pdx.localisation.psi.PdxLocalisationStubElementTypes" externalIdPrefix="pdxLocalisation."/>
-    <stubIndex implementation="com.windea.plugin.idea.pdx.localisation.psi.PdxLocalisationPropertyKeyIndex"/>
+      implementationClass="com.windea.plugin.idea.paradox.localisation.psi.ParadoxLocalisationParserDefinition"/>
+    <stubElementTypeHolder class="com.windea.plugin.idea.paradox.localisation.psi.ParadoxLocalisationStubElementTypes" externalIdPrefix="paradoxLocalisation."/>
+    <stubIndex implementation="com.windea.plugin.idea.paradox.localisation.psi.ParadoxLocalisationPropertyKeyIndex"/>
     
     <lang.syntaxHighlighterFactory
       language="Paradox Localisation"
-      implementationClass="com.windea.plugin.idea.pdx.localisation.highlighter.PdxLocalisationSyntaxHighlighterFactory"/>
+      implementationClass="com.windea.plugin.idea.paradox.localisation.highlighter.ParadoxLocalisationSyntaxHighlighterFactory"/>
     <lang.braceMatcher
       language="Paradox Localisation"
-      implementationClass="com.windea.plugin.idea.pdx.localisation.editor.PdxLocalisationBraceMatcher"/>
+      implementationClass="com.windea.plugin.idea.paradox.localisation.editor.ParadoxLocalisationBraceMatcher"/>
     <lang.foldingBuilder
       language="Paradox Localisation"
-      implementationClass="com.windea.plugin.idea.pdx.localisation.editor.PdxLocalisationFoldingBuilder"/>
+      implementationClass="com.windea.plugin.idea.paradox.localisation.editor.ParadoxLocalisationFoldingBuilder"/>
     <colorSettingsPage
-      implementation="com.windea.plugin.idea.pdx.localisation.highlighter.PdxLocalisationColorSettingsPage"/>
+      implementation="com.windea.plugin.idea.paradox.localisation.highlighter.ParadoxLocalisationColorSettingsPage"/>
     <lang.commenter
       language="Paradox Localisation"
-      implementationClass="com.windea.plugin.idea.pdx.localisation.editor.PdxLocalisationCommenter"/>
+      implementationClass="com.windea.plugin.idea.paradox.localisation.editor.ParadoxLocalisationCommenter"/>
     <spellchecker.support
       language="Paradox Localisation"
-      implementationClass="com.windea.plugin.idea.pdx.localisation.PdxLocalisationSpellchecker"/>
+      implementationClass="com.windea.plugin.idea.paradox.localisation.ParadoxLocalisationSpellchecker"/>
     <lang.refactoringSupport
       language="Paradox Localisation"
-      implementationClass="com.windea.plugin.idea.pdx.localisation.refactoring.PdxLocalisationRefactoringSupportProvider"/>
+      implementationClass="com.windea.plugin.idea.paradox.localisation.refactoring.ParadoxLocalisationRefactoringSupportProvider"/>
     <renameInputValidator
-      implementation="com.windea.plugin.idea.pdx.localisation.refactoring.PdxLocalisationPropertyRenameInputValidator"/>
+      implementation="com.windea.plugin.idea.paradox.localisation.refactoring.ParadoxLocalisationPropertyRenameInputValidator"/>
     <completion.contributor
       language="Paradox Localisation"
-      implementationClass="com.windea.plugin.idea.pdx.localisation.codeInsight.PdxLocalisationCompletionContributor"/>
+      implementationClass="com.windea.plugin.idea.paradox.localisation.codeInsight.ParadoxLocalisationCompletionContributor"/>
     <liveTemplateContext
-      implementation="com.windea.plugin.idea.pdx.localisation.editor.PdxLocalisationTemplateContext"/>
+      implementation="com.windea.plugin.idea.paradox.localisation.editor.ParadoxLocalisationTemplateContext"/>
     <defaultLiveTemplates file="/liveTemplates/Paradox Localisation.xml"/>
     <breadcrumbsInfoProvider
-      implementation="com.windea.plugin.idea.pdx.localisation.editor.PdxLocalisationBreadCrumbsProvider"/>
+      implementation="com.windea.plugin.idea.paradox.localisation.editor.ParadoxLocalisationBreadCrumbsProvider"/>
     <lang.psiStructureViewFactory
       language="Paradox Localisation"
-      implementationClass="com.windea.plugin.idea.pdx.localisation.structureView.PdxLocalisationStructureViewFactory"/>
+      implementationClass="com.windea.plugin.idea.paradox.localisation.structureView.ParadoxLocalisationStructureViewFactory"/>
     <lang.formatter
       language="Paradox Localisation"
-      implementationClass="com.windea.plugin.idea.pdx.localisation.formatter.PdxLocalisationFormattingModelBuilder"/>
+      implementationClass="com.windea.plugin.idea.paradox.localisation.formatter.ParadoxLocalisationFormattingModelBuilder"/>
     <codeStyleSettingsProvider
-      implementation="com.windea.plugin.idea.pdx.localisation.formatter.PdxLocalisationCodeStyleSettingsProvider"/>
+      implementation="com.windea.plugin.idea.paradox.localisation.formatter.ParadoxLocalisationCodeStyleSettingsProvider"/>
     <langCodeStyleSettingsProvider
-      implementation="com.windea.plugin.idea.pdx.localisation.formatter.PdxLocalisationLanguageCodeStyleSettingsProvider"/>
+      implementation="com.windea.plugin.idea.paradox.localisation.formatter.ParadoxLocalisationLanguageCodeStyleSettingsProvider"/>
     <lang.quoteHandler
       language="Paradox Localisation"
-      implementationClass="com.windea.plugin.idea.pdx.localisation.editor.PdxLocalisationQuoteHandler"/>
+      implementationClass="com.windea.plugin.idea.paradox.localisation.editor.ParadoxLocalisationQuoteHandler"/>
     <lang.documentationProvider
       language="Paradox Localisation"
-      implementationClass="com.windea.plugin.idea.pdx.localisation.editor.PdxLocalisationDocumentationProvider"/>
+      implementationClass="com.windea.plugin.idea.paradox.localisation.editor.ParadoxLocalisationDocumentationProvider"/>
     <elementDescriptionProvider
-      implementation="com.windea.plugin.idea.pdx.localisation.editor.PdxLocalisationDescriptionProvider"/>
+      implementation="com.windea.plugin.idea.paradox.localisation.editor.ParadoxLocalisationDescriptionProvider"/>
 
     <lang.findUsagesProvider
       language="Paradox Localisation"
-      implementationClass="com.windea.plugin.idea.pdx.localisation.editor.PdxLocalisationFindUsagesProvider"/>
+      implementationClass="com.windea.plugin.idea.paradox.localisation.editor.ParadoxLocalisationFindUsagesProvider"/>
     <gotoDeclarationHandler
-      implementation="com.windea.plugin.idea.pdx.localisation.editor.PdxLocalisationGoToDeclarationHandler"/>
+      implementation="com.windea.plugin.idea.paradox.localisation.editor.ParadoxLocalisationGoToDeclarationHandler"/>
     <annotator
       language="Paradox Localisation"
-      implementationClass="com.windea.plugin.idea.pdx.localisation.PdxLocalisationAnnotator"/>
+      implementationClass="com.windea.plugin.idea.paradox.localisation.ParadoxLocalisationAnnotator"/>
 
-    <additionalTextAttributes scheme="Default" file="colorSchemes/PdxScriptDefault.xml"/>
-    <additionalTextAttributes scheme="Darcula" file="colorSchemes/PdxScriptDarcula.xml"/>
+    <additionalTextAttributes scheme="Default" file="colorSchemes/ParadoxScriptDefault.xml"/>
+    <additionalTextAttributes scheme="Darcula" file="colorSchemes/ParadoxScriptDarcula.xml"/>
 
     <intentionAction>
-      <className>com.windea.plugin.idea.pdx.localisation.intentions.ChangeLocaleIntention</className>
+      <className>com.windea.plugin.idea.paradox.localisation.intentions.ChangeLocaleIntention</className>
       <category>Paradox localisation</category>
     </intentionAction>
     <intentionAction>
-      <className>com.windea.plugin.idea.pdx.localisation.intentions.ChangeColorIntention</className>
+      <className>com.windea.plugin.idea.paradox.localisation.intentions.ChangeColorIntention</className>
       <category>Paradox localisation</category>
     </intentionAction>
     <intentionAction>
-      <className>com.windea.plugin.idea.pdx.localisation.intentions.ChangeSerialNumberIntention</className>
+      <className>com.windea.plugin.idea.paradox.localisation.intentions.ChangeSerialNumberIntention</className>
       <category>Paradox localisation</category>
     </intentionAction>
 
     <localInspection
       language="Paradox Localisation"
-      shortName="PdxLocalisationDuplicatePropertyKeys" bundle="messages.PdxBundle"
-      groupKey="pdx.localisation.inspection" key="pdx.localisation.inspection.duplicatePropertyKeys"
+      shortName="ParadoxLocalisationDuplicatePropertyKeys" bundle="messages.ParadoxBundle"
+      groupKey="paradox.localisation.inspection" key="paradox.localisation.inspection.duplicatePropertyKeys"
       enabledByDefault="true" level="WARNING"
-      implementationClass="com.windea.plugin.idea.pdx.localisation.inspections.DuplicatePropertyKeysInspection"/>
+      implementationClass="com.windea.plugin.idea.paradox.localisation.inspections.DuplicatePropertyKeysInspection"/>
     <localInspection
       language="Paradox Localisation"
-      shortName="PdxLocalisationInvalidFileEncoding" bundle="messages.PdxBundle"
-      groupKey="pdx.localisation.inspection" key="pdx.localisation.inspection.invalidFileEncoding"
+      shortName="ParadoxLocalisationInvalidFileEncoding" bundle="messages.ParadoxBundle"
+      groupKey="paradox.localisation.inspection" key="paradox.localisation.inspection.invalidFileEncoding"
       enabledByDefault="true" level="WARNING"
-      implementationClass="com.windea.plugin.idea.pdx.localisation.inspections.InvalidFileEncodingInspection"/>
+      implementationClass="com.windea.plugin.idea.paradox.localisation.inspections.InvalidFileEncodingInspection"/>
     <!--endregion-->
 
     <!--region Paradox Script Language-->
     <fileType
       language="Paradox Script"
       name="Paradox Script File" fieldName="INSTANCE"
-      implementationClass="com.windea.plugin.idea.pdx.script.PdxScriptFileType"/>
+      implementationClass="com.windea.plugin.idea.paradox.script.ParadoxScriptFileType"/>
     <lang.parserDefinition
       language="Paradox Script"
-      implementationClass="com.windea.plugin.idea.pdx.script.psi.PdxScriptParserDefinition"/>
-    <stubElementTypeHolder class="com.windea.plugin.idea.pdx.script.psi.PdxScriptStubElementTypes" externalIdPrefix="pdxScript."/>
-    <stubIndex implementation="com.windea.plugin.idea.pdx.script.psi.PdxScriptVariableKeyIndex"/>
-    <stubIndex implementation="com.windea.plugin.idea.pdx.script.psi.PdxScriptPropertyKeyIndex"/>
+      implementationClass="com.windea.plugin.idea.paradox.script.psi.ParadoxScriptParserDefinition"/>
+    <stubElementTypeHolder class="com.windea.plugin.idea.paradox.script.psi.ParadoxScriptStubElementTypes" externalIdPrefix="paradoxScript."/>
+    <stubIndex implementation="com.windea.plugin.idea.paradox.script.psi.ParadoxScriptVariableKeyIndex"/>
+    <stubIndex implementation="com.windea.plugin.idea.paradox.script.psi.ParadoxScriptPropertyKeyIndex"/>
 
     <lang.syntaxHighlighterFactory
       language="Paradox Script"
-      implementationClass="com.windea.plugin.idea.pdx.script.highlighter.PdxScriptSyntaxHighlighterFactory"/>
+      implementationClass="com.windea.plugin.idea.paradox.script.highlighter.ParadoxScriptSyntaxHighlighterFactory"/>
     <lang.braceMatcher
       language="Paradox Script"
-      implementationClass="com.windea.plugin.idea.pdx.script.editor.PdxScriptBraceMatcher"/>
+      implementationClass="com.windea.plugin.idea.paradox.script.editor.ParadoxScriptBraceMatcher"/>
     <lang.foldingBuilder
       language="Paradox Script"
-      implementationClass="com.windea.plugin.idea.pdx.script.editor.PdxScriptFoldingBuilder"/>
+      implementationClass="com.windea.plugin.idea.paradox.script.editor.ParadoxScriptFoldingBuilder"/>
     <colorSettingsPage
-      implementation="com.windea.plugin.idea.pdx.script.highlighter.PdxScriptColorSettingsPage"/>
+      implementation="com.windea.plugin.idea.paradox.script.highlighter.ParadoxScriptColorSettingsPage"/>
     <lang.commenter
       language="Paradox Script"
-      implementationClass="com.windea.plugin.idea.pdx.script.editor.PdxScriptCommenter"/>
+      implementationClass="com.windea.plugin.idea.paradox.script.editor.ParadoxScriptCommenter"/>
     <spellchecker.support
       language="Paradox Script"
-      implementationClass="com.windea.plugin.idea.pdx.script.PdxScriptSpellchecker"/>
+      implementationClass="com.windea.plugin.idea.paradox.script.ParadoxScriptSpellchecker"/>
     <lang.refactoringSupport
       language="Paradox Script"
-      implementationClass="com.windea.plugin.idea.pdx.script.refactoring.PdxScriptRefactoringSupportProvider"/>
+      implementationClass="com.windea.plugin.idea.paradox.script.refactoring.ParadoxScriptRefactoringSupportProvider"/>
     <renameInputValidator
-      implementation="com.windea.plugin.idea.pdx.script.refactoring.PdxScriptVariableRenameInputValidator"/>
+      implementation="com.windea.plugin.idea.paradox.script.refactoring.ParadoxScriptVariableRenameInputValidator"/>
     <renameInputValidator
-      implementation="com.windea.plugin.idea.pdx.script.refactoring.PdxScriptPropertyRenameInputValidator"/>
+      implementation="com.windea.plugin.idea.paradox.script.refactoring.ParadoxScriptPropertyRenameInputValidator"/>
     <refactoring.inlineHandler
       language="Paradox Script"
-      implementationClass="com.windea.plugin.idea.pdx.script.refactoring.PdxScriptInlineHandler"/>
+      implementationClass="com.windea.plugin.idea.paradox.script.refactoring.ParadoxScriptInlineHandler"/>
     <completion.contributor
       language="Paradox Script"
-      implementationClass="com.windea.plugin.idea.pdx.script.codeInsight.PdxScriptCompletionContributor"/>
+      implementationClass="com.windea.plugin.idea.paradox.script.codeInsight.ParadoxScriptCompletionContributor"/>
     <breadcrumbsInfoProvider
-      implementation="com.windea.plugin.idea.pdx.script.editor.PdxScriptBreadCrumbsProvider"/>
+      implementation="com.windea.plugin.idea.paradox.script.editor.ParadoxScriptBreadCrumbsProvider"/>
     <colorProvider
-      implementation="com.windea.plugin.idea.pdx.script.editor.PdxScriptColorProvider"/>
+      implementation="com.windea.plugin.idea.paradox.script.editor.ParadoxScriptColorProvider"/>
     <lang.psiStructureViewFactory
       language="Paradox Script"
-      implementationClass="com.windea.plugin.idea.pdx.script.structureView.PdxScriptStructureViewFactory"/>
+      implementationClass="com.windea.plugin.idea.paradox.script.structureView.ParadoxScriptStructureViewFactory"/>
     <lang.formatter
       language="Paradox Script"
-      implementationClass="com.windea.plugin.idea.pdx.script.formatter.PdxScriptFormattingModelBuilder"/>
+      implementationClass="com.windea.plugin.idea.paradox.script.formatter.ParadoxScriptFormattingModelBuilder"/>
     <codeStyleSettingsProvider
-      implementation="com.windea.plugin.idea.pdx.script.formatter.PdxScriptCodeStyleSettingsProvider"/>
+      implementation="com.windea.plugin.idea.paradox.script.formatter.ParadoxScriptCodeStyleSettingsProvider"/>
     <langCodeStyleSettingsProvider
-      implementation="com.windea.plugin.idea.pdx.script.formatter.PdxScriptLanguageCodeStyleSettingsProvider"/>
+      implementation="com.windea.plugin.idea.paradox.script.formatter.ParadoxScriptLanguageCodeStyleSettingsProvider"/>
     <lang.quoteHandler
       language="Paradox Script"
-      implementationClass="com.windea.plugin.idea.pdx.script.editor.PdxScriptQuoteHandler"/>
+      implementationClass="com.windea.plugin.idea.paradox.script.editor.ParadoxScriptQuoteHandler"/>
     <lang.documentationProvider
       language="Paradox Script"
-      implementationClass="com.windea.plugin.idea.pdx.script.editor.PdxScriptDocumentationProvider"/>
+      implementationClass="com.windea.plugin.idea.paradox.script.editor.ParadoxScriptDocumentationProvider"/>
     <elementDescriptionProvider
-      implementation="com.windea.plugin.idea.pdx.script.editor.PdxScriptDescriptionProvider"/>
+      implementation="com.windea.plugin.idea.paradox.script.editor.ParadoxScriptDescriptionProvider"/>
 
     <lang.findUsagesProvider
       language="Paradox Script"
-      implementationClass="com.windea.plugin.idea.pdx.script.editor.PdxScriptFindUsagesProvider"/>
+      implementationClass="com.windea.plugin.idea.paradox.script.editor.ParadoxScriptFindUsagesProvider"/>
     <gotoDeclarationHandler
-      implementation="com.windea.plugin.idea.pdx.script.editor.PdxScriptGoToDeclarationHandler"/>
+      implementation="com.windea.plugin.idea.paradox.script.editor.ParadoxScriptGoToDeclarationHandler"/>
     <annotator
       language="Paradox Script"
-      implementationClass="com.windea.plugin.idea.pdx.script.PdxScriptAnnotator"/>
+      implementationClass="com.windea.plugin.idea.paradox.script.ParadoxScriptAnnotator"/>
 
-    <additionalTextAttributes scheme="Default" file="colorSchemes/PdxLocalisationDefault.xml"/>
-    <additionalTextAttributes scheme="Darcula" file="colorSchemes/PdxLocalisationDarcula.xml"/>
+    <additionalTextAttributes scheme="Default" file="colorSchemes/ParadoxLocalisationDefault.xml"/>
+    <additionalTextAttributes scheme="Darcula" file="colorSchemes/ParadoxLocalisationDarcula.xml"/>
 
     <localInspection
       language="Paradox Script"
-      shortName="PdxScriptDuplicateVariableDefinitions" bundle="messages.PdxBundle"
-      groupKey="pdx.script.inspection"
-      key="pdx.script.inspection.duplicateVariableDefinitions"
+      shortName="ParadoxScriptDuplicateVariableDefinitions" bundle="messages.ParadoxBundle"
+      groupKey="paradox.script.inspection"
+      key="paradox.script.inspection.duplicateVariableDefinitions"
       enabledByDefault="true" level="WARNING"
-      implementationClass="com.windea.plugin.idea.pdx.script.inspections.DuplicateVariableDefinitionsInspection"/>
+      implementationClass="com.windea.plugin.idea.paradox.script.inspections.DuplicateVariableDefinitionsInspection"/>
     <localInspection
       language="Paradox Script"
-      shortName="PdxScriptInvalidFileEncoding" bundle="messages.PdxBundle"
-      groupKey="pdx.script.inspection"
-      key="pdx.script.inspection.invalidFileEncoding"
+      shortName="ParadoxScriptInvalidFileEncoding" bundle="messages.ParadoxBundle"
+      groupKey="paradox.script.inspection"
+      key="paradox.script.inspection.invalidFileEncoding"
       enabledByDefault="true" level="WARNING"
-      implementationClass="com.windea.plugin.idea.pdx.script.inspections.InvalidFileEncodingInspection"/>
+      implementationClass="com.windea.plugin.idea.paradox.script.inspections.InvalidFileEncodingInspection"/>
     <!--endregion-->
 
     <!--region Paradox Script Schema-->
     <json.jsonSchemaEnabler
-      implementation="com.windea.plugin.idea.pdx.script.schema.PdxScriptSchemaEnabler"/>
+      implementation="com.windea.plugin.idea.paradox.script.schema.ParadoxScriptSchemaEnabler"/>
     <completion.contributor
       language="Paradox Script"
-      implementationClass="com.windea.plugin.idea.pdx.script.schema.PdxScriptSchemaCompletionContributor"/>
+      implementationClass="com.windea.plugin.idea.paradox.script.schema.ParadoxScriptSchemaCompletionContributor"/>
     <gotoDeclarationHandler
-      implementation="com.windea.plugin.idea.pdx.script.schema.PdxScriptSchemaGotoDeclarationHandler"/>
+      implementation="com.windea.plugin.idea.paradox.script.schema.ParadoxScriptSchemaGotoDeclarationHandler"/>
     <json.jsonLikePsiWalkerFactory
-      implementation="com.windea.plugin.idea.pdx.script.schema.PdxScriptJsonLikePsiWalkerFactory"/>
+      implementation="com.windea.plugin.idea.paradox.script.schema.ParadoxScriptJsonLikePsiWalkerFactory"/>
     <!--<documentationProvider
-      implementation="com.windea.plugin.idea.pdx.script.schema.PdxScriptSchemaDocumentationProvider"/>-->
+      implementation="com.windea.plugin.idea.paradox.script.schema.ParadoxScriptSchemaDocumentationProvider"/>-->
 
     <localInspection
       language="Paradox Script"
-      shortName="PdxScriptSchemaValidation" bundle="messages.PdxBundle"
-      groupKey="pdx.script.inspection" key="pdx.script.inspection.schemaValidation"
+      shortName="ParadoxScriptSchemaValidation" bundle="messages.ParadoxBundle"
+      groupKey="paradox.script.inspection" key="paradox.script.inspection.schemaValidation"
       enabledByDefault="true" level="ERROR"
-      implementationClass="com.windea.plugin.idea.pdx.script.schema.PdxScriptSchemaInspectionTool"/>
+      implementationClass="com.windea.plugin.idea.paradox.script.schema.ParadoxScriptSchemaInspectionTool"/>
     <!--endregion-->
   </extensions>
 
   <extensions defaultExtensionNs="JavaScript">
     <JsonSchema.ProviderFactory
-      implementation="com.windea.plugin.idea.pdx.script.schema.PdxScriptSchemaProviderFactory"/>
+      implementation="com.windea.plugin.idea.paradox.script.schema.ParadoxScriptSchemaProviderFactory"/>
   </extensions>
 </idea-plugin>
