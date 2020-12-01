@@ -1,15 +1,13 @@
 package com.windea.plugin.idea.paradox
 
-import com.intellij.codeInsight.documentation.*
-import com.intellij.icons.*
 import com.intellij.openapi.project.*
 import com.intellij.openapi.util.*
 import com.intellij.openapi.vfs.*
-import com.intellij.util.*
 import com.windea.plugin.idea.paradox.localisation.psi.*
 import java.util.concurrent.*
 
-//region Strings
+//Strings
+
 const val paradoxLocalisationName = "Paradox Localisation"
 const val paradoxLocalisationNamePc = "ParadoxLocalisation"
 const val paradoxLocalisationNameSsc = "PARADOX_LOCALISATION"
@@ -17,7 +15,7 @@ const val paradoxLocalisationLanguageName = "$paradoxLocalisationName Language"
 const val paradoxLocalisationFileTypeName = "$paradoxLocalisationName File"
 const val paradoxLocalisationFileTypeDescription = "$paradoxLocalisationName Language"
 const val paradoxLocalisationExtension = "yml"
-val paradoxLocalisationDummyText = "dummyText/ParadoxLocalisation.txt".toClassPathResource().readText()
+val paradoxLocalisationDummyText = "dummyText/ParadoxLocalisation.txt".toClassPathResource()!!.readText()
 
 const val paradoxScriptName = "Paradox Script"
 const val paradoxScriptNamePc = "ParadoxScript"
@@ -26,7 +24,7 @@ const val paradoxScriptLanguageName = "$paradoxScriptName Language"
 const val paradoxScriptFileTypeName = "$paradoxScriptName File"
 const val paradoxScriptFileTypeDescription = "$paradoxScriptName Language"
 const val paradoxScriptExtension = "txt"
-val paradoxScriptDummyText = "dummyText/ParadoxScript.txt".toClassPathResource().readText()
+val paradoxScriptDummyText = "dummyText/ParadoxScript.txt".toClassPathResource()!!.readText()
 
 const val commentFolder = "#..."
 const val blockFolder = "{...}"
@@ -58,9 +56,9 @@ val inferredParadoxLocale = when(System.getProperty("user.language")){
 	"es" -> ParadoxLocale.SPANISH
 	else -> ParadoxLocale.ENGLISH
 }
-//endregion
 
-//region Icons
+//Icons
+
 val paradoxLocalisationFileIcon = IconLoader.findIcon("/icons/paradoxLocalisationFile.png")!!
 val paradoxLocalisationLocaleIcon = IconLoader.findIcon("/icons/paradoxLocalisationLocale.svg")!!
 val paradoxLocalisationPropertyIcon = IconLoader.findIcon("/icons/paradoxLocalisationProperty.svg")!!
@@ -75,14 +73,14 @@ val scriptPropertyGutterIcon = paradoxScriptPropertyIcon.resize(12, 12)
 //val eventIdGutterIcon = IconUtil.toSize(AllIcons.Nodes.Protected, 12, 12)
 //val gfxKeyGutterIcon = IconUtil.toSize(AllIcons.Nodes.Related, 12, 12)
 //val assetKeyGutterIcon = IconUtil.toSize(AllIcons.Nodes.Related, 12, 12)
-//endregion
 
-//region Keys
+//Keys
+
 val paradoxPathKey = Key<String>("paradoxPath")
 val paradoxParentPathKey = Key<String>("paradoxParentPath")
-//endregion
 
-//region Caches
+//Caches
+
 val rootDirectoryCache = ConcurrentHashMap<String,VirtualFile>()
 
 val localisationLocaleCache = ConcurrentHashMap<Project, Array<ParadoxLocalisationLocale>>()
@@ -99,4 +97,3 @@ val localisationColorfulTextCache = ConcurrentHashMap<Project, Array<ParadoxLoca
 fun MutableMap<Project, Array<ParadoxLocalisationColorfulText>>.register(project: Project) = this.getOrPut(project) {
 	ParadoxColor.keys.mapArray { e -> ParadoxLocalisationElementFactory.createColorfulText(project, e) }
 }
-//endregion

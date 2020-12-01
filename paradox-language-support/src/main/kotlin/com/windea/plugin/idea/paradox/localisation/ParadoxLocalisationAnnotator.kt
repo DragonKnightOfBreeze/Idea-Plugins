@@ -75,7 +75,7 @@ class ParadoxLocalisationAnnotator : Annotator, DumbAware {
 		if(element.paradoxLocale == null) {
 			val localeId = element.name ?: return
 			holder.newAnnotation(ERROR, message("paradox.localisation.annotator.unsupportedLocale", localeId))
-				.withFix(ChangeLocaleIntention.instance)
+				.withFix(ChangeLocaleIntention)
 				.create()
 		}
 	}
@@ -84,7 +84,7 @@ class ParadoxLocalisationAnnotator : Annotator, DumbAware {
 		if(element.paradoxSerialNumber == null) {
 			val serialNumberId = element.name ?: return
 			holder.newAnnotation(ERROR, message("paradox.localisation.annotator.unsupportedSerialNumber", serialNumberId))
-				.withFix(ChangeSerialNumberIntention.instance)
+				.withFix(ChangeSerialNumberIntention)
 				.create()
 		}
 	}
@@ -94,7 +94,7 @@ class ParadoxLocalisationAnnotator : Annotator, DumbAware {
 		val colorId = element.name ?: return
 		if(element.paradoxColor == null) {
 			holder.newAnnotation(ERROR, message("paradox.localisation.annotator.unsupportedColor", colorId))
-				.withFix(ChangeColorIntention.instance)
+				.withFix(ChangeColorIntention)
 				.create()
 		} else {
 			val e = element.colorCode

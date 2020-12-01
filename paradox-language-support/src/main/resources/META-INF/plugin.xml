@@ -101,7 +101,7 @@
       implementationClass="com.windea.plugin.idea.paradox.localisation.codeInsight.ParadoxLocalisationCompletionContributor"/>
     <liveTemplateContext
       implementation="com.windea.plugin.idea.paradox.localisation.editor.ParadoxLocalisationTemplateContext"/>
-    <defaultLiveTemplates file="/liveTemplates/Paradox Localisation.xml"/>
+    <defaultLiveTemplates file="/liveTemplates/ParadoxLocalisation.xml"/>
     <breadcrumbsInfoProvider
       implementation="com.windea.plugin.idea.paradox.localisation.editor.ParadoxLocalisationBreadCrumbsProvider"/>
     <lang.psiStructureViewFactory

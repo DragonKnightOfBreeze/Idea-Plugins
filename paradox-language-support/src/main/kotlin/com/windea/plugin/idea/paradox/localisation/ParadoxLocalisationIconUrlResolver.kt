@@ -136,3 +136,8 @@ object ParadoxLocalisationIconUrlResolver {
 		return "https://paradox.paradoxwikis.com/File:$fqName.png"
 	}
 }
+
+@Suppress("NOTHING_TO_INLINE")
+inline fun String.resolveIconUrl(defaultToUnknown: Boolean = true): String {
+	return ParadoxLocalisationIconUrlResolver.resolve(this, defaultToUnknown)
+}

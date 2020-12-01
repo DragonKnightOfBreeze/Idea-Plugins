@@ -97,3 +97,13 @@ object ParadoxLocalisationRichTextRenderer {
 		if(rgbText != null) buffer.append("</span>")
 	}
 }
+
+@Suppress("NOTHING_TO_INLINE")
+inline fun ParadoxLocalisationPropertyValue.renderRichText(): String {
+	return ParadoxLocalisationRichTextRenderer.render(this)
+}
+
+@Suppress("NOTHING_TO_INLINE")
+inline fun ParadoxLocalisationPropertyValue.renderRichTextTo(buffer: Appendable) {
+	ParadoxLocalisationRichTextRenderer.renderTo(this, buffer)
+}

@@ -3,6 +3,7 @@ package com.windea.plugin.idea.paradox.localisation.editor
 import com.intellij.lang.documentation.*
 import com.intellij.psi.*
 import com.windea.plugin.idea.paradox.*
+import com.windea.plugin.idea.paradox.localisation.*
 import com.windea.plugin.idea.paradox.localisation.highlighter.*
 import com.windea.plugin.idea.paradox.localisation.psi.*
 
@@ -38,8 +39,7 @@ class ParadoxLocalisationDocumentationProvider : AbstractDocumentationProvider()
 			append(DocumentationMarkup.DEFINITION_END)
 			
 			//添加先前的行注释的文本到文档注释中
-			val textAttributesKey = ParadoxLocalisationAttributesKeys.COMMENT_KEY
-			val docCommentText = getDocCommentHtmlFromPreviousComment(element, textAttributesKey)
+			val docCommentText = getDocCommentTextFromPreviousComment(element)
 			if(docCommentText.isNotEmpty()) {
 				append(DocumentationMarkup.CONTENT_START)
 				append(docCommentText)

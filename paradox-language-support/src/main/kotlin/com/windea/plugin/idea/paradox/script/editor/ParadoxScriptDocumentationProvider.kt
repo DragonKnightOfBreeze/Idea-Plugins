@@ -38,8 +38,7 @@ class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
 			append("(script variable) <b>${name}</b> = ${getVariableValueText(element)}")
 			append(DocumentationMarkup.DEFINITION_END)
 			
-			val textAttributesKey = ParadoxScriptAttributesKeys.COMMENT_KEY
-			val docCommentText = getDocCommentHtmlFromPreviousComment(element, textAttributesKey)
+			val docCommentText = getDocCommentTextFromPreviousComment(element)
 			if(docCommentText.isNotEmpty()) {
 				append(DocumentationMarkup.CONTENT_START)
 				append(docCommentText)
@@ -57,8 +56,7 @@ class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
 			append("(script property) <b>${name}</b> = ${getPropertyValueText(element)}")
 			append(DocumentationMarkup.DEFINITION_END)
 			
-			val textAttributesKey = ParadoxScriptAttributesKeys.COMMENT_KEY
-			val docCommentText = getDocCommentHtmlFromPreviousComment(element, textAttributesKey)
+			val docCommentText = getDocCommentTextFromPreviousComment(element)
 			if(docCommentText.isNotEmpty()) {
 				append(DocumentationMarkup.CONTENT_START)
 				append(docCommentText)
