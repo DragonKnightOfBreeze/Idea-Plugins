@@ -1,3 +1,8 @@
+# About
+This plugin adds support for the `.bbcode` file extension and [BBCode](https://www.bbcode.org/) (Bulletin Board Code) language support.
+
+BBCode is a markup language for forum websites.
+
 # 概述
 
 [BBCode](https://www.bbcode.org/)（Bulletin Board Code）语言支持。
