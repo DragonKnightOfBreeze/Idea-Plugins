@@ -4,6 +4,5 @@ include(
 	"bbcode",
 	"paradox-language-support",
 	"starbound-text",
-	"stellaris-modding-support",
-	"yaml-extension"
+	"stellaris-modding-support"
 )

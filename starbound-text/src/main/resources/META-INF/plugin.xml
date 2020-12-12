@@ -9,8 +9,18 @@
     <p>Starbound Text support.</p>
     <p>
       This plugin is developed to help maintaining and updating
-      <a href="https://github.com/ProjectSky/FrackinUniverse-sChinese-Project">Frackin Universe Simple Chinese Project</a>
-      .
+      <a href="https://github.com/ProjectSky/FrackinUniverse-sChinese-Project">Frackin Universe Simple Chinese Project</a>.
+    </p>
+    <p>Main Feature:</p>
+    <li>
+      <ol>Syntax analysis.</ol>
+     <ol>Code highlight and code completion for color markers. </ol>
+      <ol>Corresponding color highlight for colorful text. </ol>
+      <ol>Dynamic template for quickly inserting colored text. Enter <code>color</code> in the correct position to see it.</ol>
+    </li>
+    <p>
+      Note: This plugin does not provide default file extensions to associate <code>Starbound Text</code> language,
+      please customize a File Type or use Language Injection.
     </p>
     <p>
       Welcome to have a look at
@@ -23,16 +33,19 @@
     <p>Starbound文本支持。</p>
     <p>
       编写这个插件是为了便于维护和更新
-      <a href="https://github.com/ProjectSky/FrackinUniverse-sChinese-Project">Frackin Universe汉化项目</a>
-      。
+      <a href="https://github.com/ProjectSky/FrackinUniverse-sChinese-Project">Frackin Universe汉化项目</a>。
     </p>
     <p>主要功能：</p>
     <li>
       <ol>语法解析。</ol>
       <ol>对颜色标记的代码高亮和代码提示。</ol>
       <ol>对彩色文本进行对应颜色的代码高亮。</ol>
-      <ol>提供快速插入彩色文本的动态模版，在正确的位置输入<code>color</code>即可看到，也可以用于包围文本。</ol>
+      <ol>提供快速插入彩色文本的动态模版，在正确的位置输入<code>color</code>即可看到。</ol>
     </li>
+    <p>
+      注意：这个插件不提供默认的文件后缀名以关联<code>Starbound文本</code>语言，
+      请自定义文件类型或者使用语言注入功能。
+    </p>
     <p>
       欢迎查看
       <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/tree/master/bbcode">本项目</a>以及
@@ -42,19 +55,13 @@
 
   <change-notes><![CDATA[
     <p>
-      See the whole changelog at the
-      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/starbound-text/README.md">README</a> and
-      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/starbound-text/CHANGELOG.md">CHANGELOG</a>
-      document of this project. (Simple Chinese)
+      Please see <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/starbound-text/CHANGELOG.md">CHANGELOG.md</a>.
     </p>
 
     <br>
 
     <p>
-      通过项目的
-      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/starbound-text/README.md">README</a> 文档和
-      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/starbound-text/CHANGELOG.md">CHANGELOG</a> 文档
-      查看完整的更新日志。（中文）
+      请查阅<a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/starbound-text/CHANGELOG.md">CHANGELOG.md</a>。
     </p>
     ]]></change-notes>
 

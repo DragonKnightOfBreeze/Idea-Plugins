@@ -11,7 +11,7 @@ const val sbTextFileTypeName = "$sbTextName File"
 const val sbTextFileTypeDescription = "$sbTextName Language"
 const val sbTextExtension = "sbtxt"
 
-val sbTextDummyText = "/example.txt".toClassPathResource<SbTextBundle>().readText()
+val sbTextDummyText = "/dummyText/SbText.txt".toClassPathResource<SbTextBundle>().readText()
 
 const val sbTextBundleName = "messages.SbTextBundle"
 //endregion

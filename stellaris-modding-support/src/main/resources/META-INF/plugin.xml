@@ -11,10 +11,10 @@
     <p>Support for Stellaris modding.</p>
     <p>
       NOTE: This plugin might be deprecated in the future,
-      I'm plan to develop another plugins <i>Paradox Language Support</i> to support all paradox games.
+      I'm plan to develop another plugins <b>Paradox Language Support</b> to support all paradox games.
     <ul>
-      <li>Support Stellaris Script Language. (*.txt, *.mod, *.gfx, *.gui, *.asset)</li>
-      <li>Support Stellaris Localization Language. (*.yml, *.yaml)</li>
+      <li>Support Stellaris Script Language. (*.txt, *.mod, *.gfx, *.gui, *.asset files)</li>
+      <li>Support Stellaris Localization Language. (*.yml files)</li>
       <li>Basic language features has been implemented.</li>
       <li>Extended language features has been implemented.</li>
       <li>More complex language features are implementing.</li>
@@ -26,13 +26,13 @@
     </ul>
     <p>
       This plugin will only recognize script and localization files
-      under a directory which has <code>stellaris.exe</code> / <code>descriptor.mod</code> in it.
+      under a directory which has <b>stellaris.exe</b> or <b>descriptor.mod</b> in it.
     </p>
     <p>
       You can configure whether to resolve
-      internal (in project directory) & external (in game / mod directory, <b>NOT IMPLEMENTED YET</b>) references,
+      internal (in project directory) & external (in game or mod directory, <b>NOT IMPLEMENTED YET</b>) references,
       such as localization and script property references in script files
-      by Edit settings via <code>[Languages & Frameworks / Stellaris Modding Support]</code>.
+      by Edit settings via <b>[Languages & Frameworks / Stellaris Modding Support]</b>.
       Default all to true.
     </p>
     <p>
@@ -55,7 +55,6 @@
       project's <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/issues">Github Issue Page</a>
       with label <i>stellaris-modding-support</i>.
     </p>
-
     <p>
       Welcome to have a look at
       <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/tree/master/stellaris-modding-support">this project</a>,
@@ -71,8 +70,8 @@
       我计划开发另外一个插件<i>Paradox Language Support</i>以支持所有的P社游戏。
     </p>
     <ul>
-      <li>支持Stellaris的脚本语言。(*.txt, *.mod, *.gfx, *.gui, *.asset)</li>
-      <li>支持Stellaris的本地化语言。</li>
+      <li>支持Stellaris的脚本语言。（*.txt, *.mod, *.gfx, *.gui, *.asset文件）</li>
+      <li>支持Stellaris的本地化语言。（*.yml文件）</li>
       <li>已实现基本的语言特性。</li>
       <li>已实现扩展的语言特性。</li>
       <li>正在实现更加复杂的语言特性。</li>
@@ -111,7 +110,6 @@
       项目的<a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/issues">Github Issue页面</a>中提出，
       附带标签<i>stellaris-modding-support</i>。
     </p>
-
     <p>
       欢迎查看
       <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/tree/master/stellaris-modding-support">本项目</a>，
@@ -122,17 +120,13 @@
 
   <change-notes><![CDATA[
     <p>
-      Please see the
-      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/CHANGELOG.md">CHANGELOG</a>
-      document written by Simple Chinese.
+      Please see <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/CHANGELOG.md">CHANGELOG.md</a>.
     </p>
 
     <br>
 
     <p>
-      请查看
-      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/CHANGELOG.md">CHANGELOG</a>
-      文档。
+      请查阅<a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/CHANGELOG.md">CHANGELOG.md</a>。
     </p>
     ]]></change-notes>
 
