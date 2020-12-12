@@ -3,11 +3,11 @@ plugins {
 	id("org.jetbrains.grammarkit") version "2020.1.2"
 }
 
-version = "1.3"
+version = "1.5"
 
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
-	version = "2020.2"
+	version = "2020.3"
 	pluginName = "BBCode"
 }
 

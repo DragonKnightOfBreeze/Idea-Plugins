@@ -8,7 +8,7 @@ plugins {
 version = "0.1"
 
 intellij {
-	version = "2020.2"
+	version = "2020.3"
 	pluginName = "Paradox Language Support"
 }
 

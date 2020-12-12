@@ -41,7 +41,7 @@ WHITE_SPACE=[ \t]+
 COMMENT=#[^\r\n]*
 END_OF_LINE_COMMENT=#[^\r\n]*
 VARIABLE_NAME_ID=@[a-zA-Z0-9_-]+
-PROPERTY_KEY_ID=([^#@=<>\s]+[^=<>\s]*)|(<[^=\s]*>)
+PROPERTY_KEY_ID=[^#@=\s][^=\s]*
 QUOTED_PROPERTY_KEY_ID=\"([^\"(\r\n\\]|\\.)*?\"
 VARIABLE_REFERENCE_ID=@[a-zA-Z0-9_-]+
 BOOLEAN=(yes)|(no)
@@ -52,7 +52,7 @@ COLOR_TOKEN=(rgb|rgba|hsb|hsv|hsl)[ \t]*\{[0-9. \t]*}
 COMMEND_EXPRESSION_TOKEN=[^\r\n\]}]+
 
 //兼容cwt规则文件（<xxx>格式的propertyKey）
-IS_PROPERTY=(([^#@=<>\s]+[^=<>\s]*)|(<[^=\s]*>)|(\"([^\"(\r\n\\]|\\.)*?\"))(\s*[=<>])
+IS_PROPERTY=(([^#@=\s][^=\s]*)|(\"([^\"(\r\n\\]|\\.)*?\"))(\s*[=<>])
 
 %%
 

@@ -58,14 +58,8 @@ class StellarisScriptLanguageCodeStyleSettingsProvider : LanguageCodeStyleSettin
 				)
 				consumer.showCustomOption(
 					StellarisScriptCodeStyleSettings::class.java,
-					Option.SPACE_AROUND_VARIABLE_SEPARATOR.name,
-					message("stellaris.script.codeStyle.spaceAroundVariableDefinitionSeparator"),
-					SPACES_AROUND_OPERATORS
-				)
-				consumer.showCustomOption(
-					StellarisScriptCodeStyleSettings::class.java,
-					Option.SPACE_AROUND_PROPERTY_SEPARATOR.name,
-					message("stellaris.script.codeStyle.spaceAroundPropertySeparator"),
+					Option.SPACE_AROUND_SEPARATOR.name,
+					message("stellaris.script.codeStyle.spaceAroundSeparator"),
 					SPACES_AROUND_OPERATORS
 				)
 			}

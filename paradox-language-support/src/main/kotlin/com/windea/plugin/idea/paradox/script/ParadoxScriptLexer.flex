@@ -41,7 +41,7 @@ WHITE_SPACE=[ \t]+
 COMMENT=#[^\r\n]*
 END_OF_LINE_COMMENT=#[^\r\n]*
 VARIABLE_NAME_ID=@[a-zA-Z0-9_-]+
-PROPERTY_KEY_ID=[^=\s]+
+PROPERTY_KEY_ID=[^#@=\s]+[^=\s]*
 QUOTED_PROPERTY_KEY_ID=\"([^\"(\r\n\\]|\\.)*?\"
 VARIABLE_REFERENCE_ID=@[a-zA-Z0-9_-]+
 BOOLEAN=(yes)|(no)
