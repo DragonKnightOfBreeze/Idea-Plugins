@@ -2,7 +2,11 @@
 
 Stellaris模组编程支持。
 
-目前仍在烧脑更新中......
+Stellaris Modding Support.
+
+更多信息，请参见[plugin.xml](https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/src/main/resources/META-INF/plugin.xml)。
+
+For more information, please see [plugin.xml](https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/stellaris-modding-support/src/main/resources/META-INF/plugin.xml).
 
 # 功能
 
