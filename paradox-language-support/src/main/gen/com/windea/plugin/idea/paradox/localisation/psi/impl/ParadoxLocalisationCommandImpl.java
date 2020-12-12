@@ -1,18 +1,18 @@
 // This is a generated file. Not intended for manual editing.
 package com.windea.plugin.idea.paradox.localisation.psi.impl;
 
-import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
-import com.intellij.psi.util.PsiTreeUtil;
+
 import static com.windea.plugin.idea.paradox.localisation.psi.ParadoxLocalisationTypes.*;
 import com.windea.plugin.idea.paradox.localisation.psi.*;
 
-public class ParadoxLocalisationCodeImpl extends ParadoxLocalisationRichTextImpl implements ParadoxLocalisationCode {
+public class ParadoxLocalisationCommandImpl extends ParadoxLocalisationRichTextImpl implements
+    ParadoxLocalisationCommand {
 
-  public ParadoxLocalisationCodeImpl(@NotNull ASTNode node) {
+  public ParadoxLocalisationCommandImpl(@NotNull ASTNode node) {
     super(node);
   }
 
@@ -27,8 +27,8 @@ public class ParadoxLocalisationCodeImpl extends ParadoxLocalisationRichTextImpl
 
   @Override
   @Nullable
-  public PsiElement getCodeTextToken() {
-    return findChildByType(CODE_TEXT_TOKEN);
+  public PsiElement getCommandTextToken() {
+    return findChildByType(COMMAND_EXPRESSION_TOKEN);
   }
 
 }

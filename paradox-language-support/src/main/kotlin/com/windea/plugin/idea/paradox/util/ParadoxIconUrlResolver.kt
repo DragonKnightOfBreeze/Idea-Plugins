@@ -1,4 +1,4 @@
-package com.windea.plugin.idea.paradox.localisation
+package com.windea.plugin.idea.paradox.util
 
 import com.intellij.codeInsight.documentation.*
 import com.windea.plugin.idea.paradox.*
@@ -8,18 +8,17 @@ import java.net.http.HttpResponse.*
 import java.time.*
 import java.util.concurrent.*
 
-
 //https://qunxing.huijiwiki.com/
 //https://paradox.paradoxwikis.com/
 //https://qunxing.huijiwiki.com/wiki/%E6%96%87%E4%BB%B6:Xxx.png
 //https://paradox.paradoxwikis.com/File:Xxx.png
 
 /**
- * 图标地址的解析器
+ * 图标地址的解析器。
  *
  * 基于名称以及qunxing.huijiwiki.com和paradox.paradoxwikis.com上的文件解析图标地址。
  */
-object ParadoxLocalisationIconUrlResolver {
+object ParadoxIconUrlResolver {
 	private val timeout = Duration.ofMinutes(3)
 	private val httpClient = HttpClient.newBuilder().connectTimeout(timeout).build()
 	private val bodyHandler = BodyHandlers.ofLines()
@@ -70,16 +69,16 @@ object ParadoxLocalisationIconUrlResolver {
 	}
 	
 	private fun doResolveUrl(name: String): String {
-		return doResolveUrlFromhuijiwiki(name) ?: doResolveUrlFromParadoxwikis(name) ?: ""
+		return doResolveUrlFromHuijiwiki(name) ?: doResolveUrlFromParadoxwikis(name) ?: ""
 	}
 	
 	private const val huijiwikiPrefix = "<li><a href=\"#filelinks\">文件用途</a></li></ul><div class=\"fullImageLink\" id=\"file\"><a href=\""
 	private const val huijiwikiPrefixLength = huijiwikiPrefix.length
 	
-	private fun doResolveUrlFromhuijiwiki(name: String): String? {
+	private fun doResolveUrlFromHuijiwiki(name: String): String? {
 		val url = huijiwikiPngUrl(name)
-		//不重定向url
-		val httpResponse = httpClient.send(HttpRequest.newBuilder().GET().uri(URI.create(url)).build(), bodyHandler)
+		val uri =runCatching { URI.create(url)}.getOrElse { return null }
+		val httpResponse = httpClient.send(HttpRequest.newBuilder().GET().uri(uri).build(), bodyHandler)
 		if(httpResponse.statusCode() == 200) {
 			val lines = httpResponse.body()
 			return lines.filter {
@@ -93,7 +92,6 @@ object ParadoxLocalisationIconUrlResolver {
 		}
 		return null
 	}
-	
 	
 	private fun huijiwikiPngUrl(name:String): String {
 		val fqName = when{
@@ -110,8 +108,8 @@ object ParadoxLocalisationIconUrlResolver {
 	
 	private fun doResolveUrlFromParadoxwikis(name: String): String? {
 		val url = paradoxwikisPngUrl(name)
-		//不重定向url
-		val httpResponse = httpClient.send(HttpRequest.newBuilder().GET().uri(URI.create(url)).build(), bodyHandler)
+		val uri =runCatching { URI.create(url)}.getOrElse { return null }
+		val httpResponse = httpClient.send(HttpRequest.newBuilder().GET().uri(uri).build(), bodyHandler)
 		if(httpResponse.statusCode() == 200) {
 			val lines = httpResponse.body()
 			return lines.filter {
@@ -139,5 +137,5 @@ object ParadoxLocalisationIconUrlResolver {
 
 @Suppress("NOTHING_TO_INLINE")
 inline fun String.resolveIconUrl(defaultToUnknown: Boolean = true): String {
-	return ParadoxLocalisationIconUrlResolver.resolve(this, defaultToUnknown)
+	return ParadoxIconUrlResolver.resolve(this, defaultToUnknown)
 }

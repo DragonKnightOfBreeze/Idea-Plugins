@@ -7,14 +7,14 @@ import com.intellij.psi.PsiElement;
 
 public class StellarisLocalizationVisitor extends PsiElementVisitor {
 
-  public void visitCode(@NotNull StellarisLocalizationCode o) {
-    visitRichText(o);
-    // visitRichText(o);
-  }
-
   public void visitColorfulText(@NotNull StellarisLocalizationColorfulText o) {
     visitRichText(o);
     // visitNamedElement(o);
+  }
+
+  public void visitCommand(@NotNull StellarisLocalizationCommand o) {
+    visitRichText(o);
+    // visitRichText(o);
   }
 
   public void visitEscape(@NotNull StellarisLocalizationEscape o) {

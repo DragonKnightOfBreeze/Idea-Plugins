@@ -1,7 +1,6 @@
 // This is a generated file. Not intended for manual editing.
 package com.windea.plugin.idea.paradox.localisation.psi.impl;
 
-import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.PsiElement;
@@ -29,8 +28,8 @@ public class ParadoxLocalisationPropertyReferenceImpl extends ParadoxLocalisatio
 
   @Override
   @Nullable
-  public ParadoxLocalisationCode getCode() {
-    return PsiTreeUtil.getChildOfType(this, ParadoxLocalisationCode.class);
+  public ParadoxLocalisationCommand getCode() {
+    return PsiTreeUtil.getChildOfType(this, ParadoxLocalisationCommand.class);
   }
 
   @Override

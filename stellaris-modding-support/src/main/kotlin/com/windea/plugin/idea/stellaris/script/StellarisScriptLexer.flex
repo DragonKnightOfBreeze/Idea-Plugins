@@ -41,17 +41,18 @@ WHITE_SPACE=[ \t]+
 COMMENT=#[^\r\n]*
 END_OF_LINE_COMMENT=#[^\r\n]*
 VARIABLE_NAME_ID=@[a-zA-Z0-9_-]+
-PROPERTY_KEY_ID=[^=\s]+
+PROPERTY_KEY_ID=([^#@=<>\s]+[^=<>\s]*)|(<[^=\s]*>)
 QUOTED_PROPERTY_KEY_ID=\"([^\"(\r\n\\]|\\.)*?\"
 VARIABLE_REFERENCE_ID=@[a-zA-Z0-9_-]+
 BOOLEAN=(yes)|(no)
 NUMBER=0|[+-]?[1-9][0-9]*|[+-]?[0-9]+\.[0-9]+
-STRING=[^@\s\{\}=\"][^\s\{\}=\"]*
+STRING=[^#@\s\{\}=\"][^\s\{\}=\"]*
 QUOTED_STRING=\"([^\"\r\n\\]|\\.)*?\"
 COLOR_TOKEN=(rgb|rgba|hsb|hsv|hsl)[ \t]*\{[0-9. \t]*}
-CODE_TEXT_TOKEN=[^\r\n\]}]+
+COMMEND_EXPRESSION_TOKEN=[^\r\n\]}]+
 
-IS_PROPERTY=([^=<>\s]\s*[=<>])|([^=\s]\s*[=])|(\"([^\"(\r\n\\]|\\.)*?\"\s*[=<>])
+//兼容cwt规则文件（<xxx>格式的propertyKey）
+IS_PROPERTY=(([^#@=<>\s]+[^=<>\s]*)|(<[^=\s]*>)|(\"([^\"(\r\n\\]|\\.)*?\"))(\s*[=<>])
 
 %%
 
@@ -63,11 +64,11 @@ IS_PROPERTY=([^=<>\s]\s*[=<>])|([^=\s]\s*[=])|(\"([^\"(\r\n\\]|\\.)*?\"\s*[=<>])
   {WHITE_SPACE} { return WHITE_SPACE; }
   {COMMENT} {return COMMENT; }
   {VARIABLE_NAME_ID} { yybegin(WAITING_VARIABLE_EQUAL_SIGN); return VARIABLE_NAME_ID; }
-  //在这里根据后面是否有"="判断是否是property
-  {IS_PROPERTY} {yypushback(yylength()); yybegin(WAITING_PROPERTY);}
   {COLOR_TOKEN} {yybegin(WAITING_PROPERTY_EOL); return COLOR_TOKEN;}
   {BOOLEAN} { yybegin(WAITING_PROPERTY_EOL); return BOOLEAN_TOKEN; }
   {NUMBER} { yybegin(WAITING_PROPERTY_EOL); return NUMBER_TOKEN; }
+  //在这里根据后面是否有"="判断是否是property
+  {IS_PROPERTY} { yypushback(yylength()); yybegin(WAITING_PROPERTY);}
   {STRING} {yybegin(WAITING_PROPERTY_EOL); return STRING_TOKEN;}
   {QUOTED_STRING} {yybegin(WAITING_PROPERTY_EOL); return QUOTED_STRING_TOKEN;}
 }
@@ -105,10 +106,11 @@ IS_PROPERTY=([^=<>\s]\s*[=<>])|([^=\s]\s*[=])|(\"([^\"(\r\n\\]|\\.)*?\"\s*[=<>])
   {EOL} { return WHITE_SPACE; }
   {WHITE_SPACE} { return WHITE_SPACE; }
   {COMMENT} {  return COMMENT; }
-  {IS_PROPERTY} {yypushback(yylength()); yybegin(WAITING_PROPERTY);}
   {COLOR_TOKEN} {yybegin(WAITING_PROPERTY_EOL); return COLOR_TOKEN;}
   {BOOLEAN} { yybegin(WAITING_PROPERTY_EOL); return BOOLEAN_TOKEN; }
   {NUMBER} { yybegin(WAITING_PROPERTY_EOL); return NUMBER_TOKEN; }
+  //在这里根据后面是否有"="判断是否是property
+  {IS_PROPERTY} {yypushback(yylength()); yybegin(WAITING_PROPERTY);}
   {STRING} {yybegin(WAITING_PROPERTY_EOL); return STRING_TOKEN;}
   {QUOTED_STRING} {yybegin(WAITING_PROPERTY_EOL); return QUOTED_STRING_TOKEN;}
 }
@@ -155,7 +157,7 @@ IS_PROPERTY=([^=<>\s]\s*[=<>])|([^=\s]\s*[=])|(\"([^\"(\r\n\\]|\\.)*?\"\s*[=<>])
   "{" {depth++;  yybegin(nextState()); return LEFT_BRACE;}
   "]" {yybegin(WAITING_PROPERTY_EOL); return CODE_END; }
   {EOL} {  yybegin(nextState()); return WHITE_SPACE; }
-  {CODE_TEXT_TOKEN} {return CODE_TEXT_TOKEN;}
+  {COMMEND_EXPRESSION_TOKEN} {return CODE_TEXT_TOKEN;}
 }
 
 [^] { return BAD_CHARACTER; }

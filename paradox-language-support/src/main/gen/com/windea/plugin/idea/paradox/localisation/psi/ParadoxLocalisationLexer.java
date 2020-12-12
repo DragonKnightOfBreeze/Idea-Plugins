@@ -691,7 +691,7 @@ public class ParadoxLocalisationLexer implements FlexLexer {
             // fall through
           case 68: break;
           case 19: 
-            { codeLocation=0; yybegin(WAITING_CODE); return CODE_START;
+            { codeLocation=0; yybegin(WAITING_CODE); return COMMAND_START;
             } 
             // fall through
           case 69: break;
@@ -716,7 +716,7 @@ public class ParadoxLocalisationLexer implements FlexLexer {
             // fall through
           case 73: break;
           case 24: 
-            { codeLocation=1; yybegin(WAITING_CODE); return CODE_START;
+            { codeLocation=1; yybegin(WAITING_CODE); return COMMAND_START;
             } 
             // fall through
           case 74: break;
@@ -751,7 +751,7 @@ public class ParadoxLocalisationLexer implements FlexLexer {
             // fall through
           case 80: break;
           case 31: 
-            { codeLocation=2; yybegin(WAITING_CODE); return CODE_START;
+            { codeLocation=2; yybegin(WAITING_CODE); return COMMAND_START;
             } 
             // fall through
           case 81: break;
@@ -776,12 +776,12 @@ public class ParadoxLocalisationLexer implements FlexLexer {
             // fall through
           case 85: break;
           case 36: 
-            { return CODE_TEXT_TOKEN;
+            { return COMMAND_EXPRESSION_TOKEN;
             } 
             // fall through
           case 86: break;
           case 37: 
-            { yybegin(nextStateForCode()); return CODE_END;
+            { yybegin(nextStateForCode()); return COMMAND_END;
             } 
             // fall through
           case 87: break;

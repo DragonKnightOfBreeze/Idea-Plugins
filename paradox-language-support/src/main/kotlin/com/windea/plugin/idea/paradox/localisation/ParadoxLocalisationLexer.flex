@@ -1,6 +1,5 @@
 package com.windea.plugin.idea.paradox.localisation.psi;
 
-import com.intellij.lexer.FlexLexer;
 import com.intellij.psi.TokenType;
 import com.intellij.psi.tree.IElementType;
 
@@ -30,7 +29,7 @@ import static com.windea.plugin.idea.paradox.localisation.psi.ParadoxLocalisatio
 %state WAITING_ICON
 %state WAITING_ICON_PARAMETER
 %state WAITING_SERIAL_NUMBER
-%state WAITING_CODE
+%state WAITING_COMMAND
 %state WAITING_COLOR_CODE
 %state WAITING_COLORFUL_TEXT
 
@@ -87,7 +86,7 @@ PROPERTY_REFERENCE_PARAMETER=[^$\"\r\n]+
 ICON_ID=[a-zA-Z0-9\-_\\/]+
 ICON_PARAMETER=[^£\"\r\n]+
 SERIAL_NUMBER_ID=[a-zA-Z]
-CODE_TEXT_TOKEN=[^\"\[\]\r\n]+
+COMMAND_EXPRESSION_TOKEN=[^\"\[\]\r\n]+
 COLOR_CODE=[a-zA-Z]
 //双引号和百分号实际上不需要转义
 STRING_TOKEN=[^\"%$£§\[\r\n\\]+
@@ -149,7 +148,7 @@ CHECK_RIGHT_QUOTE=\"[^\"\r\n]*\"?
   "$" { propertyReferenceLocation=0; yybegin(WAITING_PROPERTY_REFERENCE); return PROPERTY_REFERENCE_START;}
   "£" { isColorfulText=false; yypushback(yylength()); yybegin(WAITING_CHECK_ICON_START);}
   "%" { isColorfulText=false; yypushback(yylength()); yybegin(WAITING_CHECK_SERIAL_NUMBER_START);}
-  "[" { codeLocation=0; yybegin(WAITING_CODE); return CODE_START;}
+  "[" { codeLocation=0; yybegin(WAITING_COMMAND); return COMMAND_START;}
   "§" { isColorfulText=false; yypushback(yylength()); yybegin(WAITING_CHECK_COLORFUL_TEXT_START);}
   {VALID_ESCAPE_TOKEN} {return VALID_ESCAPE_TOKEN;}
   {INVALID_ESCAPE_TOKEN} {return INVALID_ESCAPE_TOKEN;}
@@ -159,7 +158,7 @@ CHECK_RIGHT_QUOTE=\"[^\"\r\n]*\"?
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }
   "$" {yybegin(nextStateForPropertyReference()); return PROPERTY_REFERENCE_END;}
   \" { yybegin(WAITING_PROPERTY_EOL); return RIGHT_QUOTE;}
-  "[" { codeLocation=1; yybegin(WAITING_CODE); return CODE_START;}
+  "[" { codeLocation=1; yybegin(WAITING_COMMAND); return COMMAND_START;}
   "|" { yybegin(WAITING_PROPERTY_REFERENCE_PARAMETER); return PARAMETER_SEPARATOR;}
   {PROPERTY_REFERENCE_ID} {return PROPERTY_REFERENCE_ID;}
   //注释掉 - 属性引用名字可以包含空格，虽然不知道凭什么
@@ -176,7 +175,7 @@ CHECK_RIGHT_QUOTE=\"[^\"\r\n]*\"?
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }
   "£" { yybegin(nextStateForText()); return ICON_END;}
   "$" { propertyReferenceLocation=2; yybegin(WAITING_PROPERTY_REFERENCE); return PROPERTY_REFERENCE_START;}
-  "[" { codeLocation=2; yybegin(WAITING_CODE); return CODE_START;}
+  "[" { codeLocation=2; yybegin(WAITING_COMMAND); return COMMAND_START;}
   "|" { yybegin(WAITING_ICON_PARAMETER); return PARAMETER_SEPARATOR;}
   \" { yybegin(WAITING_PROPERTY_EOL); return RIGHT_QUOTE;}
   {ICON_ID} {return ICON_ID;}
@@ -195,11 +194,11 @@ CHECK_RIGHT_QUOTE=\"[^\"\r\n]*\"?
   {SERIAL_NUMBER_ID} {return SERIAL_NUMBER_ID;}
   {WHITE_SPACE} {yybegin(nextStateForText()); return WHITE_SPACE; } //继续解析
 }
-<WAITING_CODE>{
+<WAITING_COMMAND>{
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }
-  "]" {yybegin(nextStateForCode()); return CODE_END;}
+  "]" {yybegin(nextStateForCode()); return COMMAND_END;}
   \" { yybegin(WAITING_PROPERTY_EOL); return RIGHT_QUOTE;}
-  {CODE_TEXT_TOKEN} {return CODE_TEXT_TOKEN;}
+  {COMMAND_EXPRESSION_TOKEN} {return COMMAND_EXPRESSION_TOKEN;}
 }
 <WAITING_COLOR_CODE>{
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }
@@ -214,7 +213,7 @@ CHECK_RIGHT_QUOTE=\"[^\"\r\n]*\"?
   "$" { propertyReferenceLocation=0; yybegin(WAITING_PROPERTY_REFERENCE); return PROPERTY_REFERENCE_START;}
   "£" { isColorfulText=true; yypushback(yylength()); yybegin(WAITING_CHECK_ICON_START);}
   "%" { isColorfulText=true; yypushback(yylength()); yybegin(WAITING_CHECK_SERIAL_NUMBER_START);}
-  "[" { codeLocation=0; yybegin(WAITING_CODE); return CODE_START;}
+  "[" { codeLocation=0; yybegin(WAITING_COMMAND); return COMMAND_START;}
   "§" { isColorfulText=true; yypushback(yylength()); yybegin(WAITING_CHECK_COLORFUL_TEXT_START);}
   "§!" {depth--; yybegin(nextStateForText()); return COLORFUL_TEXT_END;}
   {VALID_ESCAPE_TOKEN} {return VALID_ESCAPE_TOKEN;}

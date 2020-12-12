@@ -2,8 +2,6 @@ package com.windea.plugin.idea.stellaris.localization
 
 import com.windea.plugin.idea.stellaris.*
 import com.windea.plugin.idea.stellaris.localization.psi.*
-import com.windea.plugin.idea.stellaris.script.psi.*
-import java.io.*
 
 /**
  * 本地化文本的渲染器。
@@ -33,7 +31,7 @@ object StellarisLocalizationRichTextRenderer {
 			is StellarisLocalizationPropertyReference -> renderPropertyReferenceTo(element, buffer)
 			is StellarisLocalizationIcon -> renderIconTo(element,buffer)
 			is StellarisLocalizationSerialNumber -> renderSerialNumberTo(element, buffer)
-			is StellarisLocalizationCode -> renderCodeTo(element,buffer)
+			is StellarisLocalizationCommand -> renderCodeTo(element,buffer)
 			is StellarisLocalizationColorfulText -> renderColorfulTextTo(element, buffer)
 		}
 	}
@@ -84,7 +82,7 @@ object StellarisLocalizationRichTextRenderer {
 		buffer.append("<code>").append(element.text).append("</code>")
 	}
 	
-	private fun renderCodeTo(element: StellarisLocalizationCode, buffer: Appendable) {
+	private fun renderCodeTo(element: StellarisLocalizationCommand, buffer: Appendable) {
 		buffer.append("<code>").append(element.text).append("</code>")
 	}
 	

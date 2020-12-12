@@ -36,37 +36,9 @@ public class StellarisLocalizationParser implements PsiParser, LightPsiParser {
   }
 
   public static final TokenSet[] EXTENDS_SETS_ = new TokenSet[] {
-    create_token_set_(CODE, COLORFUL_TEXT, ESCAPE, ICON,
+    create_token_set_(COLORFUL_TEXT, COMMAND, ESCAPE, ICON,
       PROPERTY_REFERENCE, RICH_TEXT, SERIAL_NUMBER, STRING),
   };
-
-  /* ********************************************************** */
-  // CODE_START code_text? CODE_END
-  public static boolean code(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "code")) return false;
-    if (!nextTokenIs(b, CODE_START)) return false;
-    boolean r, p;
-    Marker m = enter_section_(b, l, _NONE_, CODE, null);
-    r = consumeToken(b, CODE_START);
-    p = r; // pin = 1
-    r = r && report_error_(b, code_1(b, l + 1));
-    r = p && consumeToken(b, CODE_END) && r;
-    exit_section_(b, l, m, r, p, null);
-    return r || p;
-  }
-
-  // code_text?
-  private static boolean code_1(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "code_1")) return false;
-    code_text(b, l + 1);
-    return true;
-  }
-
-  /* ********************************************************** */
-  // CODE_TEXT_TOKEN
-  static boolean code_text(PsiBuilder b, int l) {
-    return consumeToken(b, CODE_TEXT_TOKEN);
-  }
 
   /* ********************************************************** */
   // COLORFUL_TEXT_START COLOR_CODE rich_text* [COLORFUL_TEXT_END]
@@ -99,6 +71,34 @@ public class StellarisLocalizationParser implements PsiParser, LightPsiParser {
     if (!recursion_guard_(b, l, "colorful_text_3")) return false;
     consumeToken(b, COLORFUL_TEXT_END);
     return true;
+  }
+
+  /* ********************************************************** */
+  // COMMAND_START command_expression? COMMAND_END
+  public static boolean command(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "command")) return false;
+    if (!nextTokenIs(b, COMMAND_START)) return false;
+    boolean r, p;
+    Marker m = enter_section_(b, l, _NONE_, COMMAND, null);
+    r = consumeToken(b, COMMAND_START);
+    p = r; // pin = 1
+    r = r && report_error_(b, command_1(b, l + 1));
+    r = p && consumeToken(b, COMMAND_END) && r;
+    exit_section_(b, l, m, r, p, null);
+    return r || p;
+  }
+
+  // command_expression?
+  private static boolean command_1(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "command_1")) return false;
+    command_expression(b, l + 1);
+    return true;
+  }
+
+  /* ********************************************************** */
+  // COMMAND_EXPRESSION_TOKEN
+  static boolean command_expression(PsiBuilder b, int l) {
+    return consumeToken(b, COMMAND_EXPRESSION_TOKEN);
   }
 
   /* ********************************************************** */
@@ -156,11 +156,11 @@ public class StellarisLocalizationParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // code | property_reference | ICON_ID
+  // command | property_reference | ICON_ID
   static boolean icon_name(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "icon_name")) return false;
     boolean r;
-    r = code(b, l + 1);
+    r = command(b, l + 1);
     if (!r) r = property_reference(b, l + 1);
     if (!r) r = consumeToken(b, ICON_ID);
     return r;
@@ -274,12 +274,12 @@ public class StellarisLocalizationParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // code | PROPERTY_REFERENCE_ID
+  // command | PROPERTY_REFERENCE_ID
   static boolean property_reference_name(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "property_reference_name")) return false;
-    if (!nextTokenIs(b, "", CODE_START, PROPERTY_REFERENCE_ID)) return false;
+    if (!nextTokenIs(b, "", COMMAND_START, PROPERTY_REFERENCE_ID)) return false;
     boolean r;
-    r = code(b, l + 1);
+    r = command(b, l + 1);
     if (!r) r = consumeToken(b, PROPERTY_REFERENCE_ID);
     return r;
   }
@@ -310,13 +310,13 @@ public class StellarisLocalizationParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // property_reference | code | icon | serial_number | colorful_text | escape | string
+  // property_reference | command | icon | serial_number | colorful_text | escape | string
   public static boolean rich_text(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "rich_text")) return false;
     boolean r;
     Marker m = enter_section_(b, l, _COLLAPSE_, RICH_TEXT, "<rich text>");
     r = property_reference(b, l + 1);
-    if (!r) r = code(b, l + 1);
+    if (!r) r = command(b, l + 1);
     if (!r) r = icon(b, l + 1);
     if (!r) r = serial_number(b, l + 1);
     if (!r) r = colorful_text(b, l + 1);

@@ -8,7 +8,7 @@ import com.windea.plugin.idea.paradox.localisation.psi.*
 class ParadoxLocalisationBraceMatcher : PairedBraceMatcher {
 	companion object{
 		private val bracePairs = arrayOf(
-			BracePair(ParadoxLocalisationTypes.CODE_START, ParadoxLocalisationTypes.CODE_END, true),
+			BracePair(ParadoxLocalisationTypes.COMMAND_START, ParadoxLocalisationTypes.COMMAND_END, true),
 			BracePair(ParadoxLocalisationTypes.COLORFUL_TEXT_START, ParadoxLocalisationTypes.COLORFUL_TEXT_END, true),
 			BracePair(ParadoxLocalisationTypes.ICON_START, ParadoxLocalisationTypes.ICON_END, true),
 			BracePair(ParadoxLocalisationTypes.PROPERTY_REFERENCE_START, ParadoxLocalisationTypes.PROPERTY_REFERENCE_END, true),

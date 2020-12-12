@@ -7,7 +7,7 @@ import com.intellij.psi.PsiElement;
 
 public class ParadoxLocalisationVisitor extends PsiElementVisitor {
 
-  public void visitCode(@NotNull ParadoxLocalisationCode o) {
+  public void visitCode(@NotNull ParadoxLocalisationCommand o) {
     visitRichText(o);
     // visitRichText(o);
   }

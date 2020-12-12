@@ -10,14 +10,14 @@ import com.intellij.psi.util.PsiTreeUtil;
 import static com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationTypes.*;
 import com.windea.plugin.idea.stellaris.localization.psi.*;
 
-public class StellarisLocalizationCodeImpl extends StellarisLocalizationRichTextImpl implements StellarisLocalizationCode {
+public class StellarisLocalizationCommandImpl extends StellarisLocalizationRichTextImpl implements StellarisLocalizationCommand {
 
-  public StellarisLocalizationCodeImpl(@NotNull ASTNode node) {
+  public StellarisLocalizationCommandImpl(@NotNull ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull StellarisLocalizationVisitor visitor) {
-    visitor.visitCode(this);
+    visitor.visitCommand(this);
   }
 
   public void accept(@NotNull PsiElementVisitor visitor) {
@@ -27,8 +27,8 @@ public class StellarisLocalizationCodeImpl extends StellarisLocalizationRichText
 
   @Override
   @Nullable
-  public PsiElement getCodeTextToken() {
-    return findChildByType(CODE_TEXT_TOKEN);
+  public PsiElement getCommandExpressionToken() {
+    return findChildByType(COMMAND_EXPRESSION_TOKEN);
   }
 
 }

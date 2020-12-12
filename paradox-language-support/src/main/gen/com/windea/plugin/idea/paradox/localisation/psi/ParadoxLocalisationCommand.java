@@ -5,9 +5,9 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
-public interface ParadoxLocalisationCode extends ParadoxLocalisationRichText {
+public interface ParadoxLocalisationCommand extends ParadoxLocalisationRichText {
 
   @Nullable
-  PsiElement getCodeTextToken();
+  PsiElement getCommandTextToken();
 
 }

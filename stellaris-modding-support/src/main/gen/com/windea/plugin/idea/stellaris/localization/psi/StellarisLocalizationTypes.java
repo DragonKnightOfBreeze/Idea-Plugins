@@ -8,8 +8,8 @@ import com.windea.plugin.idea.stellaris.localization.psi.impl.*;
 
 public interface StellarisLocalizationTypes {
 
-  IElementType CODE = new StellarisLocalizationElementType("CODE");
   IElementType COLORFUL_TEXT = new StellarisLocalizationElementType("COLORFUL_TEXT");
+  IElementType COMMAND = new StellarisLocalizationElementType("COMMAND");
   IElementType ESCAPE = new StellarisLocalizationElementType("ESCAPE");
   IElementType ICON = new StellarisLocalizationElementType("ICON");
   IElementType LOCALE = new StellarisLocalizationElementType("LOCALE");
@@ -22,13 +22,13 @@ public interface StellarisLocalizationTypes {
   IElementType STRING = new StellarisLocalizationElementType("STRING");
 
   IElementType BLANK = new StellarisLocalizationTokenType("wregexp:\\s+");
-  IElementType CODE_END = new StellarisLocalizationTokenType("]");
-  IElementType CODE_START = new StellarisLocalizationTokenType("[");
-  IElementType CODE_TEXT_TOKEN = new StellarisLocalizationTokenType("CODE_TEXT_TOKEN");
   IElementType COLON = new StellarisLocalizationTokenType(":");
   IElementType COLORFUL_TEXT_END = new StellarisLocalizationTokenType("§!");
   IElementType COLORFUL_TEXT_START = new StellarisLocalizationTokenType("§");
   IElementType COLOR_CODE = new StellarisLocalizationTokenType("COLOR_CODE");
+  IElementType COMMAND_END = new StellarisLocalizationTokenType("]");
+  IElementType COMMAND_EXPRESSION_TOKEN = new StellarisLocalizationTokenType("COMMAND_EXPRESSION_TOKEN");
+  IElementType COMMAND_START = new StellarisLocalizationTokenType("[");
   IElementType COMMENT = new StellarisLocalizationTokenType("COMMENT");
   IElementType END_OF_LINE_COMMENT = new StellarisLocalizationTokenType("END_OF_LINE_COMMENT");
   IElementType ICON_END = new StellarisLocalizationTokenType("£");
@@ -56,11 +56,11 @@ public interface StellarisLocalizationTypes {
   class Factory {
     public static PsiElement createElement(ASTNode node) {
       IElementType type = node.getElementType();
-      if (type == CODE) {
-        return new StellarisLocalizationCodeImpl(node);
-      }
-      else if (type == COLORFUL_TEXT) {
+      if (type == COLORFUL_TEXT) {
         return new StellarisLocalizationColorfulTextImpl(node);
+      }
+      else if (type == COMMAND) {
+        return new StellarisLocalizationCommandImpl(node);
       }
       else if (type == ESCAPE) {
         return new StellarisLocalizationEscapeImpl(node);

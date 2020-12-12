@@ -1,16 +1,14 @@
-package com.windea.plugin.idea.paradox.localisation
+package com.windea.plugin.idea.paradox.util
 
 import com.windea.plugin.idea.paradox.*
 import com.windea.plugin.idea.paradox.localisation.psi.*
-import com.windea.plugin.idea.paradox.script.psi.*
-import java.io.*
 
 /**
- * 本地化文本的渲染器。
+ * 富文本的渲染器。
  *
- * 基于颜色渲染文本。
+ * 基于类型和颜色渲染富文本。
  */
-object ParadoxLocalisationRichTextRenderer {
+object ParadoxRichTextRenderer {
 	fun render(element:ParadoxLocalisationPropertyValue):String{
 		val buffer = StringBuilder()
 		renderTo(element,buffer)
@@ -33,7 +31,7 @@ object ParadoxLocalisationRichTextRenderer {
 			is ParadoxLocalisationPropertyReference -> renderPropertyReferenceTo(element, buffer)
 			is ParadoxLocalisationIcon -> renderIconTo(element,buffer)
 			is ParadoxLocalisationSerialNumber -> renderSerialNumberTo(element, buffer)
-			is ParadoxLocalisationCode -> renderCodeTo(element,buffer)
+			is ParadoxLocalisationCommand -> renderCodeTo(element,buffer)
 			is ParadoxLocalisationColorfulText -> renderColorfulTextTo(element, buffer)
 		}
 	}
@@ -84,7 +82,7 @@ object ParadoxLocalisationRichTextRenderer {
 		buffer.append("<code>").append(element.text).append("</code>")
 	}
 	
-	private fun renderCodeTo(element: ParadoxLocalisationCode, buffer: Appendable) {
+	private fun renderCodeTo(element: ParadoxLocalisationCommand, buffer: Appendable) {
 		buffer.append("<code>").append(element.text).append("</code>")
 	}
 	
@@ -100,10 +98,10 @@ object ParadoxLocalisationRichTextRenderer {
 
 @Suppress("NOTHING_TO_INLINE")
 inline fun ParadoxLocalisationPropertyValue.renderRichText(): String {
-	return ParadoxLocalisationRichTextRenderer.render(this)
+	return ParadoxRichTextRenderer.render(this)
 }
 
 @Suppress("NOTHING_TO_INLINE")
 inline fun ParadoxLocalisationPropertyValue.renderRichTextTo(buffer: Appendable) {
-	ParadoxLocalisationRichTextRenderer.renderTo(this, buffer)
+	ParadoxRichTextRenderer.renderTo(this, buffer)
 }

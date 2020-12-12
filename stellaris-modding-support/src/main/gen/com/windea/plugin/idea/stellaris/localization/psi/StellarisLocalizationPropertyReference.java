@@ -10,7 +10,7 @@ import com.windea.plugin.idea.stellaris.localization.reference.StellarisLocaliza
 public interface StellarisLocalizationPropertyReference extends StellarisLocalizationRichText, StellarisLocalizationNamedElement {
 
   @Nullable
-  StellarisLocalizationCode getCode();
+  StellarisLocalizationCommand getCommand();
 
   @Nullable
   PsiElement getPropertyReferenceId();

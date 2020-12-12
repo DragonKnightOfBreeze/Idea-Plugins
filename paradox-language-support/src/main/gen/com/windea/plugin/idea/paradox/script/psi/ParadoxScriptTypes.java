@@ -10,7 +10,7 @@ public interface ParadoxScriptTypes {
 
   IElementType BLOCK = new ParadoxScriptElementType("BLOCK");
   IElementType BOOLEAN = new ParadoxScriptElementType("BOOLEAN");
-  IElementType CODE = new ParadoxScriptElementType("CODE");
+  IElementType CODE = new ParadoxScriptElementType("COMMAND");
   IElementType COLOR = new ParadoxScriptElementType("COLOR");
   IElementType NUMBER = new ParadoxScriptElementType("NUMBER");
   IElementType PROPERTY = ParadoxScriptStubElementTypes.getPropertyType("PROPERTY");
@@ -30,7 +30,7 @@ public interface ParadoxScriptTypes {
   IElementType BOOLEAN_TOKEN = new ParadoxScriptTokenType("BOOLEAN_TOKEN");
   IElementType CODE_END = new ParadoxScriptTokenType("]");
   IElementType CODE_START = new ParadoxScriptTokenType("@\\[");
-  IElementType CODE_TEXT_TOKEN = new ParadoxScriptTokenType("CODE_TEXT_TOKEN");
+  IElementType CODE_TEXT_TOKEN = new ParadoxScriptTokenType("COMMAND_EXPRESSION_TOKEN");
   IElementType COLOR_TOKEN = new ParadoxScriptTokenType("COLOR_TOKEN");
   IElementType COMMENT = new ParadoxScriptTokenType("COMMENT");
   IElementType END_OF_LINE_COMMENT = new ParadoxScriptTokenType("END_OF_LINE_COMMENT");

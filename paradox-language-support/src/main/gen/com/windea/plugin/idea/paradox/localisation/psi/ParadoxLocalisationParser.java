@@ -36,21 +36,21 @@ public class ParadoxLocalisationParser implements PsiParser, LightPsiParser {
   }
 
   public static final TokenSet[] EXTENDS_SETS_ = new TokenSet[] {
-    create_token_set_(CODE, COLORFUL_TEXT, ESCAPE, ICON,
+    create_token_set_(COMMAND, COLORFUL_TEXT, ESCAPE, ICON,
       PROPERTY_REFERENCE, RICH_TEXT, SERIAL_NUMBER, STRING),
   };
 
   /* ********************************************************** */
-  // CODE_START code_text? CODE_END
+  // COMMAND_START code_text? COMMAND_END
   public static boolean code(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "code")) return false;
-    if (!nextTokenIs(b, CODE_START)) return false;
+    if (!nextTokenIs(b, COMMAND_START)) return false;
     boolean r, p;
-    Marker m = enter_section_(b, l, _NONE_, CODE, null);
-    r = consumeToken(b, CODE_START);
+    Marker m = enter_section_(b, l, _NONE_, COMMAND, null);
+    r = consumeToken(b, COMMAND_START);
     p = r; // pin = 1
     r = r && report_error_(b, code_1(b, l + 1));
-    r = p && consumeToken(b, CODE_END) && r;
+    r = p && consumeToken(b, COMMAND_END) && r;
     exit_section_(b, l, m, r, p, null);
     return r || p;
   }
@@ -63,9 +63,9 @@ public class ParadoxLocalisationParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // CODE_TEXT_TOKEN
+  // COMMAND_EXPRESSION_TOKEN
   static boolean code_text(PsiBuilder b, int l) {
-    return consumeToken(b, CODE_TEXT_TOKEN);
+    return consumeToken(b, COMMAND_EXPRESSION_TOKEN);
   }
 
   /* ********************************************************** */
@@ -277,7 +277,7 @@ public class ParadoxLocalisationParser implements PsiParser, LightPsiParser {
   // code | PROPERTY_REFERENCE_ID
   static boolean property_reference_name(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "property_reference_name")) return false;
-    if (!nextTokenIs(b, "", CODE_START, PROPERTY_REFERENCE_ID)) return false;
+    if (!nextTokenIs(b, "", COMMAND_START, PROPERTY_REFERENCE_ID)) return false;
     boolean r;
     r = code(b, l + 1);
     if (!r) r = consumeToken(b, PROPERTY_REFERENCE_ID);

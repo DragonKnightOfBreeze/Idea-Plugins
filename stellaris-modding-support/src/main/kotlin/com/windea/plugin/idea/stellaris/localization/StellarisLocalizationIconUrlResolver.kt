@@ -70,16 +70,16 @@ object StellarisLocalizationIconUrlResolver {
 	}
 	
 	private fun doResolveUrl(name: String): String {
-		return doResolveUrlFromhuijiwiki(name) ?: doResolveUrlFromParadoxwikis(name) ?: ""
+		return doResolveUrlFromHuijiwiki(name) ?: doResolveUrlFromParadoxwikis(name) ?: ""
 	}
 	
 	private const val huijiwikiPrefix = "<li><a href=\"#filelinks\">文件用途</a></li></ul><div class=\"fullImageLink\" id=\"file\"><a href=\""
 	private const val huijiwikiPrefixLength = huijiwikiPrefix.length
 	
-	private fun doResolveUrlFromhuijiwiki(name: String): String? {
+	private fun doResolveUrlFromHuijiwiki(name: String): String? {
 		val url = huijiwikiPngUrl(name)
-		//不重定向url
-		val httpResponse = httpClient.send(HttpRequest.newBuilder().GET().uri(URI.create(url)).build(), bodyHandler)
+		val uri =runCatching { URI.create(url)}.getOrElse { return null }
+		val httpResponse = httpClient.send(HttpRequest.newBuilder().GET().uri(uri).build(), bodyHandler)
 		if(httpResponse.statusCode() == 200) {
 			val lines = httpResponse.body()
 			return lines.filter {
@@ -110,8 +110,8 @@ object StellarisLocalizationIconUrlResolver {
 	
 	private fun doResolveUrlFromParadoxwikis(name: String): String? {
 		val url = paradoxwikisPngUrl(name)
-		//不重定向url
-		val httpResponse = httpClient.send(HttpRequest.newBuilder().GET().uri(URI.create(url)).build(), bodyHandler)
+		val uri =runCatching { URI.create(url)}.getOrElse { return null }
+		val httpResponse = httpClient.send(HttpRequest.newBuilder().GET().uri(uri).build(), bodyHandler)
 		if(httpResponse.statusCode() == 200) {
 			val lines = httpResponse.body()
 			return lines.filter {

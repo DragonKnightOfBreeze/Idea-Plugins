@@ -92,7 +92,7 @@ public class ParadoxScriptParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // CODE_START code_text CODE_END
+  // COMMAND_START code_text COMMAND_END
   public static boolean code(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "code")) return false;
     if (!nextTokenIs(b, CODE_START)) return false;
@@ -107,7 +107,7 @@ public class ParadoxScriptParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // CODE_TEXT_TOKEN
+  // COMMAND_EXPRESSION_TOKEN
   static boolean code_text(PsiBuilder b, int l) {
     return consumeToken(b, CODE_TEXT_TOKEN);
   }

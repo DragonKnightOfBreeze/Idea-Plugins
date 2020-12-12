@@ -37,9 +37,9 @@
 	  SERIAL_NUMBER_START="%"
 	  SERIAL_NUMBER_ID="regexp:[A-Z]"
 	  SERIAL_NUMBER_END="%"
-      CODE_START="["
-      CODE_TEXT_TOKEN='regexp:[^"\[\]\r\n]+'
-      CODE_END="]"
+      COMMAND_START="["
+      COMMAND_EXPRESSION_TOKEN='regexp:[^"\[\]\r\n]+'
+      COMMAND_END="]"
 	  COLORFUL_TEXT_START="§"
 	  COLOR_CODE="regexp:[a-zA-Z]"
 	  COLORFUL_TEXT_END="§!"
@@ -74,7 +74,7 @@ property ::= property_key ":" [NUMBER] property_value {
 property_key ::= PROPERTY_KEY_ID
 property_value ::= LEFT_QUOTE rich_text * RIGHT_QUOTE
 
-rich_text ::= property_reference | code | icon | serial_number | colorful_text | escape | string
+rich_text ::= property_reference | command | icon | serial_number | colorful_text | escape | string
 
 string ::= STRING_TOKEN{
   extends=rich_text
@@ -89,7 +89,7 @@ property_reference ::= PROPERTY_REFERENCE_START [property_reference_name] [PARAM
   implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
   methods=[getName setName getNameIdentifier getTextOffset getReference getStellarisColor]
 }
-private property_reference_name ::= code | PROPERTY_REFERENCE_ID
+private property_reference_name ::= command | PROPERTY_REFERENCE_ID
 icon ::= ICON_START icon_name [PARAMETER_SEPARATOR [ICON_PARAMETER]] ICON_END {
   pin=1
   extends=rich_text
@@ -97,7 +97,7 @@ icon ::= ICON_START icon_name [PARAMETER_SEPARATOR [ICON_PARAMETER]] ICON_END {
   implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
   methods=[getName setName getNameIdentifier getTextOffset  getReference]
 }
-private icon_name ::= code | property_reference | ICON_ID
+private icon_name ::= command | property_reference | ICON_ID
 serial_number ::= SERIAL_NUMBER_START SERIAL_NUMBER_ID SERIAL_NUMBER_END {
   pin=1
   extends=rich_text
@@ -105,12 +105,12 @@ serial_number ::= SERIAL_NUMBER_START SERIAL_NUMBER_ID SERIAL_NUMBER_END {
   implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationNamedElement"
   methods=[getName setName getNameIdentifier getTextOffset getStellarisSerialNumber getReference]
 }
-code ::= CODE_START code_text? CODE_END{
+command ::= COMMAND_START command_expression? COMMAND_END{
   pin=1
   extends=rich_text
   implements="com.windea.plugin.idea.stellaris.localization.psi.StellarisLocalizationRichText"
 }
-private code_text ::= CODE_TEXT_TOKEN
+private command_expression ::= COMMAND_EXPRESSION_TOKEN
 colorful_text ::= COLORFUL_TEXT_START COLOR_CODE rich_text* [COLORFUL_TEXT_END]{
   pin=1
   extends=rich_text
