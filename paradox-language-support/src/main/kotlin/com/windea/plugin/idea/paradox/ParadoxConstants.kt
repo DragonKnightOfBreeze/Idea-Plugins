@@ -59,11 +59,11 @@ val inferredParadoxLocale = when(System.getProperty("user.language")){
 
 //Icons
 
-val paradoxLocalisationFileIcon = IconLoader.findIcon("/icons/paradoxLocalisationFile.png")!!
+val paradoxLocalisationFileIcon = IconLoader.findIcon("/icons/paradoxLocalisationFile.svg")!!
 val paradoxLocalisationLocaleIcon = IconLoader.findIcon("/icons/paradoxLocalisationLocale.svg")!!
 val paradoxLocalisationPropertyIcon = IconLoader.findIcon("/icons/paradoxLocalisationProperty.svg")!!
 
-val paradoxScriptFileIcon = IconLoader.findIcon("/icons/paradoxScriptFile.png")!!
+val paradoxScriptFileIcon = IconLoader.findIcon("/icons/paradoxScriptFile.svg")!!
 val paradoxScriptVariableIcon = IconLoader.findIcon("/icons/paradoxScriptVariable.svg")!!
 val paradoxScriptPropertyIcon = IconLoader.findIcon("/icons/paradoxScriptProperty.svg")!!
 val paradoxScriptValueIcon = IconLoader.findIcon("/icons/paradoxScriptValue.svg")!!

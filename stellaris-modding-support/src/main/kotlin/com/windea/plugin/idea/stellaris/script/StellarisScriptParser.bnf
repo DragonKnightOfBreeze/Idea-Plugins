@@ -16,7 +16,6 @@
 	  GT_SIGN=">"
 	  LE_SIGN="<="
 	  GE_SIGN=">="
-	  //0123.45
 	  LEFT_BRACE="{"
 	  RIGHT_BRACE="}"
 	  CODE_START="@\["
@@ -29,7 +28,7 @@
 	  END_OF_LINE_COMMENT="regexp:#[^\r\n]*"
 	  VARIABLE_NAME_ID="regexp:@[a-zA-Z0-9_-]+"
 	  VARIABLE_REFERENCE_ID="regexp:@[a-zA-Z0-9_-]+"
-	  PROPERTY_KEY_ID='regexp:[a-zA-Z0-9.:$_-]+'
+	  PROPERTY_KEY_ID='regexp:[^=\s]+'
 	  QUOTED_PROPERTY_KEY_ID='regexp:"([^"(\r\n\\]|\\.)*?"'
 	  BOOLEAN_TOKEN='regexp:(yes)|(no)'
 	  NUMBER_TOKEN='regexp:0|[+-]?[1-9][0-9]*|[+-]?[0-9]+\.[0-9]+'

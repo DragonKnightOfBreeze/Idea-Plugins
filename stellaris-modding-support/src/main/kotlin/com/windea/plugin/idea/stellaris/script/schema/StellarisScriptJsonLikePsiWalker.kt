@@ -16,6 +16,8 @@ object StellarisScriptJsonLikePsiWalker : JsonLikePsiWalker {
 		var current = element
 		//向上查找直到psiFile，如果是property/value，则认为已找到
 		while(current !is PsiFile){
+			//不检查变量
+			if(current.parent is StellarisScriptVariableValue) return null
 			when(current) {
 				is StellarisScriptProperty, is StellarisScriptValue -> return current
 				else -> current = current.parent?:return null
@@ -96,6 +98,8 @@ object StellarisScriptJsonLikePsiWalker : JsonLikePsiWalker {
 		val position = JsonPointerPosition()
 		var current = element
 		while(current !is PsiFile) {
+			//不检查变量
+			if(current.parent is StellarisScriptVariableValue) return null
 			when(current){
 				//如果是属性
 				is StellarisScriptProperty -> {

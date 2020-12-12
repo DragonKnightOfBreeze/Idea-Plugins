@@ -41,7 +41,7 @@ WHITE_SPACE=[ \t]+
 COMMENT=#[^\r\n]*
 END_OF_LINE_COMMENT=#[^\r\n]*
 VARIABLE_NAME_ID=@[a-zA-Z0-9_-]+
-PROPERTY_KEY_ID=[a-zA-Z0-9.:$_-]+
+PROPERTY_KEY_ID=[^=\s]+
 QUOTED_PROPERTY_KEY_ID=\"([^\"(\r\n\\]|\\.)*?\"
 VARIABLE_REFERENCE_ID=@[a-zA-Z0-9_-]+
 BOOLEAN=(yes)|(no)
@@ -51,7 +51,7 @@ QUOTED_STRING=\"([^\"\r\n\\]|\\.)*?\"
 COLOR_TOKEN=(rgb|rgba|hsb|hsv|hsl)[ \t]*\{[0-9. \t]*}
 CODE_TEXT_TOKEN=[^\r\n\]}]+
 
-IS_PROPERTY=(([a-zA-Z0-9.:$_-]+)|(\"([^\"(\r\n\\]|\\.)*?\"))[ \t]*[=><]
+IS_PROPERTY=([^=<>\s]\s*[=<>])|([^=\s]\s*[=])|(\"([^\"(\r\n\\]|\\.)*?\"\s*[=<>])
 
 %%
 
