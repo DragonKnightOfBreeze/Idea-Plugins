@@ -135,7 +135,3 @@ object ParadoxIconUrlResolver {
 	}
 }
 
-@Suppress("NOTHING_TO_INLINE")
-inline fun String.resolveIconUrl(defaultToUnknown: Boolean = true): String {
-	return ParadoxIconUrlResolver.resolve(this, defaultToUnknown)
-}
