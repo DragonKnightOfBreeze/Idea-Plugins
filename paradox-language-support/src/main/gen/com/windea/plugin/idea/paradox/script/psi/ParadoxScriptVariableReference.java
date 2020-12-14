@@ -23,4 +23,7 @@ public interface ParadoxScriptVariableReference extends ParadoxScriptValue {
   @NotNull
   ParadoxScriptVariablePsiReference getReference();
 
+  @Nullable
+  ParadoxScriptValue getReferenceValue();
+
 }

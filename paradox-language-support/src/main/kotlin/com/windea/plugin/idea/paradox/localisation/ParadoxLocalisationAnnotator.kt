@@ -7,6 +7,7 @@ import com.intellij.openapi.actionSystem.*
 import com.intellij.openapi.editor.markup.*
 import com.intellij.openapi.project.*
 import com.intellij.openapi.util.*
+import com.intellij.openapi.vfs.*
 import com.intellij.psi.*
 import com.intellij.refactoring.suggested.*
 import com.intellij.ui.awt.*
@@ -16,7 +17,9 @@ import com.windea.plugin.idea.paradox.message
 import com.windea.plugin.idea.paradox.localisation.highlighter.*
 import com.windea.plugin.idea.paradox.localisation.intentions.*
 import com.windea.plugin.idea.paradox.localisation.psi.*
+import com.windea.plugin.idea.paradox.util.*
 import java.awt.event.*
+import java.nio.file.*
 
 class ParadoxLocalisationAnnotator : Annotator, DumbAware {
 	internal class LocalisationPropertyGutterIconRenderer(

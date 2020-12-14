@@ -23,6 +23,7 @@ public abstract class ParadoxScriptValueImpl extends ASTWrapperPsiElement implem
     visitor.visitValue(this);
   }
 
+  @Override
   public void accept(@NotNull PsiElementVisitor visitor) {
     if (visitor instanceof ParadoxScriptVisitor) accept((ParadoxScriptVisitor)visitor);
     else super.accept(visitor);
@@ -32,6 +33,12 @@ public abstract class ParadoxScriptValueImpl extends ASTWrapperPsiElement implem
   @NotNull
   public Icon getIcon(@IconFlags int flags) {
     return ParadoxScriptPsiImplUtil.getIcon(this, flags);
+  }
+
+  @Override
+  @NotNull
+  public String getValue() {
+    return ParadoxScriptPsiImplUtil.getValue(this);
   }
 
 }

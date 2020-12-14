@@ -4,6 +4,7 @@ import com.intellij.util.*
 import com.windea.plugin.idea.paradox.*
 import java.io.*
 import java.net.*
+import java.nio.file.*
 import java.util.*
 import javax.swing.*
 
@@ -41,6 +42,8 @@ inline fun <T, reified R> Sequence<T>.mapArray(block: (T) -> R): Array<R> {
 fun String.isBoolean() = this == "yes" || this == "no"
 
 fun Boolean.toStringYesNo() = if(this) "yes" else "no"
+
+fun String.toBooleanYesNo() = this == "yes"
 
 fun String.isNumber(): Boolean {
 	var isFirstChar = true
@@ -139,4 +142,12 @@ fun <T : Any> T?.toSingletonOrEmpty(): List<T> {
 
 fun Icon.resize(width: Int, height: Int): Icon {
 	return IconUtil.toSize(this, width, height)
+}
+
+fun URL.toFile() :File{
+	return File(this.toURI())
+}
+
+fun URL.toPath(): Path {
+	return Path.of(this.toURI())
 }

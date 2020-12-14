@@ -10,12 +10,6 @@ import javax.swing.Icon;
 public interface ParadoxScriptRootBlock extends ParadoxScriptBlock {
 
   @NotNull
-  List<ParadoxScriptProperty> getPropertyList();
-
-  @NotNull
-  List<ParadoxScriptValue> getValueList();
-
-  @NotNull
   List<ParadoxScriptVariable> getVariableList();
 
   boolean isEmpty();

@@ -16,10 +16,12 @@ public class ParadoxScriptBooleanImpl extends ParadoxScriptValueImpl implements 
     super(node);
   }
 
+  @Override
   public void accept(@NotNull ParadoxScriptVisitor visitor) {
     visitor.visitBoolean(this);
   }
 
+  @Override
   public void accept(@NotNull PsiElementVisitor visitor) {
     if (visitor instanceof ParadoxScriptVisitor) accept((ParadoxScriptVisitor)visitor);
     else super.accept(visitor);

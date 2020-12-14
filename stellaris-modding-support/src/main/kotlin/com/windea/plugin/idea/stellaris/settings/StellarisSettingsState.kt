@@ -8,6 +8,7 @@ import com.intellij.util.xmlb.*
 class StellarisSettingsState : PersistentStateComponent<StellarisSettingsState> {
 	@JvmField var resolveInternalReferences = true
 	@JvmField var resolveExternalReferences = true
+	@JvmField var validateScriptFiles = true
 
 	//@JvmField var useSteamDirectory = true
 	//@JvmField var steamDirectory = ""

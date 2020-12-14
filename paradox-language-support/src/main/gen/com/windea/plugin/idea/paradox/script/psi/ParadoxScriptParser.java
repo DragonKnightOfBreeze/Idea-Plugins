@@ -37,8 +37,8 @@ public class ParadoxScriptParser implements PsiParser, LightPsiParser {
 
   public static final TokenSet[] EXTENDS_SETS_ = new TokenSet[] {
     create_token_set_(BLOCK, BOOLEAN, CODE, COLOR,
-      NUMBER, STRING, STRING_VALUE, VALUE,
-      VARIABLE_REFERENCE),
+      NUMBER, ROOT_BLOCK, STRING, STRING_VALUE,
+      VALUE, VARIABLE_REFERENCE),
   };
 
   /* ********************************************************** */
@@ -92,7 +92,7 @@ public class ParadoxScriptParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // COMMAND_START code_text COMMAND_END
+  // CODE_START code_text CODE_END
   public static boolean code(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "code")) return false;
     if (!nextTokenIs(b, CODE_START)) return false;
@@ -107,7 +107,7 @@ public class ParadoxScriptParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // COMMAND_EXPRESSION_TOKEN
+  // CODE_TEXT_TOKEN
   static boolean code_text(PsiBuilder b, int l) {
     return consumeToken(b, CODE_TEXT_TOKEN);
   }
@@ -200,7 +200,7 @@ public class ParadoxScriptParser implements PsiParser, LightPsiParser {
   // ( END_OF_LINE_COMMENT | COMMENT | variable | property | value) *
   public static boolean root_block(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "root_block")) return false;
-    Marker m = enter_section_(b, l, _NONE_, ROOT_BLOCK, "<root block>");
+    Marker m = enter_section_(b, l, _COLLAPSE_, ROOT_BLOCK, "<root block>");
     while (true) {
       int c = current_position_(b);
       if (!root_block_0(b, l + 1)) break;

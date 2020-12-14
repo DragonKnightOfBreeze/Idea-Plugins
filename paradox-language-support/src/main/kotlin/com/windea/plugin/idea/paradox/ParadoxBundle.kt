@@ -8,8 +8,3 @@ object ParadoxBundle : DynamicBundle(paradoxBundleName) {
 		return ParadoxBundle.getMessage(key, *params)
 	}
 }
-
-@Suppress("NOTHING_TO_INLINE")
-inline fun message(@PropertyKey(resourceBundle = paradoxBundleName) key: String, vararg params: Any): String {
-	return ParadoxBundle.getMessage(key, *params)
-}

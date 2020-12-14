@@ -8,19 +8,18 @@ import com.intellij.lang.annotation.HighlightSeverity.*
 import com.intellij.openapi.actionSystem.*
 import com.intellij.openapi.editor.markup.*
 import com.intellij.openapi.project.*
+import com.intellij.openapi.vfs.*
 import com.intellij.psi.*
 import com.intellij.ui.awt.*
 import com.intellij.util.*
-import com.intellij.util.ui.*
 import com.windea.plugin.idea.paradox.*
-import com.windea.plugin.idea.paradox.localisation.*
-import com.windea.plugin.idea.paradox.message
 import com.windea.plugin.idea.paradox.localisation.psi.*
 import com.windea.plugin.idea.paradox.script.highlighter.*
 import com.windea.plugin.idea.paradox.script.psi.*
 import com.windea.plugin.idea.paradox.settings.*
-import java.awt.*
+import com.windea.plugin.idea.paradox.util.*
 import java.awt.event.*
+import java.nio.file.*
 
 class ParadoxScriptAnnotator : Annotator, DumbAware {
 	internal class ScriptPropertyGutterIconRenderer(
@@ -117,15 +116,6 @@ class ParadoxScriptAnnotator : Annotator, DumbAware {
 				NavigationUtil.getPsiElementPopup(elements, title).show(RelativePoint(e.inputEvent as MouseEvent))
 			}
 		}
-	}
-	
-	internal class ColorGutterIconRenderer(
-		private val color: Color,
-	) : GutterIconRenderer(), DumbAware {
-		override fun getIcon() = ColorIcon(12, color)
-		override fun isNavigateAction() = false
-		override fun equals(other: Any?) = other is ColorGutterIconRenderer && color == other.color
-		override fun hashCode() = color.hashCode()
 	}
 	
 	private val state = ParadoxSettingsState.getInstance()

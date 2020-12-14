@@ -13,7 +13,7 @@ class StellarisScriptStringAsPropertyPsiReference(
 	//去除包围的引号
 	private val name = element.text.unquote()
 	private val project = element.project
-	private val state = StellarisSettingsState.getInstance()
+	private val state get() = StellarisSettingsState.getInstance()
 	
 	//不会随之重命名，因为不能保证引用关系正确
 	override fun handleElementRename(newElementName: String): PsiElement {

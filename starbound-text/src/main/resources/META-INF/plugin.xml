@@ -71,7 +71,7 @@
     <fileType
       name="Starbound Text File"
       implementationClass="com.windea.plugin.idea.sbtext.SbTextFileType"
-      fieldName="INSTANCE" language="Starbound Text" extensions="sbtxt"/>
+      fieldName="INSTANCE" language="Starbound Text"/>
     <lang.parserDefinition
       language="Starbound Text"
       implementationClass="com.windea.plugin.idea.sbtext.psi.SbTextParserDefinition"/>

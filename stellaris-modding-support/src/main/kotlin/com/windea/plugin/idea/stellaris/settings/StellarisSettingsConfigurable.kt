@@ -16,6 +16,7 @@ class StellarisSettingsConfigurable: SearchableConfigurable {
 		val settings = StellarisSettingsState.getInstance()
 		return settingsComponent.resolveExternalReferencesCheckBox.isSelected != settings.resolveExternalReferences
 		       || settingsComponent.resolveInternalReferencesCheckBox.isSelected != settings.resolveInternalReferences
+		       || settingsComponent.validateScriptFilesCheckBox.isSelected != settings.validateScriptFiles
 		       //|| settingsComponent.useSteamDirectoryCheckBox.isSelected != settings.useSteamDirectory
 		       //|| settingsComponent.steamDirectoryTextField.text != settings.steamDirectory
 		       || settingsComponent.stellarisDirectoryTextField.text != settings.stellarisDirectory
@@ -33,26 +34,25 @@ class StellarisSettingsConfigurable: SearchableConfigurable {
 	}
 	
 	override fun apply() {
-		val settingsComponent = settingsComponent!!
+		val settingsComponent = settingsComponent ?: return
 		val settings = StellarisSettingsState.getInstance()
-		
 		//cleanupRootDirectoryCache(settings)
-		
 		settings.resolveInternalReferences = settingsComponent.resolveInternalReferencesCheckBox.isSelected
 		settings.resolveExternalReferences = settingsComponent.resolveExternalReferencesCheckBox.isSelected
+		settings.validateScriptFiles = settingsComponent.validateScriptFilesCheckBox.isSelected
 		//settings.useSteamDirectory = settingsComponent.useSteamDirectoryCheckBox.isSelected
 		//settings.steamDirectory = settingsComponent.steamDirectoryTextField.text
 		settings.stellarisDirectory = settingsComponent.stellarisDirectoryTextField.text
 		//settings.stellarisModsDirectory = settingsComponent.stellarisModsDirectoryTextField.text
-		
 		//addToRootDirectoryCache(settings)
 	}
 	
 	override fun reset() {
-		val settingsComponent = settingsComponent!!
+		val settingsComponent = settingsComponent ?: return
 		val settings = StellarisSettingsState.getInstance()
 		settingsComponent.resolveInternalReferencesCheckBox.isSelected = settings.resolveInternalReferences
 		settingsComponent.resolveExternalReferencesCheckBox.isSelected = settings.resolveExternalReferences
+		settingsComponent.validateScriptFilesCheckBox.isSelected = settings.validateScriptFiles
 		//settingsComponent.useSteamDirectoryCheckBox.isSelected = settings.useSteamDirectory
 		//settingsComponent.steamDirectoryTextField.text = settings.steamDirectory
 		//settingsComponent.steamDirectoryTextField.isEnabled = settings.useSteamDirectory

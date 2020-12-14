@@ -4,9 +4,8 @@ package com.windea.plugin.idea.paradox.script.psi;
 import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiLiteralValue;
 
-public interface ParadoxScriptBoolean extends ParadoxScriptValue, PsiLiteralValue {
+public interface ParadoxScriptBoolean extends ParadoxScriptValue {
 
   @NotNull
   PsiElement getBooleanToken();

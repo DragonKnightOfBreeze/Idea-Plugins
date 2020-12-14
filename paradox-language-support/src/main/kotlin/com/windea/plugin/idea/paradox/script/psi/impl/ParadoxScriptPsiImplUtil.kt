@@ -93,12 +93,22 @@ object ParadoxScriptPsiImplUtil {
 	fun getReference(element: ParadoxScriptVariableReference): ParadoxScriptVariablePsiReference {
 		return ParadoxScriptVariablePsiReference(element, TextRange(0, element.textLength))
 	}
+	
+	@JvmStatic
+	fun getReferenceValue(element:ParadoxScriptVariableReference):ParadoxScriptValue?{
+		return element.reference.resolve()?.variableValue?.value
+	}
 	//endregion
 	
 	//region ParadoxScriptValue
 	@JvmStatic
 	fun getIcon(element: ParadoxScriptValue, @Iconable.IconFlags flags: Int): Icon {
 		return paradoxScriptValueIcon
+	}
+	
+	@JvmStatic
+	fun getValue(element: ParadoxScriptValue): String {
+		return element.text
 	}
 	//endregion
 	
@@ -119,7 +129,7 @@ object ParadoxScriptPsiImplUtil {
 	//region ParadoxScriptStringValue
 	@JvmStatic
 	fun getValue(element: ParadoxScriptStringValue): String {
-		return element.text.unquote()
+		return element.text
 	}
 	//endregion
 	
@@ -128,8 +138,6 @@ object ParadoxScriptPsiImplUtil {
 	fun getValue(element: ParadoxScriptString): String {
 		return element.text.unquote()
 	}
-	
-	private val emptyArray = arrayOf<PsiPolyVariantReference>()
 	
 	@JvmStatic
 	fun getReference(element: ParadoxScriptString): ParadoxScriptStringAsPropertyPsiReference? {
@@ -186,7 +194,7 @@ object ParadoxScriptPsiImplUtil {
 			//	"hsl" -> "hsl { ${color.toColorHsl().run { "$H $S $L" }} }"
 			//	else -> "rgba { ${color.run { "$red $green $blue $alpha" }} }"
 			//}
-			val newColor = ParadoxScriptElementFactory.createValue(element.project, newText) as? ParadoxScriptColor
+			val newColor = createValue(element.project, newText) as? ParadoxScriptColor
 			if(newColor != null) element.replace(newColor)
 		}
 	}
@@ -198,13 +206,6 @@ object ParadoxScriptPsiImplUtil {
 	private fun ColorHsv.toColor() = Color(ColorConversions.convertHSVtoRGB(this))
 	
 	private fun Color.toColorHsv() = ColorConversions.convertRGBtoHSV(this.rgb)
-	//endregion
-	
-	//region ParadoxScriptCode
-	@JvmStatic
-	fun getValue(element: ParadoxScriptCode): String? {
-		return element.text
-	}
 	//endregion
 	
 	//region ParadoxScriptBlock

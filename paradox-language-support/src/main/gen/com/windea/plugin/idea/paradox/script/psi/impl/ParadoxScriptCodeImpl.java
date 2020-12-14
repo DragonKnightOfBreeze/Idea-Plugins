@@ -16,10 +16,12 @@ public class ParadoxScriptCodeImpl extends ParadoxScriptStringValueImpl implemen
     super(node);
   }
 
+  @Override
   public void accept(@NotNull ParadoxScriptVisitor visitor) {
     visitor.visitCode(this);
   }
 
+  @Override
   public void accept(@NotNull PsiElementVisitor visitor) {
     if (visitor instanceof ParadoxScriptVisitor) accept((ParadoxScriptVisitor)visitor);
     else super.accept(visitor);
@@ -29,12 +31,6 @@ public class ParadoxScriptCodeImpl extends ParadoxScriptStringValueImpl implemen
   @Nullable
   public PsiElement getCodeTextToken() {
     return findChildByType(CODE_TEXT_TOKEN);
-  }
-
-  @Override
-  @Nullable
-  public String getValue() {
-    return ParadoxScriptPsiImplUtil.getValue(this);
   }
 
 }

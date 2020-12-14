@@ -8,6 +8,7 @@ import com.intellij.psi.util.*
 import com.windea.plugin.idea.paradox.localisation.psi.*
 import com.windea.plugin.idea.paradox.script.psi.*
 import com.windea.plugin.idea.paradox.util.*
+import org.jetbrains.annotations.*
 
 fun iconTag(url: String, size: Int = iconSize): String {
 	return "<img src=\"$url\" width=\"$size\" height=\"$size\"/>"
@@ -141,6 +142,11 @@ fun ParadoxLocalisationProperty.getRelatedLocalisationPropertyKey(): String {
 }
 
 //工具扩展
+
+@Suppress("NOTHING_TO_INLINE")
+inline fun message(@PropertyKey(resourceBundle = paradoxBundleName) key: String, vararg params: Any): String {
+	return ParadoxBundle.getMessage(key, *params)
+}
 
 @Suppress("NOTHING_TO_INLINE")
 inline fun String.resolveIconUrl(defaultToUnknown: Boolean = true): String {

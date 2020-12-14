@@ -128,7 +128,7 @@ class StellarisScriptAnnotator : Annotator, DumbAware {
 		override fun hashCode() = color.hashCode()
 	}
 	
-	private val state = StellarisSettingsState.getInstance()
+	private val state get() = StellarisSettingsState.getInstance()
 	
 	override fun annotate(element: PsiElement, holder: AnnotationHolder) {
 		when(element) {

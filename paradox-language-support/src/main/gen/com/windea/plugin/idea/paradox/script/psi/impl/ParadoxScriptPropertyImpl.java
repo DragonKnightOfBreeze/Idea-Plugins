@@ -28,6 +28,7 @@ public class ParadoxScriptPropertyImpl extends ParadoxScriptStubElementImpl<Para
     visitor.visitProperty(this);
   }
 
+  @Override
   public void accept(@NotNull PsiElementVisitor visitor) {
     if (visitor instanceof ParadoxScriptVisitor) accept((ParadoxScriptVisitor)visitor);
     else super.accept(visitor);

@@ -10,7 +10,4 @@ public interface ParadoxScriptCode extends ParadoxScriptStringValue {
   @Nullable
   PsiElement getCodeTextToken();
 
-  @Nullable
-  String getValue();
-
 }

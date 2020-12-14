@@ -22,6 +22,7 @@ import javax.swing.*
 class StellarisSettingsComponent {
 	val resolveInternalReferencesCheckBox = JBCheckBox(message("stellaris.settings.resolveInternalReferences"))
 	val resolveExternalReferencesCheckBox = JBCheckBox(message("stellaris.settings.resolveExternalReferences"))
+	val validateScriptFilesCheckBox = JBCheckBox(message("stellaris.settings.validateScriptFiles"))
 
 	//val useSteamDirectoryCheckBox = JBCheckBox(message("stellaris.settings.useSteamDirectory")).apply {
 	//	addChangeListener {
@@ -54,6 +55,7 @@ class StellarisSettingsComponent {
 	val panel = FormBuilder.createFormBuilder()
 		.addComponent(resolveInternalReferencesCheckBox,1)
 		.addComponent(resolveExternalReferencesCheckBox,1)
+		.addComponent(validateScriptFilesCheckBox,1)
 		.addComponent(pathsPanel)
 		.addComponentFillVertically(JPanel(), 0)
 		.panel

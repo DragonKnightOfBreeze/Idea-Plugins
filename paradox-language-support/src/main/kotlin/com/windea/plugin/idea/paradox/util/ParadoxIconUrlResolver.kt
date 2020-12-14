@@ -1,10 +1,13 @@
 package com.windea.plugin.idea.paradox.util
 
 import com.intellij.codeInsight.documentation.*
+import com.intellij.openapi.vfs.*
+import com.intellij.psi.*
 import com.windea.plugin.idea.paradox.*
 import java.net.*
 import java.net.http.*
 import java.net.http.HttpResponse.*
+import java.nio.file.*
 import java.time.*
 import java.util.concurrent.*
 
@@ -27,8 +30,6 @@ object ParadoxIconUrlResolver {
 	private val doResolveCache = CopyOnWriteArrayList<String>()
 
 	private const val unknownIconUrl = "https://huiji-public.huijistatic.com/qunxing/uploads/d/dd/Unknown.png"
-	
-	val iconSize get() = DocumentationComponent.getQuickDocFontSize().size
 	
 	fun resolve(name: String,defaultToUnknown:Boolean=true): String {
 		if(name.isEmpty()) return getDefaultUrl(defaultToUnknown)

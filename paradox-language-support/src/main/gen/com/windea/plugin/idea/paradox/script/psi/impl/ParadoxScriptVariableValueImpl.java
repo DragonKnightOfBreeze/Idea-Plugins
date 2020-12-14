@@ -21,6 +21,7 @@ public class ParadoxScriptVariableValueImpl extends ASTWrapperPsiElement impleme
     visitor.visitVariableValue(this);
   }
 
+  @Override
   public void accept(@NotNull PsiElementVisitor visitor) {
     if (visitor instanceof ParadoxScriptVisitor) accept((ParadoxScriptVisitor)visitor);
     else super.accept(visitor);

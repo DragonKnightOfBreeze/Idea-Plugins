@@ -21,6 +21,7 @@ public class ParadoxScriptPropertyKeyImpl extends ASTWrapperPsiElement implement
     visitor.visitPropertyKey(this);
   }
 
+  @Override
   public void accept(@NotNull PsiElementVisitor visitor) {
     if (visitor instanceof ParadoxScriptVisitor) accept((ParadoxScriptVisitor)visitor);
     else super.accept(visitor);

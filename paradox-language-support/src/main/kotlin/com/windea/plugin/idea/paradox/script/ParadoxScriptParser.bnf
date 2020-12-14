@@ -50,7 +50,7 @@
 //root_block也是block，但不能直接extends，否则root下面会是value而非root_block
 root ::= root_block
 root_block ::= ( END_OF_LINE_COMMENT | COMMENT | variable | property | value) * {
-  implements="com.windea.plugin.idea.paradox.script.psi.ParadoxScriptBlock"
+  extends=block
   methods=[isEmpty isNotEmpty isObject isArray getComponents getIcon]
 }
 
@@ -80,11 +80,12 @@ property_separator ::= "=" | "<" | ">" | "<=" | ">="
 property_value ::= value
 
 value ::= variable_reference | boolean | number | string_value | block{
-  methods=[getIcon]
+  implements="com.intellij.psi.PsiLiteralValue"
+  methods=[getIcon getValue]
 }
 variable_reference ::= VARIABLE_REFERENCE_ID {
   extends=value
-  methods=[getName setName getNameIdentifier getReference]
+  methods=[getName setName getNameIdentifier getReference getReferenceValue]
 }
 boolean ::= BOOLEAN_TOKEN {
   extends=value
@@ -103,16 +104,17 @@ string_value ::= color | code | string{
 }
 string ::= STRING_TOKEN | QUOTED_STRING_TOKEN {
   extends=string_value
+  implements="com.intellij.psi.PsiLiteralValue"
   methods=[getValue getReference]
 }
 color ::= COLOR_TOKEN {
   extends=string_value
+  implements="com.intellij.psi.PsiLiteralValue"
   methods=[getValue getColor setColor]
 }
 code ::= CODE_START code_text CODE_END{
-  extends=string_value
   pin=1
-  methods=[getValue]
+  extends=string_value
 }
 private code_text ::= CODE_TEXT_TOKEN
 block ::= "{" block_item * "}" {

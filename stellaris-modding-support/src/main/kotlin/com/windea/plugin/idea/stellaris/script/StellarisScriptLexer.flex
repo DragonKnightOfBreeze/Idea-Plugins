@@ -52,7 +52,7 @@ COLOR_TOKEN=(rgb|rgba|hsb|hsv|hsl)[ \t]*\{[0-9. \t]*}
 COMMEND_EXPRESSION_TOKEN=[^\r\n\]}]+
 
 //兼容cwt规则文件（<xxx>格式的propertyKey）
-IS_PROPERTY=(([^#@=\s][^=\s]*)|(\"([^\"(\r\n\\]|\\.)*?\"))(\s*[=<>])
+IS_PROPERTY=(([^#@=\s][^=\s]*)|(\"([^\"(\r\n\\]|\\.)*?\"))\s*[=<>][ \t]*\S
 
 %%
 

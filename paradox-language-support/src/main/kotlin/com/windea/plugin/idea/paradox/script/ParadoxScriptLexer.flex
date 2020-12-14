@@ -51,7 +51,7 @@ QUOTED_STRING=\"([^\"\r\n\\]|\\.)*?\"
 COLOR_TOKEN=(rgb|rgba|hsb|hsv|hsl)[ \t]*\{[0-9. \t]*}
 CODE_TEXT_TOKEN=[^\r\n\]}]+
 
-IS_PROPERTY=([^=<>\s]\s*[=<>])|([^=\s]\s*[=])|(\"([^\"(\r\n\\]|\\.)*?\"\s*[=<>])
+IS_PROPERTY=(([^#@=\s][^=\s]*)|(\"([^\"(\r\n\\]|\\.)*?\"))\s*[=<>][ \t]*\S
 
 %%
 

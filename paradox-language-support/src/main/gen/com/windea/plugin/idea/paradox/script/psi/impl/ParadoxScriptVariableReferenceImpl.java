@@ -17,10 +17,12 @@ public class ParadoxScriptVariableReferenceImpl extends ParadoxScriptValueImpl i
     super(node);
   }
 
+  @Override
   public void accept(@NotNull ParadoxScriptVisitor visitor) {
     visitor.visitVariableReference(this);
   }
 
+  @Override
   public void accept(@NotNull PsiElementVisitor visitor) {
     if (visitor instanceof ParadoxScriptVisitor) accept((ParadoxScriptVisitor)visitor);
     else super.accept(visitor);
@@ -54,6 +56,12 @@ public class ParadoxScriptVariableReferenceImpl extends ParadoxScriptValueImpl i
   @NotNull
   public ParadoxScriptVariablePsiReference getReference() {
     return ParadoxScriptPsiImplUtil.getReference(this);
+  }
+
+  @Override
+  @Nullable
+  public ParadoxScriptValue getReferenceValue() {
+    return ParadoxScriptPsiImplUtil.getReferenceValue(this);
   }
 
 }

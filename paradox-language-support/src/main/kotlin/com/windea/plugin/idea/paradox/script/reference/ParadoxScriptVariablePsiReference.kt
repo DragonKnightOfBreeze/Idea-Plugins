@@ -16,9 +16,9 @@ class ParadoxScriptVariablePsiReference(
 		return element.setName(newElementName)
 	}
 	
-	override fun resolve(): PsiElement? {
+	override fun resolve(): ParadoxScriptVariable? {
 		val file = element.containingFile?:return null
-		return findScriptVariableInFile(name,file) ?: findScriptProperty(name,element.project)
+		return findScriptVariableInFile(name,file) ?: findScriptVariable(name,element.project)
 	}
 
 	override fun multiResolve(incompleteCode: Boolean): Array<out ResolveResult> {

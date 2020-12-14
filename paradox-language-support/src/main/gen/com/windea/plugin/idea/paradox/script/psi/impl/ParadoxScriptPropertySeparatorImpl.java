@@ -21,6 +21,7 @@ public class ParadoxScriptPropertySeparatorImpl extends ASTWrapperPsiElement imp
     visitor.visitPropertySeparator(this);
   }
 
+  @Override
   public void accept(@NotNull PsiElementVisitor visitor) {
     if (visitor instanceof ParadoxScriptVisitor) accept((ParadoxScriptVisitor)visitor);
     else super.accept(visitor);
