@@ -6,10 +6,11 @@ import com.intellij.openapi.roots.ui.configuration.libraryEditor.*
 import com.intellij.openapi.vfs.*
 
 class ParadoxNewLibraryConfiguration(
-	private val libraryType: StellarisLibraryType,
+	name:String,
+	private val libraryType: ParadoxLibraryType,
 	private val libraryProperties: ParadoxLibraryProperties,
 	private val libraryFile: VirtualFile
-): NewLibraryConfiguration(libraryProperties.name){
+): NewLibraryConfiguration(name){
 	override fun getLibraryType() = libraryType
 	
 	override fun getProperties() = libraryProperties

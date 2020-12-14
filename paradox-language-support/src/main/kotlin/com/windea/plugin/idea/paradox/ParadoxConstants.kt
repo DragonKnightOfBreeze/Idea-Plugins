@@ -59,6 +59,7 @@ val inferredParadoxLocale = when(System.getProperty("user.language")){
 }
 
 const val stellarisName = "Stellaris"
+//TODO Other Games
 //Icons
 
 val paradoxLocalisationFileIcon = IconLoader.findIcon("/icons/paradoxLocalisationFile.svg")!!
@@ -77,6 +78,7 @@ val scriptPropertyGutterIcon = paradoxScriptPropertyIcon.resize(12, 12)
 //val assetKeyGutterIcon = IconUtil.toSize(AllIcons.Nodes.Related, 12, 12)
 
 val stellarisIcon = IconLoader.findIcon("icons/stellaris.png")!!
+//TODO Other Games
 //Keys
 
 val paradoxPathKey = Key<String>("paradoxPath")
