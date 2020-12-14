@@ -58,6 +58,7 @@ val inferredParadoxLocale = when(System.getProperty("user.language")){
 	else -> ParadoxLocale.ENGLISH
 }
 
+const val paradoxName = "Paradox"
 const val stellarisName = "Stellaris"
 //TODO Other Games
 //Icons

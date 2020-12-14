@@ -7,14 +7,10 @@ import com.intellij.openapi.vfs.*
 
 class ParadoxNewLibraryConfiguration(
 	name:String,
-	private val libraryType: ParadoxLibraryType,
-	private val libraryProperties: ParadoxLibraryProperties,
-	private val libraryFile: VirtualFile
-): NewLibraryConfiguration(name){
-	override fun getLibraryType() = libraryType
-	
-	override fun getProperties() = libraryProperties
-	
+	libraryType: ParadoxLibraryType,
+	private val libraryFile: VirtualFile,
+	libraryProperties :ParadoxLibraryProperties = ParadoxLibraryProperties.instance
+): NewLibraryConfiguration(name,libraryType,libraryProperties){
 	//TODO 区分脚本文件和本地化文件，仅添加有效的
 	override fun addRoots(editor: LibraryEditor) {
 		editor.addRoot(libraryFile, OrderRootType.SOURCES)
