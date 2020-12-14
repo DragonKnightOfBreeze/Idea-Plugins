@@ -35,7 +35,8 @@ val utf8Bom = byteArrayOf(0xef.toByte(), 0xbb.toByte(), 0xbf.toByte())
 val booleanValues = arrayOf("yes", "no")
 
 const val paradoxBundleName = "messages.ParadoxBundle"
-const val paradoxExeFileName = "paradox.exe"
+
+const val stellarisExeFileName = "paradox.exe"
 const val descriptorModFileName = "descriptor.mod"
 
 val fileExtensions = arrayOf("yml", "txt", "mod", "gui", "gfx", "asset")
@@ -57,6 +58,7 @@ val inferredParadoxLocale = when(System.getProperty("user.language")){
 	else -> ParadoxLocale.ENGLISH
 }
 
+const val stellarisName = "Stellaris"
 //Icons
 
 val paradoxLocalisationFileIcon = IconLoader.findIcon("/icons/paradoxLocalisationFile.svg")!!
@@ -74,6 +76,7 @@ val scriptPropertyGutterIcon = paradoxScriptPropertyIcon.resize(12, 12)
 //val gfxKeyGutterIcon = IconUtil.toSize(AllIcons.Nodes.Related, 12, 12)
 //val assetKeyGutterIcon = IconUtil.toSize(AllIcons.Nodes.Related, 12, 12)
 
+val stellarisIcon = IconLoader.findIcon("icons/stellaris.png")!!
 //Keys
 
 val paradoxPathKey = Key<String>("paradoxPath")

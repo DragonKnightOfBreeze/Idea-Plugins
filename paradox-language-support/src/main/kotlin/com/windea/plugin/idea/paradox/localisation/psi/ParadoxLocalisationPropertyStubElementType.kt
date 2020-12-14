@@ -8,7 +8,7 @@ import com.windea.plugin.idea.paradox.localisation.*
 import com.windea.plugin.idea.paradox.localisation.psi.impl.*
 
 class ParadoxLocalisationPropertyStubElementType : ILightStubElementType<ParadoxLocalisationPropertyStub, ParadoxLocalisationProperty>(
-	"STELLRAIS_LOCALISATION_PROPERTY",
+	"PARADOX_LOCALISATION_PROPERTY",
 	ParadoxLocalisationLanguage
 ) {
 	override fun createPsi(stub: ParadoxLocalisationPropertyStub): ParadoxLocalisationProperty {

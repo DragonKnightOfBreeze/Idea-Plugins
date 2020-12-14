@@ -18,7 +18,6 @@ import javax.swing.*
 
 //NOTE getName 确定进行重构和导航时显示的PsiElement的名字
 //NOTE setName 确定进行重命名时的逻辑
-//NOTE getNameIdentifier ？
 //NOTE getTextOffset 确定选中一个PsiElement时，哪一部分会高亮显示
 //NOTE getReference 确定选中一个PsiElement时，哪些其他的PsiElement会同时高亮显示
 

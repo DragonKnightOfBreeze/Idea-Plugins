@@ -2,12 +2,14 @@ package com.windea.plugin.idea.paradox.util
 
 import com.intellij.openapi.project.*
 import com.intellij.openapi.vfs.*
+import com.intellij.psi.stubs.*
 import com.intellij.psi.util.*
 import com.intellij.util.io.*
 import com.windea.plugin.idea.paradox.*
 import java.nio.file.*
 import java.util.concurrent.*
 import java.util.concurrent.atomic.*
+
 
 /**
  * Paradox规则组的提供器。

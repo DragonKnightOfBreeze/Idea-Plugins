@@ -4,7 +4,7 @@ import com.intellij.openapi.components.*
 import com.intellij.openapi.project.*
 import com.intellij.util.xmlb.*
 
-@State(name = "org.intellij.sdk.settings.ParadoxSettingsState", storages = [Storage("ParadoxModdingSupport.xml")])
+@State(name = "ParadoxSettingsState", storages = [Storage("paradoxLanguageSupport.xml")])
 class ParadoxSettingsState : PersistentStateComponent<ParadoxSettingsState> {
 	@JvmField var resolveInternalReferences = true
 	@JvmField var resolveExternalReferences = true

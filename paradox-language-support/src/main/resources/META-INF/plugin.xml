@@ -275,10 +275,15 @@
       enabledByDefault="true" level="ERROR"
       implementationClass="com.windea.plugin.idea.paradox.script.schema.ParadoxScriptSchemaInspectionTool"/>
     <!--endregion-->
+
+    <!--region Paradox Library-->
+    <!--<sdkType implementation="com.windea.plugin.idea.paradox.library.StellarisSdkType"/>-->
+    <library.type implementation="com.windea.plugin.idea.paradox.library.StellarisLibraryType"/>
+    <!--endregion-->
   </extensions>
 
-  <extensions defaultExtensionNs="JavaScript">
-    <JsonSchema.ProviderFactory
-      implementation="com.windea.plugin.idea.paradox.script.schema.ParadoxScriptSchemaProviderFactory"/>
-  </extensions>
+  <!--<extensions defaultExtensionNs="JavaScript">-->
+  <!--  <JsonSchema.ProviderFactory-->
+  <!--    implementation="com.windea.plugin.idea.paradox.script.schema.ParadoxScriptSchemaProviderFactory"/>-->
+  <!--</extensions>-->
 </idea-plugin>

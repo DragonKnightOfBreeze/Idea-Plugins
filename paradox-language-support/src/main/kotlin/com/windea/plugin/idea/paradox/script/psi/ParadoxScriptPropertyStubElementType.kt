@@ -8,7 +8,7 @@ import com.windea.plugin.idea.paradox.script.*
 import com.windea.plugin.idea.paradox.script.psi.impl.*
 
 class ParadoxScriptPropertyStubElementType() : ILightStubElementType<ParadoxScriptPropertyStub, ParadoxScriptProperty>(
-	"STELLRAIS_SCRIPT_PROPERTY",
+	"PARADOX_SCRIPT_PROPERTY",
 	ParadoxScriptLanguage
 ) {
 	override fun createPsi(stub: ParadoxScriptPropertyStub): ParadoxScriptProperty {

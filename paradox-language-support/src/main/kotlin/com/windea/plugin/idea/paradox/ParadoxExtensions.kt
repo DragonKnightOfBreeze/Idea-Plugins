@@ -50,7 +50,7 @@ val String.isInvalidPropertyName: Boolean
 val VirtualFile.isRootDirectory: Boolean
 	get() {
 		return children.any {
-			!it.isDirectory && it.name == descriptorModFileName || it.name == paradoxExeFileName
+			!it.isDirectory && it.name == descriptorModFileName || it.name == stellarisExeFileName
 		}
 	}
 

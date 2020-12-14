@@ -6,7 +6,7 @@ import com.intellij.psi.stubs.*
 import com.windea.plugin.idea.paradox.*
 
 object ParadoxLocalisationPropertyKeyIndex : StringStubIndexExtension<ParadoxLocalisationProperty>() {
-	private val key = StubIndexKey.createIndexKey<String, ParadoxLocalisationProperty>("paradoxLocalisation.index")
+	private val key = StubIndexKey.createIndexKey<String, ParadoxLocalisationProperty>("paradoxLocalisation.property.index")
 	
 	override fun getKey() = key
 	

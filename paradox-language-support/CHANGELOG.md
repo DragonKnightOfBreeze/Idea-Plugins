@@ -4,9 +4,10 @@
 
 ### 0.1
 
-* 从模块`stellaris-modding-support`拷贝文件到该模块
-* 文件名和文件内容的重命名
-* 重构`intentions`
+* [X] 从模块`stellaris-modding-support`拷贝文件到该模块
+* [X] 文件名和文件内容的重命名
+* [X] 重构`intentions`
+* [ ] 初步实现功能：添加Stellaris库（包括游戏标准库）
 
 # TODO
 
