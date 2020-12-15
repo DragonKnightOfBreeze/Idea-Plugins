@@ -6,37 +6,42 @@ import com.intellij.openapi.project.*
 import com.intellij.psi.*
 import com.windea.plugin.idea.paradox.*
 import com.windea.plugin.idea.paradox.message
+import java.nio.charset.*
 
 class InvalidFileEncodingInspection : LocalInspectionTool() {
+	companion object{
+		private fun description(charset: Charset, bom: String) = message("paradox.localisation.inspection.invalidFileEncoding.description", charset, bom)
+	}
+	
 	override fun checkFile(file: PsiFile, manager: InspectionManager, isOnTheFly: Boolean): Array<out ProblemDescriptor?>? {
 		val charset = file.virtualFile.charset
 		val hasBom = file.virtualFile.bom != null
 		val isValid = charset == Charsets.UTF_8 && hasBom
 		if(!isValid){
 			val holder = ProblemsHolder(manager,file,isOnTheFly)
-			val bomText = if(hasBom) "BOM" else "NO BOM"
-			val description = message("paradox.localisation.inspection.invalidFileEncoding.description", charset,bomText)
-			holder.registerProblem(file, description, ChangeFileEncoding(file))
+			val bom = if(hasBom) "BOM" else "NO BOM"
+			holder.registerProblem(file, description(charset, bom), ChangeFileEncoding(file))
 			return holder.resultsArray
 		}
 		return null
 	}
-
+	
 	private class ChangeFileEncoding(
 		element: PsiElement
 	) : LocalQuickFixAndIntentionActionOnPsiElement(element) {
-		override fun getText(): String {
-			return message("paradox.localisation.quickFix.changeFileEncoding")
+		companion object{
+			private val name = message("paradox.localisation.quickFix.changeFileEncoding")
 		}
+		
+		override fun getFamilyName() = name
 
-		override fun getFamilyName(): String {
-			return text
-		}
+		override fun getText() = name
 
 		override fun invoke(project: Project, file: PsiFile, editor: Editor?, startElement: PsiElement, endElement: PsiElement) {
+			//TODO 让IDE知道修改bom是对文档进行了修改
 			file.virtualFile.charset = Charsets.UTF_8
 			file.virtualFile.bom = utf8Bom
-			file.virtualFile.refresh(true,false)
+			file.virtualFile.refresh(false,false)
 			file.subtreeChanged()
 		}
 	}

@@ -12,12 +12,12 @@
       <a href="https://github.com/ProjectSky/FrackinUniverse-sChinese-Project">Frackin Universe Simple Chinese Project</a>.
     </p>
     <p>Main Feature:</p>
-    <li>
-      <ol>Syntax analysis.</ol>
-     <ol>Code highlight and code completion for color markers. </ol>
-      <ol>Corresponding color highlight for colorful text. </ol>
-      <ol>Dynamic template for quickly inserting colored text. Enter <code>color</code> in the correct position to see it.</ol>
-    </li>
+    <ol>
+      <li>Syntax analysis.</li>
+      <li>Code highlight and code completion for color markers.</li>
+      <li>Corresponding color highlight for colorful text.</li>
+      <li>Dynamic template for quickly inserting colored text. Enter<code>color</code> in the correct position to see it.</li>
+    </ol>
     <p>
       Note: This plugin does not provide default file extensions to associate <code>Starbound Text</code> language,
       please customize a File Type or use Language Injection.
@@ -36,12 +36,12 @@
       <a href="https://github.com/ProjectSky/FrackinUniverse-sChinese-Project">Frackin Universe汉化项目</a>。
     </p>
     <p>主要功能：</p>
-    <li>
-      <ol>语法解析。</ol>
-      <ol>对颜色标记的代码高亮和代码提示。</ol>
-      <ol>对彩色文本进行对应颜色的代码高亮。</ol>
-      <ol>提供快速插入彩色文本的动态模版，在正确的位置输入<code>color</code>即可看到。</ol>
-    </li>
+    <ol>
+      <li>语法解析。</li>
+      <li>对颜色标记的代码高亮和代码提示。</li>
+      <li>对彩色文本进行对应颜色的代码高亮。</li>
+      <li>提供快速插入彩色文本的动态模版，在正确的位置输入<code>color</code>即可看到。</li>
+    </ol>
     <p>
       注意：这个插件不提供默认的文件后缀名以关联<code>Starbound文本</code>语言，
       请自定义文件类型或者使用语言注入功能。
@@ -55,7 +55,8 @@
 
   <change-notes><![CDATA[
     <p>
-      Please see <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/starbound-text/CHANGELOG.md">CHANGELOG.md</a>.
+      Please see
+      <a href="https://github.com/DragonKnightOfBreeze/Idea-Plugins/blob/master/starbound-text/CHANGELOG.md">CHANGELOG.md</a>.
     </p>
 
     <br>
@@ -69,35 +70,35 @@
 
   <extensions defaultExtensionNs="com.intellij">
     <fileType
-      name="Starbound Text File"
-      implementationClass="com.windea.plugin.idea.sbtext.SbTextFileType"
-      fieldName="INSTANCE" language="Starbound Text"/>
+        name="Starbound Text File"
+        implementationClass="com.windea.plugin.idea.sbtext.SbTextFileType"
+        fieldName="INSTANCE" language="Starbound Text"/>
     <lang.parserDefinition
-      language="Starbound Text"
-      implementationClass="com.windea.plugin.idea.sbtext.psi.SbTextParserDefinition"/>
+        language="Starbound Text"
+        implementationClass="com.windea.plugin.idea.sbtext.psi.SbTextParserDefinition"/>
     <lang.syntaxHighlighterFactory
-      language="Starbound Text"
-      implementationClass="com.windea.plugin.idea.sbtext.highlighter.SbTextSyntaxHighlighterFactory"/>
+        language="Starbound Text"
+        implementationClass="com.windea.plugin.idea.sbtext.highlighter.SbTextSyntaxHighlighterFactory"/>
     <colorSettingsPage
-      implementation="com.windea.plugin.idea.sbtext.highlighter.SbTextColorSettingsPage"/>
+        implementation="com.windea.plugin.idea.sbtext.highlighter.SbTextColorSettingsPage"/>
     <spellchecker.support
-      language="Starbound Text"
-      implementationClass="com.windea.plugin.idea.sbtext.SbTextSpellchecker"/>
+        language="Starbound Text"
+        implementationClass="com.windea.plugin.idea.sbtext.SbTextSpellchecker"/>
     <elementDescriptionProvider
-      implementation="com.windea.plugin.idea.sbtext.SbTextDescriptionProvider"/>
+        implementation="com.windea.plugin.idea.sbtext.SbTextDescriptionProvider"/>
     <completion.contributor
-      language="Starbound Text"
-      implementationClass="com.windea.plugin.idea.sbtext.codeInsight.SbTextCompletionContributor"/>
+        language="Starbound Text"
+        implementationClass="com.windea.plugin.idea.sbtext.codeInsight.SbTextCompletionContributor"/>
     <lang.foldingBuilder
-      language="Starbound Text"
-      implementationClass="com.windea.plugin.idea.sbtext.SbTextFoldingBuilder"/>
+        language="Starbound Text"
+        implementationClass="com.windea.plugin.idea.sbtext.SbTextFoldingBuilder"/>
 
     <liveTemplateContext implementation="com.windea.plugin.idea.sbtext.SbTextTemplateContext"/>
     <defaultLiveTemplates file="/liveTemplates/Starbound Text.xml"/>
 
     <annotator
-      language="Starbound Text"
-      implementationClass="com.windea.plugin.idea.sbtext.SbTextAnnotator"/>
+        language="Starbound Text"
+        implementationClass="com.windea.plugin.idea.sbtext.SbTextAnnotator"/>
     <!--不启用：可能一行中显示了太多的颜色图标-->
     <!--<colorProvider implementation="com.windea.plugin.idea.sbtext.SbTextColorProvider"/>-->
   </extensions>

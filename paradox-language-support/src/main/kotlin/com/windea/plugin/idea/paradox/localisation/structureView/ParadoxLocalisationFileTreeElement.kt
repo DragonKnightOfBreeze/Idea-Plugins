@@ -13,7 +13,7 @@ class ParadoxLocalisationFileTreeElement(
 		return element.properties.mapTo(mutableListOf()) { ParadoxLocalisationPropertyTreeElement(it) }
 	}
 
-	override fun getPresentableText(): String? {
+	override fun getPresentableText(): String {
 		return element.name
 	}
 }

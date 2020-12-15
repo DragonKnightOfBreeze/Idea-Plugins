@@ -3,19 +3,20 @@ package com.windea.plugin.idea.paradox.localisation.editor
 import com.intellij.lang.documentation.*
 import com.intellij.psi.*
 import com.windea.plugin.idea.paradox.*
-import com.windea.plugin.idea.paradox.localisation.*
-import com.windea.plugin.idea.paradox.localisation.highlighter.*
 import com.windea.plugin.idea.paradox.localisation.psi.*
-import com.windea.plugin.idea.paradox.util.*
 
 class ParadoxLocalisationDocumentationProvider : AbstractDocumentationProvider() {
+	companion object{
+		private val textTitle = message("paradox.documentation.text")
+	}
+	
 	override fun getQuickNavigateInfo(element: PsiElement?, originalElement: PsiElement?): String? {
 		return when {
-			element is ParadoxLocalisationProperty -> "${getLocationTextLine(element)}localisation property \"${element.name}\""
-			element is ParadoxLocalisationLocale -> "locale \"${element.name}\""
-			element is ParadoxLocalisationIcon -> "icon \"${element.name}\""
-			element is ParadoxLocalisationSerialNumber -> "serial number \"${element.name}\""
-			element is ParadoxLocalisationColorfulText -> "color \"${element.name}\""
+			element is ParadoxLocalisationProperty -> """${locationTextLine(element)}localisation property "${element.name}""""
+			element is ParadoxLocalisationLocale -> """locale "${element.name}""""
+			element is ParadoxLocalisationIcon -> """icon "${element.name}""""
+			element is ParadoxLocalisationSerialNumber -> """serial number "${element.name}""""
+			element is ParadoxLocalisationColorfulText -> """color "${element.name}""""
 			else -> null
 		}
 	}
@@ -35,7 +36,7 @@ class ParadoxLocalisationDocumentationProvider : AbstractDocumentationProvider()
 		val elementName = element.name
 		return buildString {
 			append(DocumentationMarkup.DEFINITION_START)
-			append(getLocationTextLine(element))
+			append(locationTextLine(element))
 			append("(localisation property) <b>").append(elementName).append("</b>")
 			append(DocumentationMarkup.DEFINITION_END)
 			
@@ -52,7 +53,7 @@ class ParadoxLocalisationDocumentationProvider : AbstractDocumentationProvider()
 			if(propertyValue != null) {
 				append(DocumentationMarkup.SECTIONS_START)
 				append(DocumentationMarkup.SECTION_HEADER_START)
-				append(message("paradox.documentation.text")).append(" ")
+				append(textTitle).append(" ")
 				append(DocumentationMarkup.SECTION_SEPARATOR).append("<p>")
 				propertyValue.renderRichTextTo(this)
 				append(DocumentationMarkup.SECTION_END)
@@ -71,7 +72,8 @@ class ParadoxLocalisationDocumentationProvider : AbstractDocumentationProvider()
 	}
 	
 	private fun generateIconDoc(element: ParadoxLocalisationIcon): String? {
-		val name = element.name ?: return null
+		val name = element.name
+		if(name.isEmpty()) return null
 		val documentText = "(icon) <b>$name</b>"
 		return buildString {
 			append(DocumentationMarkup.DEFINITION_START)
@@ -104,7 +106,7 @@ class ParadoxLocalisationDocumentationProvider : AbstractDocumentationProvider()
 		}
 	}
 	
-	private fun getLocationTextLine(element: PsiElement): String {
+	private fun locationTextLine(element: PsiElement): String {
 		return element.paradoxPath?.let { "[$it]<br>" }.orEmpty()
 	}
 }

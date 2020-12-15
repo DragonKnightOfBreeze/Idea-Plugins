@@ -16,20 +16,23 @@ import com.windea.plugin.idea.paradox.script.formatter.ParadoxScriptCodeStyleSet
 //* USE_TAB_CHARACTER
 //SPACING_SETTINGS
 //* SPACE_WITHIN_BRACES
-//* SPACE_AROUND_VARIABLE_SEPARATOR
-//* SPACE_AROUND_PROPERTY_SEPARATOR
+//* SPACE_AROUND_SEPARATOR
 
 class ParadoxScriptLanguageCodeStyleSettingsProvider : LanguageCodeStyleSettingsProvider() {
-	override fun getLanguage() = ParadoxScriptLanguage
-
-	override fun createCustomSettings(settings: CodeStyleSettings): CustomCodeStyleSettings {
-		return ParadoxScriptCodeStyleSettings(settings)
+	companion object{
+		private val spaceWithinBracesTitle = message("paradox.script.codeStyle.spaceWithinBraces")
+		private val spaceAroundSeparatorTitle = message("paradox.script.codeStyle.spaceAroundSeparator")
 	}
+	
+	override fun getLanguage() = ParadoxScriptLanguage
+	
+	override fun getCodeSample(settingsType: SettingsType) = paradoxScriptSampleText
+	
+	override fun createCustomSettings(settings: CodeStyleSettings) =
+		ParadoxScriptCodeStyleSettings(settings)
 
 	//需要重载这个方法以显示indentOptions设置页面
-	override fun getIndentOptionsEditor(): IndentOptionsEditor {
-		return IndentOptionsEditor(this)
-	}
+	override fun getIndentOptionsEditor() = IndentOptionsEditor(this)
 
 	override fun customizeDefaults(commonSettings: CommonCodeStyleSettings, indentOptions: CommonCodeStyleSettings.IndentOptions) {
 		indentOptions.INDENT_SIZE = 4
@@ -52,24 +55,20 @@ class ParadoxScriptLanguageCodeStyleSettingsProvider : LanguageCodeStyleSettings
 				consumer.showCustomOption(
 					ParadoxScriptCodeStyleSettings::class.java,
 					Option.SPACE_WITHIN_BRACES.name,
-					message("paradox.script.codeStyle.spaceWithinBraces"),
-					CodeStyleSettingsCustomizableOptions.getInstance().SPACES_WITHIN
+					spaceWithinBracesTitle,
+					null
 				)
 				consumer.showCustomOption(
 					ParadoxScriptCodeStyleSettings::class.java,
 					Option.SPACE_AROUND_SEPARATOR.name,
-					message("paradox.script.codeStyle.spaceAroundSeparator"),
-					CodeStyleSettingsCustomizableOptions.getInstance().SPACES_AROUND_OPERATORS
+					spaceAroundSeparatorTitle,
+					null
 				)
 			}
 			else -> {}
 		}
 	}
-
-	override fun getCodeSample(settingsType: SettingsType): String {
-		return paradoxScriptDummyText
-	}
-
+	
 	class IndentOptionsEditor(
 		provider: LanguageCodeStyleSettingsProvider
 	) : SmartIndentOptionsEditor(provider)

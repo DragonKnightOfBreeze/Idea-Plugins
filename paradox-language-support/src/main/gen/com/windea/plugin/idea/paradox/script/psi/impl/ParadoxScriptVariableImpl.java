@@ -53,7 +53,7 @@ public class ParadoxScriptVariableImpl extends ParadoxScriptStubElementImpl<Para
   }
 
   @Override
-  @Nullable
+  @NotNull
   public String getName() {
     return ParadoxScriptPsiImplUtil.getName(this);
   }

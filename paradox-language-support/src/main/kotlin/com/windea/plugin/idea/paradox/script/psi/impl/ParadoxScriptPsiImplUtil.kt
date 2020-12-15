@@ -18,8 +18,8 @@ import javax.swing.*
 object ParadoxScriptPsiImplUtil {
 	//region ParadoxScriptVariable
 	@JvmStatic
-	fun getName(element: ParadoxScriptVariable): String? {
-		return element.stub?.key ?: element.variableName.text
+	fun getName(element: ParadoxScriptVariable): String {
+		return element.stub?.key ?: element.variableName.text.orEmpty()
 	}
 	
 	@JvmStatic
@@ -74,8 +74,8 @@ object ParadoxScriptPsiImplUtil {
 	
 	//region ParadoxScriptVariableReference
 	@JvmStatic
-	fun getName(element: ParadoxScriptVariableReference): String? {
-		return element.variableReferenceId.text
+	fun getName(element: ParadoxScriptVariableReference): String {
+		return element.variableReferenceId.text.orEmpty()
 	}
 	
 	@JvmStatic

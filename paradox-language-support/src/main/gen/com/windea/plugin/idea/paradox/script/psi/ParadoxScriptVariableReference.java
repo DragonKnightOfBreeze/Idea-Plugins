@@ -11,7 +11,7 @@ public interface ParadoxScriptVariableReference extends ParadoxScriptValue {
   @NotNull
   PsiElement getVariableReferenceId();
 
-  @Nullable
+  @NotNull
   String getName();
 
   @NotNull

@@ -21,6 +21,7 @@ public class ParadoxLocalisationSerialNumberImpl extends ParadoxLocalisationName
     visitor.visitSerialNumber(this);
   }
 
+  @Override
   public void accept(@NotNull PsiElementVisitor visitor) {
     if (visitor instanceof ParadoxLocalisationVisitor) accept((ParadoxLocalisationVisitor)visitor);
     else super.accept(visitor);
@@ -33,7 +34,7 @@ public class ParadoxLocalisationSerialNumberImpl extends ParadoxLocalisationName
   }
 
   @Override
-  @Nullable
+  @NotNull
   public String getName() {
     return ParadoxLocalisationPsiImplUtil.getName(this);
   }

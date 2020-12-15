@@ -21,6 +21,7 @@ public class ParadoxLocalisationColorfulTextImpl extends ParadoxLocalisationName
     visitor.visitColorfulText(this);
   }
 
+  @Override
   public void accept(@NotNull PsiElementVisitor visitor) {
     if (visitor instanceof ParadoxLocalisationVisitor) accept((ParadoxLocalisationVisitor)visitor);
     else super.accept(visitor);
@@ -39,7 +40,7 @@ public class ParadoxLocalisationColorfulTextImpl extends ParadoxLocalisationName
   }
 
   @Override
-  @Nullable
+  @NotNull
   public String getName() {
     return ParadoxLocalisationPsiImplUtil.getName(this);
   }

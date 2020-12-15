@@ -11,11 +11,14 @@ import com.windea.plugin.idea.paradox.*
 import com.windea.plugin.idea.paradox.localisation.psi.*
 
 object ChangeSerialNumberIntention : IntentionAction {
+	private val name = message("paradox.localisation.intention.changeSerialNumber")
+	private val title = message("paradox.localisation.intention.changeSerialNumber.title")
+	
 	override fun startInWriteAction() = false
 	
-	override fun getText() = message("paradox.localisation.intention.changeSerialNumber")
+	override fun getText() = name
 	
-	override fun getFamilyName() = text
+	override fun getFamilyName() = title
 	
 	override fun isAvailable(project: Project, editor: Editor?, file: PsiFile?): Boolean {
 		if(editor == null || file == null) return false
@@ -34,7 +37,7 @@ object ChangeSerialNumberIntention : IntentionAction {
 	private class Popup(
 		private val value: ParadoxLocalisationSerialNumber,
 		values: Array<ParadoxSerialNumber>
-	) : BaseListPopupStep<ParadoxSerialNumber>(message("paradox.localisation.intention.changeSerialNumber.title"), *values) {
+	) : BaseListPopupStep<ParadoxSerialNumber>(title, *values) {
 		override fun getTextFor(value: ParadoxSerialNumber) = value.popupText
 		
 		override fun getDefaultOptionIndex() = 0
@@ -43,7 +46,7 @@ object ChangeSerialNumberIntention : IntentionAction {
 		
 		override fun onChosen(selectedValue: ParadoxSerialNumber, finalChoice: Boolean): PopupStep<*>? {
 			//需要在WriteCommandAction里面执行
-			runWriteCommandAction(value.project) { value.setName(selectedValue.name) }
+			runWriteCommandAction(value.project) { value.name = selectedValue.name }
 			return PopupStep.FINAL_CHOICE
 		}
 	}

@@ -11,11 +11,14 @@ import com.windea.plugin.idea.paradox.*
 import com.windea.plugin.idea.paradox.localisation.psi.*
 
 object ChangeLocaleIntention : IntentionAction {
+	private val name = message("paradox.localisation.intention.changeLocale")
+	private val title = message("paradox.localisation.intention.changeLocale.title")
+	
 	override fun startInWriteAction() = false
 	
-	override fun getText() = message("paradox.localisation.intention.changeLocale")
+	override fun getText() = name
 	
-	override fun getFamilyName() = text
+	override fun getFamilyName() = name
 	
 	override fun isAvailable(project: Project, editor: Editor?, file: PsiFile?): Boolean {
 		if(editor == null || file == null) return false
@@ -34,7 +37,7 @@ object ChangeLocaleIntention : IntentionAction {
 	private class Popup(
 		private val value: ParadoxLocalisationLocale,
 		values: Array<ParadoxLocale>
-	) : BaseListPopupStep<ParadoxLocale>(message("paradox.localisation.intention.changeLocale.title"), *values) {
+	) : BaseListPopupStep<ParadoxLocale>(title, *values) {
 		override fun getTextFor(value: ParadoxLocale) = value.popupText
 		
 		override fun getDefaultOptionIndex() = 0
@@ -43,7 +46,7 @@ object ChangeLocaleIntention : IntentionAction {
 		
 		override fun onChosen(selectedValue: ParadoxLocale, finalChoice: Boolean): PopupStep<*>? {
 			//需要在WriteCommandAction里面执行
-			runWriteCommandAction(value.project) { value.setName(selectedValue.name) }
+			runWriteCommandAction(value.project) { value.name = selectedValue.name }
 			return PopupStep.FINAL_CHOICE
 		}
 	}

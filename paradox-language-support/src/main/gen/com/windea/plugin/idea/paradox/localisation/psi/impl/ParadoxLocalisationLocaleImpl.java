@@ -23,6 +23,7 @@ public class ParadoxLocalisationLocaleImpl extends ParadoxLocalisationNamedEleme
     visitor.visitLocale(this);
   }
 
+  @Override
   public void accept(@NotNull PsiElementVisitor visitor) {
     if (visitor instanceof ParadoxLocalisationVisitor) accept((ParadoxLocalisationVisitor)visitor);
     else super.accept(visitor);
@@ -35,7 +36,7 @@ public class ParadoxLocalisationLocaleImpl extends ParadoxLocalisationNamedEleme
   }
 
   @Override
-  @Nullable
+  @NotNull
   public String getName() {
     return ParadoxLocalisationPsiImplUtil.getName(this);
   }

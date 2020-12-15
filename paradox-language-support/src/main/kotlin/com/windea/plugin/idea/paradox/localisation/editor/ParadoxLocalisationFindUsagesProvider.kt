@@ -8,17 +8,25 @@ import com.windea.plugin.idea.paradox.*
 import com.windea.plugin.idea.paradox.localisation.psi.*
 
 class ParadoxLocalisationFindUsagesProvider : FindUsagesProvider {
+	companion object{
+		private val propertyName = message("paradox.localisation.name.property")
+		private val localeName = message("paradox.localisation.name.locale")
+		private val iconName = message("paradox.localisation.name.icon")
+		private val serialNumberName = message("paradox.localisation.name.serialNumber")
+		private val colorfulTextName = message("paradox.localisation.name.colorfulText")
+	}
+	
 	override fun getDescriptiveName(element: PsiElement): String {
-		return if(element is PsiNamedElement) "${element.name}" else ""
+		return if(element is PsiNamedElement) element.name.orEmpty() else ""
 	}
 
 	override fun getType(element: PsiElement): String {
 		return when(element) {
-			is ParadoxLocalisationProperty -> message("paradox.localisation.findUsages.property")
-			is ParadoxLocalisationLocale -> message("paradox.localisation.findUsages.Locale")
-			is ParadoxLocalisationIcon -> message("paradox.localisation.findUsages.icon")
-			is ParadoxLocalisationColorfulText -> message("paradox.localisation.findUsages.color")
-			is ParadoxLocalisationSerialNumber -> message("paradox.localisation.findUsages.serialNumber")
+			is ParadoxLocalisationProperty -> propertyName
+			is ParadoxLocalisationLocale -> localeName
+			is ParadoxLocalisationIcon ->iconName
+			is ParadoxLocalisationColorfulText -> serialNumberName
+			is ParadoxLocalisationSerialNumber -> colorfulTextName
 			else -> ""
 		}
 	}
@@ -27,7 +35,7 @@ class ParadoxLocalisationFindUsagesProvider : FindUsagesProvider {
 		return getDescriptiveName(element)
 	}
 
-	override fun getHelpId(psiElement: PsiElement): String? {
+	override fun getHelpId(psiElement: PsiElement): String {
 		return HelpID.FIND_OTHER_USAGES
 	}
 
@@ -35,8 +43,7 @@ class ParadoxLocalisationFindUsagesProvider : FindUsagesProvider {
 		return psiElement is PsiNamedElement
 	}
 
-	override fun getWordsScanner(): WordsScanner? {
-		//return  null
+	override fun getWordsScanner(): WordsScanner {
 		return ParadoxLocalisationWordScanner()
 	}
 }

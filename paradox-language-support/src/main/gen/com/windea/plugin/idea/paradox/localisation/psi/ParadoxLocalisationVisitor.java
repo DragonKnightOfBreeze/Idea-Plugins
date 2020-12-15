@@ -7,14 +7,14 @@ import com.intellij.psi.PsiElement;
 
 public class ParadoxLocalisationVisitor extends PsiElementVisitor {
 
-  public void visitCode(@NotNull ParadoxLocalisationCommand o) {
-    visitRichText(o);
-    // visitRichText(o);
-  }
-
   public void visitColorfulText(@NotNull ParadoxLocalisationColorfulText o) {
     visitRichText(o);
     // visitNamedElement(o);
+  }
+
+  public void visitCommand(@NotNull ParadoxLocalisationCommand o) {
+    visitRichText(o);
+    // visitRichText(o);
   }
 
   public void visitEscape(@NotNull ParadoxLocalisationEscape o) {

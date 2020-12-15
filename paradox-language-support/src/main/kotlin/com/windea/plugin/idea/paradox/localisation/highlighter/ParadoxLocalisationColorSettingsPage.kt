@@ -10,24 +10,40 @@ import com.windea.plugin.idea.paradox.localisation.*
 
 class ParadoxLocalisationColorSettingsPage : ColorSettingsPage {
 	companion object {
-		//Capitalized words
+		private val colonName = message("paradox.localisation.displayName.colon")
+		private val numberName = message("paradox.localisation.displayName.number")
+		private val localeName = message("paradox.localisation.displayName.locale")
+		private val propertyKeyName = message("paradox.localisation.displayName.propertyKey")
+		private val stringName = message("paradox.localisation.displayName.string")
+		private val commentName = message("paradox.localisation.displayName.comment")
+		private val markerName = message("paradox.localisation.displayName.marker")
+		private val parameterName = message("paradox.localisation.displayName.parameter")
+		private val propertyReferenceName = message("paradox.localisation.displayName.propertyReference")
+		private val codeName = message("paradox.localisation.displayName.code")
+		private val iconName = message("paradox.localisation.displayName.icon")
+		private val serialNumberName = message("paradox.localisation.displayName.serialNumber")
+		private val colorName = message("paradox.localisation.displayName.color")
+		private val validEscapeName = message("paradox.localisation.displayName.validEscape")
+		private val invalidEscapeName = message("paradox.localisation.displayName.invalidEscape")
+		private val badCharacterName = message("paradox.localisation.displayName.badCharacter")
+		
 		private val attributesDescriptors = arrayOf(
-			AttributesDescriptor(message("paradox.localisation.color.colon"), ParadoxLocalisationAttributesKeys.COLON_KEY),
-			AttributesDescriptor(message("paradox.localisation.color.number"), ParadoxLocalisationAttributesKeys.NUMBER_KEY),
-			AttributesDescriptor(message("paradox.localisation.color.Locale"), ParadoxLocalisationAttributesKeys.LOCALE_KEY),
-			AttributesDescriptor(message("paradox.localisation.color.propertyKey"), ParadoxLocalisationAttributesKeys.PROPERTY_KEY_KEY),
-			AttributesDescriptor(message("paradox.localisation.color.string"), ParadoxLocalisationAttributesKeys.STRING_KEY),
-			AttributesDescriptor(message("paradox.localisation.color.comment"), ParadoxLocalisationAttributesKeys.COMMENT_KEY),
-			AttributesDescriptor(message("paradox.localisation.color.marker"), ParadoxLocalisationAttributesKeys.MARKER_KEY),
-			AttributesDescriptor(message("paradox.localisation.color.parameter"), ParadoxLocalisationAttributesKeys.PARAMETER_KEY),
-			AttributesDescriptor(message("paradox.localisation.color.propertyReference"), ParadoxLocalisationAttributesKeys.PROPERTY_REFERENCE_KEY),
-			AttributesDescriptor(message("paradox.localisation.color.code"), ParadoxLocalisationAttributesKeys.CODE_KEY),
-			AttributesDescriptor(message("paradox.localisation.color.icon"), ParadoxLocalisationAttributesKeys.ICON_KEY),
-			AttributesDescriptor(message("paradox.localisation.color.serialNumberId"), ParadoxLocalisationAttributesKeys.SERIAL_NUMBER_ID_KEY),
-			AttributesDescriptor(message("paradox.localisation.color.colorId"), ParadoxLocalisationAttributesKeys.COLOR_ID_KEY),
-			AttributesDescriptor(message("paradox.localisation.color.validEscape"), ParadoxLocalisationAttributesKeys.VALID_ESCAPE_KEY),
-			AttributesDescriptor(message("paradox.localisation.color.invalidEscape"), ParadoxLocalisationAttributesKeys.INVALID_ESCAPE_KEY),
-			AttributesDescriptor(message("paradox.localisation.color.badCharacter"), ParadoxLocalisationAttributesKeys.BAD_CHARACTER_KEY)
+			AttributesDescriptor(colonName, ParadoxLocalisationAttributesKeys.COLON_KEY),
+			AttributesDescriptor(numberName, ParadoxLocalisationAttributesKeys.NUMBER_KEY),
+			AttributesDescriptor(localeName, ParadoxLocalisationAttributesKeys.LOCALE_KEY),
+			AttributesDescriptor(propertyKeyName, ParadoxLocalisationAttributesKeys.PROPERTY_KEY_KEY),
+			AttributesDescriptor(stringName, ParadoxLocalisationAttributesKeys.STRING_KEY),
+			AttributesDescriptor(commentName, ParadoxLocalisationAttributesKeys.COMMENT_KEY),
+			AttributesDescriptor(markerName, ParadoxLocalisationAttributesKeys.MARKER_KEY),
+			AttributesDescriptor(parameterName, ParadoxLocalisationAttributesKeys.PARAMETER_KEY),
+			AttributesDescriptor(propertyReferenceName, ParadoxLocalisationAttributesKeys.PROPERTY_REFERENCE_KEY),
+			AttributesDescriptor(codeName, ParadoxLocalisationAttributesKeys.CODE_KEY),
+			AttributesDescriptor(iconName, ParadoxLocalisationAttributesKeys.ICON_KEY),
+			AttributesDescriptor(serialNumberName, ParadoxLocalisationAttributesKeys.SERIAL_NUMBER_KEY),
+			AttributesDescriptor(colorName, ParadoxLocalisationAttributesKeys.COLOR_KEY),
+			AttributesDescriptor(validEscapeName, ParadoxLocalisationAttributesKeys.VALID_ESCAPE_KEY),
+			AttributesDescriptor(invalidEscapeName, ParadoxLocalisationAttributesKeys.INVALID_ESCAPE_KEY),
+			AttributesDescriptor(badCharacterName, ParadoxLocalisationAttributesKeys.BAD_CHARACTER_KEY)
 		)
 	}
 
@@ -43,6 +59,6 @@ class ParadoxLocalisationColorSettingsPage : ColorSettingsPage {
 
 	override fun getDisplayName() = paradoxLocalisationName
 
-	override fun getDemoText() = paradoxLocalisationDummyText
+	override fun getDemoText() = paradoxLocalisationSampleText
 }
 

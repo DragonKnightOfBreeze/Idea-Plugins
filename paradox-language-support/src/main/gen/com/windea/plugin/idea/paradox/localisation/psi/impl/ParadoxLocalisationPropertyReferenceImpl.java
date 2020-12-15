@@ -1,6 +1,7 @@
 // This is a generated file. Not intended for manual editing.
 package com.windea.plugin.idea.paradox.localisation.psi.impl;
 
+import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.PsiElement;
@@ -21,6 +22,7 @@ public class ParadoxLocalisationPropertyReferenceImpl extends ParadoxLocalisatio
     visitor.visitPropertyReference(this);
   }
 
+  @Override
   public void accept(@NotNull PsiElementVisitor visitor) {
     if (visitor instanceof ParadoxLocalisationVisitor) accept((ParadoxLocalisationVisitor)visitor);
     else super.accept(visitor);
@@ -28,7 +30,7 @@ public class ParadoxLocalisationPropertyReferenceImpl extends ParadoxLocalisatio
 
   @Override
   @Nullable
-  public ParadoxLocalisationCommand getCode() {
+  public ParadoxLocalisationCommand getCommand() {
     return PsiTreeUtil.getChildOfType(this, ParadoxLocalisationCommand.class);
   }
 
@@ -45,7 +47,7 @@ public class ParadoxLocalisationPropertyReferenceImpl extends ParadoxLocalisatio
   }
 
   @Override
-  @Nullable
+  @NotNull
   public String getName() {
     return ParadoxLocalisationPsiImplUtil.getName(this);
   }

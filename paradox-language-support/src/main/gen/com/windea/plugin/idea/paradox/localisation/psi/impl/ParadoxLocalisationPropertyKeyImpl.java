@@ -21,6 +21,7 @@ public class ParadoxLocalisationPropertyKeyImpl extends ASTWrapperPsiElement imp
     visitor.visitPropertyKey(this);
   }
 
+  @Override
   public void accept(@NotNull PsiElementVisitor visitor) {
     if (visitor instanceof ParadoxLocalisationVisitor) accept((ParadoxLocalisationVisitor)visitor);
     else super.accept(visitor);

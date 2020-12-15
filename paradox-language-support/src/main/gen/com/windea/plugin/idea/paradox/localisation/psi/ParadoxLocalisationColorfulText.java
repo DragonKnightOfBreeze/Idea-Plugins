@@ -14,7 +14,7 @@ public interface ParadoxLocalisationColorfulText extends ParadoxLocalisationRich
   @Nullable
   PsiElement getColorCode();
 
-  @Nullable
+  @NotNull
   String getName();
 
   @NotNull

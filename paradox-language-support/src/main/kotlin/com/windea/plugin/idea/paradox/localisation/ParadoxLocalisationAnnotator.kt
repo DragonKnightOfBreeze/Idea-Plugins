@@ -7,7 +7,6 @@ import com.intellij.openapi.actionSystem.*
 import com.intellij.openapi.editor.markup.*
 import com.intellij.openapi.project.*
 import com.intellij.openapi.util.*
-import com.intellij.openapi.vfs.*
 import com.intellij.psi.*
 import com.intellij.refactoring.suggested.*
 import com.intellij.ui.awt.*
@@ -17,18 +16,20 @@ import com.windea.plugin.idea.paradox.message
 import com.windea.plugin.idea.paradox.localisation.highlighter.*
 import com.windea.plugin.idea.paradox.localisation.intentions.*
 import com.windea.plugin.idea.paradox.localisation.psi.*
-import com.windea.plugin.idea.paradox.util.*
 import java.awt.event.*
-import java.nio.file.*
 
 class ParadoxLocalisationAnnotator : Annotator, DumbAware {
-	internal class LocalisationPropertyGutterIconRenderer(
+	private class LocalisationPropertyGutterIconRenderer(
 		private val name:String,
 		private val project:Project
 	): GutterIconRenderer(),DumbAware {
-		private val tooltip = message("paradox.localisation.annotator.localisationProperty",name)
-		private val title = message("paradox.localisation.annotator.localisationProperty.title")
+		companion object{
+			private val title = message("paradox.localisation.annotator.localisationProperty.title")
+			private fun tooltip(name:String) = message("paradox.localisation.annotator.localisationProperty.tooltip",name)
+		}
 
+		private val tooltip = tooltip(name)
+		
 		override fun getIcon() = localisationPropertyGutterIcon
 		override fun getTooltipText() = tooltip
 		override fun getClickAction() = LocalisationPropertyNavigateAction(title,name,project)
@@ -38,7 +39,7 @@ class ParadoxLocalisationAnnotator : Annotator, DumbAware {
 	}
 
 	@Suppress("ComponentNotRegistered")
-	internal class LocalisationPropertyNavigateAction(
+	private class LocalisationPropertyNavigateAction(
 		private val title: String,
 		private val name:String,
 		private val project:Project
@@ -55,7 +56,7 @@ class ParadoxLocalisationAnnotator : Annotator, DumbAware {
 			}
 		}
 	}
-
+	
 	override fun annotate(element: PsiElement, holder: AnnotationHolder) {
 		when(element) {
 			is ParadoxLocalisationProperty -> annotateProperty(element, holder)
@@ -68,16 +69,14 @@ class ParadoxLocalisationAnnotator : Annotator, DumbAware {
 	
 	private fun annotateProperty(element: ParadoxLocalisationProperty, holder: AnnotationHolder) {
 		//注明所有同名的属性
-		val name = element.name
 		holder.newSilentAnnotation(INFORMATION)
-			.gutterIconRenderer(LocalisationPropertyGutterIconRenderer(name, element.project))
+			.gutterIconRenderer(LocalisationPropertyGutterIconRenderer(element.name, element.project))
 			.create()
 	}
 	
 	private fun annotateLocale(element: ParadoxLocalisationLocale, holder: AnnotationHolder) {
 		if(element.paradoxLocale == null) {
-			val localeId = element.name ?: return
-			holder.newAnnotation(ERROR, message("paradox.localisation.annotator.unsupportedLocale", localeId))
+			holder.newAnnotation(ERROR, message("paradox.localisation.annotator.unsupportedLocale", element.name))
 				.withFix(ChangeLocaleIntention)
 				.create()
 		}
@@ -85,8 +84,7 @@ class ParadoxLocalisationAnnotator : Annotator, DumbAware {
 	
 	private fun annotateSerialNumber(element: ParadoxLocalisationSerialNumber, holder: AnnotationHolder) {
 		if(element.paradoxSerialNumber == null) {
-			val serialNumberId = element.name ?: return
-			holder.newAnnotation(ERROR, message("paradox.localisation.annotator.unsupportedSerialNumber", serialNumberId))
+			holder.newAnnotation(ERROR, message("paradox.localisation.annotator.unsupportedSerialNumber", element.name))
 				.withFix(ChangeSerialNumberIntention)
 				.create()
 		}
@@ -94,16 +92,13 @@ class ParadoxLocalisationAnnotator : Annotator, DumbAware {
 	
 	private fun annotateColorfulText(element: ParadoxLocalisationColorfulText, holder: AnnotationHolder) {
 		//如果是颜色文本，则为颜色代码文本加上对应的颜色
-		val colorId = element.name ?: return
 		if(element.paradoxColor == null) {
-			holder.newAnnotation(ERROR, message("paradox.localisation.annotator.unsupportedColor", colorId))
+			holder.newAnnotation(ERROR, message("paradox.localisation.annotator.unsupportedColor", element.name))
 				.withFix(ChangeColorIntention)
 				.create()
 		} else {
 			val e = element.colorCode
-			if(e != null) {
-				annotateColor(colorId, holder, e.textRange)
-			}
+			if(e != null) annotateColor(element.name, holder, e.textRange)
 		}
 	}
 	
@@ -121,7 +116,7 @@ class ParadoxLocalisationAnnotator : Annotator, DumbAware {
 	}
 	
 	private fun annotateColor(colorId: String, holder: AnnotationHolder, range: TextRange) {
-		val attributesKey = ParadoxLocalisationAttributesKeys.COLOR_ID_KEYS[colorId] ?: return
+		val attributesKey = ParadoxLocalisationAttributesKeys.COLOR_KEYS[colorId] ?: return
 		holder.newSilentAnnotation(INFORMATION)
 			.range(range).textAttributes(attributesKey)
 			.create()

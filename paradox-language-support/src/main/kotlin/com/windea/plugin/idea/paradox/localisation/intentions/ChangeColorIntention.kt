@@ -11,13 +11,14 @@ import com.windea.plugin.idea.paradox.*
 import com.windea.plugin.idea.paradox.localisation.psi.*
 
 object ChangeColorIntention : IntentionAction {
-	private val text = message("paradox.localisation.intention.changeColor")
+	private val name = message("paradox.localisation.intention.changeColor")
+	private val title = message("paradox.localisation.intention.changeColor.title")
 	
 	override fun startInWriteAction() = false
 	
-	override fun getText() = text
+	override fun getText() = name
 	
-	override fun getFamilyName() = text
+	override fun getFamilyName() = name
 	
 	override fun isAvailable(project: Project, editor: Editor?, file: PsiFile?): Boolean {
 		if(editor == null || file == null) return false
@@ -36,7 +37,7 @@ object ChangeColorIntention : IntentionAction {
 	private class Popup(
 		private val value: ParadoxLocalisationColorfulText,
 		values: Array<ParadoxColor>
-	) : BaseListPopupStep<ParadoxColor>(message("paradox.localisation.intention.changeColor.title"), *values) {
+	) : BaseListPopupStep<ParadoxColor>(title, *values) {
 		override fun getIconFor(value: ParadoxColor) = value.icon
 		
 		override fun getTextFor(value: ParadoxColor) = value.popupText
@@ -46,7 +47,7 @@ object ChangeColorIntention : IntentionAction {
 		override fun isSpeedSearchEnabled(): Boolean = true
 		
 		override fun onChosen(selectedValue: ParadoxColor, finalChoice: Boolean): PopupStep<*>? {
-			runWriteCommandAction(value.project) { value.setName(selectedValue.name) }
+			runWriteCommandAction(value.project) { value.name = selectedValue.name }
 			return PopupStep.FINAL_CHOICE
 		}
 	}

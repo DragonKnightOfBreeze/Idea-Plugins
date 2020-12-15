@@ -27,10 +27,10 @@ class ParadoxScriptSyntaxHighlighter : SyntaxHighlighterBase() {
 		private val BAD_CHARACTER_KEYS = arrayOf(ParadoxScriptAttributesKeys.BAD_CHARACTER_KEY)
 		private val EMPTY_KEYS = TextAttributesKey.EMPTY_ARRAY
 	}
-
+	
 	override fun getTokenHighlights(tokenType: IElementType?) = when(tokenType) {
 		EQUAL_SIGN, LE_SIGN, LT_SIGN, GE_SIGN, GT_SIGN -> SEPARATOR_KEYS
-		LEFT_BRACE, RIGHT_BRACE, CODE_START,CODE_END     -> BRACE_KEYS
+		LEFT_BRACE, RIGHT_BRACE, CODE_START, CODE_END -> BRACE_KEYS
 		VARIABLE_NAME_ID -> VARIABLE_KEYS
 		PROPERTY_KEY_ID, QUOTED_PROPERTY_KEY_ID -> PROPERTY_KEY_KEYS
 		VARIABLE_REFERENCE_ID -> VARIABLE_KEYS
@@ -46,6 +46,6 @@ class ParadoxScriptSyntaxHighlighter : SyntaxHighlighterBase() {
 		BAD_CHARACTER -> BAD_CHARACTER_KEYS
 		else -> EMPTY_KEYS
 	}
-
+	
 	override fun getHighlightingLexer() = ParadoxScriptLexerAdapter()
 }

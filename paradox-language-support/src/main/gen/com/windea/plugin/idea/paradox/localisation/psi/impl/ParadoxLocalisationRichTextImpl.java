@@ -21,6 +21,7 @@ public abstract class ParadoxLocalisationRichTextImpl extends ASTWrapperPsiEleme
     visitor.visitRichText(this);
   }
 
+  @Override
   public void accept(@NotNull PsiElementVisitor visitor) {
     if (visitor instanceof ParadoxLocalisationVisitor) accept((ParadoxLocalisationVisitor)visitor);
     else super.accept(visitor);

@@ -18,8 +18,8 @@ class ParadoxLocalisationBreadCrumbsProvider : BreadcrumbsProvider {
 	override fun getElementInfo(element: PsiElement): String {
 		return when(element){
 			is ParadoxLocalisationProperty -> element.name
-			else -> null
-		} ?: "<anonymous element>"
+			else -> "<anonymous element>"
+		}
 	}
 
 	override fun acceptElement(element: PsiElement): Boolean {

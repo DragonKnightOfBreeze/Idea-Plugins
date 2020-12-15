@@ -29,6 +29,7 @@ public class ParadoxLocalisationPropertyImpl extends ParadoxLocalisationStubElem
     visitor.visitProperty(this);
   }
 
+  @Override
   public void accept(@NotNull PsiElementVisitor visitor) {
     if (visitor instanceof ParadoxLocalisationVisitor) accept((ParadoxLocalisationVisitor)visitor);
     else super.accept(visitor);

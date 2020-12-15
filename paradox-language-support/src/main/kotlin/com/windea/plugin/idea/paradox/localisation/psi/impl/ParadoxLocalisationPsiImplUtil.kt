@@ -24,8 +24,8 @@ import javax.swing.*
 object ParadoxLocalisationPsiImplUtil {
 	//region ParadoxLocalisationLocale
 	@JvmStatic
-	fun getName(element: ParadoxLocalisationLocale): String? {
-		return element.localeId.text
+	fun getName(element: ParadoxLocalisationLocale): String {
+		return element.localeId.text.orEmpty()
 	}
 	
 	@JvmStatic
@@ -85,8 +85,8 @@ object ParadoxLocalisationPsiImplUtil {
 	
 	//region ParadoxLocalisationPropertyReference
 	@JvmStatic
-	fun getName(element: ParadoxLocalisationPropertyReference): String? {
-		return element.propertyReferenceId?.text
+	fun getName(element: ParadoxLocalisationPropertyReference): String {
+		return element.propertyReferenceId?.text.orEmpty()
 	}
 	
 	@JvmStatic
@@ -122,8 +122,8 @@ object ParadoxLocalisationPsiImplUtil {
 	
 	//region ParadoxLocalisationIcon
 	@JvmStatic
-	fun getName(element: ParadoxLocalisationIcon): String? {
-		return element.iconId?.text
+	fun getName(element: ParadoxLocalisationIcon): String {
+		return element.iconId?.text.orEmpty()
 	}
 	
 	@JvmStatic
@@ -145,8 +145,8 @@ object ParadoxLocalisationPsiImplUtil {
 	
 	//region ParadoxLocalisationSerialNumber
 	@JvmStatic
-	fun getName(element: ParadoxLocalisationSerialNumber): String? {
-		return element.serialNumberId?.text?.toUpperCase()
+	fun getName(element: ParadoxLocalisationSerialNumber): String {
+		return element.serialNumberId?.text?.toUpperCase().orEmpty()
 	}
 	
 	@JvmStatic
@@ -174,8 +174,8 @@ object ParadoxLocalisationPsiImplUtil {
 	
 	//region ParadoxLocalisationColorfulText
 	@JvmStatic
-	fun getName(element: ParadoxLocalisationColorfulText): String? {
-		return element.colorCode?.text?.toUpperCase()
+	fun getName(element: ParadoxLocalisationColorfulText): String {
+		return element.colorCode?.text?.toUpperCase().orEmpty()
 	}
 	
 	@JvmStatic

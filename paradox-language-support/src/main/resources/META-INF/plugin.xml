@@ -1,6 +1,6 @@
 <idea-plugin>
   <id>com.windea.paradox</id>
-  <name>Paradox Modding Support</name>
+  <name>Paradox Language Support</name>
   <category>Languages</category>
 
   <vendor email="dk_breeze@qq.com" url="https://github.com/DragonKnightOfBreeze">DragonKnightOfBreeze</vendor>
@@ -49,6 +49,8 @@
       文档。
     </p>
     ]]></change-notes>
+
+  <resource-bundle>messages.ParadoxBundle</resource-bundle>
 
   <extensions defaultExtensionNs="com.intellij">
     <!--region Paradox Settings-->
@@ -150,13 +152,13 @@
 
     <localInspection
       language="Paradox Localisation"
-      shortName="ParadoxLocalisationDuplicatePropertyKeys" bundle="messages.ParadoxBundle"
+      shortName="ParadoxLocalisationDuplicatePropertyKeys"
       groupKey="paradox.localisation.inspection" key="paradox.localisation.inspection.duplicatePropertyKeys"
       enabledByDefault="true" level="WARNING"
       implementationClass="com.windea.plugin.idea.paradox.localisation.inspections.DuplicatePropertyKeysInspection"/>
     <localInspection
       language="Paradox Localisation"
-      shortName="ParadoxLocalisationInvalidFileEncoding" bundle="messages.ParadoxBundle"
+      shortName="ParadoxLocalisationInvalidFileEncoding"
       groupKey="paradox.localisation.inspection" key="paradox.localisation.inspection.invalidFileEncoding"
       enabledByDefault="true" level="WARNING"
       implementationClass="com.windea.plugin.idea.paradox.localisation.inspections.InvalidFileEncodingInspection"/>

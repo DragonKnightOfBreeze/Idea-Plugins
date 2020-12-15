@@ -8,8 +8,8 @@ import com.windea.plugin.idea.paradox.localisation.psi.impl.*;
 
 public interface ParadoxLocalisationTypes {
 
-  IElementType COMMAND = new ParadoxLocalisationElementType("COMMAND");
   IElementType COLORFUL_TEXT = new ParadoxLocalisationElementType("COLORFUL_TEXT");
+  IElementType COMMAND = new ParadoxLocalisationElementType("COMMAND");
   IElementType ESCAPE = new ParadoxLocalisationElementType("ESCAPE");
   IElementType ICON = new ParadoxLocalisationElementType("ICON");
   IElementType LOCALE = new ParadoxLocalisationElementType("LOCALE");
@@ -22,13 +22,13 @@ public interface ParadoxLocalisationTypes {
   IElementType STRING = new ParadoxLocalisationElementType("STRING");
 
   IElementType BLANK = new ParadoxLocalisationTokenType("wregexp:\\s+");
-  IElementType COMMAND_END = new ParadoxLocalisationTokenType("]");
-  IElementType COMMAND_START = new ParadoxLocalisationTokenType("[");
-  IElementType COMMAND_EXPRESSION_TOKEN = new ParadoxLocalisationTokenType("COMMAND_EXPRESSION_TOKEN");
   IElementType COLON = new ParadoxLocalisationTokenType(":");
   IElementType COLORFUL_TEXT_END = new ParadoxLocalisationTokenType("§!");
   IElementType COLORFUL_TEXT_START = new ParadoxLocalisationTokenType("§");
   IElementType COLOR_CODE = new ParadoxLocalisationTokenType("COLOR_CODE");
+  IElementType COMMAND_END = new ParadoxLocalisationTokenType("]");
+  IElementType COMMAND_EXPRESSION_TOKEN = new ParadoxLocalisationTokenType("COMMAND_EXPRESSION_TOKEN");
+  IElementType COMMAND_START = new ParadoxLocalisationTokenType("[");
   IElementType COMMENT = new ParadoxLocalisationTokenType("COMMENT");
   IElementType END_OF_LINE_COMMENT = new ParadoxLocalisationTokenType("END_OF_LINE_COMMENT");
   IElementType ICON_END = new ParadoxLocalisationTokenType("£");
@@ -56,11 +56,11 @@ public interface ParadoxLocalisationTypes {
   class Factory {
     public static PsiElement createElement(ASTNode node) {
       IElementType type = node.getElementType();
-      if (type == COMMAND) {
-        return new ParadoxLocalisationCommandImpl(node);
-      }
-      else if (type == COLORFUL_TEXT) {
+      if (type == COLORFUL_TEXT) {
         return new ParadoxLocalisationColorfulTextImpl(node);
+      }
+      else if (type == COMMAND) {
+        return new ParadoxLocalisationCommandImpl(node);
       }
       else if (type == ESCAPE) {
         return new ParadoxLocalisationEscapeImpl(node);

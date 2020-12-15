@@ -11,7 +11,7 @@ import com.windea.plugin.idea.paradox.*
 import com.windea.plugin.idea.paradox.localisation.psi.*
 
 class ParadoxLocalisationFoldingBuilder : FoldingBuilder, DumbAware {
-	override fun getPlaceholderText(node: ASTNode): String? {
+	override fun getPlaceholderText(node: ASTNode): String {
 		return when(node.elementType){
 			ParadoxLocalisationTypes.ROOT_COMMENT -> "#..."
 			ParadoxLocalisationTypes.COMMENT -> "#..."

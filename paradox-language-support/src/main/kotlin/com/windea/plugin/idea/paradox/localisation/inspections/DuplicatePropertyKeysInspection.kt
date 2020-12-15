@@ -8,14 +8,22 @@ import com.intellij.openapi.project.*
 import com.intellij.openapi.ui.popup.*
 import com.intellij.openapi.ui.popup.util.*
 import com.intellij.psi.*
-import com.intellij.util.*
 import com.intellij.util.containers.*
 import com.windea.plugin.idea.paradox.*
-import com.windea.plugin.idea.paradox.message
 import com.windea.plugin.idea.paradox.localisation.psi.*
-import javax.swing.*
+import kotlin.collections.List
+import kotlin.collections.component1
+import kotlin.collections.component2
+import kotlin.collections.filter
+import kotlin.collections.groupBy
+import kotlin.collections.iterator
+import kotlin.collections.mapNotNull
 
 class DuplicatePropertyKeysInspection : LocalInspectionTool() {
+	companion object{
+		private fun description(key: String) = message("paradox.localisation.inspection.duplicatePropertyKeys.description", key)
+	}
+	
 	override fun buildVisitor(holder: ProblemsHolder, isOnTheFly: Boolean): PsiElementVisitor {
 		return Visitor(holder)
 	}
@@ -29,8 +37,7 @@ class DuplicatePropertyKeysInspection : LocalInspectionTool() {
 				for(value in values) {
 					val quickFix = NavigateToDuplicates(key, value, values)
 					//第一个元素指定为file，则是在文档头部弹出，否则从psiElement上通过contextActions显示
-					val description = message("paradox.localisation.inspection.duplicatePropertyKeys.description", key)
-					holder.registerProblem(value.propertyKey, description, quickFix)
+					holder.registerProblem(value.propertyKey, description(key), quickFix)
 				}
 			}
 		}
@@ -43,13 +50,15 @@ class DuplicatePropertyKeysInspection : LocalInspectionTool() {
 	) : LocalQuickFixAndIntentionActionOnPsiElement(property) {
 		private val pointers = ContainerUtil.map(duplicates) { SmartPointerManager.createPointer(it) }
 
-		override fun getText(): String {
-			return message("paradox.localisation.quickFix.navigateToDuplicates")
+		companion object{
+			private val name = message("paradox.localisation.quickFix.navigateToDuplicates")
+			private fun header(key:String) = message("paradox.localisation.quickFix.navigateToDuplicates.header", key)
+			private fun text(key: String,lineNumber:Int) = message("paradox.localisation.quickFix.navigateToDuplicates.text", key, lineNumber)
 		}
-
-		override fun getFamilyName(): String {
-			return text
-		}
+		
+		override fun getFamilyName() = name
+		
+		override fun getText() = name
 
 		override fun invoke(project: Project, file: PsiFile, editor: Editor?, startElement: PsiElement, endElement: PsiElement) {
 			if(editor == null) return
@@ -66,31 +75,23 @@ class DuplicatePropertyKeysInspection : LocalInspectionTool() {
 				JBPopupFactory.getInstance().createListPopup(popup).showInBestPositionFor(editor)
 			}
 		}
-
+		
 		private class Popup(
 			values: List<ParadoxLocalisationProperty>,
 			private val key: String,
 			private val editor: Editor
-		) : BaseListPopupStep<PsiElement>(message("paradox.localisation.quickFix.navigateToDuplicates.header", key), values) {
-			override fun getIconFor(aValue: PsiElement): Icon {
-				return PlatformIcons.PROPERTY_ICON
-			}
-
-			override fun getTextFor(value: PsiElement): String {
-				return message("paradox.localisation.quickFix.navigateToDuplicates.text", key, editor.document.getLineNumber(value.textOffset))
-			}
-
-			override fun getDefaultOptionIndex(): Int {
-				return 0
-			}
-
+		) : BaseListPopupStep<PsiElement>(header(key), values) {
+			override fun getIconFor(aValue: PsiElement) = paradoxLocalisationPropertyIcon
+			
+			override fun getTextFor(value: PsiElement) = text(key,editor.document.getLineNumber(value.textOffset))
+			
+			override fun getDefaultOptionIndex() = 0
+			
+			override fun isSpeedSearchEnabled() = true
+			
 			override fun onChosen(selectedValue: PsiElement, finalChoice: Boolean): PopupStep<*>? {
 				navigateToElement(editor, selectedValue)
-				return PopupStep.FINAL_CHOICE
-			}
-
-			override fun isSpeedSearchEnabled(): Boolean {
-				return true
+				return FINAL_CHOICE
 			}
 		}
 	}

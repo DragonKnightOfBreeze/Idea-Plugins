@@ -10,6 +10,14 @@ class ParadoxLocalisationStructureViewModel(
 	editor: Editor?,
 	file: PsiFile
 ) : TextEditorBasedStructureViewModel(editor, file), StructureViewModel.ElementInfoProvider {
+	companion object {
+		private val defaultSuitableClasses = arrayOf(
+			ParadoxLocalisationFile::class.java,
+			ParadoxLocalisationProperty::class.java
+		)
+		private val defaultSorters = arrayOf(Sorter.ALPHA_SORTER)
+	}
+	
 	//指定根节点，一般为psiFile
 	override fun getRoot() = ParadoxLocalisationFileTreeElement(psiFile as ParadoxLocalisationFile)
 
@@ -22,13 +30,4 @@ class ParadoxLocalisationStructureViewModel(
 	override fun isAlwaysShowsPlus(element: StructureViewTreeElement) = element.value is ParadoxLocalisationFile
 
 	override fun isAlwaysLeaf(element: StructureViewTreeElement) = false
-
-	companion object {
-		private val defaultSuitableClasses = arrayOf(
-			ParadoxLocalisationFile::class.java,
-			ParadoxLocalisationProperty::class.java
-		)
-		private val defaultSorters = arrayOf(Sorter.ALPHA_SORTER)
-	}
 }
-

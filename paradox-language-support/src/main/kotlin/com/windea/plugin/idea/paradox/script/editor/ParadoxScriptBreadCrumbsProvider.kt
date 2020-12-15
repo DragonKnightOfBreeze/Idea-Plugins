@@ -23,7 +23,7 @@ class ParadoxScriptBreadCrumbsProvider : BreadcrumbsProvider {
 			is ParadoxScriptNumber -> element.value
 			is ParadoxScriptString -> element.value
 			else -> "<anonymous element>"
-		} ?: "<anonymous element>"
+		}
 	}
 
 	override fun acceptElement(element: PsiElement): Boolean {

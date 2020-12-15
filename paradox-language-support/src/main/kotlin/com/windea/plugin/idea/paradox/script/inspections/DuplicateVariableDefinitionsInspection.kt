@@ -1,5 +1,3 @@
-@file:Suppress("DuplicatedCode")
-
 package com.windea.plugin.idea.paradox.script.inspections
 
 import com.intellij.codeInspection.*
@@ -8,15 +6,23 @@ import com.intellij.openapi.project.*
 import com.intellij.openapi.ui.popup.*
 import com.intellij.openapi.ui.popup.util.*
 import com.intellij.psi.*
-import com.intellij.util.*
 import com.intellij.util.containers.*
 import com.windea.plugin.idea.paradox.*
-import com.windea.plugin.idea.paradox.message
 import com.windea.plugin.idea.paradox.localisation.psi.*
 import com.windea.plugin.idea.paradox.script.psi.*
-import javax.swing.*
+import kotlin.collections.List
+import kotlin.collections.component1
+import kotlin.collections.component2
+import kotlin.collections.filter
+import kotlin.collections.groupBy
+import kotlin.collections.iterator
+import kotlin.collections.mapNotNull
 
 class DuplicateVariableDefinitionsInspection :LocalInspectionTool(){
+	companion object{
+		private fun description(name:String) = message("paradox.script.inspection.duplicateVariableDefinitions.description", name)
+	}
+	
 	override fun buildVisitor(holder: ProblemsHolder, isOnTheFly: Boolean): PsiElementVisitor {
 		return Visitor(holder)
 	}
@@ -28,12 +34,11 @@ class DuplicateVariableDefinitionsInspection :LocalInspectionTool(){
 			val file = element as? ParadoxScriptFile ?: return
 			val variableGroup = file.variables.groupBy { it.name }
 			for((name, values) in variableGroup) {
-				if(name == null || values.size <= 1) continue
+				if(values.size <= 1) continue
 				for(value in values) {
 					val quickFix = NavigateToDuplicates(name, value, values)
 					//第一个元素指定为file，则是在文档头部弹出，否则从psiElement上通过contextActions显示
-					val description = message("paradox.script.inspection.duplicateVariableDefinitions.description", name)
-					holder.registerProblem(value.variableName, description,quickFix)
+					holder.registerProblem(value.variableName, description(name),quickFix)
 				}
 			}
 		}
@@ -46,13 +51,15 @@ class DuplicateVariableDefinitionsInspection :LocalInspectionTool(){
 	): LocalQuickFixAndIntentionActionOnPsiElement(property) {
 		private val pointers = ContainerUtil.map(duplicates){SmartPointerManager.createPointer(it)}
 
-		override fun getText(): String {
-			return message("paradox.script.quickFix.navigateToDuplicates")
+		companion object{
+			private val name = message("paradox.script.quickFix.navigateToDuplicates")
+			private fun header(key:String) = message("paradox.script.quickFix.navigateToDuplicates.header", key)
+			private fun text(key:String,lineNumber:Int) = message("paradox.script.quickFix.navigateToDuplicates.text",key,lineNumber)
 		}
-
-		override fun getFamilyName(): String {
-			return text
-		}
+		
+		override fun getFamilyName() = name
+		
+		override fun getText() = name
 
 		override fun invoke(project: Project, file: PsiFile, editor: Editor?, startElement: PsiElement, endElement: PsiElement) {
 			if(editor == null) return
@@ -74,26 +81,18 @@ class DuplicateVariableDefinitionsInspection :LocalInspectionTool(){
 			values: List<ParadoxScriptVariable>,
 			private val key: String,
 			private val editor: Editor
-		) : BaseListPopupStep<ParadoxScriptVariable>(message("paradox.script.quickFix.navigateToDuplicates.header", key), values) {
-			override fun getIconFor(aValue: ParadoxScriptVariable): Icon {
-				return PlatformIcons.VARIABLE_ICON
-			}
+		) : BaseListPopupStep<ParadoxScriptVariable>(header(key), values) {
+			override fun getIconFor(aValue: ParadoxScriptVariable) = paradoxScriptVariableIcon
 
-			override fun getTextFor(value: ParadoxScriptVariable): String {
-				return message("paradox.script.quickFix.navigateToDuplicates.text", key, editor.document.getLineNumber(value.textOffset))
-			}
+			override fun getTextFor(value: ParadoxScriptVariable) = text(key, editor.document.getLineNumber(value.textOffset))
 
-			override fun getDefaultOptionIndex(): Int {
-				return 0
-			}
+			override fun getDefaultOptionIndex(): Int = 0
+			
+			override fun isSpeedSearchEnabled(): Boolean = true
 
 			override fun onChosen(selectedValue: ParadoxScriptVariable, finalChoice: Boolean): PopupStep<*>? {
 				navigateToElement(editor, selectedValue)
 				return PopupStep.FINAL_CHOICE
-			}
-
-			override fun isSpeedSearchEnabled(): Boolean {
-				return true
 			}
 		}
 	}

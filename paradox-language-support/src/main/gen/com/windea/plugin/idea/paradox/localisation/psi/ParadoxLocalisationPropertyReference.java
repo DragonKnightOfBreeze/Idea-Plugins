@@ -1,6 +1,7 @@
 // This is a generated file. Not intended for manual editing.
 package com.windea.plugin.idea.paradox.localisation.psi;
 
+import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 import com.windea.plugin.idea.paradox.ParadoxColor;
@@ -9,7 +10,7 @@ import com.windea.plugin.idea.paradox.localisation.reference.ParadoxLocalisation
 public interface ParadoxLocalisationPropertyReference extends ParadoxLocalisationRichText, ParadoxLocalisationNamedElement {
 
   @Nullable
-  ParadoxLocalisationCommand getCode();
+  ParadoxLocalisationCommand getCommand();
 
   @Nullable
   PsiElement getPropertyReferenceId();
@@ -17,7 +18,7 @@ public interface ParadoxLocalisationPropertyReference extends ParadoxLocalisatio
   @Nullable
   PsiElement getPropertyReferenceParameter();
 
-  @Nullable
+  @NotNull
   String getName();
 
   @NotNull

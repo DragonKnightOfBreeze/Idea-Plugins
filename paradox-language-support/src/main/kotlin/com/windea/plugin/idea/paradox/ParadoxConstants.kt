@@ -15,7 +15,7 @@ const val paradoxLocalisationLanguageName = "$paradoxLocalisationName Language"
 const val paradoxLocalisationFileTypeName = "$paradoxLocalisationName File"
 const val paradoxLocalisationFileTypeDescription = "$paradoxLocalisationName Language"
 const val paradoxLocalisationExtension = "yml"
-val paradoxLocalisationDummyText = "dummyText/ParadoxLocalisation.txt".toClassPathResource()!!.readText()
+val paradoxLocalisationSampleText = "sampleText/ParadoxLocalisation.txt".toClassPathResource()!!.readText()
 
 const val paradoxScriptName = "Paradox Script"
 const val paradoxScriptNamePc = "ParadoxScript"
@@ -24,7 +24,7 @@ const val paradoxScriptLanguageName = "$paradoxScriptName Language"
 const val paradoxScriptFileTypeName = "$paradoxScriptName File"
 const val paradoxScriptFileTypeDescription = "$paradoxScriptName Language"
 const val paradoxScriptExtension = "txt"
-val paradoxScriptDummyText = "dummyText/ParadoxScript.txt".toClassPathResource()!!.readText()
+val paradoxScriptSampleText = "sampleText/ParadoxScript.txt".toClassPathResource()!!.readText()
 
 const val commentFolder = "#..."
 const val blockFolder = "{...}"

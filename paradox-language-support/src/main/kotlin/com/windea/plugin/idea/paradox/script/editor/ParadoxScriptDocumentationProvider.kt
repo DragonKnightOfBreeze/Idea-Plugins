@@ -10,12 +10,18 @@ import com.windea.plugin.idea.paradox.script.psi.*
 import org.jetbrains.annotations.*
 
 class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
+	companion object{
+		 private val iconTitle =  message("paradox.documentation.icon")
+		 private val effectTitle =  message("paradox.documentation.effect")
+		 private val tagsTitle =  message("paradox.documentation.tags")
+	}
+	
 	override fun getQuickNavigateInfo(element: PsiElement?, originalElement: PsiElement?): String? {
 		return when(element) {
 			//防止意外情况
 			is ParadoxScriptVariableName -> getQuickNavigateInfo(element.parent, originalElement)
-			is ParadoxScriptVariable -> "${getLocationTextLine(element)}script variable \"${element.name}\""
-			is ParadoxScriptProperty -> "${getLocationTextLine(element)}script property \"${element.name}\""
+			is ParadoxScriptVariable -> """${getLocationTextLine(element)}script variable "${element.name}""""
+			is ParadoxScriptProperty -> """${getLocationTextLine(element)}script property "${element.name}""""
 			else -> null
 		}
 	}
@@ -30,8 +36,8 @@ class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
 		}
 	}
 	
-	private fun generateVariableDoc(element: ParadoxScriptVariable): String? {
-		val name = element.name ?: return null
+	private fun generateVariableDoc(element: ParadoxScriptVariable): String {
+		val name = element.name
 		return buildString {
 			append(DocumentationMarkup.DEFINITION_START)
 			append(getLocationTextLine(element))
@@ -85,15 +91,14 @@ class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
 		}
 	}
 	
-	private fun getPropertyDocSectionMap(element: ParadoxScriptProperty, name: String, project: Project): LinkedHashMap<String, String> {
+	private fun getPropertyDocSectionMap(element: ParadoxScriptProperty, name: String, project: Project): Map<String, String> {
 		val sectionMap = linkedMapOf<String, String>()
 		
 		//添加渲染后的对应的图标到文档注释中
 		val iconUrl = name.resolveIconUrl(false)
 		if(iconUrl.isNotEmpty()) {
-			val key = message("paradox.documentation.icon")
 			val value = iconTag(iconUrl, iconSize * 2)
-			sectionMap[key] = value
+			sectionMap[iconTitle] = value
 		}
 		
 		//添加渲染后的相关的本地化属性的值的文本到文档注释中
@@ -101,9 +106,8 @@ class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
 			.distinctBy { it.name } //过滤重复的属性
 		if(localisationProperties.isNotEmpty()) {
 			for(property in localisationProperties) {
-				val key = message(property.getRelatedLocalisationPropertyKey())
 				val value = property.propertyValue?.renderRichText()
-				if(value != null) sectionMap[key] = value
+				if(value != null) sectionMap[message(property.getRelatedLocalisationPropertyKey())] = value
 			}
 		}
 		
@@ -116,8 +120,7 @@ class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
 					"description" -> {
 						val k = property.value ?: continue
 						val value = findLocalisationProperty(k, project, inferredParadoxLocale)?.propertyValue?.renderRichText()
-						val key = message("paradox.documentation.effect")
-						sectionMap[key] = value ?: k
+						sectionMap[effectTitle] = value ?: k
 					}
 					"tags" -> {
 						val pv = property.propertyValue?.value as? ParadoxScriptBlock ?: continue
@@ -126,7 +129,6 @@ class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
 							findLocalisationProperty(tag, project, inferredParadoxLocale)?.propertyValue
 						}
 						if(propValues.isEmpty()) continue
-						val key = message("paradox.documentation.tags")
 						val value = buildString {
 							var addNewLine = false
 							for(propValue in propValues) {
@@ -134,7 +136,7 @@ class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
 								propValue.renderRichTextTo(this)
 							}
 						}
-						sectionMap[key] = value
+						sectionMap[tagsTitle] = value
 					}
 				}
 			}

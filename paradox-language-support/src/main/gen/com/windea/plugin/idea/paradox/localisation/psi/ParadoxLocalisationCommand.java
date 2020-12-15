@@ -8,6 +8,6 @@ import com.intellij.psi.PsiElement;
 public interface ParadoxLocalisationCommand extends ParadoxLocalisationRichText {
 
   @Nullable
-  PsiElement getCommandTextToken();
+  PsiElement getCommandExpressionToken();
 
 }

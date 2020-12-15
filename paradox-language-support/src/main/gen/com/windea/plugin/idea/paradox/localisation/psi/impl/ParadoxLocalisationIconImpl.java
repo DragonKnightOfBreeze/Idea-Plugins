@@ -20,6 +20,7 @@ public class ParadoxLocalisationIconImpl extends ParadoxLocalisationNamedElement
     visitor.visitIcon(this);
   }
 
+  @Override
   public void accept(@NotNull PsiElementVisitor visitor) {
     if (visitor instanceof ParadoxLocalisationVisitor) accept((ParadoxLocalisationVisitor)visitor);
     else super.accept(visitor);
@@ -44,7 +45,7 @@ public class ParadoxLocalisationIconImpl extends ParadoxLocalisationNamedElement
   }
 
   @Override
-  @Nullable
+  @NotNull
   public String getName() {
     return ParadoxLocalisationPsiImplUtil.getName(this);
   }

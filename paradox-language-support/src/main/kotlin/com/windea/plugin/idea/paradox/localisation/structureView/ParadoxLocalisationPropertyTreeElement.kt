@@ -11,7 +11,7 @@ class ParadoxLocalisationPropertyTreeElement(
 		return mutableListOf()
 	}
 
-	override fun getPresentableText(): String? {
+	override fun getPresentableText(): String {
 		return element.name
 	}
 }

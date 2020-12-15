@@ -15,15 +15,13 @@ import com.windea.plugin.idea.paradox.localisation.*
 
 class ParadoxLocalisationLanguageCodeStyleSettingsProvider : LanguageCodeStyleSettingsProvider() {
 	override fun getLanguage() = ParadoxLocalisationLanguage
-
-	override fun createCustomSettings(settings: CodeStyleSettings): CustomCodeStyleSettings? {
-		return ParadoxLocalisationCodeStyleSettings(settings)
-	}
-
+	
+	override fun getCodeSample(settingsType: SettingsType) = paradoxLocalisationSampleText
+	
+	override fun createCustomSettings(settings: CodeStyleSettings) = ParadoxLocalisationCodeStyleSettings(settings)
+	
 	//需要重载这个方法以显示indentOptions设置页面
-	override fun getIndentOptionsEditor(): IndentOptionsEditor? {
-		return IndentOptionsEditor(this)
-	}
+	override fun getIndentOptionsEditor() = IndentOptionsEditor(this)
 
 	override fun customizeDefaults(commonSettings: CommonCodeStyleSettings, indentOptions: CommonCodeStyleSettings.IndentOptions) {
 		indentOptions.INDENT_SIZE = 1
@@ -38,23 +36,10 @@ class ParadoxLocalisationLanguageCodeStyleSettingsProvider : LanguageCodeStyleSe
 					IndentOption.KEEP_INDENTS_ON_EMPTY_LINES.name
 				)
 			}
-			//DELAY 不清楚是否允许这种语法
-			//SettingsType.WRAPPING_AND_BRACES_SETTINGS -> {
-			//	consumer.showCustomOption(
-			//		ParadoxLocalisationCodeStyleSettings::class.java,
-			//		Option.ALIGN_PROPERTY_VALUES.name,
-			//		message("paradox.localisation.codeStyle.alignPropertyValues"),
-			//		null
-			//	)
-			//}
 			else -> {}
 		}
 	}
-
-	override fun getCodeSample(settingsType: LanguageCodeStyleSettingsProvider.SettingsType): String? {
-		return paradoxLocalisationDummyText
-	}
-
+	
 	class IndentOptionsEditor(
 		provider: LanguageCodeStyleSettingsProvider
 	) : SmartIndentOptionsEditor(provider)

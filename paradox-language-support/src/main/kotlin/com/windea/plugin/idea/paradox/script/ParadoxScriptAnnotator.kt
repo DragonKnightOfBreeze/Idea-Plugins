@@ -26,8 +26,12 @@ class ParadoxScriptAnnotator : Annotator, DumbAware {
 		private val name:String,
 		private val project:Project
 	): GutterIconRenderer(),DumbAware {
-		private val tooltip = message("paradox.script.annotator.scriptProperty",name)
-		private val title = message("paradox.script.annotator.scriptProperty.title")
+		companion object{
+			private val title = message("paradox.script.annotator.scriptProperty.title")
+			private fun tooltip(name:String) = message("paradox.script.annotator.scriptProperty.tooltip",name)
+		}
+		
+		private val tooltip = tooltip(name)
 		
 		override fun getIcon() = scriptPropertyGutterIcon
 		override fun getTooltipText() = tooltip
@@ -60,8 +64,12 @@ class ParadoxScriptAnnotator : Annotator, DumbAware {
 		private val name: String,
 		private val properties: Array<ParadoxScriptProperty>,
 	) : GutterIconRenderer(), DumbAware {
-		private val tooltip = message("paradox.script.annotator.scriptProperty", name)
-		private val title = message("paradox.script.annotator.scriptProperty.title")
+		companion object{
+			private val title = message("paradox.script.annotator.scriptProperty.title")
+			private fun tooltip(name:String) = message("paradox.script.annotator.scriptProperty.tooltip",name)
+		}
+		
+		private val tooltip = tooltip(name)
 		
 		override fun getIcon() = scriptPropertyGutterIcon
 		override fun getTooltipText() = tooltip
@@ -75,8 +83,12 @@ class ParadoxScriptAnnotator : Annotator, DumbAware {
 		private val name: String,
 		private val properties: Array<ParadoxLocalisationProperty>,
 	) : GutterIconRenderer(), DumbAware {
-		private val tooltip = message("paradox.script.annotator.localisationProperty", name)
-		private val title = message("paradox.script.annotator.localisationProperty.title")
+		companion object{
+			private val title = message("paradox.script.annotator.localisationProperty.title")
+			private fun tooltip(name:String) = message("paradox.script.annotator.localisationProperty.tooltip",name)
+		}
+		
+		private val tooltip = tooltip(name)
 		
 		override fun getIcon() = localisationPropertyGutterIcon
 		override fun getTooltipText() = tooltip
@@ -90,10 +102,12 @@ class ParadoxScriptAnnotator : Annotator, DumbAware {
 		private val names: Array<String>,
 		private val properties: Array<ParadoxLocalisationProperty>,
 	) : GutterIconRenderer(), DumbAware {
-		private val tooltip = names.joinToString("<br>") { name ->
-			message("paradox.script.annotator.relatedLocalisationProperties", name)
+		companion object{
+			private val title = message("paradox.script.annotator.relatedLocalisationProperties.title")
+			private fun tooltip(name:String) = message("paradox.script.annotator.relatedLocalisationProperties.tooltip",name)
 		}
-		private val title = message("paradox.script.annotator.relatedLocalisationProperties.title")
+		
+		private val tooltip = names.joinToString("<br>") { name -> tooltip(name) }
 		
 		override fun getIcon() = localisationPropertyGutterIcon
 		override fun getTooltipText() = tooltip

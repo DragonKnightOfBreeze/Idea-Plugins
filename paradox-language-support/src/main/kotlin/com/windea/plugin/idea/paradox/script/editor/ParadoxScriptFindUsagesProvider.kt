@@ -8,14 +8,19 @@ import com.windea.plugin.idea.paradox.*
 import com.windea.plugin.idea.paradox.script.psi.*
 
 class ParadoxScriptFindUsagesProvider : FindUsagesProvider {
+	companion object{
+		val variableName = message("paradox.script.name.variable")
+		val propertyName = message("paradox.script.name.property")
+	}
+	
 	override fun getDescriptiveName(element: PsiElement): String {
-		return if(element is ParadoxScriptNamedElement) "${element.name}" else ""
+		return if(element is ParadoxScriptNamedElement) element.name.orEmpty() else ""
 	}
 
 	override fun getType(element: PsiElement): String {
 		return when(element) {
-			is ParadoxScriptVariable -> message("paradox.script.findUsages.variable")
-			is ParadoxScriptProperty -> message("paradox.script.findUsages.property")
+			is ParadoxScriptVariable -> variableName
+			is ParadoxScriptProperty -> propertyName
 			else -> ""
 		}
 	}
@@ -24,7 +29,7 @@ class ParadoxScriptFindUsagesProvider : FindUsagesProvider {
 		return getDescriptiveName(element)
 	}
 
-	override fun getHelpId(psiElement: PsiElement): String? {
+	override fun getHelpId(psiElement: PsiElement): String {
 		return HelpID.FIND_OTHER_USAGES
 	}
 
@@ -32,8 +37,7 @@ class ParadoxScriptFindUsagesProvider : FindUsagesProvider {
 		return element is ParadoxScriptNamedElement
 	}
 
-	override fun getWordsScanner(): WordsScanner? {
-		return null
-		//return ParadoxScriptWordScanner()
+	override fun getWordsScanner(): WordsScanner {
+		return ParadoxScriptWordScanner()
 	}
 }

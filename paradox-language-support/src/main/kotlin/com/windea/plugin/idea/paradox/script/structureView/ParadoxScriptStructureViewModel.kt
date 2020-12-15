@@ -10,6 +10,17 @@ class ParadoxScriptStructureViewModel(
 	editor: Editor?,
 	psiFile: PsiFile
 ) : TextEditorBasedStructureViewModel(editor, psiFile), StructureViewModel.ElementInfoProvider {
+	companion object {
+		private val defaultSuitableClasses = arrayOf(
+			ParadoxScriptFile::class.java,
+			ParadoxScriptVariable::class.java,
+			ParadoxScriptProperty::class.java,
+			ParadoxScriptPropertyValue::class.java,
+			ParadoxScriptValue::class.java
+		)
+		private val defaultSorters = arrayOf(Sorter.ALPHA_SORTER)
+	}
+	
 	//指定根节点，一般为psiFile
 	override fun getRoot() = ParadoxScriptFileTreeElement(psiFile as ParadoxScriptFile)
 
@@ -22,15 +33,4 @@ class ParadoxScriptStructureViewModel(
 	override fun isAlwaysShowsPlus(element: StructureViewTreeElement) = element.value is ParadoxScriptFile
 
 	override fun isAlwaysLeaf(element: StructureViewTreeElement) = false
-
-	companion object {
-		private val defaultSuitableClasses = arrayOf(
-			ParadoxScriptFile::class.java,
-			ParadoxScriptVariable::class.java,
-			ParadoxScriptProperty::class.java,
-			ParadoxScriptPropertyValue::class.java,
-			ParadoxScriptValue::class.java
-		)
-		private val defaultSorters = arrayOf(Sorter.ALPHA_SORTER)
-	}
 }

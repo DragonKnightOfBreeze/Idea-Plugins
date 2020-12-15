@@ -13,7 +13,7 @@ public interface ParadoxLocalisationLocale extends ParadoxLocalisationNamedEleme
   @NotNull
   PsiElement getLocaleId();
 
-  @Nullable
+  @NotNull
   String getName();
 
   @NotNull

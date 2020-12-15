@@ -9,21 +9,34 @@ import com.windea.plugin.idea.paradox.script.*
 
 class ParadoxScriptColorSettingsPage : ColorSettingsPage {
 	companion object {
-		//Capitalized Words
+		private val separatorName = message("paradox.script.displayName.separator")
+		private val bracesName = message("paradox.script.displayName.braces")
+		private val variableName = message("paradox.script.displayName.variable")
+		private val propertyKeyName = message("paradox.script.displayName.propertyKey")
+		private val keywordName = message("paradox.script.displayName.keyword")
+		private val colorName = message("paradox.script.displayName.color")
+		private val numberName = message("paradox.script.displayName.number")
+		private val stringName = message("paradox.script.displayName.string")
+		private val codeName = message("paradox.script.displayName.code")
+		private val commentName = message("paradox.script.displayName.comment")
+		private val validEscapeName = message("paradox.script.displayName.validEscape")
+		private val invalidEscapeName = message("paradox.script.displayName.invalidEscape")
+		private val badCharacterName = message("paradox.script.displayName.badCharacter")
+		
 		private val attributesDescriptors = arrayOf(
-			AttributesDescriptor(message("paradox.script.color.separator"), ParadoxScriptAttributesKeys.SEPARATOR_KEY),
-			AttributesDescriptor(message("paradox.script.color.braces"), ParadoxScriptAttributesKeys.BRACES_KEY),
-			AttributesDescriptor(message("paradox.script.color.variable"), ParadoxScriptAttributesKeys.VARIABLE_KEY),
-			AttributesDescriptor(message("paradox.script.color.propertyKey"), ParadoxScriptAttributesKeys.PROPERTY_KEY_KEY),
-			AttributesDescriptor(message("paradox.script.color.keyword"), ParadoxScriptAttributesKeys.KEYWORD_KEY),
-			AttributesDescriptor(message("paradox.script.color.color"),ParadoxScriptAttributesKeys.COLOR_KEY),
-			AttributesDescriptor(message("paradox.script.color.number"),ParadoxScriptAttributesKeys. NUMBER_KEY),
-			AttributesDescriptor(message("paradox.script.color.string"), ParadoxScriptAttributesKeys.STRING_KEY),
-			AttributesDescriptor(message("paradox.script.color.code"), ParadoxScriptAttributesKeys.CODE_KEY),
-			AttributesDescriptor(message("paradox.script.color.comment"), ParadoxScriptAttributesKeys.COMMENT_KEY),
-			AttributesDescriptor(message("paradox.script.color.validEscape"), ParadoxScriptAttributesKeys.VALID_ESCAPE_KEY),
-			AttributesDescriptor(message("paradox.script.color.invalidEscape"), ParadoxScriptAttributesKeys.INVALID_ESCAPE_KEY),
-			AttributesDescriptor(message("paradox.script.color.badCharacter"), ParadoxScriptAttributesKeys.BAD_CHARACTER_KEY)
+			AttributesDescriptor(separatorName, ParadoxScriptAttributesKeys.SEPARATOR_KEY),
+			AttributesDescriptor(bracesName, ParadoxScriptAttributesKeys.BRACES_KEY),
+			AttributesDescriptor(variableName, ParadoxScriptAttributesKeys.VARIABLE_KEY),
+			AttributesDescriptor(propertyKeyName, ParadoxScriptAttributesKeys.PROPERTY_KEY_KEY),
+			AttributesDescriptor(keywordName, ParadoxScriptAttributesKeys.KEYWORD_KEY),
+			AttributesDescriptor(colorName,ParadoxScriptAttributesKeys.COLOR_KEY),
+			AttributesDescriptor(numberName,ParadoxScriptAttributesKeys. NUMBER_KEY),
+			AttributesDescriptor(stringName, ParadoxScriptAttributesKeys.STRING_KEY),
+			AttributesDescriptor(codeName, ParadoxScriptAttributesKeys.CODE_KEY),
+			AttributesDescriptor(commentName, ParadoxScriptAttributesKeys.COMMENT_KEY),
+			AttributesDescriptor(validEscapeName, ParadoxScriptAttributesKeys.VALID_ESCAPE_KEY),
+			AttributesDescriptor(invalidEscapeName, ParadoxScriptAttributesKeys.INVALID_ESCAPE_KEY),
+			AttributesDescriptor(badCharacterName, ParadoxScriptAttributesKeys.BAD_CHARACTER_KEY)
 		)
 	}
 
@@ -39,5 +52,5 @@ class ParadoxScriptColorSettingsPage : ColorSettingsPage {
 
 	override fun getDisplayName() = paradoxScriptName
 
-	override fun getDemoText() = paradoxScriptDummyText
+	override fun getDemoText() = paradoxScriptSampleText
 }
