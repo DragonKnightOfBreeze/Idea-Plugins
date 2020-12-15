@@ -29,14 +29,12 @@ class ParadoxScriptBlock(
 			//变量声明分隔符周围的空格，属性分隔符周围的空格
 			val customSettings = settings.getCustomSettings(ParadoxScriptCodeStyleSettings::class.java)
 			val spaceWithinBraces = customSettings.SPACE_WITHIN_BRACES
-			val spaceVariableDefinitionSeparator = customSettings.SPACE_AROUND_VARIABLE_SEPARATOR
-			val spacePropertySeparator = customSettings.SPACE_AROUND_PROPERTY_SEPARATOR
+			val spaceAroundSeparator = customSettings.SPACE_AROUND_SEPARATOR
 			return SpacingBuilder(settings, ParadoxLocalisationLanguage)
-				.between(LEFT_BRACE, RIGHT_BRACE).spaces(0)
 				.after(LEFT_BRACE).spaceIf(spaceWithinBraces)
 				.before(RIGHT_BRACE).spaceIf(spaceWithinBraces)
-				.around(VARIABLE_SEPARATOR).spaces(spaceVariableDefinitionSeparator.toInt())
-				.around(PROPERTY_SEPARATOR).spaces(spacePropertySeparator.toInt())
+				.between(LEFT_BRACE, RIGHT_BRACE).spaces(0)
+				.around(EQUAL_SIGN).spaces(spaceAroundSeparator.toInt()) //仅格式化等号，否则可能导致语法解析冲突
 		}
 	}
 

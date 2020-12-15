@@ -8,7 +8,7 @@ import com.windea.plugin.idea.paradox.script.*
 
 @Suppress("UnstableApiUsage")
 class ParadoxFileTypeOverrider : FileTypeOverrider {
-	//仅当从所在目录下找到paradox.exe或者descriptor.mod文件时
+	//仅当从所在目录下找到exe文件或者descriptor.mod文件时
 	//才有可能将所在目录（以及子目录）下的文件识别为Paradox本地化文件和脚本文件
 	
 	override fun getOverriddenFileType(file: VirtualFile): FileType? {

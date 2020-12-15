@@ -36,8 +36,7 @@ fun getDocCommentTextFromPreviousComment(element: PsiElement): String {
 /**判断指定的注释是否可认为是之前的注释。*/
 fun isPreviousComment(element: PsiElement): Boolean {
 	val elementType = element.elementType
-	return elementType == ParadoxLocalisationTypes.COMMENT || elementType == ParadoxLocalisationTypes.ROOT_COMMENT
-	       || elementType == ParadoxScriptTypes.COMMENT
+	return elementType == ParadoxLocalisationTypes.COMMENT || elementType == ParadoxScriptTypes.COMMENT
 }
 
 /**是否是非法的属性名。*/
@@ -49,8 +48,8 @@ val String.isInvalidPropertyName: Boolean
 /**是否是游戏或模组根目录。*/
 val VirtualFile.isRootDirectory: Boolean
 	get() {
-		return children.any {
-			!it.isDirectory && it.name == descriptorModFileName || it.name == stellarisExeFileName
+		return this.children.any {
+			!it.isDirectory && it.name.equals(descriptorModFileName,true) || it.name.equals(stellarisExeFileName,true)
 		}
 	}
 

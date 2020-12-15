@@ -125,7 +125,7 @@ fun selectElement(editor: Editor, element: PsiElement?) {
 fun VirtualFile.optimized():VirtualFile{
 	val extension = this.extension
 	return when{
-		extension == "jar" || extension == "zip" -> JarFileSystem.getInstance().getRootByLocal(this)!!
+		extension == "jar" || extension == "zip" -> JarFileSystem.getInstance().getRootByLocal(this)?:this
 		else -> this
 	}
 }

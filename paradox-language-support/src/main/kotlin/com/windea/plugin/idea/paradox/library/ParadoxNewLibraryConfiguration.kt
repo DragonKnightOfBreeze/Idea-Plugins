@@ -12,6 +12,7 @@ class ParadoxNewLibraryConfiguration(
 	libraryProperties :ParadoxLibraryProperties = ParadoxLibraryProperties.instance
 ): NewLibraryConfiguration(name,libraryType,libraryProperties){
 	//TODO 区分脚本文件和本地化文件，仅添加有效的
+	//TODO 允许添加zip压缩包作为source
 	override fun addRoots(editor: LibraryEditor) {
 		editor.addRoot(libraryFile, OrderRootType.SOURCES)
 	}

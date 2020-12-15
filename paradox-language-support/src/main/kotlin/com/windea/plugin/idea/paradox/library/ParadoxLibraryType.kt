@@ -12,13 +12,13 @@ import javax.swing.*
 
 abstract class ParadoxLibraryType(
 	libraryKind: ParadoxLibraryKind,
-	private val type:String,
-	private val _icon: Icon
+	private val libraryIcon: Icon,
+	private val type:String
 ): LibraryType<ParadoxLibraryProperties>(libraryKind){
-	private val _createActionName = "$paradoxName: $type"
+	private val createActionName = "$paradoxName/$type"
+	private val namePrefix = "$createActionName: "
 	
-	//可以是一个zip文件，也可以是一个文件夹，但必须包含descriptor.mod或者.exe文件
-	
+	//必须是一个文件夹，但必须包含descriptor.mod或者.exe文件
 	override fun createNewLibrary(parentComponent: JComponent, contextDirectory: VirtualFile?, project: Project): NewLibraryConfiguration? {
 		if(contextDirectory == null) return null
 		val chooserDescriptor = FileChooserDescriptorFactory.createSingleFileDescriptor()
@@ -29,21 +29,22 @@ abstract class ParadoxLibraryType(
 		return ParadoxNewLibraryConfiguration(name,this, file)
 	}
 	
+	//如果存在描述符文件，其中有name属性则取name属性的值，否则取库的文件名/目录
+	//如果存在游戏执行文件，则认为是标准库，否则认为不是一个合法的库
 	private fun getLibraryName(file: VirtualFile,project:Project):String?{
-		//如果存在描述符文件，其中有name属性则取name属性的值，否则取库的文件名/目录
-		//否则，如果存在游戏执行文件，则认为是标准库
-		val rootFile = file.optimized()
-		for(child in rootFile.children) {
+		for(child in file.children) {
 			when {
 				child.name.equals(descriptorModFileName,true) -> {
 					val text = child.inputStream.reader().use{ it.readText() }
 					for(line in text.lines()) {
-						if(line.startsWith("name")) return line.substringAfter('=').trim().unquote().trim()
+						if(line.startsWith("name")) {
+							return line.substringAfter('=').trim().unquote().trim()
+						}
 					}
-					return rootFile.nameWithoutExtension
+					return file.nameWithoutExtension
 				}
-				child.name.startsWith("stellaris",true) && child.extension.equals("exe",true) -> {
-					return  "$type Stdlib"
+				child.name.startsWith(type,true) && child.extension.equals("exe",true) -> {
+					return  stdlibName
 				}
 			}
 		}
@@ -53,9 +54,9 @@ abstract class ParadoxLibraryType(
 	
 	override fun createPropertiesEditor(editorComponent: LibraryEditorComponent<ParadoxLibraryProperties>) = null
 	
-	override fun getCreateActionName() = _createActionName
+	override fun getCreateActionName() = createActionName
 	
-	override fun getIcon(properties: ParadoxLibraryProperties?) = _icon
+	override fun getIcon(properties: ParadoxLibraryProperties?) = libraryIcon
 	
 	override fun getExternalRootTypes() = arrayOf(OrderRootType.SOURCES)
 }
@@ -67,6 +68,8 @@ private fun showInvalidLibraryDialog(project: Project) {
 	Messages.showWarningDialog(project, message, title)
 }
 
-class StellarisLibraryType:ParadoxLibraryType(StellarisLibraryKind,stellarisName,stellarisIcon)
+//Library Types
+
+class StellarisLibraryType:ParadoxLibraryType(StellarisLibraryKind,stellarisIcon,stellarisName)
 
 //TODO Other Games

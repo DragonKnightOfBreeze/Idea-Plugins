@@ -5,11 +5,11 @@ import com.intellij.psi.*
 import com.intellij.psi.codeStyle.*
 
 class ParadoxScriptFormattingModelBuilder : FormattingModelBuilder {
-	override fun createModel(element: PsiElement, settings: CodeStyleSettings): FormattingModel {
+	override fun createModel(formattingContext: FormattingContext): FormattingModel {
 		return FormattingModelProvider.createFormattingModelForPsiFile(
-			element.containingFile,
-			ParadoxScriptBlock(element.node, settings),
-			settings
+			formattingContext.containingFile,
+			ParadoxScriptBlock(formattingContext.psiElement.node, formattingContext.codeStyleSettings),
+			formattingContext.codeStyleSettings
 		)
 	}
 }

@@ -3,7 +3,6 @@ package com.windea.plugin.idea.paradox.script.formatter
 
 import com.intellij.application.options.*
 import com.intellij.psi.codeStyle.*
-import com.intellij.psi.codeStyle.CodeStyleSettingsCustomizable.*
 import com.windea.plugin.idea.paradox.*
 import com.windea.plugin.idea.paradox.message
 import com.windea.plugin.idea.paradox.script.*
@@ -23,12 +22,12 @@ import com.windea.plugin.idea.paradox.script.formatter.ParadoxScriptCodeStyleSet
 class ParadoxScriptLanguageCodeStyleSettingsProvider : LanguageCodeStyleSettingsProvider() {
 	override fun getLanguage() = ParadoxScriptLanguage
 
-	override fun createCustomSettings(settings: CodeStyleSettings): CustomCodeStyleSettings? {
+	override fun createCustomSettings(settings: CodeStyleSettings): CustomCodeStyleSettings {
 		return ParadoxScriptCodeStyleSettings(settings)
 	}
 
 	//需要重载这个方法以显示indentOptions设置页面
-	override fun getIndentOptionsEditor(): IndentOptionsEditor? {
+	override fun getIndentOptionsEditor(): IndentOptionsEditor {
 		return IndentOptionsEditor(this)
 	}
 
@@ -43,10 +42,10 @@ class ParadoxScriptLanguageCodeStyleSettingsProvider : LanguageCodeStyleSettings
 		when(settingsType) {
 			SettingsType.INDENT_SETTINGS -> {
 				consumer.showStandardOptions(
-					IndentOption.INDENT_SIZE.name,
-					IndentOption.CONTINUATION_INDENT_SIZE.name,
-					IndentOption.KEEP_INDENTS_ON_EMPTY_LINES.name,
-					IndentOption.USE_TAB_CHARACTER.name
+					CodeStyleSettingsCustomizable.IndentOption.INDENT_SIZE.name,
+					CodeStyleSettingsCustomizable.IndentOption.CONTINUATION_INDENT_SIZE.name,
+					CodeStyleSettingsCustomizable.IndentOption.KEEP_INDENTS_ON_EMPTY_LINES.name,
+					CodeStyleSettingsCustomizable.IndentOption.USE_TAB_CHARACTER.name
 				)
 			}
 			SettingsType.SPACING_SETTINGS -> {
@@ -54,26 +53,20 @@ class ParadoxScriptLanguageCodeStyleSettingsProvider : LanguageCodeStyleSettings
 					ParadoxScriptCodeStyleSettings::class.java,
 					Option.SPACE_WITHIN_BRACES.name,
 					message("paradox.script.codeStyle.spaceWithinBraces"),
-					SPACES_WITHIN
+					CodeStyleSettingsCustomizableOptions.getInstance().SPACES_WITHIN
 				)
 				consumer.showCustomOption(
 					ParadoxScriptCodeStyleSettings::class.java,
-					Option.SPACE_AROUND_VARIABLE_SEPARATOR.name,
-					message("paradox.script.codeStyle.spaceAroundVariableDefinitionSeparator"),
-					SPACES_AROUND_OPERATORS
-				)
-				consumer.showCustomOption(
-					ParadoxScriptCodeStyleSettings::class.java,
-					Option.SPACE_AROUND_PROPERTY_SEPARATOR.name,
-					message("paradox.script.codeStyle.spaceAroundPropertySeparator"),
-					SPACES_AROUND_OPERATORS
+					Option.SPACE_AROUND_SEPARATOR.name,
+					message("paradox.script.codeStyle.spaceAroundSeparator"),
+					CodeStyleSettingsCustomizableOptions.getInstance().SPACES_AROUND_OPERATORS
 				)
 			}
 			else -> {}
 		}
 	}
 
-	override fun getCodeSample(settingsType: SettingsType): String? {
+	override fun getCodeSample(settingsType: SettingsType): String {
 		return paradoxScriptDummyText
 	}
 

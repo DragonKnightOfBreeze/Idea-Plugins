@@ -9,6 +9,8 @@ abstract class ParadoxLibraryKind(kindId:String) : PersistentLibraryKind<Paradox
 	}
 }
 
+//Library Kinds
+
 object StellarisLibraryKind: ParadoxLibraryKind(stellarisName)
 
 //TODO Other Games

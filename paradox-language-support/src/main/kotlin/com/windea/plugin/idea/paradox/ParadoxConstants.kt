@@ -36,9 +36,6 @@ val booleanValues = arrayOf("yes", "no")
 
 const val paradoxBundleName = "messages.ParadoxBundle"
 
-const val stellarisExeFileName = "paradox.exe"
-const val descriptorModFileName = "descriptor.mod"
-
 val fileExtensions = arrayOf("yml", "txt", "mod", "gui", "gfx", "asset")
 val localisationFileExtensions = arrayOf("yml", "yaml")
 val scriptFileExtensions = arrayOf("txt", "mod", "gfx", "gui", "asset")
@@ -57,6 +54,10 @@ val inferredParadoxLocale = when(System.getProperty("user.language")){
 	"es" -> ParadoxLocale.SPANISH
 	else -> ParadoxLocale.ENGLISH
 }
+
+const val stellarisExeFileName = "stellaris.exe"
+const val descriptorModFileName = "descriptor.mod"
+const val stdlibName = "Stdlib"
 
 const val paradoxName = "Paradox"
 const val stellarisName = "Stellaris"
