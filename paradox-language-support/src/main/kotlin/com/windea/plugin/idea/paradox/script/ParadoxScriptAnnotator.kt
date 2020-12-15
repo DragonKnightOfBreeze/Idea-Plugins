@@ -8,7 +8,6 @@ import com.intellij.lang.annotation.HighlightSeverity.*
 import com.intellij.openapi.actionSystem.*
 import com.intellij.openapi.editor.markup.*
 import com.intellij.openapi.project.*
-import com.intellij.openapi.vfs.*
 import com.intellij.psi.*
 import com.intellij.ui.awt.*
 import com.intellij.util.*
@@ -17,12 +16,10 @@ import com.windea.plugin.idea.paradox.localisation.psi.*
 import com.windea.plugin.idea.paradox.script.highlighter.*
 import com.windea.plugin.idea.paradox.script.psi.*
 import com.windea.plugin.idea.paradox.settings.*
-import com.windea.plugin.idea.paradox.util.*
 import java.awt.event.*
-import java.nio.file.*
 
 class ParadoxScriptAnnotator : Annotator, DumbAware {
-	internal class ScriptPropertyGutterIconRenderer(
+	private class ScriptPropertyGutterIconRenderer(
 		private val name:String,
 		private val project:Project
 	): GutterIconRenderer(),DumbAware {
@@ -42,13 +39,13 @@ class ParadoxScriptAnnotator : Annotator, DumbAware {
 	}
 	
 	@Suppress("ComponentNotRegistered")
-	internal class ScriptPropertyNavigateAction(
+	private class ScriptPropertyNavigateAction(
 		private val title: String,
 		private val name:String,
 		private val project:Project
 	) : AnAction() {
 		//懒加载
-		private val elements by lazy{ findScriptProperties(name,project).toTypedArray() }
+		private val elements by lazy{ findScriptProperties(name, project).toTypedArray() }
 		
 		override fun actionPerformed(e: AnActionEvent) {
 			//如果只有一个，则直接导航，否则弹出popup再导航
@@ -60,7 +57,7 @@ class ParadoxScriptAnnotator : Annotator, DumbAware {
 		}
 	}
 	
-	internal class StringScriptPropertyGutterIconRenderer(
+	private class StringScriptPropertyGutterIconRenderer(
 		private val name: String,
 		private val properties: Array<ParadoxScriptProperty>,
 	) : GutterIconRenderer(), DumbAware {
@@ -79,7 +76,7 @@ class ParadoxScriptAnnotator : Annotator, DumbAware {
 		override fun hashCode() = name.hashCode()
 	}
 	
-	internal class StringLocalisationPropertyGutterIconRenderer(
+	private class StringLocalisationPropertyGutterIconRenderer(
 		private val name: String,
 		private val properties: Array<ParadoxLocalisationProperty>,
 	) : GutterIconRenderer(), DumbAware {
@@ -98,7 +95,7 @@ class ParadoxScriptAnnotator : Annotator, DumbAware {
 		override fun hashCode() = name.hashCode()
 	}
 	
-	internal class RelatedLocalisationPropertiesGutterIconRenderer(
+	private class RelatedLocalisationPropertiesGutterIconRenderer(
 		private val names: Array<String>,
 		private val properties: Array<ParadoxLocalisationProperty>,
 	) : GutterIconRenderer(), DumbAware {
@@ -118,7 +115,7 @@ class ParadoxScriptAnnotator : Annotator, DumbAware {
 	}
 	
 	@Suppress("ComponentNotRegistered")
-	internal class NavigateAction(
+	private class NavigateAction(
 		private val title: String,
 		private val elements: Array<out NavigatablePsiElement>,
 	) : AnAction() {
@@ -142,7 +139,7 @@ class ParadoxScriptAnnotator : Annotator, DumbAware {
 	}
 	
 	private fun annotateProperty(element: ParadoxScriptProperty, holder: AnnotationHolder) {
-		if(!state.resolveInternalReferences) return
+		if(!state.resolveReferences) return
 		
 		val name = element.name
 		val project = element.project
@@ -167,15 +164,16 @@ class ParadoxScriptAnnotator : Annotator, DumbAware {
 	}
 	
 	private fun annotateString(element: ParadoxScriptString, holder: AnnotationHolder) {
-		if(!state.resolveInternalReferences) return
+		if(!state.resolveReferences) return
 		
 		//过滤非法情况
 		val name = element.value
 		if(name.isInvalidPropertyName) return
 		val project = element.project
+		val scope = element.resolveScope
 		
 		//注明所有对应名称的脚本属性，或者本地化属性（如果存在）
-		val scriptProperties = findScriptProperties(name, project).toTypedArray()
+		val scriptProperties = findScriptProperties(name, project,scope).toTypedArray()
 		if(scriptProperties.isNotEmpty()) {
 			holder.newSilentAnnotation(INFORMATION)
 				.textAttributes(ParadoxScriptAttributesKeys.SCRIPT_PROPERTY_REFERENCE_KEY)
@@ -183,7 +181,7 @@ class ParadoxScriptAnnotator : Annotator, DumbAware {
 				.create()
 			return
 		}
-		val localisationProperties = findLocalisationProperties(name, project).toTypedArray()
+		val localisationProperties = findLocalisationProperties(name, project,null,scope).toTypedArray()
 		if(localisationProperties.isNotEmpty()) {
 			holder.newSilentAnnotation(INFORMATION)
 				.textAttributes(ParadoxScriptAttributesKeys.LOCALISATION_PROPERTY_REFERENCE_KEY)

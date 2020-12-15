@@ -20,7 +20,7 @@ import javax.swing.*
 //TODO 验证这些路径
 
 class StellarisSettingsComponent {
-	val resolveInternalReferencesCheckBox = JBCheckBox(message("stellaris.settings.resolveInternalReferences"))
+	val resolveReferencesCheckBox = JBCheckBox(message("stellaris.settings.resolveReferences"))
 	val resolveExternalReferencesCheckBox = JBCheckBox(message("stellaris.settings.resolveExternalReferences"))
 	val validateScriptFilesCheckBox = JBCheckBox(message("stellaris.settings.validateScriptFiles"))
 
@@ -53,7 +53,7 @@ class StellarisSettingsComponent {
 		}
 
 	val panel = FormBuilder.createFormBuilder()
-		.addComponent(resolveInternalReferencesCheckBox,1)
+		.addComponent(resolveReferencesCheckBox,1)
 		.addComponent(resolveExternalReferencesCheckBox,1)
 		.addComponent(validateScriptFilesCheckBox,1)
 		.addComponent(pathsPanel)

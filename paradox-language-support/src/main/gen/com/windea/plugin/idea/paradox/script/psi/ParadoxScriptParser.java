@@ -166,16 +166,14 @@ public class ParadoxScriptParser implements PsiParser, LightPsiParser {
 
   /* ********************************************************** */
   // "=" | "<" | ">" | "<=" | ">="
-  public static boolean property_separator(PsiBuilder b, int l) {
+  static boolean property_separator(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "property_separator")) return false;
     boolean r;
-    Marker m = enter_section_(b, l, _NONE_, PROPERTY_SEPARATOR, "<property separator>");
     r = consumeToken(b, EQUAL_SIGN);
     if (!r) r = consumeToken(b, LT_SIGN);
     if (!r) r = consumeToken(b, GT_SIGN);
     if (!r) r = consumeToken(b, LE_SIGN);
     if (!r) r = consumeToken(b, GE_SIGN);
-    exit_section_(b, l, m, r, false, null);
     return r;
   }
 
@@ -304,14 +302,8 @@ public class ParadoxScriptParser implements PsiParser, LightPsiParser {
 
   /* ********************************************************** */
   // "="
-  public static boolean variable_separator(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "variable_separator")) return false;
-    if (!nextTokenIs(b, EQUAL_SIGN)) return false;
-    boolean r;
-    Marker m = enter_section_(b);
-    r = consumeToken(b, EQUAL_SIGN);
-    exit_section_(b, m, VARIABLE_SEPARATOR, r);
-    return r;
+  static boolean variable_separator(PsiBuilder b, int l) {
+    return consumeToken(b, EQUAL_SIGN);
   }
 
   /* ********************************************************** */

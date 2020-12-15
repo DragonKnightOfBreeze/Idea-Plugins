@@ -38,10 +38,6 @@ public class ParadoxScriptVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
-  public void visitPropertySeparator(@NotNull ParadoxScriptPropertySeparator o) {
-    visitPsiElement(o);
-  }
-
   public void visitPropertyValue(@NotNull ParadoxScriptPropertyValue o) {
     visitPsiElement(o);
   }
@@ -72,10 +68,6 @@ public class ParadoxScriptVisitor extends PsiElementVisitor {
 
   public void visitVariableReference(@NotNull ParadoxScriptVariableReference o) {
     visitValue(o);
-  }
-
-  public void visitVariableSeparator(@NotNull ParadoxScriptVariableSeparator o) {
-    visitPsiElement(o);
   }
 
   public void visitVariableValue(@NotNull ParadoxScriptVariableValue o) {

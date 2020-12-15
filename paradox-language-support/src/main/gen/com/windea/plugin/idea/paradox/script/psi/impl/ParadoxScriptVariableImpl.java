@@ -42,12 +42,6 @@ public class ParadoxScriptVariableImpl extends ParadoxScriptStubElementImpl<Para
 
   @Override
   @Nullable
-  public ParadoxScriptVariableSeparator getVariableSeparator() {
-    return PsiTreeUtil.getChildOfType(this, ParadoxScriptVariableSeparator.class);
-  }
-
-  @Override
-  @Nullable
   public ParadoxScriptVariableValue getVariableValue() {
     return PsiTreeUtil.getChildOfType(this, ParadoxScriptVariableValue.class);
   }

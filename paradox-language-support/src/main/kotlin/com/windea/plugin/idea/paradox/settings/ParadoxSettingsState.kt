@@ -6,8 +6,8 @@ import com.intellij.util.xmlb.*
 
 @State(name = "ParadoxSettingsState", storages = [Storage("paradoxLanguageSupport.xml")])
 class ParadoxSettingsState : PersistentStateComponent<ParadoxSettingsState> {
-	@JvmField var resolveInternalReferences = true
-	@JvmField var resolveExternalReferences = true
+	@JvmField var resolveReferences = true
+	@JvmField var validateScripts = true
 	
 	override fun getState() = this
 

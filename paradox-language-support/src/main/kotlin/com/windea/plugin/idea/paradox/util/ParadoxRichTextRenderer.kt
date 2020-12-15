@@ -65,7 +65,7 @@ object ParadoxRichTextRenderer {
 	}
 	
 	private fun renderIconTo(element: ParadoxLocalisationIcon, buffer: Appendable) {
-		val name = element.name ?: return
+		val name = element.name
 		val iconUrl = name.resolveIconUrl()
 		if(iconUrl.isNotEmpty()) {
 			if(iconUrl[0] != '<') buffer.append(iconTag(iconUrl)) else buffer.append(iconUrl)

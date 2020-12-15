@@ -6,7 +6,7 @@ import com.intellij.util.xmlb.*
 
 @State(name = "org.intellij.sdk.settings.StellarisSettingsState", storages = [Storage("StellarisModdingSupport.xml")])
 class StellarisSettingsState : PersistentStateComponent<StellarisSettingsState> {
-	@JvmField var resolveInternalReferences = true
+	@JvmField var resolveReferences = true
 	@JvmField var resolveExternalReferences = true
 	@JvmField var validateScriptFiles = true
 

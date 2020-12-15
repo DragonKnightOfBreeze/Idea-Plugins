@@ -15,7 +15,7 @@ class StellarisSettingsConfigurable: SearchableConfigurable {
 		val settingsComponent = settingsComponent!!
 		val settings = StellarisSettingsState.getInstance()
 		return settingsComponent.resolveExternalReferencesCheckBox.isSelected != settings.resolveExternalReferences
-		       || settingsComponent.resolveInternalReferencesCheckBox.isSelected != settings.resolveInternalReferences
+		       || settingsComponent.resolveReferencesCheckBox.isSelected != settings.resolveReferences
 		       || settingsComponent.validateScriptFilesCheckBox.isSelected != settings.validateScriptFiles
 		       //|| settingsComponent.useSteamDirectoryCheckBox.isSelected != settings.useSteamDirectory
 		       //|| settingsComponent.steamDirectoryTextField.text != settings.steamDirectory
@@ -37,7 +37,7 @@ class StellarisSettingsConfigurable: SearchableConfigurable {
 		val settingsComponent = settingsComponent ?: return
 		val settings = StellarisSettingsState.getInstance()
 		//cleanupRootDirectoryCache(settings)
-		settings.resolveInternalReferences = settingsComponent.resolveInternalReferencesCheckBox.isSelected
+		settings.resolveReferences = settingsComponent.resolveReferencesCheckBox.isSelected
 		settings.resolveExternalReferences = settingsComponent.resolveExternalReferencesCheckBox.isSelected
 		settings.validateScriptFiles = settingsComponent.validateScriptFilesCheckBox.isSelected
 		//settings.useSteamDirectory = settingsComponent.useSteamDirectoryCheckBox.isSelected
@@ -50,7 +50,7 @@ class StellarisSettingsConfigurable: SearchableConfigurable {
 	override fun reset() {
 		val settingsComponent = settingsComponent ?: return
 		val settings = StellarisSettingsState.getInstance()
-		settingsComponent.resolveInternalReferencesCheckBox.isSelected = settings.resolveInternalReferences
+		settingsComponent.resolveReferencesCheckBox.isSelected = settings.resolveReferences
 		settingsComponent.resolveExternalReferencesCheckBox.isSelected = settings.resolveExternalReferences
 		settingsComponent.validateScriptFilesCheckBox.isSelected = settings.validateScriptFiles
 		//settingsComponent.useSteamDirectoryCheckBox.isSelected = settings.useSteamDirectory

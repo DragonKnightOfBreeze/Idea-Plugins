@@ -10,29 +10,18 @@ import com.windea.plugin.idea.paradox.localisation.psi.*
  * 返回值类型：`Map<String,Map<String,String>>`
  */
 object ParadoxLocalisationDataExtractor {
-	fun extract(file: PsiFile):Map<String,Map<String,String>>{
+	fun extract(file: PsiFile):Map<String,String>{
 		if(file !is ParadoxLocalisationFile) throw IllegalArgumentException("Invalid file type")
 
-		val result = mutableMapOf<String,MutableMap<String,String>>()
-	 	var properties = mutableMapOf<String,String>()
-		var hasLocale = false
-		file.forEachChild { 
-			//目前locale和property是平级的
+		val result = mutableMapOf<String,String>()
+		file.forEachChild {
 			when(it){
-				//如果是locale，则在不存在时放入
-				is ParadoxLocalisationLocale -> {
-					if(it.isValid) {
-						val name = it.name
-						if(name != null && name.isNotEmpty()) properties = result.getOrPut(name){ mutableMapOf() }
-						hasLocale = true
-					}
-				}
 				//如果是property，则仅提取key和value放入
 				is ParadoxLocalisationProperty -> {
-					if(hasLocale && it.isValid) {
+					if(it.isValid) {
 						val name = it.name
 						val value = it.value
-						if(name.isNotEmpty() && value != null) properties[name] = value
+						if(name.isNotEmpty() && value != null) result[name] = value
 					}
 				}
 			}

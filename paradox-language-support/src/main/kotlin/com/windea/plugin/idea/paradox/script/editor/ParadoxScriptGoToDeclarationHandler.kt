@@ -12,7 +12,7 @@ class ParadoxScriptGoToDeclarationHandler: GotoDeclarationHandler {
 			null -> null
 			is ParadoxScriptVariable -> {
 				//查找当前文件，如果没有，再查找当前项目
-				val name = sourceElement.name ?:return null
+				val name = sourceElement.name
 				findScriptVariableInFile(name, sourceElement.containingFile)?.toSingletonArray()?.let { return it }
 				findScriptVariables(name, sourceElement.project).toTypedArray()
 			}
@@ -24,7 +24,7 @@ class ParadoxScriptGoToDeclarationHandler: GotoDeclarationHandler {
 				if(name.isInvalidPropertyName) return null
 				val project = sourceElement.project
 				return findScriptProperties(name, project).ifEmpty {
-					findLocalisationProperties(name, project)
+					findLocalisationProperties(name, project, inferredParadoxLocale) //仅查找推断的语言区域的
 				}.toTypedArray()
 			}
 			else -> null

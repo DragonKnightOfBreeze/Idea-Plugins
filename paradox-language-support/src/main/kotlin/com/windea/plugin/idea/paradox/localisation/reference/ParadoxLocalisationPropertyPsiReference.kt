@@ -15,7 +15,8 @@ class ParadoxLocalisationPropertyPsiReference(
 	private val name = rangeInElement.substring(element.text)
 	private val locale = (element.containingFile as? ParadoxLocalisationFile)?.locale?.paradoxLocale
 	private val project = element.project
-
+	private val scope = element.resolveScope
+	
 	//只解析相同语言类型的引用
 	
 	override fun handleElementRename(newElementName: String): PsiElement {
@@ -23,18 +24,18 @@ class ParadoxLocalisationPropertyPsiReference(
 	}
 	
 	override fun resolve(): PsiElement? {
-		return findLocalisationProperty(name, project,locale)
+		return findLocalisationProperty(name, project, locale,scope)
 	}
 
 	override fun multiResolve(incompleteCode: Boolean): Array<out ResolveResult> {
-		return findLocalisationProperties(name, project,locale).mapArray {
+		return findLocalisationProperties(name, project, locale,scope).mapArray {
 			PsiElementResolveResult(it)
 		}
 	}
 
 	//注意要传入elementName而非element
 	override fun getVariants(): Array<out Any> {
-		return findLocalisationProperties(project,locale).mapArray {
+		return findLocalisationProperties(project, locale,scope).mapArray {
 			LookupElementBuilder.create(it).withIcon(it.getIcon(0)).withTypeText(it.containingFile.name).withPsiElement(it)
 		}
 	}

@@ -138,7 +138,7 @@ class StellarisScriptAnnotator : Annotator, DumbAware {
 	}
 	
 	private fun annotateProperty(element: StellarisScriptProperty, holder: AnnotationHolder) {
-		if(!state.resolveInternalReferences) return
+		if(!state.resolveReferences) return
 		
 		val name = element.name
 		val project = element.project
@@ -163,7 +163,7 @@ class StellarisScriptAnnotator : Annotator, DumbAware {
 	}
 	
 	private fun annotateString(element: StellarisScriptString, holder: AnnotationHolder) {
-		if(!state.resolveInternalReferences) return
+		if(!state.resolveReferences) return
 		
 		//过滤非法情况
 		val name = element.value

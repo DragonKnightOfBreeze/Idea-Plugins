@@ -21,7 +21,7 @@ class StellarisScriptStringAsPropertyPsiReference(
 	}
 	
 	override fun resolve(): PsiElement? {
-		if(state.resolveInternalReferences) {
+		if(state.resolveReferences) {
 			return findScriptProperty(name, project)
 			       ?: findLocalizationProperty(name, project, inferredStellarisLocale)
 			       ?: findLocalizationProperty(name, project)
@@ -30,7 +30,7 @@ class StellarisScriptStringAsPropertyPsiReference(
 	}
 	
 	override fun multiResolve(incompleteCode: Boolean): Array<out ResolveResult> {
-		if(StellarisSettingsState.getInstance().resolveInternalReferences) {
+		if(StellarisSettingsState.getInstance().resolveReferences) {
 			return findScriptProperties(name, project).ifEmpty {
 				findLocalizationProperties(name, project)
 			}.mapArray { PsiElementResolveResult(it) }

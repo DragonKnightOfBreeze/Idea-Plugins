@@ -72,16 +72,16 @@ fun findScriptVariableInFile(name: String, file: PsiFile): ParadoxScriptVariable
 	return file.variables.find { it.name == name }
 }
 
-fun findScriptVariable(name: String, project: Project): ParadoxScriptVariable? {
-	return ParadoxScriptVariableKeyIndex.getOne(name, project, GlobalSearchScope.allScope(project))
+fun findScriptVariable(name: String, project: Project, scope: GlobalSearchScope = GlobalSearchScope.allScope(project)): ParadoxScriptVariable? {
+	return ParadoxScriptVariableKeyIndex.getOne(name, project, scope)
 }
 
-fun findScriptVariables(name: String, project: Project): List<ParadoxScriptVariable> {
-	return ParadoxScriptVariableKeyIndex.get(name, project, GlobalSearchScope.allScope(project))
+fun findScriptVariables(name: String, project: Project, scope: GlobalSearchScope = GlobalSearchScope.allScope(project)): List<ParadoxScriptVariable> {
+	return ParadoxScriptVariableKeyIndex.get(name, project, scope)
 }
 
-fun findScriptVariables(project: Project): List<ParadoxScriptVariable> {
-	return ParadoxScriptVariableKeyIndex.getAll(project, GlobalSearchScope.allScope(project))
+fun findScriptVariables(project: Project, scope: GlobalSearchScope = GlobalSearchScope.allScope(project)): List<ParadoxScriptVariable> {
+	return ParadoxScriptVariableKeyIndex.getAll(project, scope)
 }
 
 fun findScriptPropertyInFile(name: String, file: PsiFile): ParadoxScriptProperty? {
@@ -89,28 +89,28 @@ fun findScriptPropertyInFile(name: String, file: PsiFile): ParadoxScriptProperty
 	return file.properties.find { it.name == name }
 }
 
-fun findScriptProperty(name: String, project: Project): ParadoxScriptProperty? {
-	return ParadoxScriptPropertyKeyIndex.getOne(name, project, GlobalSearchScope.allScope(project))
+fun findScriptProperty(name: String, project: Project, scope: GlobalSearchScope = GlobalSearchScope.allScope(project)): ParadoxScriptProperty? {
+	return ParadoxScriptPropertyKeyIndex.getOne(name, project, scope)
 }
 
-fun findScriptProperties(name: String, project: Project): List<ParadoxScriptProperty> {
-	return ParadoxScriptPropertyKeyIndex.get(name, project, GlobalSearchScope.allScope(project))
+fun findScriptProperties(name: String, project: Project, scope: GlobalSearchScope = GlobalSearchScope.allScope(project)): List<ParadoxScriptProperty> {
+	return ParadoxScriptPropertyKeyIndex.get(name, project, scope)
 }
 
-fun findScriptProperties(project: Project): List<ParadoxScriptProperty> {
-	return ParadoxScriptPropertyKeyIndex.getAll(project, GlobalSearchScope.allScope(project))
+fun findScriptProperties(project: Project, scope: GlobalSearchScope = GlobalSearchScope.allScope(project)): List<ParadoxScriptProperty> {
+	return ParadoxScriptPropertyKeyIndex.getAll(project, scope)
 }
 
-fun findLocalisationProperty(name: String, project: Project, locale: ParadoxLocale? = null): ParadoxLocalisationProperty? {
-	return ParadoxLocalisationPropertyKeyIndex.getOne(name, locale, project, GlobalSearchScope.projectScope(project))
+fun findLocalisationProperty(name: String, project: Project, locale: ParadoxLocale? = null, scope: GlobalSearchScope = GlobalSearchScope.allScope(project)): ParadoxLocalisationProperty? {
+	return ParadoxLocalisationPropertyKeyIndex.getOne(name, locale, project, scope)
 }
 
-fun findLocalisationProperties(name: String, project: Project, locale: ParadoxLocale? = null): List<ParadoxLocalisationProperty> {
-	return ParadoxLocalisationPropertyKeyIndex.get(name, locale, project, GlobalSearchScope.allScope(project))
+fun findLocalisationProperties(name: String, project: Project, locale: ParadoxLocale? = null, scope: GlobalSearchScope = GlobalSearchScope.allScope(project)): List<ParadoxLocalisationProperty> {
+	return ParadoxLocalisationPropertyKeyIndex.get(name, locale, project, scope)
 }
 
-fun findLocalisationProperties(project: Project, locale: ParadoxLocale? = null): List<ParadoxLocalisationProperty> {
-	return ParadoxLocalisationPropertyKeyIndex.getAll(locale, project, GlobalSearchScope.allScope(project))
+fun findLocalisationProperties(project: Project, locale: ParadoxLocale? = null, scope: GlobalSearchScope = GlobalSearchScope.allScope(project)): List<ParadoxLocalisationProperty> {
+	return ParadoxLocalisationPropertyKeyIndex.getAll(locale, project, scope)
 }
 
 //将部分特定的查找方法作为扩展方法

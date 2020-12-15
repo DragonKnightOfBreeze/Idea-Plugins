@@ -56,13 +56,13 @@ class ParadoxScriptLanguageCodeStyleSettingsProvider : LanguageCodeStyleSettings
 					ParadoxScriptCodeStyleSettings::class.java,
 					Option.SPACE_WITHIN_BRACES.name,
 					spaceWithinBracesTitle,
-					null
+					CodeStyleSettingsCustomizableOptions.getInstance().SPACES_WITHIN
 				)
 				consumer.showCustomOption(
 					ParadoxScriptCodeStyleSettings::class.java,
 					Option.SPACE_AROUND_SEPARATOR.name,
 					spaceAroundSeparatorTitle,
-					null
+					CodeStyleSettingsCustomizableOptions.getInstance().SPACES_AROUND_OPERATORS
 				)
 			}
 			else -> {}

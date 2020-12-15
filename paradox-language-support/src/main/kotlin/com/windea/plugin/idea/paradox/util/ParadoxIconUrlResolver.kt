@@ -1,13 +1,9 @@
 package com.windea.plugin.idea.paradox.util
 
-import com.intellij.codeInsight.documentation.*
-import com.intellij.openapi.vfs.*
-import com.intellij.psi.*
 import com.windea.plugin.idea.paradox.*
 import java.net.*
 import java.net.http.*
 import java.net.http.HttpResponse.*
-import java.nio.file.*
 import java.time.*
 import java.util.concurrent.*
 

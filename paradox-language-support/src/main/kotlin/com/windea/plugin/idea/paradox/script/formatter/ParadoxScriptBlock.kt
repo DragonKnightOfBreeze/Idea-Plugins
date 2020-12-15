@@ -31,9 +31,9 @@ class ParadoxScriptBlock(
 			val spaceWithinBraces = customSettings.SPACE_WITHIN_BRACES
 			val spaceAroundSeparator = customSettings.SPACE_AROUND_SEPARATOR
 			return SpacingBuilder(settings, ParadoxLocalisationLanguage)
+				.between(LEFT_BRACE, RIGHT_BRACE).spaces(0)
 				.after(LEFT_BRACE).spaceIf(spaceWithinBraces)
 				.before(RIGHT_BRACE).spaceIf(spaceWithinBraces)
-				.between(LEFT_BRACE, RIGHT_BRACE).spaces(0)
 				.around(EQUAL_SIGN).spaces(spaceAroundSeparator.toInt()) //仅格式化等号，否则可能导致语法解析冲突
 		}
 	}

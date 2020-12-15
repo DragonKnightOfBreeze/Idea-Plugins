@@ -14,6 +14,7 @@ class ParadoxScriptStringAsPropertyPsiReference(
 	private val name = element.text.unquote()
 	private val project = element.project
 	private val state = ParadoxSettingsState.getInstance()
+	private val scope = element.resolveScope
 	
 	//不会随之重命名，因为不能保证引用关系正确
 	override fun handleElementRename(newElementName: String): PsiElement {
@@ -21,18 +22,18 @@ class ParadoxScriptStringAsPropertyPsiReference(
 	}
 	
 	override fun resolve(): PsiElement? {
-		if(state.resolveInternalReferences) {
-			return findScriptProperty(name, project)
-			       ?: findLocalisationProperty(name, project, inferredParadoxLocale)
-			       ?: findLocalisationProperty(name, project)
+		if(state.resolveReferences) {
+			return findScriptProperty(name, project, scope)
+			       ?: findLocalisationProperty(name, project, inferredParadoxLocale, scope)
+			       ?: findLocalisationProperty(name, project,null,scope)
 		}
 		return null
 	}
 	
 	override fun multiResolve(incompleteCode: Boolean): Array<out ResolveResult> {
-		if(ParadoxSettingsState.getInstance().resolveInternalReferences) {
-			return findScriptProperties(name, project).ifEmpty {
-				findLocalisationProperties(name, project)
+		if(ParadoxSettingsState.getInstance().resolveReferences) {
+			return findScriptProperties(name, project,scope).ifEmpty {
+				findLocalisationProperties(name, project,null,scope)
 			}.mapArray { PsiElementResolveResult(it) }
 		}
 		return ResolveResult.EMPTY_ARRAY

@@ -15,7 +15,6 @@ public interface ParadoxScriptTypes {
   IElementType NUMBER = new ParadoxScriptElementType("NUMBER");
   IElementType PROPERTY = ParadoxScriptStubElementTypes.getPropertyType("PROPERTY");
   IElementType PROPERTY_KEY = new ParadoxScriptElementType("PROPERTY_KEY");
-  IElementType PROPERTY_SEPARATOR = new ParadoxScriptElementType("PROPERTY_SEPARATOR");
   IElementType PROPERTY_VALUE = new ParadoxScriptElementType("PROPERTY_VALUE");
   IElementType ROOT_BLOCK = new ParadoxScriptElementType("ROOT_BLOCK");
   IElementType STRING = new ParadoxScriptElementType("STRING");
@@ -24,7 +23,6 @@ public interface ParadoxScriptTypes {
   IElementType VARIABLE = ParadoxScriptStubElementTypes.getVariableType("VARIABLE");
   IElementType VARIABLE_NAME = new ParadoxScriptElementType("VARIABLE_NAME");
   IElementType VARIABLE_REFERENCE = new ParadoxScriptElementType("VARIABLE_REFERENCE");
-  IElementType VARIABLE_SEPARATOR = new ParadoxScriptElementType("VARIABLE_SEPARATOR");
   IElementType VARIABLE_VALUE = new ParadoxScriptElementType("VARIABLE_VALUE");
 
   IElementType BOOLEAN_TOKEN = new ParadoxScriptTokenType("BOOLEAN_TOKEN");
@@ -74,9 +72,6 @@ public interface ParadoxScriptTypes {
       else if (type == PROPERTY_KEY) {
         return new ParadoxScriptPropertyKeyImpl(node);
       }
-      else if (type == PROPERTY_SEPARATOR) {
-        return new ParadoxScriptPropertySeparatorImpl(node);
-      }
       else if (type == PROPERTY_VALUE) {
         return new ParadoxScriptPropertyValueImpl(node);
       }
@@ -94,9 +89,6 @@ public interface ParadoxScriptTypes {
       }
       else if (type == VARIABLE_REFERENCE) {
         return new ParadoxScriptVariableReferenceImpl(node);
-      }
-      else if (type == VARIABLE_SEPARATOR) {
-        return new ParadoxScriptVariableSeparatorImpl(node);
       }
       else if (type == VARIABLE_VALUE) {
         return new ParadoxScriptVariableValueImpl(node);

@@ -167,8 +167,7 @@ object ParadoxLocalisationPsiImplUtil {
 	
 	@JvmStatic
 	fun getParadoxSerialNumber(element: ParadoxLocalisationSerialNumber): ParadoxSerialNumber? {
-		val name = element.name ?: return null
-		return ParadoxSerialNumber.map[name]
+		return ParadoxSerialNumber.map[element.name]
 	}
 	//endregion
 	
@@ -196,7 +195,7 @@ object ParadoxLocalisationPsiImplUtil {
 	
 	@JvmStatic
 	fun getParadoxColor(element: ParadoxLocalisationColorfulText): ParadoxColor? {
-		return element.name?.let { name -> ParadoxColor.map[name] }
+		return ParadoxColor.map[element.name]
 	}
 	//endregion
 }

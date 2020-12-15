@@ -14,9 +14,6 @@ public interface ParadoxScriptProperty extends ParadoxScriptNamedElement, StubBa
   ParadoxScriptPropertyKey getPropertyKey();
 
   @Nullable
-  ParadoxScriptPropertySeparator getPropertySeparator();
-
-  @Nullable
   ParadoxScriptPropertyValue getPropertyValue();
 
   @NotNull

@@ -45,7 +45,7 @@ class ParadoxLocalisationAnnotator : Annotator, DumbAware {
 		private val project:Project
 	) : AnAction() {
 		//懒加载
-		private val elements by lazy{ findLocalisationProperties(name,project).toTypedArray() }
+		private val elements by lazy{ findLocalisationProperties(name, project).toTypedArray() }
 
 		override fun actionPerformed(e: AnActionEvent) {
 			//如果只有一个，则直接导航，否则弹出popup再导航

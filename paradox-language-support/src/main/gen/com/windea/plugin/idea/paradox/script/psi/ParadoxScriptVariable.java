@@ -14,9 +14,6 @@ public interface ParadoxScriptVariable extends ParadoxScriptNamedElement, StubBa
   ParadoxScriptVariableName getVariableName();
 
   @Nullable
-  ParadoxScriptVariableSeparator getVariableSeparator();
-
-  @Nullable
   ParadoxScriptVariableValue getVariableValue();
 
   @NotNull
