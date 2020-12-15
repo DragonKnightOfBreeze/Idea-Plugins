@@ -82,7 +82,7 @@ class ParadoxLocalisationDocumentationProvider : AbstractDocumentationProvider()
 			val iconUrl = name.resolveIconUrl()
 			if(iconUrl.isNotEmpty()) {
 				append(DocumentationMarkup.CONTENT_START)
-				if(iconUrl[0] != '<') append(iconTag(iconUrl)) else append(iconUrl)
+				append(iconTag(iconUrl))
 				append(DocumentationMarkup.CONTENT_END)
 			}
 		}

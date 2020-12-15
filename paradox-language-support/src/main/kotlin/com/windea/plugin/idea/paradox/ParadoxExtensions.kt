@@ -11,7 +11,7 @@ import com.windea.plugin.idea.paradox.util.*
 import org.jetbrains.annotations.*
 
 fun iconTag(url: String, size: Int = iconSize): String {
-	return "<img src=\"$url\" width=\"$size\" height=\"$size\"/>"
+	return "<img src='$url' width='$size' height='$size'/>"
 }
 
 /**得到指定元素之前的所有直接的注释的文本，作为文档注释，跳过空白。*/

@@ -68,7 +68,7 @@ object ParadoxRichTextRenderer {
 		val name = element.name
 		val iconUrl = name.resolveIconUrl()
 		if(iconUrl.isNotEmpty()) {
-			if(iconUrl[0] != '<') buffer.append(iconTag(iconUrl)) else buffer.append(iconUrl)
+			buffer.append(iconTag(iconUrl))
 		}
 	}
 	
@@ -83,10 +83,12 @@ object ParadoxRichTextRenderer {
 	}
 	
 	private fun renderCodeTo(element: ParadoxLocalisationCommand, buffer: Appendable) {
+		//使用原始文本
 		buffer.append("<code>").append(element.text).append("</code>")
 	}
 	
 	private fun renderColorfulTextTo(element: ParadoxLocalisationColorfulText, buffer: Appendable) {
+		//如果解析引用失败，则清除非法的标记，直接渲染其中的富文本
 		val rgbText = element.paradoxColor?.rgbText
 		if(rgbText != null) buffer.append("<span style='color: $rgbText;'>")
 		for(v in element.richTextList) {
