@@ -10,6 +10,6 @@ import com.windea.plugin.idea.paradox.localisation.psi.*
 
 class ParadoxLocalisationRefactoringSupportProvider : RefactoringSupportProvider() {
 	override fun isMemberInplaceRenameAvailable(element: PsiElement, context: PsiElement?): Boolean {
-		return element is PsiNameIdentifierOwner
+		return element is ParadoxLocalisationProperty
 	}
 }

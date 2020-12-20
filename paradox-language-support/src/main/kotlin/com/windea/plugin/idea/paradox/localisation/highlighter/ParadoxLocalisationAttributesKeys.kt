@@ -8,7 +8,7 @@ import com.windea.plugin.idea.paradox.message
 
 @Suppress("DEPRECATION")
 object ParadoxLocalisationAttributesKeys {
-	private val colonName = message("paradox.localisation.externalName.colon")
+	private val separatorName = message("paradox.localisation.externalName.separator")
 	private val numberName = message("paradox.localisation.externalName.number")
 	private val localeName = message("paradox.localisation.externalName.locale")
 	private val propertyKeyName = message("paradox.localisation.externalName.propertyKey")
@@ -17,7 +17,7 @@ object ParadoxLocalisationAttributesKeys {
 	private val markerName = message("paradox.localisation.externalName.marker")
 	private val propertyReferenceName = message("paradox.localisation.externalName.propertyReference")
 	private val parameterName = message("paradox.localisation.externalName.parameter")
-	private val codeName = message("paradox.localisation.externalName.code")
+	private val commandKeyName = message("paradox.localisation.externalName.commandKey")
 	private val iconName = message("paradox.localisation.externalName.icon")
 	private val serialNumberName = message("paradox.localisation.externalName.serialNumber")
 	private val colorName = message("paradox.localisation.externalName.color")
@@ -25,7 +25,7 @@ object ParadoxLocalisationAttributesKeys {
 	private val invalidEscapeName = message("paradox.localisation.externalName.invalidEscape")
 	private val badCharacterName = message("paradox.localisation.externalName.badCharacter")
 	
-	@JvmField val COLON_KEY = createTextAttributesKey(colonName, OPERATION_SIGN)
+	@JvmField val SEPARATOR_KEY = createTextAttributesKey(separatorName, OPERATION_SIGN)
 	@JvmField val NUMBER_KEY = createTextAttributesKey(numberName, NUMBER)
 	@JvmField val LOCALE_KEY = createTextAttributesKey(localeName, KEYWORD)
 	@JvmField val PROPERTY_KEY_KEY = createTextAttributesKey(propertyKeyName, KEYWORD)
@@ -34,7 +34,7 @@ object ParadoxLocalisationAttributesKeys {
 	@JvmField val MARKER_KEY = createTextAttributesKey(markerName, KEYWORD)
 	@JvmField val PROPERTY_REFERENCE_KEY = createTextAttributesKey(propertyReferenceName, KEYWORD)
 	@JvmField val PARAMETER_KEY = createTextAttributesKey(parameterName, IDENTIFIER)
-	@JvmField val CODE_KEY = createTextAttributesKey(codeName, IDENTIFIER)
+	@JvmField val COMMAND_KEY_KEY = createTextAttributesKey(commandKeyName, IDENTIFIER)
 	@JvmField val ICON_KEY = createTextAttributesKey(iconName, IDENTIFIER)
 	@JvmField val SERIAL_NUMBER_KEY = createTextAttributesKey(serialNumberName, IDENTIFIER)
 	@JvmField val COLOR_KEY = createTextAttributesKey(colorName, IDENTIFIER)

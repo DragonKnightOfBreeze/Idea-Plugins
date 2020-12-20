@@ -41,7 +41,7 @@ abstract class ParadoxLibraryType(
 	private fun getLibraryName(file: VirtualFile, project: Project): String? {
 		for(child in file.children) {
 			when {
-				child.name.equals(descriptorModFileName, true) -> {
+				child.name.equals(descriptorName, true) -> {
 					val text = child.inputStream.reader().use { it.readText() }
 					for(line in text.lines()) {
 						if(line.startsWith("name")) {

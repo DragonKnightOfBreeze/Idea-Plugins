@@ -7,16 +7,16 @@ import com.intellij.psi.tree.*
 import com.windea.plugin.idea.paradox.script.*
 import com.windea.plugin.idea.paradox.script.psi.ParadoxScriptTypes.*
 
-class ParadoxScriptFileStubElementType : IStubFileElementType<PsiFileStub<*>>(ParadoxScriptLanguage) {
+class ParadoxScriptFileStubElementType : ILightStubFileElementType<PsiFileStub<*>>(ParadoxScriptLanguage) {
 	override fun getExternalId(): String {
 		return "paradoxScript.file"
 	}
 	
-	override fun getBuilder(): StubBuilder {
+	override fun getBuilder(): LightStubBuilder {
 		return Builder()
 	}
 	
-	class Builder : DefaultStubBuilder() {
+	class Builder : LightStubBuilder() {
 		override fun skipChildProcessingWhenBuildingStubs(parent: ASTNode, node: ASTNode): Boolean {
 			val type = node.elementType
 			val parentType = parent.elementType

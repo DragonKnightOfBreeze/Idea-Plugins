@@ -52,14 +52,14 @@ class DuplicateVariableDefinitionsInspection :LocalInspectionTool(){
 		private val pointers = ContainerUtil.map(duplicates){SmartPointerManager.createPointer(it)}
 
 		companion object{
-			private val name = message("paradox.script.quickFix.navigateToDuplicates")
+			private val _name = message("paradox.script.quickFix.navigateToDuplicates")
 			private fun header(key:String) = message("paradox.script.quickFix.navigateToDuplicates.header", key)
 			private fun text(key:String,lineNumber:Int) = message("paradox.script.quickFix.navigateToDuplicates.text",key,lineNumber)
 		}
 		
-		override fun getFamilyName() = name
+		override fun getFamilyName() = _name
 		
-		override fun getText() = name
+		override fun getText() = _name
 
 		override fun invoke(project: Project, file: PsiFile, editor: Editor?, startElement: PsiElement, endElement: PsiElement) {
 			if(editor == null) return

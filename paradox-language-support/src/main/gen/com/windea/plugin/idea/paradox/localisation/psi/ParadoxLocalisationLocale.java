@@ -25,10 +25,6 @@ public interface ParadoxLocalisationLocale extends ParadoxLocalisationNamedEleme
   @NotNull
   Icon getIcon(@IconFlags int flags);
 
-  //WARNING: getReference(...) is skipped
-  //matching getReference(ParadoxLocalisationLocale, ...)
-  //methods are not found in ParadoxLocalisationPsiImplUtil
-
   @Nullable
   ParadoxLocale getParadoxLocale();
 

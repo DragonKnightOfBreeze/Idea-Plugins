@@ -28,8 +28,4 @@ public interface ParadoxLocalisationColorfulText extends ParadoxLocalisationRich
   @Nullable
   ParadoxColor getParadoxColor();
 
-  //WARNING: getReference(...) is skipped
-  //matching getReference(ParadoxLocalisationColorfulText, ...)
-  //methods are not found in ParadoxLocalisationPsiImplUtil
-
 }

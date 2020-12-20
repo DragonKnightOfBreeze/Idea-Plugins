@@ -1,4 +1,3 @@
-
 #scripted triggers
 alias[trigger:<scripted_trigger>] = bool
 

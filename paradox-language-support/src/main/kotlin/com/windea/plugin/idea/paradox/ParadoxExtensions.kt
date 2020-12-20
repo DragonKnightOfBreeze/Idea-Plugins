@@ -45,14 +45,6 @@ val String.isInvalidPropertyName: Boolean
 		return this.containsBlank() || this.isNumber() || this == "null"
 	}
 
-/**是否是游戏或模组根目录。*/
-val VirtualFile.isRootDirectory: Boolean
-	get() {
-		return this.children.any {
-			!it.isDirectory && it.name.equals(descriptorModFileName,true) || it.name.equals(stellarisExeFileName,true)
-		}
-	}
-
 /**相对于游戏或模组目录的文件路径。*/
 val PsiElement.paradoxPath: String?
 	get() {

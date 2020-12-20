@@ -11,7 +11,7 @@ import com.windea.plugin.idea.paradox.localisation.psi.ParadoxLocalisationTypes.
 
 class ParadoxLocalisationSyntaxHighlighter : SyntaxHighlighterBase() {
 	companion object {
-		private val COLON_KEYS = arrayOf(ParadoxLocalisationAttributesKeys.COLON_KEY)
+		private val SEPARATOR_KEYS = arrayOf(ParadoxLocalisationAttributesKeys.SEPARATOR_KEY)
 		private val NUMBER_KEYS = arrayOf(ParadoxLocalisationAttributesKeys.NUMBER_KEY)
 		private val LOCALE_KEYS = arrayOf(ParadoxLocalisationAttributesKeys.LOCALE_KEY)
 		private val PROPERTY_KEY_KEYS = arrayOf(ParadoxLocalisationAttributesKeys.PROPERTY_KEY_KEY)
@@ -20,7 +20,7 @@ class ParadoxLocalisationSyntaxHighlighter : SyntaxHighlighterBase() {
 		private val MARKER_KEYS = arrayOf(ParadoxLocalisationAttributesKeys.MARKER_KEY)
 		private val PARAMETER_KEYS = arrayOf(ParadoxLocalisationAttributesKeys.PARAMETER_KEY)
 		private val PROPERTY_REFERENCE_KEYS = arrayOf(ParadoxLocalisationAttributesKeys.PROPERTY_REFERENCE_KEY)
-		private val CODE_KEYS = arrayOf(ParadoxLocalisationAttributesKeys.CODE_KEY)
+		private val COMMAND_KEY_KEYS = arrayOf(ParadoxLocalisationAttributesKeys.COMMAND_KEY_KEY)
 		private val ICON_KEYS = arrayOf(ParadoxLocalisationAttributesKeys.ICON_KEY)
 		private val SERIAL_NUMBER_ID_KEYS = arrayOf(ParadoxLocalisationAttributesKeys.SERIAL_NUMBER_KEY)
 		private val COLOR_ID_KEYS = arrayOf(ParadoxLocalisationAttributesKeys.COLOR_KEY)
@@ -31,7 +31,7 @@ class ParadoxLocalisationSyntaxHighlighter : SyntaxHighlighterBase() {
 	}
 
 	override fun getTokenHighlights(tokenType: IElementType?) = when(tokenType) {
-		COLON -> COLON_KEYS
+		COLON,COMMAND_KEY_SEPARATOR -> SEPARATOR_KEYS
 		LOCALE_ID -> LOCALE_KEYS
 		PROPERTY_KEY_ID -> PROPERTY_KEY_KEYS
 		PROPERTY_REFERENCE_ID -> PROPERTY_REFERENCE_KEYS
@@ -41,7 +41,7 @@ class ParadoxLocalisationSyntaxHighlighter : SyntaxHighlighterBase() {
 		SERIAL_NUMBER_START, SERIAL_NUMBER_END, COLORFUL_TEXT_START, COLORFUL_TEXT_END -> MARKER_KEYS
 		PROPERTY_REFERENCE_PARAMETER, ICON_PARAMETER -> PARAMETER_KEYS
 		NUMBER -> NUMBER_KEYS
-		COMMAND_EXPRESSION_TOKEN -> CODE_KEYS
+		COMMAND_KEY -> COMMAND_KEY_KEYS
 		ICON_ID -> ICON_KEYS
 		SERIAL_NUMBER_ID -> SERIAL_NUMBER_ID_KEYS
 		COLOR_CODE -> COLOR_ID_KEYS

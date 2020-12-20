@@ -29,7 +29,8 @@ import static com.windea.plugin.idea.paradox.localisation.psi.ParadoxLocalisatio
 %state WAITING_ICON
 %state WAITING_ICON_PARAMETER
 %state WAITING_SERIAL_NUMBER
-%state WAITING_COMMAND
+%state WAITING_COMMAND_KEY
+%state WAITING_COMMAND_KEY_SEPARATOR
 %state WAITING_COLOR_CODE
 %state WAITING_COLORFUL_TEXT
 
@@ -86,7 +87,8 @@ PROPERTY_REFERENCE_PARAMETER=[^$\"\r\n]+
 ICON_ID=[a-zA-Z0-9\-_\\/]+
 ICON_PARAMETER=[^£\"\r\n]+
 SERIAL_NUMBER_ID=[a-zA-Z]
-COMMAND_EXPRESSION_TOKEN=[^\"\[\]\r\n]+
+COMMAND_KEY_TOKEN=[a-zA-Z0-9_]+
+COMMAND_KEY_SEPARATOR=\.
 COLOR_CODE=[a-zA-Z]
 //双引号和百分号实际上不需要转义
 STRING_TOKEN=[^\"%$£§\[\r\n\\]+
@@ -148,7 +150,7 @@ CHECK_RIGHT_QUOTE=\"[^\"\r\n]*\"?
   "$" { propertyReferenceLocation=0; yybegin(WAITING_PROPERTY_REFERENCE); return PROPERTY_REFERENCE_START;}
   "£" { isColorfulText=false; yypushback(yylength()); yybegin(WAITING_CHECK_ICON_START);}
   "%" { isColorfulText=false; yypushback(yylength()); yybegin(WAITING_CHECK_SERIAL_NUMBER_START);}
-  "[" { codeLocation=0; yybegin(WAITING_COMMAND); return COMMAND_START;}
+  "[" { codeLocation=0; yybegin(WAITING_COMMAND_KEY); return COMMAND_START;}
   "§" { isColorfulText=false; yypushback(yylength()); yybegin(WAITING_CHECK_COLORFUL_TEXT_START);}
   {VALID_ESCAPE_TOKEN} {return VALID_ESCAPE_TOKEN;}
   {INVALID_ESCAPE_TOKEN} {return INVALID_ESCAPE_TOKEN;}
@@ -158,7 +160,7 @@ CHECK_RIGHT_QUOTE=\"[^\"\r\n]*\"?
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }
   "$" {yybegin(nextStateForPropertyReference()); return PROPERTY_REFERENCE_END;}
   \" { yybegin(WAITING_PROPERTY_EOL); return RIGHT_QUOTE;}
-  "[" { codeLocation=1; yybegin(WAITING_COMMAND); return COMMAND_START;}
+  "[" { codeLocation=1; yybegin(WAITING_COMMAND_KEY); return COMMAND_START;}
   "|" { yybegin(WAITING_PROPERTY_REFERENCE_PARAMETER); return PARAMETER_SEPARATOR;}
   {PROPERTY_REFERENCE_ID} {return PROPERTY_REFERENCE_ID;}
   //注释掉 - 属性引用名字可以包含空格，虽然不知道凭什么
@@ -175,7 +177,7 @@ CHECK_RIGHT_QUOTE=\"[^\"\r\n]*\"?
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }
   "£" { yybegin(nextStateForText()); return ICON_END;}
   "$" { propertyReferenceLocation=2; yybegin(WAITING_PROPERTY_REFERENCE); return PROPERTY_REFERENCE_START;}
-  "[" { codeLocation=2; yybegin(WAITING_COMMAND); return COMMAND_START;}
+  "[" { codeLocation=2; yybegin(WAITING_COMMAND_KEY); return COMMAND_START;}
   "|" { yybegin(WAITING_ICON_PARAMETER); return PARAMETER_SEPARATOR;}
   \" { yybegin(WAITING_PROPERTY_EOL); return RIGHT_QUOTE;}
   {ICON_ID} {return ICON_ID;}
@@ -194,11 +196,17 @@ CHECK_RIGHT_QUOTE=\"[^\"\r\n]*\"?
   {SERIAL_NUMBER_ID} {return SERIAL_NUMBER_ID;}
   {WHITE_SPACE} {yybegin(nextStateForText()); return WHITE_SPACE; } //继续解析
 }
-<WAITING_COMMAND>{
+<WAITING_COMMAND_KEY>{
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }
   "]" {yybegin(nextStateForCode()); return COMMAND_END;}
   \" { yybegin(WAITING_PROPERTY_EOL); return RIGHT_QUOTE;}
-  {COMMAND_EXPRESSION_TOKEN} {return COMMAND_EXPRESSION_TOKEN;}
+  {COMMAND_KEY_TOKEN} {yybegin(WAITING_COMMAND_KEY_SEPARATOR); return COMMAND_KEY_TOKEN;}
+}
+<WAITING_COMMAND_KEY_SEPARATOR>{
+  {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }
+  "]" {yybegin(nextStateForCode()); return COMMAND_END;}
+  \" { yybegin(WAITING_PROPERTY_EOL); return RIGHT_QUOTE;}
+  {COMMAND_KEY_SEPARATOR} {yybegin(WAITING_COMMAND_KEY); return COMMAND_KEY_SEPARATOR;}
 }
 <WAITING_COLOR_CODE>{
   {EOL} { yybegin(WAITING_PROPERTY_KEY); return WHITE_SPACE; }
@@ -213,7 +221,7 @@ CHECK_RIGHT_QUOTE=\"[^\"\r\n]*\"?
   "$" { propertyReferenceLocation=0; yybegin(WAITING_PROPERTY_REFERENCE); return PROPERTY_REFERENCE_START;}
   "£" { isColorfulText=true; yypushback(yylength()); yybegin(WAITING_CHECK_ICON_START);}
   "%" { isColorfulText=true; yypushback(yylength()); yybegin(WAITING_CHECK_SERIAL_NUMBER_START);}
-  "[" { codeLocation=0; yybegin(WAITING_COMMAND); return COMMAND_START;}
+  "[" { codeLocation=0; yybegin(WAITING_COMMAND_KEY); return COMMAND_START;}
   "§" { isColorfulText=true; yypushback(yylength()); yybegin(WAITING_CHECK_COLORFUL_TEXT_START);}
   "§!" {depth--; yybegin(nextStateForText()); return COLORFUL_TEXT_END;}
   {VALID_ESCAPE_TOKEN} {return VALID_ESCAPE_TOKEN;}

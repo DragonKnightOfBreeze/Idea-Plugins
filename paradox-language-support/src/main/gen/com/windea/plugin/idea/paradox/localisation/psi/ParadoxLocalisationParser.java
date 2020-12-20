@@ -96,9 +96,51 @@ public class ParadoxLocalisationParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // COMMAND_EXPRESSION_TOKEN
+  // COMMAND_KEY_TOKEN
+  public static boolean command_Key(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "command_Key")) return false;
+    if (!nextTokenIs(b, COMMAND_KEY_TOKEN)) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeToken(b, COMMAND_KEY_TOKEN);
+    exit_section_(b, m, COMMAND_KEY, r);
+    return r;
+  }
+
+  /* ********************************************************** */
+  // command_Key (COMMAND_KEY_SEPARATOR command_Key)*
   static boolean command_expression(PsiBuilder b, int l) {
-    return consumeToken(b, COMMAND_EXPRESSION_TOKEN);
+    if (!recursion_guard_(b, l, "command_expression")) return false;
+    if (!nextTokenIs(b, COMMAND_KEY_TOKEN)) return false;
+    boolean r, p;
+    Marker m = enter_section_(b, l, _NONE_);
+    r = command_Key(b, l + 1);
+    p = r; // pin = 1
+    r = r && command_expression_1(b, l + 1);
+    exit_section_(b, l, m, r, p, null);
+    return r || p;
+  }
+
+  // (COMMAND_KEY_SEPARATOR command_Key)*
+  private static boolean command_expression_1(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "command_expression_1")) return false;
+    while (true) {
+      int c = current_position_(b);
+      if (!command_expression_1_0(b, l + 1)) break;
+      if (!empty_element_parsed_guard_(b, "command_expression_1", c)) break;
+    }
+    return true;
+  }
+
+  // COMMAND_KEY_SEPARATOR command_Key
+  private static boolean command_expression_1_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "command_expression_1_0")) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeToken(b, COMMAND_KEY_SEPARATOR);
+    r = r && command_Key(b, l + 1);
+    exit_section_(b, m, null, r);
+    return r;
   }
 
   /* ********************************************************** */
@@ -140,13 +182,12 @@ public class ParadoxLocalisationParser implements PsiParser, LightPsiParser {
   // PARAMETER_SEPARATOR [ICON_PARAMETER]
   private static boolean icon_2_0(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "icon_2_0")) return false;
-    boolean r, p;
-    Marker m = enter_section_(b, l, _NONE_);
+    boolean r;
+    Marker m = enter_section_(b);
     r = consumeToken(b, PARAMETER_SEPARATOR);
-    p = r; // pin = 1
     r = r && icon_2_0_1(b, l + 1);
-    exit_section_(b, l, m, r, p, null);
-    return r || p;
+    exit_section_(b, m, null, r);
+    return r;
   }
 
   // [ICON_PARAMETER]
@@ -259,13 +300,12 @@ public class ParadoxLocalisationParser implements PsiParser, LightPsiParser {
   // PARAMETER_SEPARATOR [PROPERTY_REFERENCE_PARAMETER]
   private static boolean property_reference_2_0(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "property_reference_2_0")) return false;
-    boolean r, p;
-    Marker m = enter_section_(b, l, _NONE_);
+    boolean r;
+    Marker m = enter_section_(b);
     r = consumeToken(b, PARAMETER_SEPARATOR);
-    p = r; // pin = 1
     r = r && property_reference_2_0_1(b, l + 1);
-    exit_section_(b, l, m, r, p, null);
-    return r || p;
+    exit_section_(b, m, null, r);
+    return r;
   }
 
   // [PROPERTY_REFERENCE_PARAMETER]

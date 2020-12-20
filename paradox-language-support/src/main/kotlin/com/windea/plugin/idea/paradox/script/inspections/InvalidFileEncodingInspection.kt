@@ -32,12 +32,12 @@ class InvalidFileEncodingInspection: LocalInspectionTool(){
 		private val isNameList:Boolean
 	) : LocalQuickFixAndIntentionActionOnPsiElement(element) {
 		companion object{
-			private val name = message("paradox.script.quickFix.changeFileEncoding")
+			private val _name = message("paradox.script.quickFix.changeFileEncoding")
 		}
 		
-		override fun getText() = name
+		override fun getText() = _name
 
-		override fun getFamilyName() = name
+		override fun getFamilyName() = _name
 
 		override fun invoke(project: Project, file: PsiFile, editor: Editor?, startElement: PsiElement, endElement: PsiElement) {
 			//TODO 让IDE知道修改bom是对文档进行了修改

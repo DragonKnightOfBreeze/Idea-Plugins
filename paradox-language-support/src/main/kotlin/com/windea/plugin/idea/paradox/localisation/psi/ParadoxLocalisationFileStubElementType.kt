@@ -11,16 +11,16 @@ import com.intellij.util.diff.*
 import com.windea.plugin.idea.paradox.localisation.*
 import com.windea.plugin.idea.paradox.localisation.psi.ParadoxLocalisationTypes.*
 
-class ParadoxLocalisationFileStubElementType : IStubFileElementType<PsiFileStub<*>>(ParadoxLocalisationLanguage){
+class ParadoxLocalisationFileStubElementType : ILightStubFileElementType<PsiFileStub<*>>(ParadoxLocalisationLanguage){
 	override fun getExternalId(): String {
 		return "paradoxLocalisation.file"
 	}
 	
-	override fun getBuilder(): StubBuilder {
+	override fun getBuilder(): LightStubBuilder {
 		return Builder()
 	}
 	
-	class Builder: DefaultStubBuilder(){
+	class Builder: LightStubBuilder(){
 		override fun skipChildProcessingWhenBuildingStubs(parent: ASTNode, node: ASTNode): Boolean {
 			return node.elementType != PROPERTY
 		}

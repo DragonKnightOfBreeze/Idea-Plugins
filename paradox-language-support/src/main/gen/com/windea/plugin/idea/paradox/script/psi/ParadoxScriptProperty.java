@@ -31,4 +31,6 @@ public interface ParadoxScriptProperty extends ParadoxScriptNamedElement, StubBa
   @Nullable
   String getValue();
 
+  boolean isRootProperty();
+
 }

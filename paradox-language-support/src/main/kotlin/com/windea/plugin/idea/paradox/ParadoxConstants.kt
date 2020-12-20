@@ -36,7 +36,7 @@ val booleanValues = arrayOf("yes", "no")
 
 const val paradoxBundleName = "messages.ParadoxBundle"
 
-val fileExtensions = arrayOf("yml", "txt", "mod", "gui", "gfx", "asset")
+val fileExtensions = arrayOf("yml","yaml", "txt", "mod", "gui", "gfx", "asset")
 val localisationFileExtensions = arrayOf("yml", "yaml")
 val scriptFileExtensions = arrayOf("txt", "mod", "gfx", "gui", "asset")
 
@@ -55,12 +55,14 @@ val inferredParadoxLocale = when(System.getProperty("user.language")){
 	else -> ParadoxLocale.ENGLISH
 }
 
-const val stellarisExeFileName = "stellaris.exe"
-const val descriptorModFileName = "descriptor.mod"
-const val stdlibName = "Stdlib"
+val cannotRenameMessage = message("paradox.message.cannotRename")
 
+const val descriptorName = "descriptor.mod"
+const val stdlibName = "Stdlib"
 const val paradoxName = "Paradox"
+
 const val stellarisName = "Stellaris"
+val gameNames = arrayOf(stellarisName)
 //TODO Other Games
 //Icons
 

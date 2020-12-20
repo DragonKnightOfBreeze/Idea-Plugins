@@ -17,7 +17,6 @@ object ParadoxScriptPropertyKeyIndex: StringStubIndexExtension<ParadoxScriptProp
 		return result
 	}
 	
-	
 	fun getOne(key: String, project: Project, scope: GlobalSearchScope): ParadoxScriptProperty? {
 		for(element in StubIndex.getElements(this.key, key, project, scope, ParadoxScriptProperty::class.java)) {
 			return element
@@ -47,5 +46,3 @@ object ParadoxScriptPropertyKeyIndex: StringStubIndexExtension<ParadoxScriptProp
 		return result
 	}
 }
-
-

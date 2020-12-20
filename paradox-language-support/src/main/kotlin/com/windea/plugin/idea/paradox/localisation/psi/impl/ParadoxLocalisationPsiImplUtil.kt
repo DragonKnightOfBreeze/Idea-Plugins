@@ -5,14 +5,12 @@ package com.windea.plugin.idea.paradox.localisation.psi.impl
 import com.intellij.openapi.util.Iconable.*
 import com.intellij.psi.*
 import com.intellij.refactoring.suggested.*
+import com.intellij.util.*
 import com.windea.plugin.idea.paradox.*
 import com.windea.plugin.idea.paradox.localisation.psi.*
-import com.windea.plugin.idea.paradox.localisation.psi.ParadoxLocalisationElementFactory.createColorfulText
 import com.windea.plugin.idea.paradox.localisation.psi.ParadoxLocalisationElementFactory.createIcon
-import com.windea.plugin.idea.paradox.localisation.psi.ParadoxLocalisationElementFactory.createLocale
 import com.windea.plugin.idea.paradox.localisation.psi.ParadoxLocalisationElementFactory.createPropertyKey
 import com.windea.plugin.idea.paradox.localisation.psi.ParadoxLocalisationElementFactory.createPropertyReference
-import com.windea.plugin.idea.paradox.localisation.psi.ParadoxLocalisationElementFactory.createSerialNumber
 import com.windea.plugin.idea.paradox.localisation.reference.*
 import javax.swing.*
 
@@ -30,8 +28,7 @@ object ParadoxLocalisationPsiImplUtil {
 	
 	@JvmStatic
 	fun setName(element: ParadoxLocalisationLocale, name: String): PsiElement {
-		element.localeId.replace(createLocale(element.project, name).localeId)
-		return element
+		throw IncorrectOperationException(cannotRenameMessage)
 	}
 	
 	@JvmStatic
@@ -141,6 +138,34 @@ object ParadoxLocalisationPsiImplUtil {
 	fun getTextOffset(element: ParadoxLocalisationIcon): Int {
 		return element.startOffset + 1
 	}
+	
+	@JvmStatic
+	fun getReference(element: ParadoxLocalisationIcon): ParadoxLocalisationIconPsiReference? {
+		val iconId = element.iconId?:return null
+		return ParadoxLocalisationIconPsiReference(element,iconId.textRangeInParent)
+	}
+	//endregion
+	
+	//region ParadoxLocalisationCommandKey
+	@JvmStatic
+	fun getName(element: ParadoxLocalisationCommandKey): String {
+		return element.text
+	}
+	
+	@JvmStatic
+	fun setName(element: ParadoxLocalisationCommandKey, name: String): PsiElement {
+		return element
+	}
+	
+	@JvmStatic
+	fun getNameIdentifier(element: ParadoxLocalisationCommandKey): PsiElement {
+		return element.commandKeyToken
+	}
+	
+	@JvmStatic
+	fun getReference(element: ParadoxLocalisationCommandKey): ParadoxLocalisationCommandKeyPsiReference {
+		return ParadoxLocalisationCommandKeyPsiReference(element,element.textRangeInParent)
+	}
 	//endregion
 	
 	//region ParadoxLocalisationSerialNumber
@@ -151,8 +176,7 @@ object ParadoxLocalisationPsiImplUtil {
 	
 	@JvmStatic
 	fun setName(element: ParadoxLocalisationSerialNumber, name: String): PsiElement {
-		element.serialNumberId?.replace(createSerialNumber(element.project, name).serialNumberId!!)
-		return element
+		throw IncorrectOperationException(cannotRenameMessage)
 	}
 	
 	@JvmStatic
@@ -179,8 +203,7 @@ object ParadoxLocalisationPsiImplUtil {
 	
 	@JvmStatic
 	fun setName(element: ParadoxLocalisationColorfulText, name: String): PsiElement {
-		element.colorCode?.replace(createColorfulText(element.project, name).colorCode!!)
-		return element
+		throw IncorrectOperationException(cannotRenameMessage)
 	}
 	
 	@JvmStatic

@@ -10,7 +10,7 @@ import com.windea.plugin.idea.paradox.localisation.*
 
 class ParadoxLocalisationColorSettingsPage : ColorSettingsPage {
 	companion object {
-		private val colonName = message("paradox.localisation.displayName.colon")
+		private val separatorName = message("paradox.localisation.displayName.separator")
 		private val numberName = message("paradox.localisation.displayName.number")
 		private val localeName = message("paradox.localisation.displayName.locale")
 		private val propertyKeyName = message("paradox.localisation.displayName.propertyKey")
@@ -19,7 +19,7 @@ class ParadoxLocalisationColorSettingsPage : ColorSettingsPage {
 		private val markerName = message("paradox.localisation.displayName.marker")
 		private val parameterName = message("paradox.localisation.displayName.parameter")
 		private val propertyReferenceName = message("paradox.localisation.displayName.propertyReference")
-		private val codeName = message("paradox.localisation.displayName.code")
+		private val commandKeyName = message("paradox.localisation.displayName.codeKey")
 		private val iconName = message("paradox.localisation.displayName.icon")
 		private val serialNumberName = message("paradox.localisation.displayName.serialNumber")
 		private val colorName = message("paradox.localisation.displayName.color")
@@ -28,7 +28,7 @@ class ParadoxLocalisationColorSettingsPage : ColorSettingsPage {
 		private val badCharacterName = message("paradox.localisation.displayName.badCharacter")
 		
 		private val attributesDescriptors = arrayOf(
-			AttributesDescriptor(colonName, ParadoxLocalisationAttributesKeys.COLON_KEY),
+			AttributesDescriptor(separatorName, ParadoxLocalisationAttributesKeys.SEPARATOR_KEY),
 			AttributesDescriptor(numberName, ParadoxLocalisationAttributesKeys.NUMBER_KEY),
 			AttributesDescriptor(localeName, ParadoxLocalisationAttributesKeys.LOCALE_KEY),
 			AttributesDescriptor(propertyKeyName, ParadoxLocalisationAttributesKeys.PROPERTY_KEY_KEY),
@@ -37,7 +37,7 @@ class ParadoxLocalisationColorSettingsPage : ColorSettingsPage {
 			AttributesDescriptor(markerName, ParadoxLocalisationAttributesKeys.MARKER_KEY),
 			AttributesDescriptor(parameterName, ParadoxLocalisationAttributesKeys.PARAMETER_KEY),
 			AttributesDescriptor(propertyReferenceName, ParadoxLocalisationAttributesKeys.PROPERTY_REFERENCE_KEY),
-			AttributesDescriptor(codeName, ParadoxLocalisationAttributesKeys.CODE_KEY),
+			AttributesDescriptor(commandKeyName, ParadoxLocalisationAttributesKeys.COMMAND_KEY_KEY),
 			AttributesDescriptor(iconName, ParadoxLocalisationAttributesKeys.ICON_KEY),
 			AttributesDescriptor(serialNumberName, ParadoxLocalisationAttributesKeys.SERIAL_NUMBER_KEY),
 			AttributesDescriptor(colorName, ParadoxLocalisationAttributesKeys.COLOR_KEY),

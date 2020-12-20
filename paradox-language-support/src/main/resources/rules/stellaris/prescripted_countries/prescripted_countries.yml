@@ -1,0 +1,31 @@
+types:
+  prescripted_country:
+    path: "prescripted_countries"
+
+prescripted_country:
+  name: string
+  adjective: $localisation_synced
+  spawn_enabled: boolean | always
+  default?: yes
+  ignore_portrait_duplication?: boolean
+  spawn_as_fallen?: boolean
+  ship_prefix: $localisation_synced
+  species?:
+    class: $species_class
+    portrait: $portrait | $portrait[] # portrait_group
+    name: $localisation_synced
+    plural: $localisation_synced
+    adjective: $localisation_synced
+    name_list: $name_list
+    trait*: $trait.species_trait
+  secondary_species?:
+    class: $species_class
+    portrait: $portrait | $portrait[] # portrait_group
+    name: $localisation_synced
+    plural: $localisation_synced
+    adjective: $localisation_synced
+    name_list: $name_list
+    trait*: $trait.species_trait
+  playable?: scripted_trigger
+  room: icon[gfx/portraits/city_sets]
+

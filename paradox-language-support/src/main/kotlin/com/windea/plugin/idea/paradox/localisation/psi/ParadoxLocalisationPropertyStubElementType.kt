@@ -16,7 +16,7 @@ class ParadoxLocalisationPropertyStubElementType : ILightStubElementType<Paradox
 	}
 	
 	override fun createStub(psi: ParadoxLocalisationProperty, parentStub: StubElement<*>): ParadoxLocalisationPropertyStub {
-		return ParadoxLocalisationPropertyStubImpl(parentStub, psi.name.orEmpty())
+		return ParadoxLocalisationPropertyStubImpl(parentStub, psi.name)
 	}
 	
 	override fun createStub(tree: LighterAST, node: LighterASTNode, parentStub: StubElement<*>): ParadoxLocalisationPropertyStub {

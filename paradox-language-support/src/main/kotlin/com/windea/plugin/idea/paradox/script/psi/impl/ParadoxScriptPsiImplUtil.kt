@@ -4,8 +4,10 @@ package com.windea.plugin.idea.paradox.script.psi.impl
 
 import com.intellij.openapi.util.*
 import com.intellij.psi.*
+import com.intellij.util.*
 import com.windea.plugin.idea.paradox.*
 import com.windea.plugin.idea.paradox.localisation.psi.*
+import com.windea.plugin.idea.paradox.localisation.psi.impl.*
 import com.windea.plugin.idea.paradox.script.psi.*
 import com.windea.plugin.idea.paradox.script.psi.ParadoxScriptElementFactory.createPropertyKey
 import com.windea.plugin.idea.paradox.script.psi.ParadoxScriptElementFactory.createValue
@@ -69,6 +71,11 @@ object ParadoxScriptPsiImplUtil {
 	@JvmStatic
 	fun getValue(element: ParadoxScriptProperty): String? {
 		return element.propertyValue?.text?.unquote()
+	}
+	
+	@JvmStatic
+	fun isRootProperty(element:ParadoxScriptProperty):Boolean{
+		return element.parent is ParadoxScriptRootBlock && !element.paradoxParentPath.isNullOrEmpty()
 	}
 	//endregion
 	

@@ -4,12 +4,12 @@ package com.windea.plugin.idea.paradox.localisation.psi;
 import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
-import com.windea.plugin.idea.paradox.ParadoxSerialNumber;
+import com.windea.plugin.idea.paradox.localisation.reference.ParadoxLocalisationCommandKeyPsiReference;
 
-public interface ParadoxLocalisationSerialNumber extends ParadoxLocalisationRichText, ParadoxLocalisationNamedElement {
+public interface ParadoxLocalisationCommandKey extends ParadoxLocalisationNamedElement {
 
-  @Nullable
-  PsiElement getSerialNumberId();
+  @NotNull
+  PsiElement getCommandKeyToken();
 
   @NotNull
   String getName();
@@ -17,12 +17,10 @@ public interface ParadoxLocalisationSerialNumber extends ParadoxLocalisationRich
   @NotNull
   PsiElement setName(@NotNull String name);
 
-  @Nullable
+  @NotNull
   PsiElement getNameIdentifier();
 
-  int getTextOffset();
-
-  @Nullable
-  ParadoxSerialNumber getParadoxSerialNumber();
+  @NotNull
+  ParadoxLocalisationCommandKeyPsiReference getReference();
 
 }

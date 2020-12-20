@@ -16,7 +16,7 @@ class ParadoxScriptPropertyStubElementType() : ILightStubElementType<ParadoxScri
 	}
 	
 	override fun createStub(psi: ParadoxScriptProperty, parentStub: StubElement<*>): ParadoxScriptPropertyStub {
-		return ParadoxScriptPropertyStubImpl(parentStub, psi.name.orEmpty())
+		return ParadoxScriptPropertyStubImpl(parentStub, psi.name)
 	}
 	
 	override fun createStub(tree: LighterAST, node: LighterASTNode, parentStub: StubElement<*>): ParadoxScriptPropertyStub {

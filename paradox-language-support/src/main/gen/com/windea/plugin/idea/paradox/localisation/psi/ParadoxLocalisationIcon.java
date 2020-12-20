@@ -4,6 +4,7 @@ package com.windea.plugin.idea.paradox.localisation.psi;
 import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
+import com.windea.plugin.idea.paradox.localisation.reference.ParadoxLocalisationIconPsiReference;
 
 public interface ParadoxLocalisationIcon extends ParadoxLocalisationRichText, ParadoxLocalisationNamedElement {
 
@@ -27,8 +28,7 @@ public interface ParadoxLocalisationIcon extends ParadoxLocalisationRichText, Pa
 
   int getTextOffset();
 
-  //WARNING: getReference(...) is skipped
-  //matching getReference(ParadoxLocalisationIcon, ...)
-  //methods are not found in ParadoxLocalisationPsiImplUtil
+  @Nullable
+  ParadoxLocalisationIconPsiReference getReference();
 
 }

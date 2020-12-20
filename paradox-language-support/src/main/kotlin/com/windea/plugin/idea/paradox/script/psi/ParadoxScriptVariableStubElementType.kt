@@ -7,8 +7,8 @@ import com.intellij.util.*
 import com.windea.plugin.idea.paradox.script.*
 import com.windea.plugin.idea.paradox.script.psi.impl.*
 
-class ParadoxScriptVariableStubElementType() : IStubElementType<ParadoxScriptVariableStub, ParadoxScriptVariable>(
-	"STELLRAIS_SCRIPT_VARIABLE",
+class ParadoxScriptVariableStubElementType() : ILightStubElementType<ParadoxScriptVariableStub, ParadoxScriptVariable>(
+	"PARADOX_SCRIPT_VARIABLE",
 	ParadoxScriptLanguage
 ) {
 	override fun createPsi(stub: ParadoxScriptVariableStub): ParadoxScriptVariable {
@@ -16,14 +16,14 @@ class ParadoxScriptVariableStubElementType() : IStubElementType<ParadoxScriptVar
 	}
 	
 	override fun createStub(psi: ParadoxScriptVariable, parentStub: StubElement<*>): ParadoxScriptVariableStub {
-		return ParadoxScriptVariableStubImpl(parentStub, psi.name.orEmpty())
+		return ParadoxScriptVariableStubImpl(parentStub, psi.name)
 	}
 	
-	//override fun createStub(tree: LighterAST, node: LighterASTNode, parentStub: StubElement<*>): ParadoxScriptVariableStub {
-	//	val keyNode = LightTreeUtil.firstChildOfType(tree, node, ParadoxScriptTypes.VARIABLE_NAME_ID)
-	//	val key = intern(tree.charTable, keyNode)
-	//	return ParadoxScriptVariableStubImpl(parentStub, key)
-	//}
+	override fun createStub(tree: LighterAST, node: LighterASTNode, parentStub: StubElement<*>): ParadoxScriptVariableStub {
+		val keyNode = LightTreeUtil.firstChildOfType(tree, node, ParadoxScriptTypes.VARIABLE_NAME_ID)
+		val key = intern(tree.charTable, keyNode)
+		return ParadoxScriptVariableStubImpl(parentStub, key)
+	}
 	
 	override fun getExternalId(): String {
 		return "paradoxScript.variable"

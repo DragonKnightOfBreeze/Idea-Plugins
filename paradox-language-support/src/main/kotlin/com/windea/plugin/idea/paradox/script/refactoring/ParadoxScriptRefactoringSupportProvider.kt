@@ -7,6 +7,6 @@ import com.windea.plugin.idea.paradox.script.psi.*
 
 class ParadoxScriptRefactoringSupportProvider : RefactoringSupportProvider() {
 	override fun isMemberInplaceRenameAvailable(element: PsiElement, context: PsiElement?): Boolean {
-		return element is PsiNameIdentifierOwner
+		return element is ParadoxScriptVariable || element is ParadoxScriptProperty
 	}
 }

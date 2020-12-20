@@ -12,23 +12,18 @@ class ParadoxFileTypeOverrider : FileTypeOverrider {
 	//才有可能将所在目录（以及子目录）下的文件识别为Paradox本地化文件和脚本文件
 	
 	override fun getOverriddenFileType(file: VirtualFile): FileType? {
-		if(!isValidFileNameForOverridden(file.name)) return null
+		val overriddenType = getOverriddenType(file)?:return null
 		var path = file.name
 		var currentFile: VirtualFile? = file.parent
 		while(currentFile != null) {
 			//如果是游戏或模组目录
-			val isParadoxDirectory = currentFile.isRootDirectory
+			val isParadoxDirectory = isRootDirectory(currentFile)
 			if(isParadoxDirectory) {
-				rootDirectoryCache[currentFile.path] = currentFile
-				when(file.extension) {
-					in localisationFileExtensions -> {
-						putUserData(file, path)
-						return ParadoxLocalisationFileType
-					}
-					in scriptFileExtensions -> {
-						putUserData(file, path)
-						return ParadoxScriptFileType
-					}
+				rootDirectoryCache.putIfAbsent(currentFile.path,currentFile)
+				putUserData(file, path)
+				return when(overriddenType){
+					OverriddenType.Script -> ParadoxLocalisationFileType
+					OverriddenType.Localisation -> ParadoxScriptFileType
 				}
 			} else {
 				rootDirectoryCache.remove(currentFile.path)
@@ -40,21 +35,52 @@ class ParadoxFileTypeOverrider : FileTypeOverrider {
 		return null
 	}
 	
+	private fun getOverriddenType(file:VirtualFile):OverriddenType?{
+		if(file.isValid && !file.isDirectory){
+			val extension = file.name.substringAfterLast('.')
+			return when{
+				extension in scriptFileExtensions -> OverriddenType.Script
+				extension in localisationFileExtensions -> OverriddenType.Localisation
+				else -> null
+			}
+		}
+		return null
+	}
+	
+	private fun isRootDirectory(file: VirtualFile): Boolean {
+		return file.isDirectory && file.children.any { isDescriptorOrExeFile(it) }
+	}
+	
+	private fun isDescriptorOrExeFile(file:VirtualFile):Boolean{
+		return !file.isDirectory && file.name.equals(descriptorName,true) || gameNames.any{gameName ->
+			file.name.startsWith(gameName,true) && file.extension.equals("exe",true)
+		}
+	}
+	
 	private fun putUserData(file: VirtualFile, path: String) {
-		val parentPath = path.substringBeforeLast('/', "")
-		file.putUserData(paradoxPathKey, path)
-		file.putUserData(paradoxParentPathKey, parentPath)
+		try {
+			if(file.isValid) {
+				val parentPath = path.substringBeforeLast('/', "")
+				file.putUserData(paradoxPathKey, path)
+				file.putUserData(paradoxParentPathKey, parentPath)
+			}
+		} catch(e: Exception) {
+		
+		}
 	}
 	
 	private fun cleanupUserData(file: VirtualFile) {
-		file.putUserData(paradoxPathKey, null)
-		file.putUserData(paradoxParentPathKey, null)
+		try {
+			if(file.isValid) {
+				file.putUserData(paradoxPathKey, null)
+				file.putUserData(paradoxParentPathKey, null)
+			}
+		} catch(e: Exception) {
+		
+		}
 	}
 	
-	private fun isValidFileNameForOverridden(fileName: String): Boolean {
-		val index = fileName.lastIndexOf('.')
-		if(index == -1) return false
-		val fileExtension = fileName.substring(index + 1, fileName.length)
-		return fileExtension in fileExtensions
+	enum class OverriddenType{
+		Script,Localisation
 	}
 }

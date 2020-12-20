@@ -9,16 +9,16 @@ import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
 import static com.windea.plugin.idea.paradox.localisation.psi.ParadoxLocalisationTypes.*;
 import com.windea.plugin.idea.paradox.localisation.psi.*;
-import com.windea.plugin.idea.paradox.localisation.reference.ParadoxLocalisationIconPsiReference;
+import com.windea.plugin.idea.paradox.localisation.reference.ParadoxLocalisationCommandKeyPsiReference;
 
-public class ParadoxLocalisationIconImpl extends ParadoxLocalisationNamedElementImpl implements ParadoxLocalisationIcon {
+public class ParadoxLocalisationCommandKeyImpl extends ParadoxLocalisationNamedElementImpl implements ParadoxLocalisationCommandKey {
 
-  public ParadoxLocalisationIconImpl(@NotNull ASTNode node) {
+  public ParadoxLocalisationCommandKeyImpl(@NotNull ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull ParadoxLocalisationVisitor visitor) {
-    visitor.visitIcon(this);
+    visitor.visitCommandKey(this);
   }
 
   @Override
@@ -28,21 +28,9 @@ public class ParadoxLocalisationIconImpl extends ParadoxLocalisationNamedElement
   }
 
   @Override
-  @Nullable
-  public ParadoxLocalisationRichText getRichText() {
-    return PsiTreeUtil.getChildOfType(this, ParadoxLocalisationRichText.class);
-  }
-
-  @Override
-  @Nullable
-  public PsiElement getIconId() {
-    return findChildByType(ICON_ID);
-  }
-
-  @Override
-  @Nullable
-  public PsiElement getIconParameter() {
-    return findChildByType(ICON_PARAMETER);
+  @NotNull
+  public PsiElement getCommandKeyToken() {
+    return notNullChild(findChildByType(COMMAND_KEY_TOKEN));
   }
 
   @Override
@@ -58,19 +46,14 @@ public class ParadoxLocalisationIconImpl extends ParadoxLocalisationNamedElement
   }
 
   @Override
-  @Nullable
+  @NotNull
   public PsiElement getNameIdentifier() {
     return ParadoxLocalisationPsiImplUtil.getNameIdentifier(this);
   }
 
   @Override
-  public int getTextOffset() {
-    return ParadoxLocalisationPsiImplUtil.getTextOffset(this);
-  }
-
-  @Override
-  @Nullable
-  public ParadoxLocalisationIconPsiReference getReference() {
+  @NotNull
+  public ParadoxLocalisationCommandKeyPsiReference getReference() {
     return ParadoxLocalisationPsiImplUtil.getReference(this);
   }
 

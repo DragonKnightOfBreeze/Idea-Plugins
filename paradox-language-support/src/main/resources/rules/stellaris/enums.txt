@@ -1,4 +1,3 @@
-
 enums = {
 	enum[leader_classes] = {
 		ruler

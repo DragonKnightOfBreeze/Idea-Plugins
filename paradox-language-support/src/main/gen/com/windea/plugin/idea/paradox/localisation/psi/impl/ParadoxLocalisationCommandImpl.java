@@ -28,9 +28,9 @@ public class ParadoxLocalisationCommandImpl extends ParadoxLocalisationRichTextI
   }
 
   @Override
-  @Nullable
-  public PsiElement getCommandExpressionToken() {
-    return findChildByType(COMMAND_EXPRESSION_TOKEN);
+  @NotNull
+  public List<ParadoxLocalisationCommandKey> getCommandKeyList() {
+    return PsiTreeUtil.getChildrenOfTypeAsList(this, ParadoxLocalisationCommandKey.class);
   }
 
 }
