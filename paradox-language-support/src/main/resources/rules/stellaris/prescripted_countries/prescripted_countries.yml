@@ -12,7 +12,7 @@ prescripted_country:
   ship_prefix: $localisation_synced
   species?:
     class: $species_class
-    portrait: $portrait | $portrait[] # portrait_group
+    portrait: $portrait | $portrait_group
     name: $localisation_synced
     plural: $localisation_synced
     adjective: $localisation_synced
@@ -20,12 +20,22 @@ prescripted_country:
     trait*: $trait.species_trait
   secondary_species?:
     class: $species_class
-    portrait: $portrait | $portrait[] # portrait_group
+    portrait: $portrait | $portrait_group
     name: $localisation_synced
     plural: $localisation_synced
     adjective: $localisation_synced
     name_list: $name_list
     trait*: $trait.species_trait
-  playable?: scripted_trigger
-  room: icon[gfx/portraits/city_sets]
-
+  playable?: $scripted_trigger
+  # room: icon[gfx/portraits/city_sets] | asset_selector.room
+  room: icon[gfx/portraits/city_sets] | icon[gfx/portraits/asset_selectors]
+  authority?: $authority
+  civics?:
+  - $civic
+  government?: $government
+  origin?: origin
+  ethic+: ethic
+  flags?:
+  - value_set[country_flag]
+  planet_name: localisation_synced
+  planet_class: $planet_class.habitable_planet

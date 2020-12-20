@@ -11,18 +11,20 @@ import com.intellij.util.diff.*
 import com.windea.plugin.idea.paradox.localisation.*
 import com.windea.plugin.idea.paradox.localisation.psi.ParadoxLocalisationTypes.*
 
-class ParadoxLocalisationFileStubElementType : ILightStubFileElementType<PsiFileStub<*>>(ParadoxLocalisationLanguage){
+class ParadoxLocalisationFileStubElementType : IStubFileElementType<PsiFileStub<*>>(ParadoxLocalisationLanguage){
 	override fun getExternalId(): String {
 		return "paradoxLocalisation.file"
 	}
 	
-	override fun getBuilder(): LightStubBuilder {
+	override fun getBuilder(): StubBuilder {
 		return Builder()
 	}
 	
-	class Builder: LightStubBuilder(){
+	class Builder: DefaultStubBuilder(){
 		override fun skipChildProcessingWhenBuildingStubs(parent: ASTNode, node: ASTNode): Boolean {
-			return node.elementType != PROPERTY
+			//仅包括property
+			val type = node.elementType
+			return type != PROPERTY
 		}
 	}
 }

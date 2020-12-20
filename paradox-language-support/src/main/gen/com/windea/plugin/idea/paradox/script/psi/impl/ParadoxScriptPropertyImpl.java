@@ -76,9 +76,4 @@ public class ParadoxScriptPropertyImpl extends ParadoxScriptStubElementImpl<Para
     return ParadoxScriptPsiImplUtil.getValue(this);
   }
 
-  @Override
-  public boolean isRootProperty() {
-    return ParadoxScriptPsiImplUtil.isRootProperty(this);
-  }
-
 }

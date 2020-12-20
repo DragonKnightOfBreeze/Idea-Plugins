@@ -39,23 +39,33 @@ fun isPreviousComment(element: PsiElement): Boolean {
 	return elementType == ParadoxLocalisationTypes.COMMENT || elementType == ParadoxScriptTypes.COMMENT
 }
 
-/**是否是非法的属性名。*/
+/**是否是顶级的脚本属性。*/
+val ParadoxScriptProperty.isRootProperty:Boolean
+	get() = this.parent is ParadoxScriptRootBlock && this.paradoxType != null
+
+/**
+ * 是否是非法的属性名。
+ */
 val String.isInvalidPropertyName: Boolean
-	get() {
-		return this.containsBlank() || this.isNumber() || this == "null"
-	}
+	get() = this.containsBlank() || this.isNumber() || this == "null"
 
-/**相对于游戏或模组目录的文件路径。*/
+/**
+ * 相对于游戏或模组目录的文件路径。
+ */
 val PsiElement.paradoxPath: String?
-	get() {
-		return PsiUtilCore.getVirtualFile(this)?.getUserData(paradoxPathKey)
-	}
+	get() = PsiUtilCore.getVirtualFile(this)?.getUserData(paradoxPathKey)
 
-/**相对于游戏或模组目录的文件所在目录路径。*/
+/**
+ * 相对于游戏或模组目录的文件所在目录路径。
+ */
 val PsiElement.paradoxParentPath: String?
-	get() {
-		return PsiUtilCore.getVirtualFile(this)?.getUserData(paradoxParentPathKey)
-	}
+	get() = PsiUtilCore.getVirtualFile(this)?.getUserData(paradoxParentPathKey)
+
+/**
+ * 定义的类型。
+ */
+val PsiElement.paradoxType:String?
+	get() = PsiUtilCore.getVirtualFile(this)?.getUserData(paradoxTypeKey)
 
 //使用stubIndex以提高性能
 

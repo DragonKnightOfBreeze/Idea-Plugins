@@ -72,11 +72,6 @@ object ParadoxScriptPsiImplUtil {
 	fun getValue(element: ParadoxScriptProperty): String? {
 		return element.propertyValue?.text?.unquote()
 	}
-	
-	@JvmStatic
-	fun isRootProperty(element:ParadoxScriptProperty):Boolean{
-		return element.parent is ParadoxScriptRootBlock && !element.paradoxParentPath.isNullOrEmpty()
-	}
 	//endregion
 	
 	//region ParadoxScriptVariableReference

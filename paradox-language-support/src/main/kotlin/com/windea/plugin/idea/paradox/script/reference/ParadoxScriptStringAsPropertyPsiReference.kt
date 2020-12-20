@@ -23,6 +23,7 @@ class ParadoxScriptStringAsPropertyPsiReference(
 	
 	override fun resolve(): PsiElement? {
 		if(state.resolveScriptReferences) {
+			//查找的顺序：脚本属性，推断语言区域的本地化属性，所有语言区域的本地化属性
 			return findScriptProperty(name, project, scope)
 			       ?: findLocalisationProperty(name, project, inferredParadoxLocale, scope)
 			       ?: findLocalisationProperty(name, project,null,scope)
@@ -32,9 +33,11 @@ class ParadoxScriptStringAsPropertyPsiReference(
 	
 	override fun multiResolve(incompleteCode: Boolean): Array<out ResolveResult> {
 		if(state.resolveScriptReferences) {
-			return findScriptProperties(name, project,scope).ifEmpty {
-				findLocalisationProperties(name, project,null,scope)
-			}.mapArray { PsiElementResolveResult(it) }
+			//查找的顺序：脚本属性，推断语言区域的本地化属性，所有语言区域的本地化属性
+			return findScriptProperties(name, project,scope)
+				.ifEmpty { findLocalisationProperties(name, project,inferredParadoxLocale,scope) }
+				.ifEmpty{ findLocalisationProperties(name, project,null,scope) }
+				.mapArray { PsiElementResolveResult(it) }
 		}
 		return ResolveResult.EMPTY_ARRAY
 	}

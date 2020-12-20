@@ -75,22 +75,20 @@ class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
 			
 			if(state.renderLocalisationText) {
 				//过滤例外情况
-				if(element.parent !is ParadoxScriptRootBlock || element.paradoxParentPath.isNullOrEmpty()) return@buildString
-				//过滤非法情况
-				if(name.isInvalidPropertyName) return@buildString
-				
-				//添加额外内容到文档注释中
-				val sectionMap = getPropertyDocSectionMap(element, name, project)
-				if(sectionMap.isNotEmpty()) {
-					append(DocumentationMarkup.SECTIONS_START)
-					for((k, v) in sectionMap) {
-						append(DocumentationMarkup.SECTION_HEADER_START)
-						append(k).append(" ")
-						append(DocumentationMarkup.SECTION_SEPARATOR).append("<p>")
-						append(v)
-						append(DocumentationMarkup.SECTION_END)
+				if(element.isRootProperty && !name.isInvalidPropertyName) {
+					//添加额外内容到文档注释中
+					val sectionMap = getPropertyDocSectionMap(element, name, project)
+					if(sectionMap.isNotEmpty()) {
+						append(DocumentationMarkup.SECTIONS_START)
+						for((k, v) in sectionMap) {
+							append(DocumentationMarkup.SECTION_HEADER_START)
+							append(k).append(" ")
+							append(DocumentationMarkup.SECTION_SEPARATOR).append("<p>")
+							append(v)
+							append(DocumentationMarkup.SECTION_END)
+						}
+						append(DocumentationMarkup.SECTIONS_END)
 					}
-					append(DocumentationMarkup.SECTIONS_END)
 				}
 			}
 		}

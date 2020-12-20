@@ -19,19 +19,22 @@ class ParadoxScriptVariablePsiReference(
 	}
 	
 	override fun resolve(): ParadoxScriptVariable? {
-		val file = element.containingFile?:return null
-		return findScriptVariableInFile(name,file) ?: findScriptVariable(name, project,scope)
+		val file = element.containingFile ?: return null
+		//首先尝试从当前文档中查找引用
+		findScriptVariableInFile(name, file)?.let { return it }
+		//然后从全局范围中查找引用
+		return findScriptVariable(name, project, scope)
 	}
-
+	
 	override fun multiResolve(incompleteCode: Boolean): Array<out ResolveResult> {
 		//首先尝试从当前文档中查找引用
-		resolve()?.let{  return arrayOf(PsiElementResolveResult(it)) }
+		resolve()?.let { return arrayOf(PsiElementResolveResult(it)) }
 		//然后从全局范围中查找引用
 		return findScriptVariables(name, project, scope).mapArray { PsiElementResolveResult(it) }
 	}
-
+	
 	override fun getVariants(): Array<out Any> {
-		return findScriptVariables(project,scope).mapArray {
+		return findScriptVariables(project, scope).mapArray {
 			LookupElementBuilder.create(it.name).withIcon(it.getIcon(0)).withTypeText(it.containingFile.name).withPsiElement(it)
 		}
 	}

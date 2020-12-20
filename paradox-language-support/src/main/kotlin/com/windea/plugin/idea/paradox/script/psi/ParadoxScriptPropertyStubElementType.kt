@@ -7,7 +7,7 @@ import com.intellij.util.*
 import com.windea.plugin.idea.paradox.script.*
 import com.windea.plugin.idea.paradox.script.psi.impl.*
 
-class ParadoxScriptPropertyStubElementType() : ILightStubElementType<ParadoxScriptPropertyStub, ParadoxScriptProperty>(
+class ParadoxScriptPropertyStubElementType : ILightStubElementType<ParadoxScriptPropertyStub, ParadoxScriptProperty>(
 	"PARADOX_SCRIPT_PROPERTY",
 	ParadoxScriptLanguage
 ) {

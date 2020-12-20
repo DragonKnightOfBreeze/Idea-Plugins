@@ -143,22 +143,21 @@ class ParadoxScriptAnnotator : Annotator, DumbAware {
 		val project = element.project
 		
 		//过滤例外情况
-		if(element.parent !is ParadoxScriptRootBlock || element.paradoxParentPath.isNullOrEmpty()) return
-		if(name.isInvalidPropertyName) return
-		
-		//注明所有同名的属性
-		holder.newSilentAnnotation(INFORMATION)
-			.gutterIconRenderer(ScriptPropertyGutterIconRenderer(name, project))
-			.create()
-		
-		if(state.resolveScriptReferences) {
-			//注明所有关联的本地化属性（如果存在）
-			val relatedLocalisationProperties = findRelatedLocalisationProperties(name, project).toTypedArray()
-			if(relatedLocalisationProperties.isNotEmpty()) {
-				val names = relatedLocalisationProperties.mapTo(linkedSetOf()) { it.name }.toTypedArray()
-				holder.newSilentAnnotation(INFORMATION)
-					.gutterIconRenderer(RelatedLocalisationPropertiesGutterIconRenderer(names, relatedLocalisationProperties))
-					.create()
+		if(element.isRootProperty && !name.isInvalidPropertyName) {
+			//注明所有同名的属性
+			holder.newSilentAnnotation(INFORMATION)
+				.gutterIconRenderer(ScriptPropertyGutterIconRenderer(name, project))
+				.create()
+			
+			if(state.resolveScriptReferences) {
+				//注明所有关联的本地化属性（如果存在）
+				val relatedLocalisationProperties = findRelatedLocalisationProperties(name, project).toTypedArray()
+				if(relatedLocalisationProperties.isNotEmpty()) {
+					val names = relatedLocalisationProperties.mapTo(linkedSetOf()) { it.name }.toTypedArray()
+					holder.newSilentAnnotation(INFORMATION)
+						.gutterIconRenderer(RelatedLocalisationPropertiesGutterIconRenderer(names, relatedLocalisationProperties))
+						.create()
+				}
 			}
 		}
 	}

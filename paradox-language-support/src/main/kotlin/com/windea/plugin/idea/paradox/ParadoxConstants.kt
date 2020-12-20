@@ -87,6 +87,7 @@ val stellarisIcon = IconLoader.findIcon("icons/stellaris.png")!!
 
 val paradoxPathKey = Key<String>("paradoxPath")
 val paradoxParentPathKey = Key<String>("paradoxParentPath")
+val paradoxTypeKey = Key<String>("paradoxType")
 
 //Caches
 

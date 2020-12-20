@@ -60,12 +60,24 @@ class ParadoxFileTypeOverrider : FileTypeOverrider {
 	private fun putUserData(file: VirtualFile, path: String) {
 		try {
 			if(file.isValid) {
-				val parentPath = path.substringBeforeLast('/', "")
 				file.putUserData(paradoxPathKey, path)
-				file.putUserData(paradoxParentPathKey, parentPath)
+				file.putUserData(paradoxParentPathKey, getParentPath(path))
+				file.putUserData(paradoxTypeKey,getType(file))
 			}
 		} catch(e: Exception) {
 		
+		}
+	}
+	
+	private fun getParentPath(path: String): String {
+		return path.substringBeforeLast('/', "")
+	}
+	
+	private fun getType(file:VirtualFile):String?{
+		val name = file.name
+		return when{
+			name.equals(descriptorName,true) -> null
+			else -> "" //TODO
 		}
 	}
 	
@@ -74,6 +86,7 @@ class ParadoxFileTypeOverrider : FileTypeOverrider {
 			if(file.isValid) {
 				file.putUserData(paradoxPathKey, null)
 				file.putUserData(paradoxParentPathKey, null)
+				file.putUserData(paradoxTypeKey,null)
 			}
 		} catch(e: Exception) {
 		
