@@ -2,7 +2,7 @@
 
 ## 类型
 
-* `integer` - 整数类型
+* `int` - 整数类型
 * `float` - 小数类型
 * `boolean` - 布尔类型
 * `string` - 字符串类型

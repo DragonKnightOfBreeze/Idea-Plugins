@@ -4,11 +4,14 @@ import com.intellij.lang.documentation.*
 import com.intellij.psi.*
 import com.windea.plugin.idea.paradox.*
 import com.windea.plugin.idea.paradox.localisation.psi.*
+import com.windea.plugin.idea.paradox.settings.*
 
 class ParadoxLocalisationDocumentationProvider : AbstractDocumentationProvider() {
 	companion object{
 		private val textTitle = message("paradox.documentation.text")
 	}
+	
+	private val state = ParadoxSettingsState.getInstance()
 	
 	override fun getQuickNavigateInfo(element: PsiElement?, originalElement: PsiElement?): String? {
 		return when {
@@ -48,16 +51,18 @@ class ParadoxLocalisationDocumentationProvider : AbstractDocumentationProvider()
 				append(DocumentationMarkup.CONTENT_END)
 			}
 			
-			//添加渲染后的值的文本到文档注释中
-			val propertyValue = element.propertyValue
-			if(propertyValue != null) {
-				append(DocumentationMarkup.SECTIONS_START)
-				append(DocumentationMarkup.SECTION_HEADER_START)
-				append(textTitle).append(" ")
-				append(DocumentationMarkup.SECTION_SEPARATOR).append("<p>")
-				propertyValue.renderRichTextTo(this)
-				append(DocumentationMarkup.SECTION_END)
-				append(DocumentationMarkup.SECTIONS_END)
+			if(state.renderLocalisationText) {
+				//添加渲染后的值的文本到文档注释中
+				val propertyValue = element.propertyValue
+				if(propertyValue != null) {
+					append(DocumentationMarkup.SECTIONS_START)
+					append(DocumentationMarkup.SECTION_HEADER_START)
+					append(textTitle).append(" ")
+					append(DocumentationMarkup.SECTION_SEPARATOR).append("<p>")
+					propertyValue.renderRichTextTo(this)
+					append(DocumentationMarkup.SECTION_END)
+					append(DocumentationMarkup.SECTIONS_END)
+				}
 			}
 		}
 	}

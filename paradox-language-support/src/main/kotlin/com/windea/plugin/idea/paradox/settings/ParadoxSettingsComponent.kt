@@ -5,19 +5,34 @@ import com.windea.plugin.idea.paradox.*
 import javax.swing.*
 
 class ParadoxSettingsComponent {
-	companion object{
+	companion object {
 		private val performanceTitle = message("paradox.settings.performance")
-		private val resolveReferencesName = message("paradox.settings.resolveReferences")
-		private val validateScriptName = message("paradox.settings.validateScripts")
+		private val resolveScriptReferencesName = message("paradox.settings.performance.resolveScriptReferences")
+		private val resolveScriptReferencesComment = message("paradox.settings.performance.resolveScriptReferences.comment")
+		private val validateScriptName = message("paradox.settings.performance.validateScript")
+		private val validateScriptComment = message("paradox.settings.performance.validateScript.comment")
+		private val renderLocalisationText = message("paradox.settings.performance.renderLocalisationText")
+		private val renderLocalisationTextComment = message("paradox.settings.performance.renderLocalisationText.comment")
 	}
 	
-	lateinit var resolveReferencesCheckBox: JCheckBox
-	lateinit var validateScriptsCheckBox: JCheckBox
+	lateinit var resolveScriptReferencesCheckBox: JCheckBox
+	lateinit var validateScriptCheckBox: JCheckBox
+	lateinit var renderLocalisationTextCheckBox: JCheckBox
 	
 	val panel = panel {
 		titledRow(performanceTitle) {
-			resolveReferencesCheckBox = checkBox(resolveReferencesName, true).withLeftGap().component
-			validateScriptsCheckBox = checkBox(validateScriptName, true).withLeftGap().component
+			row {
+				checkBox(resolveScriptReferencesName, true, resolveScriptReferencesComment)
+					.apply { resolveScriptReferencesCheckBox = component }
+			}
+			row {
+				checkBox(validateScriptName, true, validateScriptComment)
+					.apply { validateScriptCheckBox = component }
+			}
+			row {
+				checkBox(renderLocalisationText, true, renderLocalisationTextComment)
+					.apply { renderLocalisationTextCheckBox = component }
+			}
 		}
 	}
 }

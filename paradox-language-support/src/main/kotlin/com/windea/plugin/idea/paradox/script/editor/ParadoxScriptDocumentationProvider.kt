@@ -7,6 +7,7 @@ import com.windea.plugin.idea.paradox.*
 import com.windea.plugin.idea.paradox.localisation.*
 import com.windea.plugin.idea.paradox.script.highlighter.*
 import com.windea.plugin.idea.paradox.script.psi.*
+import com.windea.plugin.idea.paradox.settings.*
 import org.jetbrains.annotations.*
 
 class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
@@ -15,6 +16,8 @@ class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
 		 private val effectTitle =  message("paradox.documentation.effect")
 		 private val tagsTitle =  message("paradox.documentation.tags")
 	}
+	
+	private val state = ParadoxSettingsState.getInstance()
 	
 	override fun getQuickNavigateInfo(element: PsiElement?, originalElement: PsiElement?): String? {
 		return when(element) {
@@ -62,6 +65,7 @@ class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
 			append("(script property) <b>${name}</b> = ${getPropertyValueText(element)}")
 			append(DocumentationMarkup.DEFINITION_END)
 			
+			//添加先前的行注释的文本到文档注释中
 			val docCommentText = getDocCommentTextFromPreviousComment(element)
 			if(docCommentText.isNotEmpty()) {
 				append(DocumentationMarkup.CONTENT_START)
@@ -69,24 +73,25 @@ class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
 				append(DocumentationMarkup.CONTENT_END)
 			}
 			
-			//过滤例外情况
-			if(element.parent !is ParadoxScriptRootBlock || element.paradoxParentPath.isNullOrEmpty()) return@buildString
-			//过滤非法情况
-			if(name.isInvalidPropertyName) return@buildString
-			
-			//添加额外内容到文档注释中
-			val sectionMap = getPropertyDocSectionMap(element, name, project)
-			
-			if(sectionMap.isNotEmpty()){
-				append(DocumentationMarkup.SECTIONS_START)
-				for((k,v) in sectionMap) {
-					append(DocumentationMarkup.SECTION_HEADER_START)
-					append(k).append(" ")
-					append(DocumentationMarkup.SECTION_SEPARATOR).append("<p>")
-					append(v)
-					append(DocumentationMarkup.SECTION_END)
+			if(state.renderLocalisationText) {
+				//过滤例外情况
+				if(element.parent !is ParadoxScriptRootBlock || element.paradoxParentPath.isNullOrEmpty()) return@buildString
+				//过滤非法情况
+				if(name.isInvalidPropertyName) return@buildString
+				
+				//添加额外内容到文档注释中
+				val sectionMap = getPropertyDocSectionMap(element, name, project)
+				if(sectionMap.isNotEmpty()) {
+					append(DocumentationMarkup.SECTIONS_START)
+					for((k, v) in sectionMap) {
+						append(DocumentationMarkup.SECTION_HEADER_START)
+						append(k).append(" ")
+						append(DocumentationMarkup.SECTION_SEPARATOR).append("<p>")
+						append(v)
+						append(DocumentationMarkup.SECTION_END)
+					}
+					append(DocumentationMarkup.SECTIONS_END)
 				}
-				append(DocumentationMarkup.SECTIONS_END)
 			}
 		}
 	}

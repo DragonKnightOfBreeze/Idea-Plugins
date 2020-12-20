@@ -58,7 +58,7 @@ object ParadoxIconUrlResolver {
 				val url = doResolveUrl(name)
 				urlCache[name] = url
 			}catch(e: Exception){
-				e.printStackTrace()
+				//e.printStackTrace()
 				//如果出现异常，那么继续尝试
 				//urlCache[name] = ""
 			}

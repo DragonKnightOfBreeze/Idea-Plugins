@@ -22,7 +22,7 @@ class ParadoxScriptStringAsPropertyPsiReference(
 	}
 	
 	override fun resolve(): PsiElement? {
-		if(state.resolveReferences) {
+		if(state.resolveScriptReferences) {
 			return findScriptProperty(name, project, scope)
 			       ?: findLocalisationProperty(name, project, inferredParadoxLocale, scope)
 			       ?: findLocalisationProperty(name, project,null,scope)
@@ -31,7 +31,7 @@ class ParadoxScriptStringAsPropertyPsiReference(
 	}
 	
 	override fun multiResolve(incompleteCode: Boolean): Array<out ResolveResult> {
-		if(ParadoxSettingsState.getInstance().resolveReferences) {
+		if(state.resolveScriptReferences) {
 			return findScriptProperties(name, project,scope).ifEmpty {
 				findLocalisationProperties(name, project,null,scope)
 			}.mapArray { PsiElementResolveResult(it) }
@@ -39,4 +39,3 @@ class ParadoxScriptStringAsPropertyPsiReference(
 		return ResolveResult.EMPTY_ARRAY
 	}
 }
-

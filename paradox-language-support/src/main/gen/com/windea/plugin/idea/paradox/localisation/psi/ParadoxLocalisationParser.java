@@ -140,12 +140,13 @@ public class ParadoxLocalisationParser implements PsiParser, LightPsiParser {
   // PARAMETER_SEPARATOR [ICON_PARAMETER]
   private static boolean icon_2_0(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "icon_2_0")) return false;
-    boolean r;
-    Marker m = enter_section_(b);
+    boolean r, p;
+    Marker m = enter_section_(b, l, _NONE_);
     r = consumeToken(b, PARAMETER_SEPARATOR);
+    p = r; // pin = 1
     r = r && icon_2_0_1(b, l + 1);
-    exit_section_(b, m, null, r);
-    return r;
+    exit_section_(b, l, m, r, p, null);
+    return r || p;
   }
 
   // [ICON_PARAMETER]
@@ -258,12 +259,13 @@ public class ParadoxLocalisationParser implements PsiParser, LightPsiParser {
   // PARAMETER_SEPARATOR [PROPERTY_REFERENCE_PARAMETER]
   private static boolean property_reference_2_0(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "property_reference_2_0")) return false;
-    boolean r;
-    Marker m = enter_section_(b);
+    boolean r, p;
+    Marker m = enter_section_(b, l, _NONE_);
     r = consumeToken(b, PARAMETER_SEPARATOR);
+    p = r; // pin = 1
     r = r && property_reference_2_0_1(b, l + 1);
-    exit_section_(b, m, null, r);
-    return r;
+    exit_section_(b, l, m, r, p, null);
+    return r || p;
   }
 
   // [PROPERTY_REFERENCE_PARAMETER]
@@ -289,13 +291,14 @@ public class ParadoxLocalisationParser implements PsiParser, LightPsiParser {
   public static boolean property_value(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "property_value")) return false;
     if (!nextTokenIs(b, LEFT_QUOTE)) return false;
-    boolean r;
-    Marker m = enter_section_(b);
+    boolean r, p;
+    Marker m = enter_section_(b, l, _NONE_, PROPERTY_VALUE, null);
     r = consumeToken(b, LEFT_QUOTE);
-    r = r && property_value_1(b, l + 1);
-    r = r && consumeToken(b, RIGHT_QUOTE);
-    exit_section_(b, m, PROPERTY_VALUE, r);
-    return r;
+    p = r; // pin = 1
+    r = r && report_error_(b, property_value_1(b, l + 1));
+    r = p && consumeToken(b, RIGHT_QUOTE) && r;
+    exit_section_(b, l, m, r, p, null);
+    return r || p;
   }
 
   // rich_text *
