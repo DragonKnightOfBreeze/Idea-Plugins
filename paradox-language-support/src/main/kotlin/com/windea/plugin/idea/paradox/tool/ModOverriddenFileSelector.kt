@@ -1,4 +1,4 @@
-package com.windea.plugin.idea.paradox.util
+package com.windea.plugin.idea.paradox.tool
 
 import com.windea.plugin.idea.paradox.*
 import java.io.*

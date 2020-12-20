@@ -22,7 +22,7 @@ prescripted_country:
     class: $species_class
     portrait: $portrait | $portrait_group
     name: $localisation_synced
-    plural: $localisation_synced
+    plural: $localisa/tion_synced
     adjective: $localisation_synced
     name_list: $name_list
     trait*: $trait.species_trait

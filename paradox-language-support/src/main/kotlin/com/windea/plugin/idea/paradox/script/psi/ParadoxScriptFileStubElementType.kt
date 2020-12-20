@@ -19,7 +19,7 @@ class ParadoxScriptFileStubElementType : IStubFileElementType<PsiFileStub<*>>(Pa
 	}
 	
 	override fun shouldBuildStubFor(file: VirtualFile?): Boolean {
-		return file?.name != descriptorName
+		return file?.paradoxType != null
 	}
 	
 	class Builder : DefaultStubBuilder() {

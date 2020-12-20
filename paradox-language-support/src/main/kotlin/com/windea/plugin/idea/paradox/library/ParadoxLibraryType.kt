@@ -41,7 +41,7 @@ abstract class ParadoxLibraryType(
 	private fun getLibraryName(file: VirtualFile, project: Project): String? {
 		for(child in file.children) {
 			when {
-				child.name.equals(descriptorName, true) -> {
+				child.name.equals(descriptorFileName, true) -> {
 					val text = child.inputStream.reader().use { it.readText() }
 					for(line in text.lines()) {
 						if(line.startsWith("name")) {
@@ -50,7 +50,7 @@ abstract class ParadoxLibraryType(
 					}
 					return file.nameWithoutExtension
 				}
-				child.name.startsWith(type, true) && child.extension.equals("exe", true) -> {
+				child.nameWithoutExtension.equals(type, true) && child.extension.equals("exe", true) -> {
 					return stdlibName
 				}
 			}

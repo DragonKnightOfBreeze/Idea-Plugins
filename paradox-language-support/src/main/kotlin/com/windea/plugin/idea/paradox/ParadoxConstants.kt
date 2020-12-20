@@ -55,9 +55,14 @@ val inferredParadoxLocale = when(System.getProperty("user.language")){
 	else -> ParadoxLocale.ENGLISH
 }
 
-val cannotRenameMessage = message("paradox.message.cannotRename")
+const val descriptorFileName = "descriptor.mod"
+const val ruleMarkerFileName = ".paradoxRules"
+const val readmeFileName = "readme.txt"
+const val changelogFileName = "changelog.txt"
+const val creditsFileName = "credits.txt"
+const val licenseFileName = "license.txt"
+val ignoredFileNames = arrayOf(readmeFileName,changelogFileName,creditsFileName,licenseFileName)
 
-const val descriptorName = "descriptor.mod"
 const val stdlibName = "Stdlib"
 const val paradoxName = "Paradox"
 
@@ -88,22 +93,3 @@ val stellarisIcon = IconLoader.findIcon("icons/stellaris.png")!!
 val paradoxPathKey = Key<String>("paradoxPath")
 val paradoxParentPathKey = Key<String>("paradoxParentPath")
 val paradoxTypeKey = Key<String>("paradoxType")
-
-//Caches
-
-val rootDirectoryCache = ConcurrentHashMap<String,VirtualFile>()
-
-val localisationLocaleCache = ConcurrentHashMap<Project, Array<ParadoxLocalisationLocale>>()
-fun MutableMap<Project, Array<ParadoxLocalisationLocale>>.register(project: Project) = this.getOrPut(project) {
-	ParadoxLocale.keys.mapArray { e -> ParadoxLocalisationElementFactory.createLocale(project, e) }
-}
-
-val localisationSerialNumberCache = ConcurrentHashMap<Project, Array<ParadoxLocalisationSerialNumber>>()
-fun MutableMap<Project, Array<ParadoxLocalisationSerialNumber>>.register(project: Project) = this.getOrPut(project) {
-	ParadoxSerialNumber.keys.mapArray { e -> ParadoxLocalisationElementFactory.createSerialNumber(project, e) }
-}
-
-val localisationColorfulTextCache = ConcurrentHashMap<Project, Array<ParadoxLocalisationColorfulText>>()
-fun MutableMap<Project, Array<ParadoxLocalisationColorfulText>>.register(project: Project) = this.getOrPut(project) {
-	ParadoxColor.keys.mapArray { e -> ParadoxLocalisationElementFactory.createColorfulText(project, e) }
-}

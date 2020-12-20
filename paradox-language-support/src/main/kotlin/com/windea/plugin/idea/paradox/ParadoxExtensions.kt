@@ -23,7 +23,7 @@ fun getDocCommentTextFromPreviousComment(element: PsiElement): String {
 		val text = prevElement.text
 		if(prevElement !is PsiWhiteSpace) {
 			if(!isPreviousComment(prevElement)) break
-			lines.add(0,text.trimStart('#').trim())
+			lines.add(0, text.trimStart('#').trim())
 		} else {
 			if(text.containsBlankLine()) break
 		}
@@ -40,7 +40,7 @@ fun isPreviousComment(element: PsiElement): Boolean {
 }
 
 /**是否是顶级的脚本属性。*/
-val ParadoxScriptProperty.isRootProperty:Boolean
+val ParadoxScriptProperty.isRootProperty: Boolean
 	get() = this.parent is ParadoxScriptRootBlock && this.paradoxType != null
 
 /**
@@ -64,8 +64,28 @@ val PsiElement.paradoxParentPath: String?
 /**
  * 定义的类型。
  */
-val PsiElement.paradoxType:String?
+val PsiElement.paradoxType: String?
 	get() = PsiUtilCore.getVirtualFile(this)?.getUserData(paradoxTypeKey)
+
+/**
+ * 相对于游戏或模组目录的文件路径。
+ */
+val VirtualFile.paradoxPath: String?
+	get() = this.getUserData(paradoxPathKey)
+
+/**
+ * 相对于游戏或模组目录的文件所在目录路径。
+ */
+val VirtualFile.paradoxParentPath: String?
+	get() = this.getUserData(paradoxParentPathKey)
+
+/**
+ * 定义的类型。
+ */
+val VirtualFile.paradoxType: String?
+	get() = this.getUserData(paradoxTypeKey)
+
+//查找方法
 
 //使用stubIndex以提高性能
 

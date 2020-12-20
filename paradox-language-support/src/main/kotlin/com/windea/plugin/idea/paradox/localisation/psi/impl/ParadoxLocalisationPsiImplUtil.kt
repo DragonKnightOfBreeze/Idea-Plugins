@@ -28,7 +28,7 @@ object ParadoxLocalisationPsiImplUtil {
 	
 	@JvmStatic
 	fun setName(element: ParadoxLocalisationLocale, name: String): PsiElement {
-		throw IncorrectOperationException(cannotRenameMessage)
+		throw IncorrectOperationException(message("paradox.message.cannotRename"))
 	}
 	
 	@JvmStatic
@@ -176,7 +176,7 @@ object ParadoxLocalisationPsiImplUtil {
 	
 	@JvmStatic
 	fun setName(element: ParadoxLocalisationSerialNumber, name: String): PsiElement {
-		throw IncorrectOperationException(cannotRenameMessage)
+		throw IncorrectOperationException(message("paradox.message.cannotRename"))
 	}
 	
 	@JvmStatic
@@ -203,7 +203,7 @@ object ParadoxLocalisationPsiImplUtil {
 	
 	@JvmStatic
 	fun setName(element: ParadoxLocalisationColorfulText, name: String): PsiElement {
-		throw IncorrectOperationException(cannotRenameMessage)
+		throw IncorrectOperationException(message("paradox.message.cannotRename"))
 	}
 	
 	@JvmStatic
