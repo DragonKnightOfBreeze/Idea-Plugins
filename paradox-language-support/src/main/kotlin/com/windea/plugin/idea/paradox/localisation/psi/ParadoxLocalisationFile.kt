@@ -2,9 +2,8 @@ package com.windea.plugin.idea.paradox.localisation.psi
 
 import com.intellij.extapi.psi.*
 import com.intellij.psi.*
-import com.intellij.psi.stubs.*
-import com.windea.plugin.idea.paradox.*
 import com.windea.plugin.idea.paradox.localisation.*
+import com.windea.plugin.idea.paradox.model.*
 
 class ParadoxLocalisationFile(
 	viewProvider: FileViewProvider

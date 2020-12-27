@@ -144,7 +144,7 @@ object ParadoxScriptPsiImplUtil {
 	@JvmStatic
 	fun getReference(element: ParadoxScriptString): ParadoxScriptStringAsPropertyPsiReference? {
 		//过滤非法的情况
-		if(element.value.isInvalidPropertyName) return null
+		if(element.value.isInvalidPropertyName()) return null
 		return ParadoxScriptStringAsPropertyPsiReference(element, TextRange(0, element.textLength))
 	}
 	//endregion

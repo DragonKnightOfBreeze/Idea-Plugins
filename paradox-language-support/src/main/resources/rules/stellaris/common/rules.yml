@@ -1,0 +1,35 @@
+types:
+  type[ambient_object]:
+    path: "/common/ambient_objects"
+    subtype[show_name]:
+      show_name: yes
+    localisation:
+      sybtype[show_name]:
+        ### required
+        name!: "$"
+    subtype[selectable]:
+      selectable: yes
+
+  type[asteroid_belt]:
+    path: "/common/asteroid_belt"
+
+  type[attitude]:
+    path: "/common/attitudes"
+    localisation:
+      ### required
+      name!: "attribute_$"
+
+  type[button_effect]:
+    path: "/common/button_effects"
+
+  type[country_customization]:
+    path: "/common/country_customization"
+
+  type[system_type]:
+    path: "/common/system_types"
+    localisation:
+      ### required
+      name: "$"
+
+  type[start_screen_message]:
+    path: "/common/start_screen_messages"

@@ -1,10 +1,7 @@
 package com.windea.plugin.idea.paradox
 
-import com.intellij.openapi.project.*
 import com.intellij.openapi.util.*
-import com.intellij.openapi.vfs.*
-import com.windea.plugin.idea.paradox.localisation.psi.*
-import java.util.concurrent.*
+import com.windea.plugin.idea.paradox.model.*
 
 //Strings
 
@@ -36,9 +33,8 @@ val booleanValues = arrayOf("yes", "no")
 
 const val paradoxBundleName = "messages.ParadoxBundle"
 
-val fileExtensions = arrayOf("yml","yaml", "txt", "mod", "gui", "gfx", "asset")
 val localisationFileExtensions = arrayOf("yml", "yaml")
-val scriptFileExtensions = arrayOf("txt", "mod", "gfx", "gui", "asset")
+val scriptFileExtensions = arrayOf("txt", "mod", "gfx", "gui", "asset","cwt") //兼容cwtools的规则文件*.cwt
 
 const val paradoxwikisUrl="https://paradox.paradoxwikis.com"
 const val huijiwikiUrl = "https://qunxing.huijiwiki.com"
@@ -56,7 +52,7 @@ val inferredParadoxLocale = when(System.getProperty("user.language")){
 }
 
 const val descriptorFileName = "descriptor.mod"
-const val ruleMarkerFileName = ".paradoxRules"
+
 const val readmeFileName = "readme.txt"
 const val changelogFileName = "changelog.txt"
 const val creditsFileName = "credits.txt"
@@ -69,6 +65,7 @@ const val paradoxName = "Paradox"
 const val stellarisName = "Stellaris"
 val gameNames = arrayOf(stellarisName)
 //TODO Other Games
+
 //Icons
 
 val paradoxLocalisationFileIcon = IconLoader.findIcon("/icons/paradoxLocalisationFile.svg")!!
@@ -88,8 +85,10 @@ val scriptPropertyGutterIcon = paradoxScriptPropertyIcon.resize(12, 12)
 
 val stellarisIcon = IconLoader.findIcon("icons/stellaris.png")!!
 //TODO Other Games
+
 //Keys
 
-val paradoxPathKey = Key<String>("paradoxPath")
-val paradoxParentPathKey = Key<String>("paradoxParentPath")
-val paradoxTypeKey = Key<String>("paradoxType")
+val paradoxFileTypeKey = Key<ParadoxFileType>("paradoxFileType")
+val paradoxRootTypeKey = Key<ParadoxRootType>("paradoxRootType")
+val paradoxPathKey = Key<ParadoxPath>("paradoxPath")
+val paradoxPropertyPathKey = Key<ParadoxPath>("paradoxPropertyPath")

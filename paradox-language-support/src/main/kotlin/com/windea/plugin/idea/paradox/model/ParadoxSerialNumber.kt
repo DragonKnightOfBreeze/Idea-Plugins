@@ -1,4 +1,6 @@
-package com.windea.plugin.idea.paradox
+package com.windea.plugin.idea.paradox.model
+
+import com.windea.plugin.idea.paradox.*
 
 /**
  * 本地化文件的编号枚举

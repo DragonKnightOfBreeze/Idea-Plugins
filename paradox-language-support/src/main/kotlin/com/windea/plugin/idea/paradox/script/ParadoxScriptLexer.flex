@@ -1,6 +1,7 @@
 package com.windea.plugin.idea.paradox.script.psi;
 
 import com.intellij.lexer.FlexLexer;
+import com.intellij.psi.TokenType;
 import com.intellij.psi.tree.IElementType;
 
 import static com.intellij.psi.TokenType.*;

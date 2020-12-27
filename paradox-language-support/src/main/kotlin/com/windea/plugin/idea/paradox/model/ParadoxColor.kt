@@ -1,6 +1,7 @@
-package com.windea.plugin.idea.paradox
+package com.windea.plugin.idea.paradox.model
 
 import com.intellij.util.ui.*
+import com.windea.plugin.idea.paradox.*
 import java.awt.*
 
 /**

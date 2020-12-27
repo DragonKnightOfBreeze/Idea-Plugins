@@ -75,7 +75,7 @@ class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
 			
 			if(state.renderLocalisationText) {
 				//过滤例外情况
-				if(element.isRootProperty && !name.isInvalidPropertyName) {
+				if(element.isRootProperty() && !name.isInvalidPropertyName()) {
 					//添加额外内容到文档注释中
 					val sectionMap = getPropertyDocSectionMap(element, name, project)
 					if(sectionMap.isNotEmpty()) {

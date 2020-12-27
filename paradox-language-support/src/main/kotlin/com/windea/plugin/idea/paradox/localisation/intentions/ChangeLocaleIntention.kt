@@ -9,6 +9,7 @@ import com.intellij.openapi.ui.popup.util.*
 import com.intellij.psi.*
 import com.windea.plugin.idea.paradox.*
 import com.windea.plugin.idea.paradox.localisation.psi.*
+import com.windea.plugin.idea.paradox.model.*
 
 object ChangeLocaleIntention : IntentionAction {
 	private val name = message("paradox.localisation.intention.changeLocale")

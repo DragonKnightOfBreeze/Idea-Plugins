@@ -143,7 +143,7 @@ class ParadoxScriptAnnotator : Annotator, DumbAware {
 		val project = element.project
 		
 		//过滤例外情况
-		if(element.isRootProperty && !name.isInvalidPropertyName) {
+		if(element.isRootProperty() && !name.isInvalidPropertyName()) {
 			//注明所有同名的属性
 			holder.newSilentAnnotation(INFORMATION)
 				.gutterIconRenderer(ScriptPropertyGutterIconRenderer(name, project))
@@ -166,7 +166,7 @@ class ParadoxScriptAnnotator : Annotator, DumbAware {
 		if(state.resolveScriptReferences) {
 			//过滤非法情况
 			val name = element.value
-			if(name.isInvalidPropertyName) return
+			if(name.isInvalidPropertyName()) return
 			val project = element.project
 			val scope = element.resolveScope
 			

@@ -3,6 +3,7 @@ package com.windea.plugin.idea.paradox
 import com.intellij.openapi.fileTypes.impl.*
 import com.intellij.openapi.vfs.*
 import com.windea.plugin.idea.paradox.localisation.*
+import com.windea.plugin.idea.paradox.model.*
 import com.windea.plugin.idea.paradox.script.*
 
 @Suppress("UnstableApiUsage")
@@ -11,104 +12,84 @@ class ParadoxFileTypeOverrider : FileTypeOverrider {
 	//才有可能将所在目录（以及子目录）下的文件识别为Paradox本地化文件和脚本文件
 	
 	override fun getOverriddenFileType(file: VirtualFile): com.intellij.openapi.fileTypes.FileType? {
-		val overriddenType = getOverriddenType(file) ?: return null
-		val pathList = mutableListOf(file.name)
+		val fileType = getFileType(file) ?: return null
+		val subPaths = mutableListOf(file.name)
 		var currentFile: VirtualFile? = file.parent
 		while(currentFile != null) {
 			//只有能够确定根目录类型的文件才会被解析
-			val rootDirectoryType = getRooDirectoryType(currentFile)
-			if(rootDirectoryType != null) {
-				//规则文件以及描述符文件不会解析路径和类型，因此也不会加入索引（包括cwtools的规则文件*.cwt）
-				if(rootDirectoryType != RootDirectoryType.Rules && file.name != descriptorFileName && file.extension != "cwt") {
-					putUserData(file, pathList)
+			val rootType = getRooType(currentFile)
+			if(rootType != null) {
+				//忽略描述符文件和cwt文件
+				if(file.name != descriptorFileName && file.extension != "cwt") {
+					val path = getPath(subPaths)
+					putUserData(file, fileType,rootType,path)
 				}
-				return when(overriddenType) {
-					FileType.Script -> ParadoxLocalisationFileType
-					FileType.Localisation -> ParadoxScriptFileType
+				return when(fileType) {
+					ParadoxFileType.Script -> ParadoxScriptFileType
+					ParadoxFileType.Localisation -> ParadoxLocalisationFileType
 				}
 			}
-			pathList.add(0,currentFile.name)
+			subPaths.add(0,currentFile.name)
 			currentFile = currentFile.parent
 		}
 		cleanupUserData(file)
 		return null
 	}
 	
-	private fun getOverriddenType(file:VirtualFile): FileType?{
+	private fun getFileType(file:VirtualFile): ParadoxFileType?{
 		if(file.isValid && !file.isDirectory){
 			val fileName = file.name.toLowerCase()
 			val fileExtension = fileName.substringAfterLast('.')
 			return when{
 				fileName in ignoredFileNames -> null //某些特殊名字的文件会被忽略
-				fileExtension in scriptFileExtensions -> FileType.Script
-				fileExtension in localisationFileExtensions -> FileType.Localisation
+				fileExtension in scriptFileExtensions -> ParadoxFileType.Script
+				fileExtension in localisationFileExtensions -> ParadoxFileType.Localisation
 				else -> null
 			}
 		}
 		return null
 	}
 	
-	private fun getRooDirectoryType(file:VirtualFile):RootDirectoryType?{
+	private fun getRooType(file:VirtualFile): ParadoxRootType?{
 		if(!file.isDirectory) return null
 		for(child in file.children) {
 			val name = child.name
 			when{
-				name.equals(descriptorFileName,true) -> return RootDirectoryType.Stdlib
 				gameNames.any { gameName ->
 					file.nameWithoutExtension.equals(gameName, true) && file.extension.equals("exe", true)
-				} -> return RootDirectoryType.Mod
-				name.equals(ruleMarkerFileName,true) -> return RootDirectoryType.Rules
+				} -> return ParadoxRootType.Stdlib
+				name.equals(descriptorFileName,true) -> return ParadoxRootType.Mod
 			}
 		}
 		return null
 	}
 	
-	private fun putUserData(file: VirtualFile, pathList: List<String>) {
+	private fun getPath(subPaths: List<String>): ParadoxPath {
+		return ParadoxPath(subPaths)
+	}
+	
+	private fun putUserData(file: VirtualFile,fileType:ParadoxFileType,rootType:ParadoxRootType,path:ParadoxPath) {
 		try {
 			if(file.isValid) {
-				val name = file.name
-				val parentPathList =  pathList.dropLast(1)
-				val path = getPath(pathList)
-				val parentPath = getParentPath(parentPathList)
-				val type = getType(pathList, parentPathList,name,parentPath)
+				file.putUserData(paradoxFileTypeKey,fileType)
+				file.putUserData(paradoxRootTypeKey,rootType)
 				file.putUserData(paradoxPathKey, path)
-				file.putUserData(paradoxParentPathKey, parentPath)
-				file.putUserData(paradoxTypeKey, type)
 			}
 		} catch(e: Exception) {
-		
+			//e.printStackTrace()
 		}
-	}
-	
-	private fun getPath(pathList: List<String>): String {
-		return pathList.joinToString("/")
-	}
-	
-	private fun getParentPath(parentPathList: List<String>): String {
-		return parentPathList.joinToString("/")
-	}
-	
-	private fun getType(pathList:List<String>,parentPathList:List<String>,name:String,parentPath:String):String?{
-		return "" //TODO
 	}
 	
 	private fun cleanupUserData(file: VirtualFile) {
 		try {
 			if(file.isValid) {
+				file.putUserData(paradoxFileTypeKey,null)
+				file.putUserData(paradoxRootTypeKey,null)
 				file.putUserData(paradoxPathKey, null)
-				file.putUserData(paradoxParentPathKey, null)
-				file.putUserData(paradoxTypeKey,null)
 			}
 		} catch(e: Exception) {
-		
+			//e.printStackTrace()
 		}
 	}
-	
-	enum class FileType{
-		Script,Localisation
-	}
-	
-	enum class RootDirectoryType{
-		Stdlib,Mod,Rules
-	}
 }
+

@@ -6,6 +6,7 @@ import com.intellij.psi.*
 import com.intellij.psi.search.*
 import com.intellij.psi.util.*
 import com.windea.plugin.idea.paradox.localisation.psi.*
+import com.windea.plugin.idea.paradox.model.*
 import com.windea.plugin.idea.paradox.script.psi.*
 import com.windea.plugin.idea.paradox.util.*
 import org.jetbrains.annotations.*
@@ -40,50 +41,33 @@ fun isPreviousComment(element: PsiElement): Boolean {
 }
 
 /**是否是顶级的脚本属性。*/
-val ParadoxScriptProperty.isRootProperty: Boolean
-	get() = this.parent is ParadoxScriptRootBlock && this.paradoxType != null
+fun ParadoxScriptProperty.isRootProperty(): Boolean {
+	return this.parent is ParadoxScriptRootBlock && this.paradoxRootType != null
+}
 
 /**
  * 是否是非法的属性名。
  */
-val String.isInvalidPropertyName: Boolean
-	get() = this.containsBlank() || this.isNumber() || this == "null"
+fun String.isInvalidPropertyName(): Boolean {
+	return this.containsBlank() || this.isNumber() || this == "null"
+}
 
-/**
- * 相对于游戏或模组目录的文件路径。
- */
-val PsiElement.paradoxPath: String?
-	get() = PsiUtilCore.getVirtualFile(this)?.getUserData(paradoxPathKey)
+val VirtualFile.paradoxFileType: ParadoxFileType? get() = this.getUserData(paradoxFileTypeKey)
 
-/**
- * 相对于游戏或模组目录的文件所在目录路径。
- */
-val PsiElement.paradoxParentPath: String?
-	get() = PsiUtilCore.getVirtualFile(this)?.getUserData(paradoxParentPathKey)
+val VirtualFile.paradoxRootType: ParadoxRootType? get() = this.getUserData(paradoxRootTypeKey)
 
-/**
- * 定义的类型。
- */
-val PsiElement.paradoxType: String?
-	get() = PsiUtilCore.getVirtualFile(this)?.getUserData(paradoxTypeKey)
+val VirtualFile.paradoxPath: ParadoxPath? get() = this.getUserData(paradoxPathKey)
 
-/**
- * 相对于游戏或模组目录的文件路径。
- */
-val VirtualFile.paradoxPath: String?
-	get() = this.getUserData(paradoxPathKey)
+val PsiElement.paradoxFileType: ParadoxFileType? get() = this.virtualFile?.paradoxFileType
 
-/**
- * 相对于游戏或模组目录的文件所在目录路径。
- */
-val VirtualFile.paradoxParentPath: String?
-	get() = this.getUserData(paradoxParentPathKey)
+val PsiElement.paradoxRootType: ParadoxRootType? get() = this.virtualFile?.paradoxRootType
 
-/**
- * 定义的类型。
- */
-val VirtualFile.paradoxType: String?
-	get() = this.getUserData(paradoxTypeKey)
+val PsiElement.paradoxPath: ParadoxPath? get() = this.virtualFile?.paradoxPath
+
+//val PsiElement.paradoxPropertyPath:ParadoxPath?
+//	get() {
+//		TODO()
+//	}
 
 //查找方法
 

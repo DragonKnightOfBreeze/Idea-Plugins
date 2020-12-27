@@ -1,4 +1,6 @@
-package com.windea.plugin.idea.paradox
+package com.windea.plugin.idea.paradox.model
+
+import com.windea.plugin.idea.paradox.*
 
 /**
  * 本地化文件的语言区域枚举
@@ -26,3 +28,4 @@ enum class ParadoxLocale(
 		val keys = values().mapArray { it.key }
 	}
 }
+

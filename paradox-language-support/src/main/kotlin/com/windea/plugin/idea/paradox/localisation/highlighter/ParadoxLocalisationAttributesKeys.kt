@@ -3,8 +3,8 @@ package com.windea.plugin.idea.paradox.localisation.highlighter
 import com.intellij.openapi.editor.DefaultLanguageHighlighterColors.*
 import com.intellij.openapi.editor.HighlighterColors.*
 import com.intellij.openapi.editor.colors.TextAttributesKey.*
-import com.windea.plugin.idea.paradox.*
 import com.windea.plugin.idea.paradox.message
+import com.windea.plugin.idea.paradox.model.*
 
 @Suppress("DEPRECATION")
 object ParadoxLocalisationAttributesKeys {
