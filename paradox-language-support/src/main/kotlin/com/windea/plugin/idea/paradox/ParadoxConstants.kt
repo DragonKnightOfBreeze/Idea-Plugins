@@ -1,6 +1,7 @@
 package com.windea.plugin.idea.paradox
 
 import com.intellij.openapi.util.*
+import com.intellij.psi.util.*
 import com.windea.plugin.idea.paradox.model.*
 
 //Strings
@@ -91,4 +92,4 @@ val stellarisIcon = IconLoader.findIcon("icons/stellaris.png")!!
 val paradoxFileTypeKey = Key<ParadoxFileType>("paradoxFileType")
 val paradoxRootTypeKey = Key<ParadoxRootType>("paradoxRootType")
 val paradoxPathKey = Key<ParadoxPath>("paradoxPath")
-val paradoxPropertyPathKey = Key<ParadoxPath>("paradoxPropertyPath")
+val paradoxPropertyPathKey = Key<CachedValue<ParadoxPath>>("paradoxPropertyPath")

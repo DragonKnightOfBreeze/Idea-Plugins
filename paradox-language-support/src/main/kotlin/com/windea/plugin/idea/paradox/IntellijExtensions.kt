@@ -111,14 +111,6 @@ fun selectElement(editor: Editor, element: PsiElement?) {
 	editor.selectionModel.setSelection(range.startOffset, range.endOffset)
 }
 
-//使用CachedValue以提高性能
-//这个过程中避免使用匿名lambda，因为需要检查可相等性
- fun <F : PsiFile, T> getCachedValue(file: F, key: Key<CachedValue<T>>, block: Function<F, T>): T {
-	return CachedValuesManager.getCachedValue(file, key) {
-		CachedValueProvider.Result.create(block.apply(file), file)
-	}
-}
-
 /**
  * 得到处理后的[VirtualFile]，以便查看它的子节点。
  *
