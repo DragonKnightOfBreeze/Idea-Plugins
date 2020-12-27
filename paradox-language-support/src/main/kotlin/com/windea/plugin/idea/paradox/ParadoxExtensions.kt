@@ -56,46 +56,50 @@ val VirtualFile.paradoxFileType: ParadoxFileType? get() = this.getUserData(parad
 
 val VirtualFile.paradoxRootType: ParadoxRootType? get() = this.getUserData(paradoxRootTypeKey)
 
+val VirtualFile.paradoxGameType: ParadoxGameType? get() = this.getUserData(paradoxGameTypeKey)
+
 val VirtualFile.paradoxPath: ParadoxPath? get() = this.getUserData(paradoxPathKey)
 
 val PsiElement.paradoxFileType: ParadoxFileType? get() = this.virtualFile?.paradoxFileType
 
 val PsiElement.paradoxRootType: ParadoxRootType? get() = this.virtualFile?.paradoxRootType
 
+val PsiElement.paradoxGameType: ParadoxGameType? get() = this.virtualFile?.paradoxGameType
+
 val PsiElement.paradoxPath: ParadoxPath? get() = this.virtualFile?.paradoxPath
 
-val PsiElement.paradoxPropertyPath:ParadoxPath? get() = getPropertyPath(this)
+val PsiElement.paradoxPropertyPath: ParadoxPath? get() = getPropertyPath(this)
 
-private fun getPropertyPath(element:PsiElement):ParadoxPath?{
+private fun getPropertyPath(element: PsiElement): ParadoxPath? {
 	return CachedValuesManager.getCachedValue(element, paradoxPropertyPathKey) {
 		val value = resolvePropertyPath(element)
 		CachedValueProvider.Result.create(value)
 	}
 }
 
-private fun resolvePropertyPath(element:PsiElement): ParadoxPath? {
-	return when{
+private fun resolvePropertyPath(element: PsiElement): ParadoxPath? {
+	return when {
 		element is ParadoxScriptProperty || element is ParadoxScriptValue -> {
 			val subPaths = mutableListOf<String>()
 			var current = element
-			while(current !is PsiFile){
-				when{
+			while(current !is PsiFile) {
+				when {
 					current is ParadoxScriptProperty -> {
-						subPaths.add(0,current.name)
+						subPaths.add(0, current.name)
 					}
 					current is ParadoxScriptValue -> {
-						val parent = current.parent?:break
+						val parent = current.parent ?: break
 						if(parent is ParadoxScriptBlock) {
-							subPaths.add(0,parent.indexOfChild(current).toString())
+							subPaths.add(0, parent.indexOfChild(current).toString())
 						}
 						current = parent
 					}
 				}
-				current = current.parent?:break
+				current = current.parent ?: break
 			}
 			ParadoxPath(subPaths)
 		}
-		element is ParadoxLocalisationProperty ->{
+		element is ParadoxLocalisationProperty -> {
 			val subPaths = listOf(element.name)
 			ParadoxPath(subPaths)
 		}

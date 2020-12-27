@@ -22,25 +22,25 @@ class ParadoxFileTypeOverrider : FileTypeOverrider {
 				//忽略描述符文件和cwt文件
 				if(file.name != descriptorFileName && file.extension != "cwt") {
 					val path = getPath(subPaths)
-					putUserData(file, fileType,rootType,path)
+					putUserData(file, fileType, rootType, path)
 				}
 				return when(fileType) {
 					ParadoxFileType.Script -> ParadoxScriptFileType
 					ParadoxFileType.Localisation -> ParadoxLocalisationFileType
 				}
 			}
-			subPaths.add(0,currentFile.name)
+			subPaths.add(0, currentFile.name)
 			currentFile = currentFile.parent
 		}
 		cleanupUserData(file)
 		return null
 	}
 	
-	private fun getFileType(file:VirtualFile): ParadoxFileType?{
-		if(file.isValid && !file.isDirectory){
+	private fun getFileType(file: VirtualFile): ParadoxFileType? {
+		if(file.isValid && !file.isDirectory) {
 			val fileName = file.name.toLowerCase()
 			val fileExtension = fileName.substringAfterLast('.')
-			return when{
+			return when {
 				fileName in ignoredFileNames -> null //某些特殊名字的文件会被忽略
 				fileExtension in scriptFileExtensions -> ParadoxFileType.Script
 				fileExtension in localisationFileExtensions -> ParadoxFileType.Localisation
@@ -50,15 +50,15 @@ class ParadoxFileTypeOverrider : FileTypeOverrider {
 		return null
 	}
 	
-	private fun getRooType(file:VirtualFile): ParadoxRootType?{
+	private fun getRooType(file: VirtualFile): ParadoxRootType? {
 		if(!file.isDirectory) return null
 		for(child in file.children) {
 			val name = child.name
-			when{
+			when {
 				gameNames.any { gameName ->
 					file.nameWithoutExtension.equals(gameName, true) && file.extension.equals("exe", true)
 				} -> return ParadoxRootType.Stdlib
-				name.equals(descriptorFileName,true) -> return ParadoxRootType.Mod
+				name.equals(descriptorFileName, true) -> return ParadoxRootType.Mod
 			}
 		}
 		return null
@@ -68,11 +68,12 @@ class ParadoxFileTypeOverrider : FileTypeOverrider {
 		return ParadoxPath(subPaths)
 	}
 	
-	private fun putUserData(file: VirtualFile,fileType:ParadoxFileType,rootType:ParadoxRootType,path:ParadoxPath) {
+	private fun putUserData(file: VirtualFile, fileType: ParadoxFileType, rootType: ParadoxRootType, path: ParadoxPath) {
 		try {
 			if(file.isValid) {
-				file.putUserData(paradoxFileTypeKey,fileType)
-				file.putUserData(paradoxRootTypeKey,rootType)
+				file.putUserData(paradoxFileTypeKey, fileType)
+				file.putUserData(paradoxRootTypeKey, rootType)
+				file.putUserData(paradoxGameTypeKey, ParadoxGameType.Stellaris) //TODO
 				file.putUserData(paradoxPathKey, path)
 			}
 		} catch(e: Exception) {
@@ -83,8 +84,9 @@ class ParadoxFileTypeOverrider : FileTypeOverrider {
 	private fun cleanupUserData(file: VirtualFile) {
 		try {
 			if(file.isValid) {
-				file.putUserData(paradoxFileTypeKey,null)
-				file.putUserData(paradoxRootTypeKey,null)
+				file.putUserData(paradoxFileTypeKey, null)
+				file.putUserData(paradoxRootTypeKey, null)
+				file.putUserData(paradoxGameTypeKey, null)
 				file.putUserData(paradoxPathKey, null)
 			}
 		} catch(e: Exception) {

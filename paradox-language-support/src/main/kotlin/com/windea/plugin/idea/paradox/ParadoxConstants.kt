@@ -35,13 +35,13 @@ val booleanValues = arrayOf("yes", "no")
 const val paradoxBundleName = "messages.ParadoxBundle"
 
 val localisationFileExtensions = arrayOf("yml", "yaml")
-val scriptFileExtensions = arrayOf("txt", "mod", "gfx", "gui", "asset","cwt") //兼容cwtools的规则文件*.cwt
+val scriptFileExtensions = arrayOf("txt", "mod", "gfx", "gui", "asset", "cwt") //兼容cwtools的规则文件*.cwt
 
-const val paradoxwikisUrl="https://paradox.paradoxwikis.com"
+const val paradoxwikisUrl = "https://paradox.paradoxwikis.com"
 const val huijiwikiUrl = "https://qunxing.huijiwiki.com"
 
-val inferredParadoxLocale = when(System.getProperty("user.language")){
-	"zh"-> ParadoxLocale.SIMP_CHINESE
+val inferredParadoxLocale = when(System.getProperty("user.language")) {
+	"zh" -> ParadoxLocale.SIMP_CHINESE
 	"en" -> ParadoxLocale.ENGLISH
 	"pt" -> ParadoxLocale.BRAZ_POR
 	"fr" -> ParadoxLocale.FRENCH
@@ -58,7 +58,7 @@ const val readmeFileName = "readme.txt"
 const val changelogFileName = "changelog.txt"
 const val creditsFileName = "credits.txt"
 const val licenseFileName = "license.txt"
-val ignoredFileNames = arrayOf(readmeFileName,changelogFileName,creditsFileName,licenseFileName)
+val ignoredFileNames = arrayOf(readmeFileName, changelogFileName, creditsFileName, licenseFileName)
 
 const val stdlibName = "Stdlib"
 const val paradoxName = "Paradox"
@@ -91,5 +91,6 @@ val stellarisIcon = IconLoader.findIcon("icons/stellaris.png")!!
 
 val paradoxFileTypeKey = Key<ParadoxFileType>("paradoxFileType")
 val paradoxRootTypeKey = Key<ParadoxRootType>("paradoxRootType")
+val paradoxGameTypeKey = Key<ParadoxGameType>("paradoxGameType")
 val paradoxPathKey = Key<ParadoxPath>("paradoxPath")
 val paradoxPropertyPathKey = Key<CachedValue<ParadoxPath>>("paradoxPropertyPath")
