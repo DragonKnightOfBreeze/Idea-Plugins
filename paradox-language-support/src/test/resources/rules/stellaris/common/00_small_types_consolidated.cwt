@@ -59,7 +59,7 @@ types = {
 		path = "game/common/start_screen_messages"
 	}
 	type[precursors] = {
-		path = "common/precursor_civilizations"
+		path = "game/common/precursor_civilizations"
 	}
 	## replace_scope = { root = system this = system }
 	type[sector_type] = {

@@ -2,14 +2,11 @@ package com.windea.plugin.idea.paradox.util
 
 import com.intellij.openapi.project.*
 import com.intellij.openapi.vfs.*
-import com.intellij.psi.stubs.*
-import com.intellij.psi.util.*
 import com.intellij.util.io.*
 import com.windea.plugin.idea.paradox.*
+import org.yaml.snakeyaml.*
 import java.nio.file.*
 import java.util.concurrent.*
-import java.util.concurrent.atomic.*
-
 
 /**
  * Paradox规则组的提供器。
@@ -17,14 +14,12 @@ import java.util.concurrent.atomic.*
 object ParadoxRuleGroupProvider {
 	//ruleGroups[groupName][rulePath] = rule
 	private val ruleGroups:MutableMap<String,MutableMap<String,List<Any>>> = ConcurrentHashMap()
-	private val initFinished = AtomicBoolean(false)
-	
 	private val rootPath = "/rules".toClassPathResource()?.toPath()!!
 	
-	fun init(project:Project){
-		if(!initFinished.get()) {
+	init {
+		//打开项目时注册规则组
+		runWhenProjectOpened { project ->
 			addRuleGroups(project)
-			initFinished.set(true)
 		}
 	}
 	
@@ -60,13 +55,22 @@ object ParadoxRuleGroupProvider {
 	
 	private fun doAddRule(groupPath:Path,path:Path,group: MutableMap<String, List<Any>>,project:Project){
 		try {
-			val virtualFile = VfsUtil.findFile(path, false) ?: return
-			val psiFile = PsiUtilCore.getPsiFile(project, virtualFile)
+			val file = VfsUtil.findFile(path, false) ?: return
 			val ruleName = groupPath.relativize(path).toString()
-			val rule = ParadoxScriptDataExtractor.extract(psiFile)
+			val rule = extractRule(file)
 			group[ruleName] = rule
 		}catch(e:Exception){
 			e.printStackTrace()
 		}
 	}
+	
+	private val yaml = Yaml()
+	
+	private fun extractRule(file: VirtualFile): List<Any> {
+		return yaml.load(file.inputStream)
+	}
+	
+	//private fun extractRule(file: VirtualFile): List<Any> {
+	//	return ParadoxScriptDataExtractor.extract(PsiUtilCore.getPsiFile(project, file))
+	//}
 }

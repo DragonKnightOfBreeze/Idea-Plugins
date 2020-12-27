@@ -2,9 +2,6 @@ package com.windea.plugin.idea.paradox.model
 
 import com.windea.plugin.idea.paradox.*
 
-/**
- * 本地化文件的编号枚举
- */
 enum class ParadoxSerialNumber(
 	val key: String,
 	val description:String,

@@ -4,9 +4,6 @@ import com.intellij.util.ui.*
 import com.windea.plugin.idea.paradox.*
 import java.awt.*
 
-/**
- * 本地化文件的颜色枚举
- */
 enum class ParadoxColor(
 	val key: String,
 	val description: String,
