@@ -151,3 +151,7 @@ fun URL.toFile() :File{
 fun URL.toPath(): Path {
 	return Path.of(this.toURI())
 }
+
+//fun <C: CharSequence> C.ifNotEmpty(block: (C) -> Unit) {
+//	if(this.isNotEmpty()) block(this)
+//}

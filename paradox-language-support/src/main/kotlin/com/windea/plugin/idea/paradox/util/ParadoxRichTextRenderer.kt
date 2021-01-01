@@ -26,7 +26,7 @@ object ParadoxRichTextRenderer {
 	
 	private fun renderTo(element: ParadoxLocalisationRichText, buffer: Appendable) {
 		when(element) {
-			is ParadoxLocalisationString -> buffer.append(element.text)
+			is ParadoxLocalisationString -> renderStringTo(element,buffer)
 			is ParadoxLocalisationEscape -> renderEscapeTo(element, buffer)
 			is ParadoxLocalisationPropertyReference -> renderPropertyReferenceTo(element, buffer)
 			is ParadoxLocalisationIcon -> renderIconTo(element,buffer)
@@ -34,6 +34,10 @@ object ParadoxRichTextRenderer {
 			is ParadoxLocalisationCommand -> renderCodeTo(element,buffer)
 			is ParadoxLocalisationColorfulText -> renderColorfulTextTo(element, buffer)
 		}
+	}
+	
+	private fun renderStringTo(element:ParadoxLocalisationString,buffer: Appendable){
+		buffer.append(element.text.escapeXml())
 	}
 	
 	private fun renderEscapeTo(element: ParadoxLocalisationEscape, buffer: Appendable) {

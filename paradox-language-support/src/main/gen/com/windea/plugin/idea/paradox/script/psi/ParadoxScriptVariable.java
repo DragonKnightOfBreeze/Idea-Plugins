@@ -31,4 +31,7 @@ public interface ParadoxScriptVariable extends ParadoxScriptNamedElement, StubBa
   @Nullable
   String getValue();
 
+  @Nullable
+  String getUnquotedValue();
+
 }

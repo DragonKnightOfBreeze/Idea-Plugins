@@ -16,7 +16,7 @@ fun iconTag(url: String, size: Int = iconSize): String {
 }
 
 /**得到指定元素之前的所有直接的注释的文本，作为文档注释，跳过空白。*/
-fun getDocCommentTextFromPreviousComment(element: PsiElement): String {
+fun getDocTextFromPreviousComment(element: PsiElement): String {
 	//我们认为当前元素之前，之间没有空行的非行尾行注释，可以视为文档注释，但这并非文档注释的全部
 	val lines = mutableListOf<String>()
 	var prevElement = element.prevSibling ?: element.parent?.prevSibling
@@ -71,7 +71,6 @@ val PsiElement.paradoxGameType: ParadoxGameType? get() = this.virtualFile?.parad
 val PsiElement.paradoxPath: ParadoxPath? get() = this.virtualFile?.paradoxPath
 
 val PsiElement.paradoxPropertyPath: ParadoxPath? get() = getPropertyPath(this)
-	.also{ println("propertyPath: $it")}
 
 private fun getPropertyPath(element: PsiElement): ParadoxPath? {
 	return CachedValuesManager.getCachedValue(element, paradoxPropertyPathKey) {
@@ -161,7 +160,7 @@ fun findLocalisationProperties(project: Project, locale: ParadoxLocale? = null, 
 
 //将部分特定的查找方法作为扩展方法
 
-fun findRelatedLocalisationProperties(scriptPropertyName: String, project: Project, locale: ParadoxLocale? = null): List<ParadoxLocalisationProperty> {
+fun findRelatedLocalisationProperties(scriptPropertyName: String, project: Project, locale: ParadoxLocale? = null, scope: GlobalSearchScope = GlobalSearchScope.allScope(project)): List<ParadoxLocalisationProperty> {
 	return ParadoxLocalisationPropertyKeyIndex.filter(locale, project, GlobalSearchScope.allScope(project)) { name ->
 		isRelatedLocalisationPropertyName(name, scriptPropertyName)
 	}.sortedBy { it.name }

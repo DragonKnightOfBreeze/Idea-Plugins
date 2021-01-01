@@ -53,15 +53,6 @@
   <resource-bundle>messages.ParadoxBundle</resource-bundle>
 
   <extensions defaultExtensionNs="com.intellij">
-    <!--region Paradox Settings-->
-    <applicationConfigurable
-      id="settings.language.paradox"
-      groupId="language"
-      instance="com.windea.plugin.idea.paradox.settings.ParadoxSettingsConfigurable"/>
-    <applicationService
-      serviceImplementation="com.windea.plugin.idea.paradox.settings.ParadoxSettingsState"/>
-    <!--endregion-->
-
     <!--suppress PluginXmlValidity -->
     <fileTypeOverrider implementation="com.windea.plugin.idea.paradox.ParadoxFileTypeOverrider" order="first"/>
 
@@ -132,7 +123,7 @@
       implementation="com.windea.plugin.idea.paradox.localisation.editor.ParadoxLocalisationGoToDeclarationHandler"/>
     <annotator
       language="Paradox Localisation"
-      implementationClass="com.windea.plugin.idea.paradox.localisation.ParadoxLocalisationAnnotator"/>
+      implementationClass="com.windea.plugin.idea.paradox.localisation.editor.ParadoxLocalisationAnnotator"/>
 
     <additionalTextAttributes scheme="Default" file="colorSchemes/ParadoxScriptDefault.xml"/>
     <additionalTextAttributes scheme="Darcula" file="colorSchemes/ParadoxScriptDarcula.xml"/>
@@ -236,8 +227,8 @@
       implementation="com.windea.plugin.idea.paradox.script.editor.ParadoxScriptGoToDeclarationHandler"/>
     <annotator
       language="Paradox Script"
-      implementationClass="com.windea.plugin.idea.paradox.script.ParadoxScriptAnnotator"/>
-
+      implementationClass="com.windea.plugin.idea.paradox.script.editor.ParadoxScriptAnnotator"/>
+    
     <additionalTextAttributes scheme="Default" file="colorSchemes/ParadoxLocalisationDefault.xml"/>
     <additionalTextAttributes scheme="Darcula" file="colorSchemes/ParadoxLocalisationDarcula.xml"/>
 
@@ -257,6 +248,15 @@
       implementationClass="com.windea.plugin.idea.paradox.script.inspections.InvalidFileEncodingInspection"/>
     <!--endregion-->
 
+    <!--region Paradox Settings-->
+    <applicationConfigurable
+        id="settings.language.paradox"
+        groupId="language"
+        instance="com.windea.plugin.idea.paradox.settings.ParadoxSettingsConfigurable"/>
+    <applicationService
+        serviceImplementation="com.windea.plugin.idea.paradox.settings.ParadoxSettingsState"/>
+    <!--endregion-->
+    
     <!--region Paradox Library-->
     <!--<sdkType implementation="com.windea.plugin.idea.paradox.library.StellarisSdkType"/>-->
     <library.type implementation="com.windea.plugin.idea.paradox.library.StellarisLibraryType"/>

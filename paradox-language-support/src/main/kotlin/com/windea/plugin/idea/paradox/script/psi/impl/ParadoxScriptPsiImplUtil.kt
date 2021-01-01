@@ -4,10 +4,8 @@ package com.windea.plugin.idea.paradox.script.psi.impl
 
 import com.intellij.openapi.util.*
 import com.intellij.psi.*
-import com.intellij.util.*
 import com.windea.plugin.idea.paradox.*
 import com.windea.plugin.idea.paradox.localisation.psi.*
-import com.windea.plugin.idea.paradox.localisation.psi.impl.*
 import com.windea.plugin.idea.paradox.script.psi.*
 import com.windea.plugin.idea.paradox.script.psi.ParadoxScriptElementFactory.createPropertyKey
 import com.windea.plugin.idea.paradox.script.psi.ParadoxScriptElementFactory.createValue
@@ -16,6 +14,11 @@ import com.windea.plugin.idea.paradox.script.reference.*
 import org.apache.commons.imaging.color.*
 import java.awt.*
 import javax.swing.*
+import kotlin.collections.List
+import kotlin.collections.component1
+import kotlin.collections.component2
+import kotlin.collections.component3
+import kotlin.collections.component4
 
 object ParadoxScriptPsiImplUtil {
 	//region ParadoxScriptVariable
@@ -44,6 +47,11 @@ object ParadoxScriptPsiImplUtil {
 	fun getValue(element: ParadoxScriptVariable): String? {
 		return element.variableValue?.text?.unquote()
 	}
+	
+	@JvmStatic
+	fun getUnquotedValue(element:ParadoxScriptVariable):String?{
+		return element.variableValue?.text
+	}
 	//endregion
 	
 	//region ParadoxScriptProperty
@@ -71,6 +79,16 @@ object ParadoxScriptPsiImplUtil {
 	@JvmStatic
 	fun getValue(element: ParadoxScriptProperty): String? {
 		return element.propertyValue?.text?.unquote()
+	}
+	
+	@JvmStatic
+	fun getUnquotedValue(element:ParadoxScriptProperty):String?{
+		return element.propertyValue?.text
+	}
+	
+	@JvmStatic
+	fun getTruncatedValue(element:ParadoxScriptProperty):String?{
+		return element.propertyValue?.value?.let{ if(it is ParadoxScriptBlock) blockFolder else it.text }
 	}
 	//endregion
 	

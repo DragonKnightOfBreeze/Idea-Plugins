@@ -76,4 +76,10 @@ public class ParadoxScriptVariableImpl extends ParadoxScriptStubElementImpl<Para
     return ParadoxScriptPsiImplUtil.getValue(this);
   }
 
+  @Override
+  @Nullable
+  public String getUnquotedValue() {
+    return ParadoxScriptPsiImplUtil.getUnquotedValue(this);
+  }
+
 }

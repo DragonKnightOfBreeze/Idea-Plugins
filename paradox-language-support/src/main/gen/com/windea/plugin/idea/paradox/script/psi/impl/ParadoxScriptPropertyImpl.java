@@ -76,4 +76,16 @@ public class ParadoxScriptPropertyImpl extends ParadoxScriptStubElementImpl<Para
     return ParadoxScriptPsiImplUtil.getValue(this);
   }
 
+  @Override
+  @Nullable
+  public String getUnquotedValue() {
+    return ParadoxScriptPsiImplUtil.getUnquotedValue(this);
+  }
+
+  @Override
+  @Nullable
+  public String getTruncatedValue() {
+    return ParadoxScriptPsiImplUtil.getTruncatedValue(this);
+  }
+
 }

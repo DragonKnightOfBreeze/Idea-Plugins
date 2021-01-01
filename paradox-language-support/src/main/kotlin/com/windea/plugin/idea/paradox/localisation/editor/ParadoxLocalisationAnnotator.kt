@@ -1,62 +1,17 @@
-package com.windea.plugin.idea.paradox.localisation
+package com.windea.plugin.idea.paradox.localisation.editor
 
-import com.intellij.codeInsight.navigation.*
 import com.intellij.lang.annotation.*
 import com.intellij.lang.annotation.HighlightSeverity.*
-import com.intellij.openapi.actionSystem.*
-import com.intellij.openapi.editor.markup.*
 import com.intellij.openapi.project.*
 import com.intellij.openapi.util.*
 import com.intellij.psi.*
 import com.intellij.refactoring.suggested.*
-import com.intellij.ui.awt.*
-import com.intellij.util.*
-import com.windea.plugin.idea.paradox.*
 import com.windea.plugin.idea.paradox.message
 import com.windea.plugin.idea.paradox.localisation.highlighter.*
 import com.windea.plugin.idea.paradox.localisation.intentions.*
 import com.windea.plugin.idea.paradox.localisation.psi.*
-import java.awt.event.*
 
 class ParadoxLocalisationAnnotator : Annotator, DumbAware {
-	private class LocalisationPropertyGutterIconRenderer(
-		private val name:String,
-		private val project:Project
-	): GutterIconRenderer(),DumbAware {
-		companion object{
-			private val title = message("paradox.localisation.annotator.localisationProperty.title")
-			private fun tooltip(name:String) = message("paradox.localisation.annotator.localisationProperty.tooltip",name)
-		}
-
-		private val tooltip = tooltip(name)
-		
-		override fun getIcon() = localisationPropertyGutterIcon
-		override fun getTooltipText() = tooltip
-		override fun getClickAction() = LocalisationPropertyNavigateAction(title,name,project)
-		override fun isNavigateAction() = true
-		override fun equals(other: Any?) = other is LocalisationPropertyGutterIconRenderer  && name == other.name
-		override fun hashCode() = name.hashCode()
-	}
-
-	@Suppress("ComponentNotRegistered")
-	private class LocalisationPropertyNavigateAction(
-		private val title: String,
-		private val name:String,
-		private val project:Project
-	) : AnAction() {
-		//懒加载
-		private val elements by lazy{ findLocalisationProperties(name, project).toTypedArray() }
-
-		override fun actionPerformed(e: AnActionEvent) {
-			//如果只有一个，则直接导航，否则弹出popup再导航
-			if(elements.size == 1) {
-				OpenSourceUtil.navigate(true, elements.first())
-			} else {
-				NavigationUtil.getPsiElementPopup(elements, title).show(RelativePoint(e.inputEvent as MouseEvent))
-			}
-		}
-	}
-	
 	override fun annotate(element: PsiElement, holder: AnnotationHolder) {
 		when(element) {
 			is ParadoxLocalisationProperty -> annotateProperty(element, holder)
@@ -70,7 +25,7 @@ class ParadoxLocalisationAnnotator : Annotator, DumbAware {
 	private fun annotateProperty(element: ParadoxLocalisationProperty, holder: AnnotationHolder) {
 		//注明所有同名的属性
 		holder.newSilentAnnotation(INFORMATION)
-			.gutterIconRenderer(LocalisationPropertyGutterIconRenderer(element.name, element.project))
+			.gutterIconRenderer(ParadoxLocalisationPropertyGutterIconRenderer(element.name, element.project,element.resolveScope))
 			.create()
 	}
 	
@@ -103,6 +58,13 @@ class ParadoxLocalisationAnnotator : Annotator, DumbAware {
 	}
 	
 	private fun annotatePropertyReference(element: ParadoxLocalisationPropertyReference, holder: AnnotationHolder) {
+		//属性引用可能是变量，因此不注明无法解析的情况
+		//val reference = element.reference?:return
+		//if(reference.resolve() == null){
+		//	holder.newAnnotation(ERROR,message("paradox.localisation.annotator.unresolvedProperty",element.name))
+		//		.create()
+		//	return
+		//}
 		//如果是属性引用，需要为属性引用参数加上对应的颜色
 		val color = element.paradoxColor
 		if(color != null) {

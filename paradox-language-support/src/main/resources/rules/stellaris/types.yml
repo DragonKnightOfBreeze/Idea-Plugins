@@ -224,3 +224,23 @@ types:
       ### required
       desc: "$_desc"
       
+  bypass:
+    path: "/common/bypass"
+    subtype[scripted]:
+      connection_type: scripted_connection
+      
+  casus_belli:
+    path: "/common/casus_belli"
+    localisation:
+      ### required
+      name: "casus_belli_$"
+      ### optional
+      hint: "casus_belli_$_acquire_hint"
+      
+  war_goal:
+    path: "/common/war_goals"
+    localisation:
+      ### required
+      name: "war_goal_$"
+      ### required
+      desc: "war_goal_$_desc"

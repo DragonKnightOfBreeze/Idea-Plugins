@@ -4,15 +4,15 @@ import com.intellij.codeInsight.completion.*
 import com.intellij.codeInsight.documentation.*
 import com.intellij.codeInsight.lookup.*
 import com.intellij.lang.*
+import com.intellij.lang.documentation.*
 import com.intellij.openapi.editor.*
 import com.intellij.openapi.fileTypes.*
 import com.intellij.openapi.project.*
-import com.intellij.openapi.util.*
+import com.intellij.openapi.util.text.*
 import com.intellij.openapi.vfs.*
 import com.intellij.psi.*
 import com.intellij.psi.search.*
 import com.intellij.psi.util.*
-import java.util.function.Function
 
 val iconSize get() = DocumentationComponent.getQuickDocFontSize().size
 
@@ -123,3 +123,32 @@ fun VirtualFile.optimized():VirtualFile{
 		else -> this
 	}
 }
+
+inline fun StringBuilder.definition(block:StringBuilder.()->Unit){
+	append(DocumentationMarkup.DEFINITION_START)
+	block(this)
+	append(DocumentationMarkup.DEFINITION_END)
+}
+
+inline fun StringBuilder.content(block:StringBuilder.()->Unit){
+	append(DocumentationMarkup.CONTENT_START)
+	block(this)
+	append(DocumentationMarkup.CONTENT_END)
+}
+
+inline fun StringBuilder.sections(block:StringBuilder.()->Unit){
+	append(DocumentationMarkup.SECTIONS_START)
+	block(this)
+	append(DocumentationMarkup.SECTIONS_END)
+}
+
+@Suppress("NOTHING_TO_INLINE")
+inline fun StringBuilder.section(title:CharSequence,value:CharSequence){
+	append(DocumentationMarkup.SECTION_HEADER_START)
+	append(title).append(" ")
+	append(DocumentationMarkup.SECTION_SEPARATOR).append("<p>")
+	append(value)
+	append(DocumentationMarkup.SECTION_END)
+}
+
+fun String.escapeXml() = StringUtil.escapeXmlEntities(this)

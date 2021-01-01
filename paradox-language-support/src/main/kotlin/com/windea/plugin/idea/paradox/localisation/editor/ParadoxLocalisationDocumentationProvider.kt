@@ -7,7 +7,7 @@ import com.windea.plugin.idea.paradox.localisation.psi.*
 import com.windea.plugin.idea.paradox.settings.*
 
 class ParadoxLocalisationDocumentationProvider : AbstractDocumentationProvider() {
-	companion object{
+	companion object {
 		private val textTitle = message("paradox.documentation.text")
 	}
 	
@@ -15,103 +15,150 @@ class ParadoxLocalisationDocumentationProvider : AbstractDocumentationProvider()
 	
 	override fun getQuickNavigateInfo(element: PsiElement?, originalElement: PsiElement?): String? {
 		return when {
-			element is ParadoxLocalisationProperty -> """${locationTextLine(element)}localisation property "${element.name}""""
-			element is ParadoxLocalisationLocale -> """locale "${element.name}""""
-			element is ParadoxLocalisationIcon -> """icon "${element.name}""""
-			element is ParadoxLocalisationSerialNumber -> """serial number "${element.name}""""
-			element is ParadoxLocalisationColorfulText -> """color "${element.name}""""
+			element is ParadoxLocalisationProperty -> getPropertyInfo(element)
+			element is ParadoxLocalisationLocale -> getLocaleInfo(element)
+			element is ParadoxLocalisationIcon -> getIconInfo(element)
+			element is ParadoxLocalisationCommandKey -> getCommandKeyInfo(element)
+			element is ParadoxLocalisationSerialNumber -> getSerialNumberInfo(element)
+			element is ParadoxLocalisationColorfulText -> getColorInfo(element)
 			else -> null
+		}
+	}
+	
+	private fun getPropertyInfo(element: ParadoxLocalisationProperty): String {
+		return buildString {
+			element.paradoxPath?.let { append("[").append(it).append("]<br>") }
+			append("(localisation property) <b>").append(element.name.escapeXml()).append("</b>")
+		}
+	}
+	
+	private fun getLocaleInfo(element: ParadoxLocalisationLocale): String {
+		return buildString {
+			append("(localisation locale) <b>").append(element.name).append("</b>")
+		}
+	}
+	
+	private fun getIconInfo(element: ParadoxLocalisationIcon): String {
+		return buildString {
+			append("(localisation icon) <b>").append(element.name).append("</b>")
+		}
+	}
+	
+	private fun getCommandKeyInfo(element: ParadoxLocalisationCommandKey): String {
+		return buildString {
+			append("(localisation command key) <b>").append(element.name).append("</b>")
+		}
+	}
+	
+	private fun getSerialNumberInfo(element: ParadoxLocalisationSerialNumber): String {
+		return buildString {
+			append("(localisation serial number) <b>").append(element.name).append("</b>")
+		}
+	}
+	
+	private fun getColorInfo(element: ParadoxLocalisationColorfulText): String {
+		return buildString {
+			append("(localisation color) <b>").append(element.name).append("</b>")
 		}
 	}
 	
 	override fun generateDoc(element: PsiElement?, originalElement: PsiElement?): String? {
 		return when {
-			element is ParadoxLocalisationProperty -> generatePropertyDoc(element)
-			element is ParadoxLocalisationLocale -> generateLocaleDoc(element)
-			element is ParadoxLocalisationIcon -> generateIconDoc(element)
-			element is ParadoxLocalisationSerialNumber -> generateSerialNumberLog(element)
-			element is ParadoxLocalisationColorfulText -> generateColorfulTextDoc(element)
+			element is ParadoxLocalisationProperty -> getPropertyDoc(element)
+			element is ParadoxLocalisationLocale -> getLocaleDoc(element)
+			element is ParadoxLocalisationIcon -> getIconDoc(element)
+			element is ParadoxLocalisationCommandKey -> getCommandKeyDoc(element)
+			element is ParadoxLocalisationSerialNumber -> getSerialNumberDoc(element)
+			element is ParadoxLocalisationColorfulText -> getColorDoc(element)
 			else -> null
 		}
 	}
 	
-	private fun generatePropertyDoc(element: ParadoxLocalisationProperty): String {
-		val elementName = element.name
+	private fun getPropertyDoc(element: ParadoxLocalisationProperty): String {
+		val name = element.name
 		return buildString {
-			append(DocumentationMarkup.DEFINITION_START)
-			append(locationTextLine(element))
-			append("(localisation property) <b>").append(elementName).append("</b>")
-			append(DocumentationMarkup.DEFINITION_END)
-			
-			//添加先前的行注释的文本到文档注释中
-			val docCommentText = getDocCommentTextFromPreviousComment(element)
-			if(docCommentText.isNotEmpty()) {
-				append(DocumentationMarkup.CONTENT_START)
-				append(docCommentText)
-				append(DocumentationMarkup.CONTENT_END)
+			definition {
+				element.paradoxPath?.let { append("[").append(it).append("]<br>") }
+				append("(localisation property) <b>").append(name.escapeXml()).append("</b>")
 			}
-			
+			//之前的单行注释文本
+			val docText = getDocTextFromPreviousComment(element)
+			if(docText.isNotEmpty()) {
+				content {
+					append(docText.escapeXml())
+				}
+			}
+			//本地化文本
 			if(state.renderLocalisationText) {
-				//添加渲染后的值的文本到文档注释中
-				val propertyValue = element.propertyValue
-				if(propertyValue != null) {
-					append(DocumentationMarkup.SECTIONS_START)
-					append(DocumentationMarkup.SECTION_HEADER_START)
-					append(textTitle).append(" ")
-					append(DocumentationMarkup.SECTION_SEPARATOR).append("<p>")
-					propertyValue.renderRichTextTo(this)
-					append(DocumentationMarkup.SECTION_END)
-					append(DocumentationMarkup.SECTIONS_END)
+				val richText = element.propertyValue?.renderRichText()
+				if(richText != null) {
+					sections {
+						section(textTitle, richText)
+					}
 				}
 			}
 		}
 	}
 	
-	private fun generateLocaleDoc(element: ParadoxLocalisationLocale): String? {
-		val documentText = element.paradoxLocale?.documentText ?: return null
+	private fun getLocaleDoc(element: ParadoxLocalisationLocale): String {
 		return buildString {
-			append(DocumentationMarkup.DEFINITION_START)
-			append(documentText)
-			append(DocumentationMarkup.DEFINITION_END)
-		}
-	}
-	
-	private fun generateIconDoc(element: ParadoxLocalisationIcon): String? {
-		val name = element.name
-		if(name.isEmpty()) return null
-		val documentText = "(icon) <b>$name</b>"
-		return buildString {
-			append(DocumentationMarkup.DEFINITION_START)
-			append(documentText)
-			append(DocumentationMarkup.DEFINITION_END)
-			val iconUrl = name.resolveIconUrl()
-			if(iconUrl.isNotEmpty()) {
-				append(DocumentationMarkup.CONTENT_START)
-				append(iconTag(iconUrl))
-				append(DocumentationMarkup.CONTENT_END)
+			definition {
+				append("(localisation locale) <b>").append(element.name).append("</b>")
+			}
+			//描述文本
+			val description = element.paradoxLocale?.description
+			if(description != null) {
+				content {
+					append(description)
+				}
 			}
 		}
 	}
 	
-	private fun generateSerialNumberLog(element: ParadoxLocalisationSerialNumber): String? {
-		val documentText = element.paradoxSerialNumber?.documentText ?: return null
+	private fun getIconDoc(element: ParadoxLocalisationIcon): String {
+		val name = element.name
 		return buildString {
-			append(DocumentationMarkup.DEFINITION_START)
-			append(documentText)
-			append(DocumentationMarkup.DEFINITION_END)
+			definition {
+				append("(localisation icon) <b>").append(name).append("</b>")
+			}
+			//图标
+			val iconUrl = name.resolveIconUrl()
+			if(iconUrl.isNotEmpty()) {
+				content {
+					append(iconTag(iconUrl))
+				}
+			}
 		}
 	}
 	
-	private fun generateColorfulTextDoc(element: ParadoxLocalisationColorfulText): String? {
-		val documentText = element.paradoxColor?.documentText ?: return null
+	private fun getCommandKeyDoc(element: ParadoxLocalisationCommandKey): String {
 		return buildString {
-			append(DocumentationMarkup.DEFINITION_START)
-			append(documentText)
-			append(DocumentationMarkup.DEFINITION_END)
+			definition {
+				append("(localisation command key) <b>").append(element.name).append("</b>")
+			}
 		}
 	}
 	
-	private fun locationTextLine(element: PsiElement): String {
-		return element.paradoxPath?.let { "[$it]<br>" }.orEmpty()
+	private fun getSerialNumberDoc(element: ParadoxLocalisationSerialNumber): String {
+		return buildString {
+			definition {
+				append("(localisation serial number) <b>").append(element.name).append("</b>")
+			}
+		}
+	}
+	
+	private fun getColorDoc(element: ParadoxLocalisationColorfulText): String {
+		return buildString {
+			definition {
+				append("(localisation color) <b>").append(element.name).append("</b>")
+			}
+			//描述文本
+			val description = element.paradoxColor?.description
+			if(description != null) {
+				content {
+					append(description)
+				}
+			}
+		}
 	}
 }

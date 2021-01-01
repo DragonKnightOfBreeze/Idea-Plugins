@@ -8,7 +8,7 @@ class ParadoxSettingsConfigurable: SearchableConfigurable {
 	private var component: ParadoxSettingsComponent? = null
 	
 	override fun getId() = "settings.language.paradox"
-
+	
 	override fun getDisplayName() = message("paradox.settings")
 	
 	override fun createComponent(): JComponent {
