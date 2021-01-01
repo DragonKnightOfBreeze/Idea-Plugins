@@ -23,10 +23,7 @@ class ParadoxLocalisationAnnotator : Annotator, DumbAware {
 	}
 	
 	private fun annotateProperty(element: ParadoxLocalisationProperty, holder: AnnotationHolder) {
-		//注明所有同名的属性
-		holder.newSilentAnnotation(INFORMATION)
-			.gutterIconRenderer(ParadoxLocalisationPropertyGutterIconRenderer(element.name, element.project,element.resolveScope))
-			.create()
+		
 	}
 	
 	private fun annotateLocale(element: ParadoxLocalisationLocale, holder: AnnotationHolder) {

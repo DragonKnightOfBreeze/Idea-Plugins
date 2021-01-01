@@ -21,7 +21,7 @@ import kotlin.collections.mapNotNull
 
 class DuplicatePropertyKeysInspection : LocalInspectionTool() {
 	companion object{
-		private fun description(key: String) = message("paradox.localisation.inspection.duplicatePropertyKeys.description", key)
+		private fun _description(key: String) = message("paradox.localisation.inspection.duplicatePropertyKeys.description", key)
 	}
 	
 	override fun buildVisitor(holder: ProblemsHolder, isOnTheFly: Boolean): PsiElementVisitor {
@@ -37,7 +37,7 @@ class DuplicatePropertyKeysInspection : LocalInspectionTool() {
 				for(value in values) {
 					val quickFix = NavigateToDuplicates(key, value, values)
 					//第一个元素指定为file，则是在文档头部弹出，否则从psiElement上通过contextActions显示
-					holder.registerProblem(value.propertyKey, description(key), quickFix)
+					holder.registerProblem(value.propertyKey, _description(key), quickFix)
 				}
 			}
 		}
@@ -52,8 +52,8 @@ class DuplicatePropertyKeysInspection : LocalInspectionTool() {
 
 		companion object{
 			private val _name = message("paradox.localisation.quickFix.navigateToDuplicates")
-			private fun header(key:String) = message("paradox.localisation.quickFix.navigateToDuplicates.header", key)
-			private fun text(key: String,lineNumber:Int) = message("paradox.localisation.quickFix.navigateToDuplicates.text", key, lineNumber)
+			private fun _header(key:String) = message("paradox.localisation.quickFix.navigateToDuplicates.header", key)
+			private fun _text(key: String,lineNumber:Int) = message("paradox.localisation.quickFix.navigateToDuplicates.text", key, lineNumber)
 		}
 		
 		override fun getFamilyName() = _name
@@ -80,10 +80,10 @@ class DuplicatePropertyKeysInspection : LocalInspectionTool() {
 			values: List<ParadoxLocalisationProperty>,
 			private val key: String,
 			private val editor: Editor
-		) : BaseListPopupStep<PsiElement>(header(key), values) {
+		) : BaseListPopupStep<PsiElement>(_header(key), values) {
 			override fun getIconFor(aValue: PsiElement) = paradoxLocalisationPropertyIcon
 			
-			override fun getTextFor(value: PsiElement) = text(key,editor.document.getLineNumber(value.textOffset))
+			override fun getTextFor(value: PsiElement) = _text(key,editor.document.getLineNumber(value.textOffset))
 			
 			override fun getDefaultOptionIndex() = 0
 			

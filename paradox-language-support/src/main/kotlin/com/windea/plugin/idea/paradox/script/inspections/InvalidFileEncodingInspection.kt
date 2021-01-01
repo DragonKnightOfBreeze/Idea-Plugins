@@ -10,7 +10,7 @@ import java.nio.charset.*
 
 class InvalidFileEncodingInspection: LocalInspectionTool(){
 	companion object{
-		private fun description(charset: Charset,bom:String) = message("paradox.script.inspection.invalidFileEncoding.description", charset,bom)
+		private fun _description(charset: Charset,bom:String) = message("paradox.script.inspection.invalidFileEncoding.description", charset,bom)
 	}
 	
 	override fun checkFile(file: PsiFile, manager: InspectionManager, isOnTheFly: Boolean): Array<out ProblemDescriptor?>? {
@@ -21,7 +21,7 @@ class InvalidFileEncodingInspection: LocalInspectionTool(){
 		if(!isValid){
 			val holder = ProblemsHolder(manager,file,isOnTheFly)
 			val bom = if(hasBom) "BOM" else "NO BOM"
-			holder.registerProblem(file, description(charset,bom), ChangeFileEncoding(file, isNameList))
+			holder.registerProblem(file, _description(charset,bom), ChangeFileEncoding(file, isNameList))
 			return holder.resultsArray
 		}
 		return null

@@ -85,7 +85,7 @@ class ParadoxLocalisationDocumentationProvider : AbstractDocumentationProvider()
 			val docText = getDocTextFromPreviousComment(element)
 			if(docText.isNotEmpty()) {
 				content {
-					append(docText.escapeXml())
+					append(docText)
 				}
 			}
 			//本地化文本

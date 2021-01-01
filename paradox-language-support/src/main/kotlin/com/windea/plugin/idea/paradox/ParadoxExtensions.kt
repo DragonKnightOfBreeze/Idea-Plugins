@@ -24,7 +24,7 @@ fun getDocTextFromPreviousComment(element: PsiElement): String {
 		val text = prevElement.text
 		if(prevElement !is PsiWhiteSpace) {
 			if(!isPreviousComment(prevElement)) break
-			lines.add(0, text.trimStart('#').trim())
+			lines.add(0, text.trimStart('#').trim().escapeXml())
 		} else {
 			if(text.containsBlankLine()) break
 		}

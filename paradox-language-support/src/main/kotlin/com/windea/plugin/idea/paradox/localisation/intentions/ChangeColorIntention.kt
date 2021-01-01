@@ -12,14 +12,14 @@ import com.windea.plugin.idea.paradox.localisation.psi.*
 import com.windea.plugin.idea.paradox.model.*
 
 object ChangeColorIntention : IntentionAction {
-	private val name = message("paradox.localisation.intention.changeColor")
-	private val title = message("paradox.localisation.intention.changeColor.title")
+	private val _name = message("paradox.localisation.intention.changeColor")
+	private val _title = message("paradox.localisation.intention.changeColor.title")
 	
 	override fun startInWriteAction() = false
 	
-	override fun getText() = name
+	override fun getText() = _name
 	
-	override fun getFamilyName() = name
+	override fun getFamilyName() = _name
 	
 	override fun isAvailable(project: Project, editor: Editor?, file: PsiFile?): Boolean {
 		if(editor == null || file == null) return false
@@ -38,7 +38,7 @@ object ChangeColorIntention : IntentionAction {
 	private class Popup(
 		private val value: ParadoxLocalisationColorfulText,
 		values: Array<ParadoxColor>
-	) : BaseListPopupStep<ParadoxColor>(title, *values) {
+	) : BaseListPopupStep<ParadoxColor>(_title, *values) {
 		override fun getIconFor(value: ParadoxColor) = value.icon
 		
 		override fun getTextFor(value: ParadoxColor) = value.popupText

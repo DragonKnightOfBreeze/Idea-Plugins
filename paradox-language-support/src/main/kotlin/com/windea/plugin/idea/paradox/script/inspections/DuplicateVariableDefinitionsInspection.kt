@@ -20,7 +20,7 @@ import kotlin.collections.mapNotNull
 
 class DuplicateVariableDefinitionsInspection :LocalInspectionTool(){
 	companion object{
-		private fun description(name:String) = message("paradox.script.inspection.duplicateVariableDefinitions.description", name)
+		private fun _description(name:String) = message("paradox.script.inspection.duplicateVariableDefinitions.description", name)
 	}
 	
 	override fun buildVisitor(holder: ProblemsHolder, isOnTheFly: Boolean): PsiElementVisitor {
@@ -38,7 +38,7 @@ class DuplicateVariableDefinitionsInspection :LocalInspectionTool(){
 				for(value in values) {
 					val quickFix = NavigateToDuplicates(name, value, values)
 					//第一个元素指定为file，则是在文档头部弹出，否则从psiElement上通过contextActions显示
-					holder.registerProblem(value.variableName, description(name),quickFix)
+					holder.registerProblem(value.variableName, _description(name),quickFix)
 				}
 			}
 		}
@@ -53,8 +53,8 @@ class DuplicateVariableDefinitionsInspection :LocalInspectionTool(){
 
 		companion object{
 			private val _name = message("paradox.script.quickFix.navigateToDuplicates")
-			private fun header(key:String) = message("paradox.script.quickFix.navigateToDuplicates.header", key)
-			private fun text(key:String,lineNumber:Int) = message("paradox.script.quickFix.navigateToDuplicates.text",key,lineNumber)
+			private fun _header(key:String) = message("paradox.script.quickFix.navigateToDuplicates.header", key)
+			private fun _text(key:String,lineNumber:Int) = message("paradox.script.quickFix.navigateToDuplicates.text",key,lineNumber)
 		}
 		
 		override fun getFamilyName() = _name
@@ -81,10 +81,10 @@ class DuplicateVariableDefinitionsInspection :LocalInspectionTool(){
 			values: List<ParadoxScriptVariable>,
 			private val key: String,
 			private val editor: Editor
-		) : BaseListPopupStep<ParadoxScriptVariable>(header(key), values) {
+		) : BaseListPopupStep<ParadoxScriptVariable>(_header(key), values) {
 			override fun getIconFor(aValue: ParadoxScriptVariable) = paradoxScriptVariableIcon
 
-			override fun getTextFor(value: ParadoxScriptVariable) = text(key, editor.document.getLineNumber(value.textOffset))
+			override fun getTextFor(value: ParadoxScriptVariable) = _text(key, editor.document.getLineNumber(value.textOffset))
 
 			override fun getDefaultOptionIndex(): Int = 0
 			

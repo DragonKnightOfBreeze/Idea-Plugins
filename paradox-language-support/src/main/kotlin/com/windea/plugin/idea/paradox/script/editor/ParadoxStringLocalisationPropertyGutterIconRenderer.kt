@@ -16,11 +16,11 @@ class ParadoxStringLocalisationPropertyGutterIconRenderer(
 	private val properties: Array<ParadoxLocalisationProperty>
 ): GutterIconRenderer(), DumbAware {
 	companion object{
-		private val title = message("paradox.localisation.gutterIcon.property.title")
-		private fun tooltip(name:String) = message("paradox.localisation.gutterIcon.property.tooltip", name)
+		private val _title = message("paradox.localisation.gutterIcon.property.title")
+		private fun _tooltip(name:String) = message("paradox.localisation.gutterIcon.property.tooltip", name)
 	}
 	
-	private val tooltip = tooltip(name)
+	private val tooltip = _tooltip(name.escapeXml())
 	
 	override fun getIcon() = localisationPropertyGutterIcon
 	override fun getTooltipText() = tooltip
@@ -38,7 +38,7 @@ class ParadoxStringLocalisationPropertyGutterIconRenderer(
 			return when(elements.size) {
 				0 -> return
 				1 -> OpenSourceUtil.navigate(true, elements.first())
-				else -> NavigationUtil.getPsiElementPopup(elements, title).show(RelativePoint(e.inputEvent as MouseEvent))
+				else -> NavigationUtil.getPsiElementPopup(elements, _title).show(RelativePoint(e.inputEvent as MouseEvent))
 			}
 		}
 	}

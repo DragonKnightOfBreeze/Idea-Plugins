@@ -9,8 +9,8 @@ import com.windea.plugin.idea.paradox.script.psi.*
 
 class ParadoxScriptFindUsagesProvider : FindUsagesProvider {
 	companion object{
-		val variableName = message("paradox.script.name.variable")
-		val propertyName = message("paradox.script.name.property")
+		val _variableName = message("paradox.script.name.variable")
+		val _propertyName = message("paradox.script.name.property")
 	}
 	
 	override fun getDescriptiveName(element: PsiElement): String {
@@ -19,8 +19,8 @@ class ParadoxScriptFindUsagesProvider : FindUsagesProvider {
 
 	override fun getType(element: PsiElement): String {
 		return when(element) {
-			is ParadoxScriptVariable -> variableName
-			is ParadoxScriptProperty -> propertyName
+			is ParadoxScriptVariable -> _variableName
+			is ParadoxScriptProperty -> _propertyName
 			else -> ""
 		}
 	}

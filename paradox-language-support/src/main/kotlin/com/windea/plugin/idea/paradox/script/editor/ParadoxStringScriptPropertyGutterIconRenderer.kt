@@ -16,11 +16,11 @@ class ParadoxStringScriptPropertyGutterIconRenderer(
 	private val properties:Array<ParadoxScriptProperty>
 ): GutterIconRenderer(), DumbAware {
 	companion object{
-		private val title = message("paradox.script.gutterIcon.property.title")
-		private fun tooltip(name:String) = message("paradox.script.gutterIcon.property.tooltip", name)
+		private val _title = message("paradox.script.gutterIcon.property.title")
+		private fun _tooltip(name:String) = message("paradox.script.gutterIcon.property.tooltip", name)
 	}
 	
-	private val tooltip = tooltip(name)
+	private val tooltip = _tooltip(name.escapeXml())
 	
 	override fun getIcon() = scriptPropertyGutterIcon
 	override fun getTooltipText() = tooltip
@@ -38,7 +38,7 @@ class ParadoxStringScriptPropertyGutterIconRenderer(
 			when(elements.size) {
 				0 -> return
 				1 -> OpenSourceUtil.navigate(true, elements.first())
-				else -> NavigationUtil.getPsiElementPopup(elements, title).show(RelativePoint(e.inputEvent as MouseEvent))
+				else -> NavigationUtil.getPsiElementPopup(elements, _title).show(RelativePoint(e.inputEvent as MouseEvent))
 			}
 		}
 	}

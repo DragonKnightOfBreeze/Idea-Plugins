@@ -9,9 +9,9 @@ import com.windea.plugin.idea.paradox.settings.*
 
 class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
 	companion object {
-		private val iconTitle = message("paradox.documentation.icon")
-		private val effectTitle = message("paradox.documentation.effect")
-		private val tagsTitle = message("paradox.documentation.tags")
+		private val _iconTitle = message("paradox.documentation.icon")
+		private val _effectTitle = message("paradox.documentation.effect")
+		private val _tagsTitle = message("paradox.documentation.tags")
 	}
 	
 	private val state = ParadoxSettingsState.getInstance()
@@ -28,7 +28,7 @@ class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
 	private fun getVariableInfo(element: ParadoxScriptVariable): String {
 		return buildString {
 			element.paradoxPath?.let { paradoxPath -> append("[").append(paradoxPath).append("]<br>") }
-			append("(script variable) <b>").append(element.name).append("</b>")
+			append("(script variable) <b>").append(element.name.escapeXml()).append("</b>")
 			element.unquotedValue?.let { unquotedValue -> append(" = ").append(unquotedValue.escapeXml()) }
 		}
 	}
@@ -61,7 +61,7 @@ class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
 			val docText = getDocTextFromPreviousComment(element)
 			if(docText.isNotEmpty()) {
 				content {
-					append(docText.escapeXml())
+					append(docText)
 				}
 			}
 		}
@@ -75,12 +75,13 @@ class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
 				element.paradoxPath?.let { append("[").append(it).append("]<br>") }
 				append("(script property) <b>").append(element.name.escapeXml()).append("</b>")
 				element.truncatedValue?.let { truncatedValue -> append(" = ").append(truncatedValue.escapeXml()) }
+				append("<br>").append(element.paradoxPropertyPath) //DEBUG
 			}
 			//之前的单行注释文本
 			val docText = getDocTextFromPreviousComment(element)
 			if(docText.isNotEmpty()) {
 				content {
-					append(docText.escapeXml())
+					append(docText)
 				}
 			}
 			//相关的本地化文本
@@ -106,7 +107,7 @@ class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
 		val iconUrl = name.resolveIconUrl(false)
 		if(iconUrl.isNotEmpty()) {
 			val value = iconTag(iconUrl, iconSize * 2)
-			sectionMap[iconTitle] = value
+			sectionMap[_iconTitle] = value
 		}
 		
 		//添加渲染后的相关的本地化属性的值的文本到文档注释中
@@ -128,7 +129,7 @@ class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
 					"description" -> {
 						val k = property.value ?: continue
 						val value = findLocalisationProperty(k, project, inferredParadoxLocale)?.propertyValue?.renderRichText()
-						sectionMap[effectTitle] = value ?: k
+						sectionMap[_effectTitle] = value ?: k
 					}
 					"tags" -> {
 						val pv = property.propertyValue?.value as? ParadoxScriptBlock ?: continue
@@ -144,7 +145,7 @@ class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
 								propValue.renderRichTextTo(this)
 							}
 						}
-						sectionMap[tagsTitle] = value
+						sectionMap[_tagsTitle] = value
 					}
 				}
 			}

@@ -56,10 +56,6 @@
     <!--suppress PluginXmlValidity -->
     <fileTypeOverrider implementation="com.windea.plugin.idea.paradox.ParadoxFileTypeOverrider" order="first"/>
 
-    <codeInsight.lineMarkerProvider 
-        language="Paradox Script" 
-        implementationClass="com.windea.plugin.idea.paradox.localisation.editor.ParadoxLocalisationPropertyLineMarkerProvider"/>
-    
     <!--region Paradox Localisation Language-->
     <fileType
       language="Paradox Localisation"
@@ -128,7 +124,10 @@
     <annotator
       language="Paradox Localisation"
       implementationClass="com.windea.plugin.idea.paradox.localisation.editor.ParadoxLocalisationAnnotator"/>
-
+    <codeInsight.lineMarkerProvider
+        language="Paradox Localisation"
+        implementationClass="com.windea.plugin.idea.paradox.localisation.editor.ParadoxLocalisationPropertyLineMarkerProvider"/>
+    
     <additionalTextAttributes scheme="Default" file="colorSchemes/ParadoxScriptDefault.xml"/>
     <additionalTextAttributes scheme="Darcula" file="colorSchemes/ParadoxScriptDarcula.xml"/>
 
@@ -232,6 +231,9 @@
     <annotator
       language="Paradox Script"
       implementationClass="com.windea.plugin.idea.paradox.script.editor.ParadoxScriptAnnotator"/>
+    <codeInsight.lineMarkerProvider
+        language="Paradox Script"
+        implementationClass="com.windea.plugin.idea.paradox.script.editor.ParadoxScriptPropertyLineMarkerProvider"/>
     
     <additionalTextAttributes scheme="Default" file="colorSchemes/ParadoxLocalisationDefault.xml"/>
     <additionalTextAttributes scheme="Darcula" file="colorSchemes/ParadoxLocalisationDarcula.xml"/>

@@ -23,17 +23,10 @@ class ParadoxScriptAnnotator : Annotator, DumbAware {
 	}
 	
 	private fun annotateProperty(element: ParadoxScriptProperty, holder: AnnotationHolder) {
-		val name = element.name
-		val project = element.project
-		val scope = element.resolveScope
-		
-		//过滤例外情况
-		if(element.isRootProperty() && !name.isInvalidPropertyName()) {
-			//注明所有同名的属性
-			holder.newSilentAnnotation(INFORMATION)
-				.gutterIconRenderer(ParadoxScriptPropertyGutterIconRenderer(name, project,scope))
-				.create()
-			
+		if(element.isRootProperty()) {
+			val name = element.name
+			val project = element.project
+			val scope = element.resolveScope
 			if(state.resolveScriptReferences) {
 				//注明所有关联的本地化属性（如果存在）
 				val relatedLocalisationProperties = findRelatedLocalisationProperties(name, project,null,scope).toTypedArray()

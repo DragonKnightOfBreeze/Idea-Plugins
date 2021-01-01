@@ -5,11 +5,15 @@ import com.windea.plugin.idea.paradox.message
 import javax.swing.*
 
 class ParadoxSettingsConfigurable: SearchableConfigurable {
+	companion object{
+		 private val _name =  message("paradox.settings")
+	}
+	
 	private var component: ParadoxSettingsComponent? = null
 	
 	override fun getId() = "settings.language.paradox"
 	
-	override fun getDisplayName() = message("paradox.settings")
+	override fun getDisplayName() = _name
 	
 	override fun createComponent(): JComponent {
 		val component = ParadoxSettingsComponent()

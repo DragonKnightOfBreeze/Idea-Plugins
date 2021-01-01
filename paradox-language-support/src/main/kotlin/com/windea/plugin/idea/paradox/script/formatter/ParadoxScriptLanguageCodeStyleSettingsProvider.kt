@@ -20,8 +20,8 @@ import com.windea.plugin.idea.paradox.script.formatter.ParadoxScriptCodeStyleSet
 
 class ParadoxScriptLanguageCodeStyleSettingsProvider : LanguageCodeStyleSettingsProvider() {
 	companion object{
-		private val spaceWithinBracesTitle = message("paradox.script.codeStyle.spaceWithinBraces")
-		private val spaceAroundSeparatorTitle = message("paradox.script.codeStyle.spaceAroundSeparator")
+		private val _spaceWithinBracesTitle = message("paradox.script.codeStyle.spaceWithinBraces")
+		private val _spaceAroundSeparatorTitle = message("paradox.script.codeStyle.spaceAroundSeparator")
 	}
 	
 	override fun getLanguage() = ParadoxScriptLanguage
@@ -55,13 +55,13 @@ class ParadoxScriptLanguageCodeStyleSettingsProvider : LanguageCodeStyleSettings
 				consumer.showCustomOption(
 					ParadoxScriptCodeStyleSettings::class.java,
 					Option.SPACE_WITHIN_BRACES.name,
-					spaceWithinBracesTitle,
+					_spaceWithinBracesTitle,
 					CodeStyleSettingsCustomizableOptions.getInstance().SPACES_WITHIN
 				)
 				consumer.showCustomOption(
 					ParadoxScriptCodeStyleSettings::class.java,
 					Option.SPACE_AROUND_SEPARATOR.name,
-					spaceAroundSeparatorTitle,
+					_spaceAroundSeparatorTitle,
 					CodeStyleSettingsCustomizableOptions.getInstance().SPACES_AROUND_OPERATORS
 				)
 			}

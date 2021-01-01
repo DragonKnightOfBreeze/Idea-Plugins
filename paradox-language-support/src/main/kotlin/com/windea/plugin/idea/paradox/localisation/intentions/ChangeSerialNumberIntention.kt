@@ -12,14 +12,14 @@ import com.windea.plugin.idea.paradox.localisation.psi.*
 import com.windea.plugin.idea.paradox.model.*
 
 object ChangeSerialNumberIntention : IntentionAction {
-	private val name = message("paradox.localisation.intention.changeSerialNumber")
-	private val title = message("paradox.localisation.intention.changeSerialNumber.title")
+	private val _name = message("paradox.localisation.intention.changeSerialNumber")
+	private val _title = message("paradox.localisation.intention.changeSerialNumber.title")
 	
 	override fun startInWriteAction() = false
 	
-	override fun getText() = name
+	override fun getText() = _name
 	
-	override fun getFamilyName() = title
+	override fun getFamilyName() = _title
 	
 	override fun isAvailable(project: Project, editor: Editor?, file: PsiFile?): Boolean {
 		if(editor == null || file == null) return false
@@ -38,7 +38,7 @@ object ChangeSerialNumberIntention : IntentionAction {
 	private class Popup(
 		private val value: ParadoxLocalisationSerialNumber,
 		values: Array<ParadoxSerialNumber>
-	) : BaseListPopupStep<ParadoxSerialNumber>(title, *values) {
+	) : BaseListPopupStep<ParadoxSerialNumber>(_title, *values) {
 		override fun getTextFor(value: ParadoxSerialNumber) = value.popupText
 		
 		override fun getDefaultOptionIndex() = 0
