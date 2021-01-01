@@ -5,8 +5,8 @@ class ParadoxPath(
 ){
 	val parentSubPaths = subPaths.dropLast(1)
 	val name = subPaths.lastOrNull().orEmpty()
-	val parent = parentSubPaths.joinToString("/","/")
-	val path = subPaths.joinToString("/","/")
+	val parent = parentSubPaths.joinToString("/")
+	val path = subPaths.joinToString("/")
 	val root = parentSubPaths.firstOrNull().orEmpty()
 	val length = subPaths.size
 	

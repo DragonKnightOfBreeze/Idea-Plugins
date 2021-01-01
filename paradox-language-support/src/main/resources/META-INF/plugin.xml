@@ -56,6 +56,10 @@
     <!--suppress PluginXmlValidity -->
     <fileTypeOverrider implementation="com.windea.plugin.idea.paradox.ParadoxFileTypeOverrider" order="first"/>
 
+    <codeInsight.lineMarkerProvider 
+        language="Paradox Script" 
+        implementationClass="com.windea.plugin.idea.paradox.localisation.editor.ParadoxLocalisationPropertyLineMarkerProvider"/>
+    
     <!--region Paradox Localisation Language-->
     <fileType
       language="Paradox Localisation"

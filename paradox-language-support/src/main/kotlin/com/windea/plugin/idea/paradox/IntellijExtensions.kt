@@ -151,4 +151,10 @@ inline fun StringBuilder.section(title:CharSequence,value:CharSequence){
 	append(DocumentationMarkup.SECTION_END)
 }
 
+inline fun StringBuilder.grayed(block:StringBuilder.()->Unit){
+	append(DocumentationMarkup.GRAYED_START)
+	block(this)
+	append(DocumentationMarkup.GRAYED_END)
+}
+
 fun String.escapeXml() = StringUtil.escapeXmlEntities(this)

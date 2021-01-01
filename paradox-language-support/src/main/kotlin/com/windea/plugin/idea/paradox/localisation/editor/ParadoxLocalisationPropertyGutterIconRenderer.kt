@@ -16,11 +16,11 @@ class ParadoxLocalisationPropertyGutterIconRenderer(
 	private val scope:GlobalSearchScope
 ): GutterIconRenderer(), DumbAware {
 	companion object{
-		private val title = message("paradox.localisation.gutterIcon.property.title")
-		private fun tooltip(name:String) = message("paradox.localisation.gutterIcon.property.tooltip", name)
+		private val _title = message("paradox.localisation.gutterIcon.property.title")
+		private fun _tooltip(name:String) = message("paradox.localisation.gutterIcon.property.tooltip", name)
 	}
 	
-	private val tooltip = tooltip(name)
+	private val tooltip = _tooltip(name)
 	
 	override fun getIcon() = localisationPropertyGutterIcon
 	override fun getTooltipText() = tooltip
@@ -38,10 +38,10 @@ class ParadoxLocalisationPropertyGutterIconRenderer(
 		override fun actionPerformed(e: AnActionEvent) {
 			val elements = findLocalisationProperties(name, project,null,scope).toTypedArray()
 			//如果只有一个，则直接导航，否则弹出popup再导航
-			if(elements.size == 1) {
-				OpenSourceUtil.navigate(true, elements.first())
-			} else {
-				NavigationUtil.getPsiElementPopup(elements, title).show(RelativePoint(e.inputEvent as MouseEvent))
+			when(elements.size) {
+				0 -> return
+				1 -> OpenSourceUtil.navigate(true, elements.first())
+				else -> NavigationUtil.getPsiElementPopup(elements, _title).show(RelativePoint(e.inputEvent as MouseEvent))
 			}
 		}
 	}

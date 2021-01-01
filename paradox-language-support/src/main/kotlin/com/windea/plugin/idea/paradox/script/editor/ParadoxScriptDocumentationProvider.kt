@@ -28,7 +28,7 @@ class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
 	private fun getVariableInfo(element: ParadoxScriptVariable): String {
 		return buildString {
 			element.paradoxPath?.let { paradoxPath -> append("[").append(paradoxPath).append("]<br>") }
-			append("script variable <b>").append(element.name).append("</b>")
+			append("(script variable) <b>").append(element.name).append("</b>")
 			element.unquotedValue?.let { unquotedValue -> append(" = ").append(unquotedValue.escapeXml()) }
 		}
 	}
@@ -36,7 +36,7 @@ class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
 	private fun getPropertyInfo(element: ParadoxScriptProperty): String {
 		return buildString {
 			element.paradoxPath?.let { append("[").append(it).append("]<br>") }
-			append("script property <b>").append(element.name.escapeXml()).append("</b>")
+			append("(script property) <b>").append(element.name.escapeXml()).append("</b>")
 			element.truncatedValue?.let { truncatedValue -> append(" = ").append(truncatedValue.escapeXml()) }
 		}
 	}
@@ -54,7 +54,7 @@ class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
 		return buildString {
 			definition {
 				element.paradoxPath?.let { paradoxPath -> append("[").append(paradoxPath).append("]<br>") }
-				append("script variable <b>").append(element.name).append("</b>")
+				append("(script variable) <b>").append(element.name).append("</b>")
 				element.unquotedValue?.let { unquotedValue -> append(" = ").append(unquotedValue.escapeXml()) }
 			}
 			//之前的单行注释文本
@@ -73,7 +73,7 @@ class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
 		return buildString {
 			definition {
 				element.paradoxPath?.let { append("[").append(it).append("]<br>") }
-				append("script property <b>").append(element.name.escapeXml()).append("</b>")
+				append("(script property) <b>").append(element.name.escapeXml()).append("</b>")
 				element.truncatedValue?.let { truncatedValue -> append(" = ").append(truncatedValue.escapeXml()) }
 			}
 			//之前的单行注释文本

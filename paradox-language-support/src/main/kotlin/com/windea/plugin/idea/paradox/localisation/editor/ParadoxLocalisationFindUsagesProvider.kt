@@ -9,11 +9,11 @@ import com.windea.plugin.idea.paradox.localisation.psi.*
 
 class ParadoxLocalisationFindUsagesProvider : FindUsagesProvider {
 	companion object{
-		private val propertyName = message("paradox.localisation.name.property")
-		private val localeName = message("paradox.localisation.name.locale")
-		private val iconName = message("paradox.localisation.name.icon")
-		private val serialNumberName = message("paradox.localisation.name.serialNumber")
-		private val colorfulTextName = message("paradox.localisation.name.colorfulText")
+		private val _propertyName = message("paradox.localisation.name.property")
+		private val _localeName = message("paradox.localisation.name.locale")
+		private val _iconName = message("paradox.localisation.name.icon")
+		private val _serialNumberName = message("paradox.localisation.name.serialNumber")
+		private val _colorfulTextName = message("paradox.localisation.name.colorfulText")
 	}
 	
 	override fun getDescriptiveName(element: PsiElement): String {
@@ -22,11 +22,11 @@ class ParadoxLocalisationFindUsagesProvider : FindUsagesProvider {
 
 	override fun getType(element: PsiElement): String {
 		return when(element) {
-			is ParadoxLocalisationProperty -> propertyName
-			is ParadoxLocalisationLocale -> localeName
-			is ParadoxLocalisationIcon ->iconName
-			is ParadoxLocalisationColorfulText -> serialNumberName
-			is ParadoxLocalisationSerialNumber -> colorfulTextName
+			is ParadoxLocalisationProperty -> _propertyName
+			is ParadoxLocalisationLocale -> _localeName
+			is ParadoxLocalisationIcon ->_iconName
+			is ParadoxLocalisationColorfulText -> _serialNumberName
+			is ParadoxLocalisationSerialNumber -> _colorfulTextName
 			else -> ""
 		}
 	}

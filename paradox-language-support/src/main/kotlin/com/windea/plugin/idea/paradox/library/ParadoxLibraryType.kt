@@ -19,18 +19,18 @@ abstract class ParadoxLibraryType(
 	private val namePrefix = "$createActionName: "
 	
 	companion object {
-		private val chooserTitle =  message("paradox.library.chooser.title")
-		private val chooserDescription =  message("paradox.library.chooser.description")
-		private val ivalidLibraryPathMessage = message("paradox.library.dialog.invalidLibraryPath.message")
-		private val invalidLibraryPathTitle = message("paradox.library.dialog.invalidLibraryPath.title")
+		private val _chooserTitle =  message("paradox.library.chooser.title")
+		private val _chooserDescription =  message("paradox.library.chooser.description")
+		private val _ivalidLibraryPathMessage = message("paradox.library.dialog.invalidLibraryPath.message")
+		private val _invalidLibraryPathTitle = message("paradox.library.dialog.invalidLibraryPath.title")
 	}
 	
 	//必须是一个文件夹，但必须包含descriptor.mod或者.exe文件
 	override fun createNewLibrary(parentComponent: JComponent, contextDirectory: VirtualFile?, project: Project): NewLibraryConfiguration? {
 		if(contextDirectory == null) return null
 		val chooserDescriptor = FileChooserDescriptorFactory.createSingleFileDescriptor()
-		chooserDescriptor.title = chooserTitle
-		chooserDescriptor.description = chooserDescription
+		chooserDescriptor.title = _chooserTitle
+		chooserDescriptor.description = _chooserDescription
 		val file = FileChooser.chooseFile(chooserDescriptor, parentComponent, project, contextDirectory) ?: return null
 		val name = getLibraryName(file, project) ?: return null
 		return ParadoxNewLibraryConfiguration(namePrefix + name, this, file)
@@ -60,7 +60,7 @@ abstract class ParadoxLibraryType(
 	}
 	
 	private fun showInvalidLibraryDialog(project: Project) {
-		Messages.showWarningDialog(project, ivalidLibraryPathMessage, invalidLibraryPathTitle)
+		Messages.showWarningDialog(project, _ivalidLibraryPathMessage, _invalidLibraryPathTitle)
 	}
 	
 	override fun createPropertiesEditor(editorComponent: LibraryEditorComponent<ParadoxLibraryProperties>) = null

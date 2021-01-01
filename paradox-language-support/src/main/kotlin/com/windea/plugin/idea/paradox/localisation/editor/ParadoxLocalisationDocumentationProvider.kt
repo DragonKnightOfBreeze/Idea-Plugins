@@ -8,7 +8,7 @@ import com.windea.plugin.idea.paradox.settings.*
 
 class ParadoxLocalisationDocumentationProvider : AbstractDocumentationProvider() {
 	companion object {
-		private val textTitle = message("paradox.documentation.text")
+		private val _textTitle = message("paradox.documentation.text")
 	}
 	
 	private val state = ParadoxSettingsState.getInstance()
@@ -93,7 +93,7 @@ class ParadoxLocalisationDocumentationProvider : AbstractDocumentationProvider()
 				val richText = element.propertyValue?.renderRichText()
 				if(richText != null) {
 					sections {
-						section(textTitle, richText)
+						section(_textTitle, richText)
 					}
 				}
 			}
@@ -104,12 +104,9 @@ class ParadoxLocalisationDocumentationProvider : AbstractDocumentationProvider()
 		return buildString {
 			definition {
 				append("(localisation locale) <b>").append(element.name).append("</b>")
-			}
-			//描述文本
-			val description = element.paradoxLocale?.description
-			if(description != null) {
-				content {
-					append(description)
+				val description = element.paradoxLocale?.description
+				if(description != null) {
+					append(" - ").append(description)
 				}
 			}
 		}
@@ -143,6 +140,10 @@ class ParadoxLocalisationDocumentationProvider : AbstractDocumentationProvider()
 		return buildString {
 			definition {
 				append("(localisation serial number) <b>").append(element.name).append("</b>")
+				val description = element.paradoxSerialNumber?.description
+				if(description != null) {
+					append(" - ").append(description)
+				}
 			}
 		}
 	}
@@ -151,12 +152,9 @@ class ParadoxLocalisationDocumentationProvider : AbstractDocumentationProvider()
 		return buildString {
 			definition {
 				append("(localisation color) <b>").append(element.name).append("</b>")
-			}
-			//描述文本
-			val description = element.paradoxColor?.description
-			if(description != null) {
-				content {
-					append(description)
+				val description = element.paradoxColor?.description
+				if(description != null) {
+					append(" - ").append(description)
 				}
 			}
 		}

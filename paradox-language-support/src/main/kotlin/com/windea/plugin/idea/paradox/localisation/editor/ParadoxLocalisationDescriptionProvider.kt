@@ -7,22 +7,22 @@ import com.windea.plugin.idea.paradox.localisation.psi.*
 
 class ParadoxLocalisationDescriptionProvider : ElementDescriptionProvider {
 	companion object{
-		private val propertyDescription = message("paradox.localisation.description.property")
-		private val localeDescription = message("paradox.localisation.description.locale")
-		private val iconDescription = message("paradox.localisation.description.icon")
-		private val commandKeyDescription = message("paradox.localisation.description.commandKey")
-		private val serialNumberDescription = message("paradox.localisation.description.serialNumber")
-		private val colorfulTextDescription = message("paradox.localisation.description.colorfulText")
+		private val _propertyDescription = message("paradox.localisation.description.property")
+		private val _localeDescription = message("paradox.localisation.description.locale")
+		private val _iconDescription = message("paradox.localisation.description.icon")
+		private val _commandKeyDescription = message("paradox.localisation.description.commandKey")
+		private val _serialNumberDescription = message("paradox.localisation.description.serialNumber")
+		private val _colorfulTextDescription = message("paradox.localisation.description.colorfulText")
 	}
 	
 	override fun getElementDescription(element: PsiElement, location: ElementDescriptionLocation): String? {
 		return when(element) {
-			is ParadoxLocalisationProperty -> if(location == UsageViewTypeLocation.INSTANCE) propertyDescription else element.name
-			is ParadoxLocalisationLocale -> if(location == UsageViewTypeLocation.INSTANCE) localeDescription else element.name
-			is ParadoxLocalisationIcon -> if(location == UsageViewTypeLocation.INSTANCE) iconDescription else element.name
-			is ParadoxLocalisationCommandKey -> if(location == UsageViewTypeLocation.INSTANCE) commandKeyDescription else element.name
-			is ParadoxLocalisationColorfulText -> if(location == UsageViewTypeLocation.INSTANCE) serialNumberDescription else element.name
-			is ParadoxLocalisationSerialNumber -> if(location == UsageViewTypeLocation.INSTANCE) colorfulTextDescription else element.name
+			is ParadoxLocalisationProperty -> if(location == UsageViewTypeLocation.INSTANCE) _propertyDescription else element.name
+			is ParadoxLocalisationLocale -> if(location == UsageViewTypeLocation.INSTANCE) _localeDescription else element.name
+			is ParadoxLocalisationIcon -> if(location == UsageViewTypeLocation.INSTANCE) _iconDescription else element.name
+			is ParadoxLocalisationCommandKey -> if(location == UsageViewTypeLocation.INSTANCE) _commandKeyDescription else element.name
+			is ParadoxLocalisationColorfulText -> if(location == UsageViewTypeLocation.INSTANCE) _serialNumberDescription else element.name
+			is ParadoxLocalisationSerialNumber -> if(location == UsageViewTypeLocation.INSTANCE) _colorfulTextDescription else element.name
 			else -> null
 		}
 	}

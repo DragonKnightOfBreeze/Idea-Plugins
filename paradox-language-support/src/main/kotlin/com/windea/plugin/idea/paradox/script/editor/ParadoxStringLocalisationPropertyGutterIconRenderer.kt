@@ -34,11 +34,11 @@ class ParadoxStringLocalisationPropertyGutterIconRenderer(
 		private val elements: Array<out NavigatablePsiElement>,
 	) : AnAction() {
 		override fun actionPerformed(e: AnActionEvent) {
-			//如果只有一个，则直接导航，否则弹出popup再导航
-			if(elements.size == 1) {
-				OpenSourceUtil.navigate(true, elements.first())
-			} else {
-				NavigationUtil.getPsiElementPopup(elements, title).show(RelativePoint(e.inputEvent as MouseEvent))
+		//如果只有一个，则直接导航，否则弹出popup再导航
+			return when(elements.size) {
+				0 -> return
+				1 -> OpenSourceUtil.navigate(true, elements.first())
+				else -> NavigationUtil.getPsiElementPopup(elements, title).show(RelativePoint(e.inputEvent as MouseEvent))
 			}
 		}
 	}
