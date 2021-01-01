@@ -4,7 +4,7 @@ types:
     subtype[show_name]:
       show_name: yes
     localisation:
-      sybtype[show_name]:
+      subtype[show_name]:
         ### required
         name!: "$"
     subtype[selectable]:
@@ -38,17 +38,14 @@ types:
   type[precursor_civilization]:
     path: "/common/precursor_civilizations"
 
-  ### replace_scope: [root: system, this: system]
+  ### replace_scope: {root: system, this: system}
   type[sector_type]:
     path: "/common/sector_types"
     localisation:
       ### required
       name: "$"
-    $replace_scope:
-      root: system
-      this: system
 
-  ### replace_scope: [root: sector, this: sector]
+  ### replace_scope: {root: sector, this: sector}
   type[sector_focus]:
     path: "/common/sector_focuses"
     localisation:
@@ -105,13 +102,13 @@ attribute:
     coexist: boolean
 
 button_effect:
-  ### replace_scope: [this: any, root: any, from: country]
+  ### replace_scope: {this: any, root: any, from: country}
   potential:
     $trigger.name: $trigger.value
-  ### replace_scope: [this: any, root: any, from: country]
+  ### replace_scope: {this: any, root: any, from: country}
   allow:
     $trigger.name: $trigger.value
-  ### replace_scope: [this: any, root: any, from: country]
+  ### replace_scope: {this: any, root: any, from: country}
   ### 0..1
   effect:
     $trigger.name: $trigger.value
@@ -129,7 +126,7 @@ country_customization:
       modifier:
         add: int
         species_portrait: $portrait
-  ### replace_scope: [this: country, root: country]
+  ### replace_scope: {this: country, root: country}
   ### 0..1
   weight:
     ### 0..1
@@ -137,7 +134,7 @@ country_customization:
     $modifier_rule_add.name: $modifier_rule_add.value
 
 system_type:
-  ### replace_scope: [this: system, root: system]
+  ### replace_scope: {this: system, root: system}
   potential:
     $trigger.name: $trigger.value
   ### 0..1

@@ -52,6 +52,8 @@ fun String.isInvalidPropertyName(): Boolean {
 	return this.containsBlank() || this.isNumber() || this == "null"
 }
 
+//特殊属性
+
 val VirtualFile.paradoxFileType: ParadoxFileType? get() = this.getUserData(paradoxFileTypeKey)
 
 val VirtualFile.paradoxRootType: ParadoxRootType? get() = this.getUserData(paradoxRootTypeKey)
@@ -69,11 +71,11 @@ val PsiElement.paradoxGameType: ParadoxGameType? get() = this.virtualFile?.parad
 val PsiElement.paradoxPath: ParadoxPath? get() = this.virtualFile?.paradoxPath
 
 val PsiElement.paradoxPropertyPath: ParadoxPath? get() = getPropertyPath(this)
+	.also{ println("propertyPath: $it")}
 
 private fun getPropertyPath(element: PsiElement): ParadoxPath? {
 	return CachedValuesManager.getCachedValue(element, paradoxPropertyPathKey) {
-		val value = resolvePropertyPath(element)
-		CachedValueProvider.Result.create(value)
+		CachedValueProvider.Result.create(resolvePropertyPath(element))
 	}
 }
 

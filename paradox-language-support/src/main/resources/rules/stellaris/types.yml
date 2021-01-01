@@ -1,0 +1,226 @@
+types:
+  ambient_object:
+    path: "/common/ambient_objects"
+    subshow_name:
+      show_name: yes
+    localisation:
+      subshow_name:
+        ### required
+        name!: "$"
+    subselectable:
+      selectable: yes
+
+  asteroid_belt:
+    path: "/common/asteroid_belt"
+
+  attitude:
+    path: "/common/attitudes"
+    localisation:
+      ### required
+      name!: "attribute_$"
+
+  button_effect:
+    path: "/common/button_effects"
+
+  country_customization:
+    path: "/common/country_customization"
+
+  system_type:
+    path: "/common/system_types"
+    localisation:
+      ### required
+      name: "$"
+
+  start_screen_message:
+    path: "/common/start_screen_messages"
+    $type_key_filter: part
+
+  precursor_civilization:
+    path: "/common/precursor_civilizations"
+
+  ### replace_scope: {root: system, this: system}
+  sector_type:
+    path: "/common/sector_types"
+    localisation:
+      ### required
+      name: "$"
+
+  ### replace_scope: {root: sector, this: sector}
+  sector_focus:
+    path: "/common/sector_focuses"
+    localisation:
+      ### required
+      name: "$"
+
+  map_mode:
+    path: "/common/map_modes"
+    localisation:
+      ### required
+      name: "$"
+      ### required
+      desc: "$_desc"
+
+  ai_budget:
+    path: "/common/ai_budget"
+
+  trade_conversion:
+    path: "/common/trade_conversions"
+
+  economic_plan:
+    path: "/common/economic_plans"
+
+  agenda:
+    path: "/common/agendas"
+    localisation:
+      ### required
+      name: "$"
+
+  mandate:
+    path: "/common/mandates"
+    localisation:
+      ### required
+      name: "MANDATE_$"
+      ### required
+      desc: "MANDATE_$_DESC"
+
+  opnion_modifier:
+    path: "/common/opinion_modifiers"
+    subtriggered_opnion_modifier:
+      trigger: { }
+    subblock_triggered:
+      block_triggered: yes
+    localisation:
+      ### required
+      name: "$"
+
+  static_modifier:
+    path: "/common/static_modifiers"
+    subplanet:
+      icon_frame: int
+    localisation:
+      ### required
+      name: "$"
+      ### required
+      desc: "$_desc"
+
+  planet_modfiier:
+    path: "/common/planet_modifiers"
+    subnull:
+      is_null: yes
+
+  notification_modifier:
+    path: "/common/notification_modifiers"
+    localisation:
+      ### required
+      name: "$"
+      ### required
+      desc: "$_desc"
+
+  ### graph_related_types: [event, special_project]
+  anomaly_category:
+    path: "/common/anomalies"
+    localisation:
+      ### required
+      name: "$"
+
+  archaeological_site_type:
+    path: "/common/archaeological_site_types"
+    localisation:
+      ### required
+      name: "$"
+
+  relic:
+    path: "/common/relics"
+    localisation:
+      ### required
+      name: "$"
+      ### required
+      desc: "$_desc"
+
+  artifact_action:
+    path: "/common/artifact_actions"
+    localisation:
+      ### required
+      name: "$"
+      ### required
+      desc: "$_desc"
+
+  army:
+    path: "/common/armies"
+    subbuildable:
+      potential:
+        ### 0..0
+        always: no
+    localisation:
+      ### required
+      name: "$"
+      ### required
+      desc: "$_desc"
+      subbuildable:
+        ### required
+        plural: "$_plural"
+
+  ascension_perk:
+    path: "/common/ascension_perks"
+    localisation:
+      ### required
+      name: "$"
+      ### required
+      desc: "$_desc"
+
+  tradition:
+    path: "/common/traditions"
+    localisation:
+      ### required
+      name: "$"
+      ### required
+      desc: "$_desc"
+
+  ### type_key_filter: tradition_swap
+  tradition_swap:
+    path: "/common/traditions"
+    skip_root_key: any
+    name_field: name
+    localisation:
+      ### required
+      name: "$"
+      ### required
+      desc: "$_desc"
+
+  tradition_category:
+    path: "/common/tradition_categories"
+    localisation:
+      ### required
+      name: "$"
+      ### required
+      desc: "$_desc"
+
+  ### type_key_filter: tradition_swap
+  tradition_swap_category:
+    path: "/common/tradition_categories"
+    skip_root_key: any
+    name_field: name
+    localisation:
+      ### required
+      name: "$"
+      ### required
+      desc: "$_desc"
+
+  bombardment_stance:
+    path: "/common/bombardment_stances"
+    localisation:
+      ### required
+      name: "$"
+      ### required
+      desc: "$_desc"
+
+  building:
+    path: "/common/buildings"
+    subtype[branch_office_building]:
+      branch_office_building: yes
+    localisation:
+      ### required
+      name: "$"
+      ### required
+      desc: "$_desc"
+      
