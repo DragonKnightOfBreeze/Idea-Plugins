@@ -3,6 +3,7 @@ package com.windea.plugin.idea.paradox
 import com.intellij.openapi.util.*
 import com.intellij.psi.util.*
 import com.windea.plugin.idea.paradox.model.*
+import com.windea.plugin.idea.paradox.util.*
 
 //Strings
 
@@ -94,3 +95,9 @@ val paradoxRootTypeKey = Key<ParadoxRootType>("paradoxRootType")
 val paradoxGameTypeKey = Key<ParadoxGameType>("paradoxGameType")
 val paradoxPathKey = Key<ParadoxPath>("paradoxPath")
 val paradoxPropertyPathKey = Key<CachedValue<ParadoxPath>>("paradoxPropertyPath")
+
+//Caches
+
+val ruleGroups = ParadoxRuleGroupProvider.getRuleGroups().also{ println(it) }
+val stellarisRuleGroup = ruleGroups.getOrDefault("stellaris",emptyMap())
+	

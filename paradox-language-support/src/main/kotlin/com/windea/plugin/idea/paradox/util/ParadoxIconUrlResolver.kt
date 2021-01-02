@@ -18,31 +18,32 @@ import java.util.concurrent.*
  * 基于名称以及qunxing.huijiwiki.com和paradox.paradoxwikis.com上的文件解析图标地址。
  */
 object ParadoxIconUrlResolver {
+	private const val delay:Long = 1000
 	private val timeout = Duration.ofMinutes(3)
+	
 	private val httpClient = HttpClient.newBuilder().connectTimeout(timeout).build()
 	private val bodyHandler = BodyHandlers.ofLines()
 	private val urlCache = ConcurrentHashMap<String, String>()
 	private val executor = Executors.newCachedThreadPool()
-	private val doResolveCache = CopyOnWriteArrayList<String>()
+	private val doResolveCache = CopyOnWriteArraySet<String>()
 
 	private const val unknownIconUrl = "https://huiji-public.huijistatic.com/qunxing/uploads/d/dd/Unknown.png"
 	
 	fun resolve(name: String,defaultToUnknown:Boolean=true): String {
 		if(name.isEmpty()) return getDefaultUrl(defaultToUnknown)
 		return try {
-			//尝试从缓存中获取，如果获取到空字符串，则返回未知图标的地址
+			//尝试从缓存中获取
 			val url = urlCache[name]
-			if(url != null) {
-				return when {
-					url.isEmpty() -> getDefaultUrl(defaultToUnknown)
-					else -> url
-				}
-			}
-			//如果缓存中没有，则另开线程解析图标
-			if(!doResolveCache.contains(name)) resolveUrlAsync(name)
+			//如果存在，若是空字符串则返回默认图标，否则直接返回
+			//如果不存在，则先保存空字符串，然后异步解析图标，等待一段时间后，再次尝试获取图标
+			if(url != null) return url.ifEmpty { getDefaultUrl(defaultToUnknown) }
+			resolveUrlAsync(name)
+			Thread.sleep(delay)
+			val delayUrl = urlCache[name]
+			if(delayUrl!= null) return delayUrl.ifEmpty { getDefaultUrl(defaultToUnknown) }
 			getDefaultUrl(defaultToUnknown)
 		}catch(e: Exception){
-			e.printStackTrace()
+			//如果出现异常，那么返回默认图标
 			getDefaultUrl(defaultToUnknown)
 		}
 	}
@@ -52,15 +53,12 @@ object ParadoxIconUrlResolver {
 	}
 	
 	private fun resolveUrlAsync(name: String){
-		doResolveCache.add(name)
 		executor.execute {
 			try {
 				val url = doResolveUrl(name)
 				urlCache[name] = url
 			}catch(e: Exception){
-				//e.printStackTrace()
-				//如果出现异常，那么继续尝试
-				//urlCache[name] = ""
+				urlCache[name] = ""
 			}
 		}
 	}
