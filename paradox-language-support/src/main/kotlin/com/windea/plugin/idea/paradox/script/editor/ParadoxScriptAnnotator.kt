@@ -7,6 +7,7 @@ import com.intellij.lang.annotation.HighlightSeverity.*
 import com.intellij.openapi.project.*
 import com.intellij.psi.*
 import com.windea.plugin.idea.paradox.*
+import com.windea.plugin.idea.paradox.localisation.highlighter.*
 import com.windea.plugin.idea.paradox.script.highlighter.*
 import com.windea.plugin.idea.paradox.script.psi.*
 import com.windea.plugin.idea.paradox.settings.*
@@ -61,7 +62,7 @@ class ParadoxScriptAnnotator : Annotator, DumbAware {
 			val scriptProperties = findScriptProperties(name, project, scope).toTypedArray()
 			if(scriptProperties.isNotEmpty()) {
 				holder.newSilentAnnotation(INFORMATION)
-					.textAttributes(ParadoxScriptAttributesKeys.SCRIPT_PROPERTY_REFERENCE_KEY)
+					.textAttributes(ParadoxScriptAttributesKeys.PROPERTY_KEY_KEY)
 					.gutterIconRenderer(ParadoxStringScriptPropertyGutterIconRenderer(name, scriptProperties))
 					.create()
 				return
@@ -69,7 +70,7 @@ class ParadoxScriptAnnotator : Annotator, DumbAware {
 			val localisationProperties = findLocalisationProperties(name, project, null, scope).toTypedArray()
 			if(localisationProperties.isNotEmpty()) {
 				holder.newSilentAnnotation(INFORMATION)
-					.textAttributes(ParadoxScriptAttributesKeys.LOCALISATION_PROPERTY_REFERENCE_KEY)
+					.textAttributes(ParadoxLocalisationAttributesKeys.PROPERTY_KEY_KEY)
 					.gutterIconRenderer(ParadoxStringLocalisationPropertyGutterIconRenderer(name, localisationProperties))
 					.create()
 			}

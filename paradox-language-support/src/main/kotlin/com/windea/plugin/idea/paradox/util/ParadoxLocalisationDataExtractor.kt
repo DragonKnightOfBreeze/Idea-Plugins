@@ -7,7 +7,7 @@ import com.windea.plugin.idea.paradox.localisation.psi.*
 /**
  * Paradox本地化文件的数据提取器。
  *
- * 返回值类型：`Map<String,Map<String,String>>`
+ * 返回值类型：`Map<String,String>`
  */
 object ParadoxLocalisationDataExtractor {
 	fun extract(file: PsiFile):Map<String,String>{

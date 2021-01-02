@@ -69,7 +69,6 @@ class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
 	
 	private fun getPropertyDoc(element: ParadoxScriptProperty): String {
 		val name = element.name
-		val project = element.project
 		return buildString {
 			definition {
 				element.paradoxPath?.let { append("[").append(it).append("]<br>") }
@@ -87,7 +86,7 @@ class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
 			//相关的本地化文本
 			if(state.renderLocalisationText) {
 				if(element.isRootProperty() && !name.isInvalidPropertyName()) {
-					val sections = getPropertySections(element, name, project)
+					val sections = getPropertySections(element, name)
 					if(sections.isNotEmpty()) {
 						sections {
 							for((title, value) in sections) {
@@ -100,7 +99,9 @@ class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
 		}
 	}
 	
-	private fun getPropertySections(element: ParadoxScriptProperty, name: String, project: Project): Map<String, String> {
+	private fun getPropertySections(element: ParadoxScriptProperty,name:String): Map<String, String> {
+		val project = element.project
+		val scope = element.resolveScope
 		val sectionMap = linkedMapOf<String, String>()
 		
 		//添加渲染后的对应的图标到文档注释中
@@ -111,7 +112,7 @@ class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
 		}
 		
 		//添加渲染后的相关的本地化属性的值的文本到文档注释中
-		val localisationProperties = findRelatedLocalisationProperties(name, project, inferredParadoxLocale)
+		val localisationProperties = findRelatedLocalisationProperties(name, project, inferredParadoxLocale,scope)
 			.distinctBy { it.name } //过滤重复的属性
 		if(localisationProperties.isNotEmpty()) {
 			for(property in localisationProperties) {

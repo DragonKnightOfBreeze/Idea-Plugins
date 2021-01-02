@@ -1,6 +1,5 @@
 package com.windea.plugin.idea.paradox.util
 
-import com.intellij.openapi.project.*
 import com.intellij.openapi.vfs.*
 import com.intellij.util.io.*
 import com.windea.plugin.idea.paradox.*
@@ -12,24 +11,22 @@ import java.util.concurrent.*
  * Paradox规则组的提供器。
  */
 object ParadoxRuleGroupProvider {
-	//ruleGroups[groupName][rulePath] = rule
-	private val ruleGroups:MutableMap<String,MutableMap<String,List<Any>>> = ConcurrentHashMap()
 	private val rootPath = "/rules".toClassPathResource()?.toPath()!!
 	
+	private val ruleGroups:MutableMap<String,MutableMap<String,Map<String,Any>>> = ConcurrentHashMap()
+	
 	init {
-		//打开项目时注册规则组
-		runWhenProjectOpened { project ->
-			addRuleGroups(project)
-		}
+		addRuleGroups()
+		println(ruleGroups)
 	}
 	
-	private fun addRuleGroups(project: Project) {
-		//并发添加规则
+	private fun addRuleGroups() {
+		//并发添加规则组
 		val executor = Executors.newCachedThreadPool()
 		for(groupPath in rootPath) {
 			try {
 				executor.submit {
-					addRuleGroup(groupPath, project)
+					addRuleGroup(groupPath)
 				}.get()
 			}catch(e:Exception){
 				e.printStackTrace()
@@ -37,28 +34,32 @@ object ParadoxRuleGroupProvider {
 		}
 	}
 	
-	private fun addRuleGroup(groupPath:Path,project:Project){
+	private fun addRuleGroup(groupPath:Path){
+		//添加规则组
 		val groupName = groupPath.fileName.toString()
-		val group = ConcurrentHashMap<String,List<Any>>()
-		doAddRuleGroup(groupPath,group,project)
+		val group = ConcurrentHashMap<String,Map<String,Any>>()
 		ruleGroups[groupName] = group
+		addRuleGroupOrRule(groupPath,group)
 	}
 	
-	private fun doAddRuleGroup(groupPath:Path,group:MutableMap<String,List<Any>>,project:Project){
+	private fun addRuleGroupOrRule(groupPath:Path,group:MutableMap<String,Map<String,Any>>){
 		for(p in groupPath) {
 			when{
-				p.isDirectory() -> doAddRuleGroup(p,group,project)
-				p.isFile()  -> doAddRule(groupPath,p,group,project)
+				p.isDirectory() -> addRuleGroupOrRule(p,group)
+				p.isFile()  -> addRule(p,group)
 			}
 		}
 	}
 	
-	private fun doAddRule(groupPath:Path,path:Path,group: MutableMap<String, List<Any>>,project:Project){
+	private fun addRule(path: Path, group: MutableMap<String, Map<String,Any>>){
 		try {
 			val file = VfsUtil.findFile(path, false) ?: return
-			val ruleName = groupPath.relativize(path).toString()
 			val rule = extractRule(file)
-			group[ruleName] = rule
+			//规则数据需要合并
+			//for((ruleName, ruleValue) in rule) {
+			//	group.compute(ruleName){ _,v-> if(v != null) v + ruleValue else ruleValue }
+			//}
+			group.putAll(rule)
 		}catch(e:Exception){
 			e.printStackTrace()
 		}
@@ -66,11 +67,7 @@ object ParadoxRuleGroupProvider {
 	
 	private val yaml = Yaml()
 	
-	private fun extractRule(file: VirtualFile): List<Any> {
+	private fun extractRule(file: VirtualFile): Map<String, Map<String,Any>> {
 		return yaml.load(file.inputStream)
 	}
-	
-	//private fun extractRule(file: VirtualFile): List<Any> {
-	//	return ParadoxScriptDataExtractor.extract(PsiUtilCore.getPsiFile(project, file))
-	//}
 }

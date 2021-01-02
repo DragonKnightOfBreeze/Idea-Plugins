@@ -17,7 +17,7 @@ class ParadoxFileTypeOverrider : FileTypeOverrider {
 		var currentFile: VirtualFile? = file.parent
 		while(currentFile != null) {
 			//只有能够确定根目录类型的文件才会被解析
-			val rootType = getRooType(currentFile)
+			val rootType = getRootType(currentFile)
 			if(rootType != null) {
 				//忽略描述符文件和cwt文件
 				if(file.name != descriptorFileName && file.extension != "cwt") {
@@ -50,14 +50,12 @@ class ParadoxFileTypeOverrider : FileTypeOverrider {
 		return null
 	}
 	
-	private fun getRooType(file: VirtualFile): ParadoxRootType? {
+	private fun getRootType(file: VirtualFile): ParadoxRootType? {
 		if(!file.isDirectory) return null
 		for(child in file.children) {
 			val name = child.name
 			when {
-				gameNames.any { gameName ->
-					file.nameWithoutExtension.equals(gameName, true) && file.extension.equals("exe", true)
-				} -> return ParadoxRootType.Stdlib
+				exeFileNames.any{ exeFileName -> name.equals(exeFileName,true) } ->return ParadoxRootType.Stdlib
 				name.equals(descriptorFileName, true) -> return ParadoxRootType.Mod
 			}
 		}

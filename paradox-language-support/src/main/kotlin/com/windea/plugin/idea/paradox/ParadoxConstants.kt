@@ -52,8 +52,6 @@ val inferredParadoxLocale = when(System.getProperty("user.language")) {
 	else -> ParadoxLocale.ENGLISH
 }
 
-const val descriptorFileName = "descriptor.mod"
-
 const val readmeFileName = "readme.txt"
 const val changelogFileName = "changelog.txt"
 const val creditsFileName = "credits.txt"
@@ -64,7 +62,9 @@ const val stdlibName = "Stdlib"
 const val paradoxName = "Paradox"
 
 const val stellarisName = "Stellaris"
-val gameNames = arrayOf(stellarisName)
+
+const val descriptorFileName = "descriptor.mod"
+val exeFileNames = arrayOf("stellaris.exe")
 //TODO Other Games
 
 //Icons

@@ -1,8 +1,0 @@
-# Example Federation Law
-
-# law = {
-#	potential = {}	# trigger, scope is federation
-#	allow = {}	# trigger, scope is federation
-#	modifier = {}
-#	on_enact = {}
-#}

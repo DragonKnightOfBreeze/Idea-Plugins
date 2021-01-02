@@ -3,10 +3,11 @@ package com.windea.plugin.idea.paradox.model
 class ParadoxPath(
 	val subPaths:List<String>
 ){
-	val parentSubPaths = subPaths.dropLast(1)
-	val name = subPaths.lastOrNull().orEmpty()
-	val parent = parentSubPaths.joinToString("/")
 	val path = subPaths.joinToString("/")
+	val fileName = subPaths.lastOrNull().orEmpty()
+	val fileExtension = fileName.substringAfterLast('.') 
+	val parentSubPaths = subPaths.dropLast(1)
+	val parent = parentSubPaths.joinToString("/")
 	val root = parentSubPaths.firstOrNull().orEmpty()
 	val length = subPaths.size
 	

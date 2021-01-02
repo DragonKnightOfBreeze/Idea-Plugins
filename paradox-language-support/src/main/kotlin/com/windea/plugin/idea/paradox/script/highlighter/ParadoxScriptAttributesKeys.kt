@@ -35,6 +35,6 @@ object ParadoxScriptAttributesKeys {
 	@JvmField val VALID_ESCAPE_KEY = createTextAttributesKey(_validEscapeName, VALID_STRING_ESCAPE)
 	@JvmField val INVALID_ESCAPE_KEY = createTextAttributesKey(_invalidEscapeName, INVALID_STRING_ESCAPE)
 	@JvmField val BAD_CHARACTER_KEY = createTextAttributesKey(_badCharacterName, BAD_CHARACTER)
-	@JvmField val LOCALISATION_PROPERTY_REFERENCE_KEY = createTextAttributesKey(_localisationPropertyReferenceName, STRING)
-	@JvmField val SCRIPT_PROPERTY_REFERENCE_KEY = createTextAttributesKey(_scriptPropertyReferenceName, STRING)
+	//@JvmField val LOCALISATION_PROPERTY_REFERENCE_KEY = createTextAttributesKey(_localisationPropertyReferenceName, STRING)
+	//@JvmField val SCRIPT_PROPERTY_REFERENCE_KEY = createTextAttributesKey(_scriptPropertyReferenceName, STRING)
 }

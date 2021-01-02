@@ -74,7 +74,7 @@ val PsiElement.paradoxPropertyPath: ParadoxPath? get() = getPropertyPath(this)
 
 private fun getPropertyPath(element: PsiElement): ParadoxPath? {
 	return CachedValuesManager.getCachedValue(element, paradoxPropertyPathKey) {
-		CachedValueProvider.Result.create(resolvePropertyPath(element))
+		CachedValueProvider.Result.create(resolvePropertyPath(element),element)
 	}
 }
 
