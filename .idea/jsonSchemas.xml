@@ -41,6 +41,9 @@
                   <Item>
                     <option name="path" value="stellaris-modding-support/src/test/resources/test_schema.json" />
                   </Item>
+                  <Item>
+                    <option name="path" value="paradox-language-support/src/main/resources/schemas/types.yml" />
+                  </Item>
                 </list>
               </option>
             </SchemaInfo>
@@ -61,6 +64,22 @@
                   </Item>
                   <Item>
                     <option name="path" value="stellaris-modding-support/src/test/resources/test.yml" />
+                  </Item>
+                </list>
+              </option>
+            </SchemaInfo>
+          </value>
+        </entry>
+        <entry key="types">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="types" />
+              <option name="relativePathToSchema" value="paradox-language-support/src/main/resources/schemas/types.yml" />
+              <option name="schemaVersion" value="JSON Schema version 7" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="path" value="paradox-language-support/src/main/resources/rules/stellaris/types.yml" />
                   </Item>
                 </list>
               </option>

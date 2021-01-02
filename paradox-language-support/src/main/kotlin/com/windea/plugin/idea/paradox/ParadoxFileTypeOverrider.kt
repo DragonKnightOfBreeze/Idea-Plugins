@@ -2,6 +2,7 @@ package com.windea.plugin.idea.paradox
 
 import com.intellij.openapi.fileTypes.impl.*
 import com.intellij.openapi.vfs.*
+import com.intellij.openapi.vfs.newvfs.impl.*
 import com.windea.plugin.idea.paradox.localisation.*
 import com.windea.plugin.idea.paradox.model.*
 import com.windea.plugin.idea.paradox.script.*
@@ -37,7 +38,7 @@ class ParadoxFileTypeOverrider : FileTypeOverrider {
 	}
 	
 	private fun getFileType(file: VirtualFile): ParadoxFileType? {
-		if(!file.isDirectory) {
+		if(file is StubVirtualFile || !file.isDirectory) {
 			val fileName = file.name.toLowerCase()
 			val fileExtension = fileName.substringAfterLast('.')
 			return when {
@@ -51,7 +52,7 @@ class ParadoxFileTypeOverrider : FileTypeOverrider {
 	}
 	
 	private fun getRootType(file: VirtualFile): ParadoxRootType? {
-		if(!file.isDirectory) return null
+		if(file is StubVirtualFile || !file.isDirectory) return null
 		for(child in file.children) {
 			val name = child.name
 			when {
