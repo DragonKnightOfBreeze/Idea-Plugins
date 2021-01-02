@@ -28,7 +28,7 @@ class ParadoxScriptPropertyLineMarkerProvider : LineMarkerProviderDescriptor() {
 	}
 	
 	class MyLineMarkerInfo(element: ParadoxScriptProperty) : LineMarkerInfo<PsiElement>(
-		element.propertyKey,
+		element.propertyKey.let { it.propertyKeyId ?: it.quotedPropertyKeyId!! },
 		element.textRange,
 		localisationPropertyGutterIcon,
 		{ _tooltip(it.text.unquote()) },
@@ -38,7 +38,8 @@ class ParadoxScriptPropertyLineMarkerProvider : LineMarkerProviderDescriptor() {
 			val scope = element.resolveScope
 			val elements = findScriptProperties(name, project, scope).toTypedArray()
 			when(elements.size) {
-				0 -> {}
+				0 -> {
+				}
 				1 -> OpenSourceUtil.navigate(true, elements.first())
 				else -> NavigationUtil.getPsiElementPopup(elements, _title).show(RelativePoint(mouseEvent))
 			}

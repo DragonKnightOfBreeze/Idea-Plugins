@@ -38,6 +38,7 @@ public interface ParadoxScriptTypes {
   IElementType LEFT_BRACE = new ParadoxScriptTokenType("{");
   IElementType LE_SIGN = new ParadoxScriptTokenType("<=");
   IElementType LT_SIGN = new ParadoxScriptTokenType("<");
+  IElementType NOT_EQUAL_SIGN = new ParadoxScriptTokenType("<>");
   IElementType NUMBER_TOKEN = new ParadoxScriptTokenType("NUMBER_TOKEN");
   IElementType PROPERTY_KEY_ID = new ParadoxScriptTokenType("PROPERTY_KEY_ID");
   IElementType QUOTED_PROPERTY_KEY_ID = new ParadoxScriptTokenType("QUOTED_PROPERTY_KEY_ID");

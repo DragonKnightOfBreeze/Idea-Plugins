@@ -126,6 +126,7 @@ IS_PROPERTY=(([^#@=\s][^=\s]*)|(\"([^\"(\r\n\\]|\\.)*?\"))\s*[=<>][ \t]*\S
   ">" {yybegin(WAITING_PROPERTY_VALUE); return GT_SIGN;}
   "<=" {yybegin(WAITING_PROPERTY_VALUE); return LE_SIGN;}
   ">=" {yybegin(WAITING_PROPERTY_VALUE); return GE_SIGN;}
+  "<>" {yybegin(WAITING_PROPERTY_VALUE); return NOT_EQUAL_SIGN;}
   {EOL} {  yybegin(nextState()); return WHITE_SPACE; }
   {WHITE_SPACE} { return WHITE_SPACE; }
   {END_OF_LINE_COMMENT} {  return END_OF_LINE_COMMENT; }
