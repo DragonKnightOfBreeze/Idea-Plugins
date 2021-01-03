@@ -23,7 +23,11 @@ class ParadoxDefinitionLocalisationLineMarkerProvider: LineMarkerProviderDescrip
 	
 	override fun getLineMarkerInfo(element: PsiElement): LineMarker? {
 		return when(element) {
-			is ParadoxScriptProperty -> LineMarker(element, element.paradoxTypeMetadata ?: return null)
+			is ParadoxScriptProperty -> {
+				val typeMetadata = element.paradoxTypeMetadata?:return null
+				if(!typeMetadata.hasLocalisation) return null //没有localisation时不加上gutterIcon
+				LineMarker(element, typeMetadata)
+			}
 			else -> null
 		}
 	}
@@ -44,7 +48,7 @@ class ParadoxDefinitionLocalisationLineMarkerProvider: LineMarkerProviderDescrip
 				else -> NavigationUtil.getPsiElementPopup(elements, _title).show(RelativePoint(mouseEvent))
 			}
 		},
-		GutterIconRenderer.Alignment.LEFT,
+		GutterIconRenderer.Alignment.RIGHT,
 		{ _name }
 	)
 }

@@ -964,9 +964,15 @@ types:
   planet_killer_animation:
     path: "gfx/projectiles/planet_destruction"
 
+  textcolors:
+    path: "interface"
+    file_extension: "gfx"
+    skip_root_key: "bitmapfonts"
+    key_filter: "textcolors"
+
   bimapfont:
     path: "interface"
-    file_name: "fonts.gfx"
+    file_extension: "gfx"
     skip_root_key: "bitmapfonts"
     key_filter: "bitmapfont"
     name_key: "name"
@@ -976,12 +982,6 @@ types:
     file_extension: "gfx"
     skip_root_key: "bitmapfonts"
     key_filter: "bitmapfont_override"
-
-  textcolors:
-    path: "interface"
-    file_extension: "gfx"
-    skip_root_key: "bitmapfonts"
-    key_filter: "textcolors"
 
   gui_type:
     path: "interface"

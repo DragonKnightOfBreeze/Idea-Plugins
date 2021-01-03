@@ -8,6 +8,7 @@ import com.intellij.openapi.roots.libraries.ui.*
 import com.intellij.openapi.ui.*
 import com.intellij.openapi.vfs.*
 import com.windea.plugin.idea.paradox.*
+import com.windea.plugin.idea.paradox.model.*
 import javax.swing.*
 
 abstract class ParadoxLibraryType(
@@ -15,13 +16,13 @@ abstract class ParadoxLibraryType(
 	private val libraryIcon: Icon,
 	private val type: String
 ) : LibraryType<ParadoxLibraryProperties>(libraryKind) {
-	private val createActionName = "$paradoxName/$type"
+	private val createActionName = "Paradox/$type"
 	private val namePrefix = "$createActionName: "
 	
 	companion object {
-		private val _chooserTitle =  message("paradox.library.chooser.title")
-		private val _chooserDescription =  message("paradox.library.chooser.description")
-		private val _ivalidLibraryPathMessage = message("paradox.library.dialog.invalidLibraryPath.message")
+		private val _chooserTitle = message("paradox.library.chooser.title")
+		private val _chooserDescription = message("paradox.library.chooser.description")
+		private val _invalidLibraryPathMessage = message("paradox.library.dialog.invalidLibraryPath.message")
 		private val _invalidLibraryPathTitle = message("paradox.library.dialog.invalidLibraryPath.title")
 	}
 	
@@ -39,9 +40,11 @@ abstract class ParadoxLibraryType(
 	//如果存在描述符文件，其中有name属性则取name属性的值，否则取库的文件名/目录
 	//如果存在游戏执行文件，则认为是标准库，否则认为不是一个合法的库
 	private fun getLibraryName(file: VirtualFile, project: Project): String? {
+		val fileName = file.name
 		for(child in file.children) {
+			val childName = child.name
 			when {
-				child.name.equals(descriptorFileName, true) -> {
+				childName.equals(descriptorFileName, true) -> {
 					val text = child.inputStream.reader().use { it.readText() }
 					for(line in text.lines()) {
 						if(line.startsWith("name")) {
@@ -50,9 +53,10 @@ abstract class ParadoxLibraryType(
 					}
 					return file.nameWithoutExtension
 				}
-				child.nameWithoutExtension.equals(type, true) && child.extension.equals("exe", true) -> {
-					return stdlibName
-				}
+				childName.equals("$type.exe", true) -> return ParadoxRootType.Stdlib.text
+				fileName == pdxLauncherDirName -> return ParadoxRootType.PdxLauncher.text
+				fileName == pdxOnlineAssetsDirName -> return ParadoxRootType.PdxOnlineAssets.text
+				fileName == tweakerGuiAssetsDirName -> return ParadoxRootType.TweakerGuiAssets.text
 			}
 		}
 		showInvalidLibraryDialog(project)
@@ -60,7 +64,7 @@ abstract class ParadoxLibraryType(
 	}
 	
 	private fun showInvalidLibraryDialog(project: Project) {
-		Messages.showWarningDialog(project, _ivalidLibraryPathMessage, _invalidLibraryPathTitle)
+		Messages.showWarningDialog(project, _invalidLibraryPathMessage, _invalidLibraryPathTitle)
 	}
 	
 	override fun createPropertiesEditor(editorComponent: LibraryEditorComponent<ParadoxLibraryProperties>) = null

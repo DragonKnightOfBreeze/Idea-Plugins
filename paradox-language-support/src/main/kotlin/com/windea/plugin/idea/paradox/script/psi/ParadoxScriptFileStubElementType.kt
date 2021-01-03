@@ -27,7 +27,12 @@ class ParadoxScriptFileStubElementType : IStubFileElementType<PsiFileStub<*>>(Pa
 			//仅包括顶级的variable和作为类型定义的property
 			val type = node.elementType
 			val parentType = parent.elementType
-			return !((type == VARIABLE && parentType == ROOT_BLOCK) || (type == PROPERTY && node.paradoxTypeMetadata != null))
+			return when{
+				type == ROOT_BLOCK -> false
+				type == VARIABLE && parentType == ROOT_BLOCK -> false
+				type == PROPERTY && node.paradoxTypeMetadata != null -> false 
+				else -> true
+			}
 		}
 	}
 }

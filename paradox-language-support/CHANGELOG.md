@@ -16,6 +16,10 @@
 * [X] 脚本文件兼容不等号`<>`
 * [X] 解析`typeMetadata`的`name` `type` `localisation` `scope` `fromVersion`，TODO：`subTypes`
 * [X] 解决`scriptProperty.paradoxTypeMetadata.name`和`scriptProperty.name`的兼容性问题
+* [X] 编写规则文件`locations.txt`并应用
+* [ ] 解析`typeMetadata`的`subTypes`
+* [ ] 编写规则文件`enums.yml`
+* [ ] 编写规则文件`definitions.yml`
 * [ ] 修复图标能加载但不能正常渲染的bug（IDE新版本底层代码错误？）
 * [ ] 初步实现功能：添加模块（基于游戏类型）
 

@@ -21,10 +21,18 @@ class ParadoxFileTypeOverrider : FileTypeOverrider {
 			val rootType = getRootType(currentFile)
 			if(rootType != null) {
 				val path = getPath(subPaths)
-				putUserData(file, fileType, rootType, path)
-				return when(fileType) {
-					ParadoxFileType.Script -> ParadoxScriptFileType
-					ParadoxFileType.Localisation -> ParadoxLocalisationFileType
+				val gameType = ParadoxGameType.Stellaris
+				//只解析特定根目录下的文件
+				return when {
+					fileType == ParadoxFileType.Script && isValidScriptPath(path,gameType) -> {
+						putUserData(file, fileType, rootType, gameType,path)
+						ParadoxScriptFileType
+					}
+					fileType == ParadoxFileType.Localisation && isValidLocalisationPath(path) -> {
+						putUserData(file, fileType, rootType, gameType,path)
+						ParadoxLocalisationFileType
+					}
+					else -> null
 				}
 			}
 			subPaths.add(0, currentFile.name)
@@ -34,12 +42,30 @@ class ParadoxFileTypeOverrider : FileTypeOverrider {
 		return null
 	}
 	
+	private fun isValidScriptPath(path: ParadoxPath,gameType:ParadoxGameType): Boolean {
+		val ruleGroup = ruleGroups[gameType.textLc]?: return false
+		val locations = ruleGroup.locations
+		val fastLocation = locations[path.parent]
+		//首先尝试直接通过path作为key来匹配
+		if(fastLocation != null){
+			val fastResult = fastLocation.matches(path,false)
+			if(fastResult) return true
+		}
+		//然后遍历locations进行匹配
+		val location = locations.values.find { it.matches(path) }
+		return location != null
+	}
+	
+	private fun isValidLocalisationPath(path: ParadoxPath): Boolean {
+		val root = path.root
+		return root == "localisation" || root == "localisation_synced"
+	}
+	
 	private fun getFileType(file: VirtualFile): ParadoxFileType? {
 		if(file is StubVirtualFile || !file.isDirectory) {
 			val fileName = file.name.toLowerCase()
 			val fileExtension = fileName.substringAfterLast('.')
 			return when {
-				fileName in ignoredFileNames -> null //某些特殊名字的文件会被忽略
 				fileExtension in scriptFileExtensions -> ParadoxFileType.Script
 				fileExtension in localisationFileExtensions -> ParadoxFileType.Localisation
 				else -> null
@@ -50,11 +76,15 @@ class ParadoxFileTypeOverrider : FileTypeOverrider {
 	
 	private fun getRootType(file: VirtualFile): ParadoxRootType? {
 		if(file is StubVirtualFile || !file.isDirectory) return null
+		val fileName = file.name
 		for(child in file.children) {
-			val name = child.name
+			val childName = child.name
 			when {
-				exeFileNames.any { exeFileName -> name.equals(exeFileName, true) } -> return ParadoxRootType.Stdlib
-				name.equals(descriptorFileName, true) -> return ParadoxRootType.Mod
+				exeFileNames.any { exeFileName -> childName.equals(exeFileName, true) } -> return ParadoxRootType.Stdlib
+				childName.equals(descriptorFileName, true) -> return ParadoxRootType.Mod
+				fileName == pdxLauncherDirName -> return ParadoxRootType.PdxLauncher
+				fileName == pdxOnlineAssetsDirName -> return ParadoxRootType.PdxOnlineAssets
+				fileName == tweakerGuiAssetsDirName -> return ParadoxRootType.TweakerGuiAssets
 			}
 		}
 		return null
@@ -64,12 +94,12 @@ class ParadoxFileTypeOverrider : FileTypeOverrider {
 		return ParadoxPath(subPaths)
 	}
 	
-	private fun putUserData(file: VirtualFile, fileType: ParadoxFileType, rootType: ParadoxRootType, path: ParadoxPath) {
+	private fun putUserData(file: VirtualFile, fileType: ParadoxFileType, rootType: ParadoxRootType,gameType:ParadoxGameType,path: ParadoxPath) {
 		try {
 			if(file.isValid) {
 				file.putUserData(paradoxFileTypeKey, fileType)
 				file.putUserData(paradoxRootTypeKey, rootType)
-				file.putUserData(paradoxGameTypeKey, ParadoxGameType.Stellaris) //TODO
+				file.putUserData(paradoxGameTypeKey, gameType) //TODO
 				file.putUserData(paradoxPathKey, path)
 			}
 		} catch(e: Exception) {

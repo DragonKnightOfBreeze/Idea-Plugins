@@ -96,38 +96,7 @@ private fun resolveScriptPath(element: PsiElement): ParadoxPath? {
 
 val ParadoxScriptProperty.paradoxTypeMetadata:ParadoxTypeMetadata? get() = getTypeMetadata(this)
 
-fun canGetTypeMetadata(element: ParadoxScriptProperty): Boolean {
-	//最低到2级scriptProperty
-	val parent = element.parent
-	return parent is ParadoxScriptRootBlock || parent?.parent?.parent?.parent is ParadoxScriptRootBlock
-}
-
-private fun getTypeMetadata(element:ParadoxScriptProperty):ParadoxTypeMetadata?{
-	if(!canGetTypeMetadata(element)) return null
-	return CachedValuesManager.getCachedValue(element, paradoxTypeMetadata) {
-		CachedValueProvider.Result.create(resolveTypeMetadata(element),element)
-	}
-}
-
-private fun resolveTypeMetadata(element:ParadoxScriptProperty):ParadoxTypeMetadata?{
-	val gameType = element.paradoxGameType?: return null
-	val ruleGroup = ruleGroups[gameType.text]?:return null
-	val elementName = element.name
-	val path = element.paradoxPath?:return null
-	val scriptPath = element.paradoxScriptPath ?: return null
-	val definition = ruleGroup.types.values.find { it.matches(elementName,path,scriptPath) }?: return null
-	return definition.toMetadata(element)
-}
-
 val ASTNode.paradoxTypeMetadata:ParadoxTypeMetadata? get() = getTypeMetadata(this)
-
-private fun getTypeMetadata(node:ASTNode):ParadoxTypeMetadata?{
-	if(!canGetTypeMetadata(node)) return null
-	val element = node.psi as? ParadoxScriptProperty ?: return null
-	return CachedValuesManager.getCachedValue(element, paradoxTypeMetadata) {
-		CachedValueProvider.Result.create(resolveTypeMetadata(element),element)
-	}
-}
 
 private fun canGetTypeMetadata(node: ASTNode): Boolean {
 	//最低到2级scriptProperty
@@ -135,6 +104,38 @@ private fun canGetTypeMetadata(node: ASTNode): Boolean {
 	return parent?.elementType == ROOT_BLOCK || parent?.treeParent?.treeParent?.treeParent?.elementType == ROOT_BLOCK
 }
 
+fun canGetTypeMetadata(element: ParadoxScriptProperty): Boolean {
+	//最低到2级scriptProperty
+	val parent = element.parent
+	return parent is ParadoxScriptRootBlock || parent?.parent?.parent?.parent is ParadoxScriptRootBlock
+}
+
+private fun getTypeMetadata(node:ASTNode):ParadoxTypeMetadata?{
+	if(!canGetTypeMetadata(node)) return null
+	val element = node.psi as? ParadoxScriptProperty ?: return null
+	return getCachedTypeMetadata(element)
+}
+
+private fun getTypeMetadata(element:ParadoxScriptProperty):ParadoxTypeMetadata?{
+	if(!canGetTypeMetadata(element)) return null
+	return getCachedTypeMetadata(element)
+}
+
+private fun getCachedTypeMetadata(element:ParadoxScriptProperty):ParadoxTypeMetadata?{
+	return CachedValuesManager.getCachedValue(element, paradoxTypeMetadata) {
+		CachedValueProvider.Result.create(resolveTypeMetadata(element),element)
+	}
+}
+
+private fun resolveTypeMetadata(element:ParadoxScriptProperty):ParadoxTypeMetadata?{
+	val gameType = element.paradoxGameType?: return null
+	val ruleGroup = ruleGroups[gameType.textLc]?:return null
+	val elementName = element.name
+	val path = element.paradoxPath?:return null
+	val scriptPath = element.paradoxScriptPath ?: return null
+	val definition = ruleGroup.types.values.find { it.matches(elementName,path,scriptPath) }?: return null
+	return definition.toMetadata(element,elementName)
+}
 //查找方法
 
 //使用stubIndex以提高性能

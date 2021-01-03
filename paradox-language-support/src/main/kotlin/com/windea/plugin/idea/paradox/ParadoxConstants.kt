@@ -37,8 +37,8 @@ val booleanValues = arrayOf("yes", "no")
 
 const val paradoxBundleName = "messages.ParadoxBundle"
 
-val localisationFileExtensions = arrayOf("yml", "yaml")
-val scriptFileExtensions = arrayOf("txt", "mod", "gfx", "gui", "asset", "cwt") //兼容cwtools的规则文件*.cwt
+val localisationFileExtensions = arrayOf("yml") //暂时不包括*.yaml文件
+val scriptFileExtensions = arrayOf("txt", "mod", "gfx", "gui", "asset", "dlc","settings","cwt") //兼容cwtools的规则文件*.cwt
 
 const val paradoxwikisUrl = "https://paradox.paradoxwikis.com"
 const val huijiwikiUrl = "https://qunxing.huijiwiki.com"
@@ -55,19 +55,11 @@ val inferredParadoxLocale = when(System.getProperty("user.language")) {
 	else -> ParadoxLocale.ENGLISH
 }
 
-const val readmeFileName = "readme.txt"
-const val changelogFileName = "changelog.txt"
-const val creditsFileName = "credits.txt"
-const val licenseFileName = "license.txt"
-val ignoredFileNames = arrayOf(readmeFileName, changelogFileName, creditsFileName, licenseFileName)
-
-const val stdlibName = "Stdlib"
-const val paradoxName = "Paradox"
-
-const val stellarisName = "Stellaris"
-//TODO Other Games
-
 const val descriptorFileName = "descriptor.mod"
+const val pdxLauncherDirName = "pdx_launcher"
+const val pdxOnlineAssetsDirName = "pdx_online_assets"
+const val tweakerGuiAssetsDirName = "tweakergui_assets"
+
 val exeFileNames = arrayOf("stellaris.exe")
 //Icons
 

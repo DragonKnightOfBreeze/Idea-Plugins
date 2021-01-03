@@ -72,11 +72,11 @@ object ParadoxRuleGroupProvider {
 	private fun addRule(file: VirtualFile, group: MutableMap<String, Map<String, Any>>) {
 		try {
 			val rule = extractRule(file)
-			//规则数据可能需要合并
-			for((ruleName, ruleValue) in rule) {
-				group.compute(ruleName){ _,v-> if(v != null) v + ruleValue else ruleValue }
-			}
-			//group.putAll(rule)
+			////规则数据可能需要合并
+			//for((ruleName, ruleValue) in rule) {
+			//	group.compute(ruleName){ _,v-> if(v != null) v + ruleValue else ruleValue }
+			//}
+			group.putAll(rule)
 		} catch(e: Exception) {
 			e.printStackTrace()
 		}

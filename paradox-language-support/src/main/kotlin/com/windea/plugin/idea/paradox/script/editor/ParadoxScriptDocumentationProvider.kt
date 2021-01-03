@@ -39,7 +39,7 @@ class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
 			element.paradoxPath?.let { append("[").append(it).append("]<br>") }
 			append("(script property) <b>").append(name.escapeXml()).append("</b>")
 			element.truncatedValue?.let { truncatedValue -> append(" = ").append(truncatedValue.escapeXml()) }
-			typeMetadata?.let {(type,name)->
+			typeMetadata?.let {(name, type)->
 				append("<br>")
 				append("(definition) <b>").append(name.escapeXml()).append("</b>: ").append(type).append("<br>")
 			}
@@ -80,7 +80,7 @@ class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
 				element.paradoxPath?.let { append("[").append(it).append("]<br>") }
 				append("(script property) <b>").append(element.name.escapeXml()).append("</b>")
 				element.truncatedValue?.let { truncatedValue -> append(" = ").append(truncatedValue.escapeXml()) }
-				typeMetadata?.let {(type,name)->
+				typeMetadata?.let {(name, type)->
 					append("<br>")
 					append("(definition) <b>").append(name.escapeXml()).append("</b>: ").append(type).append("<br>")
 				}

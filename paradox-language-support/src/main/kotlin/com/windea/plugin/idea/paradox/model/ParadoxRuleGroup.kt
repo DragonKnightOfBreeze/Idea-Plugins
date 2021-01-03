@@ -7,25 +7,44 @@ import com.windea.plugin.idea.paradox.script.psi.*
 class ParadoxRuleGroup(
 	data: Map<String, Map<String, Any>>
 ) : Map<String, Map<String, Any>> by data {
-	val definitions = Definitions(getOrDefault("definitions", emptyMap()))
-	val enums = Enums(getOrDefault("enums", emptyMap()))
-	val types = Types(getOrDefault("types", emptyMap()))
+	val locations = get("locations")?.let { 
+		(it as Map<String, Map<String, Any>>).mapValues { (k, v) -> Location(k, v) }
+	} ?: emptyMap()
+	val types = get("types")?.let { 
+		(it as Map<String, Map<String, Any>>).mapValues { (k, v) -> Type(k, v) }
+	} ?: emptyMap()
+	val definitions = get("definitions") ?: emptyMap()
+	val enums = get("enums") ?: emptyMap()
 	
-	class Definitions(
-		data: Map<String, Any>
-	) : Map<String, Any> by data
-	
-	class Enums(
-		data: Map<String, Any>
-	) : Map<String, Any> by data
-	
-	class Types(
-		data: Map<String, Any>
-	) : Map<String, Type> by data.mapValues({ (k, v) -> Type(k, v) })
+	class Location(
+		key:String,data:Map<String,Any>
+	):Map<String,Any> by data{
+		val name = key
+		
+		fun matches(path:ParadoxPath,checkPath:Boolean = true):Boolean{
+			if(checkPath) {
+				val pathStrictData = get("path_strict") as Boolean? ?: true
+				if(pathStrictData) {
+					if(name != path.parent) return false
+				} else {
+					if(!name.matchesPath(path.parent)) return false
+				}
+			}
+			val fileExtensionData = get("file_extension") as String? ?: "txt"
+			if(fileExtensionData != path.fileExtension) return false
+			val fileExtensionsData = get("file_extensions") as List<String>?
+			if(fileExtensionsData != null && !fileExtensionsData.contains(path.fileExtension)) return false
+			val fileNameData = get("file_name") as String?
+			if(fileNameData != null && fileNameData != path.fileName) return false
+			val fileNamesData = get("file_names") as List<String>?
+			if(fileNamesData != null && !fileNamesData.contains(path.fileName)) return false
+			return true
+		}
+	}
 	
 	class Type(
-		key: String, data: Any
-	) : Map<String, Any> by data as? Map<String, Any> ?: emptyMap() {
+		key: String, data: Map<String, Any>
+	) : Map<String, Any> by data {
 		val name = key
 		
 		//不要单纯地遍历列表进行匹配，需要先通过某种方式过滤不合法的scriptProperty
@@ -33,21 +52,21 @@ class ParadoxRuleGroup(
 		//path和propertyPath不要重复获取
 		
 		fun matches(elementName: String, path: ParadoxPath, scriptPath: ParadoxPath): Boolean {
+			//判断文件扩展名是否匹配
+			val fileExtensionData = get("file_extension") as String? ?: "txt"
+			if(fileExtensionData != path.fileExtension) return false
 			//判断路径是否匹配
 			val pathData = get("path") as String? ?: return false
-			val pathStrictData = get("path_strict") as Boolean? ?: false
+			val pathStrictData = get("path_strict") as Boolean? ?: true
 			if(pathStrictData) {
 				if(pathData != path.parent) return false
 			} else {
 				if(!pathData.matchesPath(path.parent)) return false
 			}
-			//判断文件名和文件扩展名是否匹配
+			//判断文件名是否匹配
 			val fileNameData = get("file_name") as String?
 			if(fileNameData != null) {
 				if(fileNameData != path.fileName) return false
-			} else {
-				val fileExtensionData = get("file_extension") as String? ?: "txt"
-				if(fileExtensionData != path.fileExtension) return false
 			}
 			//处理是否需要跳过rootKey
 			val skipRootKeyData = get("skip_root_key") as String?
@@ -104,13 +123,13 @@ class ParadoxRuleGroup(
 			return get("from_version") as String? ?: ""
 		}
 		
-		fun toMetadata(element: ParadoxScriptProperty): ParadoxTypeMetadata {
-			val type = this.name
+		fun toMetadata(element: ParadoxScriptProperty, elementName: String): ParadoxTypeMetadata {
 			val name = getName(element)
+			val type = this.name
 			val localisation = getLocalisation(name)
 			val scopes = getScopes()
 			val fromVersion = getFromVersion()
-			return ParadoxTypeMetadata(type, name, localisation, scopes, fromVersion)
+			return ParadoxTypeMetadata(name, type, elementName, localisation, scopes, fromVersion)
 		}
 	}
 }

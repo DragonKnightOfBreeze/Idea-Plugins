@@ -23,7 +23,10 @@ class ParadoxDefinitionLineMarkerProvider : LineMarkerProviderDescriptor() {
 	
 	override fun getLineMarkerInfo(element: PsiElement): LineMarker? {
 		return when(element) {
-			is ParadoxScriptProperty -> LineMarker(element, element.paradoxTypeMetadata ?: return null)
+			is ParadoxScriptProperty -> {
+				val typeMetadata = element.paradoxTypeMetadata ?: return null
+				LineMarker(element, typeMetadata)
+			}
 			else -> null
 		}
 	}
