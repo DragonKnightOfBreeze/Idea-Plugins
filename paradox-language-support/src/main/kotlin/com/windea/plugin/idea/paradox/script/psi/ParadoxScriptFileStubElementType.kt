@@ -24,10 +24,10 @@ class ParadoxScriptFileStubElementType : IStubFileElementType<PsiFileStub<*>>(Pa
 	
 	class Builder : DefaultStubBuilder() {
 		override fun skipChildProcessingWhenBuildingStubs(parent: ASTNode, node: ASTNode): Boolean {
-			//仅包括顶级的variable和顶级的property
+			//仅包括顶级的variable和作为类型定义的property
 			val type = node.elementType
 			val parentType = parent.elementType
-			return type != ROOT_BLOCK && (parentType != ROOT_BLOCK || type != VARIABLE && type != PROPERTY)
+			return !((type == VARIABLE && parentType == ROOT_BLOCK) || (type == PROPERTY && node.paradoxTypeMetadata != null))
 		}
 	}
 }

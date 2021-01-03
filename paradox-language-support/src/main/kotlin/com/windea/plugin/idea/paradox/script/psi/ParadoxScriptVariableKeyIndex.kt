@@ -17,15 +17,22 @@ object ParadoxScriptVariableKeyIndex: StringStubIndexExtension<ParadoxScriptVari
 		return result
 	}
 	
-	
-	fun getOne(key: String, project: Project, scope: GlobalSearchScope): ParadoxScriptVariable? {
-		for(element in StubIndex.getElements(this.key, key, project, scope, ParadoxScriptVariable::class.java)) {
+	fun getOne(name: String, project: Project, scope: GlobalSearchScope): ParadoxScriptVariable? {
+		for(element in StubIndex.getElements(this.key, name, project, scope, ParadoxScriptVariable::class.java)) {
 			return element
 		}
 		return null
 	}
 	
-	fun getAll( project: Project, scope: GlobalSearchScope): List<ParadoxScriptVariable> {
+	fun getAll(name: String, project: Project, scope: GlobalSearchScope): List<ParadoxScriptVariable> {
+		val result =  mutableListOf<ParadoxScriptVariable>()
+		for(element in StubIndex.getElements(this.key, name, project, scope, ParadoxScriptVariable::class.java)) {
+			result.add(element)
+		}
+		return result
+	}
+	
+	fun getAll(project: Project, scope: GlobalSearchScope): List<ParadoxScriptVariable> {
 		val result = mutableListOf<ParadoxScriptVariable>()
 		for(key in getAllKeys(project)) {
 			for(element in get(key, project, scope)) {

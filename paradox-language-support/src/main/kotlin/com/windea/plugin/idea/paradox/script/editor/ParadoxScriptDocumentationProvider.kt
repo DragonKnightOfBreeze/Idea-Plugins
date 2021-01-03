@@ -40,6 +40,7 @@ class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
 			append("(script property) <b>").append(name.escapeXml()).append("</b>")
 			element.truncatedValue?.let { truncatedValue -> append(" = ").append(truncatedValue.escapeXml()) }
 			typeMetadata?.let {(type,name)->
+				append("<br>")
 				append("(definition) <b>").append(name.escapeXml()).append("</b>: ").append(type).append("<br>")
 			}
 		}
@@ -80,6 +81,7 @@ class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
 				append("(script property) <b>").append(element.name.escapeXml()).append("</b>")
 				element.truncatedValue?.let { truncatedValue -> append(" = ").append(truncatedValue.escapeXml()) }
 				typeMetadata?.let {(type,name)->
+					append("<br>")
 					append("(definition) <b>").append(name.escapeXml()).append("</b>: ").append(type).append("<br>")
 				}
 			}
@@ -136,14 +138,14 @@ class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
 				when(property.name) {
 					"description" -> {
 						val k = property.value ?: continue
-						val value = findLocalisationProperty(k, project, inferredParadoxLocale)?.propertyValue?.renderRichText()
+						val value = findLocalisationProperty(k, inferredParadoxLocale, project)?.propertyValue?.renderRichText()
 						sectionMap[_effectTitle] = value ?: k
 					}
 					"tags" -> {
 						val pv = property.propertyValue?.value as? ParadoxScriptBlock ?: continue
 						val tags = pv.valueList.mapNotNull { if(it is ParadoxScriptString) it.value else null }
 						val propValues = tags.mapNotNull { tag ->
-							findLocalisationProperty(tag, project, inferredParadoxLocale)?.propertyValue
+							findLocalisationProperty(tag, inferredParadoxLocale, project)?.propertyValue
 						}
 						if(propValues.isEmpty()) continue
 						val value = buildString {

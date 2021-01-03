@@ -47,7 +47,7 @@ public class ParadoxScriptStringImpl extends ParadoxScriptStringValueImpl implem
   }
 
   @Override
-  @Nullable
+  @NotNull
   public ParadoxScriptStringAsPropertyPsiReference getReference() {
     return ParadoxScriptPsiImplUtil.getReference(this);
   }

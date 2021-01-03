@@ -24,18 +24,18 @@ class ParadoxLocalisationPropertyPsiReference(
 	}
 	
 	override fun resolve(): PsiElement? {
-		return findLocalisationProperty(name, project, locale,scope)
+		return findLocalisationProperty(name, locale, project, scope)
 	}
 
 	override fun multiResolve(incompleteCode: Boolean): Array<out ResolveResult> {
-		return findLocalisationProperties(name, project, locale,scope).mapArray {
+		return findLocalisationProperties(name, locale, project, scope).mapArray {
 			PsiElementResolveResult(it)
 		}
 	}
 
 	//注意要传入elementName而非element
 	override fun getVariants(): Array<out Any> {
-		return findLocalisationProperties(project, locale,scope).mapArray {
+		return findLocalisationProperties(locale, project, scope).mapArray {
 			LookupElementBuilder.create(it).withIcon(it.getIcon(0)).withTypeText(it.containingFile.name).withPsiElement(it)
 		}
 	}

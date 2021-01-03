@@ -37,7 +37,7 @@ class ParadoxDefinitionLocalisationLineMarkerProvider: LineMarkerProviderDescrip
 			val names = typeMetadata.localisation.values
 			val project = element.project
 			val scope = element.resolveScope
-			val elements = findLocalisationProperties(names, project, null, scope).toTypedArray()
+			val elements = findLocalisationProperties(names, null, project, scope).toTypedArray()
 			when(elements.size) {
 				0 -> {}
 				1 -> OpenSourceUtil.navigate(true, elements.first())

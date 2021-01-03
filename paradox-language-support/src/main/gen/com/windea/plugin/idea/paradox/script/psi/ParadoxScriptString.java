@@ -17,7 +17,7 @@ public interface ParadoxScriptString extends ParadoxScriptStringValue {
   @NotNull
   String getValue();
 
-  @Nullable
+  @NotNull
   ParadoxScriptStringAsPropertyPsiReference getReference();
 
 }

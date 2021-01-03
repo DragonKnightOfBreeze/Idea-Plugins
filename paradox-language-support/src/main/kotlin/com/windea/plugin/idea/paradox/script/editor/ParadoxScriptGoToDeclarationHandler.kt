@@ -22,7 +22,7 @@ class ParadoxScriptGoToDeclarationHandler: GotoDeclarationHandler {
 				val name = sourceElement.value
 				val project = sourceElement.project
 				return findScriptProperties(name, project).ifEmpty {
-					findLocalisationProperties(name, project, inferredParadoxLocale) //仅查找推断的语言区域的
+					findLocalisationProperties(name, inferredParadoxLocale, project) //仅查找推断的语言区域的
 				}.toTypedArray()
 			}
 			else -> null

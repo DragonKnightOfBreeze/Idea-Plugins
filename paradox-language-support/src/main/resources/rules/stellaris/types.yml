@@ -973,13 +973,13 @@ types:
 
   bitmapfont_override:
     path: "interface"
-    file_name: "fonts.gfx"
+    file_extension: "gfx"
     skip_root_key: "bitmapfonts"
     key_filter: "bitmapfont_override"
 
   textcolors:
     path: "interface"
-    file_name: "fonts.gfx"
+    file_extension: "gfx"
     skip_root_key: "bitmapfonts"
     key_filter: "textcolors"
 

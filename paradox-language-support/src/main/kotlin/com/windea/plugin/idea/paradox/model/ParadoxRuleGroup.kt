@@ -13,7 +13,7 @@ class ParadoxRuleGroup(
 	
 	class Definitions(
 		data: Map<String, Any>
-	) : Map<String, Definition> by data.mapValues({ (k, v) -> Definition(k, v) })
+	) : Map<String, Any> by data
 	
 	class Enums(
 		data: Map<String, Any>
@@ -21,9 +21,9 @@ class ParadoxRuleGroup(
 	
 	class Types(
 		data: Map<String, Any>
-	) : Map<String, Any> by data
+	) : Map<String, Type> by data.mapValues({ (k, v) -> Type(k, v) })
 	
-	class Definition(
+	class Type(
 		key: String, data: Any
 	) : Map<String, Any> by data as? Map<String, Any> ?: emptyMap() {
 		val name = key

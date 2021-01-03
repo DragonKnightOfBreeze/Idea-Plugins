@@ -1,5 +1,6 @@
 package com.windea.plugin.idea.paradox
 
+import com.intellij.lang.*
 import com.intellij.openapi.project.*
 import com.intellij.openapi.vfs.*
 import com.intellij.psi.*
@@ -8,6 +9,7 @@ import com.intellij.psi.util.*
 import com.windea.plugin.idea.paradox.localisation.psi.*
 import com.windea.plugin.idea.paradox.model.*
 import com.windea.plugin.idea.paradox.script.psi.*
+import com.windea.plugin.idea.paradox.script.psi.ParadoxScriptTypes.*
 import com.windea.plugin.idea.paradox.util.*
 import org.jetbrains.annotations.*
 
@@ -37,7 +39,7 @@ fun getDocTextFromPreviousComment(element: PsiElement): String {
 /**判断指定的注释是否可认为是之前的注释。*/
 fun isPreviousComment(element: PsiElement): Boolean {
 	val elementType = element.elementType
-	return elementType == ParadoxLocalisationTypes.COMMENT || elementType == ParadoxScriptTypes.COMMENT
+	return elementType == ParadoxLocalisationTypes.COMMENT || elementType == COMMENT
 }
 
 //特殊属性
@@ -97,7 +99,7 @@ val ParadoxScriptProperty.paradoxTypeMetadata:ParadoxTypeMetadata? get() = getTy
 fun canGetTypeMetadata(element: ParadoxScriptProperty): Boolean {
 	//最低到2级scriptProperty
 	val parent = element.parent
-	return (parent ?: parent?.parent?.parent?.parent) is ParadoxScriptRootBlock
+	return parent is ParadoxScriptRootBlock || parent?.parent?.parent?.parent is ParadoxScriptRootBlock
 }
 
 private fun getTypeMetadata(element:ParadoxScriptProperty):ParadoxTypeMetadata?{
@@ -113,8 +115,24 @@ private fun resolveTypeMetadata(element:ParadoxScriptProperty):ParadoxTypeMetada
 	val elementName = element.name
 	val path = element.paradoxPath?:return null
 	val scriptPath = element.paradoxScriptPath ?: return null
-	val definition = ruleGroup.definitions.values.find { it.matches(elementName,path,scriptPath) }?: return null
+	val definition = ruleGroup.types.values.find { it.matches(elementName,path,scriptPath) }?: return null
 	return definition.toMetadata(element)
+}
+
+val ASTNode.paradoxTypeMetadata:ParadoxTypeMetadata? get() = getTypeMetadata(this)
+
+private fun getTypeMetadata(node:ASTNode):ParadoxTypeMetadata?{
+	if(!canGetTypeMetadata(node)) return null
+	val element = node.psi as? ParadoxScriptProperty ?: return null
+	return CachedValuesManager.getCachedValue(element, paradoxTypeMetadata) {
+		CachedValueProvider.Result.create(resolveTypeMetadata(element),element)
+	}
+}
+
+private fun canGetTypeMetadata(node: ASTNode): Boolean {
+	//最低到2级scriptProperty
+	val parent = node.treeParent
+	return parent?.elementType == ROOT_BLOCK || parent?.treeParent?.treeParent?.treeParent?.elementType == ROOT_BLOCK
 }
 
 //查找方法
@@ -131,16 +149,11 @@ fun findScriptVariable(name: String, project: Project, scope: GlobalSearchScope 
 }
 
 fun findScriptVariables(name: String, project: Project, scope: GlobalSearchScope = GlobalSearchScope.allScope(project)): List<ParadoxScriptVariable> {
-	return ParadoxScriptVariableKeyIndex.get(name, project, scope)
+	return ParadoxScriptVariableKeyIndex.getAll(name, project, scope)
 }
 
 fun findScriptVariables(project: Project, scope: GlobalSearchScope = GlobalSearchScope.allScope(project)): List<ParadoxScriptVariable> {
 	return ParadoxScriptVariableKeyIndex.getAll(project, scope)
-}
-
-fun findScriptPropertyInFile(name: String, file: PsiFile): ParadoxScriptProperty? {
-	if(file !is ParadoxScriptFile) return null
-	return file.properties.find { it.name == name }
 }
 
 fun findScriptProperty(name: String, project: Project, scope: GlobalSearchScope = GlobalSearchScope.allScope(project)): ParadoxScriptProperty? {
@@ -148,26 +161,26 @@ fun findScriptProperty(name: String, project: Project, scope: GlobalSearchScope 
 }
 
 fun findScriptProperties(name: String, project: Project, scope: GlobalSearchScope = GlobalSearchScope.allScope(project)): List<ParadoxScriptProperty> {
-	return ParadoxScriptPropertyKeyIndex.get(name, project, scope)
+	return ParadoxScriptPropertyKeyIndex.getAll(name, project, scope)
 }
 
 fun findScriptProperties(project: Project, scope: GlobalSearchScope = GlobalSearchScope.allScope(project)): List<ParadoxScriptProperty> {
 	return ParadoxScriptPropertyKeyIndex.getAll(project, scope)
 }
 
-fun findLocalisationProperty(name: String, project: Project, locale: ParadoxLocale? = null, scope: GlobalSearchScope = GlobalSearchScope.allScope(project)): ParadoxLocalisationProperty? {
+fun findLocalisationProperty(name: String, locale: ParadoxLocale? = null, project: Project, scope: GlobalSearchScope = GlobalSearchScope.allScope(project)): ParadoxLocalisationProperty? {
 	return ParadoxLocalisationPropertyKeyIndex.getOne(name, locale, project, scope)
 }
 
-fun findLocalisationProperties(name: String, project: Project, locale: ParadoxLocale? = null, scope: GlobalSearchScope = GlobalSearchScope.allScope(project)): List<ParadoxLocalisationProperty> {
-	return ParadoxLocalisationPropertyKeyIndex.get(name, locale, project, scope)
+fun findLocalisationProperties(name: String, locale: ParadoxLocale? = null, project: Project, scope: GlobalSearchScope = GlobalSearchScope.allScope(project)): List<ParadoxLocalisationProperty> {
+	return ParadoxLocalisationPropertyKeyIndex.getAll(name, locale, project, scope)
 }
 
-fun findLocalisationProperties(project: Project, locale: ParadoxLocale? = null, scope: GlobalSearchScope = GlobalSearchScope.allScope(project)): List<ParadoxLocalisationProperty> {
+fun findLocalisationProperties(locale: ParadoxLocale? = null, project: Project, scope: GlobalSearchScope = GlobalSearchScope.allScope(project)): List<ParadoxLocalisationProperty> {
 	return ParadoxLocalisationPropertyKeyIndex.getAll(locale, project, scope)
 }
 
-fun findLocalisationProperties(names:Iterable<String>,project:Project,locale:ParadoxLocale? = null,scope:GlobalSearchScope = GlobalSearchScope.allScope(project)):List<ParadoxLocalisationProperty>{
+fun findLocalisationProperties(names:Iterable<String>,locale:ParadoxLocale? = null,project:Project,scope:GlobalSearchScope = GlobalSearchScope.allScope(project)):List<ParadoxLocalisationProperty>{
 	return ParadoxLocalisationPropertyKeyIndex.getAll(names,locale, project, scope)
 }
 

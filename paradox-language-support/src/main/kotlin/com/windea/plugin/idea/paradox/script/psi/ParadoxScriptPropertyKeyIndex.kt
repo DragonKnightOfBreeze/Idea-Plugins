@@ -4,6 +4,8 @@ import com.intellij.openapi.project.*
 import com.intellij.psi.search.*
 import com.intellij.psi.stubs.*
 
+//注意：这里的name不一定是scriptProperty的propertyKey！
+
 object ParadoxScriptPropertyKeyIndex: StringStubIndexExtension<ParadoxScriptProperty>() {
 	private val key = StubIndexKey.createIndexKey<String,ParadoxScriptProperty>("paradoxScript.property.index")
 	
@@ -17,14 +19,22 @@ object ParadoxScriptPropertyKeyIndex: StringStubIndexExtension<ParadoxScriptProp
 		return result
 	}
 	
-	fun getOne(key: String, project: Project, scope: GlobalSearchScope): ParadoxScriptProperty? {
-		for(element in StubIndex.getElements(this.key, key, project, scope, ParadoxScriptProperty::class.java)) {
+	fun getOne(name: String, project: Project, scope: GlobalSearchScope): ParadoxScriptProperty? {
+		for(element in StubIndex.getElements(this.key, name, project, scope, ParadoxScriptProperty::class.java)) {
 			return element
 		}
 		return null
 	}
 	
-	fun getAll( project: Project, scope: GlobalSearchScope): List<ParadoxScriptProperty> {
+	fun getAll(key: String, project: Project, scope: GlobalSearchScope): List<ParadoxScriptProperty> {
+		val result =  mutableListOf<ParadoxScriptProperty>()
+		for(element in StubIndex.getElements(this.key, key, project, scope, ParadoxScriptProperty::class.java)) {
+			result.add(element)
+		}
+		return result
+	}
+	
+	fun getAll(project: Project, scope: GlobalSearchScope): List<ParadoxScriptProperty> {
 		val result = mutableListOf<ParadoxScriptProperty>()
 		for(key in getAllKeys(project)) {
 			for(element in get(key, project, scope)) {

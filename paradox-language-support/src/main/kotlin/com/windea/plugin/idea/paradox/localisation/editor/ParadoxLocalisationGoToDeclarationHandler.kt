@@ -13,7 +13,7 @@ class ParadoxLocalisationGoToDeclarationHandler : GotoDeclarationHandler {
 				val name = sourceElement.name
 				val locale = (sourceElement.containingFile as? ParadoxLocalisationFile)?.paradoxLocale
 				//查找当前项目
-				findLocalisationProperties(name, sourceElement.project, locale).toTypedArray()
+				findLocalisationProperties(name, locale, sourceElement.project).toTypedArray()
 			}
 			else -> null
 		}
