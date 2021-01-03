@@ -3,16 +3,15 @@ package com.windea.plugin.idea.paradox.script.psi
 import com.intellij.openapi.project.*
 import com.intellij.psi.search.*
 import com.intellij.psi.stubs.*
+import com.windea.plugin.idea.paradox.*
 
-//注意：这里的name不一定是scriptProperty的propertyKey！
-
-object ParadoxScriptPropertyKeyIndex: StringStubIndexExtension<ParadoxScriptProperty>() {
-	private val key = StubIndexKey.createIndexKey<String,ParadoxScriptProperty>("paradoxScript.property.index")
+object ParadoxScriptPropertyKeyIndex : StringStubIndexExtension<ParadoxScriptProperty>() {
+	private val key = StubIndexKey.createIndexKey<String, ParadoxScriptProperty>("paradoxScript.property.index")
 	
 	override fun getKey() = key
 	
 	override fun get(key: String, project: Project, scope: GlobalSearchScope): List<ParadoxScriptProperty> {
-		val result =  mutableListOf<ParadoxScriptProperty>()
+		val result = mutableListOf<ParadoxScriptProperty>()
 		for(element in StubIndex.getElements(this.key, key, project, scope, ParadoxScriptProperty::class.java)) {
 			result.add(element)
 		}
@@ -26,9 +25,9 @@ object ParadoxScriptPropertyKeyIndex: StringStubIndexExtension<ParadoxScriptProp
 		return null
 	}
 	
-	fun getAll(key: String, project: Project, scope: GlobalSearchScope): List<ParadoxScriptProperty> {
-		val result =  mutableListOf<ParadoxScriptProperty>()
-		for(element in StubIndex.getElements(this.key, key, project, scope, ParadoxScriptProperty::class.java)) {
+	fun getAll(name: String, project: Project, scope: GlobalSearchScope): List<ParadoxScriptProperty> {
+		val result = mutableListOf<ParadoxScriptProperty>()
+		for(element in StubIndex.getElements(this.key, name, project, scope, ParadoxScriptProperty::class.java)) {
 			result.add(element)
 		}
 		return result

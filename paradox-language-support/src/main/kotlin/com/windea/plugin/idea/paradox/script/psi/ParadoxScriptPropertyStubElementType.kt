@@ -4,6 +4,7 @@ import com.intellij.lang.*
 import com.intellij.psi.impl.source.tree.*
 import com.intellij.psi.stubs.*
 import com.intellij.util.*
+import com.windea.plugin.idea.paradox.*
 import com.windea.plugin.idea.paradox.script.*
 import com.windea.plugin.idea.paradox.script.psi.impl.*
 
@@ -16,7 +17,8 @@ class ParadoxScriptPropertyStubElementType : ILightStubElementType<ParadoxScript
 	}
 	
 	override fun createStub(psi: ParadoxScriptProperty, parentStub: StubElement<*>): ParadoxScriptPropertyStub {
-		return ParadoxScriptPropertyStubImpl(parentStub, psi.name)
+		//这里使用scriptProperty.paradoxTypeMetadata.name而非scriptProperty.name
+		return ParadoxScriptPropertyStubImpl(parentStub, psi.paradoxTypeMetadata?.name ?: psi.name)
 	}
 	
 	override fun createStub(tree: LighterAST, node: LighterASTNode, parentStub: StubElement<*>): ParadoxScriptPropertyStub {

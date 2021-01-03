@@ -156,11 +156,11 @@ fun findScriptVariables(project: Project, scope: GlobalSearchScope = GlobalSearc
 	return ParadoxScriptVariableKeyIndex.getAll(project, scope)
 }
 
-fun findScriptProperty(name: String, project: Project, scope: GlobalSearchScope = GlobalSearchScope.allScope(project)): ParadoxScriptProperty? {
+fun findScriptProperty(name: String,project: Project, scope: GlobalSearchScope = GlobalSearchScope.allScope(project)): ParadoxScriptProperty? {
 	return ParadoxScriptPropertyKeyIndex.getOne(name, project, scope)
 }
 
-fun findScriptProperties(name: String, project: Project, scope: GlobalSearchScope = GlobalSearchScope.allScope(project)): List<ParadoxScriptProperty> {
+fun findScriptProperties(name: String,project: Project, scope: GlobalSearchScope = GlobalSearchScope.allScope(project)): List<ParadoxScriptProperty> {
 	return ParadoxScriptPropertyKeyIndex.getAll(name, project, scope)
 }
 
@@ -184,6 +184,7 @@ fun findLocalisationProperties(names:Iterable<String>,locale:ParadoxLocale? = nu
 	return ParadoxLocalisationPropertyKeyIndex.getAll(names,locale, project, scope)
 }
 
+//TODO REMOVE
 //将部分特定的查找方法作为扩展方法
 
 fun findRelatedLocalisationProperties(scriptPropertyName: String, project: Project, locale: ParadoxLocale? = null, scope: GlobalSearchScope = GlobalSearchScope.allScope(project)): List<ParadoxLocalisationProperty> {
