@@ -29,6 +29,8 @@ const val commentFolder = "#..."
 const val blockFolder = "{...}"
 const val defaultFolder = "<folder>"
 
+const val anonymousName = "<anonymous>"
+
 val utf8Bom = byteArrayOf(0xef.toByte(), 0xbb.toByte(), 0xbf.toByte())
 
 val booleanValues = arrayOf("yes", "no")
@@ -63,11 +65,10 @@ const val stdlibName = "Stdlib"
 const val paradoxName = "Paradox"
 
 const val stellarisName = "Stellaris"
+//TODO Other Games
 
 const val descriptorFileName = "descriptor.mod"
 val exeFileNames = arrayOf("stellaris.exe")
-//TODO Other Games
-
 //Icons
 
 val paradoxLocalisationFileIcon = IconLoader.findIcon("/icons/paradoxLocalisationFile.svg")!!
@@ -79,8 +80,11 @@ val paradoxScriptVariableIcon = IconLoader.findIcon("/icons/paradoxScriptVariabl
 val paradoxScriptPropertyIcon = IconLoader.findIcon("/icons/paradoxScriptProperty.svg")!!
 val paradoxScriptValueIcon = IconLoader.findIcon("/icons/paradoxScriptValue.svg")!!
 
-val localisationPropertyGutterIcon = paradoxLocalisationPropertyIcon.resize(12, 12)
-val scriptPropertyGutterIcon = paradoxScriptPropertyIcon.resize(12, 12)
+val definitionGutterIcon = paradoxScriptPropertyIcon.resize(12, 12)
+val definitionLocalisationGutterIcon = paradoxLocalisationPropertyIcon.resize(12, 12)
+val localisationGutterIcon = paradoxLocalisationPropertyIcon.resize(12, 12)
+val stringScriptPropertyGutterIcon = paradoxScriptPropertyIcon.resize(12, 12)
+val stringLocalisationPropertyGutterIcon = paradoxLocalisationPropertyIcon.resize(12, 12)
 //val eventIdGutterIcon = IconUtil.toSize(AllIcons.Nodes.Protected, 12, 12)
 //val gfxKeyGutterIcon = IconUtil.toSize(AllIcons.Nodes.Related, 12, 12)
 //val assetKeyGutterIcon = IconUtil.toSize(AllIcons.Nodes.Related, 12, 12)
@@ -94,10 +98,9 @@ val paradoxFileTypeKey = Key<ParadoxFileType>("paradoxFileType")
 val paradoxRootTypeKey = Key<ParadoxRootType>("paradoxRootType")
 val paradoxGameTypeKey = Key<ParadoxGameType>("paradoxGameType")
 val paradoxPathKey = Key<ParadoxPath>("paradoxPath")
-val paradoxPropertyPathKey = Key<CachedValue<ParadoxPath>>("paradoxPropertyPath")
+val paradoxScriptPathKey = Key<CachedValue<ParadoxPath>>("paradoxScriptPath")
+val paradoxTypeMetadata = Key<CachedValue<ParadoxTypeMetadata>>("paradoxTypeMetadata")
 
-//Caches
+//Caches 
 
-val ruleGroups = ParadoxRuleGroupProvider.getRuleGroups().also{ println(it) }
-val stellarisRuleGroup = ruleGroups.getOrDefault("stellaris",emptyMap())
-	
+val ruleGroups = ParadoxRuleGroupProvider.getRuleGroups()

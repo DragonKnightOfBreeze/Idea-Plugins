@@ -90,6 +90,18 @@ object ParadoxScriptPsiImplUtil {
 	fun getTruncatedValue(element:ParadoxScriptProperty):String?{
 		return element.propertyValue?.value?.let{ if(it is ParadoxScriptBlock) blockFolder else it.text }
 	}
+	
+	@JvmStatic
+	fun findProperty(element:ParadoxScriptProperty,propertyName:String):ParadoxScriptProperty?{
+		val block = element.propertyValue?.value as? ParadoxScriptBlock ?: return null
+		return block.propertyList.find { it.name == propertyName }
+	}
+	
+	@JvmStatic
+	fun findValue(element:ParadoxScriptProperty,value:String): ParadoxScriptValue? {
+		val block = element.propertyValue?.value as? ParadoxScriptBlock ?: return null
+		return block.valueList.find { it.value == value }
+	}
 	//endregion
 	
 	//region ParadoxScriptVariableReference
@@ -160,9 +172,7 @@ object ParadoxScriptPsiImplUtil {
 	}
 	
 	@JvmStatic
-	fun getReference(element: ParadoxScriptString): ParadoxScriptStringAsPropertyPsiReference? {
-		//过滤非法的情况
-		if(element.value.isInvalidPropertyName()) return null
+	fun getReference(element: ParadoxScriptString): ParadoxScriptStringAsPropertyPsiReference {
 		return ParadoxScriptStringAsPropertyPsiReference(element, TextRange(0, element.textLength))
 	}
 	//endregion
@@ -265,6 +275,16 @@ object ParadoxScriptPsiImplUtil {
 			}
 		}
 		return false
+	}
+	
+	@JvmStatic
+	fun findProperty(element:ParadoxScriptBlock,propertyName:String):ParadoxScriptProperty?{
+		return element.propertyList.find { it.name == propertyName }
+	}
+	
+	@JvmStatic
+	fun findValue(element:ParadoxScriptBlock,value:String): ParadoxScriptValue? {
+		return element.valueList.find { it.value == value }
 	}
 	
 	@JvmStatic

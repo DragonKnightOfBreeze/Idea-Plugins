@@ -1,22 +1,28 @@
 package com.windea.plugin.idea.paradox.util
 
 import com.intellij.openapi.vfs.*
+import com.intellij.openapi.vfs.newvfs.impl.*
 import com.windea.plugin.idea.paradox.*
+import com.windea.plugin.idea.paradox.model.*
 import org.yaml.snakeyaml.*
 import java.util.concurrent.*
 
 /**
- * Paradox规则组的提供器。
+ * Paradox规则组映射的提供器。
  */
 object ParadoxRuleGroupProvider {
+	@Volatile
 	private var shouldLoad = true
-	private val shouldLoadLock = Any()
-	private val ruleGroups: MutableMap<String, MutableMap<String, Map<String, Any>>> = ConcurrentHashMap()
+	private val ruleGroups: MutableMap<String, ParadoxRuleGroup> = ConcurrentHashMap()
 	
-	fun getRuleGroups(): Map<String, Map<String, Map<String, Any>>> {
+	fun getRuleGroups(): Map<String, ParadoxRuleGroup> {
 		if(shouldLoad) {
-			shouldLoad = false
-			addRuleGroups()
+			synchronized(ruleGroups){
+				if(shouldLoad) {
+					shouldLoad = false
+					addRuleGroups()
+				}
+			}
 		}
 		return ruleGroups
 	}
@@ -47,16 +53,18 @@ object ParadoxRuleGroupProvider {
 	private fun addRuleGroup(file: VirtualFile) {
 		//添加规则组
 		val groupName = file.name
-		val group = ConcurrentHashMap<String, Map<String, Any>>()
-		ruleGroups[groupName] = group
+		val group = mutableMapOf<String, Map<String, Any>>()
 		addRuleGroupOrRule(file, group)
+		ruleGroups[groupName] = ParadoxRuleGroup(group)
 	}
 	
 	private fun addRuleGroupOrRule(file: VirtualFile, group: MutableMap<String, Map<String, Any>>) {
 		for(child in file.children) {
-			when {
-				child.isDirectory -> addRuleGroupOrRule(child, group)
-				else -> addRule(child, group)
+			if(child !is StubVirtualFile || child.isValid) {
+				when {
+					child.isDirectory -> addRuleGroupOrRule(child, group)
+					else -> addRule(child, group)
+				}
 			}
 		}
 	}
@@ -65,10 +73,10 @@ object ParadoxRuleGroupProvider {
 		try {
 			val rule = extractRule(file)
 			//规则数据可能需要合并
-			//for((ruleName, ruleValue) in rule) {
-			//	group.compute(ruleName){ _,v-> if(v != null) v + ruleValue else ruleValue }
-			//}
-			group.putAll(rule)
+			for((ruleName, ruleValue) in rule) {
+				group.compute(ruleName){ _,v-> if(v != null) v + ruleValue else ruleValue }
+			}
+			//group.putAll(rule)
 		} catch(e: Exception) {
 			e.printStackTrace()
 		}
@@ -76,7 +84,7 @@ object ParadoxRuleGroupProvider {
 	
 	private val yaml = Yaml()
 	
-	private fun extractRule(file: VirtualFile): Map<String, Map<String, Any>> {
+	private fun extractRule(file: VirtualFile): Map<String, Map<String,Any>> {
 		return yaml.load(file.inputStream)?: emptyMap()
 	}
 }

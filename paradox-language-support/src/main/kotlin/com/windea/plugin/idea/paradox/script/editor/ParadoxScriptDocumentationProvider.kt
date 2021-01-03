@@ -1,7 +1,6 @@
 package com.windea.plugin.idea.paradox.script.editor
 
 import com.intellij.lang.documentation.*
-import com.intellij.openapi.project.*
 import com.intellij.psi.*
 import com.windea.plugin.idea.paradox.*
 import com.windea.plugin.idea.paradox.script.psi.*
@@ -34,10 +33,15 @@ class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
 	}
 	
 	private fun getPropertyInfo(element: ParadoxScriptProperty): String {
+		val name = element.name
+		val typeMetadata = element.paradoxTypeMetadata
 		return buildString {
 			element.paradoxPath?.let { append("[").append(it).append("]<br>") }
-			append("(script property) <b>").append(element.name.escapeXml()).append("</b>")
+			append("(script property) <b>").append(name.escapeXml()).append("</b>")
 			element.truncatedValue?.let { truncatedValue -> append(" = ").append(truncatedValue.escapeXml()) }
+			typeMetadata?.let {(type,name)->
+				append("(definition) <b>").append(name.escapeXml()).append("</b>: ").append(type).append("<br>")
+			}
 		}
 	}
 	
@@ -69,12 +73,15 @@ class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
 	
 	private fun getPropertyDoc(element: ParadoxScriptProperty): String {
 		val name = element.name
+		val typeMetadata = element.paradoxTypeMetadata
 		return buildString {
 			definition {
 				element.paradoxPath?.let { append("[").append(it).append("]<br>") }
 				append("(script property) <b>").append(element.name.escapeXml()).append("</b>")
 				element.truncatedValue?.let { truncatedValue -> append(" = ").append(truncatedValue.escapeXml()) }
-				append("<br>").append(element.paradoxPropertyPath) //DEBUG
+				typeMetadata?.let {(type,name)->
+					append("(definition) <b>").append(name.escapeXml()).append("</b>: ").append(type).append("<br>")
+				}
 			}
 			//之前的单行注释文本
 			val docText = getDocTextFromPreviousComment(element)
@@ -85,7 +92,7 @@ class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
 			}
 			//相关的本地化文本
 			if(state.renderLocalisationText) {
-				if(element.isRootProperty() && !name.isInvalidPropertyName()) {
+				if(canGetTypeMetadata(element)) {
 					val sections = getPropertySections(element, name)
 					if(sections.isNotEmpty()) {
 						sections {

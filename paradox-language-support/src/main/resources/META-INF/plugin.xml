@@ -55,109 +55,7 @@
   <extensions defaultExtensionNs="com.intellij">
     <!--suppress PluginXmlValidity -->
     <fileTypeOverrider implementation="com.windea.plugin.idea.paradox.ParadoxFileTypeOverrider" order="first"/>
-
-    <!--region Paradox Localisation Language-->
-    <fileType
-      language="Paradox Localisation"
-      name="Paradox Localisation File" fieldName="INSTANCE"
-      implementationClass="com.windea.plugin.idea.paradox.localisation.ParadoxLocalisationFileType"/>
-    <lang.parserDefinition
-      language="Paradox Localisation"
-      implementationClass="com.windea.plugin.idea.paradox.localisation.psi.ParadoxLocalisationParserDefinition"/>
-    <stubElementTypeHolder class="com.windea.plugin.idea.paradox.localisation.psi.ParadoxLocalisationStubElementTypes" externalIdPrefix="paradoxLocalisation."/>
-    <stubIndex implementation="com.windea.plugin.idea.paradox.localisation.psi.ParadoxLocalisationPropertyKeyIndex"/>
     
-    <lang.syntaxHighlighterFactory
-      language="Paradox Localisation"
-      implementationClass="com.windea.plugin.idea.paradox.localisation.highlighter.ParadoxLocalisationSyntaxHighlighterFactory"/>
-    <lang.braceMatcher
-      language="Paradox Localisation"
-      implementationClass="com.windea.plugin.idea.paradox.localisation.editor.ParadoxLocalisationBraceMatcher"/>
-    <lang.foldingBuilder
-      language="Paradox Localisation"
-      implementationClass="com.windea.plugin.idea.paradox.localisation.editor.ParadoxLocalisationFoldingBuilder"/>
-    <colorSettingsPage
-      implementation="com.windea.plugin.idea.paradox.localisation.highlighter.ParadoxLocalisationColorSettingsPage"/>
-    <lang.commenter
-      language="Paradox Localisation"
-      implementationClass="com.windea.plugin.idea.paradox.localisation.editor.ParadoxLocalisationCommenter"/>
-    <spellchecker.support
-      language="Paradox Localisation"
-      implementationClass="com.windea.plugin.idea.paradox.localisation.ParadoxLocalisationSpellchecker"/>
-    <lang.refactoringSupport
-      language="Paradox Localisation"
-      implementationClass="com.windea.plugin.idea.paradox.localisation.refactoring.ParadoxLocalisationRefactoringSupportProvider"/>
-    <renameInputValidator
-      implementation="com.windea.plugin.idea.paradox.localisation.refactoring.ParadoxLocalisationPropertyRenameInputValidator"/>
-    <completion.contributor
-      language="Paradox Localisation"
-      implementationClass="com.windea.plugin.idea.paradox.localisation.codeInsight.ParadoxLocalisationCompletionContributor"/>
-    <liveTemplateContext
-      implementation="com.windea.plugin.idea.paradox.localisation.editor.ParadoxLocalisationTemplateContext"/>
-    <defaultLiveTemplates file="/liveTemplates/ParadoxLocalisation.xml"/>
-    <breadcrumbsInfoProvider
-      implementation="com.windea.plugin.idea.paradox.localisation.editor.ParadoxLocalisationBreadCrumbsProvider"/>
-    <lang.psiStructureViewFactory
-      language="Paradox Localisation"
-      implementationClass="com.windea.plugin.idea.paradox.localisation.structureView.ParadoxLocalisationStructureViewFactory"/>
-    <lang.formatter
-      language="Paradox Localisation"
-      implementationClass="com.windea.plugin.idea.paradox.localisation.formatter.ParadoxLocalisationFormattingModelBuilder"/>
-    <codeStyleSettingsProvider
-      implementation="com.windea.plugin.idea.paradox.localisation.formatter.ParadoxLocalisationCodeStyleSettingsProvider"/>
-    <langCodeStyleSettingsProvider
-      implementation="com.windea.plugin.idea.paradox.localisation.formatter.ParadoxLocalisationLanguageCodeStyleSettingsProvider"/>
-    <lang.quoteHandler
-      language="Paradox Localisation"
-      implementationClass="com.windea.plugin.idea.paradox.localisation.editor.ParadoxLocalisationQuoteHandler"/>
-    <lang.documentationProvider
-      language="Paradox Localisation"
-      implementationClass="com.windea.plugin.idea.paradox.localisation.editor.ParadoxLocalisationDocumentationProvider"/>
-    <elementDescriptionProvider
-      implementation="com.windea.plugin.idea.paradox.localisation.editor.ParadoxLocalisationDescriptionProvider"/>
-
-    <lang.findUsagesProvider
-      language="Paradox Localisation"
-      implementationClass="com.windea.plugin.idea.paradox.localisation.editor.ParadoxLocalisationFindUsagesProvider"/>
-    <gotoDeclarationHandler
-      implementation="com.windea.plugin.idea.paradox.localisation.editor.ParadoxLocalisationGoToDeclarationHandler"/>
-    <annotator
-      language="Paradox Localisation"
-      implementationClass="com.windea.plugin.idea.paradox.localisation.editor.ParadoxLocalisationAnnotator"/>
-    <codeInsight.lineMarkerProvider
-        language="Paradox Localisation"
-        implementationClass="com.windea.plugin.idea.paradox.localisation.editor.ParadoxLocalisationPropertyLineMarkerProvider"/>
-    
-    <additionalTextAttributes scheme="Default" file="colorSchemes/ParadoxScriptDefault.xml"/>
-    <additionalTextAttributes scheme="Darcula" file="colorSchemes/ParadoxScriptDarcula.xml"/>
-
-    <intentionAction>
-      <className>com.windea.plugin.idea.paradox.localisation.intentions.ChangeLocaleIntention</className>
-      <category>Paradox localisation</category>
-    </intentionAction>
-    <intentionAction>
-      <className>com.windea.plugin.idea.paradox.localisation.intentions.ChangeColorIntention</className>
-      <category>Paradox localisation</category>
-    </intentionAction>
-    <intentionAction>
-      <className>com.windea.plugin.idea.paradox.localisation.intentions.ChangeSerialNumberIntention</className>
-      <category>Paradox localisation</category>
-    </intentionAction>
-
-    <localInspection
-      language="Paradox Localisation"
-      shortName="ParadoxLocalisationDuplicatePropertyKeys"
-      groupKey="paradox.localisation.inspection" key="paradox.localisation.inspection.duplicatePropertyKeys"
-      enabledByDefault="true" level="WARNING"
-      implementationClass="com.windea.plugin.idea.paradox.localisation.inspections.DuplicatePropertyKeysInspection"/>
-    <localInspection
-      language="Paradox Localisation"
-      shortName="ParadoxLocalisationInvalidFileEncoding"
-      groupKey="paradox.localisation.inspection" key="paradox.localisation.inspection.invalidFileEncoding"
-      enabledByDefault="true" level="WARNING"
-      implementationClass="com.windea.plugin.idea.paradox.localisation.inspections.InvalidFileEncodingInspection"/>
-    <!--endregion-->
-
     <!--region Paradox Script Language-->
     <fileType
       language="Paradox Script"
@@ -233,7 +131,10 @@
       implementationClass="com.windea.plugin.idea.paradox.script.editor.ParadoxScriptAnnotator"/>
     <codeInsight.lineMarkerProvider
         language="Paradox Script"
-        implementationClass="com.windea.plugin.idea.paradox.script.editor.ParadoxScriptPropertyLineMarkerProvider"/>
+        implementationClass="com.windea.plugin.idea.paradox.script.editor.ParadoxDefinitionLineMarkerProvider"/>
+    <codeInsight.lineMarkerProvider
+        language="Paradox Script"
+        implementationClass="com.windea.plugin.idea.paradox.script.editor.ParadoxDefinitionLocalisationLineMarkerProvider"/>
     
     <additionalTextAttributes scheme="Default" file="colorSchemes/ParadoxLocalisationDefault.xml"/>
     <additionalTextAttributes scheme="Darcula" file="colorSchemes/ParadoxLocalisationDarcula.xml"/>
@@ -252,6 +153,108 @@
       key="paradox.script.inspection.invalidFileEncoding"
       enabledByDefault="true" level="WARNING"
       implementationClass="com.windea.plugin.idea.paradox.script.inspections.InvalidFileEncodingInspection"/>
+    <!--endregion-->
+    
+    <!--region Paradox Localisation Language-->
+    <fileType
+        language="Paradox Localisation"
+        name="Paradox Localisation File" fieldName="INSTANCE"
+        implementationClass="com.windea.plugin.idea.paradox.localisation.ParadoxLocalisationFileType"/>
+    <lang.parserDefinition
+        language="Paradox Localisation"
+        implementationClass="com.windea.plugin.idea.paradox.localisation.psi.ParadoxLocalisationParserDefinition"/>
+    <stubElementTypeHolder class="com.windea.plugin.idea.paradox.localisation.psi.ParadoxLocalisationStubElementTypes" externalIdPrefix="paradoxLocalisation."/>
+    <stubIndex implementation="com.windea.plugin.idea.paradox.localisation.psi.ParadoxLocalisationPropertyKeyIndex"/>
+
+    <lang.syntaxHighlighterFactory
+        language="Paradox Localisation"
+        implementationClass="com.windea.plugin.idea.paradox.localisation.highlighter.ParadoxLocalisationSyntaxHighlighterFactory"/>
+    <lang.braceMatcher
+        language="Paradox Localisation"
+        implementationClass="com.windea.plugin.idea.paradox.localisation.editor.ParadoxLocalisationBraceMatcher"/>
+    <lang.foldingBuilder
+        language="Paradox Localisation"
+        implementationClass="com.windea.plugin.idea.paradox.localisation.editor.ParadoxLocalisationFoldingBuilder"/>
+    <colorSettingsPage
+        implementation="com.windea.plugin.idea.paradox.localisation.highlighter.ParadoxLocalisationColorSettingsPage"/>
+    <lang.commenter
+        language="Paradox Localisation"
+        implementationClass="com.windea.plugin.idea.paradox.localisation.editor.ParadoxLocalisationCommenter"/>
+    <spellchecker.support
+        language="Paradox Localisation"
+        implementationClass="com.windea.plugin.idea.paradox.localisation.ParadoxLocalisationSpellchecker"/>
+    <lang.refactoringSupport
+        language="Paradox Localisation"
+        implementationClass="com.windea.plugin.idea.paradox.localisation.refactoring.ParadoxLocalisationRefactoringSupportProvider"/>
+    <renameInputValidator
+        implementation="com.windea.plugin.idea.paradox.localisation.refactoring.ParadoxLocalisationPropertyRenameInputValidator"/>
+    <completion.contributor
+        language="Paradox Localisation"
+        implementationClass="com.windea.plugin.idea.paradox.localisation.codeInsight.ParadoxLocalisationCompletionContributor"/>
+    <liveTemplateContext
+        implementation="com.windea.plugin.idea.paradox.localisation.editor.ParadoxLocalisationTemplateContext"/>
+    <defaultLiveTemplates file="/liveTemplates/ParadoxLocalisation.xml"/>
+    <breadcrumbsInfoProvider
+        implementation="com.windea.plugin.idea.paradox.localisation.editor.ParadoxLocalisationBreadCrumbsProvider"/>
+    <lang.psiStructureViewFactory
+        language="Paradox Localisation"
+        implementationClass="com.windea.plugin.idea.paradox.localisation.structureView.ParadoxLocalisationStructureViewFactory"/>
+    <lang.formatter
+        language="Paradox Localisation"
+        implementationClass="com.windea.plugin.idea.paradox.localisation.formatter.ParadoxLocalisationFormattingModelBuilder"/>
+    <codeStyleSettingsProvider
+        implementation="com.windea.plugin.idea.paradox.localisation.formatter.ParadoxLocalisationCodeStyleSettingsProvider"/>
+    <langCodeStyleSettingsProvider
+        implementation="com.windea.plugin.idea.paradox.localisation.formatter.ParadoxLocalisationLanguageCodeStyleSettingsProvider"/>
+    <lang.quoteHandler
+        language="Paradox Localisation"
+        implementationClass="com.windea.plugin.idea.paradox.localisation.editor.ParadoxLocalisationQuoteHandler"/>
+    <lang.documentationProvider
+        language="Paradox Localisation"
+        implementationClass="com.windea.plugin.idea.paradox.localisation.editor.ParadoxLocalisationDocumentationProvider"/>
+    <elementDescriptionProvider
+        implementation="com.windea.plugin.idea.paradox.localisation.editor.ParadoxLocalisationDescriptionProvider"/>
+
+    <lang.findUsagesProvider
+        language="Paradox Localisation"
+        implementationClass="com.windea.plugin.idea.paradox.localisation.editor.ParadoxLocalisationFindUsagesProvider"/>
+    <gotoDeclarationHandler
+        implementation="com.windea.plugin.idea.paradox.localisation.editor.ParadoxLocalisationGoToDeclarationHandler"/>
+    <annotator
+        language="Paradox Localisation"
+        implementationClass="com.windea.plugin.idea.paradox.localisation.editor.ParadoxLocalisationAnnotator"/>
+    <codeInsight.lineMarkerProvider
+        language="Paradox Localisation"
+        implementationClass="com.windea.plugin.idea.paradox.localisation.editor.ParadoxLocalisationLineMarkerProvider"/>
+
+    <additionalTextAttributes scheme="Default" file="colorSchemes/ParadoxScriptDefault.xml"/>
+    <additionalTextAttributes scheme="Darcula" file="colorSchemes/ParadoxScriptDarcula.xml"/>
+
+    <intentionAction>
+      <className>com.windea.plugin.idea.paradox.localisation.intentions.ChangeLocaleIntention</className>
+      <category>Paradox localisation</category>
+    </intentionAction>
+    <intentionAction>
+      <className>com.windea.plugin.idea.paradox.localisation.intentions.ChangeColorIntention</className>
+      <category>Paradox localisation</category>
+    </intentionAction>
+    <intentionAction>
+      <className>com.windea.plugin.idea.paradox.localisation.intentions.ChangeSerialNumberIntention</className>
+      <category>Paradox localisation</category>
+    </intentionAction>
+
+    <localInspection
+        language="Paradox Localisation"
+        shortName="ParadoxLocalisationDuplicatePropertyKeys"
+        groupKey="paradox.localisation.inspection" key="paradox.localisation.inspection.duplicatePropertyKeys"
+        enabledByDefault="true" level="WARNING"
+        implementationClass="com.windea.plugin.idea.paradox.localisation.inspections.DuplicatePropertyKeysInspection"/>
+    <localInspection
+        language="Paradox Localisation"
+        shortName="ParadoxLocalisationInvalidFileEncoding"
+        groupKey="paradox.localisation.inspection" key="paradox.localisation.inspection.invalidFileEncoding"
+        enabledByDefault="true" level="WARNING"
+        implementationClass="com.windea.plugin.idea.paradox.localisation.inspections.InvalidFileEncodingInspection"/>
     <!--endregion-->
 
     <!--region Paradox Settings-->

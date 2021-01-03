@@ -14,6 +14,7 @@
 * [X] 解析`propertyPath`
 * [X] 编写规则文件`types.yml`
 * [X] 脚本文件兼容不等号`<>`
+* [X] 解析`typeMetadata`的`name` `type` `localisation` `scope` `fromVersion`，TODO：`subTypes`
 * [ ] 修复图标能加载但不能正常渲染的bug（IDE新版本底层代码错误？）
 * [ ] 初步实现功能：添加模块（基于游戏类型）
 

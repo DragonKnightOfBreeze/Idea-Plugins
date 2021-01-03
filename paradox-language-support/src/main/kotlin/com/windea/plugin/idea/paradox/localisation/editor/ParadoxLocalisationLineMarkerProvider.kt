@@ -9,28 +9,28 @@ import com.intellij.util.*
 import com.windea.plugin.idea.paradox.*
 import com.windea.plugin.idea.paradox.localisation.psi.*
 
-class ParadoxLocalisationPropertyLineMarkerProvider : LineMarkerProviderDescriptor() {
+class ParadoxLocalisationLineMarkerProvider : LineMarkerProviderDescriptor() {
 	companion object {
-		private val _name = message("paradox.localisation.gutterIcon.property")
-		private val _title = message("paradox.localisation.gutterIcon.property.title")
-		private fun _tooltip(name: String) = message("paradox.localisation.gutterIcon.property.tooltip", name)
+		private val _name = message("paradox.localisation.gutterIcon.localisation")
+		private val _title = message("paradox.localisation.gutterIcon.localisation.title")
+		private fun _tooltip(name: String) = message("paradox.localisation.gutterIcon.localisation.tooltip", name)
 	}
 	
 	override fun getName() = _name
 	
-	override fun getIcon() = localisationPropertyGutterIcon
+	override fun getIcon() = localisationGutterIcon
 	
-	override fun getLineMarkerInfo(element: PsiElement): MyLineMarkerInfo? {
+	override fun getLineMarkerInfo(element: PsiElement): LineMarker? {
 		return when(element) {
-			is ParadoxLocalisationProperty -> MyLineMarkerInfo(element)
+			is ParadoxLocalisationProperty -> LineMarker(element)
 			else -> null
 		}
 	}
 	
-	class MyLineMarkerInfo(element: ParadoxLocalisationProperty) : LineMarkerInfo<PsiElement>(
+	class LineMarker(element: ParadoxLocalisationProperty) : LineMarkerInfo<PsiElement>(
 		element.propertyKey.propertyKeyId,
 		element.textRange,
-		localisationPropertyGutterIcon,
+		localisationGutterIcon,
 		{ _tooltip(it.text.unquote()) },
 		{ mouseEvent, _ ->
 			val name = element.name
@@ -38,8 +38,7 @@ class ParadoxLocalisationPropertyLineMarkerProvider : LineMarkerProviderDescript
 			val scope = element.resolveScope
 			val elements = findLocalisationProperties(name, project, null, scope).toTypedArray()
 			when(elements.size) {
-				0 -> {
-				}
+				0 -> { }
 				1 -> OpenSourceUtil.navigate(true, elements.first())
 				else -> NavigationUtil.getPsiElementPopup(elements, _title).show(RelativePoint(mouseEvent))
 			}

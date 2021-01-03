@@ -41,7 +41,7 @@ types:
     path: "common/sector_types"
     localisation:
       name!: "$"
-    replace_scope:
+    replace_scopes:
       root: "system"
       this: "system"
 
@@ -49,7 +49,7 @@ types:
     path: "common/sector_focuses"
     localisation:
       name!: "$"
-    replace_scope:
+    replace_scopes:
       root: "sector"
       this: "sector"
 
@@ -169,7 +169,7 @@ types:
     path: "common/traditions"
     skip_root_key: any
     key_filter: "tradition_swap"
-    name_field: "name"
+    name_key: "name"
     localisation:
       name!: "$"
       description!: "$_desc"
@@ -184,7 +184,7 @@ types:
     path: "common/tradition_categories"
     skip_root_key: any
     key_filter: "tradition_swap"
-    name_field: "name"
+    name_key: "name"
     localisation:
       name!: "$"
       description!: "$_desc"
@@ -253,7 +253,7 @@ types:
 
   component_set:
     path: "common/component_sets"
-    name_field: "key"
+    name_key: "key"
     localisation:
       name!: "$"
       description?: "$_desc"
@@ -284,7 +284,7 @@ types:
 
   ship_behavior:
     path: "common/ship_behaviors"
-    name_field: "name"
+    name_key: "name"
 
   ship_size:
     path: "common/ship_sizes"
@@ -415,7 +415,7 @@ types:
 
   global_ship_design:
     path: "common/global_ship_designs"
-    name_field: "name"
+    name_key: "name"
 
   government:
     path: "common/governments"
@@ -447,7 +447,7 @@ types:
     path: "common/governments/civics"
     skip_root_key: any
     key_filter: "swap_type"
-    name_field: "name"
+    name_key: "name"
     localisation:
       name!: "$"
       description!: "$_desc"
@@ -497,7 +497,7 @@ types:
 
   species_name:
     path: "common/species_names"
-    name_field: "name"
+    name_key: "name"
 
   species_name_list:
     path: "common/species_names"
@@ -543,7 +543,7 @@ types:
   planet_class_random_list:
     path: "common/planet_classes"
     key_filter: "random_list"
-    name_field: "name"
+    name_key: "name"
 
   policy:
     path: "common/policies"
@@ -555,7 +555,7 @@ types:
     path: "common/policies"
     skip_root_key: any
     key_filter: "option"
-    name_field: "name"
+    name_key: "name"
 
   pop_faction_type:
     path: "common/pop_faction_types"
@@ -566,42 +566,42 @@ types:
   empire_name_parts_list:
     path: "common/random_names"
     key_filter: "empire_name_parts_list"
-    name_field: "key"
+    name_key: "key"
 
   empire_name_format:
     path: "common/random_names"
     key_filter: "empire_name_format"
-    name_field: "format"
+    name_key: "format"
 
   pop_faction_name_parts_list:
     path: "common/random_names"
     key_filter: "pop_faction_name_parts_list"
-    name_field: "key"
+    name_key: "key"
 
   pop_faction_name_format:
     path: "common/random_names"
     key_filter: "pop_faction_name_format"
-    name_field: "format"
+    name_key: "format"
 
   pre_communications_name_parts_list:
     path: "common/random_names"
     key_filter: "pre_communications_name_parts_list"
-    name_field: "key"
+    name_key: "key"
 
   pre_communications_name_format:
     path: "common/random_names"
     key_filter: "pre_communications_name_format"
-    name_field: "format"
+    name_key: "format"
 
   war_name_parts_list:
     path: "common/random_names"
     key_filter: "war_name_parts_list"
-    name_field: "key"
+    name_key: "key"
 
   war_name_format:
     path: "common/random_names"
     key_filter: "war_name_format"
-    name_field: "format"
+    name_key: "format"
 
   resource:
     path: "common/strategic_resources"
@@ -624,7 +624,7 @@ types:
 
   section_template:
     path: "common/section_templates"
-    name_field: "key"
+    name_key: "key"
     subtypes:
       needs_locs:
         predicate:
@@ -643,11 +643,11 @@ types:
   solar_system_initializer_random_list:
     path: "common/solar_system_initializers"
     key_filter: "random_list"
-    name_field: "name"
+    name_key: "name"
 
   special_project:
     path: "common/special_projects"
-    name_field: "key"
+    name_key: "key"
     localisation:
       name!: "$"
       description!: "$_DESC"
@@ -694,7 +694,7 @@ types:
 
   star_class_random_list:
     path: "common/star_classes"
-    name_field: "name"
+    name_key: "name"
     key_filter: "random_list"
 
   starbase_building:
@@ -809,7 +809,7 @@ types:
     localisation:
       name!: "$"
       description!: "$_desc"
-    replace_scope:
+    replace_scopes:
       this: "country"
       root: "country"
     from_version: "2.8"
@@ -834,7 +834,7 @@ types:
     path: "common"
     file_name: "message_types.txt"
     key_filter: "message_type"
-    name_field: "key"
+    name_key: "key"
 
   achievement:
     path: "common"
@@ -842,7 +842,7 @@ types:
 
   event:
     path: "events"
-    name_field: "id"
+    name_key: "id"
     subtypes:
       scopeless:
         key_filter: "event"
@@ -896,7 +896,7 @@ types:
   font:
     path: "fonts"
     key_filter: "font"
-    name_field: "name"
+    name_key: "name"
 
   asset_selector:
     path: "gfx/portraits/asset_selectors"
@@ -904,13 +904,13 @@ types:
 
   light:
     path: "gfx/lights"
-    name_field: "name"
+    name_key: "name"
 
   model_entity:
     path: "gfx"
     file_extension: "asset"
     key_filter: "entity"
-    name_field: "name"
+    name_key: "name"
     severity: "warning"
 
   model_mesh:
@@ -918,28 +918,28 @@ types:
     file_extension: "gfx"
     skip_root_key: "objectTypes"
     key_filter: "pdxmesh"
-    name_field: "name"
+    name_key: "name"
     severity: "warning"
 
   model_animation:
     path: "gfx/models"
     file_extension: "asset"
     key_filter: "animation"
-    name_field: "name"
+    name_key: "name"
     severity: "warning"
 
   particle:
     path: "gfx/particles"
     file_extension: "gfx"
     skip_root_key: "objectTypes"
-    name_field: "name"
+    name_key: "name"
     severity: "warning"
 
   particle_type:
     path: "gfx/particles"
     file_extension: "asset"
     key_filter: "particle"
-    name_field: "name"
+    name_key: "name"
     severity: "warning"
 
   pingmap:
@@ -958,7 +958,7 @@ types:
   projectile:
     path: "gfx/projectiles"
     path_strict: true
-    name_field: "name"
+    name_key: "name"
     severity: "warning"
 
   planet_killer_animation:
@@ -969,7 +969,7 @@ types:
     file_name: "fonts.gfx"
     skip_root_key: "bitmapfonts"
     key_filter: "bitmapfont"
-    name_field: "name"
+    name_key: "name"
 
   bitmapfont_override:
     path: "interface"
@@ -994,7 +994,7 @@ types:
     file_extension: "gfx"
     skip_root_key: "spriteTypes"
     key_filter: "progressbartype"
-    name_field: "name"
+    name_key: "name"
     severity: "warning"
 
   pie_chart_type:
@@ -1002,7 +1002,7 @@ types:
     file_extension: "gfx"
     skip_root_key: "spriteTypes"
     key_filter: "PieChartType"
-    name_field: "name"
+    name_key: "name"
     severity: "warning"
 
   sprite_type:
@@ -1010,7 +1010,7 @@ types:
     file_extension: "gfx"
     skip_root_key: "spriteTypes"
     key_filter: "!progressbartype,!PieChartType"
-    name_field: "name"
+    name_key: "name"
     severity: "warning"
     subtypes:
       normal:
@@ -1027,17 +1027,17 @@ types:
 
   map_setup_scenario:
     path: "map/setup_scenarios"
-    name_field: "name"
+    name_key: "name"
 
   song:
     path: "music"
     key_filter: "song"
-    name_field: "name"
+    name_key: "name"
 
   music:
     path: "music"
     key_filter: "music"
-    name_field: "name"
+    name_key: "name"
 
   prescripted_country:
     path: "prescripted_countries"
@@ -1046,19 +1046,19 @@ types:
     path: "sound"
     file_extension: "asset"
     key_filter: "sound"
-    name_field: "name # link to a *.wav file"
+    name_key: "name # link to a *.wav file"
 
   sound_category:
     path: "sound"
     file_extension: "asset"
     key_filter: "category"
-    name_field: "name"
+    name_key: "name"
 
   sound_group:
     path: "sound"
     file_extension: "asset"
     key_filter: "soundgroup"
-    name_field: "name "
+    name_key: "name "
 
   sound_master_compressor:
     path: "sound"

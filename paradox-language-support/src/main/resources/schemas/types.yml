@@ -18,7 +18,9 @@ definitions:
         type: string
       key_filter:
         type: string
-      name_field:
+      predicate:
+        type: object
+      name_key:
         type: string
       localisation:
         type: object
@@ -26,7 +28,7 @@ definitions:
           type: string
       push_scope:
         type: string
-      replace_scope:
+      replace_scopes:
         type: object
         additionalProperties: 
           type: string
@@ -36,8 +38,6 @@ definitions:
           type: string
       severity:
         type: string
-      predicate: 
-        type: object
       subtypes:
         type: object
         additionalProperties: 

@@ -20,11 +20,8 @@ class ParadoxFileTypeOverrider : FileTypeOverrider {
 			//只有能够确定根目录类型的文件才会被解析
 			val rootType = getRootType(currentFile)
 			if(rootType != null) {
-				//忽略描述符文件和cwt文件
-				if(file.name != descriptorFileName && file.extension != "cwt") {
-					val path = getPath(subPaths)
-					putUserData(file, fileType, rootType, path)
-				}
+				val path = getPath(subPaths)
+				putUserData(file, fileType, rootType, path)
 				return when(fileType) {
 					ParadoxFileType.Script -> ParadoxScriptFileType
 					ParadoxFileType.Localisation -> ParadoxLocalisationFileType
@@ -56,7 +53,7 @@ class ParadoxFileTypeOverrider : FileTypeOverrider {
 		for(child in file.children) {
 			val name = child.name
 			when {
-				exeFileNames.any{ exeFileName -> name.equals(exeFileName,true) } ->return ParadoxRootType.Stdlib
+				exeFileNames.any { exeFileName -> name.equals(exeFileName, true) } -> return ParadoxRootType.Stdlib
 				name.equals(descriptorFileName, true) -> return ParadoxRootType.Mod
 			}
 		}

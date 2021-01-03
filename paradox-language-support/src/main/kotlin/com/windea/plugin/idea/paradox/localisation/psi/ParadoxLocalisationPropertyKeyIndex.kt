@@ -43,6 +43,34 @@ object ParadoxLocalisationPropertyKeyIndex : StringStubIndexExtension<ParadoxLoc
 		return null
 	}
 	
+	fun getAll(keys:Iterable<String>,locale: ParadoxLocale?, project: Project, scope: GlobalSearchScope): List<ParadoxLocalisationProperty> {
+		val result = mutableListOf<ParadoxLocalisationProperty>()
+		var index = 0
+		for(key in getAllKeys(project)) {
+			if(key in keys) {
+				val group = get(key, project, scope)
+				val nextIndex = index + group.size
+				for(element in group) {
+					val elementLocale = element.paradoxLocale
+					if(locale == null) {
+						//需要将用户的语言区域对应的本地化属性放到该组本地化属性的最前面
+						if(elementLocale == inferredParadoxLocale) {
+							result.add(index++, element)
+						} else {
+							result.add(element)
+						}
+					} else {
+						if(locale == elementLocale) {
+							result.add(element)
+						}
+					}
+				}
+				index = nextIndex
+			}
+		}
+		return result
+	}
+	
 	fun getAll(locale: ParadoxLocale?, project: Project, scope: GlobalSearchScope): List<ParadoxLocalisationProperty> {
 		val result = mutableListOf<ParadoxLocalisationProperty>()
 		var index = 0

@@ -20,8 +20,6 @@ class ParadoxScriptGoToDeclarationHandler: GotoDeclarationHandler {
 			is ParadoxScriptString -> {
 				//查找当前项目的本地化文件属性，如果没有，再查找当前项目的本地化文件属性
 				val name = sourceElement.value
-				//过滤非法的情况
-				if(name.isInvalidPropertyName()) return null
 				val project = sourceElement.project
 				return findScriptProperties(name, project).ifEmpty {
 					findLocalisationProperties(name, project, inferredParadoxLocale) //仅查找推断的语言区域的

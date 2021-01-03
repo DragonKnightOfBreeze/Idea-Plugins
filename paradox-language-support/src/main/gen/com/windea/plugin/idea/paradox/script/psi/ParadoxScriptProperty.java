@@ -37,4 +37,10 @@ public interface ParadoxScriptProperty extends ParadoxScriptNamedElement, StubBa
   @Nullable
   String getTruncatedValue();
 
+  @Nullable
+  ParadoxScriptProperty findProperty(@NotNull String propertyName);
+
+  @Nullable
+  ParadoxScriptValue findValue(@NotNull String value);
+
 }

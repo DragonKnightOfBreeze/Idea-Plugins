@@ -1,5 +1,5 @@
 package com.windea.plugin.idea.paradox.model
 
-enum class ParadoxGameType{
-	Stellaris
+enum class ParadoxGameType(val text:String){
+	Stellaris("stellaris")
 }

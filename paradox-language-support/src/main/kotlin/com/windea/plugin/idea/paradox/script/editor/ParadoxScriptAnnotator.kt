@@ -24,21 +24,7 @@ class ParadoxScriptAnnotator : Annotator, DumbAware {
 	}
 	
 	private fun annotateProperty(element: ParadoxScriptProperty, holder: AnnotationHolder) {
-		if(element.isRootProperty()) {
-			val name = element.name
-			val project = element.project
-			val scope = element.resolveScope
-			if(state.resolveScriptReferences) {
-				//注明所有关联的本地化属性（如果存在）
-				val relatedLocalisationProperties = findRelatedLocalisationProperties(name, project,null,scope).toTypedArray()
-				if(relatedLocalisationProperties.isNotEmpty()) {
-					val names = relatedLocalisationProperties.mapTo(linkedSetOf()) { it.name }.toTypedArray()
-					holder.newSilentAnnotation(INFORMATION)
-						.gutterIconRenderer(ParadoxRelatedLocalisationPropertiesGutterIconRenderer(names, relatedLocalisationProperties))
-						.create()
-				}
-			}
-		}
+
 	}
 	
 	private fun annotateVariableReference(element:ParadoxScriptVariableReference,holder: AnnotationHolder){
@@ -52,9 +38,7 @@ class ParadoxScriptAnnotator : Annotator, DumbAware {
 	
 	private fun annotateString(element: ParadoxScriptString, holder: AnnotationHolder) {
 		if(state.resolveScriptReferences) {
-			//过滤非法情况
 			val name = element.value
-			if(name.isInvalidPropertyName()) return
 			val project = element.project
 			val scope = element.resolveScope
 			

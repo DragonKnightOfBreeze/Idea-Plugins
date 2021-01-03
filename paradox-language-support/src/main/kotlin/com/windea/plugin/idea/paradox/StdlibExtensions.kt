@@ -144,7 +144,7 @@ fun Icon.resize(width: Int, height: Int): Icon {
 	return IconUtil.toSize(this, width, height)
 }
 
-fun URL.toFile() :File{
+fun URL.toFile(): File {
 	return File(this.toURI())
 }
 
@@ -155,3 +155,48 @@ fun URL.toPath(): Path {
 //fun <C: CharSequence> C.ifNotEmpty(block: (C) -> Unit) {
 //	if(this.isNotEmpty()) block(this)
 //}
+
+/**
+ * 判断当前路径是否匹配另一个路径（是另一个路径的父路径）。
+ */
+infix fun String.matchesPath(other: String): Boolean {
+	if(this == other) return true
+	if(this == other.take(length) && other[length] == '/') return true
+	return false
+}
+
+data class ConditionalString(
+	val expression: String
+) : CharSequence, Comparable<ConditionalString> {
+	val name: String = expression.trimEnd('!', '?')
+	val optional: Boolean = expression.endsWith('?')
+	val required: Boolean = expression.endsWith('!')
+	
+	override val length = name.length
+	
+	override fun get(index: Int): Char {
+		return name.get(index)
+	}
+	
+	override fun subSequence(startIndex: Int, endIndex: Int): CharSequence {
+		return name.subSequence(startIndex, endIndex)
+	}
+	
+	override fun compareTo(other: ConditionalString): Int {
+		return name.compareTo(other.name)
+	}
+	
+	override fun equals(other: Any?): Boolean {
+		return other is ConditionalString && name == other.name
+	}
+	
+	override fun hashCode(): Int {
+		return name.hashCode()
+	}
+	
+	override fun toString(): String {
+		return expression
+	}
+}
+
+fun String.toConditionalKey() = ConditionalString(this)

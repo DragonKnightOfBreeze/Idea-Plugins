@@ -40,18 +40,6 @@ fun isPreviousComment(element: PsiElement): Boolean {
 	return elementType == ParadoxLocalisationTypes.COMMENT || elementType == ParadoxScriptTypes.COMMENT
 }
 
-/**是否是顶级的脚本属性。*/
-fun ParadoxScriptProperty.isRootProperty(): Boolean {
-	return this.parent is ParadoxScriptRootBlock && this.paradoxRootType != null
-}
-
-/**
- * 是否是非法的属性名。
- */
-fun String.isInvalidPropertyName(): Boolean {
-	return this.containsBlank() || this.isNumber() || this == "null"
-}
-
 //特殊属性
 
 val VirtualFile.paradoxFileType: ParadoxFileType? get() = this.getUserData(paradoxFileTypeKey)
@@ -70,15 +58,15 @@ val PsiElement.paradoxGameType: ParadoxGameType? get() = this.virtualFile?.parad
 
 val PsiElement.paradoxPath: ParadoxPath? get() = this.virtualFile?.paradoxPath
 
-val PsiElement.paradoxPropertyPath: ParadoxPath? get() = getPropertyPath(this)
+val PsiElement.paradoxScriptPath: ParadoxPath? get() = getScriptPath(this)
 
-private fun getPropertyPath(element: PsiElement): ParadoxPath? {
-	return CachedValuesManager.getCachedValue(element, paradoxPropertyPathKey) {
-		CachedValueProvider.Result.create(resolvePropertyPath(element),element)
+private fun getScriptPath(element: PsiElement): ParadoxPath? {
+	return CachedValuesManager.getCachedValue(element, paradoxScriptPathKey) {
+		CachedValueProvider.Result.create(resolveScriptPath(element),element)
 	}
 }
 
-private fun resolvePropertyPath(element: PsiElement): ParadoxPath? {
+private fun resolveScriptPath(element: PsiElement): ParadoxPath? {
 	return when {
 		element is ParadoxScriptProperty || element is ParadoxScriptValue -> {
 			val subPaths = mutableListOf<String>()
@@ -100,12 +88,33 @@ private fun resolvePropertyPath(element: PsiElement): ParadoxPath? {
 			}
 			ParadoxPath(subPaths)
 		}
-		element is ParadoxLocalisationProperty -> {
-			val subPaths = listOf(element.name)
-			ParadoxPath(subPaths)
-		}
 		else -> null
 	}
+}
+
+val ParadoxScriptProperty.paradoxTypeMetadata:ParadoxTypeMetadata? get() = getTypeMetadata(this)
+
+fun canGetTypeMetadata(element: ParadoxScriptProperty): Boolean {
+	//最低到2级scriptProperty
+	val parent = element.parent
+	return (parent ?: parent?.parent?.parent?.parent) is ParadoxScriptRootBlock
+}
+
+private fun getTypeMetadata(element:ParadoxScriptProperty):ParadoxTypeMetadata?{
+	if(!canGetTypeMetadata(element)) return null
+	return CachedValuesManager.getCachedValue(element, paradoxTypeMetadata) {
+		CachedValueProvider.Result.create(resolveTypeMetadata(element),element)
+	}
+}
+
+private fun resolveTypeMetadata(element:ParadoxScriptProperty):ParadoxTypeMetadata?{
+	val gameType = element.paradoxGameType?: return null
+	val ruleGroup = ruleGroups[gameType.text]?:return null
+	val elementName = element.name
+	val path = element.paradoxPath?:return null
+	val scriptPath = element.paradoxScriptPath ?: return null
+	val definition = ruleGroup.definitions.values.find { it.matches(elementName,path,scriptPath) }?: return null
+	return definition.toMetadata(element)
 }
 
 //查找方法
@@ -156,6 +165,10 @@ fun findLocalisationProperties(name: String, project: Project, locale: ParadoxLo
 
 fun findLocalisationProperties(project: Project, locale: ParadoxLocale? = null, scope: GlobalSearchScope = GlobalSearchScope.allScope(project)): List<ParadoxLocalisationProperty> {
 	return ParadoxLocalisationPropertyKeyIndex.getAll(locale, project, scope)
+}
+
+fun findLocalisationProperties(names:Iterable<String>,project:Project,locale:ParadoxLocale? = null,scope:GlobalSearchScope = GlobalSearchScope.allScope(project)):List<ParadoxLocalisationProperty>{
+	return ParadoxLocalisationPropertyKeyIndex.getAll(names,locale, project, scope)
 }
 
 //将部分特定的查找方法作为扩展方法
