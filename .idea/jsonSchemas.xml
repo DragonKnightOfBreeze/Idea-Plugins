@@ -30,6 +30,11 @@
                 <list>
                   <Item>
                     <option name="directory" value="true" />
+                    <option name="path" value="paradox-language-support/src/main/resources/schemas" />
+                    <option name="mappingKind" value="Directory" />
+                  </Item>
+                  <Item>
+                    <option name="directory" value="true" />
                     <option name="path" value="stellaris-modding-support/src/main/resources/schema" />
                     <option name="mappingKind" value="Directory" />
                   </Item>
@@ -38,32 +43,21 @@
                     <option name="path" value="stellaris-modding-support/src/test/resources/schema" />
                     <option name="mappingKind" value="Directory" />
                   </Item>
-                  <Item>
-                    <option name="path" value="stellaris-modding-support/src/test/resources/test_schema.json" />
-                  </Item>
-                  <Item>
-                    <option name="path" value="paradox-language-support/src/main/resources/schemas/types.yml" />
-                  </Item>
                 </list>
               </option>
             </SchemaInfo>
           </value>
         </entry>
-        <entry key="test_schema">
+        <entry key="locations">
           <value>
             <SchemaInfo>
-              <option name="name" value="test_schema" />
-              <option name="relativePathToSchema" value="stellaris-modding-support/src/test/resources/test_schema.json" />
+              <option name="name" value="locations" />
+              <option name="relativePathToSchema" value="paradox-language-support/src/main/resources/schemas/locations.yml" />
+              <option name="schemaVersion" value="JSON Schema version 7" />
               <option name="patterns">
                 <list>
                   <Item>
-                    <option name="path" value="stellaris-modding-support/src/test/resources/stdlib/test.txt" />
-                  </Item>
-                  <Item>
-                    <option name="path" value="stellaris-modding-support/src/test/resources/test.json" />
-                  </Item>
-                  <Item>
-                    <option name="path" value="stellaris-modding-support/src/test/resources/test.yml" />
+                    <option name="path" value="paradox-language-support/src/main/resources/rules/stellaris/locations.yml" />
                   </Item>
                 </list>
               </option>

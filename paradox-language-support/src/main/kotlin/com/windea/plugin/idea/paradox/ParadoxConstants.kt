@@ -72,9 +72,9 @@ val paradoxScriptVariableIcon = IconLoader.findIcon("/icons/paradoxScriptVariabl
 val paradoxScriptPropertyIcon = IconLoader.findIcon("/icons/paradoxScriptProperty.svg")!!
 val paradoxScriptValueIcon = IconLoader.findIcon("/icons/paradoxScriptValue.svg")!!
 
-val definitionGutterIcon = paradoxScriptPropertyIcon.resize(12, 12)
-val definitionLocalisationGutterIcon = paradoxLocalisationPropertyIcon.resize(12, 12)
-val localisationGutterIcon = paradoxLocalisationPropertyIcon.resize(12, 12)
+val definitionGutterIcon = IconLoader.findIcon("/icons/paradoxDefinition.svg")!!
+val definitionLocalisationGutterIcon = IconLoader.findIcon("/icons/paradoxDefinitionLocalisation.svg")!!
+val localisationGutterIcon = IconLoader.findIcon("/icons/paradoxLocalisation.svg")!!
 val stringScriptPropertyGutterIcon = paradoxScriptPropertyIcon.resize(12, 12)
 val stringLocalisationPropertyGutterIcon = paradoxLocalisationPropertyIcon.resize(12, 12)
 //val eventIdGutterIcon = IconUtil.toSize(AllIcons.Nodes.Protected, 12, 12)

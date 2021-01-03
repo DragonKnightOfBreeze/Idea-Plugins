@@ -96,10 +96,10 @@ locations:
     path_strict: true
   common/governments/authorities:
     file_extension: txt
-      path_strict: true
+    path_strict: true
   common/governments/civics:
     file_extension: txt
-      path_strict: true
+    path_strict: true
   common/graphical_culture:
     file_extension: txt
   common/lawsuits:
@@ -276,7 +276,7 @@ locations:
   prescripted_countries:
     file_extension: txt
   previewer_assets/assetviewer_interface:
-    file_extension: [ gfx, gui ]
+    file_extensions: [ gfx, gui ]
     path_strict: true
   sound:
     file_extension: asset
