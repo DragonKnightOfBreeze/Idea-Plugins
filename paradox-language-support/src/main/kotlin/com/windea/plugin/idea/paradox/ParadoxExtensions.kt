@@ -144,43 +144,43 @@ private fun getGameType(): ParadoxGameType {
 	return ParadoxGameType.Stellaris //TODO
 }
 
-val PsiElement.paradoxScriptPath: ParadoxPath? get() = getScriptedPath(this)
-
-private fun getScriptedPath(element: PsiElement): ParadoxPath? {
-	return getCachedScriptPath(element)
-}
-
-private fun getCachedScriptPath(element: PsiElement): ParadoxPath? {
-	return CachedValuesManager.getCachedValue(element, cachedParadoxScriptPathKey) {
-		CachedValueProvider.Result.create(resolveScriptPath(element), element)
-	}
-}
-
-private fun resolveScriptPath(element: PsiElement): ParadoxPath? {
-	return when {
-		element is ParadoxScriptProperty || element is ParadoxScriptValue -> {
-			val subPaths = mutableListOf<String>()
-			var current = element
-			while(current !is PsiFile) {
-				when {
-					current is ParadoxScriptProperty -> {
-						subPaths.add(0, current.name)
-					}
-					current is ParadoxScriptValue -> {
-						val parent = current.parent ?: break
-						if(parent is ParadoxScriptBlock) {
-							subPaths.add(0, parent.indexOfChild(current).toString())
-						}
-						current = parent
-					}
-				}
-				current = current.parent ?: break
-			}
-			ParadoxPath(subPaths)
-		}
-		else -> null
-	}
-}
+//val PsiElement.paradoxScriptPath: ParadoxPath? get() = getScriptedPath(this)
+//
+//private fun getScriptedPath(element: PsiElement): ParadoxPath? {
+//	return getCachedScriptPath(element)
+//}
+//
+//private fun getCachedScriptPath(element: PsiElement): ParadoxPath? {
+//	return CachedValuesManager.getCachedValue(element, cachedParadoxScriptPathKey) {
+//		CachedValueProvider.Result.create(resolveScriptPath(element), element)
+//	}
+//}
+//
+//private fun resolveScriptPath(element: PsiElement): ParadoxPath? {
+//	return when {
+//		element is ParadoxScriptProperty || element is ParadoxScriptValue -> {
+//			val subPaths = mutableListOf<String>()
+//			var current = element
+//			while(current !is PsiFile) {
+//				when {
+//					current is ParadoxScriptProperty -> {
+//						subPaths.add(0, current.name)
+//					}
+//					current is ParadoxScriptValue -> {
+//						val parent = current.parent ?: break
+//						if(parent is ParadoxScriptBlock) {
+//							subPaths.add(0, parent.indexOfChild(current).toString())
+//						}
+//						current = parent
+//					}
+//				}
+//				current = current.parent ?: break
+//			}
+//			ParadoxPath(subPaths)
+//		}
+//		else -> null
+//	}
+//}
 
 val ParadoxScriptProperty.paradoxDefinitionInfo: ParadoxDefinitionInfo? get() = getDefinitionInfo(this)
 
@@ -210,11 +210,11 @@ private fun getCachedDefinitionInfo(element: ParadoxScriptProperty): ParadoxDefi
 }
 
 private fun resolveDefinitionInfo(element: ParadoxScriptProperty): ParadoxDefinitionInfo? {
-	val elementName = element.name
 	val (_, path, _, _, gameType) = element.paradoxFileInfo ?: return null
 	val ruleGroup = ruleGroups[gameType.key] ?: return null
-	val scriptPath = element.paradoxScriptPath ?: return null
-	val definition = ruleGroup.types.values.find { it.matches(elementName, path, scriptPath) } ?: return null
+	val elementName = element.name
+	val isRootKey = element.parent is ParadoxScriptRootBlock
+	val definition = ruleGroup.types.values.find { it.matches(elementName, path, isRootKey) } ?: return null
 	return definition.toMetadata(element, elementName)
 }
 
@@ -225,24 +225,7 @@ val ASTNode.paradoxDefinitionInfoNoCheck: ParadoxDefinitionInfo? get() = getDefi
 private fun getDefinitionInfo(node: ASTNode, check: Boolean = true): ParadoxDefinitionInfo? {
 	if(check && !canGetDefinitionInfo(node)) return null
 	return getCachedDefinitionInfo(node.psi as? ParadoxScriptProperty?:return null)
-	//var root = node
-	//while(true){
-	//	val parent = root.treeParent
-	//	if(parent == null) break else root = parent
-	//}
-	//return resolveDefinitionInfo(node,root)
 }
-
-//private fun resolveDefinitionInfo(node: ASTNode,rootNode:ASTNode): ParadoxDefinitionInfo? {
-//	val gameType = rootNode.getUserData(paradoxGameTypeKey) ?: return null
-//	val ruleGroup = ruleGroups[gameType.textLc] ?: return null
-//	val element = node.psi as ParadoxScriptProperty
-//	val elementName = element.name
-//	val path = rootNode.getUserData(paradoxPathKey) ?: return null
-//	val scriptPath = resolveScriptPath(node.psi) ?: return null
-//	val definition = ruleGroup.types.values.find { it.matches(elementName, path, scriptPath) } ?: return null
-//	return definition.toMetadata(element, elementName)
-//}
 
 //Find Extensions
 

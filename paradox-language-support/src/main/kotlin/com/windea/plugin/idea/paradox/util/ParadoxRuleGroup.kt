@@ -51,7 +51,7 @@ class ParadoxRuleGroup(
 		//暂时认为3级的scriptProperty不再需要匹配
 		//path和propertyPath不要重复获取
 		
-		fun matches(elementName: String, path: ParadoxPath, scriptPath: ParadoxPath): Boolean {
+		fun matches(elementName: String, path: ParadoxPath, isRootKey:Boolean = true): Boolean {
 			//判断文件扩展名是否匹配
 			val fileExtensionData = get("file_extension") as String? ?: "txt"
 			if(fileExtensionData != path.fileExtension) return false
@@ -106,7 +106,6 @@ class ParadoxRuleGroup(
 			return result
 		}
 		
-		//将$替换成name
 		private fun replacePlaceholder(placeholder: String, name: String): String {
 			return buildString {
 				for(c in placeholder) {
