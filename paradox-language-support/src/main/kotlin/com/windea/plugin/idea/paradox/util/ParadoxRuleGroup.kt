@@ -92,9 +92,8 @@ class ParadoxRuleGroup(
 		}
 		
 		fun getName(element: ParadoxScriptProperty): String {
-			//如果没有name_key又指定了skip_root_key，那么认为是匿名的，否则以elementName为准
-			val nameKeyData = get("name_key") as String? 
-			                  ?: return if(get("skip_root_key") != null) anonymousName else element.name
+			val nameKeyData = get("name_key") as String? ?: return element.name
+			if(nameKeyData == "none") return anonymousName //完全匿名 
 			val nameProperty = element.findProperty(nameKeyData) ?: return anonymousName
 			return nameProperty.value ?: anonymousName
 		}
@@ -103,7 +102,12 @@ class ParadoxRuleGroup(
 			val localisationData = get("localisation") as Map<String, String>? ?: return emptyMap()
 			val result = mutableMapOf<ConditionalString, String>()
 			for((k, v) in localisationData) {
-				result[k.toConditionalKey()] = replacePlaceholder(v, name)
+				when {
+					//如果以.开始，表示对应的属性的值是localisation的key
+					v.startsWith('.') -> { }
+					//如果包含占位符$，表示用name替换掉占位符后是localisation的key
+					else -> result[k.toConditionalKey()] = replacePlaceholder(v, name)
+				}
 			}
 			return result
 		}

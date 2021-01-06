@@ -22,6 +22,8 @@ definitions:
         type: object
       name_key:
         type: string
+      name_prefix: 
+        type: string
       localisation:
         type: object
         additionalProperties: 

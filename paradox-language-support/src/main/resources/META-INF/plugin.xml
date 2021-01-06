@@ -140,8 +140,8 @@
         language="Paradox Script"
         implementationClass="com.windea.plugin.idea.paradox.script.editor.ParadoxDefinitionLocalisationLineMarkerProvider"/>
 
-    <additionalTextAttributes scheme="Default" file="colorSchemes/ParadoxLocalisationDefault.xml"/>
-    <additionalTextAttributes scheme="Darcula" file="colorSchemes/ParadoxLocalisationDarcula.xml"/>
+    <additionalTextAttributes scheme="Default" file="colorSchemes/ParadoxScriptDefault.xml"/>
+    <additionalTextAttributes scheme="Darcula" file="colorSchemes/ParadoxScriptDarcula.xml"/>
 
     <localInspection
         language="Paradox Script"
@@ -235,8 +235,8 @@
         language="Paradox Localisation"
         implementationClass="com.windea.plugin.idea.paradox.localisation.editor.ParadoxLocalisationLineMarkerProvider"/>
 
-    <additionalTextAttributes scheme="Default" file="colorSchemes/ParadoxScriptDefault.xml"/>
-    <additionalTextAttributes scheme="Darcula" file="colorSchemes/ParadoxScriptDarcula.xml"/>
+    <additionalTextAttributes scheme="Default" file="colorSchemes/ParadoxLocalisationDefault.xml"/>
+    <additionalTextAttributes scheme="Darcula" file="colorSchemes/ParadoxLocalisationDarcula.xml"/>
 
     <intentionAction>
       <className>com.windea.plugin.idea.paradox.localisation.intentions.ChangeLocaleIntention</className>

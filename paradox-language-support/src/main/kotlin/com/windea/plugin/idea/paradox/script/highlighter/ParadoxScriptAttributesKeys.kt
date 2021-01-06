@@ -19,8 +19,9 @@ object ParadoxScriptAttributesKeys {
 	private val _validEscapeName = message("paradox.script.externalName.validEscape")
 	private val _invalidEscapeName = message("paradox.script.externalName.invalidEscape")
 	private val _badCharacterName = message("paradox.script.externalName.badCharacter")
-	private val _localisationPropertyReferenceName = message("paradox.script.externalName.localisationPropertyReference")
-	private val _scriptPropertyReferenceName = message("paradox.script.externalName.scriptPropertyReference")
+	private val _definitionName = message("paradox.script.externalName.definition")
+	//private val _localisationPropertyReferenceName = message("paradox.script.externalName.localisationPropertyReference")
+	//private val _scriptPropertyReferenceName = message("paradox.script.externalName.scriptPropertyReference")
 	
 	@JvmField val SEPARATOR_KEY = createTextAttributesKey(_separatorName, OPERATION_SIGN)
 	@JvmField val BRACES_KEY = createTextAttributesKey(_bracesName, BRACES)
@@ -35,6 +36,7 @@ object ParadoxScriptAttributesKeys {
 	@JvmField val VALID_ESCAPE_KEY = createTextAttributesKey(_validEscapeName, VALID_STRING_ESCAPE)
 	@JvmField val INVALID_ESCAPE_KEY = createTextAttributesKey(_invalidEscapeName, INVALID_STRING_ESCAPE)
 	@JvmField val BAD_CHARACTER_KEY = createTextAttributesKey(_badCharacterName, BAD_CHARACTER)
+	@JvmField val DEFINITION_KEY = createTextAttributesKey(_definitionName, PROPERTY_KEY_KEY)
 	//@JvmField val LOCALISATION_PROPERTY_REFERENCE_KEY = createTextAttributesKey(_localisationPropertyReferenceName, STRING)
 	//@JvmField val SCRIPT_PROPERTY_REFERENCE_KEY = createTextAttributesKey(_scriptPropertyReferenceName, STRING)
 }
