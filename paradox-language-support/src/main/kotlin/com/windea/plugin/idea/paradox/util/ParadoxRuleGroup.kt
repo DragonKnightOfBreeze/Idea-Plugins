@@ -1,4 +1,4 @@
-package com.windea.plugin.idea.paradox.model
+package com.windea.plugin.idea.paradox.util
 
 import com.windea.plugin.idea.paradox.*
 import com.windea.plugin.idea.paradox.script.psi.*
@@ -123,13 +123,13 @@ class ParadoxRuleGroup(
 			return get("from_version") as String? ?: ""
 		}
 		
-		fun toMetadata(element: ParadoxScriptProperty, elementName: String): ParadoxTypeMetadata {
+		fun toMetadata(element: ParadoxScriptProperty, elementName: String): ParadoxDefinitionInfo {
 			val name = getName(element)
 			val type = this.name
 			val localisation = getLocalisation(name)
 			val scopes = getScopes()
 			val fromVersion = getFromVersion()
-			return ParadoxTypeMetadata(name, type, elementName, localisation, scopes, fromVersion)
+			return ParadoxDefinitionInfo(name, type, elementName, localisation, scopes, fromVersion)
 		}
 	}
 }

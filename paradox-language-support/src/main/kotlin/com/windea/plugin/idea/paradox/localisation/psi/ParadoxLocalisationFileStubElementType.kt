@@ -19,7 +19,7 @@ class ParadoxLocalisationFileStubElementType : IStubFileElementType<PsiFileStub<
 	}
 	
 	override fun shouldBuildStubFor(file: VirtualFile?): Boolean {
-		return file?.paradoxRootType != null
+		return file?.paradoxFileInfo?.rootType != null
 	}
 	
 	class Builder: DefaultStubBuilder(){

@@ -4,7 +4,6 @@ import com.intellij.openapi.fileTypes.impl.*
 import com.intellij.openapi.vfs.*
 import com.intellij.openapi.vfs.newvfs.impl.*
 import com.windea.plugin.idea.paradox.localisation.*
-import com.windea.plugin.idea.paradox.model.*
 import com.windea.plugin.idea.paradox.script.*
 
 @Suppress("UnstableApiUsage")
@@ -14,22 +13,29 @@ class ParadoxFileTypeOverrider : FileTypeOverrider {
 	
 	override fun getOverriddenFileType(file: VirtualFile): com.intellij.openapi.fileTypes.FileType? {
 		val fileType = getFileType(file) ?: return null
-		val subPaths = mutableListOf(file.name)
+		val fileName = file.name
+		val subPaths = mutableListOf(fileName)
 		var currentFile: VirtualFile? = file.parent
 		while(currentFile != null) {
 			//只有能够确定根目录类型的文件才会被解析
 			val rootType = getRootType(currentFile)
 			if(rootType != null) {
 				val path = getPath(subPaths)
-				val gameType = ParadoxGameType.Stellaris
+				val gameType = getGameType()
 				//只解析特定根目录下的文件
 				return when {
-					fileType == ParadoxFileType.Script && isValidScriptPath(path,gameType) -> {
-						putUserData(file, fileType, rootType, gameType,path)
+					fileType == ParadoxFileType.Script && isValidScriptPath(path, gameType) -> {
+						runCatching {
+							val fileInfo = ParadoxFileInfo(fileName, path, fileType, rootType, gameType)
+							file.putUserData(paradoxFileInfoKey,fileInfo)
+						}
 						ParadoxScriptFileType
 					}
 					fileType == ParadoxFileType.Localisation && isValidLocalisationPath(path) -> {
-						putUserData(file, fileType, rootType, gameType,path)
+						runCatching {
+							val fileInfo = ParadoxFileInfo(fileName, path, fileType, rootType, gameType)
+							file.putUserData(paradoxFileInfoKey, fileInfo)
+						}
 						ParadoxLocalisationFileType
 					}
 					else -> null
@@ -38,17 +44,19 @@ class ParadoxFileTypeOverrider : FileTypeOverrider {
 			subPaths.add(0, currentFile.name)
 			currentFile = currentFile.parent
 		}
-		cleanupUserData(file)
+		runCatching {
+			file.putUserData(paradoxFileInfoKey, null)
+		}
 		return null
 	}
 	
-	private fun isValidScriptPath(path: ParadoxPath,gameType:ParadoxGameType): Boolean {
-		val ruleGroup = ruleGroups[gameType.textLc]?: return false
+	private fun isValidScriptPath(path: ParadoxPath, gameType: ParadoxGameType): Boolean {
+		val ruleGroup = ruleGroups[gameType.key] ?: return false
 		val locations = ruleGroup.locations
 		val fastLocation = locations[path.parent]
 		//首先尝试直接通过path作为key来匹配
-		if(fastLocation != null){
-			val fastResult = fastLocation.matches(path,false)
+		if(fastLocation != null) {
+			val fastResult = fastLocation.matches(path, false)
 			if(fastResult) return true
 		}
 		//然后遍历locations进行匹配
@@ -59,6 +67,10 @@ class ParadoxFileTypeOverrider : FileTypeOverrider {
 	private fun isValidLocalisationPath(path: ParadoxPath): Boolean {
 		val root = path.root
 		return root == "localisation" || root == "localisation_synced"
+	}
+	
+	private fun getPath(subPaths: List<String>): ParadoxPath {
+		return ParadoxPath(subPaths)
 	}
 	
 	private fun getFileType(file: VirtualFile): ParadoxFileType? {
@@ -82,42 +94,16 @@ class ParadoxFileTypeOverrider : FileTypeOverrider {
 			when {
 				exeFileNames.any { exeFileName -> childName.equals(exeFileName, true) } -> return ParadoxRootType.Stdlib
 				childName.equals(descriptorFileName, true) -> return ParadoxRootType.Mod
-				fileName == pdxLauncherDirName -> return ParadoxRootType.PdxLauncher
-				fileName == pdxOnlineAssetsDirName -> return ParadoxRootType.PdxOnlineAssets
-				fileName == tweakerGuiAssetsDirName -> return ParadoxRootType.TweakerGuiAssets
+				fileName == ParadoxRootType.PdxLauncher.key -> return ParadoxRootType.PdxLauncher
+				fileName == ParadoxRootType.PdxOnlineAssets.key -> return ParadoxRootType.PdxOnlineAssets
+				fileName == ParadoxRootType.TweakerGuiAssets.key -> return ParadoxRootType.TweakerGuiAssets
 			}
 		}
 		return null
 	}
 	
-	private fun getPath(subPaths: List<String>): ParadoxPath {
-		return ParadoxPath(subPaths)
-	}
-	
-	private fun putUserData(file: VirtualFile, fileType: ParadoxFileType, rootType: ParadoxRootType,gameType:ParadoxGameType,path: ParadoxPath) {
-		try {
-			if(file.isValid) {
-				file.putUserData(paradoxFileTypeKey, fileType)
-				file.putUserData(paradoxRootTypeKey, rootType)
-				file.putUserData(paradoxGameTypeKey, gameType) //TODO
-				file.putUserData(paradoxPathKey, path)
-			}
-		} catch(e: Exception) {
-			//e.printStackTrace()
-		}
-	}
-	
-	private fun cleanupUserData(file: VirtualFile) {
-		try {
-			if(file.isValid) {
-				file.putUserData(paradoxFileTypeKey, null)
-				file.putUserData(paradoxRootTypeKey, null)
-				file.putUserData(paradoxGameTypeKey, null)
-				file.putUserData(paradoxPathKey, null)
-			}
-		} catch(e: Exception) {
-			//e.printStackTrace()
-		}
+	private fun getGameType(): ParadoxGameType {
+		return ParadoxGameType.Stellaris //TODO
 	}
 }
 

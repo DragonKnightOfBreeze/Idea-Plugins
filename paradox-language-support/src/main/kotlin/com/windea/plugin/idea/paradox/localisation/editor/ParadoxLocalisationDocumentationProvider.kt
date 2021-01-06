@@ -27,7 +27,7 @@ class ParadoxLocalisationDocumentationProvider : AbstractDocumentationProvider()
 	
 	private fun getPropertyInfo(element: ParadoxLocalisationProperty): String {
 		return buildString {
-			element.paradoxPath?.let { append("[").append(it).append("]<br>") }
+			element.paradoxFileInfo?.path?.let { append("[").append(it).append("]<br>") }
 			append("(localisation property) <b>").append(element.name.escapeXml()).append("</b>")
 		}
 	}
@@ -78,7 +78,7 @@ class ParadoxLocalisationDocumentationProvider : AbstractDocumentationProvider()
 		val name = element.name
 		return buildString {
 			definition {
-				element.paradoxPath?.let { append("[").append(it).append("]<br>") }
+				element.paradoxFileInfo?.path?.let { append("[").append(it).append("]<br>") }
 				append("(localisation property) <b>").append(name.escapeXml()).append("</b>")
 			}
 			//之前的单行注释文本

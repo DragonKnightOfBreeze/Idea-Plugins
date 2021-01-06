@@ -3,7 +3,6 @@ package com.windea.plugin.idea.paradox.util
 import com.intellij.openapi.vfs.*
 import com.intellij.openapi.vfs.newvfs.impl.*
 import com.windea.plugin.idea.paradox.*
-import com.windea.plugin.idea.paradox.model.*
 import org.yaml.snakeyaml.*
 import java.util.concurrent.*
 

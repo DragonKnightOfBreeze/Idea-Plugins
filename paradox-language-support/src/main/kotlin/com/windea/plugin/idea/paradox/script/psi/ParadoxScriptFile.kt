@@ -2,6 +2,9 @@ package com.windea.plugin.idea.paradox.script.psi
 
 import com.intellij.extapi.psi.*
 import com.intellij.psi.*
+import com.intellij.psi.impl.source.*
+import com.intellij.psi.stubs.*
+import com.windea.plugin.idea.paradox.*
 import com.windea.plugin.idea.paradox.script.*
 
 class ParadoxScriptFile(

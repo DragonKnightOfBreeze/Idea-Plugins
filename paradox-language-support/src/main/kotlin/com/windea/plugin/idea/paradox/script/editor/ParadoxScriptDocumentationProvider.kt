@@ -26,7 +26,7 @@ class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
 	
 	private fun getVariableInfo(element: ParadoxScriptVariable): String {
 		return buildString {
-			element.paradoxPath?.let { paradoxPath -> append("[").append(paradoxPath).append("]<br>") }
+			element.paradoxFileInfo?.path?.let { paradoxPath -> append("[").append(paradoxPath).append("]<br>") }
 			append("(script variable) <b>").append(element.name.escapeXml()).append("</b>")
 			element.unquotedValue?.let { unquotedValue -> append(" = ").append(unquotedValue.escapeXml()) }
 		}
@@ -34,12 +34,12 @@ class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
 	
 	private fun getPropertyInfo(element: ParadoxScriptProperty): String {
 		val name = element.name
-		val typeMetadata = element.paradoxTypeMetadata
+		val definitionInfo = element.paradoxDefinitionInfo
 		return buildString {
-			element.paradoxPath?.let { append("[").append(it).append("]<br>") }
+			element.paradoxFileInfo?.path?.let { append("[").append(it).append("]<br>") }
 			append("(script property) <b>").append(name.escapeXml()).append("</b>")
 			element.truncatedValue?.let { truncatedValue -> append(" = ").append(truncatedValue.escapeXml()) }
-			typeMetadata?.let {(name, type)->
+			definitionInfo?.let {(name, type)->
 				append("<br>")
 				append("(definition) <b>").append(name.escapeXml()).append("</b>: ").append(type).append("<br>")
 			}
@@ -58,7 +58,7 @@ class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
 	private fun getVariableDoc(element: ParadoxScriptVariable): String {
 		return buildString {
 			definition {
-				element.paradoxPath?.let { paradoxPath -> append("[").append(paradoxPath).append("]<br>") }
+				element.paradoxFileInfo?.path?.let { paradoxPath -> append("[").append(paradoxPath).append("]<br>") }
 				append("(script variable) <b>").append(element.name).append("</b>")
 				element.unquotedValue?.let { unquotedValue -> append(" = ").append(unquotedValue.escapeXml()) }
 			}
@@ -74,13 +74,13 @@ class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
 	
 	private fun getPropertyDoc(element: ParadoxScriptProperty): String {
 		val name = element.name
-		val typeMetadata = element.paradoxTypeMetadata
+		val definitionInfo = element.paradoxDefinitionInfo
 		return buildString {
 			definition {
-				element.paradoxPath?.let { append("[").append(it).append("]<br>") }
+				element.paradoxFileInfo?.path?.let { append("[").append(it).append("]<br>") }
 				append("(script property) <b>").append(element.name.escapeXml()).append("</b>")
 				element.truncatedValue?.let { truncatedValue -> append(" = ").append(truncatedValue.escapeXml()) }
-				typeMetadata?.let {(name, type)->
+				definitionInfo?.let {(name, type)->
 					append("<br>")
 					append("(definition) <b>").append(name.escapeXml()).append("</b>: ").append(type).append("<br>")
 				}
@@ -94,7 +94,7 @@ class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
 			}
 			//相关的本地化文本
 			if(state.renderLocalisationText) {
-				if(canGetTypeMetadata(element)) {
+				if(canGetDefinitionInfo(element)) {
 					val sections = getPropertySections(element, name)
 					if(sections.isNotEmpty()) {
 						sections {

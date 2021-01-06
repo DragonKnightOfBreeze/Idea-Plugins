@@ -19,7 +19,7 @@ class ParadoxScriptFileStubElementType : IStubFileElementType<PsiFileStub<*>>(Pa
 	}
 	
 	override fun shouldBuildStubFor(file: VirtualFile?): Boolean {
-		return file?.paradoxRootType != null
+		return file?.paradoxFileInfo?.rootType != null
 	}
 	
 	class Builder : DefaultStubBuilder() {
@@ -27,11 +27,11 @@ class ParadoxScriptFileStubElementType : IStubFileElementType<PsiFileStub<*>>(Pa
 			//仅包括顶级的variable和作为类型定义的property
 			val type = node.elementType
 			val parentType = parent.elementType
-			return when{
-				type == ROOT_BLOCK -> false
-				type == VARIABLE && parentType == ROOT_BLOCK -> false
-				type == PROPERTY && node.paradoxTypeMetadata != null -> false 
-				else -> true
+			return when {
+				type == VARIABLE && parentType == ROOT_BLOCK -> true
+				type == PROPERTY && parent.treeParent?.treeParent?.treeParent?.elementType == ROOT_BLOCK -> true
+				type == VALUE && (parentType == BLOCK || parentType == ROOT_BLOCK) -> true
+				else -> false
 			}
 		}
 	}

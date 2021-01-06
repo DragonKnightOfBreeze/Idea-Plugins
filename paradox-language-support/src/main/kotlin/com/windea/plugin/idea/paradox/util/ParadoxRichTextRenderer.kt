@@ -56,7 +56,7 @@ object ParadoxRichTextRenderer {
 			if(resolve != null) {
 				val propertyValue = resolve.propertyValue
 				if(propertyValue != null) {
-					val rgbText = element.paradoxColor?.rgbText
+					val rgbText = element.paradoxColor?.colorText
 					if(rgbText != null) buffer.append("<span style='color: $rgbText;'>")
 					renderTo(propertyValue, buffer)
 					if(rgbText != null) buffer.append("</span>")
@@ -93,7 +93,7 @@ object ParadoxRichTextRenderer {
 	
 	private fun renderColorfulTextTo(element: ParadoxLocalisationColorfulText, buffer: Appendable) {
 		//如果解析引用失败，则清除非法的标记，直接渲染其中的富文本
-		val rgbText = element.paradoxColor?.rgbText
+		val rgbText = element.paradoxColor?.colorText
 		if(rgbText != null) buffer.append("<span style='color: $rgbText;'>")
 		for(v in element.richTextList) {
 			renderTo(v, buffer)

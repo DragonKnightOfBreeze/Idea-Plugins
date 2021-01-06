@@ -14,7 +14,7 @@ import com.windea.plugin.idea.paradox.localisation.psi.*
 class ParadoxLocalisationAnnotator : Annotator, DumbAware {
 	override fun annotate(element: PsiElement, holder: AnnotationHolder) {
 		when(element) {
-			is ParadoxLocalisationProperty -> annotateProperty(element, holder)
+			//is ParadoxLocalisationProperty -> annotateProperty(element, holder)
 			is ParadoxLocalisationLocale -> annotateLocale(element, holder)
 			is ParadoxLocalisationSerialNumber -> annotateSerialNumber(element, holder)
 			is ParadoxLocalisationColorfulText -> annotateColorfulText(element, holder)
@@ -22,9 +22,9 @@ class ParadoxLocalisationAnnotator : Annotator, DumbAware {
 		}
 	}
 	
-	private fun annotateProperty(element: ParadoxLocalisationProperty, holder: AnnotationHolder) {
-		
-	}
+	//private fun annotateProperty(element: ParadoxLocalisationProperty, holder: AnnotationHolder) {
+	//	
+	//}
 	
 	private fun annotateLocale(element: ParadoxLocalisationLocale, holder: AnnotationHolder) {
 		if(element.paradoxLocale == null) {

@@ -12,7 +12,6 @@ import com.windea.plugin.idea.paradox.localisation.psi.ParadoxLocalisationElemen
 import com.windea.plugin.idea.paradox.localisation.psi.ParadoxLocalisationElementFactory.createPropertyKey
 import com.windea.plugin.idea.paradox.localisation.psi.ParadoxLocalisationElementFactory.createPropertyReference
 import com.windea.plugin.idea.paradox.localisation.reference.*
-import com.windea.plugin.idea.paradox.model.*
 import javax.swing.*
 
 //NOTE getName 确定进行重构和导航时显示的PsiElement的名字

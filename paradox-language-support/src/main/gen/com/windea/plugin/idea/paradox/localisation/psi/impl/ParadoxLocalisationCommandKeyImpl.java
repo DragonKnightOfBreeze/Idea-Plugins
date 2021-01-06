@@ -9,6 +9,7 @@ import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
 import static com.windea.plugin.idea.paradox.localisation.psi.ParadoxLocalisationTypes.*;
 import com.windea.plugin.idea.paradox.localisation.psi.*;
+import com.intellij.util.IncorrectOperationException;
 import com.windea.plugin.idea.paradox.localisation.reference.ParadoxLocalisationCommandKeyPsiReference;
 
 public class ParadoxLocalisationCommandKeyImpl extends ParadoxLocalisationNamedElementImpl implements ParadoxLocalisationCommandKey {
@@ -41,7 +42,7 @@ public class ParadoxLocalisationCommandKeyImpl extends ParadoxLocalisationNamedE
 
   @Override
   @NotNull
-  public PsiElement setName(@NotNull String name) {
+  public PsiElement setName(@NotNull String name) throws IncorrectOperationException {
     return ParadoxLocalisationPsiImplUtil.setName(this, name);
   }
 

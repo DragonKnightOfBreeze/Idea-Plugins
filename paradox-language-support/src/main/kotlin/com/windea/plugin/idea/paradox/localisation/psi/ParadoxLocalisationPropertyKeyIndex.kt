@@ -4,7 +4,6 @@ import com.intellij.openapi.project.*
 import com.intellij.psi.search.*
 import com.intellij.psi.stubs.*
 import com.windea.plugin.idea.paradox.*
-import com.windea.plugin.idea.paradox.model.*
 
 object ParadoxLocalisationPropertyKeyIndex : StringStubIndexExtension<ParadoxLocalisationProperty>() {
 	private val key = StubIndexKey.createIndexKey<String, ParadoxLocalisationProperty>("paradoxLocalisation.property.index")

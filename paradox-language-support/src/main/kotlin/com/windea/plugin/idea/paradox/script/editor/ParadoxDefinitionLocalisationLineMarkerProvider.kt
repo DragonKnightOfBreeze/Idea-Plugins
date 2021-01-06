@@ -7,7 +7,6 @@ import com.intellij.psi.*
 import com.intellij.ui.awt.*
 import com.intellij.util.*
 import com.windea.plugin.idea.paradox.*
-import com.windea.plugin.idea.paradox.model.*
 import com.windea.plugin.idea.paradox.script.psi.*
 
 class ParadoxDefinitionLocalisationLineMarkerProvider: LineMarkerProviderDescriptor(){
@@ -24,24 +23,23 @@ class ParadoxDefinitionLocalisationLineMarkerProvider: LineMarkerProviderDescrip
 	override fun getLineMarkerInfo(element: PsiElement): LineMarker? {
 		return when(element) {
 			is ParadoxScriptProperty -> {
-				val typeMetadata = element.paradoxTypeMetadata?:return null
-				if(!typeMetadata.hasLocalisation) return null //没有localisation时不加上gutterIcon
-				LineMarker(element, typeMetadata)
+				val definitionInfo = element.paradoxDefinitionInfo ?: return null
+				if(!definitionInfo.hasLocalisation) return null //没有localisation时不加上gutterIcon
+				LineMarker(element, definitionInfo)
 			}
 			else -> null
 		}
 	}
 	
-	class LineMarker(element: ParadoxScriptProperty,typeMetadata: ParadoxTypeMetadata) : LineMarkerInfo<PsiElement>(
+	class LineMarker(element: ParadoxScriptProperty,definitionInfo: ParadoxDefinitionInfo) : LineMarkerInfo<PsiElement>(
 		element.propertyKey.let { it.propertyKeyId ?: it.quotedPropertyKeyId!! },
 		element.textRange,
 		definitionLocalisationGutterIcon,
-		{ typeMetadata.localisation.entries.joinToString("<br>"){ (k,v)-> _tooltip(v,k.name) }},
+		{ definitionInfo.localisation.entries.joinToString("<br>"){ (k,v)-> _tooltip(v,k.name) }},
 		{ mouseEvent, _ ->
-			val names = typeMetadata.localisation.values
+			val names = definitionInfo.localisation.values
 			val project = element.project
-			val scope = element.resolveScope
-			val elements = findLocalisationProperties(names, null, project, scope).toTypedArray()
+			val elements = findLocalisationProperties(names, null, project).toTypedArray()
 			when(elements.size) {
 				0 -> {}
 				1 -> OpenSourceUtil.navigate(true, elements.first())

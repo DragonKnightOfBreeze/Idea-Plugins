@@ -1,14 +1,21 @@
 package com.windea.plugin.idea.paradox.script.psi
 
 import com.intellij.lang.*
-import com.intellij.psi.impl.source.tree.*
 import com.intellij.psi.stubs.*
 import com.intellij.util.*
 import com.windea.plugin.idea.paradox.*
 import com.windea.plugin.idea.paradox.script.*
 import com.windea.plugin.idea.paradox.script.psi.impl.*
 
-class ParadoxScriptPropertyStubElementType : ILightStubElementType<ParadoxScriptPropertyStub, ParadoxScriptProperty>(
+//FIXME
+//注意：这里的node和psi会变更，因此无法从userDataMap直接获取数据！
+//这之后，virtualFile会变为LightVirtualFIle，无法从virtualFile获取数据！psiFile也会变更
+//检查createStub的psi和parentStub，尝试获取definitionInfo
+//或者：尝试直接从shouldCreateStub的node获取definitionInfo，缓存同步到createStub
+//或者：重写com.intellij.psi.stubs.DefaultStubBuilder.StubBuildingWalkingVisitor.createStub，尝试从更多信息中获取
+//要求：必须能够获取paradoxPath和paradoxPropertyPath！即使psiFIle在内存中也要缓存信息
+
+class ParadoxScriptPropertyStubElementType : IStubElementType<ParadoxScriptPropertyStub, ParadoxScriptProperty>(
 	"PARADOX_SCRIPT_PROPERTY",
 	ParadoxScriptLanguage
 ) {
@@ -17,15 +24,15 @@ class ParadoxScriptPropertyStubElementType : ILightStubElementType<ParadoxScript
 	}
 	
 	override fun createStub(psi: ParadoxScriptProperty, parentStub: StubElement<*>): ParadoxScriptPropertyStub {
-		//这里使用scriptProperty.paradoxTypeMetadata.name而非scriptProperty.name
-		return ParadoxScriptPropertyStubImpl(parentStub, psi.paradoxTypeMetadata?.name ?: psi.name)
+		//这里使用scriptProperty.paradoxDefinitionInfo.name而非scriptProperty.name
+		return ParadoxScriptPropertyStubImpl(parentStub, psi.paradoxDefinitionInfoNoCheck?.name ?: "@")
 	}
 	
-	override fun createStub(tree: LighterAST, node: LighterASTNode, parentStub: StubElement<*>): ParadoxScriptPropertyStub {
-		val keyNode = LightTreeUtil.firstChildOfType(tree, node, ParadoxScriptTypes.PROPERTY_KEY_ID)
-		val key = intern(tree.charTable, keyNode)
-		return ParadoxScriptPropertyStubImpl(parentStub, key)
-	}
+	//override fun createStub(tree: LighterAST, node: LighterASTNode, parentStub: StubElement<*>): ParadoxScriptPropertyStub {
+	//	val keyNode = LightTreeUtil.firstChildOfType(tree, node, ParadoxScriptTypes.PROPERTY_KEY_ID)
+	//	val key = intern(tree.charTable, keyNode)
+	//	return ParadoxScriptPropertyStubImpl(parentStub, key)
+	//}
 	
 	override fun getExternalId(): String {
 		return "paradoxScript.property"
@@ -42,6 +49,10 @@ class ParadoxScriptPropertyStubElementType : ILightStubElementType<ParadoxScript
 	override fun indexStub(stub: ParadoxScriptPropertyStub, sink: IndexSink) {
 		sink.occurrence(ParadoxScriptPropertyKeyIndex.key, stub.key)
 	}
+	
+	override fun shouldCreateStub(node: ASTNode?): Boolean {
+		return node != null && node.paradoxDefinitionInfoNoCheck?.name != null
+	} 
 	
 	companion object {
 		fun intern(table: CharTable, node: LighterASTNode?): String {

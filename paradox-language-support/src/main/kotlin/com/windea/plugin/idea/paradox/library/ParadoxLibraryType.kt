@@ -8,7 +8,6 @@ import com.intellij.openapi.roots.libraries.ui.*
 import com.intellij.openapi.ui.*
 import com.intellij.openapi.vfs.*
 import com.windea.plugin.idea.paradox.*
-import com.windea.plugin.idea.paradox.model.*
 import javax.swing.*
 
 abstract class ParadoxLibraryType(
@@ -54,9 +53,9 @@ abstract class ParadoxLibraryType(
 					return file.nameWithoutExtension
 				}
 				childName.equals("$type.exe", true) -> return ParadoxRootType.Stdlib.text
-				fileName == pdxLauncherDirName -> return ParadoxRootType.PdxLauncher.text
-				fileName == pdxOnlineAssetsDirName -> return ParadoxRootType.PdxOnlineAssets.text
-				fileName == tweakerGuiAssetsDirName -> return ParadoxRootType.TweakerGuiAssets.text
+				fileName == ParadoxRootType.PdxLauncher.key -> return ParadoxRootType.PdxLauncher.text
+				fileName == ParadoxRootType.PdxOnlineAssets.key -> return ParadoxRootType.PdxOnlineAssets.text
+				fileName == ParadoxRootType.TweakerGuiAssets.key -> return ParadoxRootType.TweakerGuiAssets.text
 			}
 		}
 		showInvalidLibraryDialog(project)

@@ -7,7 +7,6 @@ import com.intellij.psi.*
 import com.intellij.ui.awt.*
 import com.intellij.util.*
 import com.windea.plugin.idea.paradox.*
-import com.windea.plugin.idea.paradox.model.*
 import com.windea.plugin.idea.paradox.script.psi.*
 
 class ParadoxDefinitionLineMarkerProvider : LineMarkerProviderDescriptor() {
@@ -24,22 +23,21 @@ class ParadoxDefinitionLineMarkerProvider : LineMarkerProviderDescriptor() {
 	override fun getLineMarkerInfo(element: PsiElement): LineMarker? {
 		return when(element) {
 			is ParadoxScriptProperty -> {
-				val typeMetadata = element.paradoxTypeMetadata ?: return null
-				LineMarker(element, typeMetadata)
+				val definitionInfo = element.paradoxDefinitionInfo ?: return null
+				LineMarker(element, definitionInfo)
 			}
 			else -> null
 		}
 	}
 	
-	class LineMarker(element: ParadoxScriptProperty,typeMetadata: ParadoxTypeMetadata) : LineMarkerInfo<PsiElement>(
+	class LineMarker(element: ParadoxScriptProperty,definitionInfo: ParadoxDefinitionInfo) : LineMarkerInfo<PsiElement>(
 		element.propertyKey.let { it.propertyKeyId ?: it.quotedPropertyKeyId!! },
 		element.textRange,
 		definitionGutterIcon,
-		{ _tooltip(typeMetadata.name.escapeXml(),typeMetadata.type) },
+		{ _tooltip(definitionInfo.name.escapeXml(),definitionInfo.type) },
 		{ mouseEvent, _ ->
 			val project = element.project
-			val scope = element.resolveScope
-			val elements = findScriptProperties(typeMetadata.name, project, scope).toTypedArray()
+			val elements = findScriptProperties(definitionInfo.name, project).toTypedArray()
 			when(elements.size) {
 				0 -> {}
 				1 -> OpenSourceUtil.navigate(true, elements.first())

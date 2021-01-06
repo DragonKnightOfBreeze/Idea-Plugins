@@ -28,11 +28,11 @@ fun String.toClassPathResource(): URL? = defaultClassLoader.getResource(this)
 fun <T> Array<out T?>.cast() = this as Array<T>
 
 inline fun <T, reified R> List<T>.mapArray(block: (T) -> R): Array<R> {
-	return Array<R>(size) { block(this[it]) }
+	return Array(size) { block(this[it]) }
 }
 
 inline fun <T, reified R> Array<out T>.mapArray(block: (T) -> R): Array<R> {
-	return Array<R>(size) { block(this[it]) }
+	return Array(size) { block(this[it]) }
 }
 
 inline fun <T, reified R> Sequence<T>.mapArray(block: (T) -> R): Array<R> {
@@ -175,7 +175,7 @@ data class ConditionalString(
 	override val length = name.length
 	
 	override fun get(index: Int): Char {
-		return name.get(index)
+		return name[index]
 	}
 	
 	override fun subSequence(startIndex: Int, endIndex: Int): CharSequence {

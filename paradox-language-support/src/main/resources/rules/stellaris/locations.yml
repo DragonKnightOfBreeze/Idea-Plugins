@@ -220,7 +220,7 @@ locations:
     file_names:
     - achievements.txt
     - alerts.txt
-    - mesasge_types.txt
+    - message_types.txt
   dlc:
     file_extension: dlc
     path_strict: false

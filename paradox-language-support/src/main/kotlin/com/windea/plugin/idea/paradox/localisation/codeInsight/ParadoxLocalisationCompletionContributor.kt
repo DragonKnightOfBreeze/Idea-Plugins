@@ -6,8 +6,8 @@ import com.intellij.codeInsight.completion.*
 import com.intellij.codeInsight.lookup.*
 import com.intellij.patterns.PlatformPatterns.*
 import com.intellij.util.*
+import com.windea.plugin.idea.paradox.*
 import com.windea.plugin.idea.paradox.localisation.psi.ParadoxLocalisationTypes.*
-import com.windea.plugin.idea.paradox.model.*
 
 class ParadoxLocalisationCompletionContributor : CompletionContributor() {
 	class LocaleCompletionProvider : CompletionProvider<CompletionParameters>() {

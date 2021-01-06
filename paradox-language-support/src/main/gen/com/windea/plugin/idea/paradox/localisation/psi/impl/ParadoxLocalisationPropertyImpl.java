@@ -1,6 +1,7 @@
 // This is a generated file. Not intended for manual editing.
 package com.windea.plugin.idea.paradox.localisation.psi.impl;
 
+import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.PsiElement;
@@ -9,7 +10,8 @@ import com.intellij.psi.util.PsiTreeUtil;
 import static com.windea.plugin.idea.paradox.localisation.psi.ParadoxLocalisationTypes.*;
 import com.windea.plugin.idea.paradox.localisation.psi.ParadoxLocalisationPropertyStub;
 import com.windea.plugin.idea.paradox.localisation.psi.*;
-import com.windea.plugin.idea.paradox.model.ParadoxLocale;
+import com.intellij.openapi.util.Iconable.IconFlags;
+import com.windea.plugin.idea.paradox.ParadoxLocale;
 import javax.swing.Icon;
 import com.intellij.psi.stubs.IStubElementType;
 

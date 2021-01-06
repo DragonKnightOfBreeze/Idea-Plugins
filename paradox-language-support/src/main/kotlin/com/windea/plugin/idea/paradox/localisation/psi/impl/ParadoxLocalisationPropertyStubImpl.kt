@@ -7,5 +7,9 @@ import com.windea.plugin.idea.paradox.localisation.psi.*
 class ParadoxLocalisationPropertyStubImpl(
 	parent: StubElement<*>,
 	override val key: String
-) : StubBase<ParadoxLocalisationProperty>(parent, ParadoxLocalisationStubElementTypes.PROPERTY), ParadoxLocalisationPropertyStub
+) : StubBase<ParadoxLocalisationProperty>(parent, ParadoxLocalisationStubElementTypes.PROPERTY), ParadoxLocalisationPropertyStub{
+	override fun toString(): String {
+		return "ParadoxLocalisationPropertyStub: $key"
+	}
+}
 
