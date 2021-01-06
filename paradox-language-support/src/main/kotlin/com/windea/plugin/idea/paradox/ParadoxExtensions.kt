@@ -144,44 +144,6 @@ private fun getGameType(): ParadoxGameType {
 	return ParadoxGameType.Stellaris //TODO
 }
 
-//val PsiElement.paradoxScriptPath: ParadoxPath? get() = getScriptedPath(this)
-//
-//private fun getScriptedPath(element: PsiElement): ParadoxPath? {
-//	return getCachedScriptPath(element)
-//}
-//
-//private fun getCachedScriptPath(element: PsiElement): ParadoxPath? {
-//	return CachedValuesManager.getCachedValue(element, cachedParadoxScriptPathKey) {
-//		CachedValueProvider.Result.create(resolveScriptPath(element), element)
-//	}
-//}
-//
-//private fun resolveScriptPath(element: PsiElement): ParadoxPath? {
-//	return when {
-//		element is ParadoxScriptProperty || element is ParadoxScriptValue -> {
-//			val subPaths = mutableListOf<String>()
-//			var current = element
-//			while(current !is PsiFile) {
-//				when {
-//					current is ParadoxScriptProperty -> {
-//						subPaths.add(0, current.name)
-//					}
-//					current is ParadoxScriptValue -> {
-//						val parent = current.parent ?: break
-//						if(parent is ParadoxScriptBlock) {
-//							subPaths.add(0, parent.indexOfChild(current).toString())
-//						}
-//						current = parent
-//					}
-//				}
-//				current = current.parent ?: break
-//			}
-//			ParadoxPath(subPaths)
-//		}
-//		else -> null
-//	}
-//}
-
 val ParadoxScriptProperty.paradoxDefinitionInfo: ParadoxDefinitionInfo? get() = getDefinitionInfo(this)
 
 val ParadoxScriptProperty.paradoxDefinitionInfoNoCheck: ParadoxDefinitionInfo? get() = getDefinitionInfo(this, false)
