@@ -94,73 +94,73 @@ class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
 			}
 			//相关的本地化文本
 			if(state.renderLocalisationText) {
-				if(canGetDefinitionInfo(element)) {
-					val sections = getPropertySections(element, name)
-					if(sections.isNotEmpty()) {
-						sections {
-							for((title, value) in sections) {
-								section(title, value)
-							}
-						}
-					}
-				}
+				//if(canGetDefinitionInfo(element)) {
+				//	val sections = getPropertySections(element, name)
+				//	if(sections.isNotEmpty()) {
+				//		sections {
+				//			for((title, value) in sections) {
+				//				section(title, value)
+				//			}
+				//		}
+				//	}
+				//}
 			}
 		}
 	}
 	
-	private fun getPropertySections(element: ParadoxScriptProperty,name:String): Map<String, String> {
-		val project = element.project
-		val scope = element.resolveScope
-		val sectionMap = linkedMapOf<String, String>()
-		
-		//添加渲染后的对应的图标到文档注释中
-		val iconUrl = name.resolveIconUrl(false)
-		if(iconUrl.isNotEmpty()) {
-			val value = iconTag(iconUrl, iconSize * 2)
-			sectionMap[_iconTitle] = value
-		}
-		
-		//添加渲染后的相关的本地化属性的值的文本到文档注释中
-		val localisationProperties = findRelatedLocalisationProperties(name, project, inferredParadoxLocale,scope)
-			.distinctBy { it.name } //过滤重复的属性
-		if(localisationProperties.isNotEmpty()) {
-			for(property in localisationProperties) {
-				val value = property.propertyValue?.renderRichText()
-				if(value != null) sectionMap[message(property.getRelatedLocalisationPropertyKey())] = value
-			}
-		}
-		
-		//添加渲染后的作为其属性的值的文本到文档注释中
-		val propertyValue = element.propertyValue?.value
-		val properties = if(propertyValue is ParadoxScriptBlock) propertyValue.propertyList else null
-		if(properties != null && properties.isNotEmpty()) {
-			for(property in properties) {
-				when(property.name) {
-					"description" -> {
-						val k = property.value ?: continue
-						val value = findLocalisationProperty(k, inferredParadoxLocale, project)?.propertyValue?.renderRichText()
-						sectionMap[_effectTitle] = value ?: k
-					}
-					"tags" -> {
-						val pv = property.propertyValue?.value as? ParadoxScriptBlock ?: continue
-						val tags = pv.valueList.mapNotNull { if(it is ParadoxScriptString) it.value else null }
-						val propValues = tags.mapNotNull { tag ->
-							findLocalisationProperty(tag, inferredParadoxLocale, project)?.propertyValue
-						}
-						if(propValues.isEmpty()) continue
-						val value = buildString {
-							var addNewLine = false
-							for(propValue in propValues) {
-								if(addNewLine) append("<br>") else addNewLine = true
-								propValue.renderRichTextTo(this)
-							}
-						}
-						sectionMap[_tagsTitle] = value
-					}
-				}
-			}
-		}
-		
-		return sectionMap
-	}
+	//private fun getPropertySections(element: ParadoxScriptProperty,name:String): Map<String, String> {
+	//	val project = element.project
+	//	val scope = element.resolveScope
+	//	val sectionMap = linkedMapOf<String, String>()
+	//	
+	//	//添加渲染后的对应的图标到文档注释中
+	//	val iconUrl = name.resolveIconUrl(false)
+	//	if(iconUrl.isNotEmpty()) {
+	//		val value = iconTag(iconUrl, iconSize * 2)
+	//		sectionMap[_iconTitle] = value
+	//	}
+	//	
+	//	//添加渲染后的相关的本地化属性的值的文本到文档注释中
+	//	val localisationProperties = findRelatedLocalisationProperties(name, project, inferredParadoxLocale,scope)
+	//		.distinctBy { it.name } //过滤重复的属性
+	//	if(localisationProperties.isNotEmpty()) {
+	//		for(property in localisationProperties) {
+	//			val value = property.propertyValue?.renderRichText()
+	//			if(value != null) sectionMap[message(property.getRelatedLocalisationPropertyKey())] = value
+	//		}
+	//	}
+	//	
+	//	//添加渲染后的作为其属性的值的文本到文档注释中
+	//	val propertyValue = element.propertyValue?.value
+	//	val properties = if(propertyValue is ParadoxScriptBlock) propertyValue.propertyList else null
+	//	if(properties != null && properties.isNotEmpty()) {
+	//		for(property in properties) {
+	//			when(property.name) {
+	//				"description" -> {
+	//					val k = property.value ?: continue
+	//					val value = findLocalisationProperty(k, inferredParadoxLocale, project)?.propertyValue?.renderRichText()
+	//					sectionMap[_effectTitle] = value ?: k
+	//				}
+	//				"tags" -> {
+	//					val pv = property.propertyValue?.value as? ParadoxScriptBlock ?: continue
+	//					val tags = pv.valueList.mapNotNull { if(it is ParadoxScriptString) it.value else null }
+	//					val propValues = tags.mapNotNull { tag ->
+	//						findLocalisationProperty(tag, inferredParadoxLocale, project)?.propertyValue
+	//					}
+	//					if(propValues.isEmpty()) continue
+	//					val value = buildString {
+	//						var addNewLine = false
+	//						for(propValue in propValues) {
+	//							if(addNewLine) append("<br>") else addNewLine = true
+	//							propValue.renderRichTextTo(this)
+	//						}
+	//					}
+	//					sectionMap[_tagsTitle] = value
+	//				}
+	//			}
+	//		}
+	//	}
+	//	
+	//	return sectionMap
+	//}
 }

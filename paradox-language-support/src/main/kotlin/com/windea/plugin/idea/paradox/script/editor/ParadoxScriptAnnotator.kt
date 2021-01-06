@@ -42,7 +42,7 @@ class ParadoxScriptAnnotator : Annotator, DumbAware {
 	}
 	
 	private fun annotateString(element: ParadoxScriptString, holder: AnnotationHolder) {
-		if(state.resolveScriptReferences) {
+		if(state.resolveStringReferences) {
 			val name = element.value
 			val project = element.project
 			val scope = element.resolveScope
