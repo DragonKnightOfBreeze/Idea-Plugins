@@ -8,25 +8,25 @@ import com.intellij.psi.*
 import com.intellij.ui.awt.*
 import com.intellij.util.*
 import com.windea.plugin.idea.paradox.*
-import com.windea.plugin.idea.paradox.script.psi.*
+import com.windea.plugin.idea.paradox.localisation.psi.*
 import java.awt.event.*
 
-class ParadoxStringScriptPropertyGutterIconRenderer(
-	private val name:String,
-	private val properties:Array<ParadoxScriptProperty>
+class ParadoxStringLocalisationGutterIconRenderer(
+	private val name: String,
+	private val properties: Array<ParadoxLocalisationProperty>
 ): GutterIconRenderer(), DumbAware {
 	companion object{
-		private val _title = message("paradox.script.gutterIcon.definition.title")
-		private fun _tooltip(name:String) = message("paradox.script.gutterIcon.definition.tooltip", name)
+		private val _title = message("paradox.localisation.gutterIcon.localisation.title")
+		private fun _tooltip(name:String) = message("paradox.localisation.gutterIcon.localisation.tooltip", name)
 	}
 	
 	private val tooltip = _tooltip(name.escapeXml())
 	
-	override fun getIcon() = stringScriptPropertyGutterIcon
+	override fun getIcon() = stringLocalisationPropertyGutterIcon
 	override fun getTooltipText() = tooltip
 	override fun getClickAction() = NavigateAction(properties)
 	override fun isNavigateAction() = true
-	override fun equals(other: Any?) = other is ParadoxStringScriptPropertyGutterIconRenderer && name == other.name
+	override fun equals(other: Any?) = other is ParadoxStringLocalisationGutterIconRenderer && name == other.name
 	override fun hashCode() = name.hashCode()
 	
 	@Suppress("ComponentNotRegistered")
@@ -34,8 +34,8 @@ class ParadoxStringScriptPropertyGutterIconRenderer(
 		private val elements: Array<out NavigatablePsiElement>,
 	) : AnAction() {
 		override fun actionPerformed(e: AnActionEvent) {
-			//如果只有一个，则直接导航，否则弹出popup再导航
-			when(elements.size) {
+		//如果只有一个，则直接导航，否则弹出popup再导航
+			return when(elements.size) {
 				0 -> return
 				1 -> OpenSourceUtil.navigate(true, elements.first())
 				else -> NavigationUtil.getPsiElementPopup(elements, _title).show(RelativePoint(e.inputEvent as MouseEvent))

@@ -47,7 +47,7 @@ class ParadoxScriptAnnotator : Annotator, DumbAware {
 			if(scriptProperties.isNotEmpty()) {
 				holder.newSilentAnnotation(INFORMATION)
 					.textAttributes(ParadoxScriptAttributesKeys.PROPERTY_KEY_KEY)
-					.gutterIconRenderer(ParadoxStringScriptPropertyGutterIconRenderer(name, scriptProperties))
+					.gutterIconRenderer(ParadoxStringDefinitionGutterIconRenderer(name, scriptProperties))
 					.create()
 				return
 			}
@@ -55,7 +55,7 @@ class ParadoxScriptAnnotator : Annotator, DumbAware {
 			if(localisationProperties.isNotEmpty()) {
 				holder.newSilentAnnotation(INFORMATION)
 					.textAttributes(ParadoxLocalisationAttributesKeys.PROPERTY_KEY_KEY)
-					.gutterIconRenderer(ParadoxStringLocalisationPropertyGutterIconRenderer(name, localisationProperties))
+					.gutterIconRenderer(ParadoxStringLocalisationGutterIconRenderer(name, localisationProperties))
 					.create()
 			}
 		}

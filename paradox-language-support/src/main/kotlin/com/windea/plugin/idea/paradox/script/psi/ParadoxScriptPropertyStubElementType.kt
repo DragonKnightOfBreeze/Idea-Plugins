@@ -7,7 +7,6 @@ import com.windea.plugin.idea.paradox.*
 import com.windea.plugin.idea.paradox.script.*
 import com.windea.plugin.idea.paradox.script.psi.impl.*
 
-//FIXME
 //注意：这里的node和psi会变更，因此无法从userDataMap直接获取数据！
 //这之后，virtualFile会变为LightVirtualFIle，无法从virtualFile获取数据！psiFile也会变更
 //检查createStub的psi和parentStub，尝试获取definitionInfo
@@ -25,7 +24,9 @@ class ParadoxScriptPropertyStubElementType : IStubElementType<ParadoxScriptPrope
 	
 	override fun createStub(psi: ParadoxScriptProperty, parentStub: StubElement<*>): ParadoxScriptPropertyStub {
 		//这里使用scriptProperty.paradoxDefinitionInfo.name而非scriptProperty.name
-		return ParadoxScriptPropertyStubImpl(parentStub, psi.paradoxDefinitionInfoNoCheck?.name ?: "@")
+		//暂时的策略：尝试得到真正的name，如果找不到但是是rootProperty，那么以psi.name为准（虽然不一定准确）
+		val usedName = psi.paradoxDefinitionInfoNoCheck?.name?: if(psi.parent is ParadoxScriptRootBlock) psi.name else "@"
+		return ParadoxScriptPropertyStubImpl(parentStub, usedName)
 	}
 	
 	//override fun createStub(tree: LighterAST, node: LighterASTNode, parentStub: StubElement<*>): ParadoxScriptPropertyStub {
@@ -51,7 +52,9 @@ class ParadoxScriptPropertyStubElementType : IStubElementType<ParadoxScriptPrope
 	}
 	
 	override fun shouldCreateStub(node: ASTNode?): Boolean {
-		return node != null && node.paradoxDefinitionInfoNoCheck?.name != null
+		//不确定这里是否需要预先过滤，这里的索引依赖于文件信息
+		//return node != null && node.paradoxDefinitionInfoNoCheck != null
+		return node != null
 	} 
 	
 	companion object {

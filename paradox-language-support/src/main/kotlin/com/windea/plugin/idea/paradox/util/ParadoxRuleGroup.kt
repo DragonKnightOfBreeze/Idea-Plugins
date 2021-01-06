@@ -51,7 +51,7 @@ class ParadoxRuleGroup(
 		//暂时认为3级的scriptProperty不再需要匹配
 		//path和propertyPath不要重复获取
 		
-		fun matches(elementName: String, path: ParadoxPath, isRootKey:Boolean = true): Boolean {
+		fun matches(elementName: String, path: ParadoxPath, scriptPath: ParadoxPath): Boolean {
 			//判断文件扩展名是否匹配
 			val fileExtensionData = get("file_extension") as String? ?: "txt"
 			if(fileExtensionData != path.fileExtension) return false
@@ -92,7 +92,9 @@ class ParadoxRuleGroup(
 		}
 		
 		fun getName(element: ParadoxScriptProperty): String {
-			val nameKeyData = get("name_key") as String? ?: return element.name
+			//如果没有name_key又指定了skip_root_key，那么认为是匿名的，否则以elementName为准
+			val nameKeyData = get("name_key") as String? 
+			                  ?: return if(get("skip_root_key") != null) anonymousName else element.name
 			val nameProperty = element.findProperty(nameKeyData) ?: return anonymousName
 			return nameProperty.value ?: anonymousName
 		}

@@ -20,4 +20,6 @@ class ParadoxLocalisationFile(
 	
 	val paradoxLocale: ParadoxLocale?
 		get() = locale?.paradoxLocale
+	
+	val fileInfo = getFileInfo(this)
 }
