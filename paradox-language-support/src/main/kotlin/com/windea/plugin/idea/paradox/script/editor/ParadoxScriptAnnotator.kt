@@ -17,15 +17,20 @@ class ParadoxScriptAnnotator : Annotator, DumbAware {
 	
 	override fun annotate(element: PsiElement, holder: AnnotationHolder) {
 		when(element) {
-			//is ParadoxScriptProperty -> annotateProperty(element, holder)
+			is ParadoxScriptProperty -> annotateProperty(element, holder)
 			is ParadoxScriptVariableReference -> annotateVariableReference(element, holder)
 			is ParadoxScriptString -> annotateString(element, holder)
 		}
 	}
 	
-	//private fun annotateProperty(element: ParadoxScriptProperty, holder: AnnotationHolder) {
-	//
-	//}
+	private fun annotateProperty(element: ParadoxScriptProperty, holder: AnnotationHolder) {
+		//如果是定义，则加上下划线突出显示
+		if(element.paradoxDefinitionInfo != null){
+			holder.newSilentAnnotation(INFORMATION)
+				.textAttributes(ParadoxScriptAttributesKeys.DEFINITION_KEY)
+				.create()
+		}
+	}
 	
 	private fun annotateVariableReference(element:ParadoxScriptVariableReference,holder: AnnotationHolder){
 		//注明无法解析的情况
