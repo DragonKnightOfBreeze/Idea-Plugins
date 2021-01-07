@@ -19,6 +19,13 @@ class ParadoxScriptPropertyStubElementType : IStubElementType<ParadoxScriptPrope
 	"PARADOX_SCRIPT_PROPERTY",
 	ParadoxScriptLanguage
 ) {
+	override fun shouldCreateStub(node: ASTNode?): Boolean {
+		//不确定这里是否需要预先过滤，这里的索引依赖于文件信息
+		return node != null && (node.treeParent.elementType == ROOT_BLOCK || node.paradoxDefinitionInfoNoCheck != null)
+		//return node != null && node.paradoxDefinitionInfoNoCheck != null
+		//return node != null
+	}
+	
 	override fun createPsi(stub: ParadoxScriptPropertyStub): ParadoxScriptProperty {
 		return ParadoxScriptPropertyImpl(stub, this)
 	}
@@ -51,13 +58,6 @@ class ParadoxScriptPropertyStubElementType : IStubElementType<ParadoxScriptPrope
 	override fun indexStub(stub: ParadoxScriptPropertyStub, sink: IndexSink) {
 		sink.occurrence(ParadoxScriptPropertyKeyIndex.key, stub.key)
 	}
-	
-	override fun shouldCreateStub(node: ASTNode?): Boolean {
-		//不确定这里是否需要预先过滤，这里的索引依赖于文件信息
-		return node != null && (node.treeParent.elementType == ROOT_BLOCK || node.paradoxDefinitionInfoNoCheck != null)
-		//return node != null && node.paradoxDefinitionInfoNoCheck != null
-		//return node != null
-	} 
 	
 	companion object {
 		fun intern(table: CharTable, node: LighterASTNode?): String {

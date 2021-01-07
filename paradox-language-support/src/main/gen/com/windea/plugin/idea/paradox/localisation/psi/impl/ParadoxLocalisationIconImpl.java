@@ -28,9 +28,9 @@ public class ParadoxLocalisationIconImpl extends ParadoxLocalisationNamedElement
   }
 
   @Override
-  @Nullable
-  public ParadoxLocalisationRichText getRichText() {
-    return PsiTreeUtil.getChildOfType(this, ParadoxLocalisationRichText.class);
+  @NotNull
+  public List<ParadoxLocalisationRichText> getRichTextList() {
+    return PsiTreeUtil.getChildrenOfTypeAsList(this, ParadoxLocalisationRichText.class);
   }
 
   @Override

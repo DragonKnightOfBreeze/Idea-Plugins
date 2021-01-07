@@ -8,8 +8,8 @@ import com.windea.plugin.idea.paradox.localisation.reference.ParadoxLocalisation
 
 public interface ParadoxLocalisationIcon extends ParadoxLocalisationRichText, ParadoxLocalisationNamedElement {
 
-  @Nullable
-  ParadoxLocalisationRichText getRichText();
+  @NotNull
+  List<ParadoxLocalisationRichText> getRichTextList();
 
   @Nullable
   PsiElement getIconId();

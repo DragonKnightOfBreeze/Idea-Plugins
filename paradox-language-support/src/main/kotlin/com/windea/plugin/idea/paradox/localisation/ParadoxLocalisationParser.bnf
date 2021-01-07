@@ -89,7 +89,7 @@ escape ::= VALID_ESCAPE_TOKEN | INVALID_ESCAPE_TOKEN{
   extends=rich_text
 }
 
-property_reference ::= PROPERTY_REFERENCE_START [property_reference_name] [PARAMETER_SEPARATOR [PROPERTY_REFERENCE_PARAMETER]] PROPERTY_REFERENCE_END {
+property_reference ::= PROPERTY_REFERENCE_START [property_reference_name] [PARAMETER_SEPARATOR [property_reference_param]] PROPERTY_REFERENCE_END {
   pin=1
   extends=rich_text
   mixin="com.windea.plugin.idea.paradox.localisation.psi.impl.ParadoxLocalisationNamedElementImpl"
@@ -97,8 +97,9 @@ property_reference ::= PROPERTY_REFERENCE_START [property_reference_name] [PARAM
   methods=[getName setName getNameIdentifier getTextOffset getReference getParadoxColor]
 }
 private property_reference_name ::= command | PROPERTY_REFERENCE_ID
+private property_reference_param ::= PROPERTY_REFERENCE_PARAMETER
 
-icon ::= ICON_START icon_name [PARAMETER_SEPARATOR [ICON_PARAMETER]] ICON_END {
+icon ::= ICON_START icon_name [PARAMETER_SEPARATOR [icon_param]] ICON_END {
   pin(".*")=1
   extends=rich_text
   mixin="com.windea.plugin.idea.paradox.localisation.psi.impl.ParadoxLocalisationNamedElementImpl"
@@ -106,6 +107,7 @@ icon ::= ICON_START icon_name [PARAMETER_SEPARATOR [ICON_PARAMETER]] ICON_END {
   methods=[getName setName getNameIdentifier getTextOffset getReference]
 }
 private icon_name ::= command | property_reference | ICON_ID
+private icon_param ::= ICON_PARAMETER | property_reference
 
 command ::= COMMAND_START command_expression? COMMAND_END{
   pin(".*")=1

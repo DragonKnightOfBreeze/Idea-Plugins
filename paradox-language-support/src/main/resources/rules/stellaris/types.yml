@@ -3,29 +3,109 @@ types:
     path: "common/agendas"
     localisation:
       name!: $
-  
+
+  ai_budget:
+    path: "common/ai_budget"
+
   ambient_object:
     path: "common/ambient_objects"
+    name_key: "name"
+    localisation:
+      name!: .name
+      description?: .description
+      tooltip?: .tooltip
     subtypes:
       show_name:
         predicate:
           show_name: true
-        localisation:
-          name!: $
       selectable:
         predicate:
           selectable: true
+          
+  anomaly_category:
+    path: "common/anomalies"
+    localisation:
+      name!: $
+      description!: .desc 
+    graph_related_types:
+    - "event"
+    - "special_project"
+
+  archaeological_site_type:
+    path: "common/archaeological_site_types"
+    localisation:
+      name!: $
+      description!: .desc
+
+  army:
+    path: "common/armies"
+    localisation:
+      name!: $
+      description!: $_desc
+      plural!: $_plural
+    subtypes:
+      defensive_army:
+        predicate:
+          defensive: true
+      occupation_army:
+        predicate:
+          occupation: true
+          
+  artifact_action:
+    path: "common/artifact_actions"
+    localisation:
+      name!: $
+      description!: $_desc
+
+  ascension_perk:
+    path: "common/ascension_perks"
+    localisation:
+      name!: $
+      description!: $_desc
 
   asteroid_belt:
     path: "common/asteroid_belt"
 
-  attitude:
+  attitude: #TODO
     path: "common/attitudes"
     localisation:
       name!: attribute_$
 
+  bombardment_stance:
+    path: "common/bombardment_stances"
+    localisation:
+      name!: $
+      description!: $_desc
+
+  building:
+    path: "common/buildings"
+    localisation:
+      name!: $
+      description!: $_desc
+    subtypes:
+      capital_building:
+        predicate:
+          capital: true
+      branch_office_building:
+        predicate:
+          branch_office_building: true
+
   button_effect:
     path: "common/button_effects"
+
+  bypass:
+    path: "common/bypass"
+    # name_key: "name"
+    subtypes: # TODO
+      scripted:
+        predicate:
+          connection_type: "scripted_connection"
+
+  casus_belli:
+    path: "common/casus_belli"
+    localisation:
+      name!: casus_belli_$
+      hint?: casus_belli_$_acquire_hint
 
   country_customization:
     path: "common/country_customization"
@@ -63,9 +143,6 @@ types:
     localisation:
       name!: $
       description!: $_desc
-
-  ai_budget:
-    path: "common/ai_budget"
 
   trade_conversion:
     path: "common/trade_conversions"
@@ -115,46 +192,8 @@ types:
       name!: $
       description!: $_desc
 
-  anomaly_category:
-    path: "common/anomalies"
-    localisation:
-      name!: $
-    graph_related_types:
-    - "event"
-    - "special_project"
-
-  archaeological_site_type:
-    path: "common/archaeological_site_types"
-    localisation:
-      name!: $
-
   relic:
     path: "common/relics"
-    localisation:
-      name!: $
-      description!: $_desc
-
-  artifact_action:
-    path: "common/artifact_actions"
-    localisation:
-      name!: $
-      description!: $_desc
-
-  army:
-    path: "common/armies"
-    localisation:
-      name!: $
-      description!: $_desc
-    subtypes:
-      buildable:
-        predicate:
-          potential:
-            always: false
-        localisation:
-          plural!: $_plural
-
-  ascension_perk:
-    path: "common/ascension_perks"
     localisation:
       name!: $
       description!: $_desc
@@ -188,36 +227,6 @@ types:
     localisation:
       name!: $
       description!: $_desc
-
-  bombardment_stance:
-    path: "common/bombardment_stances"
-    localisation:
-      name!: $
-      description!: $_desc
-
-  building:
-    path: "common/buildings"
-    localisation:
-      name!: $
-      description!: $_desc
-    subtypes:
-      branch_office_building:
-        predicate:
-          branch_office_building: true
-
-
-  bypass:
-    path: "common/bypass"
-    subtypes:
-      scripted:
-        predicate:
-          connection_type: "scripted_connection"
-
-  casus_belli:
-    path: "common/casus_belli"
-    localisation:
-      name!: casus_belli_$
-      hint?: casus_belli_$_acquire_hint
 
   war_goal:
     path: "common/war_goals"
@@ -831,7 +840,7 @@ types:
     file_name: "alerts.txt"
     skip_root_key: "alerts"
     name_prefix: "alert_"
-    localisation: 
+    localisation:
       name: .name
 
   message_type:

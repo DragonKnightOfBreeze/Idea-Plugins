@@ -72,6 +72,8 @@ val VirtualFile.paradoxFileInfo:ParadoxFileInfo? get() = this.getUserData(parado
 
 val PsiElement.paradoxFileInfo:ParadoxFileInfo? get() = getFileInfo(this)
 
+val ASTNode.paradoxFileInfo:ParadoxFileInfo? get() = getFileInfo(psi)
+
 //element->element.containingFile->element.containingFile.virtualFile->tryResolve
 internal fun  getFileInfo(element: PsiElement): ParadoxFileInfo? {
 	//检查语言，预先过滤
@@ -235,8 +237,9 @@ private fun getDefinitionInfo(node: ASTNode, check: Boolean = true): ParadoxDefi
 //使用stubIndex以提高性能
 
 fun findScriptVariableInFile(name: String, file: PsiFile): ParadoxScriptVariable? {
+	//在所在文件中递归查找（不一定定义在顶层）
 	if(file !is ParadoxScriptFile) return null
-	return file.variables.find { it.name == name }
+	return file.findDescendantOfType { it.name == name }
 }
 
 fun findScriptVariable(name: String, project: Project, scope: GlobalSearchScope = GlobalSearchScope.allScope(project)): ParadoxScriptVariable? {

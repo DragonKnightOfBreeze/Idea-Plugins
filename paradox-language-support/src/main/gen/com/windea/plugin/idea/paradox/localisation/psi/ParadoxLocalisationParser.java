@@ -158,7 +158,7 @@ public class ParadoxLocalisationParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // ICON_START icon_name [PARAMETER_SEPARATOR [ICON_PARAMETER]] ICON_END
+  // ICON_START icon_name [PARAMETER_SEPARATOR [icon_param]] ICON_END
   public static boolean icon(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "icon")) return false;
     if (!nextTokenIs(b, ICON_START)) return false;
@@ -173,14 +173,14 @@ public class ParadoxLocalisationParser implements PsiParser, LightPsiParser {
     return r || p;
   }
 
-  // [PARAMETER_SEPARATOR [ICON_PARAMETER]]
+  // [PARAMETER_SEPARATOR [icon_param]]
   private static boolean icon_2(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "icon_2")) return false;
     icon_2_0(b, l + 1);
     return true;
   }
 
-  // PARAMETER_SEPARATOR [ICON_PARAMETER]
+  // PARAMETER_SEPARATOR [icon_param]
   private static boolean icon_2_0(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "icon_2_0")) return false;
     boolean r, p;
@@ -192,10 +192,10 @@ public class ParadoxLocalisationParser implements PsiParser, LightPsiParser {
     return r || p;
   }
 
-  // [ICON_PARAMETER]
+  // [icon_param]
   private static boolean icon_2_0_1(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "icon_2_0_1")) return false;
-    consumeToken(b, ICON_PARAMETER);
+    icon_param(b, l + 1);
     return true;
   }
 
@@ -207,6 +207,17 @@ public class ParadoxLocalisationParser implements PsiParser, LightPsiParser {
     r = command(b, l + 1);
     if (!r) r = property_reference(b, l + 1);
     if (!r) r = consumeToken(b, ICON_ID);
+    return r;
+  }
+
+  /* ********************************************************** */
+  // ICON_PARAMETER | property_reference
+  static boolean icon_param(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "icon_param")) return false;
+    if (!nextTokenIs(b, "", ICON_PARAMETER, PROPERTY_REFERENCE_START)) return false;
+    boolean r;
+    r = consumeToken(b, ICON_PARAMETER);
+    if (!r) r = property_reference(b, l + 1);
     return r;
   }
 
@@ -270,7 +281,7 @@ public class ParadoxLocalisationParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // PROPERTY_REFERENCE_START [property_reference_name] [PARAMETER_SEPARATOR [PROPERTY_REFERENCE_PARAMETER]] PROPERTY_REFERENCE_END
+  // PROPERTY_REFERENCE_START [property_reference_name] [PARAMETER_SEPARATOR [property_reference_param]] PROPERTY_REFERENCE_END
   public static boolean property_reference(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "property_reference")) return false;
     if (!nextTokenIs(b, PROPERTY_REFERENCE_START)) return false;
@@ -292,14 +303,14 @@ public class ParadoxLocalisationParser implements PsiParser, LightPsiParser {
     return true;
   }
 
-  // [PARAMETER_SEPARATOR [PROPERTY_REFERENCE_PARAMETER]]
+  // [PARAMETER_SEPARATOR [property_reference_param]]
   private static boolean property_reference_2(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "property_reference_2")) return false;
     property_reference_2_0(b, l + 1);
     return true;
   }
 
-  // PARAMETER_SEPARATOR [PROPERTY_REFERENCE_PARAMETER]
+  // PARAMETER_SEPARATOR [property_reference_param]
   private static boolean property_reference_2_0(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "property_reference_2_0")) return false;
     boolean r;
@@ -310,10 +321,10 @@ public class ParadoxLocalisationParser implements PsiParser, LightPsiParser {
     return r;
   }
 
-  // [PROPERTY_REFERENCE_PARAMETER]
+  // [property_reference_param]
   private static boolean property_reference_2_0_1(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "property_reference_2_0_1")) return false;
-    consumeToken(b, PROPERTY_REFERENCE_PARAMETER);
+    property_reference_param(b, l + 1);
     return true;
   }
 
@@ -326,6 +337,12 @@ public class ParadoxLocalisationParser implements PsiParser, LightPsiParser {
     r = command(b, l + 1);
     if (!r) r = consumeToken(b, PROPERTY_REFERENCE_ID);
     return r;
+  }
+
+  /* ********************************************************** */
+  // PROPERTY_REFERENCE_PARAMETER
+  static boolean property_reference_param(PsiBuilder b, int l) {
+    return consumeToken(b, PROPERTY_REFERENCE_PARAMETER);
   }
 
   /* ********************************************************** */
