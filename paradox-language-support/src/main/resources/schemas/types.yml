@@ -10,6 +10,7 @@ definitions:
         type: boolean
       type_per_file:
         type: boolean
+        default: false
       file_name:
         type: string
       file_extension:

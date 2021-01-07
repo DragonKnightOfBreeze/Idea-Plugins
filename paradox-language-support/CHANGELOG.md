@@ -19,7 +19,9 @@
 * [X] 编写规则文件`locations.txt`并应用
 * [X] 修复索引的相关bug（不保证索引的key完全正确）
 * [X] 修复`00_edicts.txt`无限重复解析的bug（应当是scriptVariable索引的问题）
+* [ ] definition文档中列出definitionLocalisation并且绑定psi链接
 * [ ] 解析`typeMetadata`的`subTypes`
+* [ ] 为规则文件`definitions.yml`添加规则`name_prefix`
 * [ ] 编写规则文件`enums.yml`
 * [ ] 编写规则文件`definitions.yml`
 * [ ] 修复图标能加载但不能正常渲染的bug（IDE新版本底层代码错误？）

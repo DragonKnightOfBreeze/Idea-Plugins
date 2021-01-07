@@ -1,6 +1,7 @@
 types:
   agenda:
     path: "common/agendas"
+    name_prefix: "agenda_"
     localisation:
       name!: $
 
@@ -53,12 +54,14 @@ types:
           
   artifact_action:
     path: "common/artifact_actions"
+    name_prefix: "artifact_"
     localisation:
       name!: $
       description!: $_desc
 
   ascension_perk:
     path: "common/ascension_perks"
+    name_prefix: "ap_"
     localisation:
       name!: $
       description!: $_desc
@@ -79,6 +82,7 @@ types:
 
   building:
     path: "common/buildings"
+    name_prefix: "building_"
     localisation:
       name!: $
       description!: $_desc
@@ -92,6 +96,9 @@ types:
 
   button_effect:
     path: "common/button_effects"
+    replace_scopes: 
+      this: selected_object | player_country
+      from: player_country
 
   bypass:
     path: "common/bypass"
@@ -103,12 +110,63 @@ types:
 
   casus_belli:
     path: "common/casus_belli"
+    name_prefix: "cb_"
     localisation:
       name!: casus_belli_$
       hint?: casus_belli_$_acquire_hint
 
+  colony_automation:
+    path: "common/colony_automation"
+    type_per_file: true
+    # path_strict: true
+    name_prefix: "automate_"
+
+  colony_automation_exception:
+    path: "common/colony_automation_exceptions"
+
+  colony_type:
+    path: "common/colony_types"
+    name_prefix: "col_"
+    localisation:
+      name!: $
+      description!: $_desc
+
   country_customization:
     path: "common/country_customization"
+
+  color:
+    path: "common/colors"
+
+  component_set:
+    path: "common/component_sets"
+    name_key: "key"
+    localisation:
+      name!: $
+      description?: $_DESC
+      ship_description?: ship_$_DESC
+      station_description?: station_$_DESC
+    subtypes:
+      required_component:
+        predicate:
+          required_component_set: true
+  
+  component_slot_template:
+    path: "common/component_slot_templates"
+
+  component_tags:
+    path: "common/component_tags"
+
+  component_template:
+    path: "common/component_templates"
+    localisation:
+      name!: $
+    subtypes:
+      utility_component_template:
+        key_filter: "utility_component_template"
+      weapon_componet_template:
+        key_filter: "weapon_component_template"
+      strike_craft_component_template:
+        key_filter: "strike_craft_component_template"
 
   system_type:
     path: "common/system_types"
@@ -235,22 +293,6 @@ types:
       name!: war_goal_$
       description!: war_goal_$_desc
 
-  colony_type:
-    path: "common/colony_types"
-    localisation:
-      name!: $
-      description!: $_desc
-
-  colony_automation:
-    path: "common/colony_automation"
-    path_strict: true
-
-  colony_automation_exception:
-    path: "common/colony_automation_exceptions"
-
-  color:
-    path: "common/colors"
-
   economic_category:
     path: "common/economic_categories"
     subtypes:
@@ -260,37 +302,6 @@ types:
       hidden:
         predicate:
           hidden: true
-
-  component_set:
-    path: "common/component_sets"
-    name_key: "key"
-    localisation:
-      name!: $
-      description?: $_desc
-      ship_description?: ship_$_DESC
-      station_description?: station_$_DESC
-    subtypes:
-      required_component:
-        predicate:
-          required_component_set: true
-
-  component_slot_template:
-    path: "common/component_slot_templates"
-
-  component_tags:
-    path: "common/component_tags"
-
-  component_template:
-    path: "common/component_templates"
-    localisation:
-      name!: $
-    subtypes:
-      utility_component_template:
-        key_filter: "utility_component_template"
-      weapon_componet_template:
-        key_filter: "weapon_component_template"
-      strike_craft_component_template:
-        key_filter: "strike_craft_component_template"
 
   ship_behavior:
     path: "common/ship_behaviors"
