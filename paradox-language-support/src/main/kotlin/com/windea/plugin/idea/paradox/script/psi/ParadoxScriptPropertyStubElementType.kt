@@ -5,6 +5,7 @@ import com.intellij.psi.stubs.*
 import com.intellij.util.*
 import com.windea.plugin.idea.paradox.*
 import com.windea.plugin.idea.paradox.script.*
+import com.windea.plugin.idea.paradox.script.psi.ParadoxScriptTypes.*
 import com.windea.plugin.idea.paradox.script.psi.impl.*
 
 //注意：这里的node和psi会变更，因此无法从userDataMap直接获取数据！
@@ -53,8 +54,9 @@ class ParadoxScriptPropertyStubElementType : IStubElementType<ParadoxScriptPrope
 	
 	override fun shouldCreateStub(node: ASTNode?): Boolean {
 		//不确定这里是否需要预先过滤，这里的索引依赖于文件信息
+		return node != null && (node.treeParent.elementType == ROOT_BLOCK || node.paradoxDefinitionInfoNoCheck != null)
 		//return node != null && node.paradoxDefinitionInfoNoCheck != null
-		return node != null
+		//return node != null
 	} 
 	
 	companion object {

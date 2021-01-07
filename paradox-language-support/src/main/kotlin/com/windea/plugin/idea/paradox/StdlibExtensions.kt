@@ -165,38 +165,51 @@ infix fun String.matchesPath(other: String): Boolean {
 	return false
 }
 
-data class ConditionalString(
+//Specific Models And Extensions
+
+class ConditionalString(
 	val expression: String
-) : CharSequence, Comparable<ConditionalString> {
+) : CharSequence{
 	val name: String = expression.trimEnd('!', '?')
 	val optional: Boolean = expression.endsWith('?')
 	val required: Boolean = expression.endsWith('!')
 	
-	override val length = name.length
+	override val length = expression.length
 	
-	override fun get(index: Int): Char {
-		return name[index]
-	}
+	override fun get(index: Int): Char = expression[index]
 	
-	override fun subSequence(startIndex: Int, endIndex: Int): CharSequence {
-		return name.subSequence(startIndex, endIndex)
-	}
+	override fun subSequence(startIndex: Int, endIndex: Int): CharSequence = expression.subSequence(startIndex, endIndex)
 	
-	override fun compareTo(other: ConditionalString): Int {
-		return name.compareTo(other.name)
-	}
+	override fun equals(other: Any?): Boolean = other is ConditionalString && expression == other.expression
 	
-	override fun equals(other: Any?): Boolean {
-		return other is ConditionalString && name == other.name
-	}
+	override fun hashCode(): Int = expression.hashCode()
 	
-	override fun hashCode(): Int {
-		return name.hashCode()
-	}
+	override fun toString(): String = expression
 	
-	override fun toString(): String {
-		return expression
-	}
+	operator fun component1(): String = name
+	
+	operator fun component2(): Boolean = optional
+	
+	operator fun component3(): Boolean = required
 }
 
 fun String.toConditionalKey() = ConditionalString(this)
+
+class PredicateExpression(
+	val expression:String
+):CharSequence{
+	//TODO
+	
+	override val length = expression.length
+	
+	override fun get(index: Int): Char = expression[index]
+	
+	override fun subSequence(startIndex: Int, endIndex: Int): CharSequence = expression.subSequence(startIndex, endIndex)
+	
+	override fun equals(other: Any?): Boolean = other is PredicateExpression && expression == other.expression
+	
+	override fun hashCode(): Int = expression.hashCode()
+	
+	override fun toString(): String = expression
+	
+}

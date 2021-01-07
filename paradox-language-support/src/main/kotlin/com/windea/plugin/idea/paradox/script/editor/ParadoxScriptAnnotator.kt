@@ -27,6 +27,7 @@ class ParadoxScriptAnnotator : Annotator, DumbAware {
 		//如果是定义，则加上下划线突出显示
 		if(element.paradoxDefinitionInfo != null){
 			holder.newSilentAnnotation(INFORMATION)
+				.range(element.propertyKey)
 				.textAttributes(ParadoxScriptAttributesKeys.DEFINITION_KEY)
 				.create()
 		}

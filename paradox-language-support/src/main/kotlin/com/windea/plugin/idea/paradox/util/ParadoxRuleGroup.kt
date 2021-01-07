@@ -41,7 +41,7 @@ class ParadoxRuleGroup(
 			return true
 		}
 	}
-	
+	//TODO subtypes以及subtypes的predicate
 	class Type(
 		key: String, data: Map<String, Any>
 	) : Map<String, Any> by data {

@@ -34,7 +34,7 @@
 	  PROPERTY_REFERENCE_END="$"
 	  ICON_START="£"
 	  ICON_ID='regexp:[a-zA-Z0-9_\-\\/]+'
-	  ICON_PARAMETER='regexp:[a-zA-Z0-9+\-*%=\[.\]$]+'
+	  ICON_PARAMETER='regexp:[a-zA-Z0-9+\-*%=]+'
 	  ICON_END="£"
 	  SERIAL_NUMBER_START="%"
 	  SERIAL_NUMBER_ID="regexp:[A-Z]"

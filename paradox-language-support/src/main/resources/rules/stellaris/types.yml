@@ -1,4 +1,9 @@
 types:
+  agenda:
+    path: "common/agendas"
+    localisation:
+      name!: $
+  
   ambient_object:
     path: "common/ambient_objects"
     subtypes:
@@ -67,11 +72,6 @@ types:
 
   economic_plan:
     path: "common/economic_plans"
-
-  agenda:
-    path: "common/agendas"
-    localisation:
-      name!: $
 
   mandate:
     path: "common/mandates"

@@ -7,6 +7,7 @@ import com.intellij.psi.stubs.*
 import com.intellij.psi.tree.*
 import com.windea.plugin.idea.paradox.*
 import com.windea.plugin.idea.paradox.script.*
+import com.windea.plugin.idea.paradox.script.psi.ParadoxScriptStubElementTypes.Companion.FILE
 import com.windea.plugin.idea.paradox.script.psi.ParadoxScriptTypes.*
 
 class ParadoxScriptFileStubElementType : IStubFileElementType<PsiFileStub<*>>(ParadoxScriptLanguage) {
@@ -24,13 +25,14 @@ class ParadoxScriptFileStubElementType : IStubFileElementType<PsiFileStub<*>>(Pa
 	
 	class Builder : DefaultStubBuilder() {
 		override fun skipChildProcessingWhenBuildingStubs(parent: ASTNode, node: ASTNode): Boolean {
-			//仅包括顶级的variable和作为类型定义的property
+			//仅包括顶级的variable和可能作为类型定义的property
 			val type = node.elementType
 			val parentType = parent.elementType
 			return when {
-				type == VARIABLE && parentType == ROOT_BLOCK -> true
-				type == PROPERTY && parent.treeParent?.treeParent?.treeParent?.elementType == ROOT_BLOCK -> true
-				type == VALUE && (parentType == BLOCK || parentType == ROOT_BLOCK) -> true
+				parentType == FILE && type !== ROOT_BLOCK -> true
+				parentType == ROOT_BLOCK && type != VARIABLE && type != PROPERTY -> true
+				parentType == BLOCK && type != PROPERTY -> true
+				parent.treeParent?.treeParent?.treeParent?.elementType == ROOT_BLOCK && type != PROPERTY -> true
 				else -> false
 			}
 		}
