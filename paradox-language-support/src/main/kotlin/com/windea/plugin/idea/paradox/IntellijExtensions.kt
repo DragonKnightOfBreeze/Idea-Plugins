@@ -158,3 +158,7 @@ inline fun StringBuilder.grayed(block:StringBuilder.()->Unit){
 }
 
 fun String.escapeXml() = StringUtil.escapeXmlEntities(this)
+
+fun StringBuilder.appendPsiLink(refText:String, label:String, plainLink:Boolean=false){
+	DocumentationManagerUtil.createHyperlink(this,refText,label,plainLink)
+}

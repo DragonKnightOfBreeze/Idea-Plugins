@@ -4,6 +4,7 @@ import com.intellij.lang.documentation.*
 import com.intellij.psi.*
 import com.windea.plugin.idea.paradox.*
 import com.windea.plugin.idea.paradox.localisation.psi.*
+import com.windea.plugin.idea.paradox.script.psi.*
 import com.windea.plugin.idea.paradox.settings.*
 
 class ParadoxLocalisationDocumentationProvider : AbstractDocumentationProvider() {
@@ -154,7 +155,7 @@ class ParadoxLocalisationDocumentationProvider : AbstractDocumentationProvider()
 			val iconUrl = name.resolveIconUrl()
 			if(iconUrl.isNotEmpty()) {
 				content {
-					append(iconTag(iconUrl))
+					appendIconTag(iconUrl)
 				}
 			}
 		}
@@ -190,5 +191,27 @@ class ParadoxLocalisationDocumentationProvider : AbstractDocumentationProvider()
 				}
 			}
 		}
+	}
+	
+	override fun getDocumentationElementForLink(psiManager: PsiManager?, link: String?, context: PsiElement?): PsiElement? {
+		return when{
+			link == null || context == null -> null
+			link.startsWith("#") -> getLocalisationLink(link, context)
+			link.startsWith("$") -> getScriptLink(link,context)
+			else -> null
+		}
+	}
+	
+	private fun getLocalisationLink(link: String, context: PsiElement): ParadoxLocalisationProperty? {
+		return findLocalisationProperty(link.drop(1), getLocale(context), context.project)
+	}
+	
+	private fun getScriptLink(link:String,context: PsiElement): ParadoxScriptProperty?{
+		return findScriptProperty(link.drop(1),context.project)
+	}
+	
+	private fun getLocale(element:PsiElement):ParadoxLocale?{
+		val file = element.containingFile
+		return if(file is ParadoxLocalisationFile) file.paradoxLocale  else inferredParadoxLocale
 	}
 }

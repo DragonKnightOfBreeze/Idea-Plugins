@@ -17,8 +17,12 @@ import org.jetbrains.annotations.*
 
 //Extensions
 
-fun iconTag(url: String, size: Int = iconSize): String {
-	return "<img src='$url' width='$size' height='$size'/>"
+fun StringBuilder.appendPsiLink(refText:String,label:String = refText): StringBuilder {
+	return append("<a href='psi_element://").append(refText).append("'>").append(label).append("</a>")
+}
+
+fun StringBuilder.appendIconTag(url:String,size:Int=iconSize): StringBuilder {
+	return append("<img src='").append(url).append("' width='").append(size).append("' height='").append(size).append("'/>")
 }
 
 /**得到指定元素之前的所有直接的注释的文本，作为文档注释，跳过空白。*/
@@ -328,6 +332,6 @@ inline fun ParadoxLocalisationPropertyValue.renderRichText(): String {
 }
 
 @Suppress("NOTHING_TO_INLINE")
-inline fun ParadoxLocalisationPropertyValue.renderRichTextTo(buffer: Appendable) {
+inline fun ParadoxLocalisationPropertyValue.renderRichTextTo(buffer: StringBuilder) {
 	ParadoxRichTextRenderer.renderTo(this, buffer)
 }

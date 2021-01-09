@@ -3,6 +3,7 @@ package com.windea.plugin.idea.paradox.script.editor
 import com.intellij.lang.documentation.*
 import com.intellij.psi.*
 import com.windea.plugin.idea.paradox.*
+import com.windea.plugin.idea.paradox.localisation.psi.*
 import com.windea.plugin.idea.paradox.script.psi.*
 import com.windea.plugin.idea.paradox.settings.*
 
@@ -112,7 +113,7 @@ class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
 				definitionInfo.let { (name, type, _, localisation) ->
 					append("<br>(definition) <b>").append(name.escapeXml()).append("</b>: ").append(type)
 					for((k, v) in localisation) {
-						append("<br>(definition localisation) ").append(k.name).append(" = <b>").append(v).append("</b>")
+						append("<br>(definition localisation) ").appendPsiLink(k.name).append(" = <b>").append(v).append("</b>")
 					}
 				}
 			}
@@ -193,4 +194,26 @@ class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
 	//	
 	//	return sectionMap
 	//}
+	
+	override fun getDocumentationElementForLink(psiManager: PsiManager?, link: String?, context: PsiElement?): PsiElement? {
+		return when{
+			link == null || context == null -> null
+			link.startsWith("#") -> getLocalisationLink(link, context)
+			link.startsWith("$") -> getScriptLink(link,context)
+			else -> null
+		}
+	}
+	
+	private fun getLocalisationLink(link: String, context: PsiElement): ParadoxLocalisationProperty? {
+		return findLocalisationProperty(link.drop(1), getLocale(context), context.project)
+	}
+	
+	private fun getScriptLink(link:String,context: PsiElement): ParadoxScriptProperty?{
+		return findScriptProperty(link.drop(1),context.project)
+	}
+	
+	private fun getLocale(element:PsiElement):ParadoxLocale?{
+		val file = element.containingFile
+		return if(file is ParadoxLocalisationFile) file.paradoxLocale  else inferredParadoxLocale
+	}
 }
