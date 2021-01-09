@@ -17,8 +17,8 @@ import org.jetbrains.annotations.*
 
 //Extensions
 
-fun StringBuilder.appendPsiLink(refText:String,label:String = refText): StringBuilder {
-	return append("<a href='psi_element://").append(refText).append("'>").append(label).append("</a>")
+fun StringBuilder.appendPsiLink(prefix:String,target:String): StringBuilder {
+	return append("<a href='psi_element://").append(prefix).append(target).append("'>").append(target).append("</a>")
 }
 
 fun StringBuilder.appendIconTag(url:String,size:Int=iconSize): StringBuilder {
@@ -270,12 +270,20 @@ fun findScriptProperties(project: Project, scope: GlobalSearchScope = GlobalSear
 	return ParadoxScriptPropertyKeyIndex.getAll(project, scope)
 }
 
-fun findLocalisationProperty(name: String, locale: ParadoxLocale? = null, project: Project, scope: GlobalSearchScope = GlobalSearchScope.allScope(project)): ParadoxLocalisationProperty? {
-	return ParadoxLocalisationPropertyKeyIndex.getOne(name, locale, project, scope)
+fun findLocalisationProperty(name: String, locale: ParadoxLocale?, project: Project, scope: GlobalSearchScope = GlobalSearchScope.allScope(project)): ParadoxLocalisationProperty? {
+	return ParadoxLocalisationPropertyKeyIndex.getOne(name, locale, false,project, scope)
+}
+
+fun findLocalisationPropertyOrFirst(name: String, locale: ParadoxLocale?, project: Project, scope: GlobalSearchScope = GlobalSearchScope.allScope(project)): ParadoxLocalisationProperty? {
+	return ParadoxLocalisationPropertyKeyIndex.getOne(name, locale, true,project, scope)
 }
 
 fun findLocalisationProperties(name: String, locale: ParadoxLocale? = null, project: Project, scope: GlobalSearchScope = GlobalSearchScope.allScope(project)): List<ParadoxLocalisationProperty> {
-	return ParadoxLocalisationPropertyKeyIndex.getAll(name, locale, project, scope)
+	return ParadoxLocalisationPropertyKeyIndex.getAll(name, locale, false,project, scope)
+}
+
+fun findLocalisationPropertiesOrAll(name: String, locale: ParadoxLocale? = null, project: Project, scope: GlobalSearchScope = GlobalSearchScope.allScope(project)): List<ParadoxLocalisationProperty> {
+	return ParadoxLocalisationPropertyKeyIndex.getAll(name, locale, true,project, scope)
 }
 
 fun findLocalisationProperties(locale: ParadoxLocale? = null, project: Project, scope: GlobalSearchScope = GlobalSearchScope.allScope(project)): List<ParadoxLocalisationProperty> {
@@ -289,30 +297,30 @@ fun findLocalisationProperties(names: Iterable<String>, locale: ParadoxLocale? =
 //TODO REMOVE
 //将部分特定的查找方法作为扩展方法
 
-fun findRelatedLocalisationProperties(scriptPropertyName: String, project: Project, locale: ParadoxLocale? = null, scope: GlobalSearchScope = GlobalSearchScope.allScope(project)): List<ParadoxLocalisationProperty> {
-	return ParadoxLocalisationPropertyKeyIndex.filter(locale, project, GlobalSearchScope.allScope(project)) { name ->
-		isRelatedLocalisationPropertyName(name, scriptPropertyName)
-	}.sortedBy { it.name }
-}
+//fun findRelatedLocalisationProperties(scriptPropertyName: String, project: Project, locale: ParadoxLocale? = null, scope: GlobalSearchScope = GlobalSearchScope.allScope(project)): List<ParadoxLocalisationProperty> {
+//	return ParadoxLocalisationPropertyKeyIndex.filter(locale, project, GlobalSearchScope.allScope(project)) { name ->
+//		isRelatedLocalisationPropertyName(name, scriptPropertyName)
+//	}.sortedBy { it.name }
+//}
 
 //xxx, xxx_desc, xxx_effect_desc
 //pop_job->job_, pop_category->pop_cat_
 
-private fun isRelatedLocalisationPropertyName(name: String, scriptPropertyName: String): Boolean {
-	val fqName = name.removePrefix("job_").removePrefix("pop_cat_")
-	return fqName == scriptPropertyName
-	       || fqName == scriptPropertyName + "_desc"
-	       || fqName == scriptPropertyName + "_effect_desc"
-}
-
-fun ParadoxLocalisationProperty.getRelatedLocalisationPropertyKey(): String {
-	val name = this.name
-	return when {
-		name.endsWith("_effect_desc") -> "paradox.documentation.effect"
-		name.endsWith("desc") -> "paradox.documentation.desc"
-		else -> "paradox.documentation.name"
-	}
-}
+//private fun isRelatedLocalisationPropertyName(name: String, scriptPropertyName: String): Boolean {
+//	val fqName = name.removePrefix("job_").removePrefix("pop_cat_")
+//	return fqName == scriptPropertyName
+//	       || fqName == scriptPropertyName + "_desc"
+//	       || fqName == scriptPropertyName + "_effect_desc"
+//}
+//
+//fun ParadoxLocalisationProperty.getRelatedLocalisationPropertyKey(): String {
+//	val name = this.name
+//	return when {
+//		name.endsWith("_effect_desc") -> "paradox.documentation.effect"
+//		name.endsWith("desc") -> "paradox.documentation.desc"
+//		else -> "paradox.documentation.name"
+//	}
+//}
 
 //Inline Extensions
 

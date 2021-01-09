@@ -11,15 +11,12 @@ object ParadoxScriptPropertyKeyIndex : StringStubIndexExtension<ParadoxScriptPro
 	override fun getKey() = key
 	
 	override fun get(key: String, project: Project, scope: GlobalSearchScope): List<ParadoxScriptProperty> {
-		val result = mutableListOf<ParadoxScriptProperty>()
-		for(element in StubIndex.getElements(this.key, key, project, scope, ParadoxScriptProperty::class.java)) {
-			result.add(element)
-		}
-		return result
+		return getAll(key,project,scope)
 	}
 	
 	fun getOne(name: String, project: Project, scope: GlobalSearchScope): ParadoxScriptProperty? {
-		for(element in StubIndex.getElements(this.key, name, project, scope, ParadoxScriptProperty::class.java)) {
+		val elements = StubIndex.getElements(this.key, name, project, scope, ParadoxScriptProperty::class.java)
+		for(element in elements) {
 			return element
 		}
 		return null
@@ -27,7 +24,8 @@ object ParadoxScriptPropertyKeyIndex : StringStubIndexExtension<ParadoxScriptPro
 	
 	fun getAll(name: String, project: Project, scope: GlobalSearchScope): List<ParadoxScriptProperty> {
 		val result = mutableListOf<ParadoxScriptProperty>()
-		for(element in StubIndex.getElements(this.key, name, project, scope, ParadoxScriptProperty::class.java)) {
+		val elements = StubIndex.getElements(this.key, name, project, scope, ParadoxScriptProperty::class.java)
+		for(element in elements) {
 			result.add(element)
 		}
 		return result
@@ -35,7 +33,8 @@ object ParadoxScriptPropertyKeyIndex : StringStubIndexExtension<ParadoxScriptPro
 	
 	fun getAll(project: Project, scope: GlobalSearchScope): List<ParadoxScriptProperty> {
 		val result = mutableListOf<ParadoxScriptProperty>()
-		for(key in getAllKeys(project)) {
+		val keys = getAllKeys(project)
+		for(key in keys) {
 			for(element in get(key, project, scope)) {
 				result.add(element)
 			}
@@ -45,7 +44,8 @@ object ParadoxScriptPropertyKeyIndex : StringStubIndexExtension<ParadoxScriptPro
 	
 	inline fun filter(project: Project, scope: GlobalSearchScope, predicate:(String)->Boolean): List<ParadoxScriptProperty> {
 		val result = mutableListOf<ParadoxScriptProperty>()
-		for(key in getAllKeys(project)) {
+		val keys = getAllKeys(project)
+		for(key in keys) {
 			if(predicate(key)) {
 				for(element in get(key, project, scope)) {
 					result.add(element)

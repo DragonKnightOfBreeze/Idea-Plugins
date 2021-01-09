@@ -11,20 +11,22 @@ object ParadoxLocalisationPropertyKeyIndex : StringStubIndexExtension<ParadoxLoc
 	override fun getKey() = key
 	
 	override fun get(key: String, project: Project, scope: GlobalSearchScope): List<ParadoxLocalisationProperty> {
-		return getAll(key, null, project, scope)
+		return getAll(key, null,false, project, scope)
 	}
 	
-	fun getOne(name: String, locale: ParadoxLocale?, project: Project, scope: GlobalSearchScope): ParadoxLocalisationProperty? {
-		for(element in StubIndex.getElements(this.key, name, project, scope, ParadoxLocalisationProperty::class.java)) {
+	fun getOne(name: String, locale: ParadoxLocale?,defaultToFirst:Boolean, project: Project, scope: GlobalSearchScope): ParadoxLocalisationProperty? {
+		val elements = StubIndex.getElements(this.key, name, project, scope, ParadoxLocalisationProperty::class.java)
+		for(element in elements) {
 			if(locale == null || locale == element.paradoxLocale) return element
 		}
-		return null
+		return if(defaultToFirst) elements.firstOrNull() else null
 	}
 	
-	fun getAll(name: String, locale: ParadoxLocale?, project: Project, scope: GlobalSearchScope): List<ParadoxLocalisationProperty> {
+	fun getAll(name: String, locale: ParadoxLocale?,defaultToAll:Boolean, project: Project, scope: GlobalSearchScope): List<ParadoxLocalisationProperty> {
 		val result = mutableListOf<ParadoxLocalisationProperty>()
 		var index = 0
-		for(element in StubIndex.getElements(this.key, name, project, scope, ParadoxLocalisationProperty::class.java)) {
+		val elements = StubIndex.getElements(this.key, name, project, scope, ParadoxLocalisationProperty::class.java)
+		for(element in elements) {
 			val elementLocale = element.paradoxLocale
 			if(locale == null) {
 				//需要将用户的语言区域对应的本地化属性放到该组本地化属性的最前面
@@ -39,13 +41,14 @@ object ParadoxLocalisationPropertyKeyIndex : StringStubIndexExtension<ParadoxLoc
 				}
 			}
 		}
-		return result
+		return if(defaultToAll && result.isEmpty()) elements.toList() else result
 	}
 	
 	fun getAll(names:Iterable<String>,locale: ParadoxLocale?, project: Project, scope: GlobalSearchScope): List<ParadoxLocalisationProperty> {
 		val result = mutableListOf<ParadoxLocalisationProperty>()
 		var index = 0
-		for(key in getAllKeys(project)) {
+		val keys = getAllKeys(project)
+		for(key in keys) {
 			if(key in names) {
 				val group = get(key, project, scope)
 				val nextIndex = index + group.size
@@ -73,7 +76,8 @@ object ParadoxLocalisationPropertyKeyIndex : StringStubIndexExtension<ParadoxLoc
 	fun getAll(locale: ParadoxLocale?, project: Project, scope: GlobalSearchScope): List<ParadoxLocalisationProperty> {
 		val result = mutableListOf<ParadoxLocalisationProperty>()
 		var index = 0
-		for(key in getAllKeys(project)) {
+		val keys = getAllKeys(project)
+		for(key in keys) {
 			val group = get(key, project, scope)
 			val nextIndex = index + group.size
 			for(element in group) {
@@ -97,7 +101,8 @@ object ParadoxLocalisationPropertyKeyIndex : StringStubIndexExtension<ParadoxLoc
 	inline fun filter(locale: ParadoxLocale?, project: Project, scope: GlobalSearchScope, predicate: (String) -> Boolean): List<ParadoxLocalisationProperty> {
 		val result = mutableListOf<ParadoxLocalisationProperty>()
 		var index = 0
-		for(key in getAllKeys(project)) {
+		val keys = getAllKeys(project)
+		for(key in keys) {
 			if(predicate(key)) {
 				val group = get(key, project, scope)
 				val nextIndex = index + group.size

@@ -136,7 +136,7 @@ fun <T> T.toSingletonList(): List<T> {
 	return Collections.singletonList(this)
 }
 
-fun <T : Any> T?.toSingletonOrEmpty(): List<T> {
+fun <T : Any> T?.toSingletonListOrEmpty(): List<T> {
 	return if(this == null) Collections.emptyList() else Collections.singletonList(this)
 }
 

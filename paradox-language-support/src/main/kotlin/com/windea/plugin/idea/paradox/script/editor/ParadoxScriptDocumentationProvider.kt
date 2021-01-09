@@ -51,11 +51,11 @@ class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
 	private fun getDefinitionInfo(element: ParadoxScriptProperty, definitionInfo: ParadoxDefinitionInfo): String {
 		return buildString {
 			definition {
-				element.paradoxFileInfo?.path?.let { append("[").append(it).append("]<br>") }
+				element.paradoxFileInfo?.path?.let { append("[").append(it).append("]") }
 				definitionInfo.let { (name, type, _, localisation) ->
 					append("<br>(definition) <b>").append(name.escapeXml()).append("</b>: ").append(type)
 					for((k, v) in localisation) {
-						append("<br>(definition localisation) ").append(k.name).append(" = <b>").append(v).append("</b>")
+						append("<br>(definition localisation) ").append(k.name).append(" = <b>").appendPsiLink("#",v).append("</b>")
 					}
 				}
 			}
@@ -109,11 +109,11 @@ class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
 	private fun getDefinitionDoc(element:ParadoxScriptProperty,definitionInfo: ParadoxDefinitionInfo):String{
 		return buildString {
 			definition {
-				element.paradoxFileInfo?.path?.let { append("[").append(it).append("]<br>") }
+				element.paradoxFileInfo?.path?.let { append("[").append(it).append("]") }
 				definitionInfo.let { (name, type, _, localisation) ->
 					append("<br>(definition) <b>").append(name.escapeXml()).append("</b>: ").append(type)
 					for((k, v) in localisation) {
-						append("<br>(definition localisation) ").appendPsiLink(k.name).append(" = <b>").append(v).append("</b>")
+						append("<br>(definition localisation) ").append(k.name).append(" = <b>").appendPsiLink("#",v).append("</b>")
 					}
 				}
 			}
@@ -201,11 +201,11 @@ class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
 			link.startsWith("#") -> getLocalisationLink(link, context)
 			link.startsWith("$") -> getScriptLink(link,context)
 			else -> null
-		}
+		}                                                                                                            
 	}
 	
 	private fun getLocalisationLink(link: String, context: PsiElement): ParadoxLocalisationProperty? {
-		return findLocalisationProperty(link.drop(1), getLocale(context), context.project)
+		return findLocalisationPropertyOrFirst(link.drop(1), getLocale(context), context.project)
 	}
 	
 	private fun getScriptLink(link:String,context: PsiElement): ParadoxScriptProperty?{
@@ -214,6 +214,6 @@ class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
 	
 	private fun getLocale(element:PsiElement):ParadoxLocale?{
 		val file = element.containingFile
-		return if(file is ParadoxLocalisationFile) file.paradoxLocale  else inferredParadoxLocale
+		return if(file is ParadoxLocalisationFile) file.paradoxLocale  else null
 	}
 }
