@@ -26,39 +26,61 @@ class ParadoxLocalisationDocumentationProvider : AbstractDocumentationProvider()
 	}
 	
 	private fun getPropertyInfo(element: ParadoxLocalisationProperty): String {
+		return getLocalisationInfo(element)
+		//return buildString {
+		//	definition {
+		//		element.paradoxFileInfo?.path?.let { append("[").append(it).append("]<br>") }
+		//		append("(localisation property) <b>").append(element.name).append("</b>")
+		//	}
+		//}
+	}
+	
+	private fun getLocalisationInfo(element: ParadoxLocalisationProperty):String{
 		return buildString {
-			element.paradoxFileInfo?.path?.let { append("[").append(it).append("]<br>") }
-			append("(localisation property) <b>").append(element.name.escapeXml()).append("</b>")
+			definition {
+				element.paradoxFileInfo?.path?.let { append("[").append(it).append("]<br>") }
+				append("(localisation) <b>").append(element.name).append("</b>")
+			}
 		}
 	}
 	
 	private fun getLocaleInfo(element: ParadoxLocalisationLocale): String {
 		return buildString {
-			append("(localisation locale) <b>").append(element.name).append("</b>")
+			definition {
+				append("(localisation locale) <b>").append(element.name).append("</b>")
+			}
 		}
 	}
 	
 	private fun getIconInfo(element: ParadoxLocalisationIcon): String {
 		return buildString {
-			append("(localisation icon) <b>").append(element.name).append("</b>")
+			definition {
+				append("(localisation icon) <b>").append(element.name).append("</b>")
+			}
 		}
 	}
 	
 	private fun getCommandKeyInfo(element: ParadoxLocalisationCommandKey): String {
 		return buildString {
-			append("(localisation command key) <b>").append(element.name).append("</b>")
+			definition {
+				append("(localisation command key) <b>").append(element.name).append("</b>")
+			}
 		}
 	}
 	
 	private fun getSerialNumberInfo(element: ParadoxLocalisationSerialNumber): String {
 		return buildString {
-			append("(localisation serial number) <b>").append(element.name).append("</b>")
+			definition {
+				append("(localisation serial number) <b>").append(element.name).append("</b>")
+			}
 		}
 	}
 	
 	private fun getColorInfo(element: ParadoxLocalisationColorfulText): String {
 		return buildString {
-			append("(localisation color) <b>").append(element.name).append("</b>")
+			definition {
+				append("(localisation color) <b>").append(element.name).append("</b>")
+			}
 		}
 	}
 	
@@ -75,15 +97,25 @@ class ParadoxLocalisationDocumentationProvider : AbstractDocumentationProvider()
 	}
 	
 	private fun getPropertyDoc(element: ParadoxLocalisationProperty): String {
+		return getLocalisationInfo(element)
+		//val name = element.name
+		//return buildString {
+		//	definition {
+		//		element.paradoxFileInfo?.path?.let { append("[").append(it).append("]<br>") }
+		//		append("(localisation property) <b>").append(name).append("</b>")
+		//	}
+		//}
+	}
+	
+	private fun getLocalisationDoc(element:ParadoxLocalisationProperty):String{
 		val name = element.name
 		return buildString {
 			definition {
 				element.paradoxFileInfo?.path?.let { append("[").append(it).append("]<br>") }
-				append("(localisation property) <b>").append(name.escapeXml()).append("</b>")
+				append("(localisation) <b>").append(name).append("</b>")
 			}
 			//之前的单行注释文本
-			val docText = getDocTextFromPreviousComment(element)
-			if(docText.isNotEmpty()) {
+			getDocTextFromPreviousComment(element).ifNotEmpty { docText->
 				content {
 					append(docText)
 				}

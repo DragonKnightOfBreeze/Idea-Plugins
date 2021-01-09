@@ -152,9 +152,9 @@ fun URL.toPath(): Path {
 	return Path.of(this.toURI())
 }
 
-//fun <C: CharSequence> C.ifNotEmpty(block: (C) -> Unit) {
-//	if(this.isNotEmpty()) block(this)
-//}
+fun <C: CharSequence> C.ifNotEmpty(block: (C) -> Unit) {
+	if(this.isNotEmpty()) block(this)
+}
 
 /**
  * 判断当前路径是否匹配另一个路径（是另一个路径的父路径）。

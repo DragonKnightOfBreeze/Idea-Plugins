@@ -26,22 +26,37 @@ class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
 	
 	private fun getVariableInfo(element: ParadoxScriptVariable): String {
 		return buildString {
-			element.paradoxFileInfo?.path?.let { paradoxPath -> append("[").append(paradoxPath).append("]<br>") }
-			append("(script variable) <b>").append(element.name.escapeXml()).append("</b>")
-			element.unquotedValue?.let { unquotedValue -> append(" = ").append(unquotedValue.escapeXml()) }
+			definition {
+				element.paradoxFileInfo?.path?.let { paradoxPath -> append("[").append(paradoxPath).append("]<br>") }
+				append("(script variable) <b>").append(element.name.escapeXml()).append("</b>")
+				element.unquotedValue?.let { unquotedValue -> append(" = ").append(unquotedValue.escapeXml()) }
+			}
 		}
 	}
 	
 	private fun getPropertyInfo(element: ParadoxScriptProperty): String {
 		val name = element.name
 		val definitionInfo = element.paradoxDefinitionInfo
+		if(definitionInfo != null) return getDefinitionInfo(element, definitionInfo)
 		return buildString {
-			element.paradoxFileInfo?.path?.let { append("[").append(it).append("]<br>") }
-			append("(script property) <b>").append(name.escapeXml()).append("</b>")
-			element.truncatedValue?.let { truncatedValue -> append(" = ").append(truncatedValue.escapeXml()) }
-			definitionInfo?.let {(name, type)->
-				append("<br>")
-				append("(definition) <b>").append(name.escapeXml()).append("</b>: ").append(type).append("<br>")
+			definition {
+				element.paradoxFileInfo?.path?.let { append("[").append(it).append("]<br>") }
+				append("(script property) <b>").append(name.escapeXml()).append("</b>")
+				element.truncatedValue?.let { truncatedValue -> append(" = ").append(truncatedValue.escapeXml()) }
+			}
+		}
+	}
+	
+	private fun getDefinitionInfo(element: ParadoxScriptProperty, definitionInfo: ParadoxDefinitionInfo): String {
+		return buildString {
+			definition {
+				element.paradoxFileInfo?.path?.let { append("[").append(it).append("]<br>") }
+				definitionInfo.let { (name, type, _, localisation) ->
+					append("<br>(definition) <b>").append(name.escapeXml()).append("</b>: ").append(type)
+					for((k, v) in localisation) {
+						append("<br>(definition localisation) ").append(k.name).append(" = <b>").append(v).append("</b>")
+					}
+				}
 			}
 		}
 	}
@@ -63,8 +78,7 @@ class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
 				element.unquotedValue?.let { unquotedValue -> append(" = ").append(unquotedValue.escapeXml()) }
 			}
 			//之前的单行注释文本
-			val docText = getDocTextFromPreviousComment(element)
-			if(docText.isNotEmpty()) {
+			getDocTextFromPreviousComment(element).ifNotEmpty { docText->
 				content {
 					append(docText)
 				}
@@ -75,36 +89,52 @@ class ParadoxScriptDocumentationProvider : AbstractDocumentationProvider() {
 	private fun getPropertyDoc(element: ParadoxScriptProperty): String {
 		val name = element.name
 		val definitionInfo = element.paradoxDefinitionInfo
+		if(definitionInfo != null) return getDefinitionInfo(element, definitionInfo)
 		return buildString {
 			definition {
 				element.paradoxFileInfo?.path?.let { append("[").append(it).append("]<br>") }
-				append("(script property) <b>").append(element.name.escapeXml()).append("</b>")
+				append("(script property) <b>").append(name.escapeXml()).append("</b>")
 				element.truncatedValue?.let { truncatedValue -> append(" = ").append(truncatedValue.escapeXml()) }
-				definitionInfo?.let {(name, type)->
-					append("<br>")
-					append("(definition) <b>").append(name.escapeXml()).append("</b>: ").append(type).append("<br>")
+			}
+			//之前的单行注释文本
+			getDocTextFromPreviousComment(element).ifNotEmpty { docText->
+				content {
+					append(docText)
+				}
+			}
+		}
+	}
+	
+	private fun getDefinitionDoc(element:ParadoxScriptProperty,definitionInfo: ParadoxDefinitionInfo):String{
+		return buildString {
+			definition {
+				element.paradoxFileInfo?.path?.let { append("[").append(it).append("]<br>") }
+				definitionInfo.let { (name, type, _, localisation) ->
+					append("<br>(definition) <b>").append(name.escapeXml()).append("</b>: ").append(type)
+					for((k, v) in localisation) {
+						append("<br>(definition localisation) ").append(k.name).append(" = <b>").append(v).append("</b>")
+					}
 				}
 			}
 			//之前的单行注释文本
-			val docText = getDocTextFromPreviousComment(element)
-			if(docText.isNotEmpty()) {
+			getDocTextFromPreviousComment(element).ifNotEmpty { docText->
 				content {
 					append(docText)
 				}
 			}
 			//相关的本地化文本
-			if(state.renderLocalisationText) {
-				//if(canGetDefinitionInfo(element)) {
-				//	val sections = getPropertySections(element, name)
-				//	if(sections.isNotEmpty()) {
-				//		sections {
-				//			for((title, value) in sections) {
-				//				section(title, value)
-				//			}
-				//		}
-				//	}
-				//}
-			}
+			//if(state.renderLocalisationText) {
+			//	if(canGetDefinitionInfo(element)) {
+			//		val sections = getPropertySections(element, name)
+			//		if(sections.isNotEmpty()) {
+			//			sections {
+			//				for((title, value) in sections) {
+			//					section(title, value)
+			//				}
+			//			}
+			//		}
+			//	}
+			//}
 		}
 	}
 	
